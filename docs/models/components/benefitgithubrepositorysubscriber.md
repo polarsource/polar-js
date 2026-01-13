@@ -7,8 +7,8 @@ import { BenefitGitHubRepositorySubscriber } from "@polar-sh/sdk/models/componen
 
 let value: BenefitGitHubRepositorySubscriber = {
   id: "<value>",
-  createdAt: new Date("2025-04-15T22:53:38.434Z"),
-  modifiedAt: new Date("2023-06-02T09:35:43.805Z"),
+  createdAt: new Date("2026-04-15T22:53:38.434Z"),
+  modifiedAt: new Date("2024-06-01T09:35:43.805Z"),
   type: "github_repository",
   description: "major quiet augment insecure jet",
   selectable: true,
@@ -16,8 +16,8 @@ let value: BenefitGitHubRepositorySubscriber = {
   organizationId: "<value>",
   metadata: {},
   organization: {
-    createdAt: new Date("2023-02-09T14:46:30.040Z"),
-    modifiedAt: new Date("2024-07-28T16:12:54.009Z"),
+    createdAt: new Date("2024-02-09T14:46:30.040Z"),
+    modifiedAt: new Date("2025-07-28T16:12:54.009Z"),
     id: "<value>",
     name: "<value>",
     slug: "<value>",

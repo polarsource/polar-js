@@ -8,8 +8,8 @@ import { ListResourceCustomField } from "@polar-sh/sdk/models/components/listres
 let value: ListResourceCustomField = {
   items: [
     {
-      createdAt: new Date("2023-05-13T14:55:52.669Z"),
-      modifiedAt: new Date("2024-06-24T01:49:54.302Z"),
+      createdAt: new Date("2024-05-12T14:55:52.669Z"),
+      modifiedAt: new Date("2025-06-24T01:49:54.302Z"),
       id: "<value>",
       metadata: {
         "key": "<value>",

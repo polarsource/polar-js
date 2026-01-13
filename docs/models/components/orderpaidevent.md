@@ -9,7 +9,7 @@ import { OrderPaidEvent } from "@polar-sh/sdk/models/components/orderpaidevent.j
 
 let value: OrderPaidEvent = {
   id: "<value>",
-  timestamp: new Date("2025-12-22T17:07:26.094Z"),
+  timestamp: new Date("2026-12-22T17:07:26.094Z"),
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   customerId: "<value>",
   customer: null,
@@ -19,7 +19,7 @@ let value: OrderPaidEvent = {
   name: "order.paid",
   metadata: {
     orderId: "<id>",
-    amount: 329918,
+    amount: 52059,
   },
 };
 ```

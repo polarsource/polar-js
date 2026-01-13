@@ -10,8 +10,8 @@ import { CheckoutLinkProduct } from "@polar-sh/sdk/models/components/checkoutlin
 let value: CheckoutLinkProduct = {
   metadata: {},
   id: "<value>",
-  createdAt: new Date("2024-01-20T21:47:18.016Z"),
-  modifiedAt: new Date("2023-12-02T12:11:56.919Z"),
+  createdAt: new Date("2025-01-19T21:47:18.016Z"),
+  modifiedAt: new Date("2024-12-01T12:11:56.919Z"),
   trialInterval: "week",
   trialIntervalCount: null,
   name: "<value>",
@@ -23,8 +23,8 @@ let value: CheckoutLinkProduct = {
   organizationId: "<value>",
   prices: [
     {
-      createdAt: new Date("2024-02-13T16:10:48.243Z"),
-      modifiedAt: new Date("2025-01-21T17:16:14.204Z"),
+      createdAt: new Date("2025-02-12T16:10:48.243Z"),
+      modifiedAt: new Date("2026-01-21T17:16:14.204Z"),
       id: "<value>",
       source: "ad_hoc",
       amountType: "seat_based",
@@ -40,6 +40,8 @@ let value: CheckoutLinkProduct = {
             pricePerSeat: 164973,
           },
         ],
+        minimumSeats: 562315,
+        maximumSeats: 955772,
       },
     },
   ],

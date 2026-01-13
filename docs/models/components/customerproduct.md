@@ -9,7 +9,7 @@ import { CustomerProduct } from "@polar-sh/sdk/models/components/customerproduct
 
 let value: CustomerProduct = {
   id: "<value>",
-  createdAt: new Date("2023-08-02T14:57:17.701Z"),
+  createdAt: new Date("2024-08-01T14:57:17.701Z"),
   modifiedAt: null,
   trialInterval: "week",
   trialIntervalCount: 275288,
@@ -24,8 +24,8 @@ let value: CustomerProduct = {
   benefits: [
     {
       id: "<value>",
-      createdAt: new Date("2025-12-10T05:32:38.930Z"),
-      modifiedAt: new Date("2025-06-03T12:53:20.835Z"),
+      createdAt: new Date("2026-12-10T05:32:38.930Z"),
+      modifiedAt: new Date("2026-06-03T12:53:20.835Z"),
       type: "custom",
       description:
         "twist beside frivolous gad catalog spirited unless rewarding frequent unto",

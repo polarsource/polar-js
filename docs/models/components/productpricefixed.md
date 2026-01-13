@@ -8,8 +8,8 @@ A fixed price for a product.
 import { ProductPriceFixed } from "@polar-sh/sdk/models/components/productpricefixed.js";
 
 let value: ProductPriceFixed = {
-  createdAt: new Date("2025-12-26T12:23:44.317Z"),
-  modifiedAt: new Date("2025-06-01T02:05:27.121Z"),
+  createdAt: new Date("2026-12-26T12:23:44.317Z"),
+  modifiedAt: new Date("2026-06-01T02:05:27.121Z"),
   id: "<value>",
   source: "catalog",
   amountType: "fixed",

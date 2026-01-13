@@ -7,8 +7,8 @@
 
 ```typescript
 const value: components.LegacyRecurringProductPrice = {
-  createdAt: new Date("2025-03-28T17:53:12.899Z"),
-  modifiedAt: new Date("2025-10-27T07:25:25.401Z"),
+  createdAt: new Date("2026-03-28T17:53:12.899Z"),
+  modifiedAt: new Date("2026-10-27T07:25:25.401Z"),
   id: "<value>",
   source: "ad_hoc",
   amountType: "custom",
@@ -28,7 +28,7 @@ const value: components.LegacyRecurringProductPrice = {
 
 ```typescript
 const value: components.ProductPrice = {
-  createdAt: new Date("2023-11-12T09:36:50.641Z"),
+  createdAt: new Date("2024-11-11T09:36:50.641Z"),
   modifiedAt: null,
   id: "<value>",
   source: "ad_hoc",

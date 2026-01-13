@@ -7,8 +7,8 @@ import { CustomerSubscriptionProduct } from "@polar-sh/sdk/models/components/cus
 
 let value: CustomerSubscriptionProduct = {
   id: "<value>",
-  createdAt: new Date("2025-10-21T05:59:03.909Z"),
-  modifiedAt: new Date("2024-01-24T22:30:20.583Z"),
+  createdAt: new Date("2026-10-21T05:59:03.909Z"),
+  modifiedAt: new Date("2025-01-23T22:30:20.583Z"),
   trialInterval: "day",
   trialIntervalCount: 608370,
   name: "<value>",
@@ -22,8 +22,8 @@ let value: CustomerSubscriptionProduct = {
   benefits: [
     {
       id: "<value>",
-      createdAt: new Date("2025-12-10T05:32:38.930Z"),
-      modifiedAt: new Date("2025-06-03T12:53:20.835Z"),
+      createdAt: new Date("2026-12-10T05:32:38.930Z"),
+      modifiedAt: new Date("2026-06-03T12:53:20.835Z"),
       type: "custom",
       description:
         "twist beside frivolous gad catalog spirited unless rewarding frequent unto",
@@ -34,7 +34,7 @@ let value: CustomerSubscriptionProduct = {
   ],
   medias: [],
   organization: {
-    createdAt: new Date("2023-09-17T13:02:40.897Z"),
+    createdAt: new Date("2024-09-16T13:02:40.897Z"),
     modifiedAt: null,
     id: "<value>",
     name: "<value>",

@@ -8,7 +8,7 @@ import { ListResourceOrganization } from "@polar-sh/sdk/models/components/listre
 let value: ListResourceOrganization = {
   items: [
     {
-      createdAt: new Date("2024-10-31T04:26:04.861Z"),
+      createdAt: new Date("2025-10-31T04:26:04.861Z"),
       modifiedAt: null,
       id: "<value>",
       name: "<value>",
@@ -20,7 +20,7 @@ let value: ListResourceOrganization = {
       website: "<value>",
       socials: [],
       status: "created",
-      detailsSubmittedAt: new Date("2025-06-05T05:24:43.996Z"),
+      detailsSubmittedAt: new Date("2026-06-05T05:24:43.996Z"),
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: true,

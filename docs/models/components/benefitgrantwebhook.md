@@ -7,8 +7,8 @@
 
 ```typescript
 const value: components.BenefitGrantDiscordWebhook = {
-  createdAt: new Date("2025-04-01T03:14:09.160Z"),
-  modifiedAt: new Date("2024-07-28T13:13:39.901Z"),
+  createdAt: new Date("2026-04-01T03:14:09.160Z"),
+  modifiedAt: new Date("2025-07-28T13:13:39.901Z"),
   id: "<value>",
   isGranted: true,
   isRevoked: true,
@@ -18,8 +18,8 @@ const value: components.BenefitGrantDiscordWebhook = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2023-06-05T21:28:32.740Z"),
-    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
+    createdAt: new Date("2024-06-04T21:28:32.740Z"),
+    modifiedAt: new Date("2024-03-21T15:56:34.258Z"),
     metadata: {
       "key": "<value>",
     },
@@ -35,13 +35,13 @@ const value: components.BenefitGrantDiscordWebhook = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
+    deletedAt: new Date("2026-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2025-03-24T01:24:22.231Z"),
-    modifiedAt: new Date("2025-09-09T16:14:57.265Z"),
+    createdAt: new Date("2026-03-24T01:24:22.231Z"),
+    modifiedAt: new Date("2026-09-09T16:14:57.265Z"),
     type: "discord",
     description: "contrast crystallize robust finally",
     selectable: false,
@@ -65,8 +65,8 @@ const value: components.BenefitGrantDiscordWebhook = {
 
 ```typescript
 const value: components.BenefitGrantCustomWebhook = {
-  createdAt: new Date("2023-04-19T19:54:48.401Z"),
-  modifiedAt: new Date("2025-04-22T15:54:09.627Z"),
+  createdAt: new Date("2024-04-18T19:54:48.401Z"),
+  modifiedAt: new Date("2026-04-22T15:54:09.627Z"),
   id: "<value>",
   isGranted: true,
   isRevoked: true,
@@ -76,8 +76,8 @@ const value: components.BenefitGrantCustomWebhook = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2023-06-05T21:28:32.740Z"),
-    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
+    createdAt: new Date("2024-06-04T21:28:32.740Z"),
+    modifiedAt: new Date("2024-03-21T15:56:34.258Z"),
     metadata: {
       "key": "<value>",
     },
@@ -93,13 +93,13 @@ const value: components.BenefitGrantCustomWebhook = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
+    deletedAt: new Date("2026-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2024-01-20T02:50:19.451Z"),
-    modifiedAt: new Date("2024-06-16T20:41:24.432Z"),
+    createdAt: new Date("2025-01-19T02:50:19.451Z"),
+    modifiedAt: new Date("2025-06-16T20:41:24.432Z"),
     type: "custom",
     description: "cassava vainly vague father",
     selectable: true,
@@ -118,8 +118,8 @@ const value: components.BenefitGrantCustomWebhook = {
 
 ```typescript
 const value: components.BenefitGrantGitHubRepositoryWebhook = {
-  createdAt: new Date("2024-03-08T15:32:24.757Z"),
-  modifiedAt: new Date("2023-12-20T06:43:20.508Z"),
+  createdAt: new Date("2025-03-08T15:32:24.757Z"),
+  modifiedAt: new Date("2024-12-19T06:43:20.508Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: true,
@@ -129,8 +129,8 @@ const value: components.BenefitGrantGitHubRepositoryWebhook = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2023-06-05T21:28:32.740Z"),
-    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
+    createdAt: new Date("2024-06-04T21:28:32.740Z"),
+    modifiedAt: new Date("2024-03-21T15:56:34.258Z"),
     metadata: {
       "key": "<value>",
     },
@@ -146,13 +146,13 @@ const value: components.BenefitGrantGitHubRepositoryWebhook = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
+    deletedAt: new Date("2026-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2023-08-12T07:30:21.850Z"),
-    modifiedAt: new Date("2023-04-19T07:07:21.162Z"),
+    createdAt: new Date("2024-08-11T07:30:21.850Z"),
+    modifiedAt: new Date("2024-04-18T07:07:21.162Z"),
     type: "github_repository",
     description: "vicinity spectate publication athwart likely far",
     selectable: true,
@@ -175,8 +175,8 @@ const value: components.BenefitGrantGitHubRepositoryWebhook = {
 
 ```typescript
 const value: components.BenefitGrantDownloadablesWebhook = {
-  createdAt: new Date("2025-09-16T06:48:34.889Z"),
-  modifiedAt: new Date("2023-05-19T09:10:18.729Z"),
+  createdAt: new Date("2026-09-16T06:48:34.889Z"),
+  modifiedAt: new Date("2024-05-18T09:10:18.729Z"),
   id: "<value>",
   isGranted: true,
   isRevoked: false,
@@ -186,8 +186,8 @@ const value: components.BenefitGrantDownloadablesWebhook = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2023-06-05T21:28:32.740Z"),
-    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
+    createdAt: new Date("2024-06-04T21:28:32.740Z"),
+    modifiedAt: new Date("2024-03-21T15:56:34.258Z"),
     metadata: {
       "key": "<value>",
     },
@@ -203,13 +203,13 @@ const value: components.BenefitGrantDownloadablesWebhook = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
+    deletedAt: new Date("2026-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2025-02-09T09:21:30.385Z"),
-    modifiedAt: new Date("2023-09-01T08:02:14.520Z"),
+    createdAt: new Date("2026-02-09T09:21:30.385Z"),
+    modifiedAt: new Date("2024-08-31T08:02:14.520Z"),
     type: "downloadables",
     description: "gladly rapidly record excluding because ill",
     selectable: false,
@@ -236,8 +236,8 @@ const value: components.BenefitGrantDownloadablesWebhook = {
 
 ```typescript
 const value: components.BenefitGrantLicenseKeysWebhook = {
-  createdAt: new Date("2023-03-28T04:10:14.057Z"),
-  modifiedAt: new Date("2025-11-09T06:34:32.498Z"),
+  createdAt: new Date("2024-03-27T04:10:14.057Z"),
+  modifiedAt: new Date("2026-11-09T06:34:32.498Z"),
   id: "<value>",
   isGranted: true,
   isRevoked: false,
@@ -247,8 +247,8 @@ const value: components.BenefitGrantLicenseKeysWebhook = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2023-06-05T21:28:32.740Z"),
-    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
+    createdAt: new Date("2024-06-04T21:28:32.740Z"),
+    modifiedAt: new Date("2024-03-21T15:56:34.258Z"),
     metadata: {
       "key": "<value>",
     },
@@ -264,13 +264,13 @@ const value: components.BenefitGrantLicenseKeysWebhook = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
+    deletedAt: new Date("2026-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2024-04-26T10:19:45.222Z"),
-    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
+    createdAt: new Date("2025-04-26T10:19:45.222Z"),
+    modifiedAt: new Date("2026-02-01T06:50:40.155Z"),
     type: "license_keys",
     description:
       "ruddy accompanist questionably sympathetically whoever staid catalyze",
@@ -301,8 +301,8 @@ const value: components.BenefitGrantLicenseKeysWebhook = {
 
 ```typescript
 const value: components.BenefitGrantMeterCreditWebhook = {
-  createdAt: new Date("2024-03-25T07:43:23.918Z"),
-  modifiedAt: new Date("2024-05-01T18:17:06.742Z"),
+  createdAt: new Date("2025-03-25T07:43:23.918Z"),
+  modifiedAt: new Date("2025-05-01T18:17:06.742Z"),
   id: "<value>",
   isGranted: true,
   isRevoked: true,
@@ -312,8 +312,8 @@ const value: components.BenefitGrantMeterCreditWebhook = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2023-06-05T21:28:32.740Z"),
-    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
+    createdAt: new Date("2024-06-04T21:28:32.740Z"),
+    modifiedAt: new Date("2024-03-21T15:56:34.258Z"),
     metadata: {
       "key": "<value>",
     },
@@ -329,13 +329,13 @@ const value: components.BenefitGrantMeterCreditWebhook = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
+    deletedAt: new Date("2026-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2024-01-16T07:44:47.570Z"),
-    modifiedAt: new Date("2023-08-20T06:58:17.350Z"),
+    createdAt: new Date("2025-01-15T07:44:47.570Z"),
+    modifiedAt: new Date("2024-08-19T06:58:17.350Z"),
     type: "meter_credit",
     description:
       "greedily analyse near horde pocket-watch neglected shrilly or aha coaxingly",

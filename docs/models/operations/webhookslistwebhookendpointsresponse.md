@@ -9,8 +9,8 @@ let value: WebhooksListWebhookEndpointsResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-05-07T08:31:11.287Z"),
-        modifiedAt: new Date("2024-08-23T07:26:51.753Z"),
+        createdAt: new Date("2025-05-07T08:31:11.287Z"),
+        modifiedAt: new Date("2025-08-23T07:26:51.753Z"),
         id: "<value>",
         url: "https://webhook.site/cb791d80-f26e-4f8c-be88-6e56054192b0",
         format: "slack",

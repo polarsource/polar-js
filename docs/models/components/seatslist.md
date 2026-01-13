@@ -8,8 +8,8 @@ import { SeatsList } from "@polar-sh/sdk/models/components/seatslist.js";
 let value: SeatsList = {
   seats: [
     {
-      createdAt: new Date("2024-03-24T00:19:36.102Z"),
-      modifiedAt: new Date("2023-01-13T17:50:35.123Z"),
+      createdAt: new Date("2025-03-24T00:19:36.102Z"),
+      modifiedAt: new Date("2024-01-13T17:50:35.123Z"),
       id: "404abf3a-20fa-42a9-b297-1359fbc34497",
       status: "pending",
     },

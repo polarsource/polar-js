@@ -11,10 +11,10 @@ import { WebhookRefundUpdatedPayload } from "@polar-sh/sdk/models/components/web
 
 let value: WebhookRefundUpdatedPayload = {
   type: "refund.updated",
-  timestamp: new Date("2024-02-09T00:15:20.778Z"),
+  timestamp: new Date("2025-02-08T00:15:20.778Z"),
   data: {
-    createdAt: new Date("2024-04-22T04:31:36.394Z"),
-    modifiedAt: new Date("2024-09-23T09:27:43.746Z"),
+    createdAt: new Date("2025-04-22T04:31:36.394Z"),
+    modifiedAt: new Date("2025-09-23T09:27:43.746Z"),
     id: "<value>",
     metadata: {},
     status: "canceled",

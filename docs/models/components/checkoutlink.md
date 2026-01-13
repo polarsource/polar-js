@@ -9,8 +9,8 @@ import { CheckoutLink } from "@polar-sh/sdk/models/components/checkoutlink.js";
 
 let value: CheckoutLink = {
   id: "<value>",
-  createdAt: new Date("2025-09-22T20:17:02.127Z"),
-  modifiedAt: new Date("2023-01-22T14:32:59.611Z"),
+  createdAt: new Date("2026-09-22T20:17:02.127Z"),
+  modifiedAt: new Date("2024-01-22T14:32:59.611Z"),
   trialInterval: "year",
   trialIntervalCount: 826,
   metadata: {
@@ -30,8 +30,8 @@ let value: CheckoutLink = {
         "key": 286697,
       },
       id: "<value>",
-      createdAt: new Date("2024-08-04T15:56:23.244Z"),
-      modifiedAt: new Date("2025-07-13T16:36:37.984Z"),
+      createdAt: new Date("2025-08-04T15:56:23.244Z"),
+      modifiedAt: new Date("2026-07-13T16:36:37.984Z"),
       trialInterval: "week",
       trialIntervalCount: 560922,
       name: "<value>",
@@ -44,8 +44,8 @@ let value: CheckoutLink = {
       organizationId: "<value>",
       prices: [
         {
-          createdAt: new Date("2024-06-23T04:46:35.152Z"),
-          modifiedAt: new Date("2024-05-30T10:02:42.927Z"),
+          createdAt: new Date("2025-06-23T04:46:35.152Z"),
+          modifiedAt: new Date("2025-05-30T10:02:42.927Z"),
           id: "<value>",
           source: "ad_hoc",
           amountType: "free",
@@ -64,16 +64,16 @@ let value: CheckoutLink = {
     duration: "repeating",
     type: "fixed",
     basisPoints: 1000,
-    createdAt: new Date("2024-12-20T05:49:14.049Z"),
-    modifiedAt: new Date("2024-05-06T01:19:34.835Z"),
+    createdAt: new Date("2025-12-20T05:49:14.049Z"),
+    modifiedAt: new Date("2025-05-06T01:19:34.835Z"),
     id: "<value>",
     metadata: {
       "key": false,
     },
     name: "<value>",
     code: "<value>",
-    startsAt: new Date("2024-10-09T16:49:56.134Z"),
-    endsAt: new Date("2024-03-09T11:07:39.349Z"),
+    startsAt: new Date("2025-10-09T16:49:56.134Z"),
+    endsAt: new Date("2025-03-09T11:07:39.349Z"),
     maxRedemptions: 231585,
     redemptionsCount: 850103,
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",

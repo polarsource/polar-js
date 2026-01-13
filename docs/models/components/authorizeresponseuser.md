@@ -7,8 +7,8 @@ import { AuthorizeResponseUser } from "@polar-sh/sdk/models/components/authorize
 
 let value: AuthorizeResponseUser = {
   client: {
-    createdAt: new Date("2025-11-06T09:00:45.294Z"),
-    modifiedAt: new Date("2025-02-22T00:03:05.093Z"),
+    createdAt: new Date("2026-11-06T09:00:45.294Z"),
+    modifiedAt: new Date("2026-02-22T00:03:05.093Z"),
     clientId: "<id>",
     clientName: null,
     clientUri: "https://bossy-formamide.com",
@@ -36,3 +36,4 @@ let value: AuthorizeResponseUser = {
 | `subType`                                                                      | *"user"*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
 | `sub`                                                                          | [components.AuthorizeUser](../../models/components/authorizeuser.md)           | :heavy_check_mark:                                                             | N/A                                                                            |
 | `scopes`                                                                       | [components.Scope](../../models/components/scope.md)[]                         | :heavy_check_mark:                                                             | N/A                                                                            |
+| `scopeDisplayNames`                                                            | Record<string, *string*>                                                       | :heavy_minus_sign:                                                             | N/A                                                                            |

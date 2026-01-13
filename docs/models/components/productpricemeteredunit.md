@@ -8,7 +8,7 @@ A metered, usage-based, price for a product, with a fixed unit price.
 import { ProductPriceMeteredUnit } from "@polar-sh/sdk/models/components/productpricemeteredunit.js";
 
 let value: ProductPriceMeteredUnit = {
-  createdAt: new Date("2023-10-22T15:18:33.510Z"),
+  createdAt: new Date("2024-10-21T15:18:33.510Z"),
   modifiedAt: null,
   id: "<value>",
   source: "ad_hoc",

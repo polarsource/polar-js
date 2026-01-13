@@ -8,15 +8,15 @@ A webhook delivery for a webhook event.
 import { WebhookDelivery } from "@polar-sh/sdk/models/components/webhookdelivery.js";
 
 let value: WebhookDelivery = {
-  createdAt: new Date("2025-01-19T14:34:17.866Z"),
-  modifiedAt: new Date("2023-01-25T13:57:56.894Z"),
+  createdAt: new Date("2026-01-19T14:34:17.866Z"),
+  modifiedAt: new Date("2024-01-25T13:57:56.894Z"),
   id: "<value>",
   succeeded: true,
   httpCode: 612262,
   response: "<value>",
   webhookEvent: {
-    createdAt: new Date("2024-03-26T01:11:54.111Z"),
-    modifiedAt: new Date("2023-11-22T09:27:46.946Z"),
+    createdAt: new Date("2025-03-26T01:11:54.111Z"),
+    modifiedAt: new Date("2024-11-21T09:27:46.946Z"),
     id: "<value>",
     skipped: false,
     payload: "<value>",

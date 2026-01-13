@@ -9,14 +9,14 @@ let value: ListResourceLicenseKeyRead = {
   items: [
     {
       id: "<value>",
-      createdAt: new Date("2023-11-09T14:38:45.121Z"),
-      modifiedAt: new Date("2024-09-19T07:22:27.322Z"),
+      createdAt: new Date("2024-11-08T14:38:45.121Z"),
+      modifiedAt: new Date("2025-09-19T07:22:27.322Z"),
       organizationId: "<value>",
       customerId: "<value>",
       customer: {
         id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-        createdAt: new Date("2025-05-26T00:47:20.880Z"),
-        modifiedAt: new Date("2024-02-26T21:20:13.315Z"),
+        createdAt: new Date("2026-05-26T00:47:20.880Z"),
+        modifiedAt: new Date("2025-02-25T21:20:13.315Z"),
         metadata: {
           "key": 1857.67,
         },
@@ -32,7 +32,7 @@ let value: ListResourceLicenseKeyRead = {
           "us_ein",
         ],
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-        deletedAt: new Date("2025-05-27T20:24:19.765Z"),
+        deletedAt: new Date("2026-05-27T20:24:19.765Z"),
         avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
       },
       benefitId: "<value>",
@@ -44,7 +44,7 @@ let value: ListResourceLicenseKeyRead = {
       limitUsage: 626771,
       validations: 123846,
       lastValidatedAt: null,
-      expiresAt: new Date("2025-03-15T01:26:29.809Z"),
+      expiresAt: new Date("2026-03-15T01:26:29.809Z"),
     },
   ],
   pagination: {

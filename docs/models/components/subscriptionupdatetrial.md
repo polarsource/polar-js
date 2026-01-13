@@ -6,7 +6,7 @@
 import { SubscriptionUpdateTrial } from "@polar-sh/sdk/models/components/subscriptionupdatetrial.js";
 
 let value: SubscriptionUpdateTrial = {
-  trialEnd: new Date("2023-10-12T00:45:49.772Z"),
+  trialEnd: new Date("2024-10-11T00:45:49.772Z"),
 };
 ```
 

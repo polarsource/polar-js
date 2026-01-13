@@ -7,14 +7,14 @@ import { ValidatedLicenseKey } from "@polar-sh/sdk/models/components/validatedli
 
 let value: ValidatedLicenseKey = {
   id: "<value>",
-  createdAt: new Date("2024-08-17T02:59:17.361Z"),
-  modifiedAt: new Date("2023-10-05T02:16:18.948Z"),
+  createdAt: new Date("2025-08-17T02:59:17.361Z"),
+  modifiedAt: new Date("2024-10-04T02:16:18.948Z"),
   organizationId: "<value>",
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2025-05-26T00:47:20.880Z"),
-    modifiedAt: new Date("2024-02-26T21:20:13.315Z"),
+    createdAt: new Date("2026-05-26T00:47:20.880Z"),
+    modifiedAt: new Date("2025-02-25T21:20:13.315Z"),
     metadata: {
       "key": 1857.67,
     },
@@ -30,7 +30,7 @@ let value: ValidatedLicenseKey = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-05-27T20:24:19.765Z"),
+    deletedAt: new Date("2026-05-27T20:24:19.765Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   benefitId: "<value>",
@@ -41,8 +41,8 @@ let value: ValidatedLicenseKey = {
   usage: 254228,
   limitUsage: 570776,
   validations: 718020,
-  lastValidatedAt: new Date("2025-08-28T13:04:14.198Z"),
-  expiresAt: new Date("2025-12-31T07:21:14.827Z"),
+  lastValidatedAt: new Date("2026-08-28T13:04:14.198Z"),
+  expiresAt: new Date("2026-12-31T07:21:14.827Z"),
 };
 ```
 

@@ -10,8 +10,8 @@ A recurring price for a product, i.e. a subscription.
 import { LegacyRecurringProductPriceFixed } from "@polar-sh/sdk/models/components/legacyrecurringproductpricefixed.js";
 
 let value: LegacyRecurringProductPriceFixed = {
-  createdAt: new Date("2025-09-21T09:37:21.640Z"),
-  modifiedAt: new Date("2023-07-31T14:55:29.344Z"),
+  createdAt: new Date("2026-09-21T09:37:21.640Z"),
+  modifiedAt: new Date("2024-07-30T14:55:29.344Z"),
   id: "<value>",
   source: "ad_hoc",
   amountType: "fixed",

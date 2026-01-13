@@ -8,16 +8,16 @@ import { ListResourceEventTypeWithStats } from "@polar-sh/sdk/models/components/
 let value: ListResourceEventTypeWithStats = {
   items: [
     {
-      createdAt: new Date("2024-03-03T00:57:24.181Z"),
-      modifiedAt: new Date("2023-02-13T04:20:19.105Z"),
+      createdAt: new Date("2025-03-03T00:57:24.181Z"),
+      modifiedAt: new Date("2024-02-13T04:20:19.105Z"),
       id: "<value>",
       name: "<value>",
       label: "<value>",
       organizationId: "<value>",
       source: "system",
       occurrences: 506393,
-      firstSeen: new Date("2023-08-26T01:57:20.155Z"),
-      lastSeen: new Date("2025-09-11T10:49:11.442Z"),
+      firstSeen: new Date("2024-08-25T01:57:20.155Z"),
+      lastSeen: new Date("2026-09-11T10:49:11.442Z"),
     },
   ],
   pagination: {

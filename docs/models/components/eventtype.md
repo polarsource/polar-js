@@ -6,8 +6,8 @@
 import { EventType } from "@polar-sh/sdk/models/components/eventtype.js";
 
 let value: EventType = {
-  createdAt: new Date("2024-01-13T10:00:39.769Z"),
-  modifiedAt: new Date("2023-10-31T04:54:29.522Z"),
+  createdAt: new Date("2025-01-12T10:00:39.769Z"),
+  modifiedAt: new Date("2024-10-30T04:54:29.522Z"),
   id: "<value>",
   name: "<value>",
   label: "<value>",

@@ -9,13 +9,13 @@ import { SubscriptionCreatedEvent } from "@polar-sh/sdk/models/components/subscr
 
 let value: SubscriptionCreatedEvent = {
   id: "<value>",
-  timestamp: new Date("2023-07-23T19:31:54.976Z"),
+  timestamp: new Date("2024-07-22T19:31:54.976Z"),
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2023-06-05T21:28:32.740Z"),
-    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
+    createdAt: new Date("2024-06-04T21:28:32.740Z"),
+    modifiedAt: new Date("2024-03-21T15:56:34.258Z"),
     metadata: {
       "key": "<value>",
     },
@@ -31,7 +31,7 @@ let value: SubscriptionCreatedEvent = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
+    deletedAt: new Date("2026-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",

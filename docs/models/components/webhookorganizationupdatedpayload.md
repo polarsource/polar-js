@@ -11,10 +11,10 @@ import { WebhookOrganizationUpdatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookOrganizationUpdatedPayload = {
   type: "organization.updated",
-  timestamp: new Date("2023-07-16T02:28:27.582Z"),
+  timestamp: new Date("2024-07-15T02:28:27.582Z"),
   data: {
-    createdAt: new Date("2025-03-30T11:56:13.023Z"),
-    modifiedAt: new Date("2023-10-06T16:38:10.291Z"),
+    createdAt: new Date("2026-03-30T11:56:13.023Z"),
+    modifiedAt: new Date("2024-10-05T16:38:10.291Z"),
     id: "<value>",
     name: "<value>",
     slug: "<value>",
@@ -25,7 +25,7 @@ let value: WebhookOrganizationUpdatedPayload = {
     website: "<value>",
     socials: [],
     status: "denied",
-    detailsSubmittedAt: new Date("2025-01-01T23:00:18.176Z"),
+    detailsSubmittedAt: new Date("2026-01-01T23:00:18.176Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: true,

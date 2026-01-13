@@ -6,23 +6,23 @@
 import { Subscription } from "@polar-sh/sdk/models/components/subscription.js";
 
 let value: Subscription = {
-  createdAt: new Date("2023-08-01T20:43:13.861Z"),
-  modifiedAt: new Date("2024-11-28T06:04:05.260Z"),
+  createdAt: new Date("2024-07-31T20:43:13.861Z"),
+  modifiedAt: new Date("2025-11-28T06:04:05.260Z"),
   id: "<value>",
   amount: 10000,
   currency: "usd",
   recurringInterval: "week",
   recurringIntervalCount: 218416,
   status: "active",
-  currentPeriodStart: new Date("2023-09-18T19:50:05.034Z"),
-  currentPeriodEnd: new Date("2025-04-26T12:14:05.888Z"),
-  trialStart: new Date("2023-05-21T15:44:39.020Z"),
-  trialEnd: new Date("2023-04-06T00:49:40.768Z"),
+  currentPeriodStart: new Date("2024-09-17T19:50:05.034Z"),
+  currentPeriodEnd: new Date("2026-04-26T12:14:05.888Z"),
+  trialStart: new Date("2024-05-20T15:44:39.020Z"),
+  trialEnd: new Date("2024-04-05T00:49:40.768Z"),
   cancelAtPeriodEnd: false,
-  canceledAt: new Date("2025-07-14T08:13:59.069Z"),
-  startedAt: new Date("2023-02-27T19:32:42.165Z"),
+  canceledAt: new Date("2026-07-14T08:13:59.069Z"),
+  startedAt: new Date("2024-02-27T19:32:42.165Z"),
   endsAt: null,
-  endedAt: new Date("2023-01-08T23:04:09.508Z"),
+  endedAt: new Date("2024-01-08T23:04:09.508Z"),
   customerId: "<value>",
   productId: "<value>",
   discountId: "<value>",
@@ -32,8 +32,8 @@ let value: Subscription = {
   metadata: {},
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2025-05-06T20:26:26.597Z"),
-    modifiedAt: new Date("2023-10-27T12:38:37.731Z"),
+    createdAt: new Date("2026-05-06T20:26:26.597Z"),
+    modifiedAt: new Date("2024-10-26T12:38:37.731Z"),
     metadata: {
       "key": 612623,
     },
@@ -49,13 +49,13 @@ let value: Subscription = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2023-09-12T22:43:44.126Z"),
+    deletedAt: new Date("2024-09-11T22:43:44.126Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   product: {
     id: "<value>",
-    createdAt: new Date("2024-02-04T10:44:12.276Z"),
-    modifiedAt: new Date("2024-01-03T02:01:45.933Z"),
+    createdAt: new Date("2025-02-03T10:44:12.276Z"),
+    modifiedAt: new Date("2025-01-02T02:01:45.933Z"),
     trialInterval: "week",
     trialIntervalCount: 889423,
     name: "<value>",
@@ -72,8 +72,8 @@ let value: Subscription = {
     benefits: [
       {
         id: "<value>",
-        createdAt: new Date("2024-11-20T23:12:51.407Z"),
-        modifiedAt: new Date("2023-01-07T14:45:36.833Z"),
+        createdAt: new Date("2025-11-20T23:12:51.407Z"),
+        modifiedAt: new Date("2024-01-07T14:45:36.833Z"),
         type: "meter_credit",
         description: "yowza revoke in heavenly cautious wearily",
         selectable: false,
@@ -95,8 +95,8 @@ let value: Subscription = {
   discount: null,
   prices: [
     {
-      createdAt: new Date("2023-02-09T14:10:32.360Z"),
-      modifiedAt: new Date("2025-08-31T04:18:20.273Z"),
+      createdAt: new Date("2024-02-09T14:10:32.360Z"),
+      modifiedAt: new Date("2026-08-31T04:18:20.273Z"),
       id: "<value>",
       source: "ad_hoc",
       amountType: "fixed",
@@ -111,8 +111,8 @@ let value: Subscription = {
   ],
   meters: [
     {
-      createdAt: new Date("2024-06-25T13:41:11.193Z"),
-      modifiedAt: new Date("2023-03-11T20:38:31.600Z"),
+      createdAt: new Date("2025-06-25T13:41:11.193Z"),
+      modifiedAt: new Date("2024-03-10T20:38:31.600Z"),
       id: "<value>",
       consumedUnits: 25,
       creditedUnits: 100,
@@ -120,8 +120,8 @@ let value: Subscription = {
       meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
       meter: {
         metadata: {},
-        createdAt: new Date("2025-01-05T19:13:23.632Z"),
-        modifiedAt: new Date("2025-10-09T02:26:38.751Z"),
+        createdAt: new Date("2026-01-05T19:13:23.632Z"),
+        modifiedAt: new Date("2026-10-09T02:26:38.751Z"),
         id: "<value>",
         name: "<value>",
         filter: {

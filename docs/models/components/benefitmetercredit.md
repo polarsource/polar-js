@@ -11,8 +11,8 @@ import { BenefitMeterCredit } from "@polar-sh/sdk/models/components/benefitmeter
 
 let value: BenefitMeterCredit = {
   id: "<value>",
-  createdAt: new Date("2025-07-13T02:35:52.595Z"),
-  modifiedAt: new Date("2025-08-26T02:40:11.876Z"),
+  createdAt: new Date("2026-07-13T02:35:52.595Z"),
+  modifiedAt: new Date("2026-08-26T02:40:11.876Z"),
   type: "meter_credit",
   description: "pish than huzzah rekindle lively approximate against meal",
   selectable: true,
