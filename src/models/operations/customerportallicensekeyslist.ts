@@ -13,7 +13,8 @@ import {
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalLicenseKeysListSecurity = {
-  customerSession: string;
+  customerSession?: string | undefined;
+  memberSession?: string | undefined;
 };
 
 export type CustomerPortalLicenseKeysListRequest = {
@@ -37,7 +38,8 @@ export type CustomerPortalLicenseKeysListResponse = {
 
 /** @internal */
 export type CustomerPortalLicenseKeysListSecurity$Outbound = {
-  customer_session: string;
+  customer_session?: string | undefined;
+  member_session?: string | undefined;
 };
 
 /** @internal */
@@ -47,11 +49,13 @@ export const CustomerPortalLicenseKeysListSecurity$outboundSchema:
     CustomerPortalLicenseKeysListSecurity
   > = z.pipe(
     z.object({
-      customerSession: z.string(),
+      customerSession: z.optional(z.string()),
+      memberSession: z.optional(z.string()),
     }),
     z.transform((v) => {
       return remap$(v, {
         customerSession: "customer_session",
+        memberSession: "member_session",
       });
     }),
   );

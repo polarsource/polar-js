@@ -6,7 +6,8 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 
 export type CustomerPortalSeatsListSeatsSecurity = {
-  customerSession: string;
+  customerSession?: string | undefined;
+  memberSession?: string | undefined;
 };
 
 export type CustomerPortalSeatsListSeatsRequest = {
@@ -22,7 +23,8 @@ export type CustomerPortalSeatsListSeatsRequest = {
 
 /** @internal */
 export type CustomerPortalSeatsListSeatsSecurity$Outbound = {
-  customer_session: string;
+  customer_session?: string | undefined;
+  member_session?: string | undefined;
 };
 
 /** @internal */
@@ -31,11 +33,13 @@ export const CustomerPortalSeatsListSeatsSecurity$outboundSchema: z.ZodMiniType<
   CustomerPortalSeatsListSeatsSecurity
 > = z.pipe(
   z.object({
-    customerSession: z.string(),
+    customerSession: z.optional(z.string()),
+    memberSession: z.optional(z.string()),
   }),
   z.transform((v) => {
     return remap$(v, {
       customerSession: "customer_session",
+      memberSession: "member_session",
     });
   }),
 );

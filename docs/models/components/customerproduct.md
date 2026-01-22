@@ -24,11 +24,10 @@ let value: CustomerProduct = {
   benefits: [
     {
       id: "<value>",
-      createdAt: new Date("2026-12-10T05:32:38.930Z"),
-      modifiedAt: new Date("2026-06-03T12:53:20.835Z"),
+      createdAt: new Date("2024-03-14T00:55:02.549Z"),
+      modifiedAt: new Date("2024-09-16T13:02:40.897Z"),
       type: "custom",
-      description:
-        "twist beside frivolous gad catalog spirited unless rewarding frequent unto",
+      description: "considering speedily for into across extricate",
       selectable: false,
       deletable: false,
       organizationId: "<value>",

@@ -11,6 +11,7 @@ let value: ProductCreateOneTime = {
     {
       amountType: "custom",
       priceCurrency: "usd",
+      minimumAmount: 50,
     },
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",

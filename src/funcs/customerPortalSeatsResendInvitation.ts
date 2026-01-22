@@ -39,9 +39,6 @@ import { Result } from "../types/fp.js";
 
 /**
  * Resend Invitation
- *
- * @remarks
- * **Scopes**: `customer_portal:write`
  */
 export function customerPortalSeatsResendInvitation(
   client: PolarCore,
@@ -125,6 +122,13 @@ async function $do(
         fieldName: "Authorization",
         type: "http:bearer",
         value: security?.customerSession,
+      },
+    ],
+    [
+      {
+        fieldName: "Authorization",
+        type: "http:bearer",
+        value: security?.memberSession,
       },
     ],
   );

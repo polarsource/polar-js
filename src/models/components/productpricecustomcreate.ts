@@ -17,7 +17,7 @@ export type ProductPriceCustomCreate = {
   /**
    * The minimum amount the customer can pay.
    */
-  minimumAmount?: number | null | undefined;
+  minimumAmount?: number | undefined;
   /**
    * The maximum amount the customer can pay.
    */
@@ -32,7 +32,7 @@ export type ProductPriceCustomCreate = {
 export type ProductPriceCustomCreate$Outbound = {
   amount_type: "custom";
   price_currency: string;
-  minimum_amount?: number | null | undefined;
+  minimum_amount: number;
   maximum_amount?: number | null | undefined;
   preset_amount?: number | null | undefined;
 };
@@ -45,7 +45,7 @@ export const ProductPriceCustomCreate$outboundSchema: z.ZodMiniType<
   z.object({
     amountType: z.literal("custom"),
     priceCurrency: z._default(z.string(), "usd"),
-    minimumAmount: z.optional(z.nullable(z.int())),
+    minimumAmount: z._default(z.int(), 50),
     maximumAmount: z.optional(z.nullable(z.int())),
     presetAmount: z.optional(z.nullable(z.int())),
   }),

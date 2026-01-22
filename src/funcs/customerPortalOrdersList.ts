@@ -47,8 +47,6 @@ import {
  *
  * @remarks
  * List orders of the authenticated customer.
- *
- * **Scopes**: `customer_portal:read` `customer_portal:write`
  */
 export function customerPortalOrdersList(
   client: PolarCore,
@@ -138,6 +136,13 @@ async function $do(
         fieldName: "Authorization",
         type: "http:bearer",
         value: security?.customerSession,
+      },
+    ],
+    [
+      {
+        fieldName: "Authorization",
+        type: "http:bearer",
+        value: security?.memberSession,
       },
     ],
   );

@@ -48,6 +48,7 @@ export const Scope = {
   DisputesRead: "disputes:read",
   CustomerMetersRead: "customer_meters:read",
   CustomerSessionsWrite: "customer_sessions:write",
+  MemberSessionsWrite: "member_sessions:write",
   CustomerSeatsRead: "customer_seats:read",
   CustomerSeatsWrite: "customer_seats:write",
   OrdersRead: "orders:read",

@@ -20,7 +20,7 @@ let value: LegacyRecurringProductPriceCustom = {
   type: "recurring",
   recurringInterval: "day",
   priceCurrency: "<value>",
-  minimumAmount: null,
+  minimumAmount: 96295,
   maximumAmount: 385918,
   presetAmount: 774449,
   legacy: true,

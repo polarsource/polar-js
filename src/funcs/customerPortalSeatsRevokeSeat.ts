@@ -39,9 +39,6 @@ import { Result } from "../types/fp.js";
 
 /**
  * Revoke Seat
- *
- * @remarks
- * **Scopes**: `customer_portal:write`
  */
 export function customerPortalSeatsRevokeSeat(
   client: PolarCore,
@@ -123,6 +120,13 @@ async function $do(
         fieldName: "Authorization",
         type: "http:bearer",
         value: security?.customerSession,
+      },
+    ],
+    [
+      {
+        fieldName: "Authorization",
+        type: "http:bearer",
+        value: security?.memberSession,
       },
     ],
   );

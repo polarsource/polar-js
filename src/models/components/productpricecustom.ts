@@ -61,7 +61,7 @@ export type ProductPriceCustom = {
   /**
    * The minimum amount the customer can pay.
    */
-  minimumAmount: number | null;
+  minimumAmount: number;
   /**
    * The maximum amount the customer can pay.
    */
@@ -93,7 +93,7 @@ export const ProductPriceCustom$inboundSchema: z.ZodMiniType<
     type: ProductPriceType$inboundSchema,
     recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema),
     price_currency: z.string(),
-    minimum_amount: z.nullable(z.int()),
+    minimum_amount: z.int(),
     maximum_amount: z.nullable(z.int()),
     preset_amount: z.nullable(z.int()),
   }),
@@ -124,7 +124,7 @@ export type ProductPriceCustom$Outbound = {
   type: string;
   recurring_interval: string | null;
   price_currency: string;
-  minimum_amount: number | null;
+  minimum_amount: number;
   maximum_amount: number | null;
   preset_amount: number | null;
 };
@@ -145,7 +145,7 @@ export const ProductPriceCustom$outboundSchema: z.ZodMiniType<
     type: ProductPriceType$outboundSchema,
     recurringInterval: z.nullable(SubscriptionRecurringInterval$outboundSchema),
     priceCurrency: z.string(),
-    minimumAmount: z.nullable(z.int()),
+    minimumAmount: z.int(),
     maximumAmount: z.nullable(z.int()),
     presetAmount: z.nullable(z.int()),
   }),

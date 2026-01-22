@@ -8,7 +8,6 @@ Schema to update an order.
 import { CustomerOrderUpdate } from "@polar-sh/sdk/models/components/customerorderupdate.js";
 
 let value: CustomerOrderUpdate = {
-  billingName: "<value>",
   billingAddress: {
     country: "US",
   },
@@ -17,7 +16,7 @@ let value: CustomerOrderUpdate = {
 
 ## Fields
 
-| Field                                                                                                           | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
-| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `billingName`                                                                                                   | *string*                                                                                                        | :heavy_check_mark:                                                                                              | The name of the customer that should appear on the invoice. Can't be updated after the invoice is generated.    |
-| `billingAddress`                                                                                                | [components.AddressInput](../../models/components/addressinput.md)                                              | :heavy_check_mark:                                                                                              | The address of the customer that should appear on the invoice. Can't be updated after the invoice is generated. |
+| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `billingName`                                                                                              | *string*                                                                                                   | :heavy_minus_sign:                                                                                         | The name of the customer that should appear on the invoice.                                                |
+| `billingAddress`                                                                                           | [components.AddressInput](../../models/components/addressinput.md)                                         | :heavy_minus_sign:                                                                                         | The address of the customer that should appear on the invoice. Country and state fields cannot be updated. |

@@ -5,13 +5,12 @@
 ```typescript
 import { CustomerPortalCustomersGetSecurity } from "@polar-sh/sdk/models/operations/customerportalcustomersget.js";
 
-let value: CustomerPortalCustomersGetSecurity = {
-  customerSession: "<value>",
-};
+let value: CustomerPortalCustomersGetSecurity = {};
 ```
 
 ## Fields
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `customerSession`  | *string*           | :heavy_check_mark: | N/A                |
+| `customerSession`  | *string*           | :heavy_minus_sign: | N/A                |
+| `memberSession`    | *string*           | :heavy_minus_sign: | N/A                |

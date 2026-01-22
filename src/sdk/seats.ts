@@ -50,9 +50,6 @@ export class Seats extends ClientSDK {
 
   /**
    * Assign Seat
-   *
-   * @remarks
-   * **Scopes**: `customer_portal:write`
    */
   async assignSeat(
     security: CustomerPortalSeatsAssignSeatSecurity,
@@ -69,9 +66,6 @@ export class Seats extends ClientSDK {
 
   /**
    * Revoke Seat
-   *
-   * @remarks
-   * **Scopes**: `customer_portal:write`
    */
   async revokeSeat(
     security: CustomerPortalSeatsRevokeSeatSecurity,
@@ -88,9 +82,6 @@ export class Seats extends ClientSDK {
 
   /**
    * Resend Invitation
-   *
-   * @remarks
-   * **Scopes**: `customer_portal:write`
    */
   async resendInvitation(
     security: CustomerPortalSeatsResendInvitationSecurity,

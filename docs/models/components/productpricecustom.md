@@ -18,9 +18,9 @@ let value: ProductPriceCustom = {
   type: "one_time",
   recurringInterval: "day",
   priceCurrency: "<value>",
-  minimumAmount: 770732,
-  maximumAmount: 124393,
-  presetAmount: 74183,
+  minimumAmount: 508827,
+  maximumAmount: 793062,
+  presetAmount: 879510,
 };
 ```
 

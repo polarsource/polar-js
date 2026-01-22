@@ -46,8 +46,6 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Get an order by ID for the authenticated customer.
- *
- * **Scopes**: `customer_portal:read` `customer_portal:write`
  */
 export function customerPortalOrdersGet(
   client: PolarCore,
@@ -130,6 +128,13 @@ async function $do(
         fieldName: "Authorization",
         type: "http:bearer",
         value: security?.customerSession,
+      },
+    ],
+    [
+      {
+        fieldName: "Authorization",
+        type: "http:bearer",
+        value: security?.memberSession,
       },
     ],
   );

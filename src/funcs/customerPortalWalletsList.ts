@@ -47,8 +47,6 @@ import {
  *
  * @remarks
  * List wallets of the authenticated customer.
- *
- * **Scopes**: `customer_portal:read` `customer_portal:write`
  */
 export function customerPortalWalletsList(
   client: PolarCore,
@@ -134,6 +132,13 @@ async function $do(
         fieldName: "Authorization",
         type: "http:bearer",
         value: security?.customerSession,
+      },
+    ],
+    [
+      {
+        fieldName: "Authorization",
+        type: "http:bearer",
+        value: security?.memberSession,
       },
     ],
   );

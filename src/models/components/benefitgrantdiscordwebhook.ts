@@ -31,6 +31,12 @@ import {
   Customer$Outbound,
   Customer$outboundSchema,
 } from "./customer.js";
+import {
+  Member,
+  Member$inboundSchema,
+  Member$Outbound,
+  Member$outboundSchema,
+} from "./member.js";
 
 export type BenefitGrantDiscordWebhook = {
   /**
@@ -89,6 +95,7 @@ export type BenefitGrantDiscordWebhook = {
    * A customer in an organization.
    */
   customer: Customer;
+  member?: Member | null | undefined;
   /**
    * A benefit of type `discord`.
    *
@@ -136,6 +143,7 @@ export const BenefitGrantDiscordWebhook$inboundSchema: z.ZodMiniType<
     benefit_id: z.string(),
     error: z.optional(z.nullable(BenefitGrantError$inboundSchema)),
     customer: Customer$inboundSchema,
+    member: z.optional(z.nullable(Member$inboundSchema)),
     benefit: BenefitDiscord$inboundSchema,
     properties: BenefitGrantDiscordProperties$inboundSchema,
     previous_properties: z.optional(
@@ -175,6 +183,7 @@ export type BenefitGrantDiscordWebhook$Outbound = {
   benefit_id: string;
   error?: BenefitGrantError$Outbound | null | undefined;
   customer: Customer$Outbound;
+  member?: Member$Outbound | null | undefined;
   benefit: BenefitDiscord$Outbound;
   properties: BenefitGrantDiscordProperties$Outbound;
   previous_properties?:
@@ -207,6 +216,7 @@ export const BenefitGrantDiscordWebhook$outboundSchema: z.ZodMiniType<
     benefitId: z.string(),
     error: z.optional(z.nullable(BenefitGrantError$outboundSchema)),
     customer: Customer$outboundSchema,
+    member: z.optional(z.nullable(Member$outboundSchema)),
     benefit: BenefitDiscord$outboundSchema,
     properties: BenefitGrantDiscordProperties$outboundSchema,
     previousProperties: z.optional(
