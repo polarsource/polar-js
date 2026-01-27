@@ -12,6 +12,7 @@ export type BalanceDisputeMetadata = {
   transactionId: string;
   disputeId: string;
   orderId?: string | undefined;
+  orderCreatedAt?: string | undefined;
   productId?: string | undefined;
   subscriptionId?: string | undefined;
   amount: number;
@@ -33,6 +34,7 @@ export const BalanceDisputeMetadata$inboundSchema: z.ZodMiniType<
     transaction_id: z.string(),
     dispute_id: z.string(),
     order_id: z.optional(z.string()),
+    order_created_at: z.optional(z.string()),
     product_id: z.optional(z.string()),
     subscription_id: z.optional(z.string()),
     amount: z.int(),
@@ -49,6 +51,7 @@ export const BalanceDisputeMetadata$inboundSchema: z.ZodMiniType<
       "transaction_id": "transactionId",
       "dispute_id": "disputeId",
       "order_id": "orderId",
+      "order_created_at": "orderCreatedAt",
       "product_id": "productId",
       "subscription_id": "subscriptionId",
       "presentment_amount": "presentmentAmount",

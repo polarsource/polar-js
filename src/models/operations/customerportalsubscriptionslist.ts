@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   CustomerSubscriptionSortProperty,
   CustomerSubscriptionSortProperty$outboundSchema,
@@ -17,7 +18,8 @@ import {
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalSubscriptionsListSecurity = {
-  customerSession: string;
+  customerSession?: string | undefined;
+  memberSession?: string | undefined;
 };
 
 /**
@@ -60,7 +62,8 @@ export type CustomerPortalSubscriptionsListResponse = {
 
 /** @internal */
 export type CustomerPortalSubscriptionsListSecurity$Outbound = {
-  customer_session: string;
+  customer_session?: string | undefined;
+  member_session?: string | undefined;
 };
 
 /** @internal */
@@ -70,11 +73,13 @@ export const CustomerPortalSubscriptionsListSecurity$outboundSchema:
     CustomerPortalSubscriptionsListSecurity
   > = z.pipe(
     z.object({
-      customerSession: z.string(),
+      customerSession: z.optional(z.string()),
+      memberSession: z.optional(z.string()),
     }),
     z.transform((v) => {
       return remap$(v, {
         customerSession: "customer_session",
+        memberSession: "member_session",
       });
     }),
   );
@@ -100,7 +105,7 @@ export const CustomerPortalSubscriptionsListQueryParamProductIDFilter$outboundSc
   z.ZodMiniType<
     CustomerPortalSubscriptionsListQueryParamProductIDFilter$Outbound,
     CustomerPortalSubscriptionsListQueryParamProductIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function customerPortalSubscriptionsListQueryParamProductIDFilterToJSON(
   customerPortalSubscriptionsListQueryParamProductIDFilter:
@@ -130,7 +135,7 @@ export const CustomerPortalSubscriptionsListRequest$outboundSchema:
   > = z.pipe(
     z.object({
       productId: z.optional(
-        z.nullable(z.union([z.string(), z.array(z.string())])),
+        z.nullable(smartUnion([z.string(), z.array(z.string())])),
       ),
       active: z.optional(z.nullable(z.boolean())),
       query: z.optional(z.nullable(z.string())),

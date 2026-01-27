@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CheckoutLinkProduct,
@@ -111,7 +112,7 @@ export type CheckoutLink = {
 export const CheckoutLinkDiscount$inboundSchema: z.ZodMiniType<
   CheckoutLinkDiscount,
   unknown
-> = z.union([
+> = smartUnion([
   DiscountFixedRepeatDurationBase$inboundSchema,
   DiscountFixedOnceForeverDurationBase$inboundSchema,
   DiscountPercentageRepeatDurationBase$inboundSchema,
@@ -153,7 +154,7 @@ export const CheckoutLink$inboundSchema: z.ZodMiniType<CheckoutLink, unknown> =
       organization_id: z.string(),
       products: z.array(CheckoutLinkProduct$inboundSchema),
       discount: z.nullable(
-        z.union([
+        smartUnion([
           DiscountFixedRepeatDurationBase$inboundSchema,
           DiscountFixedOnceForeverDurationBase$inboundSchema,
           DiscountPercentageRepeatDurationBase$inboundSchema,

@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Address,
@@ -206,7 +207,7 @@ export type Order = {
 export const OrderCustomFieldData$inboundSchema: z.ZodMiniType<
   OrderCustomFieldData,
   unknown
-> = z.union([
+> = smartUnion([
   z.string(),
   z.int(),
   z.boolean(),
@@ -219,7 +220,7 @@ export type OrderCustomFieldData$Outbound = string | number | boolean | string;
 export const OrderCustomFieldData$outboundSchema: z.ZodMiniType<
   OrderCustomFieldData$Outbound,
   OrderCustomFieldData
-> = z.union([
+> = smartUnion([
   z.string(),
   z.int(),
   z.boolean(),
@@ -247,7 +248,7 @@ export function orderCustomFieldDataFromJSON(
 export const OrderDiscount$inboundSchema: z.ZodMiniType<
   OrderDiscount,
   unknown
-> = z.union([
+> = smartUnion([
   DiscountFixedRepeatDurationBase$inboundSchema,
   DiscountFixedOnceForeverDurationBase$inboundSchema,
   DiscountPercentageRepeatDurationBase$inboundSchema,
@@ -264,7 +265,7 @@ export type OrderDiscount$Outbound =
 export const OrderDiscount$outboundSchema: z.ZodMiniType<
   OrderDiscount$Outbound,
   OrderDiscount
-> = z.union([
+> = smartUnion([
   DiscountFixedRepeatDurationBase$outboundSchema,
   DiscountFixedOnceForeverDurationBase$outboundSchema,
   DiscountPercentageRepeatDurationBase$outboundSchema,
@@ -323,7 +324,7 @@ export const Order$inboundSchema: z.ZodMiniType<Order, unknown> = z.pipe(
       z.record(
         z.string(),
         z.nullable(
-          z.union([
+          smartUnion([
             z.string(),
             z.int(),
             z.boolean(),
@@ -341,7 +342,7 @@ export const Order$inboundSchema: z.ZodMiniType<Order, unknown> = z.pipe(
     user_id: z.string(),
     product: z.nullable(OrderProduct$inboundSchema),
     discount: z.nullable(
-      z.union([
+      smartUnion([
         DiscountFixedRepeatDurationBase$inboundSchema,
         DiscountFixedOnceForeverDurationBase$inboundSchema,
         DiscountPercentageRepeatDurationBase$inboundSchema,
@@ -467,7 +468,7 @@ export const Order$outboundSchema: z.ZodMiniType<Order$Outbound, Order> = z
         z.record(
           z.string(),
           z.nullable(
-            z.union([
+            smartUnion([
               z.string(),
               z.int(),
               z.boolean(),
@@ -482,7 +483,7 @@ export const Order$outboundSchema: z.ZodMiniType<Order$Outbound, Order> = z
       userId: z.string(),
       product: z.nullable(OrderProduct$outboundSchema),
       discount: z.nullable(
-        z.union([
+        smartUnion([
           DiscountFixedRepeatDurationBase$outboundSchema,
           DiscountFixedOnceForeverDurationBase$outboundSchema,
           DiscountPercentageRepeatDurationBase$outboundSchema,

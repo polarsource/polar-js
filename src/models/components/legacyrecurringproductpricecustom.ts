@@ -58,9 +58,9 @@ export type LegacyRecurringProductPriceCustom = {
    */
   priceCurrency: string;
   /**
-   * The minimum amount the customer can pay.
+   * The minimum amount the customer can pay. If 0, the price is 'free or pay what you want'. Defaults to 50 cents.
    */
-  minimumAmount: number | null;
+  minimumAmount: number;
   /**
    * The maximum amount the customer can pay.
    */
@@ -93,7 +93,7 @@ export const LegacyRecurringProductPriceCustom$inboundSchema: z.ZodMiniType<
     type: z.literal("recurring"),
     recurring_interval: SubscriptionRecurringInterval$inboundSchema,
     price_currency: z.string(),
-    minimum_amount: z.nullable(z.int()),
+    minimum_amount: z.int(),
     maximum_amount: z.nullable(z.int()),
     preset_amount: z.nullable(z.int()),
     legacy: z.literal(true),
@@ -125,7 +125,7 @@ export type LegacyRecurringProductPriceCustom$Outbound = {
   type: "recurring";
   recurring_interval: string;
   price_currency: string;
-  minimum_amount: number | null;
+  minimum_amount: number;
   maximum_amount: number | null;
   preset_amount: number | null;
   legacy: true;
@@ -147,7 +147,7 @@ export const LegacyRecurringProductPriceCustom$outboundSchema: z.ZodMiniType<
     type: z.literal("recurring"),
     recurringInterval: SubscriptionRecurringInterval$outboundSchema,
     priceCurrency: z.string(),
-    minimumAmount: z.nullable(z.int()),
+    minimumAmount: z.int(),
     maximumAmount: z.nullable(z.int()),
     presetAmount: z.nullable(z.int()),
     legacy: z.literal(true),

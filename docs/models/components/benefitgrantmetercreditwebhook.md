@@ -37,15 +37,25 @@ let value: BenefitGrantMeterCreditWebhook = {
     deletedAt: new Date("2026-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
+  member: {
+    id: "<value>",
+    createdAt: new Date("2026-01-19T18:11:16.982Z"),
+    modifiedAt: new Date("2025-10-05T12:09:29.297Z"),
+    customerId: "<value>",
+    email: "member@example.com",
+    name: "Jane Doe",
+    externalId: "usr_1337",
+    role: "billing_manager",
+  },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2025-01-15T07:44:47.570Z"),
-    modifiedAt: new Date("2024-08-19T06:58:17.350Z"),
+    createdAt: new Date("2025-10-04T20:17:27.013Z"),
+    modifiedAt: new Date("2026-12-13T13:45:10.283Z"),
     type: "meter_credit",
     description:
-      "greedily analyse near horde pocket-watch neglected shrilly or aha coaxingly",
+      "since longingly store from failing graceful afore hungry trench rim",
     selectable: false,
-    deletable: false,
+    deletable: true,
     organizationId: "<value>",
     metadata: {},
     properties: {
@@ -76,6 +86,7 @@ let value: BenefitGrantMeterCreditWebhook = {
 | `benefitId`                                                                                                  | *string*                                                                                                     | :heavy_check_mark:                                                                                           | The ID of the benefit concerned by this grant.                                                               |
 | `error`                                                                                                      | [components.BenefitGrantError](../../models/components/benefitgranterror.md)                                 | :heavy_minus_sign:                                                                                           | The error information if the benefit grant failed with an unrecoverable error.                               |
 | `customer`                                                                                                   | [components.Customer](../../models/components/customer.md)                                                   | :heavy_check_mark:                                                                                           | A customer in an organization.                                                                               |
+| `member`                                                                                                     | [components.Member](../../models/components/member.md)                                                       | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |
 | `benefit`                                                                                                    | [components.BenefitMeterCredit](../../models/components/benefitmetercredit.md)                               | :heavy_check_mark:                                                                                           | A benefit of type `meter_unit`.<br/><br/>Use it to grant a number of units on a specific meter.              |
 | `properties`                                                                                                 | [components.BenefitGrantMeterCreditProperties](../../models/components/benefitgrantmetercreditproperties.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `previousProperties`                                                                                         | [components.BenefitGrantMeterCreditProperties](../../models/components/benefitgrantmetercreditproperties.md) | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |

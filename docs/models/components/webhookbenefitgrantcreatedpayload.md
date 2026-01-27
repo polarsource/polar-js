@@ -44,19 +44,26 @@ let value: WebhookBenefitGrantCreatedPayload = {
       deletedAt: new Date("2026-09-04T17:38:48.600Z"),
       avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
     },
+    member: {
+      id: "<value>",
+      createdAt: new Date("2026-01-19T18:11:16.982Z"),
+      modifiedAt: new Date("2025-10-05T12:09:29.297Z"),
+      customerId: "<value>",
+      email: "member@example.com",
+      name: "Jane Doe",
+      externalId: "usr_1337",
+      role: "billing_manager",
+    },
     benefit: {
       id: "<value>",
-      createdAt: new Date("2025-04-26T10:19:45.222Z"),
-      modifiedAt: new Date("2026-02-01T06:50:40.155Z"),
+      createdAt: new Date("2025-11-28T17:40:59.074Z"),
+      modifiedAt: new Date("2025-10-14T07:36:23.610Z"),
       type: "license_keys",
-      description:
-        "ruddy accompanist questionably sympathetically whoever staid catalyze",
+      description: "artistic monasticism when that",
       selectable: true,
-      deletable: false,
+      deletable: true,
       organizationId: "<value>",
-      metadata: {
-        "key": 818.42,
-      },
+      metadata: {},
       properties: {
         prefix: "<value>",
         expires: {

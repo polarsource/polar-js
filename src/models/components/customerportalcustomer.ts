@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Address, Address$inboundSchema } from "./address.js";
 import {
@@ -43,7 +44,7 @@ export type CustomerPortalCustomer = {
 export const CustomerPortalCustomerTaxId$inboundSchema: z.ZodMiniType<
   CustomerPortalCustomerTaxId,
   unknown
-> = z.union([z.string(), TaxIDFormat$inboundSchema]);
+> = smartUnion([z.string(), TaxIDFormat$inboundSchema]);
 
 export function customerPortalCustomerTaxIdFromJSON(
   jsonString: string,
@@ -75,7 +76,7 @@ export const CustomerPortalCustomer$inboundSchema: z.ZodMiniType<
     billing_name: z.nullable(z.string()),
     billing_address: z.nullable(Address$inboundSchema),
     tax_id: z.nullable(
-      z.array(z.nullable(z.union([z.string(), TaxIDFormat$inboundSchema]))),
+      z.array(z.nullable(smartUnion([z.string(), TaxIDFormat$inboundSchema]))),
     ),
     oauth_accounts: z.record(
       z.string(),

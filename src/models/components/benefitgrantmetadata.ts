@@ -13,6 +13,7 @@ export type BenefitGrantMetadata = {
   benefitId: string;
   benefitGrantId: string;
   benefitType: BenefitType;
+  memberId?: string | undefined;
 };
 
 /** @internal */
@@ -24,12 +25,14 @@ export const BenefitGrantMetadata$inboundSchema: z.ZodMiniType<
     benefit_id: z.string(),
     benefit_grant_id: z.string(),
     benefit_type: BenefitType$inboundSchema,
+    member_id: z.optional(z.string()),
   }),
   z.transform((v) => {
     return remap$(v, {
       "benefit_id": "benefitId",
       "benefit_grant_id": "benefitGrantId",
       "benefit_type": "benefitType",
+      "member_id": "memberId",
     });
   }),
 );

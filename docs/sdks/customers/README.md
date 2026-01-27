@@ -472,6 +472,8 @@ a specific subscription or revoke certain benefits.
 Note: The customers information will nonetheless be retained for historic
 orders and subscriptions.
 
+Set `anonymize=true` to also anonymize PII for GDPR compliance.
+
 **Scopes**: `customers:write`
 
 ### Example Usage
@@ -726,6 +728,8 @@ run();
 Delete a customer by external ID.
 
 Immediately cancels any active subscriptions and revokes any active benefits.
+
+Set `anonymize=true` to also anonymize PII for GDPR compliance.
 
 **Scopes**: `customers:write`
 

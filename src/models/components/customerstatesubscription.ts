@@ -5,8 +5,10 @@
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
+import * as openEnums from "../../types/enums.js";
+import { OpenEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerStateSubscriptionMeter,
@@ -36,7 +38,7 @@ export const Status = {
   Active: "active",
   Trialing: "trialing",
 } as const;
-export type Status = ClosedEnum<typeof Status>;
+export type Status = OpenEnum<typeof Status>;
 
 /**
  * An active customer subscription.
@@ -119,12 +121,14 @@ export type CustomerStateSubscription = {
 
 /** @internal */
 export const CustomerStateSubscriptionCustomFieldData$inboundSchema:
-  z.ZodMiniType<CustomerStateSubscriptionCustomFieldData, unknown> = z.union([
-    z.string(),
-    z.int(),
-    z.boolean(),
-    z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-  ]);
+  z.ZodMiniType<CustomerStateSubscriptionCustomFieldData, unknown> = smartUnion(
+    [
+      z.string(),
+      z.int(),
+      z.boolean(),
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ],
+  );
 /** @internal */
 export type CustomerStateSubscriptionCustomFieldData$Outbound =
   | string
@@ -137,7 +141,7 @@ export const CustomerStateSubscriptionCustomFieldData$outboundSchema:
   z.ZodMiniType<
     CustomerStateSubscriptionCustomFieldData$Outbound,
     CustomerStateSubscriptionCustomFieldData
-  > = z.union([
+  > = smartUnion([
     z.string(),
     z.int(),
     z.boolean(),
@@ -171,12 +175,11 @@ export function customerStateSubscriptionCustomFieldDataFromJSON(
 }
 
 /** @internal */
-export const Status$inboundSchema: z.ZodMiniEnum<typeof Status> = z.enum(
-  Status,
-);
+export const Status$inboundSchema: z.ZodMiniType<Status, unknown> = openEnums
+  .inboundSchema(Status);
 /** @internal */
-export const Status$outboundSchema: z.ZodMiniEnum<typeof Status> =
-  Status$inboundSchema;
+export const Status$outboundSchema: z.ZodMiniType<string, Status> = openEnums
+  .outboundSchema(Status);
 
 /** @internal */
 export const CustomerStateSubscription$inboundSchema: z.ZodMiniType<
@@ -196,7 +199,7 @@ export const CustomerStateSubscription$inboundSchema: z.ZodMiniType<
       z.record(
         z.string(),
         z.nullable(
-          z.union([
+          smartUnion([
             z.string(),
             z.int(),
             z.boolean(),
@@ -298,7 +301,7 @@ export const CustomerStateSubscription$outboundSchema: z.ZodMiniType<
       z.record(
         z.string(),
         z.nullable(
-          z.union([
+          smartUnion([
             z.string(),
             z.int(),
             z.boolean(),

@@ -15,15 +15,15 @@ export type ProductPriceCustomCreate = {
    */
   priceCurrency?: string | undefined;
   /**
-   * The minimum amount the customer can pay.
+   * The minimum amount the customer can pay. If set to 0, the price is 'free or pay what you want' and $0 is accepted. If set to a value between 1-49, it will be rejected. Defaults to 50 cents.
    */
-  minimumAmount?: number | null | undefined;
+  minimumAmount?: number | undefined;
   /**
    * The maximum amount the customer can pay.
    */
   maximumAmount?: number | null | undefined;
   /**
-   * The initial amount shown to the customer.
+   * The initial amount shown to the customer. If 0, the customer will see $0 as the default. Values between 1-49 are rejected.
    */
   presetAmount?: number | null | undefined;
 };
@@ -32,7 +32,7 @@ export type ProductPriceCustomCreate = {
 export type ProductPriceCustomCreate$Outbound = {
   amount_type: "custom";
   price_currency: string;
-  minimum_amount?: number | null | undefined;
+  minimum_amount: number;
   maximum_amount?: number | null | undefined;
   preset_amount?: number | null | undefined;
 };
@@ -45,7 +45,7 @@ export const ProductPriceCustomCreate$outboundSchema: z.ZodMiniType<
   z.object({
     amountType: z.literal("custom"),
     priceCurrency: z._default(z.string(), "usd"),
-    minimumAmount: z.optional(z.nullable(z.int())),
+    minimumAmount: z._default(z.int(), 50),
     maximumAmount: z.optional(z.nullable(z.int())),
     presetAmount: z.optional(z.nullable(z.int())),
   }),

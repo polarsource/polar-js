@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Address, Address$inboundSchema } from "./address.js";
 import { Member, Member$inboundSchema } from "./member.js";
@@ -71,7 +72,7 @@ export type CustomerWithMembers = {
 export const CustomerWithMembersTaxId$inboundSchema: z.ZodMiniType<
   CustomerWithMembersTaxId,
   unknown
-> = z.union([z.string(), TaxIDFormat$inboundSchema]);
+> = smartUnion([z.string(), TaxIDFormat$inboundSchema]);
 
 export function customerWithMembersTaxIdFromJSON(
   jsonString: string,
@@ -104,7 +105,7 @@ export const CustomerWithMembers$inboundSchema: z.ZodMiniType<
     name: z.nullable(z.string()),
     billing_address: z.nullable(Address$inboundSchema),
     tax_id: z.nullable(
-      z.array(z.nullable(z.union([z.string(), TaxIDFormat$inboundSchema]))),
+      z.array(z.nullable(smartUnion([z.string(), TaxIDFormat$inboundSchema]))),
     ),
     organization_id: z.string(),
     deleted_at: z.nullable(

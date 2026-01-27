@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   CustomerSubscriptionCancel,
   CustomerSubscriptionCancel$Outbound,
@@ -34,7 +35,7 @@ export type CustomerSubscriptionUpdate$Outbound =
 export const CustomerSubscriptionUpdate$outboundSchema: z.ZodMiniType<
   CustomerSubscriptionUpdate$Outbound,
   CustomerSubscriptionUpdate
-> = z.union([
+> = smartUnion([
   CustomerSubscriptionUpdateProduct$outboundSchema,
   CustomerSubscriptionUpdateSeats$outboundSchema,
   CustomerSubscriptionCancel$outboundSchema,

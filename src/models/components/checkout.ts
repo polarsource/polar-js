@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Address,
@@ -316,7 +317,7 @@ export type Checkout = {
 export const CheckoutCustomFieldData$inboundSchema: z.ZodMiniType<
   CheckoutCustomFieldData,
   unknown
-> = z.union([
+> = smartUnion([
   z.string(),
   z.int(),
   z.boolean(),
@@ -333,7 +334,7 @@ export type CheckoutCustomFieldData$Outbound =
 export const CheckoutCustomFieldData$outboundSchema: z.ZodMiniType<
   CheckoutCustomFieldData$Outbound,
   CheckoutCustomFieldData
-> = z.union([
+> = smartUnion([
   z.string(),
   z.int(),
   z.boolean(),
@@ -361,7 +362,7 @@ export function checkoutCustomFieldDataFromJSON(
 export const CheckoutProductPrice$inboundSchema: z.ZodMiniType<
   CheckoutProductPrice,
   unknown
-> = z.union([
+> = smartUnion([
   LegacyRecurringProductPrice$inboundSchema,
   ProductPrice$inboundSchema,
 ]);
@@ -374,7 +375,7 @@ export type CheckoutProductPrice$Outbound =
 export const CheckoutProductPrice$outboundSchema: z.ZodMiniType<
   CheckoutProductPrice$Outbound,
   CheckoutProductPrice
-> = z.union([
+> = smartUnion([
   LegacyRecurringProductPrice$outboundSchema,
   ProductPrice$outboundSchema,
 ]);
@@ -400,7 +401,7 @@ export function checkoutProductPriceFromJSON(
 export const CheckoutPrices$inboundSchema: z.ZodMiniType<
   CheckoutPrices,
   unknown
-> = z.union([
+> = smartUnion([
   LegacyRecurringProductPrice$inboundSchema,
   ProductPrice$inboundSchema,
 ]);
@@ -413,7 +414,7 @@ export type CheckoutPrices$Outbound =
 export const CheckoutPrices$outboundSchema: z.ZodMiniType<
   CheckoutPrices$Outbound,
   CheckoutPrices
-> = z.union([
+> = smartUnion([
   LegacyRecurringProductPrice$outboundSchema,
   ProductPrice$outboundSchema,
 ]);
@@ -435,7 +436,7 @@ export function checkoutPricesFromJSON(
 export const CheckoutDiscount$inboundSchema: z.ZodMiniType<
   CheckoutDiscount,
   unknown
-> = z.union([
+> = smartUnion([
   CheckoutDiscountFixedRepeatDuration$inboundSchema,
   CheckoutDiscountFixedOnceForeverDuration$inboundSchema,
   CheckoutDiscountPercentageRepeatDuration$inboundSchema,
@@ -452,7 +453,7 @@ export type CheckoutDiscount$Outbound =
 export const CheckoutDiscount$outboundSchema: z.ZodMiniType<
   CheckoutDiscount$Outbound,
   CheckoutDiscount
-> = z.union([
+> = smartUnion([
   CheckoutDiscountFixedRepeatDuration$outboundSchema,
   CheckoutDiscountFixedOnceForeverDuration$outboundSchema,
   CheckoutDiscountPercentageRepeatDuration$outboundSchema,
@@ -480,7 +481,7 @@ export function checkoutDiscountFromJSON(
 export const CustomerMetadata$inboundSchema: z.ZodMiniType<
   CustomerMetadata,
   unknown
-> = z.union([z.string(), z.int(), z.boolean()]);
+> = smartUnion([z.string(), z.int(), z.boolean()]);
 /** @internal */
 export type CustomerMetadata$Outbound = string | number | boolean;
 
@@ -488,7 +489,7 @@ export type CustomerMetadata$Outbound = string | number | boolean;
 export const CustomerMetadata$outboundSchema: z.ZodMiniType<
   CustomerMetadata$Outbound,
   CustomerMetadata
-> = z.union([z.string(), z.int(), z.boolean()]);
+> = smartUnion([z.string(), z.int(), z.boolean()]);
 
 export function customerMetadataToJSON(
   customerMetadata: CustomerMetadata,
@@ -522,7 +523,7 @@ export const Checkout$inboundSchema: z.ZodMiniType<Checkout, unknown> = z.pipe(
       z.record(
         z.string(),
         z.nullable(
-          z.union([
+          smartUnion([
             z.string(),
             z.int(),
             z.boolean(),
@@ -588,7 +589,7 @@ export const Checkout$inboundSchema: z.ZodMiniType<Checkout, unknown> = z.pipe(
     products: z.array(CheckoutProduct$inboundSchema),
     product: z.nullable(CheckoutProduct$inboundSchema),
     product_price: z.nullable(
-      z.union([
+      smartUnion([
         LegacyRecurringProductPrice$inboundSchema,
         ProductPrice$inboundSchema,
       ]),
@@ -597,7 +598,7 @@ export const Checkout$inboundSchema: z.ZodMiniType<Checkout, unknown> = z.pipe(
       z.record(
         z.string(),
         z.array(
-          z.union([
+          smartUnion([
             LegacyRecurringProductPrice$inboundSchema,
             ProductPrice$inboundSchema,
           ]),
@@ -605,7 +606,7 @@ export const Checkout$inboundSchema: z.ZodMiniType<Checkout, unknown> = z.pipe(
       ),
     ),
     discount: z.nullable(
-      z.union([
+      smartUnion([
         CheckoutDiscountFixedRepeatDuration$inboundSchema,
         CheckoutDiscountFixedOnceForeverDuration$inboundSchema,
         CheckoutDiscountPercentageRepeatDuration$inboundSchema,
@@ -618,7 +619,7 @@ export const Checkout$inboundSchema: z.ZodMiniType<Checkout, unknown> = z.pipe(
     ),
     customer_metadata: z.record(
       z.string(),
-      z.union([z.string(), z.int(), z.boolean()]),
+      smartUnion([z.string(), z.int(), z.boolean()]),
     ),
   }),
   z.transform((v) => {
@@ -762,7 +763,7 @@ export const Checkout$outboundSchema: z.ZodMiniType<
       z.record(
         z.string(),
         z.nullable(
-          z.union([
+          smartUnion([
             z.string(),
             z.int(),
             z.boolean(),
@@ -820,7 +821,7 @@ export const Checkout$outboundSchema: z.ZodMiniType<
     products: z.array(CheckoutProduct$outboundSchema),
     product: z.nullable(CheckoutProduct$outboundSchema),
     productPrice: z.nullable(
-      z.union([
+      smartUnion([
         LegacyRecurringProductPrice$outboundSchema,
         ProductPrice$outboundSchema,
       ]),
@@ -829,7 +830,7 @@ export const Checkout$outboundSchema: z.ZodMiniType<
       z.record(
         z.string(),
         z.array(
-          z.union([
+          smartUnion([
             LegacyRecurringProductPrice$outboundSchema,
             ProductPrice$outboundSchema,
           ]),
@@ -837,7 +838,7 @@ export const Checkout$outboundSchema: z.ZodMiniType<
       ),
     ),
     discount: z.nullable(
-      z.union([
+      smartUnion([
         CheckoutDiscountFixedRepeatDuration$outboundSchema,
         CheckoutDiscountFixedOnceForeverDuration$outboundSchema,
         CheckoutDiscountPercentageRepeatDuration$outboundSchema,
@@ -850,7 +851,7 @@ export const Checkout$outboundSchema: z.ZodMiniType<
     ),
     customerMetadata: z.record(
       z.string(),
-      z.union([z.string(), z.int(), z.boolean()]),
+      smartUnion([z.string(), z.int(), z.boolean()]),
     ),
   }),
   z.transform((v) => {

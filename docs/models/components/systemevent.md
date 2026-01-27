@@ -3,6 +3,29 @@
 
 ## Supported Types
 
+### `components.BalanceCreditOrderEvent`
+
+```typescript
+const value: components.BalanceCreditOrderEvent = {
+  id: "<value>",
+  timestamp: new Date("2026-10-30T20:58:03.483Z"),
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  customerId: "<value>",
+  customer: null,
+  externalCustomerId: "<id>",
+  label: "<value>",
+  source: "system",
+  name: "balance.credit_order",
+  metadata: {
+    orderId: "<id>",
+    amount: 996540,
+    currency: "Sudanese Pound",
+    taxAmount: 665183,
+    fee: 909783,
+  },
+};
+```
+
 ### `components.BalanceDisputeEvent`
 
 ```typescript
@@ -613,7 +636,7 @@ const value: components.MeterCreditEvent = {
   name: "meter.credited",
   metadata: {
     meterId: "<id>",
-    units: 329918,
+    units: 232955,
     rollover: true,
   },
 };

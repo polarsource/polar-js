@@ -3,7 +3,8 @@
  */
 
 import * as z from "zod/v4-mini";
-import { ClosedEnum } from "../../types/enums.js";
+import * as openEnums from "../../types/enums.js";
+import { OpenEnum } from "../../types/enums.js";
 
 export const OrderStatus = {
   Pending: "pending",
@@ -11,11 +12,11 @@ export const OrderStatus = {
   Refunded: "refunded",
   PartiallyRefunded: "partially_refunded",
 } as const;
-export type OrderStatus = ClosedEnum<typeof OrderStatus>;
+export type OrderStatus = OpenEnum<typeof OrderStatus>;
 
 /** @internal */
-export const OrderStatus$inboundSchema: z.ZodMiniEnum<typeof OrderStatus> = z
-  .enum(OrderStatus);
+export const OrderStatus$inboundSchema: z.ZodMiniType<OrderStatus, unknown> =
+  openEnums.inboundSchema(OrderStatus);
 /** @internal */
-export const OrderStatus$outboundSchema: z.ZodMiniEnum<typeof OrderStatus> =
-  OrderStatus$inboundSchema;
+export const OrderStatus$outboundSchema: z.ZodMiniType<string, OrderStatus> =
+  openEnums.outboundSchema(OrderStatus);

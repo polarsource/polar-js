@@ -12,6 +12,7 @@ export type BalanceRefundMetadata = {
   transactionId: string;
   refundId: string;
   orderId?: string | undefined;
+  orderCreatedAt?: string | undefined;
   productId?: string | undefined;
   subscriptionId?: string | undefined;
   amount: number;
@@ -34,6 +35,7 @@ export const BalanceRefundMetadata$inboundSchema: z.ZodMiniType<
     transaction_id: z.string(),
     refund_id: z.string(),
     order_id: z.optional(z.string()),
+    order_created_at: z.optional(z.string()),
     product_id: z.optional(z.string()),
     subscription_id: z.optional(z.string()),
     amount: z.int(),
@@ -51,6 +53,7 @@ export const BalanceRefundMetadata$inboundSchema: z.ZodMiniType<
       "transaction_id": "transactionId",
       "refund_id": "refundId",
       "order_id": "orderId",
+      "order_created_at": "orderCreatedAt",
       "product_id": "productId",
       "subscription_id": "subscriptionId",
       "presentment_amount": "presentmentAmount",

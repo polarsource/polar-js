@@ -5,17 +5,42 @@
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   ListResourceWebhookDelivery,
   ListResourceWebhookDelivery$inboundSchema,
 } from "../components/listresourcewebhookdelivery.js";
+import {
+  WebhookEventType,
+  WebhookEventType$outboundSchema,
+} from "../components/webhookeventtype.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Filter by webhook endpoint ID.
  */
 export type EndpointId = string | Array<string>;
+
+/**
+ * Filter by HTTP response code class (2xx, 3xx, 4xx, 5xx).
+ */
+export const HttpCodeClass = {
+  Twoxx: "2xx",
+  Threexx: "3xx",
+  Fourxx: "4xx",
+  Fivexx: "5xx",
+} as const;
+/**
+ * Filter by HTTP response code class (2xx, 3xx, 4xx, 5xx).
+ */
+export type HttpCodeClass = ClosedEnum<typeof HttpCodeClass>;
+
+/**
+ * Filter by webhook event type.
+ */
+export type EventType = WebhookEventType | Array<WebhookEventType>;
 
 export type WebhooksListWebhookDeliveriesRequest = {
   /**
@@ -30,6 +55,22 @@ export type WebhooksListWebhookDeliveriesRequest = {
    * Filter deliveries before this timestamp.
    */
   endTimestamp?: Date | null | undefined;
+  /**
+   * Filter by delivery success status.
+   */
+  succeeded?: boolean | null | undefined;
+  /**
+   * Query to filter webhook deliveries.
+   */
+  query?: string | null | undefined;
+  /**
+   * Filter by HTTP response code class (2xx, 3xx, 4xx, 5xx).
+   */
+  httpCodeClass?: HttpCodeClass | null | undefined;
+  /**
+   * Filter by webhook event type.
+   */
+  eventType?: WebhookEventType | Array<WebhookEventType> | null | undefined;
   /**
    * Page number, defaults to 1.
    */
@@ -51,10 +92,30 @@ export type EndpointId$Outbound = string | Array<string>;
 export const EndpointId$outboundSchema: z.ZodMiniType<
   EndpointId$Outbound,
   EndpointId
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function endpointIdToJSON(endpointId: EndpointId): string {
   return JSON.stringify(EndpointId$outboundSchema.parse(endpointId));
+}
+
+/** @internal */
+export const HttpCodeClass$outboundSchema: z.ZodMiniEnum<typeof HttpCodeClass> =
+  z.enum(HttpCodeClass);
+
+/** @internal */
+export type EventType$Outbound = string | Array<string>;
+
+/** @internal */
+export const EventType$outboundSchema: z.ZodMiniType<
+  EventType$Outbound,
+  EventType
+> = smartUnion([
+  WebhookEventType$outboundSchema,
+  z.array(WebhookEventType$outboundSchema),
+]);
+
+export function eventTypeToJSON(eventType: EventType): string {
+  return JSON.stringify(EventType$outboundSchema.parse(eventType));
 }
 
 /** @internal */
@@ -62,6 +123,10 @@ export type WebhooksListWebhookDeliveriesRequest$Outbound = {
   endpoint_id?: string | Array<string> | null | undefined;
   start_timestamp?: string | null | undefined;
   end_timestamp?: string | null | undefined;
+  succeeded?: boolean | null | undefined;
+  query?: string | null | undefined;
+  http_code_class?: string | null | undefined;
+  event_type?: string | Array<string> | null | undefined;
   page: number;
   limit: number;
 };
@@ -73,13 +138,24 @@ export const WebhooksListWebhookDeliveriesRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     endpointId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     startTimestamp: z.optional(
       z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
     ),
     endTimestamp: z.optional(
       z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    ),
+    succeeded: z.optional(z.nullable(z.boolean())),
+    query: z.optional(z.nullable(z.string())),
+    httpCodeClass: z.optional(z.nullable(HttpCodeClass$outboundSchema)),
+    eventType: z.optional(
+      z.nullable(
+        smartUnion([
+          WebhookEventType$outboundSchema,
+          z.array(WebhookEventType$outboundSchema),
+        ]),
+      ),
     ),
     page: z._default(z.int(), 1),
     limit: z._default(z.int(), 10),
@@ -89,6 +165,8 @@ export const WebhooksListWebhookDeliveriesRequest$outboundSchema: z.ZodMiniType<
       endpointId: "endpoint_id",
       startTimestamp: "start_timestamp",
       endTimestamp: "end_timestamp",
+      httpCodeClass: "http_code_class",
+      eventType: "event_type",
     });
   }),
 );

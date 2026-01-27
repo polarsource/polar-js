@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   BenefitType,
   BenefitType$outboundSchema,
@@ -21,7 +22,8 @@ import {
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalBenefitGrantsListSecurity = {
-  customerSession: string;
+  customerSession?: string | undefined;
+  memberSession?: string | undefined;
 };
 
 /**
@@ -103,7 +105,8 @@ export type CustomerPortalBenefitGrantsListResponse = {
 
 /** @internal */
 export type CustomerPortalBenefitGrantsListSecurity$Outbound = {
-  customer_session: string;
+  customer_session?: string | undefined;
+  member_session?: string | undefined;
 };
 
 /** @internal */
@@ -113,11 +116,13 @@ export const CustomerPortalBenefitGrantsListSecurity$outboundSchema:
     CustomerPortalBenefitGrantsListSecurity
   > = z.pipe(
     z.object({
-      customerSession: z.string(),
+      customerSession: z.optional(z.string()),
+      memberSession: z.optional(z.string()),
     }),
     z.transform((v) => {
       return remap$(v, {
         customerSession: "customer_session",
+        memberSession: "member_session",
       });
     }),
   );
@@ -140,7 +145,10 @@ export type QueryParamBenefitTypeFilter$Outbound = string | Array<string>;
 export const QueryParamBenefitTypeFilter$outboundSchema: z.ZodMiniType<
   QueryParamBenefitTypeFilter$Outbound,
   QueryParamBenefitTypeFilter
-> = z.union([BenefitType$outboundSchema, z.array(BenefitType$outboundSchema)]);
+> = smartUnion([
+  BenefitType$outboundSchema,
+  z.array(BenefitType$outboundSchema),
+]);
 
 export function queryParamBenefitTypeFilterToJSON(
   queryParamBenefitTypeFilter: QueryParamBenefitTypeFilter,
@@ -162,7 +170,7 @@ export const CustomerPortalBenefitGrantsListQueryParamBenefitIDFilter$outboundSc
   z.ZodMiniType<
     CustomerPortalBenefitGrantsListQueryParamBenefitIDFilter$Outbound,
     CustomerPortalBenefitGrantsListQueryParamBenefitIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function customerPortalBenefitGrantsListQueryParamBenefitIDFilterToJSON(
   customerPortalBenefitGrantsListQueryParamBenefitIDFilter:
@@ -181,7 +189,7 @@ export type QueryParamCheckoutIDFilter$Outbound = string | Array<string>;
 export const QueryParamCheckoutIDFilter$outboundSchema: z.ZodMiniType<
   QueryParamCheckoutIDFilter$Outbound,
   QueryParamCheckoutIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function queryParamCheckoutIDFilterToJSON(
   queryParamCheckoutIDFilter: QueryParamCheckoutIDFilter,
@@ -201,7 +209,7 @@ export const CustomerPortalBenefitGrantsListQueryParamOrderIDFilter$outboundSche
   z.ZodMiniType<
     CustomerPortalBenefitGrantsListQueryParamOrderIDFilter$Outbound,
     CustomerPortalBenefitGrantsListQueryParamOrderIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function customerPortalBenefitGrantsListQueryParamOrderIDFilterToJSON(
   customerPortalBenefitGrantsListQueryParamOrderIDFilter:
@@ -221,7 +229,7 @@ export type QueryParamSubscriptionIDFilter$Outbound = string | Array<string>;
 export const QueryParamSubscriptionIDFilter$outboundSchema: z.ZodMiniType<
   QueryParamSubscriptionIDFilter$Outbound,
   QueryParamSubscriptionIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function queryParamSubscriptionIDFilterToJSON(
   queryParamSubscriptionIDFilter: QueryParamSubscriptionIDFilter,
@@ -240,7 +248,7 @@ export type QueryParamMemberIDFilter$Outbound = string | Array<string>;
 export const QueryParamMemberIDFilter$outboundSchema: z.ZodMiniType<
   QueryParamMemberIDFilter$Outbound,
   QueryParamMemberIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function queryParamMemberIDFilterToJSON(
   queryParamMemberIDFilter: QueryParamMemberIDFilter,
@@ -272,26 +280,26 @@ export const CustomerPortalBenefitGrantsListRequest$outboundSchema:
     z.object({
       typeFilter: z.optional(
         z.nullable(
-          z.union([
+          smartUnion([
             BenefitType$outboundSchema,
             z.array(BenefitType$outboundSchema),
           ]),
         ),
       ),
       benefitId: z.optional(
-        z.nullable(z.union([z.string(), z.array(z.string())])),
+        z.nullable(smartUnion([z.string(), z.array(z.string())])),
       ),
       checkoutId: z.optional(
-        z.nullable(z.union([z.string(), z.array(z.string())])),
+        z.nullable(smartUnion([z.string(), z.array(z.string())])),
       ),
       orderId: z.optional(
-        z.nullable(z.union([z.string(), z.array(z.string())])),
+        z.nullable(smartUnion([z.string(), z.array(z.string())])),
       ),
       subscriptionId: z.optional(
-        z.nullable(z.union([z.string(), z.array(z.string())])),
+        z.nullable(smartUnion([z.string(), z.array(z.string())])),
       ),
       memberId: z.optional(
-        z.nullable(z.union([z.string(), z.array(z.string())])),
+        z.nullable(smartUnion([z.string(), z.array(z.string())])),
       ),
       page: z._default(z.int(), 1),
       limit: z._default(z.int(), 10),

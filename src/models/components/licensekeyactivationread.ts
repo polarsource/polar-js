@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   LicenseKeyRead,
@@ -28,7 +29,7 @@ export type LicenseKeyActivationRead = {
 export const LicenseKeyActivationReadMeta$inboundSchema: z.ZodMiniType<
   LicenseKeyActivationReadMeta,
   unknown
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
+> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function licenseKeyActivationReadMetaFromJSON(
   jsonString: string,
@@ -51,7 +52,7 @@ export const LicenseKeyActivationRead$inboundSchema: z.ZodMiniType<
     label: z.string(),
     meta: z.record(
       z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
+      smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
     ),
     created_at: z.pipe(
       z.iso.datetime({ offset: true }),

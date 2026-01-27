@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerCancellationReason,
@@ -207,7 +208,7 @@ export type Subscription = {
 export const CustomFieldData$inboundSchema: z.ZodMiniType<
   CustomFieldData,
   unknown
-> = z.union([
+> = smartUnion([
   z.string(),
   z.int(),
   z.boolean(),
@@ -220,7 +221,7 @@ export type CustomFieldData$Outbound = string | number | boolean | string;
 export const CustomFieldData$outboundSchema: z.ZodMiniType<
   CustomFieldData$Outbound,
   CustomFieldData
-> = z.union([
+> = smartUnion([
   z.string(),
   z.int(),
   z.boolean(),
@@ -246,7 +247,7 @@ export function customFieldDataFromJSON(
 export const SubscriptionDiscount$inboundSchema: z.ZodMiniType<
   SubscriptionDiscount,
   unknown
-> = z.union([
+> = smartUnion([
   DiscountFixedRepeatDurationBase$inboundSchema,
   DiscountFixedOnceForeverDurationBase$inboundSchema,
   DiscountPercentageRepeatDurationBase$inboundSchema,
@@ -263,7 +264,7 @@ export type SubscriptionDiscount$Outbound =
 export const SubscriptionDiscount$outboundSchema: z.ZodMiniType<
   SubscriptionDiscount$Outbound,
   SubscriptionDiscount
-> = z.union([
+> = smartUnion([
   DiscountFixedRepeatDurationBase$outboundSchema,
   DiscountFixedOnceForeverDurationBase$outboundSchema,
   DiscountPercentageRepeatDurationBase$outboundSchema,
@@ -291,7 +292,7 @@ export function subscriptionDiscountFromJSON(
 export const SubscriptionPrices$inboundSchema: z.ZodMiniType<
   SubscriptionPrices,
   unknown
-> = z.union([
+> = smartUnion([
   LegacyRecurringProductPrice$inboundSchema,
   ProductPrice$inboundSchema,
 ]);
@@ -304,7 +305,7 @@ export type SubscriptionPrices$Outbound =
 export const SubscriptionPrices$outboundSchema: z.ZodMiniType<
   SubscriptionPrices$Outbound,
   SubscriptionPrices
-> = z.union([
+> = smartUnion([
   LegacyRecurringProductPrice$outboundSchema,
   ProductPrice$outboundSchema,
 ]);
@@ -383,7 +384,7 @@ export const Subscription$inboundSchema: z.ZodMiniType<Subscription, unknown> =
         z.record(
           z.string(),
           z.nullable(
-            z.union([
+            smartUnion([
               z.string(),
               z.int(),
               z.boolean(),
@@ -398,7 +399,7 @@ export const Subscription$inboundSchema: z.ZodMiniType<Subscription, unknown> =
       customer: SubscriptionCustomer$inboundSchema,
       product: Product$inboundSchema,
       discount: z.nullable(
-        z.union([
+        smartUnion([
           DiscountFixedRepeatDurationBase$inboundSchema,
           DiscountFixedOnceForeverDurationBase$inboundSchema,
           DiscountPercentageRepeatDurationBase$inboundSchema,
@@ -406,7 +407,7 @@ export const Subscription$inboundSchema: z.ZodMiniType<Subscription, unknown> =
         ]),
       ),
       prices: z.array(
-        z.union([
+        smartUnion([
           LegacyRecurringProductPrice$inboundSchema,
           ProductPrice$inboundSchema,
         ]),
@@ -519,7 +520,7 @@ export const Subscription$outboundSchema: z.ZodMiniType<
       z.record(
         z.string(),
         z.nullable(
-          z.union([
+          smartUnion([
             z.string(),
             z.int(),
             z.boolean(),
@@ -531,7 +532,7 @@ export const Subscription$outboundSchema: z.ZodMiniType<
     customer: SubscriptionCustomer$outboundSchema,
     product: Product$outboundSchema,
     discount: z.nullable(
-      z.union([
+      smartUnion([
         DiscountFixedRepeatDurationBase$outboundSchema,
         DiscountFixedOnceForeverDurationBase$outboundSchema,
         DiscountPercentageRepeatDurationBase$outboundSchema,
@@ -539,7 +540,7 @@ export const Subscription$outboundSchema: z.ZodMiniType<
       ]),
     ),
     prices: z.array(
-      z.union([
+      smartUnion([
         LegacyRecurringProductPrice$outboundSchema,
         ProductPrice$outboundSchema,
       ]),

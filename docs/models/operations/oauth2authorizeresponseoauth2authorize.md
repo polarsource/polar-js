@@ -26,7 +26,7 @@ const value: components.AuthorizeResponseUser = {
     avatarUrl: null,
   },
   scopes: [
-    "organizations:write",
+    "custom_fields:read",
   ],
 };
 ```

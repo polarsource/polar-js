@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CostMetadataOutput,
@@ -24,7 +25,7 @@ export type EventMetadataOutput =
 export const EventMetadataOutput$inboundSchema: z.ZodMiniType<
   EventMetadataOutput,
   unknown
-> = z.union([
+> = smartUnion([
   LLMMetadata$inboundSchema,
   CostMetadataOutput$inboundSchema,
   z.string(),

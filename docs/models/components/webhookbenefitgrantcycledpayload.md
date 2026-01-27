@@ -45,10 +45,11 @@ let value: WebhookBenefitGrantCycledPayload = {
       deletedAt: new Date("2026-09-04T17:38:48.600Z"),
       avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
     },
+    member: null,
     benefit: {
       id: "<value>",
-      createdAt: new Date("2024-08-11T07:30:21.850Z"),
-      modifiedAt: new Date("2024-04-18T07:07:21.162Z"),
+      createdAt: new Date("2026-05-01T16:24:20.581Z"),
+      modifiedAt: null,
       type: "github_repository",
       description: "vicinity spectate publication athwart likely far",
       selectable: true,

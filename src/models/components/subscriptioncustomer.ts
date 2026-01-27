@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Address,
@@ -71,7 +72,7 @@ export type SubscriptionCustomer = {
 };
 
 /** @internal */
-export const TaxId$inboundSchema: z.ZodMiniType<TaxId, unknown> = z.union([
+export const TaxId$inboundSchema: z.ZodMiniType<TaxId, unknown> = smartUnion([
   z.string(),
   TaxIDFormat$inboundSchema,
 ]);
@@ -79,8 +80,8 @@ export const TaxId$inboundSchema: z.ZodMiniType<TaxId, unknown> = z.union([
 export type TaxId$Outbound = string | string;
 
 /** @internal */
-export const TaxId$outboundSchema: z.ZodMiniType<TaxId$Outbound, TaxId> = z
-  .union([z.string(), TaxIDFormat$outboundSchema]);
+export const TaxId$outboundSchema: z.ZodMiniType<TaxId$Outbound, TaxId> =
+  smartUnion([z.string(), TaxIDFormat$outboundSchema]);
 
 export function taxIdToJSON(taxId: TaxId): string {
   return JSON.stringify(TaxId$outboundSchema.parse(taxId));
@@ -116,7 +117,7 @@ export const SubscriptionCustomer$inboundSchema: z.ZodMiniType<
     name: z.nullable(z.string()),
     billing_address: z.nullable(Address$inboundSchema),
     tax_id: z.nullable(
-      z.array(z.nullable(z.union([z.string(), TaxIDFormat$inboundSchema]))),
+      z.array(z.nullable(smartUnion([z.string(), TaxIDFormat$inboundSchema]))),
     ),
     organization_id: z.string(),
     deleted_at: z.nullable(
@@ -171,7 +172,7 @@ export const SubscriptionCustomer$outboundSchema: z.ZodMiniType<
     name: z.nullable(z.string()),
     billingAddress: z.nullable(Address$outboundSchema),
     taxId: z.nullable(
-      z.array(z.nullable(z.union([z.string(), TaxIDFormat$outboundSchema]))),
+      z.array(z.nullable(smartUnion([z.string(), TaxIDFormat$outboundSchema]))),
     ),
     organizationId: z.string(),
     deletedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),

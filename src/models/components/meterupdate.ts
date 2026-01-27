@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   CountAggregation,
   CountAggregation$Outbound,
@@ -81,7 +82,7 @@ export type MeterUpdateMetadata$Outbound = string | number | number | boolean;
 export const MeterUpdateMetadata$outboundSchema: z.ZodMiniType<
   MeterUpdateMetadata$Outbound,
   MeterUpdateMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
+> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function meterUpdateMetadataToJSON(
   meterUpdateMetadata: MeterUpdateMetadata,
@@ -155,7 +156,7 @@ export const MeterUpdate$outboundSchema: z.ZodMiniType<
     metadata: z.optional(
       z.record(
         z.string(),
-        z.union([z.string(), z.int(), z.number(), z.boolean()]),
+        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
     name: z.optional(z.nullable(z.string())),

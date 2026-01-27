@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Benefit, Benefit$inboundSchema } from "./benefit.js";
 import {
@@ -108,8 +109,8 @@ export type BenefitGrant = {
 };
 
 /** @internal */
-export const Properties$inboundSchema: z.ZodMiniType<Properties, unknown> = z
-  .union([
+export const Properties$inboundSchema: z.ZodMiniType<Properties, unknown> =
+  smartUnion([
     BenefitGrantDiscordProperties$inboundSchema,
     BenefitGrantGitHubRepositoryProperties$inboundSchema,
     BenefitGrantDownloadablesProperties$inboundSchema,
@@ -161,7 +162,7 @@ export const BenefitGrant$inboundSchema: z.ZodMiniType<BenefitGrant, unknown> =
       error: z.optional(z.nullable(BenefitGrantError$inboundSchema)),
       customer: Customer$inboundSchema,
       benefit: Benefit$inboundSchema,
-      properties: z.union([
+      properties: smartUnion([
         BenefitGrantDiscordProperties$inboundSchema,
         BenefitGrantGitHubRepositoryProperties$inboundSchema,
         BenefitGrantDownloadablesProperties$inboundSchema,

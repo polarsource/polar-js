@@ -10,6 +10,8 @@ let value: FilterConjunction = "and";
 
 ## Values
 
+This is an open enum. Unrecognized values will be captured as the `Unrecognized<string>` branded type.
+
 ```typescript
-"and" | "or"
+"and" | "or" | Unrecognized<string>
 ```

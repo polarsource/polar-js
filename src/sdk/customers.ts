@@ -147,6 +147,8 @@ export class Customers extends ClientSDK {
    * Note: The customers information will nonetheless be retained for historic
    * orders and subscriptions.
    *
+   * Set `anonymize=true` to also anonymize PII for GDPR compliance.
+   *
    * **Scopes**: `customers:write`
    */
   async delete(
@@ -205,6 +207,8 @@ export class Customers extends ClientSDK {
    * Delete a customer by external ID.
    *
    * Immediately cancels any active subscriptions and revokes any active benefits.
+   *
+   * Set `anonymize=true` to also anonymize PII for GDPR compliance.
    *
    * **Scopes**: `customers:write`
    */

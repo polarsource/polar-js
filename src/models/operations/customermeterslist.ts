@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   CustomerMeterSortProperty,
   CustomerMeterSortProperty$outboundSchema,
@@ -87,7 +88,7 @@ export const CustomerMetersListQueryParamOrganizationIDFilter$outboundSchema:
   z.ZodMiniType<
     CustomerMetersListQueryParamOrganizationIDFilter$Outbound,
     CustomerMetersListQueryParamOrganizationIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function customerMetersListQueryParamOrganizationIDFilterToJSON(
   customerMetersListQueryParamOrganizationIDFilter:
@@ -110,7 +111,7 @@ export const CustomerMetersListQueryParamCustomerIDFilter$outboundSchema:
   z.ZodMiniType<
     CustomerMetersListQueryParamCustomerIDFilter$Outbound,
     CustomerMetersListQueryParamCustomerIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function customerMetersListQueryParamCustomerIDFilterToJSON(
   customerMetersListQueryParamCustomerIDFilter:
@@ -133,7 +134,7 @@ export const CustomerMetersListQueryParamExternalCustomerIDFilter$outboundSchema
   z.ZodMiniType<
     CustomerMetersListQueryParamExternalCustomerIDFilter$Outbound,
     CustomerMetersListQueryParamExternalCustomerIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function customerMetersListQueryParamExternalCustomerIDFilterToJSON(
   customerMetersListQueryParamExternalCustomerIDFilter:
@@ -153,7 +154,7 @@ export type QueryParamMeterIDFilter$Outbound = string | Array<string>;
 export const QueryParamMeterIDFilter$outboundSchema: z.ZodMiniType<
   QueryParamMeterIDFilter$Outbound,
   QueryParamMeterIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function queryParamMeterIDFilterToJSON(
   queryParamMeterIDFilter: QueryParamMeterIDFilter,
@@ -181,15 +182,17 @@ export const CustomerMetersListRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     organizationId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     customerId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     externalCustomerId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
-    meterId: z.optional(z.nullable(z.union([z.string(), z.array(z.string())]))),
+    meterId: z.optional(
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+    ),
     page: z._default(z.int(), 1),
     limit: z._default(z.int(), 10),
     sorting: z.optional(

@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 
 export type LicenseKeyActivateConditions = string | number | number | boolean;
 
@@ -58,7 +59,7 @@ export type LicenseKeyActivateConditions$Outbound =
 export const LicenseKeyActivateConditions$outboundSchema: z.ZodMiniType<
   LicenseKeyActivateConditions$Outbound,
   LicenseKeyActivateConditions
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
+> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function licenseKeyActivateConditionsToJSON(
   licenseKeyActivateConditions: LicenseKeyActivateConditions,
@@ -81,7 +82,7 @@ export type LicenseKeyActivateMeta$Outbound =
 export const LicenseKeyActivateMeta$outboundSchema: z.ZodMiniType<
   LicenseKeyActivateMeta$Outbound,
   LicenseKeyActivateMeta
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
+> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function licenseKeyActivateMetaToJSON(
   licenseKeyActivateMeta: LicenseKeyActivateMeta,
@@ -112,13 +113,13 @@ export const LicenseKeyActivate$outboundSchema: z.ZodMiniType<
     conditions: z.optional(
       z.record(
         z.string(),
-        z.union([z.string(), z.int(), z.number(), z.boolean()]),
+        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
     meta: z.optional(
       z.record(
         z.string(),
-        z.union([z.string(), z.int(), z.number(), z.boolean()]),
+        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
   }),

@@ -87,7 +87,7 @@ run();
 
 ## assignSeat
 
-**Scopes**: `customer_portal:write`
+Assign Seat
 
 ### Example Usage
 
@@ -158,7 +158,7 @@ run();
 
 ## revokeSeat
 
-**Scopes**: `customer_portal:write`
+Revoke Seat
 
 ### Example Usage
 
@@ -233,7 +233,7 @@ run();
 
 ## resendInvitation
 
-**Scopes**: `customer_portal:write`
+Resend Invitation
 
 ### Example Usage
 

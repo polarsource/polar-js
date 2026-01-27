@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitGrantCustomWebhook,
@@ -55,7 +56,7 @@ export type BenefitGrantWebhook =
 export const BenefitGrantWebhook$inboundSchema: z.ZodMiniType<
   BenefitGrantWebhook,
   unknown
-> = z.union([
+> = smartUnion([
   BenefitGrantDiscordWebhook$inboundSchema,
   BenefitGrantCustomWebhook$inboundSchema,
   BenefitGrantGitHubRepositoryWebhook$inboundSchema,
@@ -76,7 +77,7 @@ export type BenefitGrantWebhook$Outbound =
 export const BenefitGrantWebhook$outboundSchema: z.ZodMiniType<
   BenefitGrantWebhook$Outbound,
   BenefitGrantWebhook
-> = z.union([
+> = smartUnion([
   BenefitGrantDiscordWebhook$outboundSchema,
   BenefitGrantCustomWebhook$outboundSchema,
   BenefitGrantGitHubRepositoryWebhook$outboundSchema,

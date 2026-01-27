@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { AddressDict, AddressDict$inboundSchema } from "./addressdict.js";
 
@@ -23,7 +24,7 @@ export type CustomerUpdatedFields = {
 export const CustomerUpdatedFieldsMetadata$inboundSchema: z.ZodMiniType<
   CustomerUpdatedFieldsMetadata,
   unknown
-> = z.union([z.string(), z.int(), z.boolean()]);
+> = smartUnion([z.string(), z.int(), z.boolean()]);
 
 export function customerUpdatedFieldsMetadataFromJSON(
   jsonString: string,
@@ -47,7 +48,7 @@ export const CustomerUpdatedFields$inboundSchema: z.ZodMiniType<
     tax_id: z.optional(z.nullable(z.string())),
     metadata: z.optional(
       z.nullable(
-        z.record(z.string(), z.union([z.string(), z.int(), z.boolean()])),
+        z.record(z.string(), smartUnion([z.string(), z.int(), z.boolean()])),
       ),
     ),
   }),

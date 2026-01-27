@@ -120,9 +120,13 @@ async function $do(
   const query = encodeFormQuery({
     "end_timestamp": payload.end_timestamp,
     "endpoint_id": payload.endpoint_id,
+    "event_type": payload.event_type,
+    "http_code_class": payload.http_code_class,
     "limit": payload.limit,
     "page": payload.page,
+    "query": payload.query,
     "start_timestamp": payload.start_timestamp,
+    "succeeded": payload.succeeded,
   });
 
   const headers = new Headers(compactMap({

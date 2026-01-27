@@ -5,13 +5,12 @@
 ```typescript
 import { CustomerPortalCustomersConfirmPaymentMethodSecurity } from "@polar-sh/sdk/models/operations/customerportalcustomersconfirmpaymentmethod.js";
 
-let value: CustomerPortalCustomersConfirmPaymentMethodSecurity = {
-  customerSession: "<value>",
-};
+let value: CustomerPortalCustomersConfirmPaymentMethodSecurity = {};
 ```
 
 ## Fields
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `customerSession`  | *string*           | :heavy_check_mark: | N/A                |
+| `customerSession`  | *string*           | :heavy_minus_sign: | N/A                |
+| `memberSession`    | *string*           | :heavy_minus_sign: | N/A                |

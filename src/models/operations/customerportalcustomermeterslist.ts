@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   CustomerCustomerMeterSortProperty,
   CustomerCustomerMeterSortProperty$outboundSchema,
@@ -17,7 +18,8 @@ import {
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalCustomerMetersListSecurity = {
-  customerSession: string;
+  customerSession?: string | undefined;
+  memberSession?: string | undefined;
 };
 
 /**
@@ -54,7 +56,8 @@ export type CustomerPortalCustomerMetersListResponse = {
 
 /** @internal */
 export type CustomerPortalCustomerMetersListSecurity$Outbound = {
-  customer_session: string;
+  customer_session?: string | undefined;
+  member_session?: string | undefined;
 };
 
 /** @internal */
@@ -64,11 +67,13 @@ export const CustomerPortalCustomerMetersListSecurity$outboundSchema:
     CustomerPortalCustomerMetersListSecurity
   > = z.pipe(
     z.object({
-      customerSession: z.string(),
+      customerSession: z.optional(z.string()),
+      memberSession: z.optional(z.string()),
     }),
     z.transform((v) => {
       return remap$(v, {
         customerSession: "customer_session",
+        memberSession: "member_session",
       });
     }),
   );
@@ -91,7 +96,7 @@ export type MeterIDFilter$Outbound = string | Array<string>;
 export const MeterIDFilter$outboundSchema: z.ZodMiniType<
   MeterIDFilter$Outbound,
   MeterIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function meterIDFilterToJSON(meterIDFilter: MeterIDFilter): string {
   return JSON.stringify(MeterIDFilter$outboundSchema.parse(meterIDFilter));
@@ -114,7 +119,7 @@ export const CustomerPortalCustomerMetersListRequest$outboundSchema:
   > = z.pipe(
     z.object({
       meterId: z.optional(
-        z.nullable(z.union([z.string(), z.array(z.string())])),
+        z.nullable(smartUnion([z.string(), z.array(z.string())])),
       ),
       query: z.optional(z.nullable(z.string())),
       page: z._default(z.int(), 1),

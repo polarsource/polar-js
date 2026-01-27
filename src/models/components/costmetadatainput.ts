@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { smartUnion } from "../../types/smartUnion.js";
 
 /**
  * The amount in cents.
@@ -24,8 +25,8 @@ export type CostMetadataInput = {
 export type Amount$Outbound = number | string;
 
 /** @internal */
-export const Amount$outboundSchema: z.ZodMiniType<Amount$Outbound, Amount> = z
-  .union([z.number(), z.string()]);
+export const Amount$outboundSchema: z.ZodMiniType<Amount$Outbound, Amount> =
+  smartUnion([z.number(), z.string()]);
 
 export function amountToJSON(amount: Amount): string {
   return JSON.stringify(Amount$outboundSchema.parse(amount));
@@ -42,7 +43,7 @@ export const CostMetadataInput$outboundSchema: z.ZodMiniType<
   CostMetadataInput$Outbound,
   CostMetadataInput
 > = z.object({
-  amount: z.union([z.number(), z.string()]),
+  amount: smartUnion([z.number(), z.string()]),
   currency: z.string(),
 });
 

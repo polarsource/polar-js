@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type MetricsTotalsOrders = number | number;
@@ -144,7 +145,7 @@ export type MetricsTotals = {
 export const MetricsTotalsOrders$inboundSchema: z.ZodMiniType<
   MetricsTotalsOrders,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsOrdersFromJSON(
   jsonString: string,
@@ -160,7 +161,7 @@ export function metricsTotalsOrdersFromJSON(
 export const MetricsTotalsRevenue$inboundSchema: z.ZodMiniType<
   MetricsTotalsRevenue,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsRevenueFromJSON(
   jsonString: string,
@@ -176,7 +177,7 @@ export function metricsTotalsRevenueFromJSON(
 export const MetricsTotalsNetRevenue$inboundSchema: z.ZodMiniType<
   MetricsTotalsNetRevenue,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsNetRevenueFromJSON(
   jsonString: string,
@@ -192,7 +193,7 @@ export function metricsTotalsNetRevenueFromJSON(
 export const MetricsTotalsCumulativeRevenue$inboundSchema: z.ZodMiniType<
   MetricsTotalsCumulativeRevenue,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsCumulativeRevenueFromJSON(
   jsonString: string,
@@ -208,7 +209,7 @@ export function metricsTotalsCumulativeRevenueFromJSON(
 export const MetricsTotalsNetCumulativeRevenue$inboundSchema: z.ZodMiniType<
   MetricsTotalsNetCumulativeRevenue,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsNetCumulativeRevenueFromJSON(
   jsonString: string,
@@ -224,7 +225,7 @@ export function metricsTotalsNetCumulativeRevenueFromJSON(
 export const MetricsTotalsCosts$inboundSchema: z.ZodMiniType<
   MetricsTotalsCosts,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsCostsFromJSON(
   jsonString: string,
@@ -240,7 +241,7 @@ export function metricsTotalsCostsFromJSON(
 export const MetricsTotalsCumulativeCosts$inboundSchema: z.ZodMiniType<
   MetricsTotalsCumulativeCosts,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsCumulativeCostsFromJSON(
   jsonString: string,
@@ -256,7 +257,7 @@ export function metricsTotalsCumulativeCostsFromJSON(
 export const MetricsTotalsAverageOrderValue$inboundSchema: z.ZodMiniType<
   MetricsTotalsAverageOrderValue,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsAverageOrderValueFromJSON(
   jsonString: string,
@@ -272,7 +273,7 @@ export function metricsTotalsAverageOrderValueFromJSON(
 export const MetricsTotalsNetAverageOrderValue$inboundSchema: z.ZodMiniType<
   MetricsTotalsNetAverageOrderValue,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsNetAverageOrderValueFromJSON(
   jsonString: string,
@@ -288,7 +289,7 @@ export function metricsTotalsNetAverageOrderValueFromJSON(
 export const MetricsTotalsAverageRevenuePerUser$inboundSchema: z.ZodMiniType<
   MetricsTotalsAverageRevenuePerUser,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsAverageRevenuePerUserFromJSON(
   jsonString: string,
@@ -305,7 +306,7 @@ export function metricsTotalsAverageRevenuePerUserFromJSON(
 export const MetricsTotalsCostPerUser$inboundSchema: z.ZodMiniType<
   MetricsTotalsCostPerUser,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsCostPerUserFromJSON(
   jsonString: string,
@@ -321,7 +322,7 @@ export function metricsTotalsCostPerUserFromJSON(
 export const MetricsTotalsActiveUserByEvent$inboundSchema: z.ZodMiniType<
   MetricsTotalsActiveUserByEvent,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsActiveUserByEventFromJSON(
   jsonString: string,
@@ -337,7 +338,7 @@ export function metricsTotalsActiveUserByEventFromJSON(
 export const MetricsTotalsOneTimeProducts$inboundSchema: z.ZodMiniType<
   MetricsTotalsOneTimeProducts,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsOneTimeProductsFromJSON(
   jsonString: string,
@@ -353,7 +354,7 @@ export function metricsTotalsOneTimeProductsFromJSON(
 export const MetricsTotalsOneTimeProductsRevenue$inboundSchema: z.ZodMiniType<
   MetricsTotalsOneTimeProductsRevenue,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsOneTimeProductsRevenueFromJSON(
   jsonString: string,
@@ -368,7 +369,7 @@ export function metricsTotalsOneTimeProductsRevenueFromJSON(
 
 /** @internal */
 export const MetricsTotalsOneTimeProductsNetRevenue$inboundSchema:
-  z.ZodMiniType<MetricsTotalsOneTimeProductsNetRevenue, unknown> = z.union([
+  z.ZodMiniType<MetricsTotalsOneTimeProductsNetRevenue, unknown> = smartUnion([
     z.int(),
     z.number(),
   ]);
@@ -388,7 +389,7 @@ export function metricsTotalsOneTimeProductsNetRevenueFromJSON(
 export const MetricsTotalsNewSubscriptions$inboundSchema: z.ZodMiniType<
   MetricsTotalsNewSubscriptions,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsNewSubscriptionsFromJSON(
   jsonString: string,
@@ -404,7 +405,7 @@ export function metricsTotalsNewSubscriptionsFromJSON(
 export const MetricsTotalsNewSubscriptionsRevenue$inboundSchema: z.ZodMiniType<
   MetricsTotalsNewSubscriptionsRevenue,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsNewSubscriptionsRevenueFromJSON(
   jsonString: string,
@@ -419,7 +420,7 @@ export function metricsTotalsNewSubscriptionsRevenueFromJSON(
 
 /** @internal */
 export const MetricsTotalsNewSubscriptionsNetRevenue$inboundSchema:
-  z.ZodMiniType<MetricsTotalsNewSubscriptionsNetRevenue, unknown> = z.union([
+  z.ZodMiniType<MetricsTotalsNewSubscriptionsNetRevenue, unknown> = smartUnion([
     z.int(),
     z.number(),
   ]);
@@ -444,7 +445,7 @@ export function metricsTotalsNewSubscriptionsNetRevenueFromJSON(
 export const MetricsTotalsRenewedSubscriptions$inboundSchema: z.ZodMiniType<
   MetricsTotalsRenewedSubscriptions,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsRenewedSubscriptionsFromJSON(
   jsonString: string,
@@ -458,10 +459,9 @@ export function metricsTotalsRenewedSubscriptionsFromJSON(
 
 /** @internal */
 export const MetricsTotalsRenewedSubscriptionsRevenue$inboundSchema:
-  z.ZodMiniType<MetricsTotalsRenewedSubscriptionsRevenue, unknown> = z.union([
-    z.int(),
-    z.number(),
-  ]);
+  z.ZodMiniType<MetricsTotalsRenewedSubscriptionsRevenue, unknown> = smartUnion(
+    [z.int(), z.number()],
+  );
 
 export function metricsTotalsRenewedSubscriptionsRevenueFromJSON(
   jsonString: string,
@@ -481,9 +481,8 @@ export function metricsTotalsRenewedSubscriptionsRevenueFromJSON(
 
 /** @internal */
 export const MetricsTotalsRenewedSubscriptionsNetRevenue$inboundSchema:
-  z.ZodMiniType<MetricsTotalsRenewedSubscriptionsNetRevenue, unknown> = z.union(
-    [z.int(), z.number()],
-  );
+  z.ZodMiniType<MetricsTotalsRenewedSubscriptionsNetRevenue, unknown> =
+    smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsRenewedSubscriptionsNetRevenueFromJSON(
   jsonString: string,
@@ -505,7 +504,7 @@ export function metricsTotalsRenewedSubscriptionsNetRevenueFromJSON(
 export const MetricsTotalsActiveSubscriptions$inboundSchema: z.ZodMiniType<
   MetricsTotalsActiveSubscriptions,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsActiveSubscriptionsFromJSON(
   jsonString: string,
@@ -521,7 +520,7 @@ export function metricsTotalsActiveSubscriptionsFromJSON(
 export const MetricsTotalsCommittedSubscriptions$inboundSchema: z.ZodMiniType<
   MetricsTotalsCommittedSubscriptions,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsCommittedSubscriptionsFromJSON(
   jsonString: string,
@@ -538,7 +537,7 @@ export function metricsTotalsCommittedSubscriptionsFromJSON(
 export const MetricsTotalsMonthlyRecurringRevenue$inboundSchema: z.ZodMiniType<
   MetricsTotalsMonthlyRecurringRevenue,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsMonthlyRecurringRevenueFromJSON(
   jsonString: string,
@@ -553,8 +552,8 @@ export function metricsTotalsMonthlyRecurringRevenueFromJSON(
 
 /** @internal */
 export const MetricsTotalsCommittedMonthlyRecurringRevenue$inboundSchema:
-  z.ZodMiniType<MetricsTotalsCommittedMonthlyRecurringRevenue, unknown> = z
-    .union([z.int(), z.number()]);
+  z.ZodMiniType<MetricsTotalsCommittedMonthlyRecurringRevenue, unknown> =
+    smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsCommittedMonthlyRecurringRevenueFromJSON(
   jsonString: string,
@@ -576,7 +575,7 @@ export function metricsTotalsCommittedMonthlyRecurringRevenueFromJSON(
 export const MetricsTotalsCheckouts$inboundSchema: z.ZodMiniType<
   MetricsTotalsCheckouts,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsCheckoutsFromJSON(
   jsonString: string,
@@ -592,7 +591,7 @@ export function metricsTotalsCheckoutsFromJSON(
 export const MetricsTotalsSucceededCheckouts$inboundSchema: z.ZodMiniType<
   MetricsTotalsSucceededCheckouts,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsSucceededCheckoutsFromJSON(
   jsonString: string,
@@ -608,7 +607,7 @@ export function metricsTotalsSucceededCheckoutsFromJSON(
 export const MetricsTotalsCheckoutsConversion$inboundSchema: z.ZodMiniType<
   MetricsTotalsCheckoutsConversion,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsCheckoutsConversionFromJSON(
   jsonString: string,
@@ -624,7 +623,7 @@ export function metricsTotalsCheckoutsConversionFromJSON(
 export const MetricsTotalsCanceledSubscriptions$inboundSchema: z.ZodMiniType<
   MetricsTotalsCanceledSubscriptions,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsCanceledSubscriptionsFromJSON(
   jsonString: string,
@@ -639,8 +638,8 @@ export function metricsTotalsCanceledSubscriptionsFromJSON(
 
 /** @internal */
 export const MetricsTotalsCanceledSubscriptionsCustomerService$inboundSchema:
-  z.ZodMiniType<MetricsTotalsCanceledSubscriptionsCustomerService, unknown> = z
-    .union([z.int(), z.number()]);
+  z.ZodMiniType<MetricsTotalsCanceledSubscriptionsCustomerService, unknown> =
+    smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsCanceledSubscriptionsCustomerServiceFromJSON(
   jsonString: string,
@@ -660,8 +659,8 @@ export function metricsTotalsCanceledSubscriptionsCustomerServiceFromJSON(
 
 /** @internal */
 export const MetricsTotalsCanceledSubscriptionsLowQuality$inboundSchema:
-  z.ZodMiniType<MetricsTotalsCanceledSubscriptionsLowQuality, unknown> = z
-    .union([z.int(), z.number()]);
+  z.ZodMiniType<MetricsTotalsCanceledSubscriptionsLowQuality, unknown> =
+    smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsCanceledSubscriptionsLowQualityFromJSON(
   jsonString: string,
@@ -681,8 +680,8 @@ export function metricsTotalsCanceledSubscriptionsLowQualityFromJSON(
 
 /** @internal */
 export const MetricsTotalsCanceledSubscriptionsMissingFeatures$inboundSchema:
-  z.ZodMiniType<MetricsTotalsCanceledSubscriptionsMissingFeatures, unknown> = z
-    .union([z.int(), z.number()]);
+  z.ZodMiniType<MetricsTotalsCanceledSubscriptionsMissingFeatures, unknown> =
+    smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsCanceledSubscriptionsMissingFeaturesFromJSON(
   jsonString: string,
@@ -702,8 +701,8 @@ export function metricsTotalsCanceledSubscriptionsMissingFeaturesFromJSON(
 
 /** @internal */
 export const MetricsTotalsCanceledSubscriptionsSwitchedService$inboundSchema:
-  z.ZodMiniType<MetricsTotalsCanceledSubscriptionsSwitchedService, unknown> = z
-    .union([z.int(), z.number()]);
+  z.ZodMiniType<MetricsTotalsCanceledSubscriptionsSwitchedService, unknown> =
+    smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsCanceledSubscriptionsSwitchedServiceFromJSON(
   jsonString: string,
@@ -723,8 +722,8 @@ export function metricsTotalsCanceledSubscriptionsSwitchedServiceFromJSON(
 
 /** @internal */
 export const MetricsTotalsCanceledSubscriptionsTooComplex$inboundSchema:
-  z.ZodMiniType<MetricsTotalsCanceledSubscriptionsTooComplex, unknown> = z
-    .union([z.int(), z.number()]);
+  z.ZodMiniType<MetricsTotalsCanceledSubscriptionsTooComplex, unknown> =
+    smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsCanceledSubscriptionsTooComplexFromJSON(
   jsonString: string,
@@ -744,8 +743,8 @@ export function metricsTotalsCanceledSubscriptionsTooComplexFromJSON(
 
 /** @internal */
 export const MetricsTotalsCanceledSubscriptionsTooExpensive$inboundSchema:
-  z.ZodMiniType<MetricsTotalsCanceledSubscriptionsTooExpensive, unknown> = z
-    .union([z.int(), z.number()]);
+  z.ZodMiniType<MetricsTotalsCanceledSubscriptionsTooExpensive, unknown> =
+    smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsCanceledSubscriptionsTooExpensiveFromJSON(
   jsonString: string,
@@ -765,10 +764,9 @@ export function metricsTotalsCanceledSubscriptionsTooExpensiveFromJSON(
 
 /** @internal */
 export const MetricsTotalsCanceledSubscriptionsUnused$inboundSchema:
-  z.ZodMiniType<MetricsTotalsCanceledSubscriptionsUnused, unknown> = z.union([
-    z.int(),
-    z.number(),
-  ]);
+  z.ZodMiniType<MetricsTotalsCanceledSubscriptionsUnused, unknown> = smartUnion(
+    [z.int(), z.number()],
+  );
 
 export function metricsTotalsCanceledSubscriptionsUnusedFromJSON(
   jsonString: string,
@@ -788,7 +786,7 @@ export function metricsTotalsCanceledSubscriptionsUnusedFromJSON(
 
 /** @internal */
 export const MetricsTotalsCanceledSubscriptionsOther$inboundSchema:
-  z.ZodMiniType<MetricsTotalsCanceledSubscriptionsOther, unknown> = z.union([
+  z.ZodMiniType<MetricsTotalsCanceledSubscriptionsOther, unknown> = smartUnion([
     z.int(),
     z.number(),
   ]);
@@ -813,7 +811,7 @@ export function metricsTotalsCanceledSubscriptionsOtherFromJSON(
 export const MetricsTotalsChurnedSubscriptions$inboundSchema: z.ZodMiniType<
   MetricsTotalsChurnedSubscriptions,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsChurnedSubscriptionsFromJSON(
   jsonString: string,
@@ -829,7 +827,7 @@ export function metricsTotalsChurnedSubscriptionsFromJSON(
 export const MetricsTotalsChurnRate$inboundSchema: z.ZodMiniType<
   MetricsTotalsChurnRate,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsChurnRateFromJSON(
   jsonString: string,
@@ -845,7 +843,7 @@ export function metricsTotalsChurnRateFromJSON(
 export const MetricsTotalsLtv$inboundSchema: z.ZodMiniType<
   MetricsTotalsLtv,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsLtvFromJSON(
   jsonString: string,
@@ -861,7 +859,7 @@ export function metricsTotalsLtvFromJSON(
 export const MetricsTotalsGrossMargin$inboundSchema: z.ZodMiniType<
   MetricsTotalsGrossMargin,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsGrossMarginFromJSON(
   jsonString: string,
@@ -877,7 +875,7 @@ export function metricsTotalsGrossMarginFromJSON(
 export const MetricsTotalsGrossMarginPercentage$inboundSchema: z.ZodMiniType<
   MetricsTotalsGrossMarginPercentage,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsGrossMarginPercentageFromJSON(
   jsonString: string,
@@ -894,7 +892,7 @@ export function metricsTotalsGrossMarginPercentageFromJSON(
 export const MetricsTotalsCashflow$inboundSchema: z.ZodMiniType<
   MetricsTotalsCashflow,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([z.int(), z.number()]);
 
 export function metricsTotalsCashflowFromJSON(
   jsonString: string,
@@ -912,103 +910,113 @@ export const MetricsTotals$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    orders: z.optional(z.nullable(z.union([z.int(), z.number()]))),
-    revenue: z.optional(z.nullable(z.union([z.int(), z.number()]))),
-    net_revenue: z.optional(z.nullable(z.union([z.int(), z.number()]))),
-    cumulative_revenue: z.optional(z.nullable(z.union([z.int(), z.number()]))),
-    net_cumulative_revenue: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+    orders: z.optional(z.nullable(smartUnion([z.int(), z.number()]))),
+    revenue: z.optional(z.nullable(smartUnion([z.int(), z.number()]))),
+    net_revenue: z.optional(z.nullable(smartUnion([z.int(), z.number()]))),
+    cumulative_revenue: z.optional(
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
-    costs: z.optional(z.nullable(z.union([z.int(), z.number()]))),
-    cumulative_costs: z.optional(z.nullable(z.union([z.int(), z.number()]))),
-    average_order_value: z.optional(z.nullable(z.union([z.int(), z.number()]))),
+    net_cumulative_revenue: z.optional(
+      z.nullable(smartUnion([z.int(), z.number()])),
+    ),
+    costs: z.optional(z.nullable(smartUnion([z.int(), z.number()]))),
+    cumulative_costs: z.optional(z.nullable(smartUnion([z.int(), z.number()]))),
+    average_order_value: z.optional(
+      z.nullable(smartUnion([z.int(), z.number()])),
+    ),
     net_average_order_value: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
     average_revenue_per_user: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
-    cost_per_user: z.optional(z.nullable(z.union([z.int(), z.number()]))),
+    cost_per_user: z.optional(z.nullable(smartUnion([z.int(), z.number()]))),
     active_user_by_event: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
-    one_time_products: z.optional(z.nullable(z.union([z.int(), z.number()]))),
+    one_time_products: z.optional(
+      z.nullable(smartUnion([z.int(), z.number()])),
+    ),
     one_time_products_revenue: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
     one_time_products_net_revenue: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
-    new_subscriptions: z.optional(z.nullable(z.union([z.int(), z.number()]))),
+    new_subscriptions: z.optional(
+      z.nullable(smartUnion([z.int(), z.number()])),
+    ),
     new_subscriptions_revenue: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
     new_subscriptions_net_revenue: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
     renewed_subscriptions: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
     renewed_subscriptions_revenue: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
     renewed_subscriptions_net_revenue: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
     active_subscriptions: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
     committed_subscriptions: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
     monthly_recurring_revenue: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
     committed_monthly_recurring_revenue: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
-    checkouts: z.optional(z.nullable(z.union([z.int(), z.number()]))),
-    succeeded_checkouts: z.optional(z.nullable(z.union([z.int(), z.number()]))),
+    checkouts: z.optional(z.nullable(smartUnion([z.int(), z.number()]))),
+    succeeded_checkouts: z.optional(
+      z.nullable(smartUnion([z.int(), z.number()])),
+    ),
     checkouts_conversion: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
     canceled_subscriptions: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
     canceled_subscriptions_customer_service: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
     canceled_subscriptions_low_quality: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
     canceled_subscriptions_missing_features: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
     canceled_subscriptions_switched_service: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
     canceled_subscriptions_too_complex: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
     canceled_subscriptions_too_expensive: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
     canceled_subscriptions_unused: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
     canceled_subscriptions_other: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
     churned_subscriptions: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
-    churn_rate: z.optional(z.nullable(z.union([z.int(), z.number()]))),
-    ltv: z.optional(z.nullable(z.union([z.int(), z.number()]))),
-    gross_margin: z.optional(z.nullable(z.union([z.int(), z.number()]))),
+    churn_rate: z.optional(z.nullable(smartUnion([z.int(), z.number()]))),
+    ltv: z.optional(z.nullable(smartUnion([z.int(), z.number()]))),
+    gross_margin: z.optional(z.nullable(smartUnion([z.int(), z.number()]))),
     gross_margin_percentage: z.optional(
-      z.nullable(z.union([z.int(), z.number()])),
+      z.nullable(smartUnion([z.int(), z.number()])),
     ),
-    cashflow: z.optional(z.nullable(z.union([z.int(), z.number()]))),
+    cashflow: z.optional(z.nullable(smartUnion([z.int(), z.number()]))),
   }),
   z.transform((v) => {
     return remap$(v, {

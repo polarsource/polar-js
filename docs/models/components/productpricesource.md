@@ -10,6 +10,8 @@ let value: ProductPriceSource = "catalog";
 
 ## Values
 
+This is an open enum. Unrecognized values will be captured as the `Unrecognized<string>` branded type.
+
 ```typescript
-"catalog" | "ad_hoc"
+"catalog" | "ad_hoc" | Unrecognized<string>
 ```

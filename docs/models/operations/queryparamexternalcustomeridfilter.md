@@ -1,6 +1,6 @@
 # QueryParamExternalCustomerIDFilter
 
-Filter by external customer ID.
+Filter by customer external ID.
 
 
 ## Supported Types

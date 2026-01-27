@@ -8,7 +8,6 @@ import { OrdersUpdateRequest } from "@polar-sh/sdk/models/operations/ordersupdat
 let value: OrdersUpdateRequest = {
   id: "<value>",
   orderUpdate: {
-    billingName: "<value>",
     billingAddress: {
       country: "US",
     },

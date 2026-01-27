@@ -50,8 +50,6 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Confirm a retry payment using a Stripe confirmation token.
- *
- * **Scopes**: `customer_portal:write`
  */
 export function customerPortalOrdersConfirmRetryPayment(
   client: PolarCore,
@@ -145,6 +143,13 @@ async function $do(
         fieldName: "Authorization",
         type: "http:bearer",
         value: security?.customerSession,
+      },
+    ],
+    [
+      {
+        fieldName: "Authorization",
+        type: "http:bearer",
+        value: security?.memberSession,
       },
     ],
   );

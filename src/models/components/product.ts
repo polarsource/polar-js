@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AttachedCustomField,
@@ -128,7 +129,7 @@ export type Product = {
 };
 
 /** @internal */
-export const Prices$inboundSchema: z.ZodMiniType<Prices, unknown> = z.union([
+export const Prices$inboundSchema: z.ZodMiniType<Prices, unknown> = smartUnion([
   LegacyRecurringProductPrice$inboundSchema,
   ProductPrice$inboundSchema,
 ]);
@@ -138,8 +139,8 @@ export type Prices$Outbound =
   | ProductPrice$Outbound;
 
 /** @internal */
-export const Prices$outboundSchema: z.ZodMiniType<Prices$Outbound, Prices> = z
-  .union([
+export const Prices$outboundSchema: z.ZodMiniType<Prices$Outbound, Prices> =
+  smartUnion([
     LegacyRecurringProductPrice$outboundSchema,
     ProductPrice$outboundSchema,
   ]);
@@ -179,7 +180,7 @@ export const Product$inboundSchema: z.ZodMiniType<Product, unknown> = z.pipe(
     organization_id: z.string(),
     metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
     prices: z.array(
-      z.union([
+      smartUnion([
         LegacyRecurringProductPrice$inboundSchema,
         ProductPrice$inboundSchema,
       ]),
@@ -246,7 +247,7 @@ export const Product$outboundSchema: z.ZodMiniType<Product$Outbound, Product> =
       organizationId: z.string(),
       metadata: z.record(z.string(), MetadataOutputType$outboundSchema),
       prices: z.array(
-        z.union([
+        smartUnion([
           LegacyRecurringProductPrice$outboundSchema,
           ProductPrice$outboundSchema,
         ]),

@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Address, Address$inboundSchema } from "./address.js";
 import {
@@ -264,7 +265,7 @@ export type CheckoutPublic = {
 export const CheckoutPublicCustomFieldData$inboundSchema: z.ZodMiniType<
   CheckoutPublicCustomFieldData,
   unknown
-> = z.union([
+> = smartUnion([
   z.string(),
   z.int(),
   z.boolean(),
@@ -285,7 +286,7 @@ export function checkoutPublicCustomFieldDataFromJSON(
 export const CheckoutPublicProductPrice$inboundSchema: z.ZodMiniType<
   CheckoutPublicProductPrice,
   unknown
-> = z.union([
+> = smartUnion([
   LegacyRecurringProductPrice$inboundSchema,
   ProductPrice$inboundSchema,
 ]);
@@ -304,7 +305,7 @@ export function checkoutPublicProductPriceFromJSON(
 export const CheckoutPublicPrices$inboundSchema: z.ZodMiniType<
   CheckoutPublicPrices,
   unknown
-> = z.union([
+> = smartUnion([
   LegacyRecurringProductPrice$inboundSchema,
   ProductPrice$inboundSchema,
 ]);
@@ -323,7 +324,7 @@ export function checkoutPublicPricesFromJSON(
 export const CheckoutPublicDiscount$inboundSchema: z.ZodMiniType<
   CheckoutPublicDiscount,
   unknown
-> = z.union([
+> = smartUnion([
   CheckoutDiscountFixedRepeatDuration$inboundSchema,
   CheckoutDiscountFixedOnceForeverDuration$inboundSchema,
   CheckoutDiscountPercentageRepeatDuration$inboundSchema,
@@ -358,7 +359,7 @@ export const CheckoutPublic$inboundSchema: z.ZodMiniType<
       z.record(
         z.string(),
         z.nullable(
-          z.union([
+          smartUnion([
             z.string(),
             z.int(),
             z.boolean(),
@@ -419,7 +420,7 @@ export const CheckoutPublic$inboundSchema: z.ZodMiniType<
     products: z.array(CheckoutProduct$inboundSchema),
     product: z.nullable(CheckoutProduct$inboundSchema),
     product_price: z.nullable(
-      z.union([
+      smartUnion([
         LegacyRecurringProductPrice$inboundSchema,
         ProductPrice$inboundSchema,
       ]),
@@ -428,7 +429,7 @@ export const CheckoutPublic$inboundSchema: z.ZodMiniType<
       z.record(
         z.string(),
         z.array(
-          z.union([
+          smartUnion([
             LegacyRecurringProductPrice$inboundSchema,
             ProductPrice$inboundSchema,
           ]),
@@ -436,7 +437,7 @@ export const CheckoutPublic$inboundSchema: z.ZodMiniType<
       ),
     ),
     discount: z.nullable(
-      z.union([
+      smartUnion([
         CheckoutDiscountFixedRepeatDuration$inboundSchema,
         CheckoutDiscountFixedOnceForeverDuration$inboundSchema,
         CheckoutDiscountPercentageRepeatDuration$inboundSchema,

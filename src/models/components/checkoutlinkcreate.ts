@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   CheckoutLinkCreateProduct,
   CheckoutLinkCreateProduct$Outbound,
@@ -34,7 +35,7 @@ export type CheckoutLinkCreate$Outbound =
 export const CheckoutLinkCreate$outboundSchema: z.ZodMiniType<
   CheckoutLinkCreate$Outbound,
   CheckoutLinkCreate
-> = z.union([
+> = smartUnion([
   CheckoutLinkCreateProductPrice$outboundSchema,
   CheckoutLinkCreateProduct$outboundSchema,
   CheckoutLinkCreateProducts$outboundSchema,

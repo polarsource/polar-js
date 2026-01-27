@@ -55,8 +55,6 @@ export class PolarCustomers extends ClientSDK {
    *
    * @remarks
    * Update authenticated customer.
-   *
-   * **Scopes**: `customer_portal:write`
    */
   async update(
     security: CustomerPortalCustomersUpdateSecurity,
@@ -76,8 +74,6 @@ export class PolarCustomers extends ClientSDK {
    *
    * @remarks
    * Get saved payment methods of the authenticated customer.
-   *
-   * **Scopes**: `customer_portal:read` `customer_portal:write`
    */
   async listPaymentMethods(
     security: CustomerPortalCustomersListPaymentMethodsSecurity,
@@ -102,8 +98,6 @@ export class PolarCustomers extends ClientSDK {
    *
    * @remarks
    * Add a payment method to the authenticated customer.
-   *
-   * **Scopes**: `customer_portal:read` `customer_portal:write`
    */
   async addPaymentMethod(
     security: CustomerPortalCustomersAddPaymentMethodSecurity,
@@ -123,8 +117,6 @@ export class PolarCustomers extends ClientSDK {
    *
    * @remarks
    * Confirm a payment method for the authenticated customer.
-   *
-   * **Scopes**: `customer_portal:read` `customer_portal:write`
    */
   async confirmPaymentMethod(
     security: CustomerPortalCustomersConfirmPaymentMethodSecurity,
@@ -144,8 +136,6 @@ export class PolarCustomers extends ClientSDK {
    *
    * @remarks
    * Delete a payment method from the authenticated customer.
-   *
-   * **Scopes**: `customer_portal:read` `customer_portal:write`
    */
   async deletePaymentMethod(
     security: CustomerPortalCustomersDeletePaymentMethodSecurity,

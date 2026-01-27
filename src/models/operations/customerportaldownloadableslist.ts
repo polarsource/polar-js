@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   ListResourceDownloadableRead,
   ListResourceDownloadableRead$inboundSchema,
@@ -13,7 +14,8 @@ import {
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalDownloadablesListSecurity = {
-  customerSession: string;
+  customerSession?: string | undefined;
+  memberSession?: string | undefined;
 };
 
 /**
@@ -44,7 +46,8 @@ export type CustomerPortalDownloadablesListResponse = {
 
 /** @internal */
 export type CustomerPortalDownloadablesListSecurity$Outbound = {
-  customer_session: string;
+  customer_session?: string | undefined;
+  member_session?: string | undefined;
 };
 
 /** @internal */
@@ -54,11 +57,13 @@ export const CustomerPortalDownloadablesListSecurity$outboundSchema:
     CustomerPortalDownloadablesListSecurity
   > = z.pipe(
     z.object({
-      customerSession: z.string(),
+      customerSession: z.optional(z.string()),
+      memberSession: z.optional(z.string()),
     }),
     z.transform((v) => {
       return remap$(v, {
         customerSession: "customer_session",
+        memberSession: "member_session",
       });
     }),
   );
@@ -84,7 +89,7 @@ export const CustomerPortalDownloadablesListQueryParamBenefitIDFilter$outboundSc
   z.ZodMiniType<
     CustomerPortalDownloadablesListQueryParamBenefitIDFilter$Outbound,
     CustomerPortalDownloadablesListQueryParamBenefitIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function customerPortalDownloadablesListQueryParamBenefitIDFilterToJSON(
   customerPortalDownloadablesListQueryParamBenefitIDFilter:
@@ -111,7 +116,7 @@ export const CustomerPortalDownloadablesListRequest$outboundSchema:
   > = z.pipe(
     z.object({
       benefitId: z.optional(
-        z.nullable(z.union([z.string(), z.array(z.string())])),
+        z.nullable(smartUnion([z.string(), z.array(z.string())])),
       ),
       page: z._default(z.int(), 1),
       limit: z._default(z.int(), 10),

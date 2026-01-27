@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitPublic,
@@ -114,7 +115,7 @@ export type CheckoutProduct = {
 export const CheckoutProductPrices$inboundSchema: z.ZodMiniType<
   CheckoutProductPrices,
   unknown
-> = z.union([
+> = smartUnion([
   LegacyRecurringProductPrice$inboundSchema,
   ProductPrice$inboundSchema,
 ]);
@@ -127,7 +128,7 @@ export type CheckoutProductPrices$Outbound =
 export const CheckoutProductPrices$outboundSchema: z.ZodMiniType<
   CheckoutProductPrices$Outbound,
   CheckoutProductPrices
-> = z.union([
+> = smartUnion([
   LegacyRecurringProductPrice$outboundSchema,
   ProductPrice$outboundSchema,
 ]);
@@ -173,7 +174,7 @@ export const CheckoutProduct$inboundSchema: z.ZodMiniType<
     is_archived: z.boolean(),
     organization_id: z.string(),
     prices: z.array(
-      z.union([
+      smartUnion([
         LegacyRecurringProductPrice$inboundSchema,
         ProductPrice$inboundSchema,
       ]),
@@ -233,7 +234,7 @@ export const CheckoutProduct$outboundSchema: z.ZodMiniType<
     isArchived: z.boolean(),
     organizationId: z.string(),
     prices: z.array(
-      z.union([
+      smartUnion([
         LegacyRecurringProductPrice$outboundSchema,
         ProductPrice$outboundSchema,
       ]),

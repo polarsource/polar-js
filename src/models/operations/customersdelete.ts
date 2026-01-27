@@ -9,11 +9,16 @@ export type CustomersDeleteRequest = {
    * The customer ID.
    */
   id: string;
+  /**
+   * If true, also anonymize the customer's personal data for GDPR compliance. This replaces email with a hashed version, hashes name and billing name (name preserved for businesses with tax_id), clears billing address, and removes OAuth account data.
+   */
+  anonymize?: boolean | undefined;
 };
 
 /** @internal */
 export type CustomersDeleteRequest$Outbound = {
   id: string;
+  anonymize: boolean;
 };
 
 /** @internal */
@@ -22,6 +27,7 @@ export const CustomersDeleteRequest$outboundSchema: z.ZodMiniType<
   CustomersDeleteRequest
 > = z.object({
   id: z.string(),
+  anonymize: z._default(z.boolean(), false),
 });
 
 export function customersDeleteRequestToJSON(

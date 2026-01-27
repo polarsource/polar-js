@@ -16,8 +16,6 @@
 
 List orders of the authenticated customer.
 
-**Scopes**: `customer_portal:read` `customer_portal:write`
-
 ### Example Usage
 
 <!-- UsageSnippet language="typescript" operationID="customer_portal:orders:list" method="get" path="/v1/customer-portal/orders/" -->
@@ -92,8 +90,6 @@ run();
 ## get
 
 Get an order by ID for the authenticated customer.
-
-**Scopes**: `customer_portal:read` `customer_portal:write`
 
 ### Example Usage
 
@@ -171,8 +167,6 @@ run();
 
 Update an order for the authenticated customer.
 
-**Scopes**: `customer_portal:write`
-
 ### Example Usage
 
 <!-- UsageSnippet language="typescript" operationID="customer_portal:orders:update" method="patch" path="/v1/customer-portal/orders/{id}" -->
@@ -187,7 +181,6 @@ async function run() {
   }, {
     id: "<value>",
     customerOrderUpdate: {
-      billingName: "<value>",
       billingAddress: {
         country: "US",
       },
@@ -218,7 +211,6 @@ async function run() {
   }, {
     id: "<value>",
     customerOrderUpdate: {
-      billingName: "<value>",
       billingAddress: {
         country: "US",
       },
@@ -260,8 +252,6 @@ run();
 ## generateInvoice
 
 Trigger generation of an order's invoice.
-
-**Scopes**: `customer_portal:read` `customer_portal:write`
 
 ### Example Usage
 
@@ -339,8 +329,6 @@ run();
 
 Get an order's invoice data.
 
-**Scopes**: `customer_portal:read` `customer_portal:write`
-
 ### Example Usage
 
 <!-- UsageSnippet language="typescript" operationID="customer_portal:orders:invoice" method="get" path="/v1/customer-portal/orders/{id}/invoice" -->
@@ -417,8 +405,6 @@ run();
 
 Get the current payment status for an order.
 
-**Scopes**: `customer_portal:read` `customer_portal:write`
-
 ### Example Usage
 
 <!-- UsageSnippet language="typescript" operationID="customer_portal:orders:get_payment_status" method="get" path="/v1/customer-portal/orders/{id}/payment-status" -->
@@ -494,8 +480,6 @@ run();
 ## confirmRetryPayment
 
 Confirm a retry payment using a Stripe confirmation token.
-
-**Scopes**: `customer_portal:write`
 
 ### Example Usage
 

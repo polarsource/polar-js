@@ -86,8 +86,6 @@ run();
 
 Update authenticated customer.
 
-**Scopes**: `customer_portal:write`
-
 ### Example Usage
 
 <!-- UsageSnippet language="typescript" operationID="customer_portal:customers:update" method="patch" path="/v1/customer-portal/customers/me" -->
@@ -167,8 +165,6 @@ run();
 
 Get saved payment methods of the authenticated customer.
 
-**Scopes**: `customer_portal:read` `customer_portal:write`
-
 ### Example Usage
 
 <!-- UsageSnippet language="typescript" operationID="customer_portal:customers:list_payment_methods" method="get" path="/v1/customer-portal/customers/me/payment-methods" -->
@@ -243,8 +239,6 @@ run();
 ## addPaymentMethod
 
 Add a payment method to the authenticated customer.
-
-**Scopes**: `customer_portal:read` `customer_portal:write`
 
 ### Example Usage
 
@@ -325,8 +319,6 @@ run();
 
 Confirm a payment method for the authenticated customer.
 
-**Scopes**: `customer_portal:read` `customer_portal:write`
-
 ### Example Usage
 
 <!-- UsageSnippet language="typescript" operationID="customer_portal:customers:confirm_payment_method" method="post" path="/v1/customer-portal/customers/me/payment-methods/confirm" -->
@@ -404,8 +396,6 @@ run();
 ## deletePaymentMethod
 
 Delete a payment method from the authenticated customer.
-
-**Scopes**: `customer_portal:read` `customer_portal:write`
 
 ### Example Usage
 

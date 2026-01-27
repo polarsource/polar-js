@@ -18,9 +18,9 @@ let value: ProductPriceCustom = {
   type: "one_time",
   recurringInterval: "day",
   priceCurrency: "<value>",
-  minimumAmount: 770732,
-  maximumAmount: 124393,
-  presetAmount: 74183,
+  minimumAmount: 508827,
+  maximumAmount: 793062,
+  presetAmount: 879510,
 };
 ```
 
@@ -38,6 +38,6 @@ let value: ProductPriceCustom = {
 | `type`                                                                                                                  | [components.ProductPriceType](../../models/components/productpricetype.md)                                              | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | ~~`recurringInterval`~~                                                                                                 | [components.SubscriptionRecurringInterval](../../models/components/subscriptionrecurringinterval.md)                    | :heavy_check_mark:                                                                                                      | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible. |
 | `priceCurrency`                                                                                                         | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | The currency.                                                                                                           |
-| `minimumAmount`                                                                                                         | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | The minimum amount the customer can pay.                                                                                |
+| `minimumAmount`                                                                                                         | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | The minimum amount the customer can pay. If 0, the price is 'free or pay what you want'. Defaults to 50 cents.          |
 | `maximumAmount`                                                                                                         | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | The maximum amount the customer can pay.                                                                                |
 | `presetAmount`                                                                                                          | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | The initial amount shown to the customer.                                                                               |

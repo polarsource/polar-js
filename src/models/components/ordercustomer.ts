@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Address,
@@ -74,7 +75,7 @@ export type OrderCustomer = {
 export const OrderCustomerTaxId$inboundSchema: z.ZodMiniType<
   OrderCustomerTaxId,
   unknown
-> = z.union([z.string(), TaxIDFormat$inboundSchema]);
+> = smartUnion([z.string(), TaxIDFormat$inboundSchema]);
 /** @internal */
 export type OrderCustomerTaxId$Outbound = string | string;
 
@@ -82,7 +83,7 @@ export type OrderCustomerTaxId$Outbound = string | string;
 export const OrderCustomerTaxId$outboundSchema: z.ZodMiniType<
   OrderCustomerTaxId$Outbound,
   OrderCustomerTaxId
-> = z.union([z.string(), TaxIDFormat$outboundSchema]);
+> = smartUnion([z.string(), TaxIDFormat$outboundSchema]);
 
 export function orderCustomerTaxIdToJSON(
   orderCustomerTaxId: OrderCustomerTaxId,
@@ -122,7 +123,7 @@ export const OrderCustomer$inboundSchema: z.ZodMiniType<
     name: z.nullable(z.string()),
     billing_address: z.nullable(Address$inboundSchema),
     tax_id: z.nullable(
-      z.array(z.nullable(z.union([z.string(), TaxIDFormat$inboundSchema]))),
+      z.array(z.nullable(smartUnion([z.string(), TaxIDFormat$inboundSchema]))),
     ),
     organization_id: z.string(),
     deleted_at: z.nullable(
@@ -177,7 +178,7 @@ export const OrderCustomer$outboundSchema: z.ZodMiniType<
     name: z.nullable(z.string()),
     billingAddress: z.nullable(Address$outboundSchema),
     taxId: z.nullable(
-      z.array(z.nullable(z.union([z.string(), TaxIDFormat$outboundSchema]))),
+      z.array(z.nullable(smartUnion([z.string(), TaxIDFormat$outboundSchema]))),
     ),
     organizationId: z.string(),
     deletedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),

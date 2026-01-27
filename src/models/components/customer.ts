@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Address,
@@ -77,7 +78,7 @@ export type Customer = {
 export const CustomerTaxId$inboundSchema: z.ZodMiniType<
   CustomerTaxId,
   unknown
-> = z.union([z.string(), TaxIDFormat$inboundSchema]);
+> = smartUnion([z.string(), TaxIDFormat$inboundSchema]);
 /** @internal */
 export type CustomerTaxId$Outbound = string | string;
 
@@ -85,7 +86,7 @@ export type CustomerTaxId$Outbound = string | string;
 export const CustomerTaxId$outboundSchema: z.ZodMiniType<
   CustomerTaxId$Outbound,
   CustomerTaxId
-> = z.union([z.string(), TaxIDFormat$outboundSchema]);
+> = smartUnion([z.string(), TaxIDFormat$outboundSchema]);
 
 export function customerTaxIdToJSON(customerTaxId: CustomerTaxId): string {
   return JSON.stringify(CustomerTaxId$outboundSchema.parse(customerTaxId));
@@ -118,7 +119,7 @@ export const Customer$inboundSchema: z.ZodMiniType<Customer, unknown> = z.pipe(
     name: z.nullable(z.string()),
     billing_address: z.nullable(Address$inboundSchema),
     tax_id: z.nullable(
-      z.array(z.nullable(z.union([z.string(), TaxIDFormat$inboundSchema]))),
+      z.array(z.nullable(smartUnion([z.string(), TaxIDFormat$inboundSchema]))),
     ),
     organization_id: z.string(),
     deleted_at: z.nullable(
@@ -173,7 +174,7 @@ export const Customer$outboundSchema: z.ZodMiniType<
     name: z.nullable(z.string()),
     billingAddress: z.nullable(Address$outboundSchema),
     taxId: z.nullable(
-      z.array(z.nullable(z.union([z.string(), TaxIDFormat$outboundSchema]))),
+      z.array(z.nullable(smartUnion([z.string(), TaxIDFormat$outboundSchema]))),
     ),
     organizationId: z.string(),
     deletedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),

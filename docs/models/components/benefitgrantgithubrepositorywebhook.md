@@ -37,10 +37,20 @@ let value: BenefitGrantGitHubRepositoryWebhook = {
     deletedAt: new Date("2026-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
+  member: {
+    id: "<value>",
+    createdAt: new Date("2026-01-19T18:11:16.982Z"),
+    modifiedAt: new Date("2025-10-05T12:09:29.297Z"),
+    customerId: "<value>",
+    email: "member@example.com",
+    name: "Jane Doe",
+    externalId: "usr_1337",
+    role: "billing_manager",
+  },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2024-08-11T07:30:21.850Z"),
-    modifiedAt: new Date("2024-04-18T07:07:21.162Z"),
+    createdAt: new Date("2026-05-01T16:24:20.581Z"),
+    modifiedAt: null,
     type: "github_repository",
     description: "vicinity spectate publication athwart likely far",
     selectable: true,
@@ -77,6 +87,7 @@ let value: BenefitGrantGitHubRepositoryWebhook = {
 | `benefitId`                                                                                                            | *string*                                                                                                               | :heavy_check_mark:                                                                                                     | The ID of the benefit concerned by this grant.                                                                         |
 | `error`                                                                                                                | [components.BenefitGrantError](../../models/components/benefitgranterror.md)                                           | :heavy_minus_sign:                                                                                                     | The error information if the benefit grant failed with an unrecoverable error.                                         |
 | `customer`                                                                                                             | [components.Customer](../../models/components/customer.md)                                                             | :heavy_check_mark:                                                                                                     | A customer in an organization.                                                                                         |
+| `member`                                                                                                               | [components.Member](../../models/components/member.md)                                                                 | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
 | `benefit`                                                                                                              | [components.BenefitGitHubRepository](../../models/components/benefitgithubrepository.md)                               | :heavy_check_mark:                                                                                                     | A benefit of type `github_repository`.<br/><br/>Use it to automatically invite your backers to a private GitHub repository. |
 | `properties`                                                                                                           | [components.BenefitGrantGitHubRepositoryProperties](../../models/components/benefitgrantgithubrepositoryproperties.md) | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
 | `previousProperties`                                                                                                   | [components.BenefitGrantGitHubRepositoryProperties](../../models/components/benefitgrantgithubrepositoryproperties.md) | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |

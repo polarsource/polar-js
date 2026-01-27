@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   ListResourceFileRead,
   ListResourceFileRead$inboundSchema,
@@ -55,7 +56,7 @@ export const FilesListQueryParamOrganizationIDFilter$outboundSchema:
   z.ZodMiniType<
     FilesListQueryParamOrganizationIDFilter$Outbound,
     FilesListQueryParamOrganizationIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function filesListQueryParamOrganizationIDFilterToJSON(
   filesListQueryParamOrganizationIDFilter:
@@ -75,7 +76,7 @@ export type FileIDFilter$Outbound = string | Array<string>;
 export const FileIDFilter$outboundSchema: z.ZodMiniType<
   FileIDFilter$Outbound,
   FileIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function fileIDFilterToJSON(fileIDFilter: FileIDFilter): string {
   return JSON.stringify(FileIDFilter$outboundSchema.parse(fileIDFilter));
@@ -96,9 +97,9 @@ export const FilesListRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     organizationId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
-    ids: z.optional(z.nullable(z.union([z.string(), z.array(z.string())]))),
+    ids: z.optional(z.nullable(smartUnion([z.string(), z.array(z.string())]))),
     page: z._default(z.int(), 1),
     limit: z._default(z.int(), 10),
   }),

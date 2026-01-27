@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   BenefitCustomCreateProperties,
   BenefitCustomCreateProperties$Outbound,
@@ -58,7 +59,7 @@ export type BenefitCustomCreateMetadata$Outbound =
 export const BenefitCustomCreateMetadata$outboundSchema: z.ZodMiniType<
   BenefitCustomCreateMetadata$Outbound,
   BenefitCustomCreateMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
+> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function benefitCustomCreateMetadataToJSON(
   benefitCustomCreateMetadata: BenefitCustomCreateMetadata,
@@ -88,7 +89,7 @@ export const BenefitCustomCreate$outboundSchema: z.ZodMiniType<
     metadata: z.optional(
       z.record(
         z.string(),
-        z.union([z.string(), z.int(), z.number(), z.boolean()]),
+        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
     type: z.literal("custom"),

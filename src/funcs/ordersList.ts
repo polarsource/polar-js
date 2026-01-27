@@ -126,6 +126,7 @@ async function $do(
       "checkout_id": payload.checkout_id,
       "customer_id": payload.customer_id,
       "discount_id": payload.discount_id,
+      "external_customer_id": payload.external_customer_id,
       "limit": payload.limit,
       "organization_id": payload.organization_id,
       "page": payload.page,

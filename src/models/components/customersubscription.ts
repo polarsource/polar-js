@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerCancellationReason,
@@ -134,7 +135,7 @@ export type CustomerSubscription = {
 export const CustomerSubscriptionPrices$inboundSchema: z.ZodMiniType<
   CustomerSubscriptionPrices,
   unknown
-> = z.union([
+> = smartUnion([
   LegacyRecurringProductPrice$inboundSchema,
   ProductPrice$inboundSchema,
 ]);
@@ -205,7 +206,7 @@ export const CustomerSubscription$inboundSchema: z.ZodMiniType<
     customer_cancellation_comment: z.nullable(z.string()),
     product: CustomerSubscriptionProduct$inboundSchema,
     prices: z.array(
-      z.union([
+      smartUnion([
         LegacyRecurringProductPrice$inboundSchema,
         ProductPrice$inboundSchema,
       ]),
