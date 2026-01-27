@@ -14,7 +14,7 @@ targets:
         sourceRevisionDigest: sha256:ac1d60b4cc6260c4a5b529dd39b3e032ed58a3a2d3ea378bdd4e4fa72b131aa0
         sourceBlobDigest: sha256:096ba43e442c92fd4061be10bd3518deb9bcbeadf31f8fa9c4a0b573964612b4
         codeSamplesNamespace: polar-oas-ts-code-samples
-        codeSamplesRevisionDigest: sha256:3a491720c4bb69209c2199ba1194b9562575184ddd8b2e7b40077973771d894b
+        codeSamplesRevisionDigest: sha256:af59dd04ea805cc0111d4bba3bb8f83c7065b981ae220eebdfefeb5814f451a9
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

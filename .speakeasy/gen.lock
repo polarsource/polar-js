@@ -5,15 +5,15 @@ management:
   docVersion: 0.1.0
   speakeasyVersion: 1.698.0
   generationVersion: 2.801.0
-  releaseVersion: 0.42.2
-  configChecksum: a52bfafec351b0cfabe9d16668e6f620
+  releaseVersion: 0.42.3
+  configChecksum: a331ec02a2bbb24a2af8a5cb3944f1e7
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
 persistentEdits:
-  generation_id: dca3d82d-65ab-4f3c-bd09-f1ad3a6a9b27
-  pristine_commit_hash: 02ebc2c56fb851e76f7ed8d413c04a6088a74d9f
-  pristine_tree_hash: 6696ef74809373a069a33bcee8f780deb3dfe882
+  generation_id: 3dadb254-3cdf-4fc1-af26-fe5bcc7bdde0
+  pristine_commit_hash: 2b34f8b0cf751b3b2d332e85ce7c38e060316068
+  pristine_tree_hash: 1e7d8e181f5b10abc97998cc9bbe853e8a1e8479
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -4584,12 +4584,12 @@ trackedFiles:
     pristine_git_object: 81b74b46d6979f928ebe4b20753635ba6f9a3882
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:5c333926444611714a6e6553f87a16a83498cec7
-    pristine_git_object: 8e2a93928a6a133cd371a141f68e38027d6949e3
+    last_write_checksum: sha1:80dcc99f2dfa5e28c78d4a3911ea671e2de2ba9c
+    pristine_git_object: 415f2c1e6deb68eac0f62a6ecc137de8bf2143c6
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:01beb52bb3eaefe40ff61e9b802b84017cbd3368
-    pristine_git_object: 83db00e0a27fa90ceb6bbcd35d34f43836ec9d8d
+    last_write_checksum: sha1:6ea7b0c40161625339fe4f412a091f6d87cb63b4
+    pristine_git_object: e405393e269d0009f5ba90c7abff409fec8b7354
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:6c0a3d0582afbdfea5d4052e704a9e0b6e29c273
@@ -5280,8 +5280,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:417ecc3c063f51c13f284a821592c913ae1d3214
-    pristine_git_object: 99fcffc1f707a9dea58e959059f66d7f93ce38b6
+    last_write_checksum: sha1:fd7a929df25da27536f2533370d4de73efeb7c87
+    pristine_git_object: 7bf76f90cda327e20cee7e3299dce1055c8c5fdb
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
