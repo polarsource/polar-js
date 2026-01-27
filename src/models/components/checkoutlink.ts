@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -134,22 +133,27 @@ export function checkoutLinkDiscountFromJSON(
 export const CheckoutLink$inboundSchema: z.ZodMiniType<CheckoutLink, unknown> =
   z.pipe(
     z.object({
-      id: types.string(),
-      created_at: types.date(),
-      modified_at: types.nullable(types.date()),
-      trial_interval: types.nullable(TrialInterval$inboundSchema),
-      trial_interval_count: types.nullable(types.number()),
+      id: z.string(),
+      created_at: z.pipe(
+        z.iso.datetime({ offset: true }),
+        z.transform(v => new Date(v)),
+      ),
+      modified_at: z.nullable(
+        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+      ),
+      trial_interval: z.nullable(TrialInterval$inboundSchema),
+      trial_interval_count: z.nullable(z.int()),
       metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
       payment_processor: PaymentProcessor$inboundSchema,
-      client_secret: types.string(),
-      success_url: types.nullable(types.string()),
-      label: types.nullable(types.string()),
-      allow_discount_codes: types.boolean(),
-      require_billing_address: types.boolean(),
-      discount_id: types.nullable(types.string()),
-      organization_id: types.string(),
+      client_secret: z.string(),
+      success_url: z.nullable(z.string()),
+      label: z.nullable(z.string()),
+      allow_discount_codes: z.boolean(),
+      require_billing_address: z.boolean(),
+      discount_id: z.nullable(z.string()),
+      organization_id: z.string(),
       products: z.array(CheckoutLinkProduct$inboundSchema),
-      discount: types.nullable(
+      discount: z.nullable(
         smartUnion([
           DiscountFixedRepeatDurationBase$inboundSchema,
           DiscountFixedOnceForeverDurationBase$inboundSchema,
@@ -157,7 +161,7 @@ export const CheckoutLink$inboundSchema: z.ZodMiniType<CheckoutLink, unknown> =
           DiscountPercentageOnceForeverDurationBase$inboundSchema,
         ]),
       ),
-      url: types.string(),
+      url: z.string(),
     }),
     z.transform((v) => {
       return remap$(v, {

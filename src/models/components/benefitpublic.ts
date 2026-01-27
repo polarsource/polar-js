@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitType,
@@ -52,14 +51,19 @@ export const BenefitPublic$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    id: types.string(),
-    created_at: types.date(),
-    modified_at: types.nullable(types.date()),
+    id: z.string(),
+    created_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
+    modified_at: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
     type: BenefitType$inboundSchema,
-    description: types.string(),
-    selectable: types.boolean(),
-    deletable: types.boolean(),
-    organization_id: types.string(),
+    description: z.string(),
+    selectable: z.boolean(),
+    deletable: z.boolean(),
+    organization_id: z.string(),
   }),
   z.transform((v) => {
     return remap$(v, {

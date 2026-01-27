@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ProductPriceSeatTiersOutput,
@@ -83,18 +82,21 @@ export const ProductPriceSeatBased$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    created_at: types.date(),
-    modified_at: types.nullable(types.date()),
-    id: types.string(),
-    source: ProductPriceSource$inboundSchema,
-    amount_type: types.literal("seat_based"),
-    is_archived: types.boolean(),
-    product_id: types.string(),
-    type: ProductPriceType$inboundSchema,
-    recurring_interval: types.nullable(
-      SubscriptionRecurringInterval$inboundSchema,
+    created_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
     ),
-    price_currency: types.string(),
+    modified_at: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
+    id: z.string(),
+    source: ProductPriceSource$inboundSchema,
+    amount_type: z.literal("seat_based"),
+    is_archived: z.boolean(),
+    product_id: z.string(),
+    type: ProductPriceType$inboundSchema,
+    recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema),
+    price_currency: z.string(),
     seat_tiers: ProductPriceSeatTiersOutput$inboundSchema,
   }),
   z.transform((v) => {

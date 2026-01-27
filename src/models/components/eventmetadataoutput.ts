@@ -5,7 +5,6 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -29,10 +28,10 @@ export const EventMetadataOutput$inboundSchema: z.ZodMiniType<
 > = smartUnion([
   LLMMetadata$inboundSchema,
   CostMetadataOutput$inboundSchema,
-  types.string(),
-  types.number(),
-  types.number(),
-  types.boolean(),
+  z.string(),
+  z.int(),
+  z.number(),
+  z.boolean(),
 ]);
 
 export function eventMetadataOutputFromJSON(

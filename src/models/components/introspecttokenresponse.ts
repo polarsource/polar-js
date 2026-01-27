@@ -8,7 +8,6 @@ import { safeParse } from "../../lib/schemas.js";
 import * as openEnums from "../../types/enums.js";
 import { OpenEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { SubType, SubType$inboundSchema } from "./subtype.js";
 
@@ -41,16 +40,16 @@ export const IntrospectTokenResponse$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    active: types.boolean(),
-    client_id: types.string(),
+    active: z.boolean(),
+    client_id: z.string(),
     token_type: TokenType$inboundSchema,
-    scope: types.string(),
+    scope: z.string(),
     sub_type: SubType$inboundSchema,
-    sub: types.string(),
-    aud: types.string(),
-    iss: types.string(),
-    exp: types.number(),
-    iat: types.number(),
+    sub: z.string(),
+    aud: z.string(),
+    iss: z.string(),
+    exp: z.int(),
+    iat: z.int(),
   }),
   z.transform((v) => {
     return remap$(v, {

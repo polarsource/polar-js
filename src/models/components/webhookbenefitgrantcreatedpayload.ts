@@ -5,7 +5,6 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitGrantWebhook,
@@ -32,8 +31,11 @@ export const WebhookBenefitGrantCreatedPayload$inboundSchema: z.ZodMiniType<
   WebhookBenefitGrantCreatedPayload,
   unknown
 > = z.object({
-  type: types.literal("benefit_grant.created"),
-  timestamp: types.date(),
+  type: z.literal("benefit_grant.created"),
+  timestamp: z.pipe(
+    z.iso.datetime({ offset: true }),
+    z.transform(v => new Date(v)),
+  ),
   data: BenefitGrantWebhook$inboundSchema,
 });
 /** @internal */

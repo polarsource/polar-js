@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   WebhookEventType,
@@ -64,15 +63,20 @@ export type WebhookEvent = {
 export const WebhookEvent$inboundSchema: z.ZodMiniType<WebhookEvent, unknown> =
   z.pipe(
     z.object({
-      created_at: types.date(),
-      modified_at: types.nullable(types.date()),
-      id: types.string(),
-      last_http_code: z.optional(z.nullable(types.number())),
-      succeeded: z.optional(z.nullable(types.boolean())),
-      skipped: types.boolean(),
-      payload: types.nullable(types.string()),
+      created_at: z.pipe(
+        z.iso.datetime({ offset: true }),
+        z.transform(v => new Date(v)),
+      ),
+      modified_at: z.nullable(
+        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+      ),
+      id: z.string(),
+      last_http_code: z.optional(z.nullable(z.int())),
+      succeeded: z.optional(z.nullable(z.boolean())),
+      skipped: z.boolean(),
+      payload: z.nullable(z.string()),
       type: WebhookEventType$inboundSchema,
-      is_archived: types.boolean(),
+      is_archived: z.boolean(),
     }),
     z.transform((v) => {
       return remap$(v, {

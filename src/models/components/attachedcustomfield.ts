@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomField,
@@ -40,10 +39,10 @@ export const AttachedCustomField$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    custom_field_id: types.string(),
+    custom_field_id: z.string(),
     custom_field: CustomField$inboundSchema,
-    order: types.number(),
-    required: types.boolean(),
+    order: z.int(),
+    required: z.boolean(),
   }),
   z.transform((v) => {
     return remap$(v, {

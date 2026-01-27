@@ -5,7 +5,6 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UniqueAggregation = {
@@ -18,8 +17,8 @@ export const UniqueAggregation$inboundSchema: z.ZodMiniType<
   UniqueAggregation,
   unknown
 > = z.object({
-  func: types.literal("unique"),
-  property: types.string(),
+  func: z.literal("unique"),
+  property: z.string(),
 });
 /** @internal */
 export type UniqueAggregation$Outbound = {

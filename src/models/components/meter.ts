@@ -8,7 +8,6 @@ import { safeParse } from "../../lib/schemas.js";
 import * as discriminatedUnionTypes from "../../types/discriminatedUnion.js";
 import { discriminatedUnion } from "../../types/discriminatedUnion.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CountAggregation,
@@ -172,10 +171,15 @@ export function meterAggregationFromJSON(
 export const Meter$inboundSchema: z.ZodMiniType<Meter, unknown> = z.pipe(
   z.object({
     metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
-    created_at: types.date(),
-    modified_at: types.nullable(types.date()),
-    id: types.string(),
-    name: types.string(),
+    created_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
+    modified_at: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
+    id: z.string(),
+    name: z.string(),
     filter: Filter$inboundSchema,
     aggregation: discriminatedUnion("func", {
       avg: z.intersection(
@@ -197,8 +201,13 @@ export const Meter$inboundSchema: z.ZodMiniType<Meter, unknown> = z.pipe(
       ),
       unique: UniqueAggregation$inboundSchema,
     }),
-    organization_id: types.string(),
-    archived_at: z.optional(z.nullable(types.date())),
+    organization_id: z.string(),
+    archived_at: z.optional(
+      z.nullable(z.pipe(
+        z.iso.datetime({ offset: true }),
+        z.transform(v => new Date(v)),
+      )),
+    ),
   }),
   z.transform((v) => {
     return remap$(v, {

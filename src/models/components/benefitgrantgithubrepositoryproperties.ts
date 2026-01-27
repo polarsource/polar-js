@@ -8,7 +8,6 @@ import { safeParse } from "../../lib/schemas.js";
 import * as openEnums from "../../types/enums.js";
 import { OpenEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export const BenefitGrantGitHubRepositoryPropertiesPermission = {
@@ -43,13 +42,13 @@ export const BenefitGrantGitHubRepositoryPropertiesPermission$outboundSchema:
 export const BenefitGrantGitHubRepositoryProperties$inboundSchema:
   z.ZodMiniType<BenefitGrantGitHubRepositoryProperties, unknown> = z.pipe(
     z.object({
-      account_id: z.optional(z.nullable(types.string())),
-      repository_owner: types.optional(types.string()),
-      repository_name: types.optional(types.string()),
-      permission: types.optional(
+      account_id: z.optional(z.nullable(z.string())),
+      repository_owner: z.optional(z.string()),
+      repository_name: z.optional(z.string()),
+      permission: z.optional(
         BenefitGrantGitHubRepositoryPropertiesPermission$inboundSchema,
       ),
-      granted_account_id: types.optional(types.string()),
+      granted_account_id: z.optional(z.string()),
     }),
     z.transform((v) => {
       return remap$(v, {

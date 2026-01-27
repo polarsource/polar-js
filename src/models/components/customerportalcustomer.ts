@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Address, Address$inboundSchema } from "./address.js";
@@ -45,7 +44,7 @@ export type CustomerPortalCustomer = {
 export const CustomerPortalCustomerTaxId$inboundSchema: z.ZodMiniType<
   CustomerPortalCustomerTaxId,
   unknown
-> = smartUnion([types.string(), TaxIDFormat$inboundSchema]);
+> = smartUnion([z.string(), TaxIDFormat$inboundSchema]);
 
 export function customerPortalCustomerTaxIdFromJSON(
   jsonString: string,
@@ -63,24 +62,27 @@ export const CustomerPortalCustomer$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    created_at: types.date(),
-    modified_at: types.nullable(types.date()),
-    id: types.string(),
-    email: types.string(),
-    email_verified: types.boolean(),
-    name: types.nullable(types.string()),
-    billing_name: types.nullable(types.string()),
-    billing_address: types.nullable(Address$inboundSchema),
-    tax_id: types.nullable(
-      z.array(
-        types.nullable(smartUnion([types.string(), TaxIDFormat$inboundSchema])),
-      ),
+    created_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
+    modified_at: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
+    id: z.string(),
+    email: z.string(),
+    email_verified: z.boolean(),
+    name: z.nullable(z.string()),
+    billing_name: z.nullable(z.string()),
+    billing_address: z.nullable(Address$inboundSchema),
+    tax_id: z.nullable(
+      z.array(z.nullable(smartUnion([z.string(), TaxIDFormat$inboundSchema]))),
     ),
     oauth_accounts: z.record(
       z.string(),
       CustomerPortalOAuthAccount$inboundSchema,
     ),
-    default_payment_method_id: z.optional(z.nullable(types.string())),
+    default_payment_method_id: z.optional(z.nullable(z.string())),
   }),
   z.transform((v) => {
     return remap$(v, {

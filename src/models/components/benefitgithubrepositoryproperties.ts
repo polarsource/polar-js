@@ -8,7 +8,6 @@ import { safeParse } from "../../lib/schemas.js";
 import * as openEnums from "../../types/enums.js";
 import { OpenEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -57,8 +56,8 @@ export const BenefitGitHubRepositoryProperties$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    repository_owner: types.string(),
-    repository_name: types.string(),
+    repository_owner: z.string(),
+    repository_name: z.string(),
     permission: Permission$inboundSchema,
   }),
   z.transform((v) => {

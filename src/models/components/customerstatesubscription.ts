@@ -8,7 +8,6 @@ import { safeParse } from "../../lib/schemas.js";
 import * as openEnums from "../../types/enums.js";
 import { OpenEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -123,7 +122,12 @@ export type CustomerStateSubscription = {
 /** @internal */
 export const CustomerStateSubscriptionCustomFieldData$inboundSchema:
   z.ZodMiniType<CustomerStateSubscriptionCustomFieldData, unknown> = smartUnion(
-    [types.string(), types.number(), types.boolean(), types.date()],
+    [
+      z.string(),
+      z.int(),
+      z.boolean(),
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ],
   );
 /** @internal */
 export type CustomerStateSubscriptionCustomFieldData$Outbound =
@@ -183,37 +187,60 @@ export const CustomerStateSubscription$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    id: types.string(),
-    created_at: types.date(),
-    modified_at: types.nullable(types.date()),
-    custom_field_data: types.optional(
+    id: z.string(),
+    created_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
+    modified_at: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
+    custom_field_data: z.optional(
       z.record(
         z.string(),
-        types.nullable(
+        z.nullable(
           smartUnion([
-            types.string(),
-            types.number(),
-            types.boolean(),
-            types.date(),
+            z.string(),
+            z.int(),
+            z.boolean(),
+            z.pipe(
+              z.iso.datetime({ offset: true }),
+              z.transform(v => new Date(v)),
+            ),
           ]),
         ),
       ),
     ),
     metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
     status: Status$inboundSchema,
-    amount: types.number(),
-    currency: types.string(),
+    amount: z.int(),
+    currency: z.string(),
     recurring_interval: SubscriptionRecurringInterval$inboundSchema,
-    current_period_start: types.date(),
-    current_period_end: types.nullable(types.date()),
-    trial_start: types.nullable(types.date()),
-    trial_end: types.nullable(types.date()),
-    cancel_at_period_end: types.boolean(),
-    canceled_at: types.nullable(types.date()),
-    started_at: types.nullable(types.date()),
-    ends_at: types.nullable(types.date()),
-    product_id: types.string(),
-    discount_id: types.nullable(types.string()),
+    current_period_start: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
+    current_period_end: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
+    trial_start: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
+    trial_end: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
+    cancel_at_period_end: z.boolean(),
+    canceled_at: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
+    started_at: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
+    ends_at: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
+    product_id: z.string(),
+    discount_id: z.nullable(z.string()),
     meters: z.array(CustomerStateSubscriptionMeter$inboundSchema),
   }),
   z.transform((v) => {

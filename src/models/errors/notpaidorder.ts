@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import * as types from "../../types/primitives.js";
 import { PolarError } from "./polarerror.js";
 
 export type NotPaidOrderData = {
@@ -38,8 +37,8 @@ export class NotPaidOrder extends PolarError {
 export const NotPaidOrder$inboundSchema: z.ZodMiniType<NotPaidOrder, unknown> =
   z.pipe(
     z.object({
-      error: types.literal("NotPaidOrder"),
-      detail: types.string(),
+      error: z.literal("NotPaidOrder"),
+      detail: z.string(),
       request$: z.custom<Request>(x => x instanceof Request),
       response$: z.custom<Response>(x => x instanceof Response),
       body$: z.string(),

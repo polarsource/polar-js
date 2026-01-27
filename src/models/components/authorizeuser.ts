@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type AuthorizeUser = {
@@ -21,9 +20,9 @@ export const AuthorizeUser$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    id: types.string(),
-    email: types.string(),
-    avatar_url: types.nullable(types.string()),
+    id: z.string(),
+    email: z.string(),
+    avatar_url: z.nullable(z.string()),
   }),
   z.transform((v) => {
     return remap$(v, {

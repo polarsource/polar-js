@@ -8,7 +8,6 @@ import { safeParse } from "../../lib/schemas.js";
 import * as openEnums from "../../types/enums.js";
 import { OpenEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export const CountryAlpha2 = {
@@ -287,11 +286,11 @@ export const CountryAlpha2$outboundSchema: z.ZodMiniType<
 /** @internal */
 export const Address$inboundSchema: z.ZodMiniType<Address, unknown> = z.pipe(
   z.object({
-    line1: z.optional(z.nullable(types.string())),
-    line2: z.optional(z.nullable(types.string())),
-    postal_code: z.optional(z.nullable(types.string())),
-    city: z.optional(z.nullable(types.string())),
-    state: z.optional(z.nullable(types.string())),
+    line1: z.optional(z.nullable(z.string())),
+    line2: z.optional(z.nullable(z.string())),
+    postal_code: z.optional(z.nullable(z.string())),
+    city: z.optional(z.nullable(z.string())),
+    state: z.optional(z.nullable(z.string())),
     country: CountryAlpha2$inboundSchema,
   }),
   z.transform((v) => {

@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { RFCDate } from "../../types/rfcdate.js";
 import { smartUnion } from "../../types/smartUnion.js";
 import {
   ProductBillingType,
@@ -40,11 +41,11 @@ export type MetricsGetRequest = {
   /**
    * Start date.
    */
-  startDate: Date;
+  startDate: RFCDate;
   /**
    * End date.
    */
-  endDate: Date;
+  endDate: RFCDate;
   /**
    * Timezone to use for the timestamps. Default is UTC.
    */
@@ -188,12 +189,12 @@ export const MetricsGetRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     startDate: z.pipe(
-      z.date(),
-      z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
+      z.custom<RFCDate>(x => x instanceof RFCDate),
+      z.transform(v => v.toString()),
     ),
     endDate: z.pipe(
-      z.date(),
-      z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
+      z.custom<RFCDate>(x => x instanceof RFCDate),
+      z.transform(v => v.toString()),
     ),
     timezone: z._default(z.string(), "UTC"),
     interval: TimeInterval$outboundSchema,

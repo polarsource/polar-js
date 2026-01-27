@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitDownloadablesSubscriberProperties = {
@@ -17,7 +16,7 @@ export type BenefitDownloadablesSubscriberProperties = {
 export const BenefitDownloadablesSubscriberProperties$inboundSchema:
   z.ZodMiniType<BenefitDownloadablesSubscriberProperties, unknown> = z.pipe(
     z.object({
-      active_files: z.array(types.string()),
+      active_files: z.array(z.string()),
     }),
     z.transform((v) => {
       return remap$(v, {

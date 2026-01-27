@@ -5,7 +5,6 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   S3FileUploadPart,
@@ -23,8 +22,8 @@ export const S3FileUploadMultipart$inboundSchema: z.ZodMiniType<
   S3FileUploadMultipart,
   unknown
 > = z.object({
-  id: types.string(),
-  path: types.string(),
+  id: z.string(),
+  path: z.string(),
   parts: z.array(S3FileUploadPart$inboundSchema),
 });
 
