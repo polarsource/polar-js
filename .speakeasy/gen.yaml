@@ -35,10 +35,10 @@ typescript:
     dependencies:
       standardwebhooks: ^1.0.0
     devDependencies:
-      '@types/jest': '*'
-      '@types/node': '*'
-      jest: '*'
-      ts-jest: '*'
+      "@types/jest": "*"
+      "@types/node": "*"
+      jest: "*"
+      ts-jest: "*"
   additionalPackageJSON: {}
   additionalScripts: {}
   alwaysIncludeInboundAndOutbound: false
@@ -57,8 +57,8 @@ typescript:
   flattenGlobalSecurity: true
   flatteningOrder: body-first
   formStringArrayEncodeMode: encoded-string
-  forwardCompatibleEnumsByDefault: false
-  forwardCompatibleUnionsByDefault: "false"
+  forwardCompatibleEnumsByDefault: true
+  forwardCompatibleUnionsByDefault: tagged-only
   generateExamples: true
   imports:
     option: openapi
@@ -71,20 +71,20 @@ typescript:
   inferUnionDiscriminators: true
   inputModelSuffix: input
   jsonpath: legacy
-  laxMode: strict
+  laxMode: lax
   maxMethodParams: 0
   methodArguments: require-security-and-request
   modelPropertyCasing: camel
   moduleFormat: dual
   multipartArrayFormat: legacy
   outputModelSuffix: output
-  packageName: '@polar-sh/sdk'
+  packageName: "@polar-sh/sdk"
   preApplyUnionDiscriminators: true
   preserveModelFieldNames: false
   responseFormat: flat
   sseFlatResponse: false
   templateVersion: v2
-  unionStrategy: left-to-right
+  unionStrategy: populated-fields
   usageSDKInitImports: []
   useIndexModules: false
   zodVersion: v4-mini
