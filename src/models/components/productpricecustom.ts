@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ProductPriceSource,
@@ -59,9 +60,9 @@ export type ProductPriceCustom = {
    */
   priceCurrency: string;
   /**
-   * The minimum amount the customer can pay.
+   * The minimum amount the customer can pay. If 0, the price is 'free or pay what you want'. Defaults to 50 cents.
    */
-  minimumAmount: number | null;
+  minimumAmount: number;
   /**
    * The maximum amount the customer can pay.
    */
@@ -78,24 +79,21 @@ export const ProductPriceCustom$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    id: z.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    id: types.string(),
     source: ProductPriceSource$inboundSchema,
-    amount_type: z.literal("custom"),
-    is_archived: z.boolean(),
-    product_id: z.string(),
+    amount_type: types.literal("custom"),
+    is_archived: types.boolean(),
+    product_id: types.string(),
     type: ProductPriceType$inboundSchema,
-    recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema),
-    price_currency: z.string(),
-    minimum_amount: z.nullable(z.int()),
-    maximum_amount: z.nullable(z.int()),
-    preset_amount: z.nullable(z.int()),
+    recurring_interval: types.nullable(
+      SubscriptionRecurringInterval$inboundSchema,
+    ),
+    price_currency: types.string(),
+    minimum_amount: types.number(),
+    maximum_amount: types.nullable(types.number()),
+    preset_amount: types.nullable(types.number()),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -124,7 +122,7 @@ export type ProductPriceCustom$Outbound = {
   type: string;
   recurring_interval: string | null;
   price_currency: string;
-  minimum_amount: number | null;
+  minimum_amount: number;
   maximum_amount: number | null;
   preset_amount: number | null;
 };
@@ -145,7 +143,7 @@ export const ProductPriceCustom$outboundSchema: z.ZodMiniType<
     type: ProductPriceType$outboundSchema,
     recurringInterval: z.nullable(SubscriptionRecurringInterval$outboundSchema),
     priceCurrency: z.string(),
-    minimumAmount: z.nullable(z.int()),
+    minimumAmount: z.int(),
     maximumAmount: z.nullable(z.int()),
     presetAmount: z.nullable(z.int()),
   }),

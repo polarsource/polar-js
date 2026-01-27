@@ -24,6 +24,7 @@ let value: BalanceDisputeMetadata = {
 | `transactionId`       | *string*              | :heavy_check_mark:    | N/A                   |
 | `disputeId`           | *string*              | :heavy_check_mark:    | N/A                   |
 | `orderId`             | *string*              | :heavy_minus_sign:    | N/A                   |
+| `orderCreatedAt`      | *string*              | :heavy_minus_sign:    | N/A                   |
 | `productId`           | *string*              | :heavy_minus_sign:    | N/A                   |
 | `subscriptionId`      | *string*              | :heavy_minus_sign:    | N/A                   |
 | `amount`              | *number*              | :heavy_check_mark:    | N/A                   |

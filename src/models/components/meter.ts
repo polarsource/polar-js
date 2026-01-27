@@ -5,7 +5,10 @@
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
+import * as discriminatedUnionTypes from "../../types/discriminatedUnion.js";
+import { discriminatedUnion } from "../../types/discriminatedUnion.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CountAggregation,
@@ -47,7 +50,8 @@ export type MeterAggregation =
   | (PropertyAggregation & { func: "max" })
   | (PropertyAggregation & { func: "min" })
   | (PropertyAggregation & { func: "sum" })
-  | UniqueAggregation;
+  | UniqueAggregation
+  | discriminatedUnionTypes.Unknown<"func">;
 
 export type Meter = {
   metadata: { [k: string]: MetadataOutputType };
@@ -77,7 +81,8 @@ export type Meter = {
     | (PropertyAggregation & { func: "max" })
     | (PropertyAggregation & { func: "min" })
     | (PropertyAggregation & { func: "sum" })
-    | UniqueAggregation;
+    | UniqueAggregation
+    | discriminatedUnionTypes.Unknown<"func">;
   /**
    * The ID of the organization owning the meter.
    */
@@ -92,26 +97,26 @@ export type Meter = {
 export const MeterAggregation$inboundSchema: z.ZodMiniType<
   MeterAggregation,
   unknown
-> = z.union([
-  z.intersection(
+> = discriminatedUnion("func", {
+  avg: z.intersection(
     PropertyAggregation$inboundSchema,
     z.object({ func: z.literal("avg") }),
   ),
-  CountAggregation$inboundSchema,
-  z.intersection(
+  count: CountAggregation$inboundSchema,
+  max: z.intersection(
     PropertyAggregation$inboundSchema,
     z.object({ func: z.literal("max") }),
   ),
-  z.intersection(
+  min: z.intersection(
     PropertyAggregation$inboundSchema,
     z.object({ func: z.literal("min") }),
   ),
-  z.intersection(
+  sum: z.intersection(
     PropertyAggregation$inboundSchema,
     z.object({ func: z.literal("sum") }),
   ),
-  UniqueAggregation$inboundSchema,
-]);
+  unique: UniqueAggregation$inboundSchema,
+});
 /** @internal */
 export type MeterAggregation$Outbound =
   | (PropertyAggregation$Outbound & { func: "avg" })
@@ -167,43 +172,33 @@ export function meterAggregationFromJSON(
 export const Meter$inboundSchema: z.ZodMiniType<Meter, unknown> = z.pipe(
   z.object({
     metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    id: z.string(),
-    name: z.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    id: types.string(),
+    name: types.string(),
     filter: Filter$inboundSchema,
-    aggregation: z.union([
-      z.intersection(
+    aggregation: discriminatedUnion("func", {
+      avg: z.intersection(
         PropertyAggregation$inboundSchema,
         z.object({ func: z.literal("avg") }),
       ),
-      CountAggregation$inboundSchema,
-      z.intersection(
+      count: CountAggregation$inboundSchema,
+      max: z.intersection(
         PropertyAggregation$inboundSchema,
         z.object({ func: z.literal("max") }),
       ),
-      z.intersection(
+      min: z.intersection(
         PropertyAggregation$inboundSchema,
         z.object({ func: z.literal("min") }),
       ),
-      z.intersection(
+      sum: z.intersection(
         PropertyAggregation$inboundSchema,
         z.object({ func: z.literal("sum") }),
       ),
-      UniqueAggregation$inboundSchema,
-    ]),
-    organization_id: z.string(),
-    archived_at: z.optional(
-      z.nullable(z.pipe(
-        z.iso.datetime({ offset: true }),
-        z.transform(v => new Date(v)),
-      )),
-    ),
+      unique: UniqueAggregation$inboundSchema,
+    }),
+    organization_id: types.string(),
+    archived_at: z.optional(z.nullable(types.date())),
   }),
   z.transform((v) => {
     return remap$(v, {

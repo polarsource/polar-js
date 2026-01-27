@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CountAggregation = {
@@ -16,7 +17,7 @@ export const CountAggregation$inboundSchema: z.ZodMiniType<
   CountAggregation,
   unknown
 > = z.object({
-  func: z.literal("count"),
+  func: types.literal("count"),
 });
 /** @internal */
 export type CountAggregation$Outbound = {

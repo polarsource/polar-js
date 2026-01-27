@@ -133,6 +133,13 @@ async function $do(
         value: security?.customerSession,
       },
     ],
+    [
+      {
+        fieldName: "Authorization",
+        type: "http:bearer",
+        value: security?.memberSession,
+      },
+    ],
   );
 
   const context = {

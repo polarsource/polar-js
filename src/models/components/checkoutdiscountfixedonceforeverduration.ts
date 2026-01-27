@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DiscountDuration,
@@ -38,11 +39,11 @@ export const CheckoutDiscountFixedOnceForeverDuration$inboundSchema:
   z.ZodMiniType<CheckoutDiscountFixedOnceForeverDuration, unknown> = z.object({
     duration: DiscountDuration$inboundSchema,
     type: DiscountType$inboundSchema,
-    amount: z.int(),
-    currency: z.string(),
-    id: z.string(),
-    name: z.string(),
-    code: z.nullable(z.string()),
+    amount: types.number(),
+    currency: types.string(),
+    id: types.string(),
+    name: types.string(),
+    code: types.nullable(types.string()),
   });
 /** @internal */
 export type CheckoutDiscountFixedOnceForeverDuration$Outbound = {

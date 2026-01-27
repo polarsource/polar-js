@@ -20,7 +20,6 @@ Currency values are output in cents.
 <!-- UsageSnippet language="typescript" operationID="metrics:get" method="get" path="/v1/metrics/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
-import { RFCDate } from "@polar-sh/sdk/types/rfcdate.js";
 
 const polar = new Polar({
   accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
@@ -28,8 +27,8 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.metrics.get({
-    startDate: new RFCDate("2025-03-14"),
-    endDate: new RFCDate("2025-03-18"),
+    startDate: new Date("2025-03-14"),
+    endDate: new Date("2025-03-18"),
     interval: "hour",
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
@@ -47,7 +46,6 @@ The standalone function version of this method:
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
 import { metricsGet } from "@polar-sh/sdk/funcs/metricsGet.js";
-import { RFCDate } from "@polar-sh/sdk/types/rfcdate.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -57,8 +55,8 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await metricsGet(polar, {
-    startDate: new RFCDate("2025-03-14"),
-    endDate: new RFCDate("2025-03-18"),
+    startDate: new Date("2025-03-14"),
+    endDate: new Date("2025-03-18"),
     interval: "hour",
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });

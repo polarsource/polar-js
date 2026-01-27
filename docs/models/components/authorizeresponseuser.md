@@ -23,7 +23,7 @@ let value: AuthorizeResponseUser = {
     avatarUrl: null,
   },
   scopes: [
-    "organizations:write",
+    "custom_fields:read",
   ],
 };
 ```

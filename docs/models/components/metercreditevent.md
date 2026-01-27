@@ -40,7 +40,7 @@ let value: MeterCreditEvent = {
   name: "meter.credited",
   metadata: {
     meterId: "<id>",
-    units: 329918,
+    units: 232955,
     rollover: true,
   },
 };

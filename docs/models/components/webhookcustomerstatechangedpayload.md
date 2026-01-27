@@ -40,16 +40,26 @@ let value: WebhookCustomerStateChangedPayload = {
     grantedBenefits: [
       {
         id: "d322132c-a9d0-4e0d-b8d3-d81ad021a3a9",
-        createdAt: new Date("2026-07-13T15:26:30.510Z"),
-        modifiedAt: new Date("2025-10-06T12:02:58.817Z"),
+        createdAt: new Date("2024-03-21T19:19:39.234Z"),
+        modifiedAt: new Date("2024-03-23T14:16:16.143Z"),
         grantedAt: new Date("2025-01-03T13:37:00Z"),
         benefitId: "397a17aa-15cf-4cb4-9333-18040203cf98",
-        benefitType: "custom",
+        benefitType: "downloadables",
         benefitMetadata: {},
         properties: {},
       },
     ],
-    activeMeters: [],
+    activeMeters: [
+      {
+        id: "<value>",
+        createdAt: new Date("2026-04-09T07:47:28.564Z"),
+        modifiedAt: new Date("2025-01-15T23:50:15.732Z"),
+        meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
+        consumedUnits: 25,
+        creditedUnits: 100,
+        balance: 75,
+      },
+    ],
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
 };

@@ -6,6 +6,8 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerCancellationReason,
@@ -207,12 +209,7 @@ export type Subscription = {
 export const CustomFieldData$inboundSchema: z.ZodMiniType<
   CustomFieldData,
   unknown
-> = z.union([
-  z.string(),
-  z.int(),
-  z.boolean(),
-  z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-]);
+> = smartUnion([types.string(), types.number(), types.boolean(), types.date()]);
 /** @internal */
 export type CustomFieldData$Outbound = string | number | boolean | string;
 
@@ -220,7 +217,7 @@ export type CustomFieldData$Outbound = string | number | boolean | string;
 export const CustomFieldData$outboundSchema: z.ZodMiniType<
   CustomFieldData$Outbound,
   CustomFieldData
-> = z.union([
+> = smartUnion([
   z.string(),
   z.int(),
   z.boolean(),
@@ -246,7 +243,7 @@ export function customFieldDataFromJSON(
 export const SubscriptionDiscount$inboundSchema: z.ZodMiniType<
   SubscriptionDiscount,
   unknown
-> = z.union([
+> = smartUnion([
   DiscountFixedRepeatDurationBase$inboundSchema,
   DiscountFixedOnceForeverDurationBase$inboundSchema,
   DiscountPercentageRepeatDurationBase$inboundSchema,
@@ -263,7 +260,7 @@ export type SubscriptionDiscount$Outbound =
 export const SubscriptionDiscount$outboundSchema: z.ZodMiniType<
   SubscriptionDiscount$Outbound,
   SubscriptionDiscount
-> = z.union([
+> = smartUnion([
   DiscountFixedRepeatDurationBase$outboundSchema,
   DiscountFixedOnceForeverDurationBase$outboundSchema,
   DiscountPercentageRepeatDurationBase$outboundSchema,
@@ -291,7 +288,7 @@ export function subscriptionDiscountFromJSON(
 export const SubscriptionPrices$inboundSchema: z.ZodMiniType<
   SubscriptionPrices,
   unknown
-> = z.union([
+> = smartUnion([
   LegacyRecurringProductPrice$inboundSchema,
   ProductPrice$inboundSchema,
 ]);
@@ -304,7 +301,7 @@ export type SubscriptionPrices$Outbound =
 export const SubscriptionPrices$outboundSchema: z.ZodMiniType<
   SubscriptionPrices$Outbound,
   SubscriptionPrices
-> = z.union([
+> = smartUnion([
   LegacyRecurringProductPrice$outboundSchema,
   ProductPrice$outboundSchema,
 ]);
@@ -330,75 +327,50 @@ export function subscriptionPricesFromJSON(
 export const Subscription$inboundSchema: z.ZodMiniType<Subscription, unknown> =
   z.pipe(
     z.object({
-      created_at: z.pipe(
-        z.iso.datetime({ offset: true }),
-        z.transform(v => new Date(v)),
-      ),
-      modified_at: z.nullable(
-        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-      ),
-      id: z.string(),
-      amount: z.int(),
-      currency: z.string(),
+      created_at: types.date(),
+      modified_at: types.nullable(types.date()),
+      id: types.string(),
+      amount: types.number(),
+      currency: types.string(),
       recurring_interval: SubscriptionRecurringInterval$inboundSchema,
-      recurring_interval_count: z.int(),
+      recurring_interval_count: types.number(),
       status: SubscriptionStatus$inboundSchema,
-      current_period_start: z.pipe(
-        z.iso.datetime({ offset: true }),
-        z.transform(v => new Date(v)),
-      ),
-      current_period_end: z.nullable(
-        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-      ),
-      trial_start: z.nullable(
-        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-      ),
-      trial_end: z.nullable(
-        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-      ),
-      cancel_at_period_end: z.boolean(),
-      canceled_at: z.nullable(
-        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-      ),
-      started_at: z.nullable(
-        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-      ),
-      ends_at: z.nullable(
-        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-      ),
-      ended_at: z.nullable(
-        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-      ),
-      customer_id: z.string(),
-      product_id: z.string(),
-      discount_id: z.nullable(z.string()),
-      checkout_id: z.nullable(z.string()),
-      seats: z.optional(z.nullable(z.int())),
-      customer_cancellation_reason: z.nullable(
+      current_period_start: types.date(),
+      current_period_end: types.nullable(types.date()),
+      trial_start: types.nullable(types.date()),
+      trial_end: types.nullable(types.date()),
+      cancel_at_period_end: types.boolean(),
+      canceled_at: types.nullable(types.date()),
+      started_at: types.nullable(types.date()),
+      ends_at: types.nullable(types.date()),
+      ended_at: types.nullable(types.date()),
+      customer_id: types.string(),
+      product_id: types.string(),
+      discount_id: types.nullable(types.string()),
+      checkout_id: types.nullable(types.string()),
+      seats: z.optional(z.nullable(types.number())),
+      customer_cancellation_reason: types.nullable(
         CustomerCancellationReason$inboundSchema,
       ),
-      customer_cancellation_comment: z.nullable(z.string()),
+      customer_cancellation_comment: types.nullable(types.string()),
       metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
-      custom_field_data: z.optional(
+      custom_field_data: types.optional(
         z.record(
           z.string(),
-          z.nullable(
-            z.union([
-              z.string(),
-              z.int(),
-              z.boolean(),
-              z.pipe(
-                z.iso.datetime({ offset: true }),
-                z.transform(v => new Date(v)),
-              ),
+          types.nullable(
+            smartUnion([
+              types.string(),
+              types.number(),
+              types.boolean(),
+              types.date(),
             ]),
           ),
         ),
       ),
       customer: SubscriptionCustomer$inboundSchema,
       product: Product$inboundSchema,
-      discount: z.nullable(
-        z.union([
+      discount: types.nullable(
+        smartUnion([
           DiscountFixedRepeatDurationBase$inboundSchema,
           DiscountFixedOnceForeverDurationBase$inboundSchema,
           DiscountPercentageRepeatDurationBase$inboundSchema,
@@ -406,7 +378,7 @@ export const Subscription$inboundSchema: z.ZodMiniType<Subscription, unknown> =
         ]),
       ),
       prices: z.array(
-        z.union([
+        smartUnion([
           LegacyRecurringProductPrice$inboundSchema,
           ProductPrice$inboundSchema,
         ]),
@@ -519,7 +491,7 @@ export const Subscription$outboundSchema: z.ZodMiniType<
       z.record(
         z.string(),
         z.nullable(
-          z.union([
+          smartUnion([
             z.string(),
             z.int(),
             z.boolean(),
@@ -531,7 +503,7 @@ export const Subscription$outboundSchema: z.ZodMiniType<
     customer: SubscriptionCustomer$outboundSchema,
     product: Product$outboundSchema,
     discount: z.nullable(
-      z.union([
+      smartUnion([
         DiscountFixedRepeatDurationBase$outboundSchema,
         DiscountFixedOnceForeverDurationBase$outboundSchema,
         DiscountPercentageRepeatDurationBase$outboundSchema,
@@ -539,7 +511,7 @@ export const Subscription$outboundSchema: z.ZodMiniType<
       ]),
     ),
     prices: z.array(
-      z.union([
+      smartUnion([
         LegacyRecurringProductPrice$outboundSchema,
         ProductPrice$outboundSchema,
       ]),

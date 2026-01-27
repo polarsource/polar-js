@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldCheckboxProperties,
@@ -59,19 +60,14 @@ export const CustomFieldCheckbox$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    id: z.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    id: types.string(),
     metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
-    type: z.literal("checkbox"),
-    slug: z.string(),
-    name: z.string(),
-    organization_id: z.string(),
+    type: types.literal("checkbox"),
+    slug: types.string(),
+    name: types.string(),
+    organization_id: types.string(),
     properties: CustomFieldCheckboxProperties$inboundSchema,
   }),
   z.transform((v) => {

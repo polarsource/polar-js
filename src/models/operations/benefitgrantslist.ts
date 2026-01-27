@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   BenefitGrantSortProperty,
   BenefitGrantSortProperty$outboundSchema,
@@ -30,6 +31,11 @@ export type BenefitGrantsListQueryParamCustomerIDFilter =
   | string
   | Array<string>;
 
+/**
+ * Filter by customer external ID.
+ */
+export type QueryParamExternalCustomerIDFilter = string | Array<string>;
+
 export type BenefitGrantsListRequest = {
   /**
    * Filter by organization ID.
@@ -39,6 +45,10 @@ export type BenefitGrantsListRequest = {
    * Filter by customer ID.
    */
   customerId?: string | Array<string> | null | undefined;
+  /**
+   * Filter by customer external ID.
+   */
+  externalCustomerId?: string | Array<string> | null | undefined;
   /**
    * Filter by granted status. If `true`, only granted benefits will be returned. If `false`, only revoked benefits will be returned.
    */
@@ -71,7 +81,7 @@ export const BenefitGrantsListQueryParamOrganizationIDFilter$outboundSchema:
   z.ZodMiniType<
     BenefitGrantsListQueryParamOrganizationIDFilter$Outbound,
     BenefitGrantsListQueryParamOrganizationIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function benefitGrantsListQueryParamOrganizationIDFilterToJSON(
   benefitGrantsListQueryParamOrganizationIDFilter:
@@ -94,7 +104,7 @@ export const BenefitGrantsListQueryParamCustomerIDFilter$outboundSchema:
   z.ZodMiniType<
     BenefitGrantsListQueryParamCustomerIDFilter$Outbound,
     BenefitGrantsListQueryParamCustomerIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function benefitGrantsListQueryParamCustomerIDFilterToJSON(
   benefitGrantsListQueryParamCustomerIDFilter:
@@ -108,9 +118,31 @@ export function benefitGrantsListQueryParamCustomerIDFilterToJSON(
 }
 
 /** @internal */
+export type QueryParamExternalCustomerIDFilter$Outbound =
+  | string
+  | Array<string>;
+
+/** @internal */
+export const QueryParamExternalCustomerIDFilter$outboundSchema: z.ZodMiniType<
+  QueryParamExternalCustomerIDFilter$Outbound,
+  QueryParamExternalCustomerIDFilter
+> = smartUnion([z.string(), z.array(z.string())]);
+
+export function queryParamExternalCustomerIDFilterToJSON(
+  queryParamExternalCustomerIDFilter: QueryParamExternalCustomerIDFilter,
+): string {
+  return JSON.stringify(
+    QueryParamExternalCustomerIDFilter$outboundSchema.parse(
+      queryParamExternalCustomerIDFilter,
+    ),
+  );
+}
+
+/** @internal */
 export type BenefitGrantsListRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
   customer_id?: string | Array<string> | null | undefined;
+  external_customer_id?: string | Array<string> | null | undefined;
   is_granted?: boolean | null | undefined;
   page: number;
   limit: number;
@@ -124,10 +156,13 @@ export const BenefitGrantsListRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     organizationId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     customerId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+    ),
+    externalCustomerId: z.optional(
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     isGranted: z.optional(z.nullable(z.boolean())),
     page: z._default(z.int(), 1),
@@ -140,6 +175,7 @@ export const BenefitGrantsListRequest$outboundSchema: z.ZodMiniType<
     return remap$(v, {
       organizationId: "organization_id",
       customerId: "customer_id",
+      externalCustomerId: "external_customer_id",
       isGranted: "is_granted",
     });
   }),

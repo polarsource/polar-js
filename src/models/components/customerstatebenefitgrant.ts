@@ -6,6 +6,8 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitGrantCustomProperties,
@@ -94,7 +96,7 @@ export type CustomerStateBenefitGrant = {
 export const CustomerStateBenefitGrantProperties$inboundSchema: z.ZodMiniType<
   CustomerStateBenefitGrantProperties,
   unknown
-> = z.union([
+> = smartUnion([
   BenefitGrantDiscordProperties$inboundSchema,
   BenefitGrantGitHubRepositoryProperties$inboundSchema,
   BenefitGrantDownloadablesProperties$inboundSchema,
@@ -113,7 +115,7 @@ export type CustomerStateBenefitGrantProperties$Outbound =
 export const CustomerStateBenefitGrantProperties$outboundSchema: z.ZodMiniType<
   CustomerStateBenefitGrantProperties$Outbound,
   CustomerStateBenefitGrantProperties
-> = z.union([
+> = smartUnion([
   BenefitGrantDiscordProperties$outboundSchema,
   BenefitGrantGitHubRepositoryProperties$outboundSchema,
   BenefitGrantDownloadablesProperties$outboundSchema,
@@ -147,22 +149,14 @@ export const CustomerStateBenefitGrant$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    id: z.string(),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    granted_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    benefit_id: z.string(),
+    id: types.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    granted_at: types.date(),
+    benefit_id: types.string(),
     benefit_type: BenefitType$inboundSchema,
     benefit_metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
-    properties: z.union([
+    properties: smartUnion([
       BenefitGrantDiscordProperties$inboundSchema,
       BenefitGrantGitHubRepositoryProperties$inboundSchema,
       BenefitGrantDownloadablesProperties$inboundSchema,
@@ -211,7 +205,7 @@ export const CustomerStateBenefitGrant$outboundSchema: z.ZodMiniType<
     benefitId: z.string(),
     benefitType: BenefitType$outboundSchema,
     benefitMetadata: z.record(z.string(), MetadataOutputType$outboundSchema),
-    properties: z.union([
+    properties: smartUnion([
       BenefitGrantDiscordProperties$outboundSchema,
       BenefitGrantGitHubRepositoryProperties$outboundSchema,
       BenefitGrantDownloadablesProperties$outboundSchema,

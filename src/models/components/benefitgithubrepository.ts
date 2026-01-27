@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitGitHubRepositoryProperties,
@@ -70,19 +71,14 @@ export const BenefitGitHubRepository$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    id: z.string(),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    type: z.literal("github_repository"),
-    description: z.string(),
-    selectable: z.boolean(),
-    deletable: z.boolean(),
-    organization_id: z.string(),
+    id: types.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    type: types.literal("github_repository"),
+    description: types.string(),
+    selectable: types.boolean(),
+    deletable: types.boolean(),
+    organization_id: types.string(),
     metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
     properties: BenefitGitHubRepositoryProperties$inboundSchema,
   }),

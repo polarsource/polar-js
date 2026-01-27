@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -26,8 +27,8 @@ export const CardPaymentMetadata$inboundSchema: z.ZodMiniType<
   CardPaymentMetadata,
   unknown
 > = z.object({
-  brand: z.string(),
-  last4: z.string(),
+  brand: types.string(),
+  last4: types.string(),
 });
 
 export function cardPaymentMetadataFromJSON(

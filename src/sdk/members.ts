@@ -4,15 +4,19 @@
 
 import { membersCreateMember } from "../funcs/membersCreateMember.js";
 import { membersDeleteMember } from "../funcs/membersDeleteMember.js";
+import { membersGetMember } from "../funcs/membersGetMember.js";
 import { membersListMembers } from "../funcs/membersListMembers.js";
+import { membersUpdateMember } from "../funcs/membersUpdateMember.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import { Member } from "../models/components/member.js";
 import { MemberCreate } from "../models/components/membercreate.js";
 import { MembersDeleteMemberRequest } from "../models/operations/membersdeletemember.js";
+import { MembersGetMemberRequest } from "../models/operations/membersgetmember.js";
 import {
   MembersListMembersRequest,
   MembersListMembersResponse,
 } from "../models/operations/memberslistmembers.js";
+import { MembersUpdateMemberRequest } from "../models/operations/membersupdatemember.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -52,6 +56,49 @@ export class Members extends ClientSDK {
     options?: RequestOptions,
   ): Promise<Member> {
     return unwrapAsync(membersCreateMember(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get Member
+   *
+   * @remarks
+   * Get a member by ID.
+   *
+   * The authenticated user or organization must have access to the member's organization.
+   *
+   * **Scopes**: `members:read` `members:write`
+   */
+  async getMember(
+    request: MembersGetMemberRequest,
+    options?: RequestOptions,
+  ): Promise<Member> {
+    return unwrapAsync(membersGetMember(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update Member
+   *
+   * @remarks
+   * Update a member.
+   *
+   * Only name and role can be updated.
+   * The authenticated user or organization must have access to the member's organization.
+   *
+   * **Scopes**: `members:write`
+   */
+  async updateMember(
+    request: MembersUpdateMemberRequest,
+    options?: RequestOptions,
+  ): Promise<Member> {
+    return unwrapAsync(membersUpdateMember(
       this,
       request,
       options,

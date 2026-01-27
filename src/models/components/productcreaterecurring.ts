@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   AttachedCustomFieldCreate,
   AttachedCustomFieldCreate$Outbound,
@@ -125,7 +126,7 @@ export type ProductCreateRecurringMetadata$Outbound =
 export const ProductCreateRecurringMetadata$outboundSchema: z.ZodMiniType<
   ProductCreateRecurringMetadata$Outbound,
   ProductCreateRecurringMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
+> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function productCreateRecurringMetadataToJSON(
   productCreateRecurringMetadata: ProductCreateRecurringMetadata,
@@ -199,7 +200,7 @@ export const ProductCreateRecurring$outboundSchema: z.ZodMiniType<
     metadata: z.optional(
       z.record(
         z.string(),
-        z.union([z.string(), z.int(), z.number(), z.boolean()]),
+        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
     name: z.string(),

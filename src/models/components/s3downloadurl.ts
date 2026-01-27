@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type S3DownloadURL = {
@@ -20,12 +21,9 @@ export const S3DownloadURL$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    url: z.string(),
-    headers: z.optional(z.record(z.string(), z.string())),
-    expires_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
+    url: types.string(),
+    headers: types.optional(z.record(z.string(), types.string())),
+    expires_at: types.date(),
   }),
   z.transform((v) => {
     return remap$(v, {

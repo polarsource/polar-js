@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   EventSource,
   EventSource$outboundSchema,
@@ -96,7 +97,7 @@ export const EventTypesListQueryParamOrganizationIDFilter$outboundSchema:
   z.ZodMiniType<
     EventTypesListQueryParamOrganizationIDFilter$Outbound,
     EventTypesListQueryParamOrganizationIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function eventTypesListQueryParamOrganizationIDFilterToJSON(
   eventTypesListQueryParamOrganizationIDFilter:
@@ -119,7 +120,7 @@ export const EventTypesListQueryParamCustomerIDFilter$outboundSchema:
   z.ZodMiniType<
     EventTypesListQueryParamCustomerIDFilter$Outbound,
     EventTypesListQueryParamCustomerIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function eventTypesListQueryParamCustomerIDFilterToJSON(
   eventTypesListQueryParamCustomerIDFilter:
@@ -142,7 +143,7 @@ export const EventTypesListQueryParamExternalCustomerIDFilter$outboundSchema:
   z.ZodMiniType<
     EventTypesListQueryParamExternalCustomerIDFilter$Outbound,
     EventTypesListQueryParamExternalCustomerIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function eventTypesListQueryParamExternalCustomerIDFilterToJSON(
   eventTypesListQueryParamExternalCustomerIDFilter:
@@ -176,13 +177,13 @@ export const EventTypesListRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     organizationId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     customerId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     externalCustomerId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     query: z.optional(z.nullable(z.string())),
     rootEvents: z._default(z.boolean(), false),

@@ -16,6 +16,7 @@ generation:
     requestResponseComponentNamesFeb2024: true
     securityFeb2025: false
     sharedErrorComponentsApr2025: false
+    sharedNestedComponentsJan2026: false
   auth:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: false
@@ -35,10 +36,10 @@ typescript:
     dependencies:
       standardwebhooks: ^1.0.0
     devDependencies:
-      "@types/jest": "*"
-      "@types/node": "*"
-      jest: "*"
-      ts-jest: "*"
+      '@types/jest': '*'
+      '@types/node': '*'
+      jest: '*'
+      ts-jest: '*'
   additionalPackageJSON: {}
   additionalScripts: {}
   alwaysIncludeInboundAndOutbound: false
@@ -72,13 +73,14 @@ typescript:
   inputModelSuffix: input
   jsonpath: legacy
   laxMode: lax
+  legacyFileNaming: true
   maxMethodParams: 0
   methodArguments: require-security-and-request
   modelPropertyCasing: camel
   moduleFormat: dual
   multipartArrayFormat: legacy
   outputModelSuffix: output
-  packageName: "@polar-sh/sdk"
+  packageName: '@polar-sh/sdk'
   preApplyUnionDiscriminators: true
   preserveModelFieldNames: false
   responseFormat: flat

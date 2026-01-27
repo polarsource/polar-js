@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DiscountDuration,
@@ -80,27 +81,18 @@ export const DiscountPercentageOnceForeverDurationBase$inboundSchema:
     z.object({
       duration: DiscountDuration$inboundSchema,
       type: DiscountType$inboundSchema,
-      basis_points: z.int(),
-      created_at: z.pipe(
-        z.iso.datetime({ offset: true }),
-        z.transform(v => new Date(v)),
-      ),
-      modified_at: z.nullable(
-        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-      ),
-      id: z.string(),
+      basis_points: types.number(),
+      created_at: types.date(),
+      modified_at: types.nullable(types.date()),
+      id: types.string(),
       metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
-      name: z.string(),
-      code: z.nullable(z.string()),
-      starts_at: z.nullable(
-        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-      ),
-      ends_at: z.nullable(
-        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-      ),
-      max_redemptions: z.nullable(z.int()),
-      redemptions_count: z.int(),
-      organization_id: z.string(),
+      name: types.string(),
+      code: types.nullable(types.string()),
+      starts_at: types.nullable(types.date()),
+      ends_at: types.nullable(types.date()),
+      max_redemptions: types.nullable(types.number()),
+      redemptions_count: types.number(),
+      organization_id: types.string(),
     }),
     z.transform((v) => {
       return remap$(v, {

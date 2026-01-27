@@ -5,8 +5,11 @@
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
+import * as openEnums from "../../types/enums.js";
+import { OpenEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerStateSubscriptionMeter,
@@ -36,7 +39,7 @@ export const Status = {
   Active: "active",
   Trialing: "trialing",
 } as const;
-export type Status = ClosedEnum<typeof Status>;
+export type Status = OpenEnum<typeof Status>;
 
 /**
  * An active customer subscription.
@@ -119,12 +122,9 @@ export type CustomerStateSubscription = {
 
 /** @internal */
 export const CustomerStateSubscriptionCustomFieldData$inboundSchema:
-  z.ZodMiniType<CustomerStateSubscriptionCustomFieldData, unknown> = z.union([
-    z.string(),
-    z.int(),
-    z.boolean(),
-    z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-  ]);
+  z.ZodMiniType<CustomerStateSubscriptionCustomFieldData, unknown> = smartUnion(
+    [types.string(), types.number(), types.boolean(), types.date()],
+  );
 /** @internal */
 export type CustomerStateSubscriptionCustomFieldData$Outbound =
   | string
@@ -137,7 +137,7 @@ export const CustomerStateSubscriptionCustomFieldData$outboundSchema:
   z.ZodMiniType<
     CustomerStateSubscriptionCustomFieldData$Outbound,
     CustomerStateSubscriptionCustomFieldData
-  > = z.union([
+  > = smartUnion([
     z.string(),
     z.int(),
     z.boolean(),
@@ -171,12 +171,11 @@ export function customerStateSubscriptionCustomFieldDataFromJSON(
 }
 
 /** @internal */
-export const Status$inboundSchema: z.ZodMiniEnum<typeof Status> = z.enum(
-  Status,
-);
+export const Status$inboundSchema: z.ZodMiniType<Status, unknown> = openEnums
+  .inboundSchema(Status);
 /** @internal */
-export const Status$outboundSchema: z.ZodMiniEnum<typeof Status> =
-  Status$inboundSchema;
+export const Status$outboundSchema: z.ZodMiniType<string, Status> = openEnums
+  .outboundSchema(Status);
 
 /** @internal */
 export const CustomerStateSubscription$inboundSchema: z.ZodMiniType<
@@ -184,60 +183,37 @@ export const CustomerStateSubscription$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    id: z.string(),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    custom_field_data: z.optional(
+    id: types.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    custom_field_data: types.optional(
       z.record(
         z.string(),
-        z.nullable(
-          z.union([
-            z.string(),
-            z.int(),
-            z.boolean(),
-            z.pipe(
-              z.iso.datetime({ offset: true }),
-              z.transform(v => new Date(v)),
-            ),
+        types.nullable(
+          smartUnion([
+            types.string(),
+            types.number(),
+            types.boolean(),
+            types.date(),
           ]),
         ),
       ),
     ),
     metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
     status: Status$inboundSchema,
-    amount: z.int(),
-    currency: z.string(),
+    amount: types.number(),
+    currency: types.string(),
     recurring_interval: SubscriptionRecurringInterval$inboundSchema,
-    current_period_start: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    current_period_end: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    trial_start: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    trial_end: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    cancel_at_period_end: z.boolean(),
-    canceled_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    started_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    ends_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    product_id: z.string(),
-    discount_id: z.nullable(z.string()),
+    current_period_start: types.date(),
+    current_period_end: types.nullable(types.date()),
+    trial_start: types.nullable(types.date()),
+    trial_end: types.nullable(types.date()),
+    cancel_at_period_end: types.boolean(),
+    canceled_at: types.nullable(types.date()),
+    started_at: types.nullable(types.date()),
+    ends_at: types.nullable(types.date()),
+    product_id: types.string(),
+    discount_id: types.nullable(types.string()),
     meters: z.array(CustomerStateSubscriptionMeter$inboundSchema),
   }),
   z.transform((v) => {
@@ -298,7 +274,7 @@ export const CustomerStateSubscription$outboundSchema: z.ZodMiniType<
       z.record(
         z.string(),
         z.nullable(
-          z.union([
+          smartUnion([
             z.string(),
             z.int(),
             z.boolean(),

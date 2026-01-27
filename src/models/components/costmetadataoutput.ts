@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CostMetadataOutput = {
@@ -23,8 +24,8 @@ export const CostMetadataOutput$inboundSchema: z.ZodMiniType<
   CostMetadataOutput,
   unknown
 > = z.object({
-  amount: z.string(),
-  currency: z.string(),
+  amount: types.string(),
+  currency: types.string(),
 });
 
 export function costMetadataOutputFromJSON(

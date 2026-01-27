@@ -36,6 +36,7 @@ import { ResponseValidationError } from "../models/errors/responsevalidationerro
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
+import * as types$ from "../types/primitives.js";
 
 /**
  * Create Refund
@@ -173,8 +174,8 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, z.optional(Refund$inboundSchema)),
-    M.nil(201, z.optional(Refund$inboundSchema)),
+    M.json(200, types$.optional(Refund$inboundSchema)),
+    M.nil(201, types$.optional(Refund$inboundSchema)),
     M.jsonErr(403, RefundedAlready$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),

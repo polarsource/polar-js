@@ -52,8 +52,6 @@ export class PolarOrders extends ClientSDK {
    *
    * @remarks
    * List orders of the authenticated customer.
-   *
-   * **Scopes**: `customer_portal:read` `customer_portal:write`
    */
   async list(
     security: CustomerPortalOrdersListSecurity,
@@ -73,8 +71,6 @@ export class PolarOrders extends ClientSDK {
    *
    * @remarks
    * Get an order by ID for the authenticated customer.
-   *
-   * **Scopes**: `customer_portal:read` `customer_portal:write`
    */
   async get(
     security: CustomerPortalOrdersGetSecurity,
@@ -94,8 +90,6 @@ export class PolarOrders extends ClientSDK {
    *
    * @remarks
    * Update an order for the authenticated customer.
-   *
-   * **Scopes**: `customer_portal:write`
    */
   async update(
     security: CustomerPortalOrdersUpdateSecurity,
@@ -115,8 +109,6 @@ export class PolarOrders extends ClientSDK {
    *
    * @remarks
    * Trigger generation of an order's invoice.
-   *
-   * **Scopes**: `customer_portal:read` `customer_portal:write`
    */
   async generateInvoice(
     security: CustomerPortalOrdersGenerateInvoiceSecurity,
@@ -136,8 +128,6 @@ export class PolarOrders extends ClientSDK {
    *
    * @remarks
    * Get an order's invoice data.
-   *
-   * **Scopes**: `customer_portal:read` `customer_portal:write`
    */
   async invoice(
     security: CustomerPortalOrdersInvoiceSecurity,
@@ -157,8 +147,6 @@ export class PolarOrders extends ClientSDK {
    *
    * @remarks
    * Get the current payment status for an order.
-   *
-   * **Scopes**: `customer_portal:read` `customer_portal:write`
    */
   async getPaymentStatus(
     security: CustomerPortalOrdersGetPaymentStatusSecurity,
@@ -178,8 +166,6 @@ export class PolarOrders extends ClientSDK {
    *
    * @remarks
    * Confirm a retry payment using a Stripe confirmation token.
-   *
-   * **Scopes**: `customer_portal:write`
    */
   async confirmRetryPayment(
     security: CustomerPortalOrdersConfirmRetryPaymentSecurity,

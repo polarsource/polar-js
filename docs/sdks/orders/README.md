@@ -264,7 +264,6 @@ async function run() {
   const result = await polar.orders.update({
     id: "<value>",
     orderUpdate: {
-      billingName: "<value>",
       billingAddress: {
         country: "US",
       },
@@ -295,7 +294,6 @@ async function run() {
   const res = await ordersUpdate(polar, {
     id: "<value>",
     orderUpdate: {
-      billingName: "<value>",
       billingAddress: {
         country: "US",
       },

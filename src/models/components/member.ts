@@ -6,8 +6,13 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { MemberRole, MemberRole$inboundSchema } from "./memberrole.js";
+import {
+  MemberRole,
+  MemberRole$inboundSchema,
+  MemberRole$outboundSchema,
+} from "./memberrole.js";
 
 /**
  * A member of a customer.
@@ -47,18 +52,13 @@ export type Member = {
 /** @internal */
 export const Member$inboundSchema: z.ZodMiniType<Member, unknown> = z.pipe(
   z.object({
-    id: z.string(),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    customer_id: z.string(),
-    email: z.string(),
-    name: z.nullable(z.string()),
-    external_id: z.nullable(z.string()),
+    id: types.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    customer_id: types.string(),
+    email: types.string(),
+    name: types.nullable(types.string()),
+    external_id: types.nullable(types.string()),
     role: MemberRole$inboundSchema,
   }),
   z.transform((v) => {
@@ -70,7 +70,46 @@ export const Member$inboundSchema: z.ZodMiniType<Member, unknown> = z.pipe(
     });
   }),
 );
+/** @internal */
+export type Member$Outbound = {
+  id: string;
+  created_at: string;
+  modified_at: string | null;
+  customer_id: string;
+  email: string;
+  name: string | null;
+  external_id: string | null;
+  role: string;
+};
 
+/** @internal */
+export const Member$outboundSchema: z.ZodMiniType<Member$Outbound, Member> = z
+  .pipe(
+    z.object({
+      id: z.string(),
+      createdAt: z.pipe(z.date(), z.transform(v => v.toISOString())),
+      modifiedAt: z.nullable(
+        z.pipe(z.date(), z.transform(v => v.toISOString())),
+      ),
+      customerId: z.string(),
+      email: z.string(),
+      name: z.nullable(z.string()),
+      externalId: z.nullable(z.string()),
+      role: MemberRole$outboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        createdAt: "created_at",
+        modifiedAt: "modified_at",
+        customerId: "customer_id",
+        externalId: "external_id",
+      });
+    }),
+  );
+
+export function memberToJSON(member: Member): string {
+  return JSON.stringify(Member$outboundSchema.parse(member));
+}
 export function memberFromJSON(
   jsonString: string,
 ): SafeParseResult<Member, SDKValidationError> {

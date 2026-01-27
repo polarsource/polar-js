@@ -42,8 +42,6 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Update authenticated customer.
- *
- * **Scopes**: `customer_portal:write`
  */
 export function customerPortalCustomersUpdate(
   client: PolarCore,
@@ -118,6 +116,13 @@ async function $do(
         fieldName: "Authorization",
         type: "http:bearer",
         value: security?.customerSession,
+      },
+    ],
+    [
+      {
+        fieldName: "Authorization",
+        type: "http:bearer",
+        value: security?.memberSession,
       },
     ],
   );

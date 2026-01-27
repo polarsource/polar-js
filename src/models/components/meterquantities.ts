@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { MeterQuantity, MeterQuantity$inboundSchema } from "./meterquantity.js";
 
@@ -22,7 +23,7 @@ export const MeterQuantities$inboundSchema: z.ZodMiniType<
   unknown
 > = z.object({
   quantities: z.array(MeterQuantity$inboundSchema),
-  total: z.number(),
+  total: types.number(),
 });
 
 export function meterQuantitiesFromJSON(

@@ -5,13 +5,12 @@
 ```typescript
 import { CustomerPortalOrdersGetPaymentStatusSecurity } from "@polar-sh/sdk/models/operations/customerportalordersgetpaymentstatus.js";
 
-let value: CustomerPortalOrdersGetPaymentStatusSecurity = {
-  customerSession: "<value>",
-};
+let value: CustomerPortalOrdersGetPaymentStatusSecurity = {};
 ```
 
 ## Fields
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `customerSession`  | *string*           | :heavy_check_mark: | N/A                |
+| `customerSession`  | *string*           | :heavy_minus_sign: | N/A                |
+| `memberSession`    | *string*           | :heavy_minus_sign: | N/A                |

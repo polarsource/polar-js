@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   CustomerOrderSortProperty,
   CustomerOrderSortProperty$outboundSchema,
@@ -21,7 +22,8 @@ import {
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalOrdersListSecurity = {
-  customerSession: string;
+  customerSession?: string | undefined;
+  memberSession?: string | undefined;
 };
 
 /**
@@ -86,7 +88,8 @@ export type CustomerPortalOrdersListResponse = {
 
 /** @internal */
 export type CustomerPortalOrdersListSecurity$Outbound = {
-  customer_session: string;
+  customer_session?: string | undefined;
+  member_session?: string | undefined;
 };
 
 /** @internal */
@@ -95,11 +98,13 @@ export const CustomerPortalOrdersListSecurity$outboundSchema: z.ZodMiniType<
   CustomerPortalOrdersListSecurity
 > = z.pipe(
   z.object({
-    customerSession: z.string(),
+    customerSession: z.optional(z.string()),
+    memberSession: z.optional(z.string()),
   }),
   z.transform((v) => {
     return remap$(v, {
       customerSession: "customer_session",
+      memberSession: "member_session",
     });
   }),
 );
@@ -124,7 +129,7 @@ export const CustomerPortalOrdersListQueryParamProductIDFilter$outboundSchema:
   z.ZodMiniType<
     CustomerPortalOrdersListQueryParamProductIDFilter$Outbound,
     CustomerPortalOrdersListQueryParamProductIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function customerPortalOrdersListQueryParamProductIDFilterToJSON(
   customerPortalOrdersListQueryParamProductIDFilter:
@@ -147,7 +152,7 @@ export const CustomerPortalOrdersListQueryParamProductBillingTypeFilter$outbound
   z.ZodMiniType<
     CustomerPortalOrdersListQueryParamProductBillingTypeFilter$Outbound,
     CustomerPortalOrdersListQueryParamProductBillingTypeFilter
-  > = z.union([
+  > = smartUnion([
     ProductBillingType$outboundSchema,
     z.array(ProductBillingType$outboundSchema),
   ]);
@@ -172,7 +177,7 @@ export const CustomerPortalOrdersListQueryParamSubscriptionIDFilter$outboundSche
   z.ZodMiniType<
     CustomerPortalOrdersListQueryParamSubscriptionIDFilter$Outbound,
     CustomerPortalOrdersListQueryParamSubscriptionIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function customerPortalOrdersListQueryParamSubscriptionIDFilterToJSON(
   customerPortalOrdersListQueryParamSubscriptionIDFilter:
@@ -203,18 +208,18 @@ export const CustomerPortalOrdersListRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     productId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     productBillingType: z.optional(
       z.nullable(
-        z.union([
+        smartUnion([
           ProductBillingType$outboundSchema,
           z.array(ProductBillingType$outboundSchema),
         ]),
       ),
     ),
     subscriptionId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     query: z.optional(z.nullable(z.string())),
     page: z._default(z.int(), 1),

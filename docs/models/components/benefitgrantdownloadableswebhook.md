@@ -37,17 +37,27 @@ let value: BenefitGrantDownloadablesWebhook = {
     deletedAt: new Date("2026-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
+  member: {
+    id: "<value>",
+    createdAt: new Date("2026-01-19T18:11:16.982Z"),
+    modifiedAt: new Date("2025-10-05T12:09:29.297Z"),
+    customerId: "<value>",
+    email: "member@example.com",
+    name: "Jane Doe",
+    externalId: "usr_1337",
+    role: "billing_manager",
+  },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2026-02-09T09:21:30.385Z"),
-    modifiedAt: new Date("2024-08-31T08:02:14.520Z"),
+    createdAt: new Date("2025-09-23T13:35:30.918Z"),
+    modifiedAt: new Date("2025-06-07T16:02:28.341Z"),
     type: "downloadables",
-    description: "gladly rapidly record excluding because ill",
+    description: "opposite instead aha delete ick",
     selectable: false,
-    deletable: true,
+    deletable: false,
     organizationId: "<value>",
     metadata: {
-      "key": 834881,
+      "key": false,
     },
     properties: {
       archived: {
@@ -81,6 +91,7 @@ let value: BenefitGrantDownloadablesWebhook = {
 | `benefitId`                                                                                                      | *string*                                                                                                         | :heavy_check_mark:                                                                                               | The ID of the benefit concerned by this grant.                                                                   |
 | `error`                                                                                                          | [components.BenefitGrantError](../../models/components/benefitgranterror.md)                                     | :heavy_minus_sign:                                                                                               | The error information if the benefit grant failed with an unrecoverable error.                                   |
 | `customer`                                                                                                       | [components.Customer](../../models/components/customer.md)                                                       | :heavy_check_mark:                                                                                               | A customer in an organization.                                                                                   |
+| `member`                                                                                                         | [components.Member](../../models/components/member.md)                                                           | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |
 | `benefit`                                                                                                        | [components.BenefitDownloadables](../../models/components/benefitdownloadables.md)                               | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
 | `properties`                                                                                                     | [components.BenefitGrantDownloadablesProperties](../../models/components/benefitgrantdownloadablesproperties.md) | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
 | `previousProperties`                                                                                             | [components.BenefitGrantDownloadablesProperties](../../models/components/benefitgrantdownloadablesproperties.md) | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |

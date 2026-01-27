@@ -17,8 +17,8 @@ const value: components.LegacyRecurringProductPrice = {
   type: "recurring",
   recurringInterval: "month",
   priceCurrency: "<value>",
-  minimumAmount: 193061,
-  maximumAmount: null,
+  minimumAmount: 904838,
+  maximumAmount: 47410,
   presetAmount: 774085,
   legacy: true,
 };

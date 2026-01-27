@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { RFCDate } from "../../types/rfcdate.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   ProductBillingType,
   ProductBillingType$outboundSchema,
@@ -40,11 +40,11 @@ export type MetricsGetRequest = {
   /**
    * Start date.
    */
-  startDate: RFCDate;
+  startDate: Date;
   /**
    * End date.
    */
-  endDate: RFCDate;
+  endDate: Date;
   /**
    * Timezone to use for the timestamps. Default is UTC.
    */
@@ -89,7 +89,7 @@ export const MetricsGetQueryParamOrganizationIDFilter$outboundSchema:
   z.ZodMiniType<
     MetricsGetQueryParamOrganizationIDFilter$Outbound,
     MetricsGetQueryParamOrganizationIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function metricsGetQueryParamOrganizationIDFilterToJSON(
   metricsGetQueryParamOrganizationIDFilter:
@@ -111,7 +111,7 @@ export type MetricsGetQueryParamProductIDFilter$Outbound =
 export const MetricsGetQueryParamProductIDFilter$outboundSchema: z.ZodMiniType<
   MetricsGetQueryParamProductIDFilter$Outbound,
   MetricsGetQueryParamProductIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function metricsGetQueryParamProductIDFilterToJSON(
   metricsGetQueryParamProductIDFilter: MetricsGetQueryParamProductIDFilter,
@@ -132,7 +132,7 @@ export type QueryParamProductBillingTypeFilter$Outbound =
 export const QueryParamProductBillingTypeFilter$outboundSchema: z.ZodMiniType<
   QueryParamProductBillingTypeFilter$Outbound,
   QueryParamProductBillingTypeFilter
-> = z.union([
+> = smartUnion([
   ProductBillingType$outboundSchema,
   z.array(ProductBillingType$outboundSchema),
 ]);
@@ -156,7 +156,7 @@ export type MetricsGetQueryParamCustomerIDFilter$Outbound =
 export const MetricsGetQueryParamCustomerIDFilter$outboundSchema: z.ZodMiniType<
   MetricsGetQueryParamCustomerIDFilter$Outbound,
   MetricsGetQueryParamCustomerIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function metricsGetQueryParamCustomerIDFilterToJSON(
   metricsGetQueryParamCustomerIDFilter: MetricsGetQueryParamCustomerIDFilter,
@@ -188,31 +188,31 @@ export const MetricsGetRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     startDate: z.pipe(
-      z.custom<RFCDate>(x => x instanceof RFCDate),
-      z.transform(v => v.toString()),
+      z.date(),
+      z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
     ),
     endDate: z.pipe(
-      z.custom<RFCDate>(x => x instanceof RFCDate),
-      z.transform(v => v.toString()),
+      z.date(),
+      z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
     ),
     timezone: z._default(z.string(), "UTC"),
     interval: TimeInterval$outboundSchema,
     organizationId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     productId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     billingType: z.optional(
       z.nullable(
-        z.union([
+        smartUnion([
           ProductBillingType$outboundSchema,
           z.array(ProductBillingType$outboundSchema),
         ]),
       ),
     ),
     customerId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     metrics: z.optional(z.nullable(z.array(z.string()))),
   }),

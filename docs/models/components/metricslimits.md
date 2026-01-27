@@ -6,10 +6,9 @@ Date limits to get metrics.
 
 ```typescript
 import { MetricsLimits } from "@polar-sh/sdk/models/components/metricslimits.js";
-import { RFCDate } from "@polar-sh/sdk/types/rfcdate.js";
 
 let value: MetricsLimits = {
-  minDate: new RFCDate("2026-11-10"),
+  minDate: new Date("2026-11-10"),
   intervals: {
     hour: {
       minDays: 771853,
@@ -39,5 +38,5 @@ let value: MetricsLimits = {
 
 | Field                                                                                  | Type                                                                                   | Required                                                                               | Description                                                                            |
 | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `minDate`                                                                              | [RFCDate](../../types/rfcdate.md)                                                      | :heavy_check_mark:                                                                     | Minimum date to get metrics.                                                           |
+| `minDate`                                                                              | [Date](../../types/rfcdate.md)                                                         | :heavy_check_mark:                                                                     | Minimum date to get metrics.                                                           |
 | `intervals`                                                                            | [components.MetricsIntervalsLimits](../../models/components/metricsintervalslimits.md) | :heavy_check_mark:                                                                     | Date interval limits to get metrics for each interval.                                 |

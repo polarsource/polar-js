@@ -37,14 +37,24 @@ let value: BenefitGrantCustomWebhook = {
     deletedAt: new Date("2026-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
+  member: {
+    id: "<value>",
+    createdAt: new Date("2026-01-19T18:11:16.982Z"),
+    modifiedAt: new Date("2025-10-05T12:09:29.297Z"),
+    customerId: "<value>",
+    email: "member@example.com",
+    name: "Jane Doe",
+    externalId: "usr_1337",
+    role: "billing_manager",
+  },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2025-01-19T02:50:19.451Z"),
-    modifiedAt: new Date("2025-06-16T20:41:24.432Z"),
+    createdAt: new Date("2026-03-26T16:08:46.490Z"),
+    modifiedAt: new Date("2024-05-22T09:29:41.973Z"),
     type: "custom",
-    description: "cassava vainly vague father",
+    description: "seldom essay oval if boo profuse uh-huh",
     selectable: true,
-    deletable: true,
+    deletable: false,
     organizationId: "<value>",
     metadata: {},
     properties: {
@@ -73,6 +83,7 @@ let value: BenefitGrantCustomWebhook = {
 | `benefitId`                                                                                           | *string*                                                                                              | :heavy_check_mark:                                                                                    | The ID of the benefit concerned by this grant.                                                        |
 | `error`                                                                                               | [components.BenefitGrantError](../../models/components/benefitgranterror.md)                          | :heavy_minus_sign:                                                                                    | The error information if the benefit grant failed with an unrecoverable error.                        |
 | `customer`                                                                                            | [components.Customer](../../models/components/customer.md)                                            | :heavy_check_mark:                                                                                    | A customer in an organization.                                                                        |
+| `member`                                                                                              | [components.Member](../../models/components/member.md)                                                | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
 | `benefit`                                                                                             | [components.BenefitCustom](../../models/components/benefitcustom.md)                                  | :heavy_check_mark:                                                                                    | A benefit of type `custom`.<br/><br/>Use it to grant any kind of benefit that doesn't fit in the other types. |
 | `properties`                                                                                          | [components.BenefitGrantCustomProperties](../../models/components/benefitgrantcustomproperties.md)    | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
 | `previousProperties`                                                                                  | [components.BenefitGrantCustomProperties](../../models/components/benefitgrantcustomproperties.md)    | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |

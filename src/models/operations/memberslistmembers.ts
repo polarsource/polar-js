@@ -22,6 +22,10 @@ export type MembersListMembersRequest = {
    */
   customerId?: string | null | undefined;
   /**
+   * Filter by customer external ID.
+   */
+  externalCustomerId?: string | null | undefined;
+  /**
    * Page number, defaults to 1.
    */
   page?: number | undefined;
@@ -42,6 +46,7 @@ export type MembersListMembersResponse = {
 /** @internal */
 export type MembersListMembersRequest$Outbound = {
   customer_id?: string | null | undefined;
+  external_customer_id?: string | null | undefined;
   page: number;
   limit: number;
   sorting?: Array<string> | null | undefined;
@@ -54,6 +59,7 @@ export const MembersListMembersRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     customerId: z.optional(z.nullable(z.string())),
+    externalCustomerId: z.optional(z.nullable(z.string())),
     page: z._default(z.int(), 1),
     limit: z._default(z.int(), 10),
     sorting: z.optional(z.nullable(z.array(MemberSortProperty$outboundSchema))),
@@ -61,6 +67,7 @@ export const MembersListMembersRequest$outboundSchema: z.ZodMiniType<
   z.transform((v) => {
     return remap$(v, {
       customerId: "customer_id",
+      externalCustomerId: "external_customer_id",
     });
   }),
 );

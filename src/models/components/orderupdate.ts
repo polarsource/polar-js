@@ -15,19 +15,19 @@ import {
  */
 export type OrderUpdate = {
   /**
-   * The name of the customer that should appear on the invoice. Can't be updated after the invoice is generated.
+   * The name of the customer that should appear on the invoice.
    */
-  billingName: string | null;
+  billingName?: string | null | undefined;
   /**
-   * The address of the customer that should appear on the invoice. Can't be updated after the invoice is generated.
+   * The address of the customer that should appear on the invoice. Country and state fields cannot be updated.
    */
-  billingAddress: AddressInput | null;
+  billingAddress?: AddressInput | null | undefined;
 };
 
 /** @internal */
 export type OrderUpdate$Outbound = {
-  billing_name: string | null;
-  billing_address: AddressInput$Outbound | null;
+  billing_name?: string | null | undefined;
+  billing_address?: AddressInput$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -36,8 +36,8 @@ export const OrderUpdate$outboundSchema: z.ZodMiniType<
   OrderUpdate
 > = z.pipe(
   z.object({
-    billingName: z.nullable(z.string()),
-    billingAddress: z.nullable(AddressInput$outboundSchema),
+    billingName: z.optional(z.nullable(z.string())),
+    billingAddress: z.optional(z.nullable(AddressInput$outboundSchema)),
   }),
   z.transform((v) => {
     return remap$(v, {

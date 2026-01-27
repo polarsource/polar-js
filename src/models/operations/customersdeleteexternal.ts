@@ -10,11 +10,16 @@ export type CustomersDeleteExternalRequest = {
    * The customer external ID.
    */
   externalId: string;
+  /**
+   * If true, also anonymize the customer's personal data for GDPR compliance.
+   */
+  anonymize?: boolean | undefined;
 };
 
 /** @internal */
 export type CustomersDeleteExternalRequest$Outbound = {
   external_id: string;
+  anonymize: boolean;
 };
 
 /** @internal */
@@ -24,6 +29,7 @@ export const CustomersDeleteExternalRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     externalId: z.string(),
+    anonymize: z._default(z.boolean(), false),
   }),
   z.transform((v) => {
     return remap$(v, {

@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DiscountFixedOnceForeverDuration,
@@ -30,14 +31,13 @@ export type Discount =
   | DiscountPercentageOnceForeverDuration;
 
 /** @internal */
-export const Discount$inboundSchema: z.ZodMiniType<Discount, unknown> = z.union(
-  [
+export const Discount$inboundSchema: z.ZodMiniType<Discount, unknown> =
+  smartUnion([
     DiscountFixedRepeatDuration$inboundSchema,
     DiscountFixedOnceForeverDuration$inboundSchema,
     DiscountPercentageRepeatDuration$inboundSchema,
     DiscountPercentageOnceForeverDuration$inboundSchema,
-  ],
-);
+  ]);
 
 export function discountFromJSON(
   jsonString: string,

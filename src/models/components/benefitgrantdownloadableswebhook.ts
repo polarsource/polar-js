@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitDownloadables,
@@ -31,6 +32,12 @@ import {
   Customer$Outbound,
   Customer$outboundSchema,
 } from "./customer.js";
+import {
+  Member,
+  Member$inboundSchema,
+  Member$Outbound,
+  Member$outboundSchema,
+} from "./member.js";
 
 export type BenefitGrantDownloadablesWebhook = {
   /**
@@ -89,6 +96,7 @@ export type BenefitGrantDownloadablesWebhook = {
    * A customer in an organization.
    */
   customer: Customer;
+  member?: Member | null | undefined;
   benefit: BenefitDownloadables;
   properties: BenefitGrantDownloadablesProperties;
   previousProperties?: BenefitGrantDownloadablesProperties | null | undefined;
@@ -100,35 +108,21 @@ export const BenefitGrantDownloadablesWebhook$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    id: z.string(),
-    granted_at: z.optional(
-      z.nullable(z.pipe(
-        z.iso.datetime({ offset: true }),
-        z.transform(v => new Date(v)),
-      )),
-    ),
-    is_granted: z.boolean(),
-    revoked_at: z.optional(
-      z.nullable(z.pipe(
-        z.iso.datetime({ offset: true }),
-        z.transform(v => new Date(v)),
-      )),
-    ),
-    is_revoked: z.boolean(),
-    subscription_id: z.nullable(z.string()),
-    order_id: z.nullable(z.string()),
-    customer_id: z.string(),
-    member_id: z.optional(z.nullable(z.string())),
-    benefit_id: z.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    id: types.string(),
+    granted_at: z.optional(z.nullable(types.date())),
+    is_granted: types.boolean(),
+    revoked_at: z.optional(z.nullable(types.date())),
+    is_revoked: types.boolean(),
+    subscription_id: types.nullable(types.string()),
+    order_id: types.nullable(types.string()),
+    customer_id: types.string(),
+    member_id: z.optional(z.nullable(types.string())),
+    benefit_id: types.string(),
     error: z.optional(z.nullable(BenefitGrantError$inboundSchema)),
     customer: Customer$inboundSchema,
+    member: z.optional(z.nullable(Member$inboundSchema)),
     benefit: BenefitDownloadables$inboundSchema,
     properties: BenefitGrantDownloadablesProperties$inboundSchema,
     previous_properties: z.optional(
@@ -168,6 +162,7 @@ export type BenefitGrantDownloadablesWebhook$Outbound = {
   benefit_id: string;
   error?: BenefitGrantError$Outbound | null | undefined;
   customer: Customer$Outbound;
+  member?: Member$Outbound | null | undefined;
   benefit: BenefitDownloadables$Outbound;
   properties: BenefitGrantDownloadablesProperties$Outbound;
   previous_properties?:
@@ -200,6 +195,7 @@ export const BenefitGrantDownloadablesWebhook$outboundSchema: z.ZodMiniType<
     benefitId: z.string(),
     error: z.optional(z.nullable(BenefitGrantError$outboundSchema)),
     customer: Customer$outboundSchema,
+    member: z.optional(z.nullable(Member$outboundSchema)),
     benefit: BenefitDownloadables$outboundSchema,
     properties: BenefitGrantDownloadablesProperties$outboundSchema,
     previousProperties: z.optional(

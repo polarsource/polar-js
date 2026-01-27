@@ -3,18 +3,19 @@
  */
 
 import * as z from "zod/v4-mini";
-import { ClosedEnum } from "../../types/enums.js";
+import * as openEnums from "../../types/enums.js";
+import { OpenEnum } from "../../types/enums.js";
 
 export const MemberRole = {
   Owner: "owner",
   BillingManager: "billing_manager",
   Member: "member",
 } as const;
-export type MemberRole = ClosedEnum<typeof MemberRole>;
+export type MemberRole = OpenEnum<typeof MemberRole>;
 
 /** @internal */
-export const MemberRole$inboundSchema: z.ZodMiniEnum<typeof MemberRole> = z
-  .enum(MemberRole);
+export const MemberRole$inboundSchema: z.ZodMiniType<MemberRole, unknown> =
+  openEnums.inboundSchema(MemberRole);
 /** @internal */
-export const MemberRole$outboundSchema: z.ZodMiniEnum<typeof MemberRole> =
-  MemberRole$inboundSchema;
+export const MemberRole$outboundSchema: z.ZodMiniType<string, MemberRole> =
+  openEnums.outboundSchema(MemberRole);

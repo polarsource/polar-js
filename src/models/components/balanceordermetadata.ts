@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BalanceOrderMetadata = {
@@ -29,18 +30,18 @@ export const BalanceOrderMetadata$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    transaction_id: z.string(),
-    order_id: z.string(),
-    product_id: z.optional(z.string()),
-    subscription_id: z.optional(z.string()),
-    amount: z.int(),
-    currency: z.string(),
-    presentment_amount: z.int(),
-    presentment_currency: z.string(),
-    tax_amount: z.int(),
-    tax_state: z.optional(z.nullable(z.string())),
-    tax_country: z.optional(z.nullable(z.string())),
-    fee: z.int(),
+    transaction_id: types.string(),
+    order_id: types.string(),
+    product_id: types.optional(types.string()),
+    subscription_id: types.optional(types.string()),
+    amount: types.number(),
+    currency: types.string(),
+    presentment_amount: types.number(),
+    presentment_currency: types.string(),
+    tax_amount: types.number(),
+    tax_state: z.optional(z.nullable(types.string())),
+    tax_country: z.optional(z.nullable(types.string())),
+    fee: types.number(),
   }),
   z.transform((v) => {
     return remap$(v, {

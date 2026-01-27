@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   AggregationFunction,
   AggregationFunction$outboundSchema,
@@ -75,7 +76,7 @@ export const MetersQuantitiesQueryParamCustomerIDFilter$outboundSchema:
   z.ZodMiniType<
     MetersQuantitiesQueryParamCustomerIDFilter$Outbound,
     MetersQuantitiesQueryParamCustomerIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function metersQuantitiesQueryParamCustomerIDFilterToJSON(
   metersQuantitiesQueryParamCustomerIDFilter:
@@ -98,7 +99,7 @@ export const MetersQuantitiesQueryParamExternalCustomerIDFilter$outboundSchema:
   z.ZodMiniType<
     MetersQuantitiesQueryParamExternalCustomerIDFilter$Outbound,
     MetersQuantitiesQueryParamExternalCustomerIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function metersQuantitiesQueryParamExternalCustomerIDFilterToJSON(
   metersQuantitiesQueryParamExternalCustomerIDFilter:
@@ -134,10 +135,10 @@ export const MetersQuantitiesRequest$outboundSchema: z.ZodMiniType<
     endTimestamp: z.pipe(z.date(), z.transform(v => v.toISOString())),
     interval: TimeInterval$outboundSchema,
     customerId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     externalCustomerId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     customerAggregationFunction: z.optional(
       z.nullable(AggregationFunction$outboundSchema),

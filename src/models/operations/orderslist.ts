@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   ListResourceOrder,
   ListResourceOrder$inboundSchema,
@@ -53,6 +54,13 @@ export type QueryParamDiscountIDFilter = string | Array<string>;
 export type OrdersListQueryParamCustomerIDFilter = string | Array<string>;
 
 /**
+ * Filter by customer external ID.
+ */
+export type OrdersListQueryParamExternalCustomerIDFilter =
+  | string
+  | Array<string>;
+
+/**
  * Filter by checkout ID.
  */
 export type CheckoutIDFilter = string | Array<string>;
@@ -82,6 +90,10 @@ export type OrdersListRequest = {
    * Filter by customer ID.
    */
   customerId?: string | Array<string> | null | undefined;
+  /**
+   * Filter by customer external ID.
+   */
+  externalCustomerId?: string | Array<string> | null | undefined;
   /**
    * Filter by checkout ID.
    */
@@ -118,7 +130,7 @@ export const OrdersListQueryParamOrganizationIDFilter$outboundSchema:
   z.ZodMiniType<
     OrdersListQueryParamOrganizationIDFilter$Outbound,
     OrdersListQueryParamOrganizationIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function ordersListQueryParamOrganizationIDFilterToJSON(
   ordersListQueryParamOrganizationIDFilter:
@@ -140,7 +152,7 @@ export type OrdersListQueryParamProductIDFilter$Outbound =
 export const OrdersListQueryParamProductIDFilter$outboundSchema: z.ZodMiniType<
   OrdersListQueryParamProductIDFilter$Outbound,
   OrdersListQueryParamProductIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function ordersListQueryParamProductIDFilterToJSON(
   ordersListQueryParamProductIDFilter: OrdersListQueryParamProductIDFilter,
@@ -159,7 +171,7 @@ export type ProductBillingTypeFilter$Outbound = string | Array<string>;
 export const ProductBillingTypeFilter$outboundSchema: z.ZodMiniType<
   ProductBillingTypeFilter$Outbound,
   ProductBillingTypeFilter
-> = z.union([
+> = smartUnion([
   ProductBillingType$outboundSchema,
   z.array(ProductBillingType$outboundSchema),
 ]);
@@ -179,7 +191,7 @@ export type QueryParamDiscountIDFilter$Outbound = string | Array<string>;
 export const QueryParamDiscountIDFilter$outboundSchema: z.ZodMiniType<
   QueryParamDiscountIDFilter$Outbound,
   QueryParamDiscountIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function queryParamDiscountIDFilterToJSON(
   queryParamDiscountIDFilter: QueryParamDiscountIDFilter,
@@ -198,7 +210,7 @@ export type OrdersListQueryParamCustomerIDFilter$Outbound =
 export const OrdersListQueryParamCustomerIDFilter$outboundSchema: z.ZodMiniType<
   OrdersListQueryParamCustomerIDFilter$Outbound,
   OrdersListQueryParamCustomerIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function ordersListQueryParamCustomerIDFilterToJSON(
   ordersListQueryParamCustomerIDFilter: OrdersListQueryParamCustomerIDFilter,
@@ -211,13 +223,36 @@ export function ordersListQueryParamCustomerIDFilterToJSON(
 }
 
 /** @internal */
+export type OrdersListQueryParamExternalCustomerIDFilter$Outbound =
+  | string
+  | Array<string>;
+
+/** @internal */
+export const OrdersListQueryParamExternalCustomerIDFilter$outboundSchema:
+  z.ZodMiniType<
+    OrdersListQueryParamExternalCustomerIDFilter$Outbound,
+    OrdersListQueryParamExternalCustomerIDFilter
+  > = smartUnion([z.string(), z.array(z.string())]);
+
+export function ordersListQueryParamExternalCustomerIDFilterToJSON(
+  ordersListQueryParamExternalCustomerIDFilter:
+    OrdersListQueryParamExternalCustomerIDFilter,
+): string {
+  return JSON.stringify(
+    OrdersListQueryParamExternalCustomerIDFilter$outboundSchema.parse(
+      ordersListQueryParamExternalCustomerIDFilter,
+    ),
+  );
+}
+
+/** @internal */
 export type CheckoutIDFilter$Outbound = string | Array<string>;
 
 /** @internal */
 export const CheckoutIDFilter$outboundSchema: z.ZodMiniType<
   CheckoutIDFilter$Outbound,
   CheckoutIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function checkoutIDFilterToJSON(
   checkoutIDFilter: CheckoutIDFilter,
@@ -234,6 +269,7 @@ export type OrdersListRequest$Outbound = {
   product_billing_type?: string | Array<string> | null | undefined;
   discount_id?: string | Array<string> | null | undefined;
   customer_id?: string | Array<string> | null | undefined;
+  external_customer_id?: string | Array<string> | null | undefined;
   checkout_id?: string | Array<string> | null | undefined;
   page: number;
   limit: number;
@@ -248,27 +284,30 @@ export const OrdersListRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     organizationId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     productId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     productBillingType: z.optional(
       z.nullable(
-        z.union([
+        smartUnion([
           ProductBillingType$outboundSchema,
           z.array(ProductBillingType$outboundSchema),
         ]),
       ),
     ),
     discountId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     customerId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+    ),
+    externalCustomerId: z.optional(
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     checkoutId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     page: z._default(z.int(), 1),
     limit: z._default(z.int(), 10),
@@ -284,6 +323,7 @@ export const OrdersListRequest$outboundSchema: z.ZodMiniType<
       productBillingType: "product_billing_type",
       discountId: "discount_id",
       customerId: "customer_id",
+      externalCustomerId: "external_customer_id",
       checkoutId: "checkout_id",
     });
   }),

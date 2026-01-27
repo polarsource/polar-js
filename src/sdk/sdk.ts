@@ -53,10 +53,12 @@ import { EventTypes } from "./eventtypes.js";
 import { Files } from "./files.js";
 import { LicenseKeys } from "./licensekeys.js";
 import { Members } from "./members.js";
+import { MemberSessions } from "./membersessions.js";
 import { Meters } from "./meters.js";
 import { Metrics } from "./metrics.js";
 import { Oauth2 } from "./oauth2.js";
 import { Orders } from "./orders.js";
+import { OrganizationAccessTokens } from "./organizationaccesstokens.js";
 import { Organizations } from "./organizations.js";
 import { Payments } from "./payments.js";
 import { Products } from "./products.js";
@@ -175,6 +177,11 @@ export class Polar extends ClientSDK {
     return (this._customerSessions ??= new CustomerSessions(this._options));
   }
 
+  private _memberSessions?: MemberSessions;
+  get memberSessions(): MemberSessions {
+    return (this._memberSessions ??= new MemberSessions(this._options));
+  }
+
   private _events?: Events;
   get events(): Events {
     return (this._events ??= new Events(this._options));
@@ -188,6 +195,13 @@ export class Polar extends ClientSDK {
   private _meters?: Meters;
   get meters(): Meters {
     return (this._meters ??= new Meters(this._options));
+  }
+
+  private _organizationAccessTokens?: OrganizationAccessTokens;
+  get organizationAccessTokens(): OrganizationAccessTokens {
+    return (this._organizationAccessTokens ??= new OrganizationAccessTokens(
+      this._options,
+    ));
   }
 
   private _customerMeters?: CustomerMeters;

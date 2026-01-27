@@ -6,6 +6,8 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   LicenseKeyRead,
@@ -28,7 +30,12 @@ export type LicenseKeyActivationRead = {
 export const LicenseKeyActivationReadMeta$inboundSchema: z.ZodMiniType<
   LicenseKeyActivationReadMeta,
   unknown
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
+> = smartUnion([
+  types.string(),
+  types.number(),
+  types.number(),
+  types.boolean(),
+]);
 
 export function licenseKeyActivationReadMetaFromJSON(
   jsonString: string,
@@ -46,20 +53,20 @@ export const LicenseKeyActivationRead$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    id: z.string(),
-    license_key_id: z.string(),
-    label: z.string(),
+    id: types.string(),
+    license_key_id: types.string(),
+    label: types.string(),
     meta: z.record(
       z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
+      smartUnion([
+        types.string(),
+        types.number(),
+        types.number(),
+        types.boolean(),
+      ]),
     ),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
     license_key: LicenseKeyRead$inboundSchema,
   }),
   z.transform((v) => {

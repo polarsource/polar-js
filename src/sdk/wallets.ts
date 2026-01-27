@@ -24,8 +24,6 @@ export class Wallets extends ClientSDK {
    *
    * @remarks
    * List wallets of the authenticated customer.
-   *
-   * **Scopes**: `customer_portal:read` `customer_portal:write`
    */
   async list(
     security: CustomerPortalWalletsListSecurity,
@@ -47,8 +45,6 @@ export class Wallets extends ClientSDK {
    *
    * @remarks
    * Get a wallet by ID for the authenticated customer.
-   *
-   * **Scopes**: `customer_portal:read` `customer_portal:write`
    */
   async get(
     security: CustomerPortalWalletsGetSecurity,

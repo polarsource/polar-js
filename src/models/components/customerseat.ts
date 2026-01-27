@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   SeatStatus,
@@ -73,39 +74,19 @@ export type CustomerSeat = {
 export const CustomerSeat$inboundSchema: z.ZodMiniType<CustomerSeat, unknown> =
   z.pipe(
     z.object({
-      created_at: z.pipe(
-        z.iso.datetime({ offset: true }),
-        z.transform(v => new Date(v)),
-      ),
-      modified_at: z.nullable(
-        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-      ),
-      id: z.string(),
-      subscription_id: z.optional(z.nullable(z.string())),
-      order_id: z.optional(z.nullable(z.string())),
+      created_at: types.date(),
+      modified_at: types.nullable(types.date()),
+      id: types.string(),
+      subscription_id: z.optional(z.nullable(types.string())),
+      order_id: z.optional(z.nullable(types.string())),
       status: SeatStatus$inboundSchema,
-      customer_id: z.optional(z.nullable(z.string())),
-      member_id: z.optional(z.nullable(z.string())),
-      email: z.optional(z.nullable(z.string())),
-      customer_email: z.optional(z.nullable(z.string())),
-      invitation_token_expires_at: z.optional(
-        z.nullable(z.pipe(
-          z.iso.datetime({ offset: true }),
-          z.transform(v => new Date(v)),
-        )),
-      ),
-      claimed_at: z.optional(
-        z.nullable(z.pipe(
-          z.iso.datetime({ offset: true }),
-          z.transform(v => new Date(v)),
-        )),
-      ),
-      revoked_at: z.optional(
-        z.nullable(z.pipe(
-          z.iso.datetime({ offset: true }),
-          z.transform(v => new Date(v)),
-        )),
-      ),
+      customer_id: z.optional(z.nullable(types.string())),
+      member_id: z.optional(z.nullable(types.string())),
+      email: z.optional(z.nullable(types.string())),
+      customer_email: z.optional(z.nullable(types.string())),
+      invitation_token_expires_at: z.optional(z.nullable(types.date())),
+      claimed_at: z.optional(z.nullable(types.date())),
+      revoked_at: z.optional(z.nullable(types.date())),
       seat_metadata: z.optional(z.nullable(z.record(z.string(), z.any()))),
     }),
     z.transform((v) => {

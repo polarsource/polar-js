@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ProductPriceSeatTier,
@@ -45,8 +46,8 @@ export const ProductPriceSeatTiersOutput$inboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     tiers: z.array(ProductPriceSeatTier$inboundSchema),
-    minimum_seats: z.int(),
-    maximum_seats: z.nullable(z.int()),
+    minimum_seats: types.number(),
+    maximum_seats: types.nullable(types.number()),
   }),
   z.transform((v) => {
     return remap$(v, {

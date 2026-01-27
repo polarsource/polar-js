@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Customer, Customer$inboundSchema } from "./customer.js";
 import {
@@ -70,20 +71,17 @@ export const MeterCreditEvent$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    id: z.string(),
-    timestamp: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    organization_id: z.string(),
-    customer_id: z.nullable(z.string()),
-    customer: z.nullable(Customer$inboundSchema),
-    external_customer_id: z.nullable(z.string()),
-    child_count: z._default(z.int(), 0),
-    parent_id: z.optional(z.nullable(z.string())),
-    label: z.string(),
-    source: z.literal("system"),
-    name: z.literal("meter.credited"),
+    id: types.string(),
+    timestamp: types.date(),
+    organization_id: types.string(),
+    customer_id: types.nullable(types.string()),
+    customer: types.nullable(Customer$inboundSchema),
+    external_customer_id: types.nullable(types.string()),
+    child_count: z._default(types.number(), 0),
+    parent_id: z.optional(z.nullable(types.string())),
+    label: types.string(),
+    source: types.literal("system"),
+    name: types.literal("meter.credited"),
     metadata: MeterCreditedMetadata$inboundSchema,
   }),
   z.transform((v) => {

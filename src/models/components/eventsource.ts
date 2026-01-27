@@ -3,17 +3,18 @@
  */
 
 import * as z from "zod/v4-mini";
-import { ClosedEnum } from "../../types/enums.js";
+import * as openEnums from "../../types/enums.js";
+import { OpenEnum } from "../../types/enums.js";
 
 export const EventSource = {
   System: "system",
   User: "user",
 } as const;
-export type EventSource = ClosedEnum<typeof EventSource>;
+export type EventSource = OpenEnum<typeof EventSource>;
 
 /** @internal */
-export const EventSource$inboundSchema: z.ZodMiniEnum<typeof EventSource> = z
-  .enum(EventSource);
+export const EventSource$inboundSchema: z.ZodMiniType<EventSource, unknown> =
+  openEnums.inboundSchema(EventSource);
 /** @internal */
-export const EventSource$outboundSchema: z.ZodMiniEnum<typeof EventSource> =
-  EventSource$inboundSchema;
+export const EventSource$outboundSchema: z.ZodMiniType<string, EventSource> =
+  openEnums.outboundSchema(EventSource);

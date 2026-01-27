@@ -4,6 +4,8 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
+import * as discriminatedUnionTypes from "../../types/discriminatedUnion.js";
+import { discriminatedUnion } from "../../types/discriminatedUnion.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -42,17 +44,18 @@ export type ProductPrice =
   | ProductPriceFixed
   | ProductPriceFree
   | ProductPriceMeteredUnit
-  | ProductPriceSeatBased;
+  | ProductPriceSeatBased
+  | discriminatedUnionTypes.Unknown<"amountType">;
 
 /** @internal */
 export const ProductPrice$inboundSchema: z.ZodMiniType<ProductPrice, unknown> =
-  z.union([
-    ProductPriceCustom$inboundSchema,
-    ProductPriceFixed$inboundSchema,
-    ProductPriceFree$inboundSchema,
-    ProductPriceMeteredUnit$inboundSchema,
-    ProductPriceSeatBased$inboundSchema,
-  ]);
+  discriminatedUnion("amount_type", {
+    custom: ProductPriceCustom$inboundSchema,
+    fixed: ProductPriceFixed$inboundSchema,
+    free: ProductPriceFree$inboundSchema,
+    metered_unit: ProductPriceMeteredUnit$inboundSchema,
+    seat_based: ProductPriceSeatBased$inboundSchema,
+  }, { outputPropertyName: "amountType" });
 /** @internal */
 export type ProductPrice$Outbound =
   | ProductPriceCustom$Outbound

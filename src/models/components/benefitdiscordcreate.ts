@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   BenefitDiscordCreateProperties,
   BenefitDiscordCreateProperties$Outbound,
@@ -55,7 +56,7 @@ export type BenefitDiscordCreateMetadata$Outbound =
 export const BenefitDiscordCreateMetadata$outboundSchema: z.ZodMiniType<
   BenefitDiscordCreateMetadata$Outbound,
   BenefitDiscordCreateMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
+> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function benefitDiscordCreateMetadataToJSON(
   benefitDiscordCreateMetadata: BenefitDiscordCreateMetadata,
@@ -85,7 +86,7 @@ export const BenefitDiscordCreate$outboundSchema: z.ZodMiniType<
     metadata: z.optional(
       z.record(
         z.string(),
-        z.union([z.string(), z.int(), z.number(), z.boolean()]),
+        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
     type: z.literal("discord"),

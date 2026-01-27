@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   MetadataOutputType,
@@ -60,26 +61,21 @@ export type Refund = {
 /** @internal */
 export const Refund$inboundSchema: z.ZodMiniType<Refund, unknown> = z.pipe(
   z.object({
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    id: z.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    id: types.string(),
     metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
     status: RefundStatus$inboundSchema,
     reason: RefundReason$inboundSchema,
-    amount: z.int(),
-    tax_amount: z.int(),
-    currency: z.string(),
-    organization_id: z.string(),
-    order_id: z.string(),
-    subscription_id: z.nullable(z.string()),
-    customer_id: z.string(),
-    revoke_benefits: z.boolean(),
-    dispute: z.nullable(RefundDispute$inboundSchema),
+    amount: types.number(),
+    tax_amount: types.number(),
+    currency: types.string(),
+    organization_id: types.string(),
+    order_id: types.string(),
+    subscription_id: types.nullable(types.string()),
+    customer_id: types.string(),
+    revoke_benefits: types.boolean(),
+    dispute: types.nullable(RefundDispute$inboundSchema),
   }),
   z.transform((v) => {
     return remap$(v, {

@@ -39,9 +39,6 @@ import { Result } from "../types/fp.js";
 
 /**
  * Assign Seat
- *
- * @remarks
- * **Scopes**: `customer_portal:write`
  */
 export function customerPortalSeatsAssignSeat(
   client: PolarCore,
@@ -116,6 +113,13 @@ async function $do(
         fieldName: "Authorization",
         type: "http:bearer",
         value: security?.customerSession,
+      },
+    ],
+    [
+      {
+        fieldName: "Authorization",
+        type: "http:bearer",
+        value: security?.memberSession,
       },
     ],
   );

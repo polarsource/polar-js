@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   OrganizationSocialPlatforms,
@@ -26,7 +27,7 @@ export const OrganizationSocialLink$inboundSchema: z.ZodMiniType<
   unknown
 > = z.object({
   platform: OrganizationSocialPlatforms$inboundSchema,
-  url: z.string(),
+  url: types.string(),
 });
 /** @internal */
 export type OrganizationSocialLink$Outbound = {

@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { PolarCore } from "../core.js";
-import { encodeSimple } from "../lib/encodings.js";
+import { encodeFormQuery, encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -43,6 +43,8 @@ import { Result } from "../types/fp.js";
  * Delete a customer by external ID.
  *
  * Immediately cancels any active subscriptions and revokes any active benefits.
+ *
+ * Set `anonymize=true` to also anonymize PII for GDPR compliance.
  *
  * **Scopes**: `customers:write`
  */
@@ -114,6 +116,10 @@ async function $do(
 
   const path = pathToFunc("/v1/customers/external/{external_id}")(pathParams);
 
+  const query = encodeFormQuery({
+    "anonymize": payload.anonymize,
+  });
+
   const headers = new Headers(compactMap({
     Accept: "application/json",
   }));
@@ -143,6 +149,7 @@ async function $do(
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
+    query: query,
     body: body,
     userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,

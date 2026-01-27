@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DisputeStatus,
@@ -69,22 +70,17 @@ export const RefundDispute$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    id: z.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    id: types.string(),
     status: DisputeStatus$inboundSchema,
-    resolved: z.boolean(),
-    closed: z.boolean(),
-    amount: z.int(),
-    tax_amount: z.int(),
-    currency: z.string(),
-    order_id: z.string(),
-    payment_id: z.string(),
+    resolved: types.boolean(),
+    closed: types.boolean(),
+    amount: types.number(),
+    tax_amount: types.number(),
+    currency: types.string(),
+    order_id: types.string(),
+    payment_id: types.string(),
   }),
   z.transform((v) => {
     return remap$(v, {

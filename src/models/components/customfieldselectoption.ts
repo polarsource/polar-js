@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomFieldSelectOption = {
@@ -17,8 +18,8 @@ export const CustomFieldSelectOption$inboundSchema: z.ZodMiniType<
   CustomFieldSelectOption,
   unknown
 > = z.object({
-  value: z.string(),
-  label: z.string(),
+  value: types.string(),
+  label: types.string(),
 });
 /** @internal */
 export type CustomFieldSelectOption$Outbound = {

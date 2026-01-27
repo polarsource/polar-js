@@ -6,12 +6,14 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BalanceRefundMetadata = {
   transactionId: string;
   refundId: string;
   orderId?: string | undefined;
+  orderCreatedAt?: string | undefined;
   productId?: string | undefined;
   subscriptionId?: string | undefined;
   amount: number;
@@ -31,26 +33,28 @@ export const BalanceRefundMetadata$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    transaction_id: z.string(),
-    refund_id: z.string(),
-    order_id: z.optional(z.string()),
-    product_id: z.optional(z.string()),
-    subscription_id: z.optional(z.string()),
-    amount: z.int(),
-    currency: z.string(),
-    presentment_amount: z.int(),
-    presentment_currency: z.string(),
-    refundable_amount: z.optional(z.int()),
-    tax_amount: z.int(),
-    tax_state: z.optional(z.nullable(z.string())),
-    tax_country: z.optional(z.nullable(z.string())),
-    fee: z.int(),
+    transaction_id: types.string(),
+    refund_id: types.string(),
+    order_id: types.optional(types.string()),
+    order_created_at: types.optional(types.string()),
+    product_id: types.optional(types.string()),
+    subscription_id: types.optional(types.string()),
+    amount: types.number(),
+    currency: types.string(),
+    presentment_amount: types.number(),
+    presentment_currency: types.string(),
+    refundable_amount: types.optional(types.number()),
+    tax_amount: types.number(),
+    tax_state: z.optional(z.nullable(types.string())),
+    tax_country: z.optional(z.nullable(types.string())),
+    fee: types.number(),
   }),
   z.transform((v) => {
     return remap$(v, {
       "transaction_id": "transactionId",
       "refund_id": "refundId",
       "order_id": "orderId",
+      "order_created_at": "orderCreatedAt",
       "product_id": "productId",
       "subscription_id": "subscriptionId",
       "presentment_amount": "presentmentAmount",

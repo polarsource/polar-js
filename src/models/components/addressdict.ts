@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type AddressDict = {
@@ -21,12 +22,12 @@ export type AddressDict = {
 export const AddressDict$inboundSchema: z.ZodMiniType<AddressDict, unknown> = z
   .pipe(
     z.object({
-      line1: z.optional(z.string()),
-      line2: z.optional(z.string()),
-      postal_code: z.optional(z.string()),
-      city: z.optional(z.string()),
-      state: z.optional(z.string()),
-      country: z.string(),
+      line1: types.optional(types.string()),
+      line2: types.optional(types.string()),
+      postal_code: types.optional(types.string()),
+      city: types.optional(types.string()),
+      state: types.optional(types.string()),
+      country: types.string(),
     }),
     z.transform((v) => {
       return remap$(v, {

@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type OrderPaidMetadata = {
@@ -31,20 +32,20 @@ export const OrderPaidMetadata$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    order_id: z.string(),
-    product_id: z.optional(z.string()),
-    billing_type: z.optional(z.string()),
-    amount: z.int(),
-    currency: z.optional(z.string()),
-    net_amount: z.optional(z.int()),
-    tax_amount: z.optional(z.int()),
-    applied_balance_amount: z.optional(z.int()),
-    discount_amount: z.optional(z.int()),
-    discount_id: z.optional(z.string()),
-    platform_fee: z.optional(z.int()),
-    subscription_id: z.optional(z.string()),
-    recurring_interval: z.optional(z.string()),
-    recurring_interval_count: z.optional(z.int()),
+    order_id: types.string(),
+    product_id: types.optional(types.string()),
+    billing_type: types.optional(types.string()),
+    amount: types.number(),
+    currency: types.optional(types.string()),
+    net_amount: types.optional(types.number()),
+    tax_amount: types.optional(types.number()),
+    applied_balance_amount: types.optional(types.number()),
+    discount_amount: types.optional(types.number()),
+    discount_id: types.optional(types.string()),
+    platform_fee: types.optional(types.number()),
+    subscription_id: types.optional(types.string()),
+    recurring_interval: types.optional(types.string()),
+    recurring_interval_count: types.optional(types.number()),
   }),
   z.transform((v) => {
     return remap$(v, {

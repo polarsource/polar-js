@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   AttachedCustomFieldCreate,
   AttachedCustomFieldCreate$Outbound,
@@ -138,7 +139,7 @@ export type ProductUpdateMetadata$Outbound = string | number | number | boolean;
 export const ProductUpdateMetadata$outboundSchema: z.ZodMiniType<
   ProductUpdateMetadata$Outbound,
   ProductUpdateMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
+> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function productUpdateMetadataToJSON(
   productUpdateMetadata: ProductUpdateMetadata,
@@ -182,7 +183,7 @@ export type ProductUpdatePrices$Outbound =
 export const ProductUpdatePrices$outboundSchema: z.ZodMiniType<
   ProductUpdatePrices$Outbound,
   ProductUpdatePrices
-> = z.union([
+> = smartUnion([
   ExistingProductPrice$outboundSchema,
   z.union([
     ProductPriceCustomCreate$outboundSchema,
@@ -238,7 +239,7 @@ export const ProductUpdate$outboundSchema: z.ZodMiniType<
     metadata: z.optional(
       z.record(
         z.string(),
-        z.union([z.string(), z.int(), z.number(), z.boolean()]),
+        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
     trialInterval: z.optional(z.nullable(TrialInterval$outboundSchema)),
@@ -253,7 +254,7 @@ export const ProductUpdate$outboundSchema: z.ZodMiniType<
     prices: z.optional(
       z.nullable(
         z.array(
-          z.union([
+          smartUnion([
             ExistingProductPrice$outboundSchema,
             z.union([
               ProductPriceCustomCreate$outboundSchema,

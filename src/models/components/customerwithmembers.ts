@@ -6,6 +6,8 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Address, Address$inboundSchema } from "./address.js";
 import { Member, Member$inboundSchema } from "./member.js";
@@ -71,7 +73,7 @@ export type CustomerWithMembers = {
 export const CustomerWithMembersTaxId$inboundSchema: z.ZodMiniType<
   CustomerWithMembersTaxId,
   unknown
-> = z.union([z.string(), TaxIDFormat$inboundSchema]);
+> = smartUnion([types.string(), TaxIDFormat$inboundSchema]);
 
 export function customerWithMembersTaxIdFromJSON(
   jsonString: string,
@@ -89,29 +91,24 @@ export const CustomerWithMembers$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    id: z.string(),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
+    id: types.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
     metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
-    external_id: z.nullable(z.string()),
-    email: z.string(),
-    email_verified: z.boolean(),
-    name: z.nullable(z.string()),
-    billing_address: z.nullable(Address$inboundSchema),
-    tax_id: z.nullable(
-      z.array(z.nullable(z.union([z.string(), TaxIDFormat$inboundSchema]))),
+    external_id: types.nullable(types.string()),
+    email: types.string(),
+    email_verified: types.boolean(),
+    name: types.nullable(types.string()),
+    billing_address: types.nullable(Address$inboundSchema),
+    tax_id: types.nullable(
+      z.array(
+        types.nullable(smartUnion([types.string(), TaxIDFormat$inboundSchema])),
+      ),
     ),
-    organization_id: z.string(),
-    deleted_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    members: z.optional(z.array(Member$inboundSchema)),
-    avatar_url: z.string(),
+    organization_id: types.string(),
+    deleted_at: types.nullable(types.date()),
+    members: types.optional(z.array(Member$inboundSchema)),
+    avatar_url: types.string(),
   }),
   z.transform((v) => {
     return remap$(v, {

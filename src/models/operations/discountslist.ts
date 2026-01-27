@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   DiscountSortProperty,
   DiscountSortProperty$outboundSchema,
@@ -60,7 +61,7 @@ export const DiscountsListQueryParamOrganizationIDFilter$outboundSchema:
   z.ZodMiniType<
     DiscountsListQueryParamOrganizationIDFilter$Outbound,
     DiscountsListQueryParamOrganizationIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function discountsListQueryParamOrganizationIDFilterToJSON(
   discountsListQueryParamOrganizationIDFilter:
@@ -89,7 +90,7 @@ export const DiscountsListRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     organizationId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     query: z.optional(z.nullable(z.string())),
     page: z._default(z.int(), 1),

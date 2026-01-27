@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Address, Address$inboundSchema } from "./address.js";
 import {
@@ -130,48 +131,38 @@ export const CustomerOrder$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    id: z.string(),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
+    id: types.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
     status: OrderStatus$inboundSchema,
-    paid: z.boolean(),
-    subtotal_amount: z.int(),
-    discount_amount: z.int(),
-    net_amount: z.int(),
-    tax_amount: z.int(),
-    total_amount: z.int(),
-    applied_balance_amount: z.int(),
-    due_amount: z.int(),
-    refunded_amount: z.int(),
-    refunded_tax_amount: z.int(),
-    currency: z.string(),
+    paid: types.boolean(),
+    subtotal_amount: types.number(),
+    discount_amount: types.number(),
+    net_amount: types.number(),
+    tax_amount: types.number(),
+    total_amount: types.number(),
+    applied_balance_amount: types.number(),
+    due_amount: types.number(),
+    refunded_amount: types.number(),
+    refunded_tax_amount: types.number(),
+    currency: types.string(),
     billing_reason: OrderBillingReason$inboundSchema,
-    billing_name: z.nullable(z.string()),
-    billing_address: z.nullable(Address$inboundSchema),
-    invoice_number: z.string(),
-    is_invoice_generated: z.boolean(),
-    seats: z.optional(z.nullable(z.int())),
-    customer_id: z.string(),
-    product_id: z.nullable(z.string()),
-    discount_id: z.nullable(z.string()),
-    subscription_id: z.nullable(z.string()),
-    checkout_id: z.nullable(z.string()),
-    user_id: z.string(),
-    product: z.nullable(CustomerOrderProduct$inboundSchema),
-    subscription: z.nullable(CustomerOrderSubscription$inboundSchema),
+    billing_name: types.nullable(types.string()),
+    billing_address: types.nullable(Address$inboundSchema),
+    invoice_number: types.string(),
+    is_invoice_generated: types.boolean(),
+    seats: z.optional(z.nullable(types.number())),
+    customer_id: types.string(),
+    product_id: types.nullable(types.string()),
+    discount_id: types.nullable(types.string()),
+    subscription_id: types.nullable(types.string()),
+    checkout_id: types.nullable(types.string()),
+    user_id: types.string(),
+    product: types.nullable(CustomerOrderProduct$inboundSchema),
+    subscription: types.nullable(CustomerOrderSubscription$inboundSchema),
     items: z.array(OrderItemSchema$inboundSchema),
-    description: z.string(),
-    next_payment_attempt_at: z.optional(
-      z.nullable(z.pipe(
-        z.iso.datetime({ offset: true }),
-        z.transform(v => new Date(v)),
-      )),
-    ),
+    description: types.string(),
+    next_payment_attempt_at: z.optional(z.nullable(types.date())),
   }),
   z.transform((v) => {
     return remap$(v, {
