@@ -58,8 +58,8 @@ typescript:
   flattenGlobalSecurity: true
   flatteningOrder: body-first
   formStringArrayEncodeMode: encoded-string
-  forwardCompatibleEnumsByDefault: true
-  forwardCompatibleUnionsByDefault: tagged-only
+  forwardCompatibleEnumsByDefault: false
+  forwardCompatibleUnionsByDefault: false
   generateExamples: true
   imports:
     option: openapi
