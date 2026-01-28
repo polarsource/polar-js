@@ -50,6 +50,7 @@ let value: WebhookSubscriptionActivePayload = {
       externalId: "usr_1337",
       email: "customer@example.com",
       emailVerified: true,
+      type: "individual",
       name: "John Doe",
       billingAddress: {
         country: "US",

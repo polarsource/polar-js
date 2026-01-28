@@ -3,8 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import * as openEnums from "../../types/enums.js";
-import { OpenEnum } from "../../types/enums.js";
+import { ClosedEnum } from "../../types/enums.js";
 
 export const MetricType = {
   Scalar: "scalar",
@@ -12,8 +11,8 @@ export const MetricType = {
   CurrencySubCent: "currency_sub_cent",
   Percentage: "percentage",
 } as const;
-export type MetricType = OpenEnum<typeof MetricType>;
+export type MetricType = ClosedEnum<typeof MetricType>;
 
 /** @internal */
-export const MetricType$inboundSchema: z.ZodMiniType<MetricType, unknown> =
-  openEnums.inboundSchema(MetricType);
+export const MetricType$inboundSchema: z.ZodMiniEnum<typeof MetricType> = z
+  .enum(MetricType);

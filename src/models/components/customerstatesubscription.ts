@@ -5,8 +5,7 @@
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import * as openEnums from "../../types/enums.js";
-import { OpenEnum } from "../../types/enums.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -38,7 +37,7 @@ export const Status = {
   Active: "active",
   Trialing: "trialing",
 } as const;
-export type Status = OpenEnum<typeof Status>;
+export type Status = ClosedEnum<typeof Status>;
 
 /**
  * An active customer subscription.
@@ -175,11 +174,12 @@ export function customerStateSubscriptionCustomFieldDataFromJSON(
 }
 
 /** @internal */
-export const Status$inboundSchema: z.ZodMiniType<Status, unknown> = openEnums
-  .inboundSchema(Status);
+export const Status$inboundSchema: z.ZodMiniEnum<typeof Status> = z.enum(
+  Status,
+);
 /** @internal */
-export const Status$outboundSchema: z.ZodMiniType<string, Status> = openEnums
-  .outboundSchema(Status);
+export const Status$outboundSchema: z.ZodMiniEnum<typeof Status> =
+  Status$inboundSchema;
 
 /** @internal */
 export const CustomerStateSubscription$inboundSchema: z.ZodMiniType<

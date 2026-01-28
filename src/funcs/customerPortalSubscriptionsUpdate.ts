@@ -50,8 +50,6 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Update a subscription of the authenticated customer.
- *
- * **Scopes**: `customer_portal:write`
  */
 export function customerPortalSubscriptionsUpdate(
   client: PolarCore,

@@ -5,8 +5,7 @@
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import * as openEnums from "../../types/enums.js";
-import { OpenEnum } from "../../types/enums.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -261,7 +260,7 @@ export const CountryAlpha2 = {
   Zm: "ZM",
   Zw: "ZW",
 } as const;
-export type CountryAlpha2 = OpenEnum<typeof CountryAlpha2>;
+export type CountryAlpha2 = ClosedEnum<typeof CountryAlpha2>;
 
 export type Address = {
   line1?: string | null | undefined;
@@ -273,15 +272,11 @@ export type Address = {
 };
 
 /** @internal */
-export const CountryAlpha2$inboundSchema: z.ZodMiniType<
-  CountryAlpha2,
-  unknown
-> = openEnums.inboundSchema(CountryAlpha2);
+export const CountryAlpha2$inboundSchema: z.ZodMiniEnum<typeof CountryAlpha2> =
+  z.enum(CountryAlpha2);
 /** @internal */
-export const CountryAlpha2$outboundSchema: z.ZodMiniType<
-  string,
-  CountryAlpha2
-> = openEnums.outboundSchema(CountryAlpha2);
+export const CountryAlpha2$outboundSchema: z.ZodMiniEnum<typeof CountryAlpha2> =
+  CountryAlpha2$inboundSchema;
 
 /** @internal */
 export const Address$inboundSchema: z.ZodMiniType<Address, unknown> = z.pipe(

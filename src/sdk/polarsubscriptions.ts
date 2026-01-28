@@ -78,8 +78,6 @@ export class PolarSubscriptions extends ClientSDK {
    *
    * @remarks
    * Update a subscription of the authenticated customer.
-   *
-   * **Scopes**: `customer_portal:write`
    */
   async update(
     security: CustomerPortalSubscriptionsUpdateSecurity,
@@ -99,8 +97,6 @@ export class PolarSubscriptions extends ClientSDK {
    *
    * @remarks
    * Cancel a subscription of the authenticated customer.
-   *
-   * **Scopes**: `customer_portal:write`
    */
   async cancel(
     security: CustomerPortalSubscriptionsCancelSecurity,

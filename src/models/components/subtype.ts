@@ -3,18 +3,18 @@
  */
 
 import * as z from "zod/v4-mini";
-import * as openEnums from "../../types/enums.js";
-import { OpenEnum } from "../../types/enums.js";
+import { ClosedEnum } from "../../types/enums.js";
 
 export const SubType = {
   User: "user",
   Organization: "organization",
 } as const;
-export type SubType = OpenEnum<typeof SubType>;
+export type SubType = ClosedEnum<typeof SubType>;
 
 /** @internal */
-export const SubType$inboundSchema: z.ZodMiniType<SubType, unknown> = openEnums
-  .inboundSchema(SubType);
+export const SubType$inboundSchema: z.ZodMiniEnum<typeof SubType> = z.enum(
+  SubType,
+);
 /** @internal */
-export const SubType$outboundSchema: z.ZodMiniType<string, SubType> = openEnums
-  .outboundSchema(SubType);
+export const SubType$outboundSchema: z.ZodMiniEnum<typeof SubType> =
+  SubType$inboundSchema;

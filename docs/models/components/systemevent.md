@@ -44,6 +44,7 @@ const value: components.BalanceDisputeEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -91,6 +92,7 @@ const value: components.BalanceDisputeReversalEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -138,6 +140,7 @@ const value: components.BalanceOrderEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -185,6 +188,7 @@ const value: components.BalanceRefundEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -232,6 +236,7 @@ const value: components.BalanceRefundReversalEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -279,6 +284,7 @@ const value: components.BenefitCycledEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -321,6 +327,7 @@ const value: components.BenefitGrantedEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -363,6 +370,7 @@ const value: components.BenefitRevokedEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -405,6 +413,7 @@ const value: components.BenefitUpdatedEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -447,6 +456,7 @@ const value: components.CheckoutCreatedEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -488,6 +498,7 @@ const value: components.CustomerCreatedEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -531,6 +542,7 @@ const value: components.CustomerDeletedEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -574,6 +586,7 @@ const value: components.CustomerUpdatedEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -618,6 +631,7 @@ const value: components.MeterCreditEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -660,6 +674,7 @@ const value: components.MeterResetEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -741,6 +756,7 @@ const value: components.SubscriptionBillingPeriodUpdatedEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -783,6 +799,7 @@ const value: components.SubscriptionCanceledEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -828,6 +845,7 @@ const value: components.SubscriptionCreatedEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -874,6 +892,7 @@ const value: components.SubscriptionCycledEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -914,6 +933,7 @@ const value: components.SubscriptionProductUpdatedEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -956,6 +976,7 @@ const value: components.SubscriptionRevokedEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -996,6 +1017,7 @@ const value: components.SubscriptionSeatsUpdatedEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -1039,6 +1061,7 @@ const value: components.SubscriptionUncanceledEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",

@@ -18,6 +18,7 @@ let value: CustomersUpdateRequest = {
       "us_ein",
     ],
     externalId: "usr_1337",
+    type: "individual",
   },
 };
 ```
