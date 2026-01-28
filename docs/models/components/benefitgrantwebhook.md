@@ -26,6 +26,7 @@ const value: components.BenefitGrantDiscordWebhook = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -92,6 +93,7 @@ const value: components.BenefitGrantCustomWebhook = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -155,6 +157,7 @@ const value: components.BenefitGrantGitHubRepositoryWebhook = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -222,6 +225,7 @@ const value: components.BenefitGrantDownloadablesWebhook = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -293,6 +297,7 @@ const value: components.BenefitGrantLicenseKeysWebhook = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -365,6 +370,7 @@ const value: components.BenefitGrantMeterCreditWebhook = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",

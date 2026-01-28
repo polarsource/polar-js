@@ -10,6 +10,7 @@ import {
   AddressInput$Outbound,
   AddressInput$outboundSchema,
 } from "./addressinput.js";
+import { CustomerType, CustomerType$outboundSchema } from "./customertype.js";
 import {
   OwnerCreate,
   OwnerCreate$Outbound,
@@ -49,6 +50,10 @@ export type CustomerCreate = {
   name?: string | null | undefined;
   billingAddress?: AddressInput | null | undefined;
   taxId?: Array<string | TaxIDFormat | null> | null | undefined;
+  /**
+   * The type of customer. Defaults to 'individual'. Set to 'team' for customers that can have multiple members.
+   */
+  type?: CustomerType | null | undefined;
   /**
    * The ID of the organization owning the customer. **Required unless you use an organization token.**
    */
@@ -105,6 +110,7 @@ export type CustomerCreate$Outbound = {
   name?: string | null | undefined;
   billing_address?: AddressInput$Outbound | null | undefined;
   tax_id?: Array<string | string | null> | null | undefined;
+  type?: string | null | undefined;
   organization_id?: string | null | undefined;
   owner?: OwnerCreate$Outbound | null | undefined;
 };
@@ -132,6 +138,7 @@ export const CustomerCreate$outboundSchema: z.ZodMiniType<
         ),
       ),
     ),
+    type: z.optional(z.nullable(CustomerType$outboundSchema)),
     organizationId: z.optional(z.nullable(z.string())),
     owner: z.optional(z.nullable(OwnerCreate$outboundSchema)),
   }),

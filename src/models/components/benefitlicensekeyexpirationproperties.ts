@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
-import * as openEnums from "../../types/enums.js";
-import { OpenEnum } from "../../types/enums.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -14,7 +13,7 @@ export const Timeframe = {
   Month: "month",
   Day: "day",
 } as const;
-export type Timeframe = OpenEnum<typeof Timeframe>;
+export type Timeframe = ClosedEnum<typeof Timeframe>;
 
 export type BenefitLicenseKeyExpirationProperties = {
   ttl: number;
@@ -22,11 +21,12 @@ export type BenefitLicenseKeyExpirationProperties = {
 };
 
 /** @internal */
-export const Timeframe$inboundSchema: z.ZodMiniType<Timeframe, unknown> =
-  openEnums.inboundSchema(Timeframe);
+export const Timeframe$inboundSchema: z.ZodMiniEnum<typeof Timeframe> = z.enum(
+  Timeframe,
+);
 /** @internal */
-export const Timeframe$outboundSchema: z.ZodMiniType<string, Timeframe> =
-  openEnums.outboundSchema(Timeframe);
+export const Timeframe$outboundSchema: z.ZodMiniEnum<typeof Timeframe> =
+  Timeframe$inboundSchema;
 
 /** @internal */
 export const BenefitLicenseKeyExpirationProperties$inboundSchema: z.ZodMiniType<

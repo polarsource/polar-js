@@ -21,6 +21,7 @@ const value: components.SystemEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -66,6 +67,7 @@ const value: components.UserEvent = {
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
+    type: "individual",
     name: "John Doe",
     billingAddress: {
       country: "US",

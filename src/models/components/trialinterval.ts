@@ -3,8 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import * as openEnums from "../../types/enums.js";
-import { OpenEnum } from "../../types/enums.js";
+import { ClosedEnum } from "../../types/enums.js";
 
 export const TrialInterval = {
   Day: "day",
@@ -12,15 +11,11 @@ export const TrialInterval = {
   Month: "month",
   Year: "year",
 } as const;
-export type TrialInterval = OpenEnum<typeof TrialInterval>;
+export type TrialInterval = ClosedEnum<typeof TrialInterval>;
 
 /** @internal */
-export const TrialInterval$inboundSchema: z.ZodMiniType<
-  TrialInterval,
-  unknown
-> = openEnums.inboundSchema(TrialInterval);
+export const TrialInterval$inboundSchema: z.ZodMiniEnum<typeof TrialInterval> =
+  z.enum(TrialInterval);
 /** @internal */
-export const TrialInterval$outboundSchema: z.ZodMiniType<
-  string,
-  TrialInterval
-> = openEnums.outboundSchema(TrialInterval);
+export const TrialInterval$outboundSchema: z.ZodMiniEnum<typeof TrialInterval> =
+  TrialInterval$inboundSchema;

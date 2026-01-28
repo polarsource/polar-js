@@ -3,8 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import * as openEnums from "../../types/enums.js";
-import { OpenEnum } from "../../types/enums.js";
+import { ClosedEnum } from "../../types/enums.js";
 
 export const SubscriptionStatus = {
   Incomplete: "incomplete",
@@ -15,15 +14,13 @@ export const SubscriptionStatus = {
   Canceled: "canceled",
   Unpaid: "unpaid",
 } as const;
-export type SubscriptionStatus = OpenEnum<typeof SubscriptionStatus>;
+export type SubscriptionStatus = ClosedEnum<typeof SubscriptionStatus>;
 
 /** @internal */
-export const SubscriptionStatus$inboundSchema: z.ZodMiniType<
-  SubscriptionStatus,
-  unknown
-> = openEnums.inboundSchema(SubscriptionStatus);
+export const SubscriptionStatus$inboundSchema: z.ZodMiniEnum<
+  typeof SubscriptionStatus
+> = z.enum(SubscriptionStatus);
 /** @internal */
-export const SubscriptionStatus$outboundSchema: z.ZodMiniType<
-  string,
-  SubscriptionStatus
-> = openEnums.outboundSchema(SubscriptionStatus);
+export const SubscriptionStatus$outboundSchema: z.ZodMiniEnum<
+  typeof SubscriptionStatus
+> = SubscriptionStatus$inboundSchema;

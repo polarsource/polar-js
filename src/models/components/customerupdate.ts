@@ -10,6 +10,7 @@ import {
   AddressInput$Outbound,
   AddressInput$outboundSchema,
 } from "./addressinput.js";
+import { CustomerType, CustomerType$outboundSchema } from "./customertype.js";
 import { TaxIDFormat, TaxIDFormat$outboundSchema } from "./taxidformat.js";
 
 export type CustomerUpdateMetadata = string | number | number | boolean;
@@ -44,6 +45,10 @@ export type CustomerUpdate = {
    * The ID of the customer in your system. This must be unique within the organization. Once set, it can't be updated.
    */
   externalId?: string | null | undefined;
+  /**
+   * The customer type. Can only be upgraded from 'individual' to 'team', never downgraded.
+   */
+  type?: CustomerType | null | undefined;
 };
 
 /** @internal */
@@ -92,6 +97,7 @@ export type CustomerUpdate$Outbound = {
   billing_address?: AddressInput$Outbound | null | undefined;
   tax_id?: Array<string | string | null> | null | undefined;
   external_id?: string | null | undefined;
+  type?: string | null | undefined;
 };
 
 /** @internal */
@@ -117,6 +123,7 @@ export const CustomerUpdate$outboundSchema: z.ZodMiniType<
       ),
     ),
     externalId: z.optional(z.nullable(z.string())),
+    type: z.optional(z.nullable(CustomerType$outboundSchema)),
   }),
   z.transform((v) => {
     return remap$(v, {

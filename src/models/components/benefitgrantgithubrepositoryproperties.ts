@@ -5,8 +5,7 @@
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import * as openEnums from "../../types/enums.js";
-import { OpenEnum } from "../../types/enums.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -17,7 +16,7 @@ export const BenefitGrantGitHubRepositoryPropertiesPermission = {
   Maintain: "maintain",
   Admin: "admin",
 } as const;
-export type BenefitGrantGitHubRepositoryPropertiesPermission = OpenEnum<
+export type BenefitGrantGitHubRepositoryPropertiesPermission = ClosedEnum<
   typeof BenefitGrantGitHubRepositoryPropertiesPermission
 >;
 
@@ -31,12 +30,12 @@ export type BenefitGrantGitHubRepositoryProperties = {
 
 /** @internal */
 export const BenefitGrantGitHubRepositoryPropertiesPermission$inboundSchema:
-  z.ZodMiniType<BenefitGrantGitHubRepositoryPropertiesPermission, unknown> =
-    openEnums.inboundSchema(BenefitGrantGitHubRepositoryPropertiesPermission);
+  z.ZodMiniEnum<typeof BenefitGrantGitHubRepositoryPropertiesPermission> = z
+    .enum(BenefitGrantGitHubRepositoryPropertiesPermission);
 /** @internal */
 export const BenefitGrantGitHubRepositoryPropertiesPermission$outboundSchema:
-  z.ZodMiniType<string, BenefitGrantGitHubRepositoryPropertiesPermission> =
-    openEnums.outboundSchema(BenefitGrantGitHubRepositoryPropertiesPermission);
+  z.ZodMiniEnum<typeof BenefitGrantGitHubRepositoryPropertiesPermission> =
+    BenefitGrantGitHubRepositoryPropertiesPermission$inboundSchema;
 
 /** @internal */
 export const BenefitGrantGitHubRepositoryProperties$inboundSchema:

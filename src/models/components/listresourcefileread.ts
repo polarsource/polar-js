@@ -4,8 +4,6 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
-import * as discriminatedUnionTypes from "../../types/discriminatedUnion.js";
-import { discriminatedUnion } from "../../types/discriminatedUnion.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -25,26 +23,23 @@ import {
 export type FileRead =
   | DownloadableFileRead
   | OrganizationAvatarFileRead
-  | ProductMediaFileRead
-  | discriminatedUnionTypes.Unknown<"service">;
+  | ProductMediaFileRead;
 
 export type ListResourceFileRead = {
   items: Array<
-    | DownloadableFileRead
-    | OrganizationAvatarFileRead
-    | ProductMediaFileRead
-    | discriminatedUnionTypes.Unknown<"service">
+    DownloadableFileRead | OrganizationAvatarFileRead | ProductMediaFileRead
   >;
   pagination: Pagination;
 };
 
 /** @internal */
-export const FileRead$inboundSchema: z.ZodMiniType<FileRead, unknown> =
-  discriminatedUnion("service", {
-    downloadable: DownloadableFileRead$inboundSchema,
-    organization_avatar: OrganizationAvatarFileRead$inboundSchema,
-    product_media: ProductMediaFileRead$inboundSchema,
-  });
+export const FileRead$inboundSchema: z.ZodMiniType<FileRead, unknown> = z.union(
+  [
+    DownloadableFileRead$inboundSchema,
+    OrganizationAvatarFileRead$inboundSchema,
+    ProductMediaFileRead$inboundSchema,
+  ],
+);
 
 export function fileReadFromJSON(
   jsonString: string,
@@ -62,11 +57,11 @@ export const ListResourceFileRead$inboundSchema: z.ZodMiniType<
   unknown
 > = z.object({
   items: z.array(
-    discriminatedUnion("service", {
-      downloadable: DownloadableFileRead$inboundSchema,
-      organization_avatar: OrganizationAvatarFileRead$inboundSchema,
-      product_media: ProductMediaFileRead$inboundSchema,
-    }),
+    z.union([
+      DownloadableFileRead$inboundSchema,
+      OrganizationAvatarFileRead$inboundSchema,
+      ProductMediaFileRead$inboundSchema,
+    ]),
   ),
   pagination: Pagination$inboundSchema,
 });

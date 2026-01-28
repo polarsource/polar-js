@@ -168,8 +168,6 @@ run();
 
 Update a subscription of the authenticated customer.
 
-**Scopes**: `customer_portal:write`
-
 ### Example Usage
 
 <!-- UsageSnippet language="typescript" operationID="customer_portal:subscriptions:update" method="patch" path="/v1/customer-portal/subscriptions/{id}" -->
@@ -248,8 +246,6 @@ run();
 ## cancel
 
 Cancel a subscription of the authenticated customer.
-
-**Scopes**: `customer_portal:write`
 
 ### Example Usage
 

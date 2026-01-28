@@ -10,8 +10,6 @@ let value: OrganizationSocialPlatforms = "tiktok";
 
 ## Values
 
-This is an open enum. Unrecognized values will be captured as the `Unrecognized<string>` branded type.
-
 ```typescript
-"x" | "github" | "facebook" | "instagram" | "youtube" | "tiktok" | "linkedin" | "other" | Unrecognized<string>
+"x" | "github" | "facebook" | "instagram" | "youtube" | "tiktok" | "linkedin" | "other"
 ```

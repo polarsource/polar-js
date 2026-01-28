@@ -5,8 +5,7 @@
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import * as openEnums from "../../types/enums.js";
-import { OpenEnum } from "../../types/enums.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -23,7 +22,7 @@ export const Permission = {
 /**
  * The permission level to grant. Read more about roles and their permissions on [GitHub documentation](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization#permissions-for-each-role).
  */
-export type Permission = OpenEnum<typeof Permission>;
+export type Permission = ClosedEnum<typeof Permission>;
 
 /**
  * Properties for a benefit of type `github_repository`.
@@ -44,11 +43,11 @@ export type BenefitGitHubRepositoryProperties = {
 };
 
 /** @internal */
-export const Permission$inboundSchema: z.ZodMiniType<Permission, unknown> =
-  openEnums.inboundSchema(Permission);
+export const Permission$inboundSchema: z.ZodMiniEnum<typeof Permission> = z
+  .enum(Permission);
 /** @internal */
-export const Permission$outboundSchema: z.ZodMiniType<string, Permission> =
-  openEnums.outboundSchema(Permission);
+export const Permission$outboundSchema: z.ZodMiniEnum<typeof Permission> =
+  Permission$inboundSchema;
 
 /** @internal */
 export const BenefitGitHubRepositoryProperties$inboundSchema: z.ZodMiniType<

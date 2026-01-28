@@ -3,8 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import * as openEnums from "../../types/enums.js";
-import { OpenEnum } from "../../types/enums.js";
+import { ClosedEnum } from "../../types/enums.js";
 
 export const FilterOperator = {
   Eq: "eq",
@@ -16,15 +15,13 @@ export const FilterOperator = {
   Like: "like",
   NotLike: "not_like",
 } as const;
-export type FilterOperator = OpenEnum<typeof FilterOperator>;
+export type FilterOperator = ClosedEnum<typeof FilterOperator>;
 
 /** @internal */
-export const FilterOperator$inboundSchema: z.ZodMiniType<
-  FilterOperator,
-  unknown
-> = openEnums.inboundSchema(FilterOperator);
+export const FilterOperator$inboundSchema: z.ZodMiniEnum<
+  typeof FilterOperator
+> = z.enum(FilterOperator);
 /** @internal */
-export const FilterOperator$outboundSchema: z.ZodMiniType<
-  string,
-  FilterOperator
-> = openEnums.outboundSchema(FilterOperator);
+export const FilterOperator$outboundSchema: z.ZodMiniEnum<
+  typeof FilterOperator
+> = FilterOperator$inboundSchema;

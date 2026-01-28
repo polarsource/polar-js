@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
-import * as openEnums from "../../types/enums.js";
-import { OpenEnum } from "../../types/enums.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -15,7 +14,7 @@ export const Func = {
   Min: "min",
   Avg: "avg",
 } as const;
-export type Func = OpenEnum<typeof Func>;
+export type Func = ClosedEnum<typeof Func>;
 
 export type PropertyAggregation = {
   func: Func;
@@ -23,11 +22,10 @@ export type PropertyAggregation = {
 };
 
 /** @internal */
-export const Func$inboundSchema: z.ZodMiniType<Func, unknown> = openEnums
-  .inboundSchema(Func);
+export const Func$inboundSchema: z.ZodMiniEnum<typeof Func> = z.enum(Func);
 /** @internal */
-export const Func$outboundSchema: z.ZodMiniType<string, Func> = openEnums
-  .outboundSchema(Func);
+export const Func$outboundSchema: z.ZodMiniEnum<typeof Func> =
+  Func$inboundSchema;
 
 /** @internal */
 export const PropertyAggregation$inboundSchema: z.ZodMiniType<

@@ -9,6 +9,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Address, Address$inboundSchema } from "./address.js";
+import { CustomerType, CustomerType$inboundSchema } from "./customertype.js";
 import { Member, Member$inboundSchema } from "./member.js";
 import {
   MetadataOutputType,
@@ -47,6 +48,10 @@ export type CustomerWithMembers = {
    * Whether the customer email address is verified. The address is automatically verified when the customer accesses the customer portal using their email address.
    */
   emailVerified: boolean;
+  /**
+   * The type of customer: 'individual' for single users, 'team' for customers with multiple members. Legacy customers may have NULL type which is treated as 'individual'.
+   */
+  type?: CustomerType | null | undefined;
   /**
    * The name of the customer.
    */
@@ -102,6 +107,7 @@ export const CustomerWithMembers$inboundSchema: z.ZodMiniType<
     external_id: z.nullable(z.string()),
     email: z.string(),
     email_verified: z.boolean(),
+    type: z.optional(z.nullable(CustomerType$inboundSchema)),
     name: z.nullable(z.string()),
     billing_address: z.nullable(Address$inboundSchema),
     tax_id: z.nullable(

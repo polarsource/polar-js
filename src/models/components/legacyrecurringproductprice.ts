@@ -4,8 +4,6 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
-import * as discriminatedUnionTypes from "../../types/discriminatedUnion.js";
-import { discriminatedUnion } from "../../types/discriminatedUnion.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -30,18 +28,17 @@ import {
 export type LegacyRecurringProductPrice =
   | LegacyRecurringProductPriceCustom
   | LegacyRecurringProductPriceFixed
-  | LegacyRecurringProductPriceFree
-  | discriminatedUnionTypes.Unknown<"amountType">;
+  | LegacyRecurringProductPriceFree;
 
 /** @internal */
 export const LegacyRecurringProductPrice$inboundSchema: z.ZodMiniType<
   LegacyRecurringProductPrice,
   unknown
-> = discriminatedUnion("amount_type", {
-  custom: LegacyRecurringProductPriceCustom$inboundSchema,
-  fixed: LegacyRecurringProductPriceFixed$inboundSchema,
-  free: LegacyRecurringProductPriceFree$inboundSchema,
-}, { outputPropertyName: "amountType" });
+> = z.union([
+  LegacyRecurringProductPriceCustom$inboundSchema,
+  LegacyRecurringProductPriceFixed$inboundSchema,
+  LegacyRecurringProductPriceFree$inboundSchema,
+]);
 /** @internal */
 export type LegacyRecurringProductPrice$Outbound =
   | LegacyRecurringProductPriceCustom$Outbound

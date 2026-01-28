@@ -124,6 +124,7 @@ async function run() {
       "911144442",
       "us_ein",
     ],
+    type: "individual",
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     owner: {
       email: "member@example.com",
@@ -164,6 +165,7 @@ async function run() {
       "911144442",
       "us_ein",
     ],
+    type: "individual",
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     owner: {
       email: "member@example.com",
@@ -385,6 +387,7 @@ async function run() {
         "us_ein",
       ],
       externalId: "usr_1337",
+      type: "individual",
     },
   });
 
@@ -422,6 +425,7 @@ async function run() {
         "us_ein",
       ],
       externalId: "usr_1337",
+      type: "individual",
     },
   });
   if (res.ok) {

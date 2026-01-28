@@ -15,6 +15,11 @@ import {
   Address$outboundSchema,
 } from "./address.js";
 import {
+  CustomerType,
+  CustomerType$inboundSchema,
+  CustomerType$outboundSchema,
+} from "./customertype.js";
+import {
   MetadataOutputType,
   MetadataOutputType$inboundSchema,
   MetadataOutputType$Outbound,
@@ -54,6 +59,10 @@ export type SubscriptionCustomer = {
    * Whether the customer email address is verified. The address is automatically verified when the customer accesses the customer portal using their email address.
    */
   emailVerified: boolean;
+  /**
+   * The type of customer: 'individual' for single users, 'team' for customers with multiple members. Legacy customers may have NULL type which is treated as 'individual'.
+   */
+  type?: CustomerType | null | undefined;
   /**
    * The name of the customer.
    */
@@ -114,6 +123,7 @@ export const SubscriptionCustomer$inboundSchema: z.ZodMiniType<
     external_id: z.nullable(z.string()),
     email: z.string(),
     email_verified: z.boolean(),
+    type: z.optional(z.nullable(CustomerType$inboundSchema)),
     name: z.nullable(z.string()),
     billing_address: z.nullable(Address$inboundSchema),
     tax_id: z.nullable(
@@ -148,6 +158,7 @@ export type SubscriptionCustomer$Outbound = {
   external_id: string | null;
   email: string;
   email_verified: boolean;
+  type?: string | null | undefined;
   name: string | null;
   billing_address: Address$Outbound | null;
   tax_id: Array<string | string | null> | null;
@@ -169,6 +180,7 @@ export const SubscriptionCustomer$outboundSchema: z.ZodMiniType<
     externalId: z.nullable(z.string()),
     email: z.string(),
     emailVerified: z.boolean(),
+    type: z.optional(z.nullable(CustomerType$outboundSchema)),
     name: z.nullable(z.string()),
     billingAddress: z.nullable(Address$outboundSchema),
     taxId: z.nullable(
