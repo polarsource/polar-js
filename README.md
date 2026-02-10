@@ -147,8 +147,8 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [list](docs/sdks/benefits/README.md#list) - List Benefits
 * [create](docs/sdks/benefits/README.md#create) - Create Benefit
 * [get](docs/sdks/benefits/README.md#get) - Get Benefit
-* [update](docs/sdks/benefits/README.md#update) - Update Benefit
 * [delete](docs/sdks/benefits/README.md#delete) - Delete Benefit
+* [update](docs/sdks/benefits/README.md#update) - Update Benefit
 * [grants](docs/sdks/benefits/README.md#grants) - List Benefit Grants
 
 ### [CheckoutLinks](docs/sdks/checkoutlinks/README.md)
@@ -156,8 +156,8 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [list](docs/sdks/checkoutlinks/README.md#list) - List Checkout Links
 * [create](docs/sdks/checkoutlinks/README.md#create) - Create Checkout Link
 * [get](docs/sdks/checkoutlinks/README.md#get) - Get Checkout Link
-* [update](docs/sdks/checkoutlinks/README.md#update) - Update Checkout Link
 * [delete](docs/sdks/checkoutlinks/README.md#delete) - Delete Checkout Link
+* [update](docs/sdks/checkoutlinks/README.md#update) - Update Checkout Link
 
 ### [Checkouts](docs/sdks/checkouts/README.md)
 
@@ -174,8 +174,8 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [list](docs/sdks/customfields/README.md#list) - List Custom Fields
 * [create](docs/sdks/customfields/README.md#create) - Create Custom Field
 * [get](docs/sdks/customfields/README.md#get) - Get Custom Field
-* [update](docs/sdks/customfields/README.md#update) - Update Custom Field
 * [delete](docs/sdks/customfields/README.md#delete) - Delete Custom Field
+* [update](docs/sdks/customfields/README.md#update) - Update Custom Field
 
 ### [CustomerMeters](docs/sdks/customermeters/README.md)
 
@@ -219,13 +219,20 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [activate](docs/sdks/polarlicensekeys/README.md#activate) - Activate License Key
 * [deactivate](docs/sdks/polarlicensekeys/README.md#deactivate) - Deactivate License Key
 
+### [CustomerPortal.Members](docs/sdks/polarmembers/README.md)
+
+* [listMembers](docs/sdks/polarmembers/README.md#listmembers) - List Members
+* [addMember](docs/sdks/polarmembers/README.md#addmember) - Add Member
+* [removeMember](docs/sdks/polarmembers/README.md#removemember) - Remove Member
+* [updateMember](docs/sdks/polarmembers/README.md#updatemember) - Update Member
+
 ### [CustomerPortal.Orders](docs/sdks/polarorders/README.md)
 
 * [list](docs/sdks/polarorders/README.md#list) - List Orders
 * [get](docs/sdks/polarorders/README.md#get) - Get Order
 * [update](docs/sdks/polarorders/README.md#update) - Update Order
-* [generateInvoice](docs/sdks/polarorders/README.md#generateinvoice) - Generate Order Invoice
 * [invoice](docs/sdks/polarorders/README.md#invoice) - Get Order Invoice
+* [generateInvoice](docs/sdks/polarorders/README.md#generateinvoice) - Generate Order Invoice
 * [getPaymentStatus](docs/sdks/polarorders/README.md#getpaymentstatus) - Get Order Payment Status
 * [confirmRetryPayment](docs/sdks/polarorders/README.md#confirmretrypayment) - Confirm Retry Payment
 
@@ -245,8 +252,8 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 
 * [list](docs/sdks/polarsubscriptions/README.md#list) - List Subscriptions
 * [get](docs/sdks/polarsubscriptions/README.md#get) - Get Subscription
-* [update](docs/sdks/polarsubscriptions/README.md#update) - Update Subscription
 * [cancel](docs/sdks/polarsubscriptions/README.md#cancel) - Cancel Subscription
+* [update](docs/sdks/polarsubscriptions/README.md#update) - Update Subscription
 
 ### [CustomerPortal.Wallets](docs/sdks/wallets/README.md)
 
@@ -255,8 +262,8 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 
 ### [CustomerSeats](docs/sdks/customerseats/README.md)
 
-* [assignSeat](docs/sdks/customerseats/README.md#assignseat) - Assign Seat
 * [listSeats](docs/sdks/customerseats/README.md#listseats) - List Seats
+* [assignSeat](docs/sdks/customerseats/README.md#assignseat) - Assign Seat
 * [revokeSeat](docs/sdks/customerseats/README.md#revokeseat) - Revoke Seat
 * [resendInvitation](docs/sdks/customerseats/README.md#resendinvitation) - Resend Invitation
 * [getClaimInfo](docs/sdks/customerseats/README.md#getclaiminfo) - Get Claim Info
@@ -272,11 +279,11 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [create](docs/sdks/customers/README.md#create) - Create Customer
 * [export](docs/sdks/customers/README.md#export) - Export Customers
 * [get](docs/sdks/customers/README.md#get) - Get Customer
-* [update](docs/sdks/customers/README.md#update) - Update Customer
 * [delete](docs/sdks/customers/README.md#delete) - Delete Customer
+* [update](docs/sdks/customers/README.md#update) - Update Customer
 * [getExternal](docs/sdks/customers/README.md#getexternal) - Get Customer by External ID
-* [updateExternal](docs/sdks/customers/README.md#updateexternal) - Update Customer by External ID
 * [deleteExternal](docs/sdks/customers/README.md#deleteexternal) - Delete Customer by External ID
+* [updateExternal](docs/sdks/customers/README.md#updateexternal) - Update Customer by External ID
 * [getState](docs/sdks/customers/README.md#getstate) - Get Customer State
 * [getStateExternal](docs/sdks/customers/README.md#getstateexternal) - Get Customer State by External ID
 
@@ -285,8 +292,8 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [list](docs/sdks/discounts/README.md#list) - List Discounts
 * [create](docs/sdks/discounts/README.md#create) - Create Discount
 * [get](docs/sdks/discounts/README.md#get) - Get Discount
-* [update](docs/sdks/discounts/README.md#update) - Update Discount
 * [delete](docs/sdks/discounts/README.md#delete) - Delete Discount
+* [update](docs/sdks/discounts/README.md#update) - Update Discount
 
 ### [Disputes](docs/sdks/disputes/README.md)
 
@@ -310,8 +317,8 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [list](docs/sdks/files/README.md#list) - List Files
 * [create](docs/sdks/files/README.md#create) - Create File
 * [uploaded](docs/sdks/files/README.md#uploaded) - Complete File Upload
-* [update](docs/sdks/files/README.md#update) - Update File
 * [delete](docs/sdks/files/README.md#delete) - Delete File
+* [update](docs/sdks/files/README.md#update) - Update File
 
 ### [LicenseKeys](docs/sdks/licensekeys/README.md)
 
@@ -332,8 +339,8 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [listMembers](docs/sdks/members/README.md#listmembers) - List Members
 * [createMember](docs/sdks/members/README.md#createmember) - Create Member
 * [getMember](docs/sdks/members/README.md#getmember) - Get Member
-* [updateMember](docs/sdks/members/README.md#updatemember) - Update Member
 * [deleteMember](docs/sdks/members/README.md#deletemember) - Delete Member
+* [updateMember](docs/sdks/members/README.md#updatemember) - Update Member
 
 ### [Meters](docs/sdks/meters/README.md)
 
@@ -369,15 +376,15 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [export](docs/sdks/orders/README.md#export) - Export Subscriptions
 * [get](docs/sdks/orders/README.md#get) - Get Order
 * [update](docs/sdks/orders/README.md#update) - Update Order
-* [generateInvoice](docs/sdks/orders/README.md#generateinvoice) - Generate Order Invoice
 * [invoice](docs/sdks/orders/README.md#invoice) - Get Order Invoice
+* [generateInvoice](docs/sdks/orders/README.md#generateinvoice) - Generate Order Invoice
 
 ### [OrganizationAccessTokens](docs/sdks/organizationaccesstokens/README.md)
 
 * [list](docs/sdks/organizationaccesstokens/README.md#list) - List
 * [create](docs/sdks/organizationaccesstokens/README.md#create) - Create
-* [update](docs/sdks/organizationaccesstokens/README.md#update) - Update
 * [delete](docs/sdks/organizationaccesstokens/README.md#delete) - Delete
+* [update](docs/sdks/organizationaccesstokens/README.md#update) - Update
 
 ### [Organizations](docs/sdks/organizations/README.md)
 
@@ -410,16 +417,16 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [create](docs/sdks/subscriptions/README.md#create) - Create Subscription
 * [export](docs/sdks/subscriptions/README.md#export) - Export Subscriptions
 * [get](docs/sdks/subscriptions/README.md#get) - Get Subscription
-* [update](docs/sdks/subscriptions/README.md#update) - Update Subscription
 * [revoke](docs/sdks/subscriptions/README.md#revoke) - Revoke Subscription
+* [update](docs/sdks/subscriptions/README.md#update) - Update Subscription
 
 ### [Webhooks](docs/sdks/webhooks/README.md)
 
 * [listWebhookEndpoints](docs/sdks/webhooks/README.md#listwebhookendpoints) - List Webhook Endpoints
 * [createWebhookEndpoint](docs/sdks/webhooks/README.md#createwebhookendpoint) - Create Webhook Endpoint
 * [getWebhookEndpoint](docs/sdks/webhooks/README.md#getwebhookendpoint) - Get Webhook Endpoint
-* [updateWebhookEndpoint](docs/sdks/webhooks/README.md#updatewebhookendpoint) - Update Webhook Endpoint
 * [deleteWebhookEndpoint](docs/sdks/webhooks/README.md#deletewebhookendpoint) - Delete Webhook Endpoint
+* [updateWebhookEndpoint](docs/sdks/webhooks/README.md#updatewebhookendpoint) - Update Webhook Endpoint
 * [resetWebhookEndpointSecret](docs/sdks/webhooks/README.md#resetwebhookendpointsecret) - Reset Webhook Endpoint Secret
 * [listWebhookDeliveries](docs/sdks/webhooks/README.md#listwebhookdeliveries) - List Webhook Deliveries
 * [redeliverWebhookEvent](docs/sdks/webhooks/README.md#redeliverwebhookevent) - Redeliver Webhook Event
@@ -482,6 +489,10 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`customerPortalLicenseKeysGet`](docs/sdks/polarlicensekeys/README.md#get) - Get License Key
 - [`customerPortalLicenseKeysList`](docs/sdks/polarlicensekeys/README.md#list) - List License Keys
 - [`customerPortalLicenseKeysValidate`](docs/sdks/polarlicensekeys/README.md#validate) - Validate License Key
+- [`customerPortalMembersAddMember`](docs/sdks/polarmembers/README.md#addmember) - Add Member
+- [`customerPortalMembersListMembers`](docs/sdks/polarmembers/README.md#listmembers) - List Members
+- [`customerPortalMembersRemoveMember`](docs/sdks/polarmembers/README.md#removemember) - Remove Member
+- [`customerPortalMembersUpdateMember`](docs/sdks/polarmembers/README.md#updatemember) - Update Member
 - [`customerPortalOrdersConfirmRetryPayment`](docs/sdks/polarorders/README.md#confirmretrypayment) - Confirm Retry Payment
 - [`customerPortalOrdersGenerateInvoice`](docs/sdks/polarorders/README.md#generateinvoice) - Generate Order Invoice
 - [`customerPortalOrdersGet`](docs/sdks/polarorders/README.md#get) - Get Order
@@ -780,24 +791,24 @@ run();
 
 
 **Inherit from [`PolarError`](./src/models/errors/polarerror.ts)**:
-* [`ResourceNotFound`](./src/models/errors/resourcenotfound.ts): Status code `404`. Applicable to 82 of 166 methods.*
-* [`NotPermitted`](./src/models/errors/notpermitted.ts): Status code `403`. Applicable to 10 of 166 methods.*
-* [`Unauthorized`](./src/models/errors/unauthorized.ts): Not authorized to manage license key. Status code `401`. Applicable to 5 of 166 methods.*
-* [`AlreadyCanceledSubscription`](./src/models/errors/alreadycanceledsubscription.ts): Status code `403`. Applicable to 4 of 166 methods.*
-* [`AlreadyActiveSubscriptionError`](./src/models/errors/alreadyactivesubscriptionerror.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 166 methods.*
-* [`NotOpenCheckout`](./src/models/errors/notopencheckout.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 166 methods.*
-* [`PaymentNotReady`](./src/models/errors/paymentnotready.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 166 methods.*
-* [`TrialAlreadyRedeemed`](./src/models/errors/trialalreadyredeemed.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 166 methods.*
-* [`ExpiredCheckoutError`](./src/models/errors/expiredcheckouterror.ts): The checkout session is expired. Status code `410`. Applicable to 3 of 166 methods.*
-* [`SubscriptionLocked`](./src/models/errors/subscriptionlocked.ts): Subscription is pending an update. Status code `409`. Applicable to 2 of 166 methods.*
-* [`MissingInvoiceBillingDetails`](./src/models/errors/missinginvoicebillingdetails.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 166 methods.*
-* [`NotPaidOrder`](./src/models/errors/notpaidorder.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 166 methods.*
-* [`PaymentError`](./src/models/errors/paymenterror.ts): The payment failed. Status code `400`. Applicable to 1 of 166 methods.*
-* [`CustomerNotReady`](./src/models/errors/customernotready.ts): Customer is not ready to confirm a payment method. Status code `400`. Applicable to 1 of 166 methods.*
-* [`PaymentMethodInUseByActiveSubscription`](./src/models/errors/paymentmethodinusebyactivesubscription.ts): Payment method is used by active subscription(s). Status code `400`. Applicable to 1 of 166 methods.*
-* [`RefundedAlready`](./src/models/errors/refundedalready.ts): Order is already fully refunded. Status code `403`. Applicable to 1 of 166 methods.*
-* [`PaymentAlreadyInProgress`](./src/models/errors/paymentalreadyinprogress.ts): Payment already in progress. Status code `409`. Applicable to 1 of 166 methods.*
-* [`OrderNotEligibleForRetry`](./src/models/errors/ordernoteligibleforretry.ts): Order not eligible for retry or payment confirmation failed. Status code `422`. Applicable to 1 of 166 methods.*
+* [`ResourceNotFound`](./src/models/errors/resourcenotfound.ts): Status code `404`. Applicable to 82 of 170 methods.*
+* [`NotPermitted`](./src/models/errors/notpermitted.ts): Status code `403`. Applicable to 10 of 170 methods.*
+* [`Unauthorized`](./src/models/errors/unauthorized.ts): Not authorized to manage license key. Status code `401`. Applicable to 5 of 170 methods.*
+* [`AlreadyCanceledSubscription`](./src/models/errors/alreadycanceledsubscription.ts): Status code `403`. Applicable to 4 of 170 methods.*
+* [`AlreadyActiveSubscriptionError`](./src/models/errors/alreadyactivesubscriptionerror.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 170 methods.*
+* [`NotOpenCheckout`](./src/models/errors/notopencheckout.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 170 methods.*
+* [`PaymentNotReady`](./src/models/errors/paymentnotready.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 170 methods.*
+* [`TrialAlreadyRedeemed`](./src/models/errors/trialalreadyredeemed.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 170 methods.*
+* [`ExpiredCheckoutError`](./src/models/errors/expiredcheckouterror.ts): The checkout session is expired. Status code `410`. Applicable to 3 of 170 methods.*
+* [`SubscriptionLocked`](./src/models/errors/subscriptionlocked.ts): Subscription is pending an update. Status code `409`. Applicable to 2 of 170 methods.*
+* [`MissingInvoiceBillingDetails`](./src/models/errors/missinginvoicebillingdetails.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 170 methods.*
+* [`NotPaidOrder`](./src/models/errors/notpaidorder.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 170 methods.*
+* [`PaymentError`](./src/models/errors/paymenterror.ts): The payment failed. Status code `400`. Applicable to 1 of 170 methods.*
+* [`CustomerNotReady`](./src/models/errors/customernotready.ts): Customer is not ready to confirm a payment method. Status code `400`. Applicable to 1 of 170 methods.*
+* [`PaymentMethodInUseByActiveSubscription`](./src/models/errors/paymentmethodinusebyactivesubscription.ts): Payment method is used by active subscription(s). Status code `400`. Applicable to 1 of 170 methods.*
+* [`RefundedAlready`](./src/models/errors/refundedalready.ts): Order is already fully refunded. Status code `403`. Applicable to 1 of 170 methods.*
+* [`PaymentAlreadyInProgress`](./src/models/errors/paymentalreadyinprogress.ts): Payment already in progress. Status code `409`. Applicable to 1 of 170 methods.*
+* [`OrderNotEligibleForRetry`](./src/models/errors/ordernoteligibleforretry.ts): Order not eligible for retry or payment confirmation failed. Status code `422`. Applicable to 1 of 170 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

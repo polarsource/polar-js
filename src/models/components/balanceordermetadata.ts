@@ -14,6 +14,7 @@ export type BalanceOrderMetadata = {
   productId?: string | undefined;
   subscriptionId?: string | undefined;
   amount: number;
+  netAmount?: number | undefined;
   currency: string;
   presentmentAmount: number;
   presentmentCurrency: string;
@@ -34,6 +35,7 @@ export const BalanceOrderMetadata$inboundSchema: z.ZodMiniType<
     product_id: z.optional(z.string()),
     subscription_id: z.optional(z.string()),
     amount: z.int(),
+    net_amount: z.optional(z.int()),
     currency: z.string(),
     presentment_amount: z.int(),
     presentment_currency: z.string(),
@@ -48,6 +50,7 @@ export const BalanceOrderMetadata$inboundSchema: z.ZodMiniType<
       "order_id": "orderId",
       "product_id": "productId",
       "subscription_id": "subscriptionId",
+      "net_amount": "netAmount",
       "presentment_amount": "presentmentAmount",
       "presentment_currency": "presentmentCurrency",
       "tax_amount": "taxAmount",

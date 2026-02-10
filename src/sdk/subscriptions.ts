@@ -105,25 +105,6 @@ export class Subscriptions extends ClientSDK {
   }
 
   /**
-   * Update Subscription
-   *
-   * @remarks
-   * Update a subscription.
-   *
-   * **Scopes**: `subscriptions:write`
-   */
-  async update(
-    request: SubscriptionsUpdateRequest,
-    options?: RequestOptions,
-  ): Promise<Subscription> {
-    return unwrapAsync(subscriptionsUpdate(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Revoke Subscription
    *
    * @remarks
@@ -136,6 +117,25 @@ export class Subscriptions extends ClientSDK {
     options?: RequestOptions,
   ): Promise<Subscription> {
     return unwrapAsync(subscriptionsRevoke(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update Subscription
+   *
+   * @remarks
+   * Update a subscription.
+   *
+   * **Scopes**: `subscriptions:write`
+   */
+  async update(
+    request: SubscriptionsUpdateRequest,
+    options?: RequestOptions,
+  ): Promise<Subscription> {
+    return unwrapAsync(subscriptionsUpdate(
       this,
       request,
       options,

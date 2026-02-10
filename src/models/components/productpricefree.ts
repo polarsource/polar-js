@@ -8,6 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  PresentmentCurrency,
+  PresentmentCurrency$inboundSchema,
+  PresentmentCurrency$outboundSchema,
+} from "./presentmentcurrency.js";
+import {
   ProductPriceSource,
   ProductPriceSource$inboundSchema,
   ProductPriceSource$outboundSchema,
@@ -41,6 +46,7 @@ export type ProductPriceFree = {
   id: string;
   source: ProductPriceSource;
   amountType: "free";
+  priceCurrency: PresentmentCurrency;
   /**
    * Whether the price is archived and no longer available.
    */
@@ -72,6 +78,7 @@ export const ProductPriceFree$inboundSchema: z.ZodMiniType<
     id: z.string(),
     source: ProductPriceSource$inboundSchema,
     amount_type: z.literal("free"),
+    price_currency: PresentmentCurrency$inboundSchema,
     is_archived: z.boolean(),
     product_id: z.string(),
     type: ProductPriceType$inboundSchema,
@@ -82,6 +89,7 @@ export const ProductPriceFree$inboundSchema: z.ZodMiniType<
       "created_at": "createdAt",
       "modified_at": "modifiedAt",
       "amount_type": "amountType",
+      "price_currency": "priceCurrency",
       "is_archived": "isArchived",
       "product_id": "productId",
       "recurring_interval": "recurringInterval",
@@ -95,6 +103,7 @@ export type ProductPriceFree$Outbound = {
   id: string;
   source: string;
   amount_type: "free";
+  price_currency: string;
   is_archived: boolean;
   product_id: string;
   type: string;
@@ -112,6 +121,7 @@ export const ProductPriceFree$outboundSchema: z.ZodMiniType<
     id: z.string(),
     source: ProductPriceSource$outboundSchema,
     amountType: z.literal("free"),
+    priceCurrency: PresentmentCurrency$outboundSchema,
     isArchived: z.boolean(),
     productId: z.string(),
     type: ProductPriceType$outboundSchema,
@@ -122,6 +132,7 @@ export const ProductPriceFree$outboundSchema: z.ZodMiniType<
       createdAt: "created_at",
       modifiedAt: "modified_at",
       amountType: "amount_type",
+      priceCurrency: "price_currency",
       isArchived: "is_archived",
       productId: "product_id",
       recurringInterval: "recurring_interval",

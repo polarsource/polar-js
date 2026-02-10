@@ -5,6 +5,10 @@
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import {
+  PresentmentCurrency,
+  PresentmentCurrency$outboundSchema,
+} from "./presentmentcurrency.js";
+import {
   ProductPriceSeatTiersInput,
   ProductPriceSeatTiersInput$Outbound,
   ProductPriceSeatTiersInput$outboundSchema,
@@ -15,10 +19,7 @@ import {
  */
 export type ProductPriceSeatBasedCreate = {
   amountType: "seat_based";
-  /**
-   * The currency. Currently, only `usd` is supported.
-   */
-  priceCurrency?: string | undefined;
+  priceCurrency?: PresentmentCurrency | undefined;
   /**
    * List of pricing tiers for seat-based pricing.
    *
@@ -34,7 +35,7 @@ export type ProductPriceSeatBasedCreate = {
 /** @internal */
 export type ProductPriceSeatBasedCreate$Outbound = {
   amount_type: "seat_based";
-  price_currency: string;
+  price_currency?: string | undefined;
   seat_tiers: ProductPriceSeatTiersInput$Outbound;
 };
 
@@ -45,7 +46,7 @@ export const ProductPriceSeatBasedCreate$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     amountType: z.literal("seat_based"),
-    priceCurrency: z._default(z.string(), "usd"),
+    priceCurrency: z.optional(PresentmentCurrency$outboundSchema),
     seatTiers: ProductPriceSeatTiersInput$outboundSchema,
   }),
   z.transform((v) => {

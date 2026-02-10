@@ -23,6 +23,10 @@ import {
 } from "./productmediafileread.js";
 import { ProductPrice, ProductPrice$inboundSchema } from "./productprice.js";
 import {
+  ProductVisibility,
+  ProductVisibility$inboundSchema,
+} from "./productvisibility.js";
+import {
   SubscriptionRecurringInterval,
   SubscriptionRecurringInterval$inboundSchema,
 } from "./subscriptionrecurringinterval.js";
@@ -65,6 +69,7 @@ export type CheckoutLinkProduct = {
    * The description of the product.
    */
   description: string | null;
+  visibility: ProductVisibility;
   /**
    * The recurring interval of the product. If `None`, the product is a one-time purchase.
    */
@@ -137,6 +142,7 @@ export const CheckoutLinkProduct$inboundSchema: z.ZodMiniType<
     trial_interval_count: z.nullable(z.int()),
     name: z.string(),
     description: z.nullable(z.string()),
+    visibility: ProductVisibility$inboundSchema,
     recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema),
     recurring_interval_count: z.nullable(z.int()),
     is_recurring: z.boolean(),

@@ -8,6 +8,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  CustomerOrganizationFeatureSettings,
+  CustomerOrganizationFeatureSettings$inboundSchema,
+} from "./customerorganizationfeaturesettings.js";
+import {
   OrganizationCustomerPortalSettings,
   OrganizationCustomerPortalSettings$inboundSchema,
 } from "./organizationcustomerportalsettings.js";
@@ -47,6 +51,10 @@ export type CustomerOrganization = {
    */
   allowCustomerUpdates: boolean;
   customerPortalSettings: OrganizationCustomerPortalSettings;
+  /**
+   * Feature flags exposed to the customer portal.
+   */
+  organizationFeatures?: CustomerOrganizationFeatureSettings | undefined;
 };
 
 /** @internal */
@@ -69,6 +77,9 @@ export const CustomerOrganization$inboundSchema: z.ZodMiniType<
     proration_behavior: SubscriptionProrationBehavior$inboundSchema,
     allow_customer_updates: z.boolean(),
     customer_portal_settings: OrganizationCustomerPortalSettings$inboundSchema,
+    organization_features: z.optional(
+      CustomerOrganizationFeatureSettings$inboundSchema,
+    ),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -78,6 +89,7 @@ export const CustomerOrganization$inboundSchema: z.ZodMiniType<
       "proration_behavior": "prorationBehavior",
       "allow_customer_updates": "allowCustomerUpdates",
       "customer_portal_settings": "customerPortalSettings",
+      "organization_features": "organizationFeatures",
     });
   }),
 );

@@ -8,6 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  PresentmentCurrency,
+  PresentmentCurrency$inboundSchema,
+  PresentmentCurrency$outboundSchema,
+} from "./presentmentcurrency.js";
+import {
   ProductPriceSeatTiersOutput,
   ProductPriceSeatTiersOutput$inboundSchema,
   ProductPriceSeatTiersOutput$Outbound,
@@ -47,6 +52,7 @@ export type ProductPriceSeatBased = {
   id: string;
   source: ProductPriceSource;
   amountType: "seat_based";
+  priceCurrency: PresentmentCurrency;
   /**
    * Whether the price is archived and no longer available.
    */
@@ -60,10 +66,6 @@ export type ProductPriceSeatBased = {
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   recurringInterval: SubscriptionRecurringInterval | null;
-  /**
-   * The currency.
-   */
-  priceCurrency: string;
   /**
    * List of pricing tiers for seat-based pricing.
    *
@@ -92,11 +94,11 @@ export const ProductPriceSeatBased$inboundSchema: z.ZodMiniType<
     id: z.string(),
     source: ProductPriceSource$inboundSchema,
     amount_type: z.literal("seat_based"),
+    price_currency: PresentmentCurrency$inboundSchema,
     is_archived: z.boolean(),
     product_id: z.string(),
     type: ProductPriceType$inboundSchema,
     recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema),
-    price_currency: z.string(),
     seat_tiers: ProductPriceSeatTiersOutput$inboundSchema,
   }),
   z.transform((v) => {
@@ -104,10 +106,10 @@ export const ProductPriceSeatBased$inboundSchema: z.ZodMiniType<
       "created_at": "createdAt",
       "modified_at": "modifiedAt",
       "amount_type": "amountType",
+      "price_currency": "priceCurrency",
       "is_archived": "isArchived",
       "product_id": "productId",
       "recurring_interval": "recurringInterval",
-      "price_currency": "priceCurrency",
       "seat_tiers": "seatTiers",
     });
   }),
@@ -119,11 +121,11 @@ export type ProductPriceSeatBased$Outbound = {
   id: string;
   source: string;
   amount_type: "seat_based";
+  price_currency: string;
   is_archived: boolean;
   product_id: string;
   type: string;
   recurring_interval: string | null;
-  price_currency: string;
   seat_tiers: ProductPriceSeatTiersOutput$Outbound;
 };
 
@@ -138,11 +140,11 @@ export const ProductPriceSeatBased$outboundSchema: z.ZodMiniType<
     id: z.string(),
     source: ProductPriceSource$outboundSchema,
     amountType: z.literal("seat_based"),
+    priceCurrency: PresentmentCurrency$outboundSchema,
     isArchived: z.boolean(),
     productId: z.string(),
     type: ProductPriceType$outboundSchema,
     recurringInterval: z.nullable(SubscriptionRecurringInterval$outboundSchema),
-    priceCurrency: z.string(),
     seatTiers: ProductPriceSeatTiersOutput$outboundSchema,
   }),
   z.transform((v) => {
@@ -150,10 +152,10 @@ export const ProductPriceSeatBased$outboundSchema: z.ZodMiniType<
       createdAt: "created_at",
       modifiedAt: "modified_at",
       amountType: "amount_type",
+      priceCurrency: "price_currency",
       isArchived: "is_archived",
       productId: "product_id",
       recurringInterval: "recurring_interval",
-      priceCurrency: "price_currency",
       seatTiers: "seat_tiers",
     });
   }),

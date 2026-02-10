@@ -112,8 +112,8 @@ async function run() {
     prices: [
       {
         amountType: "fixed",
-        priceAmount: 677078,
         priceCurrency: "usd",
+        priceAmount: 677078,
       },
       {
         amountType: "free",
@@ -149,8 +149,8 @@ async function run() {
     prices: [
       {
         amountType: "fixed",
-        priceAmount: 677078,
         priceCurrency: "usd",
+        priceAmount: 677078,
       },
       {
         amountType: "free",

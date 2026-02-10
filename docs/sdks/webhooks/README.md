@@ -7,8 +7,8 @@
 * [listWebhookEndpoints](#listwebhookendpoints) - List Webhook Endpoints
 * [createWebhookEndpoint](#createwebhookendpoint) - Create Webhook Endpoint
 * [getWebhookEndpoint](#getwebhookendpoint) - Get Webhook Endpoint
-* [updateWebhookEndpoint](#updatewebhookendpoint) - Update Webhook Endpoint
 * [deleteWebhookEndpoint](#deletewebhookendpoint) - Delete Webhook Endpoint
+* [updateWebhookEndpoint](#updatewebhookendpoint) - Update Webhook Endpoint
 * [resetWebhookEndpointSecret](#resetwebhookendpointsecret) - Reset Webhook Endpoint Secret
 * [listWebhookDeliveries](#listwebhookdeliveries) - List Webhook Deliveries
 * [redeliverWebhookEvent](#redeliverwebhookevent) - Redeliver Webhook Event
@@ -256,6 +256,83 @@ run();
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
+## deleteWebhookEndpoint
+
+Delete a webhook endpoint.
+
+**Scopes**: `webhooks:write`
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="webhooks:delete_webhook_endpoint" method="delete" path="/v1/webhooks/endpoints/{id}" -->
+```typescript
+import { Polar } from "@polar-sh/sdk";
+
+const polar = new Polar({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  await polar.webhooks.deleteWebhookEndpoint({
+    id: "<value>",
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { PolarCore } from "@polar-sh/sdk/core.js";
+import { webhooksDeleteWebhookEndpoint } from "@polar-sh/sdk/funcs/webhooksDeleteWebhookEndpoint.js";
+
+// Use `PolarCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const polar = new PolarCore({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  const res = await webhooksDeleteWebhookEndpoint(polar, {
+    id: "<value>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("webhooksDeleteWebhookEndpoint failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.WebhooksDeleteWebhookEndpointRequest](../../models/operations/webhooksdeletewebhookendpointrequest.md)                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.ResourceNotFound    | 404                        | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
+
 ## updateWebhookEndpoint
 
 Update a webhook endpoint.
@@ -330,83 +407,6 @@ run();
 ### Response
 
 **Promise\<[components.WebhookEndpoint](../../models/components/webhookendpoint.md)\>**
-
-### Errors
-
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ResourceNotFound    | 404                        | application/json           |
-| errors.HTTPValidationError | 422                        | application/json           |
-| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
-
-## deleteWebhookEndpoint
-
-Delete a webhook endpoint.
-
-**Scopes**: `webhooks:write`
-
-### Example Usage
-
-<!-- UsageSnippet language="typescript" operationID="webhooks:delete_webhook_endpoint" method="delete" path="/v1/webhooks/endpoints/{id}" -->
-```typescript
-import { Polar } from "@polar-sh/sdk";
-
-const polar = new Polar({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
-
-async function run() {
-  await polar.webhooks.deleteWebhookEndpoint({
-    id: "<value>",
-  });
-
-
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { PolarCore } from "@polar-sh/sdk/core.js";
-import { webhooksDeleteWebhookEndpoint } from "@polar-sh/sdk/funcs/webhooksDeleteWebhookEndpoint.js";
-
-// Use `PolarCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const polar = new PolarCore({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
-
-async function run() {
-  const res = await webhooksDeleteWebhookEndpoint(polar, {
-    id: "<value>",
-  });
-  if (res.ok) {
-    const { value: result } = res;
-    
-  } else {
-    console.log("webhooksDeleteWebhookEndpoint failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.WebhooksDeleteWebhookEndpointRequest](../../models/operations/webhooksdeletewebhookendpointrequest.md)                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<void\>**
 
 ### Errors
 

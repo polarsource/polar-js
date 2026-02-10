@@ -40,6 +40,7 @@ let value: ListResourceCustomerBenefitGrant = {
             accountUsername: "<value>",
           },
         },
+        type: "individual",
       },
       benefit: {
         id: "<value>",

@@ -11,7 +11,7 @@ let value: WebhookEndpointCreate = {
   url: "https://webhook.site/cb791d80-f26e-4f8c-be88-6e56054192b0",
   format: "slack",
   events: [
-    "refund.created",
+    "subscription.revoked",
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };

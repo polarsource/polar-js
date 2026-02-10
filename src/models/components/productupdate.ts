@@ -41,6 +41,10 @@ import {
   ProductPriceSeatBasedCreate$outboundSchema,
 } from "./productpriceseatbasedcreate.js";
 import {
+  ProductVisibility,
+  ProductVisibility$outboundSchema,
+} from "./productvisibility.js";
+import {
   SubscriptionRecurringInterval,
   SubscriptionRecurringInterval$outboundSchema,
 } from "./subscriptionrecurringinterval.js";
@@ -111,6 +115,10 @@ export type ProductUpdate = {
    * Whether the product is archived. If `true`, the product won't be available for purchase anymore. Existing customers will still have access to their benefits, and subscriptions will continue normally.
    */
   isArchived?: boolean | null | undefined;
+  /**
+   * The visibility of the product.
+   */
+  visibility?: ProductVisibility | null | undefined;
   /**
    * List of available prices for this product. If you want to keep existing prices, include them in the list as an `ExistingProductPrice` object.
    */
@@ -212,6 +220,7 @@ export type ProductUpdate$Outbound = {
   recurring_interval?: string | null | undefined;
   recurring_interval_count?: number | null | undefined;
   is_archived?: boolean | null | undefined;
+  visibility?: string | null | undefined;
   prices?:
     | Array<
       | ExistingProductPrice$Outbound
@@ -251,6 +260,7 @@ export const ProductUpdate$outboundSchema: z.ZodMiniType<
     ),
     recurringIntervalCount: z.optional(z.nullable(z.int())),
     isArchived: z.optional(z.nullable(z.boolean())),
+    visibility: z.optional(z.nullable(ProductVisibility$outboundSchema)),
     prices: z.optional(
       z.nullable(
         z.array(

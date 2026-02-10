@@ -31,6 +31,14 @@ export type SeatAssign = {
    */
   customerId?: string | null | undefined;
   /**
+   * External member ID for the seat assignment. Only supported when member_model_enabled is true. Can be used alone (lookup existing member) or with email (create/validate member).
+   */
+  externalMemberId?: string | null | undefined;
+  /**
+   * Member ID for the seat assignment. Only supported when member_model_enabled is true.
+   */
+  memberId?: string | null | undefined;
+  /**
    * Additional metadata for the seat (max 10 keys, 1KB total)
    */
   metadata?: { [k: string]: any } | null | undefined;
@@ -48,6 +56,8 @@ export type SeatAssign$Outbound = {
   email?: string | null | undefined;
   external_customer_id?: string | null | undefined;
   customer_id?: string | null | undefined;
+  external_member_id?: string | null | undefined;
+  member_id?: string | null | undefined;
   metadata?: { [k: string]: any } | null | undefined;
   immediate_claim: boolean;
 };
@@ -64,6 +74,8 @@ export const SeatAssign$outboundSchema: z.ZodMiniType<
     email: z.optional(z.nullable(z.string())),
     externalCustomerId: z.optional(z.nullable(z.string())),
     customerId: z.optional(z.nullable(z.string())),
+    externalMemberId: z.optional(z.nullable(z.string())),
+    memberId: z.optional(z.nullable(z.string())),
     metadata: z.optional(z.nullable(z.record(z.string(), z.any()))),
     immediateClaim: z._default(z.boolean(), false),
   }),
@@ -74,6 +86,8 @@ export const SeatAssign$outboundSchema: z.ZodMiniType<
       orderId: "order_id",
       externalCustomerId: "external_customer_id",
       customerId: "customer_id",
+      externalMemberId: "external_member_id",
+      memberId: "member_id",
       immediateClaim: "immediate_claim",
     });
   }),

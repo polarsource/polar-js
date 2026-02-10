@@ -56,6 +56,7 @@ export type CheckoutUpdate = {
   customerBillingName?: string | null | undefined;
   customerBillingAddress?: AddressInput | null | undefined;
   customerTaxId?: string | null | undefined;
+  locale?: string | null | undefined;
   /**
    * The interval unit for the trial period.
    */
@@ -218,6 +219,7 @@ export type CheckoutUpdate$Outbound = {
   customer_billing_name?: string | null | undefined;
   customer_billing_address?: AddressInput$Outbound | null | undefined;
   customer_tax_id?: string | null | undefined;
+  locale?: string | null | undefined;
   trial_interval?: string | null | undefined;
   trial_interval_count?: number | null | undefined;
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
@@ -265,6 +267,7 @@ export const CheckoutUpdate$outboundSchema: z.ZodMiniType<
     customerBillingName: z.optional(z.nullable(z.string())),
     customerBillingAddress: z.optional(z.nullable(AddressInput$outboundSchema)),
     customerTaxId: z.optional(z.nullable(z.string())),
+    locale: z.optional(z.nullable(z.string())),
     trialInterval: z.optional(z.nullable(TrialInterval$outboundSchema)),
     trialIntervalCount: z.optional(z.nullable(z.int())),
     metadata: z.optional(

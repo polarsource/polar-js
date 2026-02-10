@@ -59,23 +59,6 @@ export class OrganizationAccessTokens extends ClientSDK {
   }
 
   /**
-   * Update
-   *
-   * @remarks
-   * **Scopes**: `organization_access_tokens:write`
-   */
-  async update(
-    request: OrganizationAccessTokensUpdateRequest,
-    options?: RequestOptions,
-  ): Promise<OrganizationAccessToken> {
-    return unwrapAsync(organizationAccessTokensUpdate(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Delete
    *
    * @remarks
@@ -86,6 +69,23 @@ export class OrganizationAccessTokens extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(organizationAccessTokensDelete(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update
+   *
+   * @remarks
+   * **Scopes**: `organization_access_tokens:write`
+   */
+  async update(
+    request: OrganizationAccessTokensUpdateRequest,
+    options?: RequestOptions,
+  ): Promise<OrganizationAccessToken> {
+    return unwrapAsync(organizationAccessTokensUpdate(
       this,
       request,
       options,

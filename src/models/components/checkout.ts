@@ -263,6 +263,7 @@ export type Checkout = {
   customerBillingName: string | null;
   customerBillingAddress: Address | null;
   customerTaxId: string | null;
+  locale?: string | null | undefined;
   paymentProcessorMetadata: { [k: string]: string };
   billingAddressFields: CheckoutBillingAddressFields;
   /**
@@ -579,6 +580,7 @@ export const Checkout$inboundSchema: z.ZodMiniType<Checkout, unknown> = z.pipe(
     customer_billing_name: z.nullable(z.string()),
     customer_billing_address: z.nullable(Address$inboundSchema),
     customer_tax_id: z.nullable(z.string()),
+    locale: z.optional(z.nullable(z.string())),
     payment_processor_metadata: z.record(z.string(), z.string()),
     billing_address_fields: CheckoutBillingAddressFields$inboundSchema,
     trial_interval: z.nullable(TrialInterval$inboundSchema),
@@ -721,6 +723,7 @@ export type Checkout$Outbound = {
   customer_billing_name: string | null;
   customer_billing_address: Address$Outbound | null;
   customer_tax_id: string | null;
+  locale?: string | null | undefined;
   payment_processor_metadata: { [k: string]: string };
   billing_address_fields: CheckoutBillingAddressFields$Outbound;
   trial_interval: string | null;
@@ -811,6 +814,7 @@ export const Checkout$outboundSchema: z.ZodMiniType<
     customerBillingName: z.nullable(z.string()),
     customerBillingAddress: z.nullable(Address$outboundSchema),
     customerTaxId: z.nullable(z.string()),
+    locale: z.optional(z.nullable(z.string())),
     paymentProcessorMetadata: z.record(z.string(), z.string()),
     billingAddressFields: CheckoutBillingAddressFields$outboundSchema,
     trialInterval: z.nullable(TrialInterval$outboundSchema),

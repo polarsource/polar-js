@@ -13,6 +13,7 @@ import {
   CustomerPortalOAuthAccount,
   CustomerPortalOAuthAccount$inboundSchema,
 } from "./customerportaloauthaccount.js";
+import { CustomerType, CustomerType$inboundSchema } from "./customertype.js";
 import { TaxIDFormat, TaxIDFormat$inboundSchema } from "./taxidformat.js";
 
 export type CustomerPortalCustomerTaxId = string | TaxIDFormat;
@@ -38,6 +39,7 @@ export type CustomerPortalCustomer = {
   taxId: Array<string | TaxIDFormat | null> | null;
   oauthAccounts: { [k: string]: CustomerPortalOAuthAccount };
   defaultPaymentMethodId?: string | null | undefined;
+  type?: CustomerType | null | undefined;
 };
 
 /** @internal */
@@ -83,6 +85,7 @@ export const CustomerPortalCustomer$inboundSchema: z.ZodMiniType<
       CustomerPortalOAuthAccount$inboundSchema,
     ),
     default_payment_method_id: z.optional(z.nullable(z.string())),
+    type: z.optional(z.nullable(CustomerType$inboundSchema)),
   }),
   z.transform((v) => {
     return remap$(v, {

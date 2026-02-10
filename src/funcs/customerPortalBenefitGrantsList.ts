@@ -126,6 +126,7 @@ async function $do(
     "member_id": payload.member_id,
     "order_id": payload.order_id,
     "page": payload.page,
+    "query": payload.query,
     "sorting": payload.sorting,
     "subscription_id": payload.subscription_id,
     "type": payload.type_filter,

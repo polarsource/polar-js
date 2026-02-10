@@ -84,25 +84,6 @@ export class Benefits extends ClientSDK {
   }
 
   /**
-   * Update Benefit
-   *
-   * @remarks
-   * Update a benefit.
-   *
-   * **Scopes**: `benefits:write`
-   */
-  async update(
-    request: BenefitsUpdateRequest,
-    options?: RequestOptions,
-  ): Promise<Benefit> {
-    return unwrapAsync(benefitsUpdate(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Delete Benefit
    *
    * @remarks
@@ -119,6 +100,25 @@ export class Benefits extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(benefitsDelete(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update Benefit
+   *
+   * @remarks
+   * Update a benefit.
+   *
+   * **Scopes**: `benefits:write`
+   */
+  async update(
+    request: BenefitsUpdateRequest,
+    options?: RequestOptions,
+  ): Promise<Benefit> {
+    return unwrapAsync(benefitsUpdate(
       this,
       request,
       options,

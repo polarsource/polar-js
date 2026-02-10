@@ -23,23 +23,6 @@ import { unwrapAsync } from "../types/fp.js";
 
 export class CustomerSeats extends ClientSDK {
   /**
-   * Assign Seat
-   *
-   * @remarks
-   * **Scopes**: `customer_seats:write`
-   */
-  async assignSeat(
-    request: SeatAssign,
-    options?: RequestOptions,
-  ): Promise<CustomerSeat> {
-    return unwrapAsync(customerSeatsAssignSeat(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * List Seats
    *
    * @remarks
@@ -50,6 +33,23 @@ export class CustomerSeats extends ClientSDK {
     options?: RequestOptions,
   ): Promise<SeatsList> {
     return unwrapAsync(customerSeatsListSeats(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Assign Seat
+   *
+   * @remarks
+   * **Scopes**: `customer_seats:write`
+   */
+  async assignSeat(
+    request: SeatAssign,
+    options?: RequestOptions,
+  ): Promise<CustomerSeat> {
+    return unwrapAsync(customerSeatsAssignSeat(
       this,
       request,
       options,

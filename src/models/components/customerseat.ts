@@ -8,6 +8,12 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  Member,
+  Member$inboundSchema,
+  Member$Outbound,
+  Member$outboundSchema,
+} from "./member.js";
+import {
   SeatStatus,
   SeatStatus$inboundSchema,
   SeatStatus$outboundSchema,
@@ -43,6 +49,10 @@ export type CustomerSeat = {
    * The member ID of the seat occupant
    */
   memberId?: string | null | undefined;
+  /**
+   * The member associated with this seat
+   */
+  member?: Member | null | undefined;
   /**
    * Email of the seat member (set when member_model_enabled is true)
    */
@@ -86,6 +96,7 @@ export const CustomerSeat$inboundSchema: z.ZodMiniType<CustomerSeat, unknown> =
       status: SeatStatus$inboundSchema,
       customer_id: z.optional(z.nullable(z.string())),
       member_id: z.optional(z.nullable(z.string())),
+      member: z.optional(z.nullable(Member$inboundSchema)),
       email: z.optional(z.nullable(z.string())),
       customer_email: z.optional(z.nullable(z.string())),
       invitation_token_expires_at: z.optional(
@@ -134,6 +145,7 @@ export type CustomerSeat$Outbound = {
   status: string;
   customer_id?: string | null | undefined;
   member_id?: string | null | undefined;
+  member?: Member$Outbound | null | undefined;
   email?: string | null | undefined;
   customer_email?: string | null | undefined;
   invitation_token_expires_at?: string | null | undefined;
@@ -156,6 +168,7 @@ export const CustomerSeat$outboundSchema: z.ZodMiniType<
     status: SeatStatus$outboundSchema,
     customerId: z.optional(z.nullable(z.string())),
     memberId: z.optional(z.nullable(z.string())),
+    member: z.optional(z.nullable(Member$outboundSchema)),
     email: z.optional(z.nullable(z.string())),
     customerEmail: z.optional(z.nullable(z.string())),
     invitationTokenExpiresAt: z.optional(

@@ -39,6 +39,7 @@ const value: components.CustomerBenefitGrantDiscord = {
         accountUsername: "<value>",
       },
     },
+    type: "individual",
   },
   benefit: {
     id: "<value>",
@@ -107,6 +108,7 @@ const value: components.CustomerBenefitGrantGitHubRepository = {
         accountUsername: "<value>",
       },
     },
+    type: "individual",
   },
   benefit: {
     id: "<value>",
@@ -175,6 +177,7 @@ const value: components.CustomerBenefitGrantDownloadables = {
         accountUsername: "<value>",
       },
     },
+    type: "individual",
   },
   benefit: {
     id: "<value>",
@@ -244,6 +247,7 @@ const value: components.CustomerBenefitGrantLicenseKeys = {
         accountUsername: "<value>",
       },
     },
+    type: "individual",
   },
   benefit: {
     id: "<value>",
@@ -318,6 +322,7 @@ const value: components.CustomerBenefitGrantCustom = {
         accountUsername: "<value>",
       },
     },
+    type: "individual",
   },
   benefit: {
     id: "<value>",
@@ -386,6 +391,7 @@ const value: components.CustomerBenefitGrantMeterCredit = {
         accountUsername: "<value>",
       },
     },
+    type: "individual",
   },
   benefit: {
     id: "<value>",

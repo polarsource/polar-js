@@ -17,5 +17,5 @@ let value: CardPaymentMetadata = {
 
 | Field                                       | Type                                        | Required                                    | Description                                 | Example                                     |
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| `brand`                                     | *string*                                    | :heavy_check_mark:                          | The brand of the card used for the payment. | visa                                        |
+| `brand`                                     | *string*                                    | :heavy_check_mark:                          | The brand of the card used for the payment. | **Example 1:** visa<br/>**Example 2:** amex |
 | `last4`                                     | *string*                                    | :heavy_check_mark:                          | The last 4 digits of the card number.       | 4242                                        |

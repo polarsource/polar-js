@@ -74,25 +74,6 @@ export class PolarSubscriptions extends ClientSDK {
   }
 
   /**
-   * Update Subscription
-   *
-   * @remarks
-   * Update a subscription of the authenticated customer.
-   */
-  async update(
-    security: CustomerPortalSubscriptionsUpdateSecurity,
-    request: CustomerPortalSubscriptionsUpdateRequest,
-    options?: RequestOptions,
-  ): Promise<CustomerSubscription> {
-    return unwrapAsync(customerPortalSubscriptionsUpdate(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Cancel Subscription
    *
    * @remarks
@@ -104,6 +85,25 @@ export class PolarSubscriptions extends ClientSDK {
     options?: RequestOptions,
   ): Promise<CustomerSubscription> {
     return unwrapAsync(customerPortalSubscriptionsCancel(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update Subscription
+   *
+   * @remarks
+   * Update a subscription of the authenticated customer.
+   */
+  async update(
+    security: CustomerPortalSubscriptionsUpdateSecurity,
+    request: CustomerPortalSubscriptionsUpdateRequest,
+    options?: RequestOptions,
+  ): Promise<CustomerSubscription> {
+    return unwrapAsync(customerPortalSubscriptionsUpdate(
       this,
       security,
       request,

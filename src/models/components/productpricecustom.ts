@@ -8,6 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  PresentmentCurrency,
+  PresentmentCurrency$inboundSchema,
+  PresentmentCurrency$outboundSchema,
+} from "./presentmentcurrency.js";
+import {
   ProductPriceSource,
   ProductPriceSource$inboundSchema,
   ProductPriceSource$outboundSchema,
@@ -41,6 +46,7 @@ export type ProductPriceCustom = {
   id: string;
   source: ProductPriceSource;
   amountType: "custom";
+  priceCurrency: PresentmentCurrency;
   /**
    * Whether the price is archived and no longer available.
    */
@@ -54,10 +60,6 @@ export type ProductPriceCustom = {
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   recurringInterval: SubscriptionRecurringInterval | null;
-  /**
-   * The currency.
-   */
-  priceCurrency: string;
   /**
    * The minimum amount the customer can pay. If 0, the price is 'free or pay what you want'. Defaults to 50 cents.
    */
@@ -88,11 +90,11 @@ export const ProductPriceCustom$inboundSchema: z.ZodMiniType<
     id: z.string(),
     source: ProductPriceSource$inboundSchema,
     amount_type: z.literal("custom"),
+    price_currency: PresentmentCurrency$inboundSchema,
     is_archived: z.boolean(),
     product_id: z.string(),
     type: ProductPriceType$inboundSchema,
     recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema),
-    price_currency: z.string(),
     minimum_amount: z.int(),
     maximum_amount: z.nullable(z.int()),
     preset_amount: z.nullable(z.int()),
@@ -102,10 +104,10 @@ export const ProductPriceCustom$inboundSchema: z.ZodMiniType<
       "created_at": "createdAt",
       "modified_at": "modifiedAt",
       "amount_type": "amountType",
+      "price_currency": "priceCurrency",
       "is_archived": "isArchived",
       "product_id": "productId",
       "recurring_interval": "recurringInterval",
-      "price_currency": "priceCurrency",
       "minimum_amount": "minimumAmount",
       "maximum_amount": "maximumAmount",
       "preset_amount": "presetAmount",
@@ -119,11 +121,11 @@ export type ProductPriceCustom$Outbound = {
   id: string;
   source: string;
   amount_type: "custom";
+  price_currency: string;
   is_archived: boolean;
   product_id: string;
   type: string;
   recurring_interval: string | null;
-  price_currency: string;
   minimum_amount: number;
   maximum_amount: number | null;
   preset_amount: number | null;
@@ -140,11 +142,11 @@ export const ProductPriceCustom$outboundSchema: z.ZodMiniType<
     id: z.string(),
     source: ProductPriceSource$outboundSchema,
     amountType: z.literal("custom"),
+    priceCurrency: PresentmentCurrency$outboundSchema,
     isArchived: z.boolean(),
     productId: z.string(),
     type: ProductPriceType$outboundSchema,
     recurringInterval: z.nullable(SubscriptionRecurringInterval$outboundSchema),
-    priceCurrency: z.string(),
     minimumAmount: z.int(),
     maximumAmount: z.nullable(z.int()),
     presetAmount: z.nullable(z.int()),
@@ -154,10 +156,10 @@ export const ProductPriceCustom$outboundSchema: z.ZodMiniType<
       createdAt: "created_at",
       modifiedAt: "modified_at",
       amountType: "amount_type",
+      priceCurrency: "price_currency",
       isArchived: "is_archived",
       productId: "product_id",
       recurringInterval: "recurring_interval",
-      priceCurrency: "price_currency",
       minimumAmount: "minimum_amount",
       maximumAmount: "maximum_amount",
       presetAmount: "preset_amount",

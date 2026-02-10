@@ -38,6 +38,7 @@ let value: CustomerBenefitGrantDiscord = {
         accountUsername: "<value>",
       },
     },
+    type: "individual",
   },
   benefit: {
     id: "<value>",
@@ -86,6 +87,7 @@ let value: CustomerBenefitGrantDiscord = {
 | `orderId`                                                                                            | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `isGranted`                                                                                          | *boolean*                                                                                            | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `isRevoked`                                                                                          | *boolean*                                                                                            | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `error`                                                                                              | [components.BenefitGrantError](../../models/components/benefitgranterror.md)                         | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
 | `customer`                                                                                           | [components.CustomerPortalCustomer](../../models/components/customerportalcustomer.md)               | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `benefit`                                                                                            | [components.BenefitDiscordSubscriber](../../models/components/benefitdiscordsubscriber.md)           | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `properties`                                                                                         | [components.BenefitGrantDiscordProperties](../../models/components/benefitgrantdiscordproperties.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |

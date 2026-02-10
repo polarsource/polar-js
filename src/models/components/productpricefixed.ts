@@ -8,6 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  PresentmentCurrency,
+  PresentmentCurrency$inboundSchema,
+  PresentmentCurrency$outboundSchema,
+} from "./presentmentcurrency.js";
+import {
   ProductPriceSource,
   ProductPriceSource$inboundSchema,
   ProductPriceSource$outboundSchema,
@@ -41,6 +46,7 @@ export type ProductPriceFixed = {
   id: string;
   source: ProductPriceSource;
   amountType: "fixed";
+  priceCurrency: PresentmentCurrency;
   /**
    * Whether the price is archived and no longer available.
    */
@@ -54,10 +60,6 @@ export type ProductPriceFixed = {
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   recurringInterval: SubscriptionRecurringInterval | null;
-  /**
-   * The currency.
-   */
-  priceCurrency: string;
   /**
    * The price in cents.
    */
@@ -80,11 +82,11 @@ export const ProductPriceFixed$inboundSchema: z.ZodMiniType<
     id: z.string(),
     source: ProductPriceSource$inboundSchema,
     amount_type: z.literal("fixed"),
+    price_currency: PresentmentCurrency$inboundSchema,
     is_archived: z.boolean(),
     product_id: z.string(),
     type: ProductPriceType$inboundSchema,
     recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema),
-    price_currency: z.string(),
     price_amount: z.int(),
   }),
   z.transform((v) => {
@@ -92,10 +94,10 @@ export const ProductPriceFixed$inboundSchema: z.ZodMiniType<
       "created_at": "createdAt",
       "modified_at": "modifiedAt",
       "amount_type": "amountType",
+      "price_currency": "priceCurrency",
       "is_archived": "isArchived",
       "product_id": "productId",
       "recurring_interval": "recurringInterval",
-      "price_currency": "priceCurrency",
       "price_amount": "priceAmount",
     });
   }),
@@ -107,11 +109,11 @@ export type ProductPriceFixed$Outbound = {
   id: string;
   source: string;
   amount_type: "fixed";
+  price_currency: string;
   is_archived: boolean;
   product_id: string;
   type: string;
   recurring_interval: string | null;
-  price_currency: string;
   price_amount: number;
 };
 
@@ -126,11 +128,11 @@ export const ProductPriceFixed$outboundSchema: z.ZodMiniType<
     id: z.string(),
     source: ProductPriceSource$outboundSchema,
     amountType: z.literal("fixed"),
+    priceCurrency: PresentmentCurrency$outboundSchema,
     isArchived: z.boolean(),
     productId: z.string(),
     type: ProductPriceType$outboundSchema,
     recurringInterval: z.nullable(SubscriptionRecurringInterval$outboundSchema),
-    priceCurrency: z.string(),
     priceAmount: z.int(),
   }),
   z.transform((v) => {
@@ -138,10 +140,10 @@ export const ProductPriceFixed$outboundSchema: z.ZodMiniType<
       createdAt: "created_at",
       modifiedAt: "modified_at",
       amountType: "amount_type",
+      priceCurrency: "price_currency",
       isArchived: "is_archived",
       productId: "product_id",
       recurringInterval: "recurring_interval",
-      priceCurrency: "price_currency",
       priceAmount: "price_amount",
     });
   }),

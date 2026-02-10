@@ -8,6 +8,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  BenefitGrantError,
+  BenefitGrantError$inboundSchema,
+} from "./benefitgranterror.js";
+import {
   BenefitGrantLicenseKeysProperties,
   BenefitGrantLicenseKeysProperties$inboundSchema,
 } from "./benefitgrantlicensekeysproperties.js";
@@ -42,6 +46,7 @@ export type CustomerBenefitGrantLicenseKeys = {
   orderId: string | null;
   isGranted: boolean;
   isRevoked: boolean;
+  error?: BenefitGrantError | null | undefined;
   customer: CustomerPortalCustomer;
   benefit: BenefitLicenseKeysSubscriber;
   properties: BenefitGrantLicenseKeysProperties;
@@ -74,6 +79,7 @@ export const CustomerBenefitGrantLicenseKeys$inboundSchema: z.ZodMiniType<
     order_id: z.nullable(z.string()),
     is_granted: z.boolean(),
     is_revoked: z.boolean(),
+    error: z.optional(z.nullable(BenefitGrantError$inboundSchema)),
     customer: CustomerPortalCustomer$inboundSchema,
     benefit: BenefitLicenseKeysSubscriber$inboundSchema,
     properties: BenefitGrantLicenseKeysProperties$inboundSchema,

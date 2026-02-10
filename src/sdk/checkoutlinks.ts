@@ -79,25 +79,6 @@ export class CheckoutLinks extends ClientSDK {
   }
 
   /**
-   * Update Checkout Link
-   *
-   * @remarks
-   * Update a checkout link.
-   *
-   * **Scopes**: `checkout_links:write`
-   */
-  async update(
-    request: CheckoutLinksUpdateRequest,
-    options?: RequestOptions,
-  ): Promise<CheckoutLink> {
-    return unwrapAsync(checkoutLinksUpdate(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Delete Checkout Link
    *
    * @remarks
@@ -110,6 +91,25 @@ export class CheckoutLinks extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(checkoutLinksDelete(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update Checkout Link
+   *
+   * @remarks
+   * Update a checkout link.
+   *
+   * **Scopes**: `checkout_links:write`
+   */
+  async update(
+    request: CheckoutLinksUpdateRequest,
+    options?: RequestOptions,
+  ): Promise<CheckoutLink> {
+    return unwrapAsync(checkoutLinksUpdate(
       this,
       request,
       options,

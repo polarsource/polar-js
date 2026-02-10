@@ -4,27 +4,28 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import {
+  PresentmentCurrency,
+  PresentmentCurrency$outboundSchema,
+} from "./presentmentcurrency.js";
 
 /**
  * Schema to create a fixed price.
  */
 export type ProductPriceFixedCreate = {
   amountType: "fixed";
+  priceCurrency?: PresentmentCurrency | undefined;
   /**
    * The price in cents.
    */
   priceAmount: number;
-  /**
-   * The currency. Currently, only `usd` is supported.
-   */
-  priceCurrency?: string | undefined;
 };
 
 /** @internal */
 export type ProductPriceFixedCreate$Outbound = {
   amount_type: "fixed";
+  price_currency?: string | undefined;
   price_amount: number;
-  price_currency: string;
 };
 
 /** @internal */
@@ -34,14 +35,14 @@ export const ProductPriceFixedCreate$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     amountType: z.literal("fixed"),
+    priceCurrency: z.optional(PresentmentCurrency$outboundSchema),
     priceAmount: z.int(),
-    priceCurrency: z._default(z.string(), "usd"),
   }),
   z.transform((v) => {
     return remap$(v, {
       amountType: "amount_type",
-      priceAmount: "price_amount",
       priceCurrency: "price_currency",
+      priceAmount: "price_amount",
     });
   }),
 );

@@ -26,6 +26,7 @@ let value: WebhookOrganizationUpdatedPayload = {
     socials: [],
     status: "denied",
     detailsSubmittedAt: new Date("2026-01-01T23:00:18.176Z"),
+    defaultPresentmentCurrency: "usd",
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: true,

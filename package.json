@@ -1,6 +1,6 @@
 {
   "name": "@polar-sh/sdk",
-  "version": "0.42.5",
+  "version": "0.43.0",
   "author": "Speakeasy",
   "type": "module",
   "tshy": {
@@ -26,10 +26,10 @@
   },
   "peerDependencies": {},
   "devDependencies": {
-    "@eslint/js": "^9.19.0",
+    "@eslint/js": "^9.26.0",
     "@types/jest": "*",
     "@types/node": "*",
-    "eslint": "^9.19.0",
+    "eslint": "^9.26.0",
     "globals": "^15.14.0",
     "jest": "*",
     "ts-jest": "*",

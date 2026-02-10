@@ -12,10 +12,20 @@ let value: SeatsList = {
       modifiedAt: new Date("2024-01-13T17:50:35.123Z"),
       id: "404abf3a-20fa-42a9-b297-1359fbc34497",
       status: "pending",
+      member: {
+        id: "<value>",
+        createdAt: new Date("2026-04-15T16:04:23.824Z"),
+        modifiedAt: new Date("2025-04-16T17:12:33.507Z"),
+        customerId: "<value>",
+        email: "member@example.com",
+        name: "Jane Doe",
+        externalId: "usr_1337",
+        role: "member",
+      },
     },
   ],
-  availableSeats: 521405,
-  totalSeats: 762473,
+  availableSeats: 756409,
+  totalSeats: 325795,
 };
 ```
 

@@ -13,31 +13,35 @@ let value: CustomerOrderProduct = {
   trialIntervalCount: 972360,
   name: "<value>",
   description: "merry queasily knitting sparkling whereas urgently",
-  recurringInterval: "month",
-  recurringIntervalCount: null,
-  isRecurring: true,
+  visibility: "draft",
+  recurringInterval: "day",
+  recurringIntervalCount: 296920,
+  isRecurring: false,
   isArchived: true,
   organizationId: "<value>",
-  prices: [
+  prices: [],
+  benefits: [],
+  medias: [
     {
-      createdAt: new Date("2024-08-10T14:38:39.231Z"),
-      modifiedAt: new Date("2026-05-24T17:30:19.665Z"),
       id: "<value>",
-      source: "ad_hoc",
-      amountType: "custom",
-      isArchived: false,
-      productId: "<value>",
-      type: "recurring",
-      recurringInterval: "month",
-      priceCurrency: "<value>",
-      minimumAmount: 582398,
-      maximumAmount: 990385,
-      presetAmount: 658247,
-      legacy: true,
+      organizationId: "<value>",
+      name: "<value>",
+      path: "/Applications",
+      mimeType: "<value>",
+      size: 764885,
+      storageVersion: "<value>",
+      checksumEtag: "<value>",
+      checksumSha256Base64: "<value>",
+      checksumSha256Hex: "<value>",
+      lastModifiedAt: new Date("2024-04-23T23:01:02.489Z"),
+      version: "<value>",
+      service: "product_media",
+      isUploaded: true,
+      createdAt: new Date("2025-12-09T18:31:15.290Z"),
+      sizeReadable: "<value>",
+      publicUrl: "https://winding-godfather.name/",
     },
   ],
-  benefits: [],
-  medias: [],
   organization: {
     createdAt: new Date("2025-06-19T16:24:01.921Z"),
     modifiedAt: new Date("2025-05-12T15:42:22.268Z"),
@@ -71,6 +75,7 @@ let value: CustomerOrderProduct = {
 | `trialIntervalCount`                                                                                                                                                                                         | *number*                                                                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                                                           | The number of interval units for the trial period.                                                                                                                                                           |
 | `name`                                                                                                                                                                                                       | *string*                                                                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                                                           | The name of the product.                                                                                                                                                                                     |
 | `description`                                                                                                                                                                                                | *string*                                                                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                                                           | The description of the product.                                                                                                                                                                              |
+| `visibility`                                                                                                                                                                                                 | [components.ProductVisibility](../../models/components/productvisibility.md)                                                                                                                                 | :heavy_check_mark:                                                                                                                                                                                           | N/A                                                                                                                                                                                                          |
 | `recurringInterval`                                                                                                                                                                                          | [components.SubscriptionRecurringInterval](../../models/components/subscriptionrecurringinterval.md)                                                                                                         | :heavy_check_mark:                                                                                                                                                                                           | The recurring interval of the product. If `None`, the product is a one-time purchase.                                                                                                                        |
 | `recurringIntervalCount`                                                                                                                                                                                     | *number*                                                                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                                                           | Number of interval units of the subscription. If this is set to 1 the charge will happen every interval (e.g. every month), if set to 2 it will be every other month, and so on. None for one-time products. |
 | `isRecurring`                                                                                                                                                                                                | *boolean*                                                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                                                           | Whether the product is a subscription.                                                                                                                                                                       |

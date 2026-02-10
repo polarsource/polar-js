@@ -49,6 +49,10 @@ export type MetersQuantitiesRequest = {
    */
   interval: TimeInterval;
   /**
+   * Timezone to use for the timestamps. Default is UTC.
+   */
+  timezone?: string | undefined;
+  /**
    * Filter by customer ID.
    */
   customerId?: string | Array<string> | null | undefined;
@@ -118,6 +122,7 @@ export type MetersQuantitiesRequest$Outbound = {
   start_timestamp: string;
   end_timestamp: string;
   interval: string;
+  timezone: string;
   customer_id?: string | Array<string> | null | undefined;
   external_customer_id?: string | Array<string> | null | undefined;
   customer_aggregation_function?: string | null | undefined;
@@ -134,6 +139,7 @@ export const MetersQuantitiesRequest$outboundSchema: z.ZodMiniType<
     startTimestamp: z.pipe(z.date(), z.transform(v => v.toISOString())),
     endTimestamp: z.pipe(z.date(), z.transform(v => v.toISOString())),
     interval: TimeInterval$outboundSchema,
+    timezone: z._default(z.string(), "UTC"),
     customerId: z.optional(
       z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),

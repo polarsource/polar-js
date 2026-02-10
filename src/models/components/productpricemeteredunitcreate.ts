@@ -5,6 +5,10 @@
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { smartUnion } from "../../types/smartUnion.js";
+import {
+  PresentmentCurrency,
+  PresentmentCurrency$outboundSchema,
+} from "./presentmentcurrency.js";
 
 /**
  * The price per unit in cents. Supports up to 12 decimal places.
@@ -16,14 +20,11 @@ export type UnitAmount = number | string;
  */
 export type ProductPriceMeteredUnitCreate = {
   amountType: "metered_unit";
+  priceCurrency?: PresentmentCurrency | undefined;
   /**
    * The ID of the meter associated to the price.
    */
   meterId: string;
-  /**
-   * The currency. Currently, only `usd` is supported.
-   */
-  priceCurrency?: string | undefined;
   /**
    * The price per unit in cents. Supports up to 12 decimal places.
    */
@@ -50,8 +51,8 @@ export function unitAmountToJSON(unitAmount: UnitAmount): string {
 /** @internal */
 export type ProductPriceMeteredUnitCreate$Outbound = {
   amount_type: "metered_unit";
+  price_currency?: string | undefined;
   meter_id: string;
-  price_currency: string;
   unit_amount: number | string;
   cap_amount?: number | null | undefined;
 };
@@ -63,16 +64,16 @@ export const ProductPriceMeteredUnitCreate$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     amountType: z.literal("metered_unit"),
+    priceCurrency: z.optional(PresentmentCurrency$outboundSchema),
     meterId: z.string(),
-    priceCurrency: z._default(z.string(), "usd"),
     unitAmount: smartUnion([z.number(), z.string()]),
     capAmount: z.optional(z.nullable(z.int())),
   }),
   z.transform((v) => {
     return remap$(v, {
       amountType: "amount_type",
-      meterId: "meter_id",
       priceCurrency: "price_currency",
+      meterId: "meter_id",
       unitAmount: "unit_amount",
       capAmount: "cap_amount",
     });

@@ -4,17 +4,23 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import {
+  PresentmentCurrency,
+  PresentmentCurrency$outboundSchema,
+} from "./presentmentcurrency.js";
 
 /**
  * Schema to create a free price.
  */
 export type ProductPriceFreeCreate = {
   amountType: "free";
+  priceCurrency?: PresentmentCurrency | undefined;
 };
 
 /** @internal */
 export type ProductPriceFreeCreate$Outbound = {
   amount_type: "free";
+  price_currency?: string | undefined;
 };
 
 /** @internal */
@@ -24,10 +30,12 @@ export const ProductPriceFreeCreate$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     amountType: z.literal("free"),
+    priceCurrency: z.optional(PresentmentCurrency$outboundSchema),
   }),
   z.transform((v) => {
     return remap$(v, {
       amountType: "amount_type",
+      priceCurrency: "price_currency",
     });
   }),
 );

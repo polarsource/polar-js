@@ -14,6 +14,7 @@ let value: ProductPriceFreeCreate = {
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `amountType`       | *"free"*           | :heavy_check_mark: | N/A                |
+| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `amountType`                                                                     | *"free"*                                                                         | :heavy_check_mark:                                                               | N/A                                                                              |
+| `priceCurrency`                                                                  | [components.PresentmentCurrency](../../models/components/presentmentcurrency.md) | :heavy_minus_sign:                                                               | N/A                                                                              |

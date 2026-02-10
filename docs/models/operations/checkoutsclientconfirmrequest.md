@@ -12,6 +12,7 @@ let value: CheckoutsClientConfirmRequest = {
     customerBillingAddress: {
       country: "US",
     },
+    locale: "en",
   },
 };
 ```

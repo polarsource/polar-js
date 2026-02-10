@@ -16,6 +16,10 @@ import {
   ProductSortProperty$outboundSchema,
 } from "../components/productsortproperty.js";
 import {
+  ProductVisibility,
+  ProductVisibility$outboundSchema,
+} from "../components/productvisibility.js";
+import {
   MetadataQuery,
   MetadataQuery$Outbound,
   MetadataQuery$outboundSchema,
@@ -62,6 +66,10 @@ export type ProductsListRequest = {
    * Filter products granting specific benefit.
    */
   benefitId?: string | Array<string> | null | undefined;
+  /**
+   * Filter by visibility.
+   */
+  visibility?: Array<ProductVisibility> | null | undefined;
   /**
    * Page number, defaults to 1.
    */
@@ -147,6 +155,7 @@ export type ProductsListRequest$Outbound = {
   is_archived?: boolean | null | undefined;
   is_recurring?: boolean | null | undefined;
   benefit_id?: string | Array<string> | null | undefined;
+  visibility?: Array<string> | null | undefined;
   page: number;
   limit: number;
   sorting?: Array<string> | null | undefined;
@@ -168,6 +177,9 @@ export const ProductsListRequest$outboundSchema: z.ZodMiniType<
     isRecurring: z.optional(z.nullable(z.boolean())),
     benefitId: z.optional(
       z.nullable(smartUnion([z.string(), z.array(z.string())])),
+    ),
+    visibility: z.optional(
+      z.nullable(z.array(ProductVisibility$outboundSchema)),
     ),
     page: z._default(z.int(), 1),
     limit: z._default(z.int(), 10),

@@ -41,6 +41,7 @@ let value: CustomerPortalBenefitGrantsListResponse = {
               accountUsername: "<value>",
             },
           },
+          type: "individual",
         },
         benefit: {
           id: "<value>",

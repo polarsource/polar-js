@@ -45,6 +45,11 @@ import {
   ProductPrice$outboundSchema,
 } from "./productprice.js";
 import {
+  ProductVisibility,
+  ProductVisibility$inboundSchema,
+  ProductVisibility$outboundSchema,
+} from "./productvisibility.js";
+import {
   SubscriptionRecurringInterval,
   SubscriptionRecurringInterval$inboundSchema,
   SubscriptionRecurringInterval$outboundSchema,
@@ -89,6 +94,7 @@ export type Product = {
    * The description of the product.
    */
   description: string | null;
+  visibility: ProductVisibility;
   /**
    * The recurring interval of the product. If `None`, the product is a one-time purchase.
    */
@@ -173,6 +179,7 @@ export const Product$inboundSchema: z.ZodMiniType<Product, unknown> = z.pipe(
     trial_interval_count: z.nullable(z.int()),
     name: z.string(),
     description: z.nullable(z.string()),
+    visibility: ProductVisibility$inboundSchema,
     recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema),
     recurring_interval_count: z.nullable(z.int()),
     is_recurring: z.boolean(),
@@ -213,6 +220,7 @@ export type Product$Outbound = {
   trial_interval_count: number | null;
   name: string;
   description: string | null;
+  visibility: string;
   recurring_interval: string | null;
   recurring_interval_count: number | null;
   is_recurring: boolean;
@@ -238,6 +246,7 @@ export const Product$outboundSchema: z.ZodMiniType<Product$Outbound, Product> =
       trialIntervalCount: z.nullable(z.int()),
       name: z.string(),
       description: z.nullable(z.string()),
+      visibility: ProductVisibility$outboundSchema,
       recurringInterval: z.nullable(
         SubscriptionRecurringInterval$outboundSchema,
       ),

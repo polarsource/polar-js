@@ -4,16 +4,17 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import {
+  PresentmentCurrency,
+  PresentmentCurrency$outboundSchema,
+} from "./presentmentcurrency.js";
 
 /**
  * Schema to create a pay-what-you-want price.
  */
 export type ProductPriceCustomCreate = {
   amountType: "custom";
-  /**
-   * The currency. Currently, only `usd` is supported.
-   */
-  priceCurrency?: string | undefined;
+  priceCurrency?: PresentmentCurrency | undefined;
   /**
    * The minimum amount the customer can pay. If set to 0, the price is 'free or pay what you want' and $0 is accepted. If set to a value between 1-49, it will be rejected. Defaults to 50 cents.
    */
@@ -31,7 +32,7 @@ export type ProductPriceCustomCreate = {
 /** @internal */
 export type ProductPriceCustomCreate$Outbound = {
   amount_type: "custom";
-  price_currency: string;
+  price_currency?: string | undefined;
   minimum_amount: number;
   maximum_amount?: number | null | undefined;
   preset_amount?: number | null | undefined;
@@ -44,7 +45,7 @@ export const ProductPriceCustomCreate$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     amountType: z.literal("custom"),
-    priceCurrency: z._default(z.string(), "usd"),
+    priceCurrency: z.optional(PresentmentCurrency$outboundSchema),
     minimumAmount: z._default(z.int(), 50),
     maximumAmount: z.optional(z.nullable(z.int())),
     presetAmount: z.optional(z.nullable(z.int())),

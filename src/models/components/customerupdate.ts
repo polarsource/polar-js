@@ -41,6 +41,7 @@ export type CustomerUpdate = {
   name?: string | null | undefined;
   billingAddress?: AddressInput | null | undefined;
   taxId?: Array<string | TaxIDFormat | null> | null | undefined;
+  locale?: string | null | undefined;
   /**
    * The ID of the customer in your system. This must be unique within the organization. Once set, it can't be updated.
    */
@@ -96,6 +97,7 @@ export type CustomerUpdate$Outbound = {
   name?: string | null | undefined;
   billing_address?: AddressInput$Outbound | null | undefined;
   tax_id?: Array<string | string | null> | null | undefined;
+  locale?: string | null | undefined;
   external_id?: string | null | undefined;
   type?: string | null | undefined;
 };
@@ -122,6 +124,7 @@ export const CustomerUpdate$outboundSchema: z.ZodMiniType<
         ),
       ),
     ),
+    locale: z.optional(z.nullable(z.string())),
     externalId: z.optional(z.nullable(z.string())),
     type: z.optional(z.nullable(CustomerType$outboundSchema)),
   }),

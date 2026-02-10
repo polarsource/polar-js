@@ -132,6 +132,7 @@ async function $do(
       "external_customer_id": payload.external_customer_id,
       "interval": payload.interval,
       "start_timestamp": payload.start_timestamp,
+      "timezone": payload.timezone,
     }),
   );
 

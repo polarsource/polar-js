@@ -13,24 +13,14 @@ let value: CustomerSubscriptionProduct = {
   trialIntervalCount: 608370,
   name: "<value>",
   description: "collaboration engage swelter lest",
-  recurringInterval: null,
-  recurringIntervalCount: 862436,
-  isRecurring: false,
-  isArchived: true,
+  visibility: "draft",
+  recurringInterval: "year",
+  recurringIntervalCount: 387115,
+  isRecurring: true,
+  isArchived: false,
   organizationId: "<value>",
   prices: [],
-  benefits: [
-    {
-      id: "<value>",
-      createdAt: new Date("2024-03-14T00:55:02.549Z"),
-      modifiedAt: new Date("2024-09-16T13:02:40.897Z"),
-      type: "custom",
-      description: "considering speedily for into across extricate",
-      selectable: false,
-      deletable: false,
-      organizationId: "<value>",
-    },
-  ],
+  benefits: [],
   medias: [],
   organization: {
     createdAt: new Date("2025-06-19T16:24:01.921Z"),
@@ -65,6 +55,7 @@ let value: CustomerSubscriptionProduct = {
 | `trialIntervalCount`                                                                                                                                                                                         | *number*                                                                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                                                           | The number of interval units for the trial period.                                                                                                                                                           |
 | `name`                                                                                                                                                                                                       | *string*                                                                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                                                           | The name of the product.                                                                                                                                                                                     |
 | `description`                                                                                                                                                                                                | *string*                                                                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                                                           | The description of the product.                                                                                                                                                                              |
+| `visibility`                                                                                                                                                                                                 | [components.ProductVisibility](../../models/components/productvisibility.md)                                                                                                                                 | :heavy_check_mark:                                                                                                                                                                                           | N/A                                                                                                                                                                                                          |
 | `recurringInterval`                                                                                                                                                                                          | [components.SubscriptionRecurringInterval](../../models/components/subscriptionrecurringinterval.md)                                                                                                         | :heavy_check_mark:                                                                                                                                                                                           | The recurring interval of the product. If `None`, the product is a one-time purchase.                                                                                                                        |
 | `recurringIntervalCount`                                                                                                                                                                                     | *number*                                                                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                                                           | Number of interval units of the subscription. If this is set to 1 the charge will happen every interval (e.g. every month), if set to 2 it will be every other month, and so on. None for one-time products. |
 | `isRecurring`                                                                                                                                                                                                | *boolean*                                                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                                                           | Whether the product is a subscription.                                                                                                                                                                       |

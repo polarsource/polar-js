@@ -90,25 +90,6 @@ export class Webhooks extends ClientSDK {
   }
 
   /**
-   * Update Webhook Endpoint
-   *
-   * @remarks
-   * Update a webhook endpoint.
-   *
-   * **Scopes**: `webhooks:write`
-   */
-  async updateWebhookEndpoint(
-    request: WebhooksUpdateWebhookEndpointRequest,
-    options?: RequestOptions,
-  ): Promise<WebhookEndpoint> {
-    return unwrapAsync(webhooksUpdateWebhookEndpoint(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Delete Webhook Endpoint
    *
    * @remarks
@@ -121,6 +102,25 @@ export class Webhooks extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(webhooksDeleteWebhookEndpoint(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update Webhook Endpoint
+   *
+   * @remarks
+   * Update a webhook endpoint.
+   *
+   * **Scopes**: `webhooks:write`
+   */
+  async updateWebhookEndpoint(
+    request: WebhooksUpdateWebhookEndpointRequest,
+    options?: RequestOptions,
+  ): Promise<WebhookEndpoint> {
+    return unwrapAsync(webhooksUpdateWebhookEndpoint(
       this,
       request,
       options,

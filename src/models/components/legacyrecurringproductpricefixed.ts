@@ -8,6 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  PresentmentCurrency,
+  PresentmentCurrency$inboundSchema,
+  PresentmentCurrency$outboundSchema,
+} from "./presentmentcurrency.js";
+import {
   ProductPriceSource,
   ProductPriceSource$inboundSchema,
   ProductPriceSource$outboundSchema,
@@ -40,6 +45,7 @@ export type LegacyRecurringProductPriceFixed = {
   id: string;
   source: ProductPriceSource;
   amountType: "fixed";
+  priceCurrency: PresentmentCurrency;
   /**
    * Whether the price is archived and no longer available.
    */
@@ -53,10 +59,6 @@ export type LegacyRecurringProductPriceFixed = {
    */
   type: "recurring";
   recurringInterval: SubscriptionRecurringInterval;
-  /**
-   * The currency.
-   */
-  priceCurrency: string;
   /**
    * The price in cents.
    */
@@ -80,11 +82,11 @@ export const LegacyRecurringProductPriceFixed$inboundSchema: z.ZodMiniType<
     id: z.string(),
     source: ProductPriceSource$inboundSchema,
     amount_type: z.literal("fixed"),
+    price_currency: PresentmentCurrency$inboundSchema,
     is_archived: z.boolean(),
     product_id: z.string(),
     type: z.literal("recurring"),
     recurring_interval: SubscriptionRecurringInterval$inboundSchema,
-    price_currency: z.string(),
     price_amount: z.int(),
     legacy: z.literal(true),
   }),
@@ -93,10 +95,10 @@ export const LegacyRecurringProductPriceFixed$inboundSchema: z.ZodMiniType<
       "created_at": "createdAt",
       "modified_at": "modifiedAt",
       "amount_type": "amountType",
+      "price_currency": "priceCurrency",
       "is_archived": "isArchived",
       "product_id": "productId",
       "recurring_interval": "recurringInterval",
-      "price_currency": "priceCurrency",
       "price_amount": "priceAmount",
     });
   }),
@@ -108,11 +110,11 @@ export type LegacyRecurringProductPriceFixed$Outbound = {
   id: string;
   source: string;
   amount_type: "fixed";
+  price_currency: string;
   is_archived: boolean;
   product_id: string;
   type: "recurring";
   recurring_interval: string;
-  price_currency: string;
   price_amount: number;
   legacy: true;
 };
@@ -128,11 +130,11 @@ export const LegacyRecurringProductPriceFixed$outboundSchema: z.ZodMiniType<
     id: z.string(),
     source: ProductPriceSource$outboundSchema,
     amountType: z.literal("fixed"),
+    priceCurrency: PresentmentCurrency$outboundSchema,
     isArchived: z.boolean(),
     productId: z.string(),
     type: z.literal("recurring"),
     recurringInterval: SubscriptionRecurringInterval$outboundSchema,
-    priceCurrency: z.string(),
     priceAmount: z.int(),
     legacy: z.literal(true),
   }),
@@ -141,10 +143,10 @@ export const LegacyRecurringProductPriceFixed$outboundSchema: z.ZodMiniType<
       createdAt: "created_at",
       modifiedAt: "modified_at",
       amountType: "amount_type",
+      priceCurrency: "price_currency",
       isArchived: "is_archived",
       productId: "product_id",
       recurringInterval: "recurring_interval",
-      priceCurrency: "price_currency",
       priceAmount: "price_amount",
     });
   }),

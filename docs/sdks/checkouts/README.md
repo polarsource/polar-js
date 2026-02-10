@@ -114,6 +114,7 @@ async function run() {
     customerBillingAddress: {
       country: "US",
     },
+    locale: "en",
     products: [
       "<value 1>",
       "<value 2>",
@@ -147,6 +148,7 @@ async function run() {
     customerBillingAddress: {
       country: "US",
     },
+    locale: "en",
     products: [
       "<value 1>",
       "<value 2>",
@@ -285,6 +287,7 @@ async function run() {
       customerBillingAddress: {
         country: "US",
       },
+      locale: "en",
     },
   });
 
@@ -316,6 +319,7 @@ async function run() {
       customerBillingAddress: {
         country: "US",
       },
+      locale: "en",
     },
   });
   if (res.ok) {
@@ -446,6 +450,7 @@ async function run() {
       customerBillingAddress: {
         country: "US",
       },
+      locale: "en",
     },
   });
 
@@ -475,6 +480,7 @@ async function run() {
       customerBillingAddress: {
         country: "US",
       },
+      locale: "en",
     },
   });
   if (res.ok) {
@@ -538,6 +544,7 @@ async function run() {
       customerBillingAddress: {
         country: "US",
       },
+      locale: "en",
     },
   });
 
@@ -569,6 +576,7 @@ async function run() {
       customerBillingAddress: {
         country: "US",
       },
+      locale: "en",
     },
   });
   if (res.ok) {

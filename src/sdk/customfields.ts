@@ -79,25 +79,6 @@ export class CustomFields extends ClientSDK {
   }
 
   /**
-   * Update Custom Field
-   *
-   * @remarks
-   * Update a custom field.
-   *
-   * **Scopes**: `custom_fields:write`
-   */
-  async update(
-    request: CustomFieldsUpdateRequest,
-    options?: RequestOptions,
-  ): Promise<CustomField> {
-    return unwrapAsync(customFieldsUpdate(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Delete Custom Field
    *
    * @remarks
@@ -110,6 +91,25 @@ export class CustomFields extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(customFieldsDelete(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update Custom Field
+   *
+   * @remarks
+   * Update a custom field.
+   *
+   * **Scopes**: `custom_fields:write`
+   */
+  async update(
+    request: CustomFieldsUpdateRequest,
+    options?: RequestOptions,
+  ): Promise<CustomField> {
+    return unwrapAsync(customFieldsUpdate(
       this,
       request,
       options,

@@ -36,6 +36,10 @@ export type EventCreateExternalCustomer = {
    * ID of the customer in your system associated with the event.
    */
   externalCustomerId: string;
+  /**
+   * ID of the member in your system within the customer's organization who performed the action. Used for member-level attribution in B2B.
+   */
+  externalMemberId?: string | null | undefined;
 };
 
 /** @internal */
@@ -47,6 +51,7 @@ export type EventCreateExternalCustomer$Outbound = {
   parent_id?: string | null | undefined;
   metadata?: { [k: string]: EventMetadataInput$Outbound } | undefined;
   external_customer_id: string;
+  external_member_id?: string | null | undefined;
 };
 
 /** @internal */
@@ -64,6 +69,7 @@ export const EventCreateExternalCustomer$outboundSchema: z.ZodMiniType<
       z.record(z.string(), EventMetadataInput$outboundSchema),
     ),
     externalCustomerId: z.string(),
+    externalMemberId: z.optional(z.nullable(z.string())),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -71,6 +77,7 @@ export const EventCreateExternalCustomer$outboundSchema: z.ZodMiniType<
       externalId: "external_id",
       parentId: "parent_id",
       externalCustomerId: "external_customer_id",
+      externalMemberId: "external_member_id",
     });
   }),
 );

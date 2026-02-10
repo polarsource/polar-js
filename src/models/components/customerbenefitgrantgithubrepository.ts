@@ -12,6 +12,10 @@ import {
   BenefitGitHubRepositorySubscriber$inboundSchema,
 } from "./benefitgithubrepositorysubscriber.js";
 import {
+  BenefitGrantError,
+  BenefitGrantError$inboundSchema,
+} from "./benefitgranterror.js";
+import {
   BenefitGrantGitHubRepositoryProperties,
   BenefitGrantGitHubRepositoryProperties$inboundSchema,
 } from "./benefitgrantgithubrepositoryproperties.js";
@@ -42,6 +46,7 @@ export type CustomerBenefitGrantGitHubRepository = {
   orderId: string | null;
   isGranted: boolean;
   isRevoked: boolean;
+  error?: BenefitGrantError | null | undefined;
   customer: CustomerPortalCustomer;
   benefit: BenefitGitHubRepositorySubscriber;
   properties: BenefitGrantGitHubRepositoryProperties;
@@ -74,6 +79,7 @@ export const CustomerBenefitGrantGitHubRepository$inboundSchema: z.ZodMiniType<
     order_id: z.nullable(z.string()),
     is_granted: z.boolean(),
     is_revoked: z.boolean(),
+    error: z.optional(z.nullable(BenefitGrantError$inboundSchema)),
     customer: CustomerPortalCustomer$inboundSchema,
     benefit: BenefitGitHubRepositorySubscriber$inboundSchema,
     properties: BenefitGrantGitHubRepositoryProperties$inboundSchema,
