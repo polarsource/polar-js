@@ -229,6 +229,7 @@ export type CheckoutPublic = {
   customerBillingName: string | null;
   customerBillingAddress: Address | null;
   customerTaxId: string | null;
+  locale?: string | null | undefined;
   paymentProcessorMetadata: { [k: string]: string };
   billingAddressFields: CheckoutBillingAddressFields;
   /**
@@ -415,6 +416,7 @@ export const CheckoutPublic$inboundSchema: z.ZodMiniType<
     customer_billing_name: z.nullable(z.string()),
     customer_billing_address: z.nullable(Address$inboundSchema),
     customer_tax_id: z.nullable(z.string()),
+    locale: z.optional(z.nullable(z.string())),
     payment_processor_metadata: z.record(z.string(), z.string()),
     billing_address_fields: CheckoutBillingAddressFields$inboundSchema,
     products: z.array(CheckoutProduct$inboundSchema),

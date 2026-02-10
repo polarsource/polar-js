@@ -132,6 +132,7 @@ async function $do(
       "page": payload.page,
       "query": payload.query,
       "sorting": payload.sorting,
+      "visibility": payload.visibility,
     }),
   );
 

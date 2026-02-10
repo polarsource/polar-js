@@ -9,6 +9,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitGrantLicenseKeysProperties = {
+  userProvidedKey?: string | undefined;
   licenseKeyId?: string | undefined;
   displayKey?: string | undefined;
 };
@@ -19,11 +20,13 @@ export const BenefitGrantLicenseKeysProperties$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
+    user_provided_key: z.optional(z.string()),
     license_key_id: z.optional(z.string()),
     display_key: z.optional(z.string()),
   }),
   z.transform((v) => {
     return remap$(v, {
+      "user_provided_key": "userProvidedKey",
       "license_key_id": "licenseKeyId",
       "display_key": "displayKey",
     });
@@ -31,6 +34,7 @@ export const BenefitGrantLicenseKeysProperties$inboundSchema: z.ZodMiniType<
 );
 /** @internal */
 export type BenefitGrantLicenseKeysProperties$Outbound = {
+  user_provided_key?: string | undefined;
   license_key_id?: string | undefined;
   display_key?: string | undefined;
 };
@@ -41,11 +45,13 @@ export const BenefitGrantLicenseKeysProperties$outboundSchema: z.ZodMiniType<
   BenefitGrantLicenseKeysProperties
 > = z.pipe(
   z.object({
+    userProvidedKey: z.optional(z.string()),
     licenseKeyId: z.optional(z.string()),
     displayKey: z.optional(z.string()),
   }),
   z.transform((v) => {
     return remap$(v, {
+      userProvidedKey: "user_provided_key",
       licenseKeyId: "license_key_id",
       displayKey: "display_key",
     });

@@ -170,6 +170,7 @@ export type CheckoutCreate = {
    * If you plan to embed the checkout session, set this to the Origin of the embedding page. It'll allow the Polar iframe to communicate with the parent page.
    */
   embedOrigin?: string | null | undefined;
+  locale?: string | null | undefined;
   currency?: PresentmentCurrency | null | undefined;
   /**
    * List of product IDs available to select at that checkout. The first one will be selected by default.
@@ -322,6 +323,7 @@ export type CheckoutCreate$Outbound = {
   success_url?: string | null | undefined;
   return_url?: string | null | undefined;
   embed_origin?: string | null | undefined;
+  locale?: string | null | undefined;
   currency?: string | null | undefined;
   products: Array<string>;
   prices?:
@@ -390,6 +392,7 @@ export const CheckoutCreate$outboundSchema: z.ZodMiniType<
     successUrl: z.optional(z.nullable(z.string())),
     returnUrl: z.optional(z.nullable(z.string())),
     embedOrigin: z.optional(z.nullable(z.string())),
+    locale: z.optional(z.nullable(z.string())),
     currency: z.optional(z.nullable(PresentmentCurrency$outboundSchema)),
     products: z.array(z.string()),
     prices: z.optional(

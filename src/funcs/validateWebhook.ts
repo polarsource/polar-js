@@ -32,6 +32,10 @@ import {
   webhookCheckoutCreatedPayloadFromJSON,
 } from "../models/components/webhookcheckoutcreatedpayload.js";
 import {
+  WebhookCheckoutExpiredPayload,
+  webhookCheckoutExpiredPayloadFromJSON,
+} from "../models/components/webhookcheckoutexpiredpayload.js";
+import {
   WebhookCheckoutUpdatedPayload,
   webhookCheckoutUpdatedPayloadFromJSON,
 } from "../models/components/webhookcheckoutupdatedpayload.js";
@@ -63,6 +67,18 @@ import {
   WebhookCustomerUpdatedPayload,
   webhookCustomerUpdatedPayloadFromJSON,
 } from "../models/components/webhookcustomerupdatedpayload.js";
+import {
+  WebhookMemberCreatedPayload,
+  webhookMemberCreatedPayloadFromJSON,
+} from "../models/components/webhookmembercreatedpayload.js";
+import {
+  WebhookMemberDeletedPayload,
+  webhookMemberDeletedPayloadFromJSON,
+} from "../models/components/webhookmemberdeletedpayload.js";
+import {
+  WebhookMemberUpdatedPayload,
+  webhookMemberUpdatedPayloadFromJSON,
+} from "../models/components/webhookmemberupdatedpayload.js";
 import {
   WebhookOrderCreatedPayload,
   webhookOrderCreatedPayloadFromJSON,
@@ -143,6 +159,7 @@ export async function validateWebhook(_client: PolarCore, {
   Result<
     | WebhookCheckoutCreatedPayload
     | WebhookCheckoutUpdatedPayload
+    | WebhookCheckoutExpiredPayload
     | WebhookCustomerCreatedPayload
     | WebhookCustomerUpdatedPayload
     | WebhookCustomerDeletedPayload
@@ -150,6 +167,9 @@ export async function validateWebhook(_client: PolarCore, {
     | WebhookCustomerSeatAssignedPayload
     | WebhookCustomerSeatClaimedPayload
     | WebhookCustomerSeatRevokedPayload
+    | WebhookMemberCreatedPayload
+    | WebhookMemberUpdatedPayload
+    | WebhookMemberDeletedPayload
     | WebhookOrderCreatedPayload
     | WebhookOrderUpdatedPayload
     | WebhookOrderPaidPayload
@@ -179,6 +199,7 @@ export async function validateWebhook(_client: PolarCore, {
   const knownSchemas = [
     webhookCheckoutCreatedPayloadFromJSON,
     webhookCheckoutUpdatedPayloadFromJSON,
+    webhookCheckoutExpiredPayloadFromJSON,
     webhookCustomerCreatedPayloadFromJSON,
     webhookCustomerUpdatedPayloadFromJSON,
     webhookCustomerDeletedPayloadFromJSON,
@@ -186,6 +207,9 @@ export async function validateWebhook(_client: PolarCore, {
     webhookCustomerSeatAssignedPayloadFromJSON,
     webhookCustomerSeatClaimedPayloadFromJSON,
     webhookCustomerSeatRevokedPayloadFromJSON,
+    webhookMemberCreatedPayloadFromJSON,
+    webhookMemberUpdatedPayloadFromJSON,
+    webhookMemberDeletedPayloadFromJSON,
     webhookOrderCreatedPayloadFromJSON,
     webhookOrderUpdatedPayloadFromJSON,
     webhookOrderPaidPayloadFromJSON,

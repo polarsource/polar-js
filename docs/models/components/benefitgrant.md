@@ -38,20 +38,23 @@ let value: BenefitGrant = {
     deletedAt: new Date("2026-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
+  member: null,
   benefit: {
     id: "<value>",
-    createdAt: new Date("2024-10-27T06:21:23.052Z"),
-    modifiedAt: new Date("2026-06-23T08:48:04.338Z"),
-    type: "custom",
-    description: "geez against aha ugh um across serpentine",
-    selectable: true,
-    deletable: true,
+    createdAt: new Date("2025-09-18T01:13:07.880Z"),
+    modifiedAt: new Date("2025-08-08T09:02:13.151Z"),
+    type: "discord",
+    description:
+      "formamide excitedly suspiciously wherever flu microchip basic um",
+    selectable: false,
+    deletable: false,
     organizationId: "<value>",
-    metadata: {
-      "key": 430936,
-    },
+    metadata: {},
     properties: {
-      note: "<value>",
+      guildId: "<id>",
+      roleId: "<id>",
+      kickMember: false,
+      guildToken: "<value>",
     },
   },
   properties: {},
@@ -76,5 +79,6 @@ let value: BenefitGrant = {
 | `benefitId`                                                                                   | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the benefit concerned by this grant.                                                |
 | `error`                                                                                       | [components.BenefitGrantError](../../models/components/benefitgranterror.md)                  | :heavy_minus_sign:                                                                            | The error information if the benefit grant failed with an unrecoverable error.                |
 | `customer`                                                                                    | [components.Customer](../../models/components/customer.md)                                    | :heavy_check_mark:                                                                            | A customer in an organization.                                                                |
+| `member`                                                                                      | [components.Member](../../models/components/member.md)                                        | :heavy_minus_sign:                                                                            | N/A                                                                                           |
 | `benefit`                                                                                     | *components.Benefit*                                                                          | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `properties`                                                                                  | *components.Properties*                                                                       | :heavy_check_mark:                                                                            | N/A                                                                                           |

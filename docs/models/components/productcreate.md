@@ -12,7 +12,6 @@ const value: components.ProductCreateRecurring = {
     {
       amountType: "metered_unit",
       meterId: "<value>",
-      priceCurrency: "usd",
       unitAmount: "<value>",
     },
   ],
@@ -29,7 +28,6 @@ const value: components.ProductCreateOneTime = {
   prices: [
     {
       amountType: "custom",
-      priceCurrency: "usd",
       minimumAmount: 50,
     },
   ],

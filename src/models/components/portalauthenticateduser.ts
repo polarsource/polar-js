@@ -29,6 +29,10 @@ export type PortalAuthenticatedUser = {
    */
   customerId: string;
   /**
+   * Member ID. Only set for members.
+   */
+  memberId?: string | null | undefined;
+  /**
    * Member role (owner, billing_manager, member). Only set for members.
    */
   role?: string | null | undefined;
@@ -44,11 +48,13 @@ export const PortalAuthenticatedUser$inboundSchema: z.ZodMiniType<
     name: z.nullable(z.string()),
     email: z.string(),
     customer_id: z.string(),
+    member_id: z.optional(z.nullable(z.string())),
     role: z.optional(z.nullable(z.string())),
   }),
   z.transform((v) => {
     return remap$(v, {
       "customer_id": "customerId",
+      "member_id": "memberId",
     });
   }),
 );

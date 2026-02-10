@@ -29,6 +29,18 @@ export type OrganizationFeatureSettings = {
    * If this organization has the Member model enabled
    */
   memberModelEnabled?: boolean | undefined;
+  /**
+   * If this organization reads from Tinybird
+   */
+  tinybirdRead?: boolean | undefined;
+  /**
+   * If this organization compares Tinybird results with database
+   */
+  tinybirdCompare?: boolean | undefined;
+  /**
+   * If this organization has multiple presentment currencies enabled
+   */
+  presentmentCurrenciesEnabled?: boolean | undefined;
 };
 
 /** @internal */
@@ -42,6 +54,9 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
     revops_enabled: z._default(z.boolean(), false),
     wallets_enabled: z._default(z.boolean(), false),
     member_model_enabled: z._default(z.boolean(), false),
+    tinybird_read: z._default(z.boolean(), false),
+    tinybird_compare: z._default(z.boolean(), false),
+    presentment_currencies_enabled: z._default(z.boolean(), false),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -50,6 +65,9 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
       "revops_enabled": "revopsEnabled",
       "wallets_enabled": "walletsEnabled",
       "member_model_enabled": "memberModelEnabled",
+      "tinybird_read": "tinybirdRead",
+      "tinybird_compare": "tinybirdCompare",
+      "presentment_currencies_enabled": "presentmentCurrenciesEnabled",
     });
   }),
 );
@@ -60,6 +78,9 @@ export type OrganizationFeatureSettings$Outbound = {
   revops_enabled: boolean;
   wallets_enabled: boolean;
   member_model_enabled: boolean;
+  tinybird_read: boolean;
+  tinybird_compare: boolean;
+  presentment_currencies_enabled: boolean;
 };
 
 /** @internal */
@@ -73,6 +94,9 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
     revopsEnabled: z._default(z.boolean(), false),
     walletsEnabled: z._default(z.boolean(), false),
     memberModelEnabled: z._default(z.boolean(), false),
+    tinybirdRead: z._default(z.boolean(), false),
+    tinybirdCompare: z._default(z.boolean(), false),
+    presentmentCurrenciesEnabled: z._default(z.boolean(), false),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -81,6 +105,9 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
       revopsEnabled: "revops_enabled",
       walletsEnabled: "wallets_enabled",
       memberModelEnabled: "member_model_enabled",
+      tinybirdRead: "tinybird_read",
+      tinybirdCompare: "tinybird_compare",
+      presentmentCurrenciesEnabled: "presentment_currencies_enabled",
     });
   }),
 );

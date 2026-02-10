@@ -34,6 +34,7 @@ import {
   BenefitGrantLicenseKeysProperties$inboundSchema,
 } from "./benefitgrantlicensekeysproperties.js";
 import { Customer, Customer$inboundSchema } from "./customer.js";
+import { Member, Member$inboundSchema } from "./member.js";
 
 export type Properties =
   | BenefitGrantDiscordProperties
@@ -99,6 +100,7 @@ export type BenefitGrant = {
    * A customer in an organization.
    */
   customer: Customer;
+  member?: Member | null | undefined;
   benefit: Benefit;
   properties:
     | BenefitGrantDiscordProperties
@@ -161,6 +163,7 @@ export const BenefitGrant$inboundSchema: z.ZodMiniType<BenefitGrant, unknown> =
       benefit_id: z.string(),
       error: z.optional(z.nullable(BenefitGrantError$inboundSchema)),
       customer: Customer$inboundSchema,
+      member: z.optional(z.nullable(Member$inboundSchema)),
       benefit: Benefit$inboundSchema,
       properties: smartUnion([
         BenefitGrantDiscordProperties$inboundSchema,

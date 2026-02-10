@@ -17,6 +17,7 @@ let value: CustomersUpdateExternalRequest = {
       "911144442",
       "us_ein",
     ],
+    locale: "en",
   },
 };
 ```

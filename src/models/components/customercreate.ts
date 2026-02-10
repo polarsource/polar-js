@@ -50,6 +50,7 @@ export type CustomerCreate = {
   name?: string | null | undefined;
   billingAddress?: AddressInput | null | undefined;
   taxId?: Array<string | TaxIDFormat | null> | null | undefined;
+  locale?: string | null | undefined;
   /**
    * The type of customer. Defaults to 'individual'. Set to 'team' for customers that can have multiple members.
    */
@@ -110,6 +111,7 @@ export type CustomerCreate$Outbound = {
   name?: string | null | undefined;
   billing_address?: AddressInput$Outbound | null | undefined;
   tax_id?: Array<string | string | null> | null | undefined;
+  locale?: string | null | undefined;
   type?: string | null | undefined;
   organization_id?: string | null | undefined;
   owner?: OwnerCreate$Outbound | null | undefined;
@@ -138,6 +140,7 @@ export const CustomerCreate$outboundSchema: z.ZodMiniType<
         ),
       ),
     ),
+    locale: z.optional(z.nullable(z.string())),
     type: z.optional(z.nullable(CustomerType$outboundSchema)),
     organizationId: z.optional(z.nullable(z.string())),
     owner: z.optional(z.nullable(OwnerCreate$outboundSchema)),

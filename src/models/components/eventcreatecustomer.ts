@@ -36,6 +36,10 @@ export type EventCreateCustomer = {
    * ID of the customer in your Polar organization associated with the event.
    */
   customerId: string;
+  /**
+   * ID of the member within the customer's organization who performed the action. Used for member-level attribution in B2B.
+   */
+  memberId?: string | null | undefined;
 };
 
 /** @internal */
@@ -47,6 +51,7 @@ export type EventCreateCustomer$Outbound = {
   parent_id?: string | null | undefined;
   metadata?: { [k: string]: EventMetadataInput$Outbound } | undefined;
   customer_id: string;
+  member_id?: string | null | undefined;
 };
 
 /** @internal */
@@ -64,6 +69,7 @@ export const EventCreateCustomer$outboundSchema: z.ZodMiniType<
       z.record(z.string(), EventMetadataInput$outboundSchema),
     ),
     customerId: z.string(),
+    memberId: z.optional(z.nullable(z.string())),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -71,6 +77,7 @@ export const EventCreateCustomer$outboundSchema: z.ZodMiniType<
       externalId: "external_id",
       parentId: "parent_id",
       customerId: "customer_id",
+      memberId: "member_id",
     });
   }),
 );

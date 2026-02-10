@@ -42,6 +42,14 @@ export type CheckoutCreatedEvent = {
    */
   externalCustomerId: string | null;
   /**
+   * ID of the member within the customer's organization who performed the action inside B2B.
+   */
+  memberId?: string | null | undefined;
+  /**
+   * ID of the member in your system within the customer's organization who performed the action inside B2B.
+   */
+  externalMemberId?: string | null | undefined;
+  /**
    * Number of direct child events linked to this event.
    */
   childCount: number;
@@ -79,6 +87,8 @@ export const CheckoutCreatedEvent$inboundSchema: z.ZodMiniType<
     customer_id: z.nullable(z.string()),
     customer: z.nullable(Customer$inboundSchema),
     external_customer_id: z.nullable(z.string()),
+    member_id: z.optional(z.nullable(z.string())),
+    external_member_id: z.optional(z.nullable(z.string())),
     child_count: z._default(z.int(), 0),
     parent_id: z.optional(z.nullable(z.string())),
     label: z.string(),
@@ -91,6 +101,8 @@ export const CheckoutCreatedEvent$inboundSchema: z.ZodMiniType<
       "organization_id": "organizationId",
       "customer_id": "customerId",
       "external_customer_id": "externalCustomerId",
+      "member_id": "memberId",
+      "external_member_id": "externalMemberId",
       "child_count": "childCount",
       "parent_id": "parentId",
     });

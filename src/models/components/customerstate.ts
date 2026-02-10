@@ -96,6 +96,7 @@ export type CustomerState = {
   name: string | null;
   billingAddress: Address | null;
   taxId: Array<string | TaxIDFormat | null> | null;
+  locale?: string | null | undefined;
   /**
    * The ID of the organization owning the customer.
    */
@@ -174,6 +175,7 @@ export const CustomerState$inboundSchema: z.ZodMiniType<
     tax_id: z.nullable(
       z.array(z.nullable(smartUnion([z.string(), TaxIDFormat$inboundSchema]))),
     ),
+    locale: z.optional(z.nullable(z.string())),
     organization_id: z.string(),
     deleted_at: z.nullable(
       z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
@@ -213,6 +215,7 @@ export type CustomerState$Outbound = {
   name: string | null;
   billing_address: Address$Outbound | null;
   tax_id: Array<string | string | null> | null;
+  locale?: string | null | undefined;
   organization_id: string;
   deleted_at: string | null;
   active_subscriptions: Array<CustomerStateSubscription$Outbound>;
@@ -240,6 +243,7 @@ export const CustomerState$outboundSchema: z.ZodMiniType<
     taxId: z.nullable(
       z.array(z.nullable(smartUnion([z.string(), TaxIDFormat$outboundSchema]))),
     ),
+    locale: z.optional(z.nullable(z.string())),
     organizationId: z.string(),
     deletedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
     activeSubscriptions: z.array(CustomerStateSubscription$outboundSchema),

@@ -85,25 +85,6 @@ export class Files extends ClientSDK {
   }
 
   /**
-   * Update File
-   *
-   * @remarks
-   * Update a file.
-   *
-   * **Scopes**: `files:write`
-   */
-  async update(
-    request: FilesUpdateRequest,
-    options?: RequestOptions,
-  ): Promise<FilesUpdateResponseFilesUpdate> {
-    return unwrapAsync(filesUpdate(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Delete File
    *
    * @remarks
@@ -116,6 +97,25 @@ export class Files extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(filesDelete(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update File
+   *
+   * @remarks
+   * Update a file.
+   *
+   * **Scopes**: `files:write`
+   */
+  async update(
+    request: FilesUpdateRequest,
+    options?: RequestOptions,
+  ): Promise<FilesUpdateResponseFilesUpdate> {
+    return unwrapAsync(filesUpdate(
       this,
       request,
       options,

@@ -39,6 +39,10 @@ import {
   OrganizationSubscriptionSettings$Outbound,
   OrganizationSubscriptionSettings$outboundSchema,
 } from "./organizationsubscriptionsettings.js";
+import {
+  PresentmentCurrency,
+  PresentmentCurrency$outboundSchema,
+} from "./presentmentcurrency.js";
 
 export type OrganizationUpdate = {
   name?: string | null | undefined;
@@ -67,6 +71,10 @@ export type OrganizationUpdate = {
     | OrganizationCustomerPortalSettings
     | null
     | undefined;
+  /**
+   * Default presentment currency for the organization
+   */
+  defaultPresentmentCurrency?: PresentmentCurrency | null | undefined;
 };
 
 /** @internal */
@@ -94,6 +102,7 @@ export type OrganizationUpdate$Outbound = {
     | OrganizationCustomerPortalSettings$Outbound
     | null
     | undefined;
+  default_presentment_currency?: string | null | undefined;
 };
 
 /** @internal */
@@ -125,6 +134,9 @@ export const OrganizationUpdate$outboundSchema: z.ZodMiniType<
     customerPortalSettings: z.optional(
       z.nullable(OrganizationCustomerPortalSettings$outboundSchema),
     ),
+    defaultPresentmentCurrency: z.optional(
+      z.nullable(PresentmentCurrency$outboundSchema),
+    ),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -134,6 +146,7 @@ export const OrganizationUpdate$outboundSchema: z.ZodMiniType<
       notificationSettings: "notification_settings",
       customerEmailSettings: "customer_email_settings",
       customerPortalSettings: "customer_portal_settings",
+      defaultPresentmentCurrency: "default_presentment_currency",
     });
   }),
 );

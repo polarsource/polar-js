@@ -8,6 +8,7 @@ import { ClosedEnum } from "../../types/enums.js";
 export const WebhookEventType = {
   CheckoutCreated: "checkout.created",
   CheckoutUpdated: "checkout.updated",
+  CheckoutExpired: "checkout.expired",
   CustomerCreated: "customer.created",
   CustomerUpdated: "customer.updated",
   CustomerDeleted: "customer.deleted",
@@ -15,6 +16,9 @@ export const WebhookEventType = {
   CustomerSeatAssigned: "customer_seat.assigned",
   CustomerSeatClaimed: "customer_seat.claimed",
   CustomerSeatRevoked: "customer_seat.revoked",
+  MemberCreated: "member.created",
+  MemberUpdated: "member.updated",
+  MemberDeleted: "member.deleted",
   OrderCreated: "order.created",
   OrderUpdated: "order.updated",
   OrderPaid: "order.paid",

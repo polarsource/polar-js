@@ -11,6 +11,7 @@ import { WebhookBenefitGrantRevokedPayload } from "../models/components/webhookb
 import { WebhookBenefitGrantUpdatedPayload } from "../models/components/webhookbenefitgrantupdatedpayload.js";
 import { WebhookBenefitUpdatedPayload } from "../models/components/webhookbenefitupdatedpayload.js";
 import { WebhookCheckoutCreatedPayload } from "../models/components/webhookcheckoutcreatedpayload.js";
+import { WebhookCheckoutExpiredPayload } from "../models/components/webhookcheckoutexpiredpayload.js";
 import { WebhookCheckoutUpdatedPayload } from "../models/components/webhookcheckoutupdatedpayload.js";
 import { WebhookCustomerCreatedPayload } from "../models/components/webhookcustomercreatedpayload.js";
 import { WebhookCustomerDeletedPayload } from "../models/components/webhookcustomerdeletedpayload.js";
@@ -19,6 +20,9 @@ import { WebhookCustomerSeatClaimedPayload } from "../models/components/webhookc
 import { WebhookCustomerSeatRevokedPayload } from "../models/components/webhookcustomerseatrevokedpayload.js";
 import { WebhookCustomerStateChangedPayload } from "../models/components/webhookcustomerstatechangedpayload.js";
 import { WebhookCustomerUpdatedPayload } from "../models/components/webhookcustomerupdatedpayload.js";
+import { WebhookMemberCreatedPayload } from "../models/components/webhookmembercreatedpayload.js";
+import { WebhookMemberDeletedPayload } from "../models/components/webhookmemberdeletedpayload.js";
+import { WebhookMemberUpdatedPayload } from "../models/components/webhookmemberupdatedpayload.js";
 import { WebhookOrderCreatedPayload } from "../models/components/webhookordercreatedpayload.js";
 import { WebhookOrderPaidPayload } from "../models/components/webhookorderpaidpayload.js";
 import { WebhookOrderRefundedPayload } from "../models/components/webhookorderrefundedpayload.js";
@@ -226,6 +230,7 @@ export class Polar extends ClientSDK {
   }): Promise<
     | WebhookCheckoutCreatedPayload
     | WebhookCheckoutUpdatedPayload
+    | WebhookCheckoutExpiredPayload
     | WebhookCustomerCreatedPayload
     | WebhookCustomerUpdatedPayload
     | WebhookCustomerDeletedPayload
@@ -233,6 +238,9 @@ export class Polar extends ClientSDK {
     | WebhookCustomerSeatAssignedPayload
     | WebhookCustomerSeatClaimedPayload
     | WebhookCustomerSeatRevokedPayload
+    | WebhookMemberCreatedPayload
+    | WebhookMemberUpdatedPayload
+    | WebhookMemberDeletedPayload
     | WebhookOrderCreatedPayload
     | WebhookOrderUpdatedPayload
     | WebhookOrderPaidPayload

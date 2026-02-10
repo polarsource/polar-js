@@ -36,6 +36,10 @@ import {
   ProductPriceSeatBasedCreate$outboundSchema,
 } from "./productpriceseatbasedcreate.js";
 import {
+  ProductVisibility,
+  ProductVisibility$outboundSchema,
+} from "./productvisibility.js";
+import {
   SubscriptionRecurringInterval,
   SubscriptionRecurringInterval$outboundSchema,
 } from "./subscriptionrecurringinterval.js";
@@ -78,6 +82,7 @@ export type ProductCreateRecurring = {
    * The description of the product.
    */
   description?: string | null | undefined;
+  visibility?: ProductVisibility | undefined;
   /**
    * List of available prices for this product. It should contain at most one static price (fixed, custom or free), and any number of metered prices. Metered prices are not supported on one-time purchase products.
    */
@@ -173,6 +178,7 @@ export type ProductCreateRecurring$Outbound = {
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   name: string;
   description?: string | null | undefined;
+  visibility?: string | undefined;
   prices: Array<
     | ProductPriceCustomCreate$Outbound
     | ProductPriceFixedCreate$Outbound
@@ -205,6 +211,7 @@ export const ProductCreateRecurring$outboundSchema: z.ZodMiniType<
     ),
     name: z.string(),
     description: z.optional(z.nullable(z.string())),
+    visibility: z.optional(ProductVisibility$outboundSchema),
     prices: z.array(
       z.union([
         ProductPriceCustomCreate$outboundSchema,

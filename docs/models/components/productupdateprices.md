@@ -17,7 +17,6 @@ const value: components.ExistingProductPrice = {
 const value: components.Two = {
   amountType: "fixed",
   priceAmount: 871516,
-  priceCurrency: "usd",
 };
 ```
 

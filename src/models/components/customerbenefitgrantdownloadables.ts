@@ -16,6 +16,10 @@ import {
   BenefitGrantDownloadablesProperties$inboundSchema,
 } from "./benefitgrantdownloadablesproperties.js";
 import {
+  BenefitGrantError,
+  BenefitGrantError$inboundSchema,
+} from "./benefitgranterror.js";
+import {
   CustomerPortalCustomer,
   CustomerPortalCustomer$inboundSchema,
 } from "./customerportalcustomer.js";
@@ -42,6 +46,7 @@ export type CustomerBenefitGrantDownloadables = {
   orderId: string | null;
   isGranted: boolean;
   isRevoked: boolean;
+  error?: BenefitGrantError | null | undefined;
   customer: CustomerPortalCustomer;
   benefit: BenefitDownloadablesSubscriber;
   properties: BenefitGrantDownloadablesProperties;
@@ -74,6 +79,7 @@ export const CustomerBenefitGrantDownloadables$inboundSchema: z.ZodMiniType<
     order_id: z.nullable(z.string()),
     is_granted: z.boolean(),
     is_revoked: z.boolean(),
+    error: z.optional(z.nullable(BenefitGrantError$inboundSchema)),
     customer: CustomerPortalCustomer$inboundSchema,
     benefit: BenefitDownloadablesSubscriber$inboundSchema,
     properties: BenefitGrantDownloadablesProperties$inboundSchema,

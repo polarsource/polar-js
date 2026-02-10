@@ -44,6 +44,7 @@ export type CustomerUpdateExternalID = {
   name?: string | null | undefined;
   billingAddress?: AddressInput | null | undefined;
   taxId?: Array<string | TaxIDFormat | null> | null | undefined;
+  locale?: string | null | undefined;
 };
 
 /** @internal */
@@ -95,6 +96,7 @@ export type CustomerUpdateExternalID$Outbound = {
   name?: string | null | undefined;
   billing_address?: AddressInput$Outbound | null | undefined;
   tax_id?: Array<string | string | null> | null | undefined;
+  locale?: string | null | undefined;
 };
 
 /** @internal */
@@ -119,6 +121,7 @@ export const CustomerUpdateExternalID$outboundSchema: z.ZodMiniType<
         ),
       ),
     ),
+    locale: z.optional(z.nullable(z.string())),
   }),
   z.transform((v) => {
     return remap$(v, {

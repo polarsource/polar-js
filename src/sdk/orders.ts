@@ -101,25 +101,6 @@ export class Orders extends ClientSDK {
   }
 
   /**
-   * Generate Order Invoice
-   *
-   * @remarks
-   * Trigger generation of an order's invoice.
-   *
-   * **Scopes**: `orders:read`
-   */
-  async generateInvoice(
-    request: OrdersGenerateInvoiceRequest,
-    options?: RequestOptions,
-  ): Promise<any> {
-    return unwrapAsync(ordersGenerateInvoice(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Get Order Invoice
    *
    * @remarks
@@ -132,6 +113,25 @@ export class Orders extends ClientSDK {
     options?: RequestOptions,
   ): Promise<OrderInvoice> {
     return unwrapAsync(ordersInvoice(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Generate Order Invoice
+   *
+   * @remarks
+   * Trigger generation of an order's invoice.
+   *
+   * **Scopes**: `orders:read`
+   */
+  async generateInvoice(
+    request: OrdersGenerateInvoiceRequest,
+    options?: RequestOptions,
+  ): Promise<any> {
+    return unwrapAsync(ordersGenerateInvoice(
       this,
       request,
       options,

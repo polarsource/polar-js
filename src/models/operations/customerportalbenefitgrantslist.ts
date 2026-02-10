@@ -62,6 +62,10 @@ export type QueryParamMemberIDFilter = string | Array<string>;
 
 export type CustomerPortalBenefitGrantsListRequest = {
   /**
+   * Filter by benefit description.
+   */
+  query?: string | null | undefined;
+  /**
    * Filter by benefit type.
    */
   typeFilter?: BenefitType | Array<BenefitType> | null | undefined;
@@ -260,6 +264,7 @@ export function queryParamMemberIDFilterToJSON(
 
 /** @internal */
 export type CustomerPortalBenefitGrantsListRequest$Outbound = {
+  query?: string | null | undefined;
   type_filter?: string | Array<string> | null | undefined;
   benefit_id?: string | Array<string> | null | undefined;
   checkout_id?: string | Array<string> | null | undefined;
@@ -278,6 +283,7 @@ export const CustomerPortalBenefitGrantsListRequest$outboundSchema:
     CustomerPortalBenefitGrantsListRequest
   > = z.pipe(
     z.object({
+      query: z.optional(z.nullable(z.string())),
       typeFilter: z.optional(
         z.nullable(
           smartUnion([

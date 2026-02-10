@@ -9,7 +9,7 @@ let value: OrganizationAccessTokenCreate = {
   comment:
     "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
   scopes: [
-    "webhooks:write",
+    "refunds:write",
   ],
 };
 ```

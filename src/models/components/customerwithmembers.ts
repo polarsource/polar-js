@@ -58,6 +58,7 @@ export type CustomerWithMembers = {
   name: string | null;
   billingAddress: Address | null;
   taxId: Array<string | TaxIDFormat | null> | null;
+  locale?: string | null | undefined;
   /**
    * The ID of the organization owning the customer.
    */
@@ -113,6 +114,7 @@ export const CustomerWithMembers$inboundSchema: z.ZodMiniType<
     tax_id: z.nullable(
       z.array(z.nullable(smartUnion([z.string(), TaxIDFormat$inboundSchema]))),
     ),
+    locale: z.optional(z.nullable(z.string())),
     organization_id: z.string(),
     deleted_at: z.nullable(
       z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),

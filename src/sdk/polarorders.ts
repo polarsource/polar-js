@@ -105,25 +105,6 @@ export class PolarOrders extends ClientSDK {
   }
 
   /**
-   * Generate Order Invoice
-   *
-   * @remarks
-   * Trigger generation of an order's invoice.
-   */
-  async generateInvoice(
-    security: CustomerPortalOrdersGenerateInvoiceSecurity,
-    request: CustomerPortalOrdersGenerateInvoiceRequest,
-    options?: RequestOptions,
-  ): Promise<any> {
-    return unwrapAsync(customerPortalOrdersGenerateInvoice(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Get Order Invoice
    *
    * @remarks
@@ -135,6 +116,25 @@ export class PolarOrders extends ClientSDK {
     options?: RequestOptions,
   ): Promise<CustomerOrderInvoice> {
     return unwrapAsync(customerPortalOrdersInvoice(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Generate Order Invoice
+   *
+   * @remarks
+   * Trigger generation of an order's invoice.
+   */
+  async generateInvoice(
+    security: CustomerPortalOrdersGenerateInvoiceSecurity,
+    request: CustomerPortalOrdersGenerateInvoiceRequest,
+    options?: RequestOptions,
+  ): Promise<any> {
+    return unwrapAsync(customerPortalOrdersGenerateInvoice(
       this,
       security,
       request,

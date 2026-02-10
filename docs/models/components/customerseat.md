@@ -10,6 +10,16 @@ let value: CustomerSeat = {
   modifiedAt: new Date("2026-10-09T03:50:35.674Z"),
   id: "1f465dbd-351b-4777-90e1-11283ba41d87",
   status: "claimed",
+  member: {
+    id: "<value>",
+    createdAt: new Date("2026-04-15T16:04:23.824Z"),
+    modifiedAt: new Date("2025-04-16T17:12:33.507Z"),
+    customerId: "<value>",
+    email: "member@example.com",
+    name: "Jane Doe",
+    externalId: "usr_1337",
+    role: "member",
+  },
 };
 ```
 
@@ -25,6 +35,7 @@ let value: CustomerSeat = {
 | `status`                                                                                                                                    | [components.SeatStatus](../../models/components/seatstatus.md)                                                                              | :heavy_check_mark:                                                                                                                          | N/A                                                                                                                                         |
 | `customerId`                                                                                                                                | *string*                                                                                                                                    | :heavy_minus_sign:                                                                                                                          | The customer ID. When member_model_enabled is true, this is the billing customer (purchaser). When false, this is the seat member customer. |
 | `memberId`                                                                                                                                  | *string*                                                                                                                                    | :heavy_minus_sign:                                                                                                                          | The member ID of the seat occupant                                                                                                          |
+| `member`                                                                                                                                    | [components.Member](../../models/components/member.md)                                                                                      | :heavy_minus_sign:                                                                                                                          | The member associated with this seat                                                                                                        |
 | `email`                                                                                                                                     | *string*                                                                                                                                    | :heavy_minus_sign:                                                                                                                          | Email of the seat member (set when member_model_enabled is true)                                                                            |
 | `customerEmail`                                                                                                                             | *string*                                                                                                                                    | :heavy_minus_sign:                                                                                                                          | The assigned customer email                                                                                                                 |
 | `invitationTokenExpiresAt`                                                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                               | :heavy_minus_sign:                                                                                                                          | When the invitation token expires                                                                                                           |

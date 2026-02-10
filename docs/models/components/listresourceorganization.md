@@ -21,6 +21,7 @@ let value: ListResourceOrganization = {
       socials: [],
       status: "created",
       detailsSubmittedAt: new Date("2026-06-05T05:24:43.996Z"),
+      defaultPresentmentCurrency: "usd",
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: true,

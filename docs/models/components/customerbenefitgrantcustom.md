@@ -38,6 +38,7 @@ let value: CustomerBenefitGrantCustom = {
         accountUsername: "<value>",
       },
     },
+    type: "individual",
   },
   benefit: {
     id: "<value>",
@@ -86,6 +87,7 @@ let value: CustomerBenefitGrantCustom = {
 | `orderId`                                                                                          | *string*                                                                                           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 | `isGranted`                                                                                        | *boolean*                                                                                          | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 | `isRevoked`                                                                                        | *boolean*                                                                                          | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `error`                                                                                            | [components.BenefitGrantError](../../models/components/benefitgranterror.md)                       | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
 | `customer`                                                                                         | [components.CustomerPortalCustomer](../../models/components/customerportalcustomer.md)             | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 | `benefit`                                                                                          | [components.BenefitCustomSubscriber](../../models/components/benefitcustomsubscriber.md)           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 | `properties`                                                                                       | [components.BenefitGrantCustomProperties](../../models/components/benefitgrantcustomproperties.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |

@@ -48,6 +48,7 @@ export type CheckoutConfirmStripe = {
   customerBillingName?: string | null | undefined;
   customerBillingAddress?: AddressInput | null | undefined;
   customerTaxId?: string | null | undefined;
+  locale?: string | null | undefined;
   /**
    * Discount code to apply to the checkout.
    */
@@ -105,6 +106,7 @@ export type CheckoutConfirmStripe$Outbound = {
   customer_billing_name?: string | null | undefined;
   customer_billing_address?: AddressInput$Outbound | null | undefined;
   customer_tax_id?: string | null | undefined;
+  locale?: string | null | undefined;
   discount_code?: string | null | undefined;
   allow_trial?: false | null | undefined;
   confirmation_token_id?: string | null | undefined;
@@ -139,6 +141,7 @@ export const CheckoutConfirmStripe$outboundSchema: z.ZodMiniType<
     customerBillingName: z.optional(z.nullable(z.string())),
     customerBillingAddress: z.optional(z.nullable(AddressInput$outboundSchema)),
     customerTaxId: z.optional(z.nullable(z.string())),
+    locale: z.optional(z.nullable(z.string())),
     discountCode: z.optional(z.nullable(z.string())),
     allowTrial: z.optional(z.nullable(z.literal(false))),
     confirmationTokenId: z.optional(z.nullable(z.string())),

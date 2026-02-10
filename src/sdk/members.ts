@@ -84,6 +84,27 @@ export class Members extends ClientSDK {
   }
 
   /**
+   * Delete Member
+   *
+   * @remarks
+   * Delete a member.
+   *
+   * The authenticated user or organization must have access to the member's organization.
+   *
+   * **Scopes**: `members:write`
+   */
+  async deleteMember(
+    request: MembersDeleteMemberRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(membersDeleteMember(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
    * Update Member
    *
    * @remarks
@@ -99,27 +120,6 @@ export class Members extends ClientSDK {
     options?: RequestOptions,
   ): Promise<Member> {
     return unwrapAsync(membersUpdateMember(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Delete Member
-   *
-   * @remarks
-   * Delete a member.
-   *
-   * The authenticated user or organization must have access to the member's organization.
-   *
-   * **Scopes**: `members:write`
-   */
-  async deleteMember(
-    request: MembersDeleteMemberRequest,
-    options?: RequestOptions,
-  ): Promise<void> {
-    return unwrapAsync(membersDeleteMember(
       this,
       request,
       options,

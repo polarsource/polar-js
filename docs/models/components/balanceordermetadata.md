@@ -26,6 +26,7 @@ let value: BalanceOrderMetadata = {
 | `productId`           | *string*              | :heavy_minus_sign:    | N/A                   |
 | `subscriptionId`      | *string*              | :heavy_minus_sign:    | N/A                   |
 | `amount`              | *number*              | :heavy_check_mark:    | N/A                   |
+| `netAmount`           | *number*              | :heavy_minus_sign:    | N/A                   |
 | `currency`            | *string*              | :heavy_check_mark:    | N/A                   |
 | `presentmentAmount`   | *number*              | :heavy_check_mark:    | N/A                   |
 | `presentmentCurrency` | *string*              | :heavy_check_mark:    | N/A                   |

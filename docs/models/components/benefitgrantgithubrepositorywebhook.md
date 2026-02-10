@@ -40,13 +40,13 @@ let value: BenefitGrantGitHubRepositoryWebhook = {
   },
   member: {
     id: "<value>",
-    createdAt: new Date("2026-01-19T18:11:16.982Z"),
-    modifiedAt: new Date("2025-10-05T12:09:29.297Z"),
+    createdAt: new Date("2026-04-15T16:04:23.824Z"),
+    modifiedAt: new Date("2025-04-16T17:12:33.507Z"),
     customerId: "<value>",
     email: "member@example.com",
     name: "Jane Doe",
     externalId: "usr_1337",
-    role: "billing_manager",
+    role: "member",
   },
   benefit: {
     id: "<value>",

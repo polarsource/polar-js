@@ -8,7 +8,7 @@ Filter by webhook event type.
 ### `components.WebhookEventType`
 
 ```typescript
-const value: components.WebhookEventType = "product.created";
+const value: components.WebhookEventType = "refund.updated";
 ```
 
 ### `components.WebhookEventType[]`

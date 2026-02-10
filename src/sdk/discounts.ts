@@ -79,25 +79,6 @@ export class Discounts extends ClientSDK {
   }
 
   /**
-   * Update Discount
-   *
-   * @remarks
-   * Update a discount.
-   *
-   * **Scopes**: `discounts:write`
-   */
-  async update(
-    request: DiscountsUpdateRequest,
-    options?: RequestOptions,
-  ): Promise<Discount> {
-    return unwrapAsync(discountsUpdate(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Delete Discount
    *
    * @remarks
@@ -110,6 +91,25 @@ export class Discounts extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(discountsDelete(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update Discount
+   *
+   * @remarks
+   * Update a discount.
+   *
+   * **Scopes**: `discounts:write`
+   */
+  async update(
+    request: DiscountsUpdateRequest,
+    options?: RequestOptions,
+  ): Promise<Discount> {
+    return unwrapAsync(discountsUpdate(
       this,
       request,
       options,

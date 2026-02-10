@@ -18,6 +18,16 @@ let value: WebhookCustomerSeatAssignedPayload = {
     modifiedAt: new Date("2024-10-10T18:38:33.972Z"),
     id: "c913995a-f8f6-4f86-baf7-95adb32a1f73",
     status: "claimed",
+    member: {
+      id: "<value>",
+      createdAt: new Date("2026-04-15T16:04:23.824Z"),
+      modifiedAt: new Date("2025-04-16T17:12:33.507Z"),
+      customerId: "<value>",
+      email: "member@example.com",
+      name: "Jane Doe",
+      externalId: "usr_1337",
+      role: "member",
+    },
   },
 };
 ```
