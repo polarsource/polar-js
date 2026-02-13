@@ -28,7 +28,7 @@ let value: CustomerProduct = {
       id: "<value>",
       source: "catalog",
       amountType: "custom",
-      priceCurrency: "usd",
+      priceCurrency: "<value>",
       isArchived: false,
       productId: "<value>",
       type: "recurring",

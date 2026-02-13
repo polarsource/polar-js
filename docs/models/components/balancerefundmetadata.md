@@ -36,3 +36,4 @@ let value: BalanceRefundMetadata = {
 | `taxState`            | *string*              | :heavy_minus_sign:    | N/A                   |
 | `taxCountry`          | *string*              | :heavy_minus_sign:    | N/A                   |
 | `fee`                 | *number*              | :heavy_check_mark:    | N/A                   |
+| `exchangeRate`        | *number*              | :heavy_minus_sign:    | N/A                   |

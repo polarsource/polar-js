@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: 9f8ffd8499ce71fe1b65380f140c0a94
+  docChecksum: 212615d919acb98783c321bc71e86b2d
   docVersion: 0.1.0
-  speakeasyVersion: 1.709.3
-  generationVersion: 2.814.0
-  releaseVersion: 0.43.0
-  configChecksum: 7380dbbb6abd048f211ba43be64790af
+  speakeasyVersion: 1.715.0
+  generationVersion: 2.822.1
+  releaseVersion: 0.43.1
+  configChecksum: e58d358b673a8dab063d1e008ccfe7c8
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
 persistentEdits:
-  generation_id: 64a70bb7-85a4-41ce-a220-816220409c4f
-  pristine_commit_hash: 9e20b3ea59d4a0ee5c1abacee15290f94abb8f61
-  pristine_tree_hash: b388b6c6cba451734d2d7fe198281d96c32be4c1
+  generation_id: 4757f56a-e95e-4033-991a-ff19873ab352
+  pristine_commit_hash: e189e0292f38d7f58c87b90770132dacd734f64d
+  pristine_tree_hash: 9fd67d18cb6d7e38af8d96db897b3fe45cb72cdf
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -164,8 +164,8 @@ trackedFiles:
     pristine_git_object: 0b0cf269e48d7cdf23c9805ea7ade90b0c4611cb
   docs/models/components/balancedisputemetadata.md:
     id: dd5eadc3ed9e
-    last_write_checksum: sha1:22cf5266e3af49d1be98bc9993b10ae71de8586e
-    pristine_git_object: a8b5b18aa7643d35af6be4999dfdb3019d4a06e7
+    last_write_checksum: sha1:d361acfeef9633a7cf92c507d435add3c66ed136
+    pristine_git_object: 3bbea4d4ad42911436e22ef5d5952cdae759b3b3
   docs/models/components/balancedisputereversalevent.md:
     id: a34674ae116b
     last_write_checksum: sha1:5314a0e7167517f57f6163af1ac3f0edbf744a6e
@@ -176,24 +176,24 @@ trackedFiles:
     pristine_git_object: 7a18c8af9b8c2169baf6fb11c9706bc6ccb78c2c
   docs/models/components/balanceordermetadata.md:
     id: da01cd318143
-    last_write_checksum: sha1:eb0b0af0751d988e801d83a9d1c050c2a116e246
-    pristine_git_object: 2a06e679c0b076b545826a5e9944acab2113dc4c
+    last_write_checksum: sha1:5892be2c6b419022761409f5b1674589b49e5d6e
+    pristine_git_object: e13ca9bbcaa606397dea0052593375e34ff3c09c
   docs/models/components/balancerefundevent.md:
     id: a530959ec5ac
     last_write_checksum: sha1:a92c019a7b68ac3ec2a1dd9f311c6ce5b91d1201
     pristine_git_object: cd6bf60cc54cac6bd9751e4f66723d98654defe6
   docs/models/components/balancerefundmetadata.md:
     id: 9d1c17c799a3
-    last_write_checksum: sha1:c15d20d15141b8e11d0658d651a913f5186dc790
-    pristine_git_object: de5a6e816f71cdc4c4e66b4fb6556b67fabd70a2
+    last_write_checksum: sha1:b153e9742dcf62e23066b6dc853aed95cadc1e26
+    pristine_git_object: ad870082038c3236fdd4210fa1b29abb37089b27
   docs/models/components/balancerefundreversalevent.md:
     id: 7cf21c1bd651
     last_write_checksum: sha1:e14d9b329925cca5d89345787ce8ed3c56adec3e
     pristine_git_object: d84d6ed6b17a6549970a4bc83b02031737155299
   docs/models/components/benefit.md:
     id: 6f8b4433526f
-    last_write_checksum: sha1:99bfe722e23e78bf9841ace249b530a778cf9452
-    pristine_git_object: 0447f5a55eb4b88120d9f5d36105de8805e81954
+    last_write_checksum: sha1:dea3910a53789732b0de02351f8fbe2bad541f71
+    pristine_git_object: f1094c3461f91dc7728f6ffa1bf186aace11de79
   docs/models/components/benefitcreate.md:
     id: d0343e8c4ee1
     last_write_checksum: sha1:3027740013f573ca1346bc85e30bd64a2dbaeb71
@@ -588,8 +588,8 @@ trackedFiles:
     pristine_git_object: 211eef9cf38231c2941709f2e050f5fabcd47aba
   docs/models/components/checkout.md:
     id: 32423a24d2b6
-    last_write_checksum: sha1:e00dc98b9dde26f0bb67a1e7061c31df2f390681
-    pristine_git_object: 33116179c82165421d705d307f34909f108ded13
+    last_write_checksum: sha1:12cab1397c9df6e2dce5b61b552f576a90f0abfa
+    pristine_git_object: 8f57e636c909b9c3167c46820cc3e3ea57ca06f1
   docs/models/components/checkoutbillingaddressfields.md:
     id: 10859699f9a1
     last_write_checksum: sha1:31e313208de20bf8e7ab61bdb11c03dd9fec20b8
@@ -692,12 +692,12 @@ trackedFiles:
     pristine_git_object: 0d833de14ebe1ca848fe955550384ff2a52edc30
   docs/models/components/checkoutlinkproduct.md:
     id: 085b5a8aa5d5
-    last_write_checksum: sha1:fb4987d49b09010c526f039abb96ab36a48dcb5a
-    pristine_git_object: add5381ac0c0ccca7ecfe2947dce372d47315c43
+    last_write_checksum: sha1:b9329b4d0f30c8c38e7e8b0a6f04edca5e216075
+    pristine_git_object: 762345c8db5fb26de44f52d9c66dc81d2cc366dc
   docs/models/components/checkoutlinkproductprices.md:
     id: b252f74e812c
-    last_write_checksum: sha1:bdf9235fb4020012383380f3b46fa69cb86e73ef
-    pristine_git_object: ae8343e056d1c8a21f5906aa0d2f200c5c352bb7
+    last_write_checksum: sha1:bbc103a6fad83ecb75b6e0eb4000641cc80e6581
+    pristine_git_object: f8719d5a2e737a1c354fc6505db26e07644ee7b5
   docs/models/components/checkoutlinksortproperty.md:
     id: e79a5b7b22b5
     last_write_checksum: sha1:7bc52668af8143b1d4fe7a75392a4fbaf2bb8efb
@@ -716,28 +716,28 @@ trackedFiles:
     pristine_git_object: fedf3791635369ed4a2bcce8db834ce99ca8e055
   docs/models/components/checkoutprices.md:
     id: 24cb7742e9f8
-    last_write_checksum: sha1:8a4b80b2572b219fae7ec7b82c383a21d2c8c2c0
-    pristine_git_object: fdbc6a5574a5a8ad1ae5d250f0d5fed67f2d6b54
+    last_write_checksum: sha1:efefa6280765d81923e19c30caf81a1f9a72ef03
+    pristine_git_object: e43b233b1b79c34e2fc397de01e9cae306a9e0f7
   docs/models/components/checkoutproduct.md:
     id: 36e258ea8ce4
     last_write_checksum: sha1:7030b68eed931d653a95196ab09a9cca4c912f20
     pristine_git_object: 3b1c436e1ac87a4351692c3a6e199286306a64a1
   docs/models/components/checkoutproductprice.md:
     id: 4ae9a975f11d
-    last_write_checksum: sha1:7d0c7bfcae812f24504c711f3d8940759d68367a
-    pristine_git_object: 4744c454028e8b4f5d0e3d635d928eadaa885024
+    last_write_checksum: sha1:24e4b08a3580bf544d3193dd67adcc8f15ae6159
+    pristine_git_object: aa6b974bd08205d8dadf8ff9ba013ffb979cc80c
   docs/models/components/checkoutproductprices.md:
     id: fc44a2bdd29c
-    last_write_checksum: sha1:cb5075b1ae82ade905965c180fcd51ace867324f
-    pristine_git_object: eeb756a2aee795e621af138af6ebab454773367c
+    last_write_checksum: sha1:17c8b391e57f120c91188d4a7038b7b63d07a557
+    pristine_git_object: 826808dcdc5f7352d09c9bd6e18001419b993200
   docs/models/components/checkoutpublic.md:
     id: 758de31b0ca4
-    last_write_checksum: sha1:12534b9d510dd8dc3909776851ebf118b3313af7
-    pristine_git_object: 0bcf8b790fd9cdacf3df74746ed469b28fcae202
+    last_write_checksum: sha1:ebb8a2bf9a472f7538076cc505577b2acc8b1de9
+    pristine_git_object: 9d4462256ceba999d92695e62bd874c8326ce80c
   docs/models/components/checkoutpublicconfirmed.md:
     id: b59d98aeb24c
-    last_write_checksum: sha1:6e4fc0cfa05b2f6985b0e6de12f64bc372484688
-    pristine_git_object: 509f5919c00351350c8c620f63df10cc59c5c57a
+    last_write_checksum: sha1:7f61accf6636bfd823272cd26672eac5e57c69e2
+    pristine_git_object: 288ac9a0b2b7845e83ce0fb14e85714b341755db
   docs/models/components/checkoutpublicconfirmedcustomfielddata.md:
     id: d19d64861532
     last_write_checksum: sha1:60b9cf3cbdc3da7a1afb7cef91a712c170d6564d
@@ -748,12 +748,12 @@ trackedFiles:
     pristine_git_object: a37d9898ae435a10a8ea121ca1a2a004fbf53fce
   docs/models/components/checkoutpublicconfirmedprices.md:
     id: 432a56d89a48
-    last_write_checksum: sha1:838c4bb07a6c9e3d91e486615abac9e4df28787a
-    pristine_git_object: 7e3c8605cf8fac6bc115f8fffb83549ef481641d
+    last_write_checksum: sha1:754de1e51b51572ece8fc869bd47b5849e65a60e
+    pristine_git_object: 592a9fe0fa7a1f56bdfb776f6cc3c3406b58eb2b
   docs/models/components/checkoutpublicconfirmedproductprice.md:
     id: c1b1c4ae0e2f
-    last_write_checksum: sha1:94d36ed900629da89b94205dc1015ae2d6da2253
-    pristine_git_object: 93a8ad7998d9e99543a453344dbf26fd4173d9f6
+    last_write_checksum: sha1:632925aecc66116a9667a75640d63347e29592a3
+    pristine_git_object: 40dfdb852da97646b3f0d1342d31afd555f01099
   docs/models/components/checkoutpubliccustomfielddata.md:
     id: 4241f8903121
     last_write_checksum: sha1:af1c5312d19c3523ed8fa4727348085d46a48fbd
@@ -764,12 +764,12 @@ trackedFiles:
     pristine_git_object: 7da65851cf2a628c3072f0408398fb744d74c39c
   docs/models/components/checkoutpublicprices.md:
     id: eb926851b609
-    last_write_checksum: sha1:8a7e815780343449c4b0a8653f3c55c582ee9a02
-    pristine_git_object: 050c8055645ac8e6eaf2985e2e3bce9590bcf6c9
+    last_write_checksum: sha1:55fc6685919ab303552a162c79c0bdf7fed0bb7e
+    pristine_git_object: c94a4cd8787041510d856c59e8aae6a4962d581e
   docs/models/components/checkoutpublicproductprice.md:
     id: 25b97470bd10
-    last_write_checksum: sha1:7d18b233741e981111b7622d35a53266a86bffd2
-    pristine_git_object: 8378e092e60c8a5ea5b3c8c4b43317894ed84b91
+    last_write_checksum: sha1:4404ee3f497520bc38cfb357f1865b76840140df
+    pristine_git_object: 6bd9a6cb41131cdf487211a0d1318aedc2438199
   docs/models/components/checkouts.md:
     id: 249e3732dddf
     last_write_checksum: sha1:2b28e63c16655b1443824729a751d3ce98e76b9a
@@ -834,6 +834,10 @@ trackedFiles:
     id: c560a5768469
     last_write_checksum: sha1:9edea69f0df317aac4f9615661f97f4d8ea1c953
     pristine_git_object: e89a5225c496ec2bd7417cdcf861c8e1f32cef10
+  docs/models/components/context.md:
+    id: 9354f6221a1b
+    last_write_checksum: sha1:e6beca058acb13b1cdec212bc8758a83adbf3d11
+    pristine_git_object: 2ba294cf3f5bc57358b333302ca44dbecd6e4074
   docs/models/components/costmetadatainput.md:
     id: 32b87bba093a
     last_write_checksum: sha1:066e8e80e2d7577f762972b83142436a526753b0
@@ -1032,8 +1036,8 @@ trackedFiles:
     pristine_git_object: ae4ab52341486337ae993a218d3e9b0f2c5e4e86
   docs/models/components/customerorderproductprices.md:
     id: 668c02985d99
-    last_write_checksum: sha1:44b7632b6ec75d35b08bbead207cbbd01c776b5a
-    pristine_git_object: 5998f6dce4d09f00f5c2461e195b48c1905f7627
+    last_write_checksum: sha1:e10109f514499fe3e6a2059bd20d01efb2f0e5d2
+    pristine_git_object: 4eb060b6916f0870376dce5cee5b8878ad33f8d1
   docs/models/components/customerordersortproperty.md:
     id: 4fa8e181ab8e
     last_write_checksum: sha1:fbe5ddfd247f0144b47bb802c5072e6000f8a000
@@ -1120,12 +1124,12 @@ trackedFiles:
     pristine_git_object: 952c2f72b7cb0bd89a8a4f65c92ab2f4efd256e4
   docs/models/components/customerproduct.md:
     id: 26348a846878
-    last_write_checksum: sha1:a5abfc2097cc52480beab7551a5cd808c285cd1f
-    pristine_git_object: d57a86b384898f8653c2167e0bc830a2e5b0d872
+    last_write_checksum: sha1:3d1328f715c965af9d2566a2778603f9abbdd597
+    pristine_git_object: e7f44320f69a110ee14245845c1f08834710d410
   docs/models/components/customerproductprices.md:
     id: be3ff6689aee
-    last_write_checksum: sha1:fae2869ee29e4101587bd2addadeb14079027502
-    pristine_git_object: aa453d90da63b0ad5f1d6ac54b4dad6bbbba5526
+    last_write_checksum: sha1:16d3727afa1954aced0112596b776fd75c4b7250
+    pristine_git_object: 253ee01bf50c2711c9948121df9425edf82d1a8b
   docs/models/components/customerseat.md:
     id: 1712aee0a508
     last_write_checksum: sha1:6da1335ec88c7ae134573f0630dabb32a1fb7a44
@@ -1184,8 +1188,8 @@ trackedFiles:
     pristine_git_object: a4388b37f6c3b4779a2bb4c66056e91b42696207
   docs/models/components/customersubscription.md:
     id: afa8a6fea931
-    last_write_checksum: sha1:088887ff5b48bb37add244dcf3496c22f9e61090
-    pristine_git_object: 695205377f883fa92745b7dd7459ac9cf3f147c5
+    last_write_checksum: sha1:f1411b5478e566a2aa97a0b7f526414261ccdf1b
+    pristine_git_object: 299d0453bf2a73f7af9e0d24069594526205989b
   docs/models/components/customersubscriptioncancel.md:
     id: 7cf2bcafe8dd
     last_write_checksum: sha1:0459933ede090d62ffc225f75a0d7a41292a1473
@@ -1200,16 +1204,16 @@ trackedFiles:
     pristine_git_object: 2a6ef5d9fc26ed959f3f6001db279358c2a53c98
   docs/models/components/customersubscriptionprices.md:
     id: 580e76ff3a6f
-    last_write_checksum: sha1:2c9af47cd09fec9088898d848dc4aeea2ad2abbf
-    pristine_git_object: 9e85cb5e9cb68a94fa36fca9566109e6cabae5de
+    last_write_checksum: sha1:67feb4ad8d37f58c5281af2a710afb898e93dfca
+    pristine_git_object: a307e47157ffd7d1ddb3c0e736b928b33a192dd8
   docs/models/components/customersubscriptionproduct.md:
     id: 535a590a1904
     last_write_checksum: sha1:9d1484e406ed7abe7ed5278b35100bb5e2555fc6
     pristine_git_object: aa9795f04e5133958b83afe8caf08ada41d609e1
   docs/models/components/customersubscriptionproductprices.md:
     id: 116397c32c1e
-    last_write_checksum: sha1:1f0490c85e77207f3bc0ffb087aae4e1df4cf5cb
-    pristine_git_object: c8e978402d0bfff827626b4d1d949460b2a5a9f4
+    last_write_checksum: sha1:469c68c35a0477d723298ef5997ea7c3dc87b6e9
+    pristine_git_object: 72bdf6b9a13672a847ea39d4dcf1822a2457eba5
   docs/models/components/customersubscriptionsortproperty.md:
     id: f03ee0fc9979
     last_write_checksum: sha1:d89e3d9b030e7a9c52ddff4c5b3c2a9d2ac455af
@@ -1704,20 +1708,20 @@ trackedFiles:
     pristine_git_object: b5d5954a9e51dc8b71b6ab0cedbdaeba280b53dc
   docs/models/components/legacyrecurringproductprice.md:
     id: 194fb7f41b23
-    last_write_checksum: sha1:11cca288b11ed9f4d4e97f49ca0606b161dcddbd
-    pristine_git_object: f31223b69a3ea886a1886e61be444137f690986e
+    last_write_checksum: sha1:502cd00fee92095cbcc53597e46cc3fd3b9ce1c8
+    pristine_git_object: 76824d2948c0a5ea481ef9928716b655f8a79649
   docs/models/components/legacyrecurringproductpricecustom.md:
     id: afb69203faf3
-    last_write_checksum: sha1:e5cdf1ce40381d4840fa3e7b7288f0db8f1fee49
-    pristine_git_object: 061ee2dba1cab7d0f0eb10c4aaf17982b8a05ece
+    last_write_checksum: sha1:093065e8af93a6c52416a003a56b5a87f0f86746
+    pristine_git_object: 3982b25272543aeff35452a5c26ce68d3e77c938
   docs/models/components/legacyrecurringproductpricefixed.md:
     id: 1ad5466f316f
-    last_write_checksum: sha1:4e2956db48ba2cb2aef379dfe0e3afffbd2c94e2
-    pristine_git_object: 9ff143ab7dd436dbf714b8ff74ceda1dd93b6a90
+    last_write_checksum: sha1:7e7108cd90130cc634dedc70f8095456459753c4
+    pristine_git_object: a6e9641697059c559a119a61ab6be14dcd96592c
   docs/models/components/legacyrecurringproductpricefree.md:
     id: a519814d8ef4
-    last_write_checksum: sha1:5bf78cdc3d03f134e6f4542efee2a0809d2d8d01
-    pristine_git_object: f98df1328b08d4ae2dcdef03046f3393865e0efa
+    last_write_checksum: sha1:c439129b3922d6b04e1f71f2e1f0fce5b86da4bb
+    pristine_git_object: 6d7d3e277dc02f59d1dc8b5311b8c2710bf27cd1
   docs/models/components/licensekeyactivate.md:
     id: d395a37ce7e7
     last_write_checksum: sha1:d42f1e6d45481f243cffb05d60e70bab7791ff88
@@ -1876,8 +1880,8 @@ trackedFiles:
     pristine_git_object: 0fcc7d6b6be6b40729f7c405ef99f2a4613b0b4e
   docs/models/components/listresourceorganization.md:
     id: 20ab2442b878
-    last_write_checksum: sha1:7df1b231579442cf2703071c7916351679364c38
-    pristine_git_object: eea962602814337ff9e1eaddcd57b8d234a93db8
+    last_write_checksum: sha1:f59002c3f498098a23a99ed0c487fb371905b139
+    pristine_git_object: 0865b84b19fd614eb5e7038a80341e72ac9851f0
   docs/models/components/listresourceorganizationaccesstoken.md:
     id: a80dde2536d4
     last_write_checksum: sha1:5031e3bc6dac2b923269f8aab57653b5638a00fb
@@ -1892,8 +1896,8 @@ trackedFiles:
     pristine_git_object: 5999d9e4600e5c1bd03390ff041fb71e17263207
   docs/models/components/listresourcesubscription.md:
     id: b7d2b5b27296
-    last_write_checksum: sha1:3f72675f93be37137b39c5940e9da629c456d231
-    pristine_git_object: 19da5f13be9d5952eec3e51c97a5675728df4290
+    last_write_checksum: sha1:2c8c096bd0c259c2257cc3d22b853c4d891735f1
+    pristine_git_object: 6a8eaa0454b87ecf0c0a43df6c23e408e34bb86f
   docs/models/components/listresourcewebhookdelivery.md:
     id: 6bc0e34928a6
     last_write_checksum: sha1:60dae48ef46bddcd1c51d9405c2cda7b2ac6eb50
@@ -2360,8 +2364,8 @@ trackedFiles:
     pristine_git_object: 69223ceddcba72036e1fc513d74b79c75649f81a
   docs/models/components/organization.md:
     id: 288ce68f18e3
-    last_write_checksum: sha1:63f3556e1b6fe0e74a13106bc2c7e61b6cb4aa0f
-    pristine_git_object: 4a8b3225af1b1baa025371fb9e19394ddcd0cac4
+    last_write_checksum: sha1:ece1679c62f227aef2d682248ad3fad2f86ea83b
+    pristine_git_object: 79217619772212beda76dbda0bbb97cb89a040f0
   docs/models/components/organizationaccesstoken.md:
     id: 955e1167a0b6
     last_write_checksum: sha1:7abd28449aad2f5dc10924045c0574f60ca6672c
@@ -2408,8 +2412,8 @@ trackedFiles:
     pristine_git_object: 22fb4315f821ef291cafba92f6a97238cfc35ee2
   docs/models/components/organizationfeaturesettings.md:
     id: 782a878ff492
-    last_write_checksum: sha1:8237191e3c7e9e5c65f01d8aa0a7c8b566dfcb9d
-    pristine_git_object: 413872f141a2eb5829c712b421bc0a7a2500bc40
+    last_write_checksum: sha1:fd1aa9cc4b9791e25dd072c8a32f785d95aafea8
+    pristine_git_object: a2d66cf986d86419b3a56f70a825869bd6d543b2
   docs/models/components/organizationnotificationsettings.md:
     id: b6dc3010ef9b
     last_write_checksum: sha1:db98648feaea09f5c1fee081920956f5fd2ebd68
@@ -2484,16 +2488,16 @@ trackedFiles:
     pristine_git_object: d0cc7cfc487c21dfeb6c938c9701d822c0dca663
   docs/models/components/presentmentcurrency.md:
     id: 05692c712fd7
-    last_write_checksum: sha1:38db77092671dc635c9f6461a709f67ca3bd30e0
-    pristine_git_object: e35b6eea171e6b3b9f7706cfefd3243ecb8b06a2
+    last_write_checksum: sha1:bb9c36857e98c8d15c01239a1a8a9997884c1d80
+    pristine_git_object: f32977902298e576d4b7f4b80845bf6b5c0ebc82
   docs/models/components/prices.md:
     id: 17a047033bc4
-    last_write_checksum: sha1:af9cdd50d0ca00c864bb42b0aaaaf86a57c44fa4
-    pristine_git_object: b1844759bce24ba62a8a40ef0ecf32ab218b39be
+    last_write_checksum: sha1:429ac791023880c968853293c7a8ebedab8b84c0
+    pristine_git_object: 8bde63129208b4d0fc505ba690f845c3c79b818d
   docs/models/components/product.md:
     id: ba34ccd38ab6
-    last_write_checksum: sha1:269fa5e3c11b37dd475639dd2d6634708ae35de6
-    pristine_git_object: edaaef1f938bb86b83ad9dd56ca1c817ddf581b5
+    last_write_checksum: sha1:6c430ee2e9e9de4d671fba12a72c50a18ca4cbf5
+    pristine_git_object: 34464435f2bcc3abf631548c7ad47308dc164bb4
   docs/models/components/productbenefitsupdate.md:
     id: d229caed55ac
     last_write_checksum: sha1:23028e91fb35dbfcf53be6b5aeff85ed6cfc6400
@@ -2540,28 +2544,28 @@ trackedFiles:
     pristine_git_object: 7d458b6619f7a3274c2967b26d208fa08654e3d6
   docs/models/components/productprice.md:
     id: 3f0336a1e4c7
-    last_write_checksum: sha1:6e87c4c7536133b16a55b97ffbe4fae37db8efbb
-    pristine_git_object: 0ae18ba8ad90e4b278b725faaa081906fa9dd1a0
+    last_write_checksum: sha1:671c36ffffc2e58aafbb73f360b261dcd22fc9ab
+    pristine_git_object: 5724a6dfcff7d32a22e1322a0a5005bb97cf53be
   docs/models/components/productpricecustom.md:
     id: bd38d75b8acb
-    last_write_checksum: sha1:fd73cb57d7a0ad86f12f7d104d3dfc137d93465a
-    pristine_git_object: e507c8de6c3394e95d171a0cdb401bdce08198a7
+    last_write_checksum: sha1:f481e20fa7e848100e2d9fb604917d553e8bbf2e
+    pristine_git_object: a4384dcbe227132f89cb69d39e33d745971e3f5c
   docs/models/components/productpricecustomcreate.md:
     id: 1f93a4e01a88
     last_write_checksum: sha1:861d5d2baac34012c474f7dc559b10113dfcd0c0
     pristine_git_object: 0b2b6497e2b12f11633ea787c7cb7e17c1639ed6
   docs/models/components/productpricefixed.md:
     id: 1873a04fa57c
-    last_write_checksum: sha1:238aad3e696fad90a3be3e208e5ee24ef4df65a8
-    pristine_git_object: 55718a940923713cea8e85df40b8caaede815863
+    last_write_checksum: sha1:29df1708369d02116f1e0a0caba2f77ecde36148
+    pristine_git_object: 4b4e5ee304e48a5ba42bea4b2c342b3e984f359b
   docs/models/components/productpricefixedcreate.md:
     id: a5a6c5738ebd
     last_write_checksum: sha1:7d965345a7fa05e21e6b956dd9b94c6f2e6bdc74
     pristine_git_object: 39f2851f24f40304172c4f334da33fdf409d0bb7
   docs/models/components/productpricefree.md:
     id: 510a3eeb79f1
-    last_write_checksum: sha1:0d58eaceb9aea9f3ca1687f16e77d9c6a3433d4b
-    pristine_git_object: 0bcfeb9b160987eff7f2df7c78a5b1092a1fd3b2
+    last_write_checksum: sha1:35cb5ac049d49e40b0c947013ad6829b440c16f8
+    pristine_git_object: 0e05f15f2dddd67176a1829ef49f86c43205c4e0
   docs/models/components/productpricefreecreate.md:
     id: 5e3857d15d7b
     last_write_checksum: sha1:8efec44bb1680da46a60026218ea0ffee9d324c8
@@ -2572,16 +2576,16 @@ trackedFiles:
     pristine_git_object: 2d08b10bdbff1317bf417ad45be6aa88c4f0c521
   docs/models/components/productpricemeteredunit.md:
     id: 71bc6f26b5be
-    last_write_checksum: sha1:93a7f2a6c36bf9212c2fb2065007620bd8d8e948
-    pristine_git_object: e713744a1e8b588bbc2aa0c07a76f4e9f794b0fe
+    last_write_checksum: sha1:7de89a6dc907000564d3a0ff8751267ed6310e63
+    pristine_git_object: 496a2f573b0e887672a663914c259e67d323caa9
   docs/models/components/productpricemeteredunitcreate.md:
     id: f662e881b5a5
     last_write_checksum: sha1:bba2775152e6e8880acf14fcf92e1219e6d4a000
     pristine_git_object: ae1257afdc0897db593579dd6bca15470f31961b
   docs/models/components/productpriceseatbased.md:
     id: 961d6a8af4af
-    last_write_checksum: sha1:2787d994b1e43cf1bd453fb86d6658ec8f2e2ff0
-    pristine_git_object: 3eda3a2eaabae5179a0a90cad3e29d0c422b1439
+    last_write_checksum: sha1:a25ee40f7397dff7ce957b33287c11ebb0996cf5
+    pristine_git_object: 66b79d549d8210a5bc45945627d536ba64c26cbd
   docs/models/components/productpriceseatbasedcreate.md:
     id: 25e9e64bf034
     last_write_checksum: sha1:bb7f457823b908a091e529633b5e59665496810b
@@ -2748,8 +2752,8 @@ trackedFiles:
     pristine_git_object: bb86f8a4438480568f63f06324bb7a18d612e723
   docs/models/components/subscription.md:
     id: 66a8decfafdd
-    last_write_checksum: sha1:092ba791b248fa38ae0ffce4fd1947fa720e510b
-    pristine_git_object: 49a243cba58df74113ec143d29cdbc761c24bdc8
+    last_write_checksum: sha1:27e80a7997da366813ebfc565b5bd20db8c2b938
+    pristine_git_object: 724275bd42dcf5266b243d6bdad8af25a1e1fd26
   docs/models/components/subscriptionbillingperiodupdatedevent.md:
     id: c8e254173c66
     last_write_checksum: sha1:9018e8bf683835fbf570605e3843f4053ef190a3
@@ -2812,8 +2816,8 @@ trackedFiles:
     pristine_git_object: 09570556c710fcf4f2924eb826fc2a1400a70843
   docs/models/components/subscriptionprices.md:
     id: 62c04b729f29
-    last_write_checksum: sha1:fdb3f0b71aef8f0e73157e7ba5da1067f5825f10
-    pristine_git_object: 393d157cd3ddb7e8df76ea5c5cc8816adb219a1f
+    last_write_checksum: sha1:9971e381f8f2e07aa2bd69b64aa7c41f7a31565f
+    pristine_git_object: 0cf97aec8481058cb2c75e615ff5caa4d439f310
   docs/models/components/subscriptionproductupdatedevent.md:
     id: 95ce36886e44
     last_write_checksum: sha1:f476389bbb0d1061b64e537fda215737e5e1cbbe
@@ -2972,8 +2976,8 @@ trackedFiles:
     pristine_git_object: 3c5cd8b4724bc30515641e723944327af9aa2ac9
   docs/models/components/validationerror.md:
     id: 23910fc567b1
-    last_write_checksum: sha1:d047007d3d57c99faf6ab24f91d663c429ef5d49
-    pristine_git_object: 84f3ade375919fc002783206278a6bf42beb54ed
+    last_write_checksum: sha1:77e694434f2bb9bf17eb450da67c981b2af13a0d
+    pristine_git_object: e431b9e9d535157eaf4cd4294c21ca953b768d0b
   docs/models/components/value.md:
     id: d28df86c49da
     last_write_checksum: sha1:0e0f1d9a2fce1f712ccee50af0fec1004d242d99
@@ -3000,20 +3004,20 @@ trackedFiles:
     pristine_git_object: 70ac7d50f8e4195d93ed86eb18040e1b8693b9aa
   docs/models/components/webhookbenefitupdatedpayload.md:
     id: 7a2d69b01efe
-    last_write_checksum: sha1:eaad55276ff448e09e3aba184ca041a4ef158630
-    pristine_git_object: 01ea0208a5099286480e3ff6eb504d5e0d207d7e
+    last_write_checksum: sha1:dd5351647b72d2eca669ad92529570c8b4fceb70
+    pristine_git_object: 25a40849bd2530e60ed56fe71507a9eb812c8c61
   docs/models/components/webhookcheckoutcreatedpayload.md:
     id: 3aecd2f384ef
-    last_write_checksum: sha1:b6bd4b274b4d403dd20c4bfbd180fb1d6823dc13
-    pristine_git_object: 184ee70388884426706dd7cde71216ea3639ea45
+    last_write_checksum: sha1:378fcd7519d0a7bdb2addc59f4c2b2b2cbcb855a
+    pristine_git_object: 69be6294926afc57812e0add62576a85d765e551
   docs/models/components/webhookcheckoutexpiredpayload.md:
     id: a22ca9dccbf5
-    last_write_checksum: sha1:3792bee4a931ddee1086f26929ed3c37ee792f3b
-    pristine_git_object: ba6bb1e989c9606e8f6c1d187331d348aca70cd4
+    last_write_checksum: sha1:afb15c397f62f5fef0eef3ee74b07bcf59ecdcf0
+    pristine_git_object: 59cf734cc910d53bc56626a85499ce2366ac2d73
   docs/models/components/webhookcheckoutupdatedpayload.md:
     id: 632b8ef8e552
-    last_write_checksum: sha1:987240ceac795602847f8823371087df6d48091a
-    pristine_git_object: 168ecd9310a90ca28c76f90e4e69468943e8b7b9
+    last_write_checksum: sha1:3a1f46e316fbb0780674863757b205ceb8f50ab5
+    pristine_git_object: fd2ad0ae29ecbdea03a01e202615a263810bc436
   docs/models/components/webhookcustomercreatedpayload.md:
     id: e2b40241096e
     last_write_checksum: sha1:1b74bd68aca22ad654ae6987c6c2f7d418162b14
@@ -3100,16 +3104,16 @@ trackedFiles:
     pristine_git_object: afd35c6bcf4ac3f62f3c25ac3ccb996d84d6add1
   docs/models/components/webhookorganizationupdatedpayload.md:
     id: d01ba151bc3c
-    last_write_checksum: sha1:7ec9383653d20b0fee11fed1f868a048caadf51a
-    pristine_git_object: d5abadff1fb70979218c556354cac4d59fc660bd
+    last_write_checksum: sha1:4501ca225bbab60f1741cccf3d3081fb91ce4d5d
+    pristine_git_object: 0b26fe9d5913437955f8febeb57052f47d723f3d
   docs/models/components/webhookproductcreatedpayload.md:
     id: 9777eeba0934
-    last_write_checksum: sha1:052e41fc0c5c81e6faa110a45587b562c3901121
-    pristine_git_object: 98bb5f18f4fcf30f689b229712d115467ecc8e53
+    last_write_checksum: sha1:871940a6c85527a955e5d2381602f56c53cf4e3d
+    pristine_git_object: 4f730c3d2f00927ae9b7de97dcb98c85e6c80592
   docs/models/components/webhookproductupdatedpayload.md:
     id: afaf3ddfad16
-    last_write_checksum: sha1:43b23b8146a88d3263be34f242332b546dd34066
-    pristine_git_object: d3ece70d39da5be0d0290f83e2605914782308ae
+    last_write_checksum: sha1:aed9bba368354f021cc3ddc4157cada59f2aa619
+    pristine_git_object: 5c84f5471914705dd22f7ccc7d382e20786ac441
   docs/models/components/webhookrefundcreatedpayload.md:
     id: 76dd94e047ac
     last_write_checksum: sha1:45d2d6cb20fa85d9bf84f879c1f52533d42a02d1
@@ -3120,32 +3124,32 @@ trackedFiles:
     pristine_git_object: b6e39a96d7e9d80c8855b4c24f53b340cea3af3d
   docs/models/components/webhooksubscriptionactivepayload.md:
     id: 850013e04e90
-    last_write_checksum: sha1:c76eed29d598c22bbbd7a886afbe6cf7ad058982
-    pristine_git_object: 581e60e2ee6a755dd9372b28b243487129566431
+    last_write_checksum: sha1:5cc77e25b7154630d455a395a3b4bceee6c9f2d3
+    pristine_git_object: 26be96c9694dc04e3fecfccadd821755f7ecffd3
   docs/models/components/webhooksubscriptioncanceledpayload.md:
     id: 909d49b31a98
-    last_write_checksum: sha1:4bbcb125011eda8d86f97d2c82892e73e2ccb326
-    pristine_git_object: fb798722d8fc44c9fc349e402fd688e66c09d88c
+    last_write_checksum: sha1:7017f0409a902fa3579ae3040d02edadc58147f5
+    pristine_git_object: c9246da451daed352a687412f35ec05b934ea85a
   docs/models/components/webhooksubscriptioncreatedpayload.md:
     id: 7754bd479822
-    last_write_checksum: sha1:7c58870dcd2f4799c0ca62a4141a12dd3b0a1a09
-    pristine_git_object: 403878236947740fd134fd71abd8ea995627f98d
+    last_write_checksum: sha1:a5595ed53be16608eec5e5176a777913018a2ded
+    pristine_git_object: 603fb6819a3dd89923b89528031b1d4eb0577978
   docs/models/components/webhooksubscriptionpastduepayload.md:
     id: 8f0fb0ba60af
-    last_write_checksum: sha1:373dc97e39ba1fb6e4dbb333d57941a4639bbe1d
-    pristine_git_object: 96708d28fc2aef04aec3a88806670923b2941a12
+    last_write_checksum: sha1:9cd21e7da939f1f8e2536835be73134e54e464c2
+    pristine_git_object: 1c99e358288424095067afa3d08597cfc243c729
   docs/models/components/webhooksubscriptionrevokedpayload.md:
     id: 798c0397c851
-    last_write_checksum: sha1:296017e49520b00adfba93733b69ce5ba0b7ae17
-    pristine_git_object: 16357779d287816dc1f1b27cbbc3a3be06be614d
+    last_write_checksum: sha1:d8066c7477466835612064687462ea2fd4060da1
+    pristine_git_object: a360e36945682f9a4946bf99005284a1700dfed4
   docs/models/components/webhooksubscriptionuncanceledpayload.md:
     id: dcc032678766
-    last_write_checksum: sha1:ed03817d552014cd825899080113122fb131d3a3
-    pristine_git_object: 22924dc1e0d81c8d579c0c8064bfb7b0a96c77a8
+    last_write_checksum: sha1:3299676dbb376407595e3f8fe304265ce3b54e8d
+    pristine_git_object: a28d71af389c13f1310c1f618ce9d96e7228fcb6
   docs/models/components/webhooksubscriptionupdatedpayload.md:
     id: 4c43efe43191
-    last_write_checksum: sha1:30f746e508605cce9a2ff004e8a9e960d255817e
-    pristine_git_object: 87cf2084209c0eca6982bd2a85a05e470eba66c4
+    last_write_checksum: sha1:38792b6eff8c7cc5163616cef22fd72c90364fb4
+    pristine_git_object: b2f31b0da2b7bee2213e861f1572b7d342231e01
   docs/models/components/webtokenrequest.md:
     id: bee9ba26ef04
     last_write_checksum: sha1:e9aeeecb32a617d5eb170e32b7cf1ca54d2cf481
@@ -3684,8 +3688,8 @@ trackedFiles:
     pristine_git_object: 13d38f552dc7fe200784a970a185c2ca70f4d046
   docs/models/operations/customerportalsubscriptionslistresponse.md:
     id: 173502f23849
-    last_write_checksum: sha1:37648e831367ae56082f008a0aa47d5dc4d92f2c
-    pristine_git_object: 276ec0d037d205acc315d9ff98ef3ea97eb935d8
+    last_write_checksum: sha1:42e42689680808f7321b89c7bc4da4d424ec2acc
+    pristine_git_object: 126f93522debf7c92b3689aed3649130527dba06
   docs/models/operations/customerportalsubscriptionslistsecurity.md:
     id: 68e66e95302f
     last_write_checksum: sha1:806eda2eaa241f2c60f12597444d9ed96e336a9f
@@ -4272,8 +4276,8 @@ trackedFiles:
     pristine_git_object: f4c42ccb6279f0081cac7ee1d06181cb822ec07a
   docs/models/operations/productslistresponse.md:
     id: f97d0d372d68
-    last_write_checksum: sha1:e37fb78aec06f8ac7f20a894acf3b9036336836b
-    pristine_git_object: 464896286abda9160f3fbc8ea4b8293e05f322bf
+    last_write_checksum: sha1:420107f6847981d79e54d54c751866769476df6d
+    pristine_git_object: 1e3fea962f8f5515900831e0905f791968051073
   docs/models/operations/productsupdatebenefitsrequest.md:
     id: b7941a9ee2a1
     last_write_checksum: sha1:aa5c6ac0ccfb6ba63c5c78cf9b12ba07c10bf0b0
@@ -4636,12 +4640,12 @@ trackedFiles:
     pristine_git_object: 81b74b46d6979f928ebe4b20753635ba6f9a3882
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:ed56b5782edba3e083093b95606b129d33059989
-    pristine_git_object: cdfec63101190969e5669069a8830a193046f1b0
+    last_write_checksum: sha1:1ef685abc0649ffbe539d8d46ba01f784833fd06
+    pristine_git_object: ba4930faebe587b7f99faebc13b03fa954561890
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:3bee287941be85328c9a9e1c3cacfd68afaad264
-    pristine_git_object: abd2fa346eb50968518b12761bd510d81b821880
+    last_write_checksum: sha1:614eee29aa79c9bd11cb7b5fe909762739191774
+    pristine_git_object: a12c1b16cc4c99c7c2d449bfdabaa45ab326eceb
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:6c0a3d0582afbdfea5d4052e704a9e0b6e29c273
@@ -5264,8 +5268,8 @@ trackedFiles:
     pristine_git_object: 229954490e76968c3373b562dbead630b4e284d1
   src/funcs/refundsCreate.ts:
     id: dba0bc0e5b57
-    last_write_checksum: sha1:4fd759b873a5739472bfe8871d5a8d8aaa5c377d
-    pristine_git_object: 9488de6d24cd5af897cf933d6fb2319ed07fce7c
+    last_write_checksum: sha1:b0c910cc2b6f25d446c958e21a3183f05282e0b8
+    pristine_git_object: 3ff09b8661d11616519fef78f7c48d4c753ff083
   src/funcs/refundsList.ts:
     id: 547f7ed5d7af
     last_write_checksum: sha1:c0fbbd4202e5cf9cf37ee0600c1544282a675c19
@@ -5348,8 +5352,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:5682e7badf019fb712251424d319db02573e10fb
-    pristine_git_object: de7a8d404f3dbe013e306646de6c29bb1023625b
+    last_write_checksum: sha1:b91f87ddeb949c9cce6b0a60e328436c577c1412
+    pristine_git_object: 3e240cc5fad686e5382012b3c6e7a238262c4e4e
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
@@ -5468,8 +5472,8 @@ trackedFiles:
     pristine_git_object: 04e9801ce7b480d0c034ea9f48d24574286b3b9f
   src/models/components/balancedisputemetadata.ts:
     id: de811b38b80e
-    last_write_checksum: sha1:980fc1c6eeab2edcbd71e2ffd8bcc7d7ccfc235b
-    pristine_git_object: 283fa119babde735f41f142f3c1ae540c0cec29a
+    last_write_checksum: sha1:09fd0937e72e3bab10307a680fbbf6f7c8b5c642
+    pristine_git_object: 3582f56b9424f752953fc816aa0795a4905e407c
   src/models/components/balancedisputereversalevent.ts:
     id: c7abc1085a6b
     last_write_checksum: sha1:1fdf941a0668c4ad91b00ad085c18b11e0b5c354
@@ -5480,24 +5484,24 @@ trackedFiles:
     pristine_git_object: 7a3c6880f484ece883efee2e5006fcae3822c225
   src/models/components/balanceordermetadata.ts:
     id: b21697496f53
-    last_write_checksum: sha1:0040e3f646279e626dd2f5bec37bedf509d7c130
-    pristine_git_object: a5cf71845c777443eb423355f5f0726513c4fe60
+    last_write_checksum: sha1:d80e79ec8c8a9686cbe4b5ba0a1c33ff754500cd
+    pristine_git_object: 87e4550ba697b01de07fc8b44194a2acaf68fb19
   src/models/components/balancerefundevent.ts:
     id: a17695eb660f
     last_write_checksum: sha1:9af19dcbdec72c393402d62300ecf51b29f33a1c
     pristine_git_object: b220ed620126b6a9d2ea35fb4131cbb7338faa31
   src/models/components/balancerefundmetadata.ts:
     id: 52cc324514ee
-    last_write_checksum: sha1:abf0ea89b77a53e2b7633cfc993f29fa9c378632
-    pristine_git_object: 04f180a16af380eeb406a2ab51d06518d74bcea9
+    last_write_checksum: sha1:a64019960655352bff0700a47afd63c00a9ea599
+    pristine_git_object: 7e9d2265f808c5a54516e3ad961e90dd4883c12c
   src/models/components/balancerefundreversalevent.ts:
     id: 517e04106444
     last_write_checksum: sha1:c8cc16ec31e890b1e2f73896042c19ba059c7a6c
     pristine_git_object: 303fa00b2aa6529146cdcbf954ad98a8759ddcca
   src/models/components/benefit.ts:
     id: 5c529f2cd2df
-    last_write_checksum: sha1:56c2eadf3d0c59f32520889ac3d06ef235e42db4
-    pristine_git_object: e2154e459ab782e26e7e4ce9c93bbb073a2212c4
+    last_write_checksum: sha1:86908e7ce478d3e02313e4ce956f973b34484d5c
+    pristine_git_object: fec0a2233cb3c85be00acac3f0685253535d6126
   src/models/components/benefitcreate.ts:
     id: 66a5f744c7b7
     last_write_checksum: sha1:2355e57e007643bd477ce9a181d27e24eee91ca8
@@ -6584,16 +6588,16 @@ trackedFiles:
     pristine_git_object: fc290035b9e933d9029a2f3b8a1442bc501da24d
   src/models/components/legacyrecurringproductpricecustom.ts:
     id: 19eb09b6c51c
-    last_write_checksum: sha1:6a36b76aa113aaa71455ed86c019ccf26c2bc8bb
-    pristine_git_object: 6b9d5e7bb96d67baecbd93af978e1e0d30adffb1
+    last_write_checksum: sha1:1932bdcf03dd60c75a8513a1aeb5872cfa05f817
+    pristine_git_object: d0951b01484184d31d144b2266fe7bb56ddbd9e1
   src/models/components/legacyrecurringproductpricefixed.ts:
     id: 6eef0ea1af6a
-    last_write_checksum: sha1:c4b61308b67c94df5986f40496d2aa5ee9345b98
-    pristine_git_object: f524ae1bc62d19f1f2f0431a7ddd1059817095fe
+    last_write_checksum: sha1:28889712eeafc80080d3bdde5abf946b617233b2
+    pristine_git_object: 782bd3879d3e26d9764d3529ba541673e6bc604f
   src/models/components/legacyrecurringproductpricefree.ts:
     id: 6a45f76de740
-    last_write_checksum: sha1:931b1163be9da8b901263669eb53784bed6ad076
-    pristine_git_object: 25feaaca048fc0616a687f5c22256b909200e19f
+    last_write_checksum: sha1:6e945cedf351d121bb59699b38020fb58becfacc
+    pristine_git_object: b075e8ff86801cbeca909c74ad0224710301bcd1
   src/models/components/licensekeyactivate.ts:
     id: 52f86279ed1c
     last_write_checksum: sha1:08450e792a87c9e2552fa1f0901ffe9094096c55
@@ -6948,8 +6952,8 @@ trackedFiles:
     pristine_git_object: ef025438fc667cb4742d209f5d594745acd671c9
   src/models/components/organization.ts:
     id: 67dc659ba656
-    last_write_checksum: sha1:a16dee8c9c436ced6604cc66c515f6ded6ffc185
-    pristine_git_object: 0e4f5787a628475393f911b2191207dd35ba0e6c
+    last_write_checksum: sha1:ee50133018c8d62a072a0af803324136daf1390a
+    pristine_git_object: 8118885855216a5ab03023ab0880fb828df1ad3b
   src/models/components/organizationaccesstoken.ts:
     id: 1100905257a9
     last_write_checksum: sha1:0b370b8588d3cdc00097db12223b53f706985f5a
@@ -6996,8 +7000,8 @@ trackedFiles:
     pristine_git_object: b43c6b081d6104479d479027881ad7ea2dd81e62
   src/models/components/organizationfeaturesettings.ts:
     id: 8a5bb6cffecc
-    last_write_checksum: sha1:3ce0bda7ca8c5e822f609314f466d4ed21da68af
-    pristine_git_object: 5fd539ee763bdbcbcb2d824bf9f7086fc169ab06
+    last_write_checksum: sha1:43e8e382bcb50b4119fcbf5b082b46bed8bd1804
+    pristine_git_object: 754c94392a6917c3b2ab1fe120f5436cd2e0197b
   src/models/components/organizationnotificationsettings.ts:
     id: 56ffe2d91451
     last_write_checksum: sha1:def3cd82d3108b8c8af8cb6fe7271a449ab755b4
@@ -7068,8 +7072,8 @@ trackedFiles:
     pristine_git_object: 312502e4d4fb24ed5e96d8982004ec6f83b3ce49
   src/models/components/presentmentcurrency.ts:
     id: f1e9fa30e229
-    last_write_checksum: sha1:327c4b58b4e3b57e51b1fc3fa3ab006db3f934e1
-    pristine_git_object: e84a0809ba4a0e25a03e9108496afc3a75e3669f
+    last_write_checksum: sha1:92ff213ea5883071c34ee6231cfb12354f66364e
+    pristine_git_object: 3940c842249e7a02df1384f16d7f732516a5062f
   src/models/components/product.ts:
     id: d3a4939b1094
     last_write_checksum: sha1:1d3f97a69b7b3298e0ca2ff5fa5dbaac2445d2ea
@@ -7108,24 +7112,24 @@ trackedFiles:
     pristine_git_object: f4db6a93471a6847a629bafb22d12521747a37b4
   src/models/components/productpricecustom.ts:
     id: 5e1982a35353
-    last_write_checksum: sha1:58ac244054016905715dbb327e1336e66eb25f23
-    pristine_git_object: 374c6e56cac2c72f608b313b066c6ca5f2be466b
+    last_write_checksum: sha1:e9df335951059c4e2b7b95c15f3f4b5a2a61f3dc
+    pristine_git_object: ec843c8351c0a8c67bc53f31aff39cfa5dc66c8b
   src/models/components/productpricecustomcreate.ts:
     id: 70052ca487c8
     last_write_checksum: sha1:e4a0787be99433d73643280e51f7753d029851c6
     pristine_git_object: 78a49dbce423161712fb6a27a39191d23a162768
   src/models/components/productpricefixed.ts:
     id: 2b5cda8e97b7
-    last_write_checksum: sha1:db786370a0cdbd0d7e92b1b58af9786b95d11822
-    pristine_git_object: bf69fd200aae1263a5799224a8304f80ea7b74be
+    last_write_checksum: sha1:502ae25b913ad35329e175b722d244c4b95a50c8
+    pristine_git_object: 215b19c46d5aec21161e4c80a3f00221d729d225
   src/models/components/productpricefixedcreate.ts:
     id: e66ebb5488bd
     last_write_checksum: sha1:638fd869fa6c8825010e6adb1e7ed874519950af
     pristine_git_object: be294f9f184fa513657f549ebeb6d7af306d9f66
   src/models/components/productpricefree.ts:
     id: 02c608e0bed5
-    last_write_checksum: sha1:a8862ef63f61384f0331ea2a1edfecbe788bc07f
-    pristine_git_object: 4b1020c0bb4e7110f133ca2fe2e07d3ceb68cb75
+    last_write_checksum: sha1:660bafd952013deca0290787da5f60a2a4a78c8a
+    pristine_git_object: faf4771b521fd5ef9460423445f3e871c37e0872
   src/models/components/productpricefreecreate.ts:
     id: 8463df494ecb
     last_write_checksum: sha1:4f1f43aba6b4781bb8ecfb5e3ec5c6de13762854
@@ -7136,16 +7140,16 @@ trackedFiles:
     pristine_git_object: aadaac79c647e98fbf43aa461ac8f8c33582c449
   src/models/components/productpricemeteredunit.ts:
     id: d14398526533
-    last_write_checksum: sha1:dfc5cf1e93021af3b2a14a16ffb2048fabc5be69
-    pristine_git_object: 9f3c587656e7be75a89cd2889f38d58cb566b999
+    last_write_checksum: sha1:aac0805abcc9374119e99c17584b6ce574af80fa
+    pristine_git_object: cef8060a5c7817d8406fd29d1aa49d54584731b3
   src/models/components/productpricemeteredunitcreate.ts:
     id: f32fe8af9019
     last_write_checksum: sha1:95540cbb5670bef673079fa9bc47368aab3ceccb
     pristine_git_object: 1c45e69516454040f0668a67e5396be00118965b
   src/models/components/productpriceseatbased.ts:
     id: b807da19fba2
-    last_write_checksum: sha1:08ed020fdd444d577ac494eaa5a2ca6aeacf145c
-    pristine_git_object: f789e7ec0f80eddff8d163470ead0abf0c6bcd36
+    last_write_checksum: sha1:eab2e4163ff2622d30b79bb88481139a330f537c
+    pristine_git_object: cbeb32ca2d288fda7f9dd5a0cb614f244cb63867
   src/models/components/productpriceseatbasedcreate.ts:
     id: 177b1a678501
     last_write_checksum: sha1:5a28ac16af6b8d38d6b04b8b593d5f033525832d
@@ -7456,8 +7460,8 @@ trackedFiles:
     pristine_git_object: ac42f61a840d5f51fb0d36935367fd850c6e12aa
   src/models/components/validationerror.ts:
     id: 7f5955a97454
-    last_write_checksum: sha1:4e9cccac481de9be6a1563b88f607439ea6bdd58
-    pristine_git_object: 5ae2ab24fad2c3afdc216cba544158497c8b6641
+    last_write_checksum: sha1:258d9a835f402fe3872404151ed9a3fdc8ee1a1d
+    pristine_git_object: 39a99e9d8079b8fc244d7473f14b82e2f2979756
   src/models/components/webhookbenefitcreatedpayload.ts:
     id: 5de1dfd515ad
     last_write_checksum: sha1:a369608934577806f55d7816fa9d1242d59a25d9
@@ -8448,8 +8452,8 @@ trackedFiles:
     pristine_git_object: 76fba64d1253e209a771eec0b68c499b082c2554
   src/sdk/refunds.ts:
     id: 6cbf2fc0e8a6
-    last_write_checksum: sha1:3d27f0a6bea2093e63271463d3e7c1f2669dde02
-    pristine_git_object: e96caef11df0d26270a88101ad70156417d665c8
+    last_write_checksum: sha1:1ea530fc0b0b34f44376f02a5a080fcff63af34e
+    pristine_git_object: 672886e499f90a97e5ed8c404134a1f6262d0c3b
   src/sdk/sdk.ts:
     id: 784571af2f69
     last_write_checksum: sha1:8b427d72c3b6ebc989b0a956a7d426eab63f54fb
@@ -8779,7 +8783,7 @@ examples:
         application/json: {"name": "<value>", "slug": "<value>"}
       responses:
         "201":
-          application/json: {"created_at": "2024-12-19T02:20:41.368Z", "modified_at": "2025-03-11T17:26:29.230Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://substantial-wasabi.name", "proration_behavior": "prorate", "allow_customer_updates": false, "email": "Queen_Homenick@gmail.com", "website": "<value>", "socials": [{"platform": "other", "url": "https://enchanted-hose.biz"}, {"platform": "other", "url": "https://enchanted-hose.biz"}, {"platform": "other", "url": "https://enchanted-hose.biz"}], "status": "denied", "details_submitted_at": "2023-03-22T18:01:32.205Z", "default_presentment_currency": "usd", "feature_settings": {"issue_funding_enabled": false, "seat_based_pricing_enabled": false, "revops_enabled": false, "wallets_enabled": false, "member_model_enabled": false, "tinybird_read": false, "tinybird_compare": false, "presentment_currencies_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": true, "allow_customer_updates": true, "proration_behavior": "invoice", "benefit_revocation_grace_period": 655199, "prevent_trial_abuse": false}, "notification_settings": {"new_order": false, "new_subscription": false}, "customer_email_settings": {"order_confirmation": false, "subscription_cancellation": false, "subscription_confirmation": false, "subscription_cycled": false, "subscription_past_due": false, "subscription_revoked": false, "subscription_uncanceled": true, "subscription_updated": false}, "customer_portal_settings": {"usage": {"show": false}, "subscription": {"update_seats": false, "update_plan": false}}}
+          application/json: {"created_at": "2024-12-19T02:20:41.368Z", "modified_at": "2025-03-11T17:26:29.230Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://substantial-wasabi.name", "proration_behavior": "prorate", "allow_customer_updates": false, "email": "Queen_Homenick@gmail.com", "website": "<value>", "socials": [{"platform": "other", "url": "https://enchanted-hose.biz"}, {"platform": "other", "url": "https://enchanted-hose.biz"}, {"platform": "other", "url": "https://enchanted-hose.biz"}], "status": "denied", "details_submitted_at": "2023-03-22T18:01:32.205Z", "default_presentment_currency": "usd", "feature_settings": {"issue_funding_enabled": false, "seat_based_pricing_enabled": false, "revops_enabled": false, "wallets_enabled": false, "member_model_enabled": false, "tinybird_read": false, "tinybird_compare": false, "presentment_currencies_enabled": false, "checkout_localization_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": true, "allow_customer_updates": true, "proration_behavior": "invoice", "benefit_revocation_grace_period": 655199, "prevent_trial_abuse": false}, "notification_settings": {"new_order": false, "new_subscription": false}, "customer_email_settings": {"order_confirmation": false, "subscription_cancellation": false, "subscription_confirmation": false, "subscription_cycled": false, "subscription_past_due": false, "subscription_revoked": false, "subscription_uncanceled": true, "subscription_updated": false}, "customer_portal_settings": {"usage": {"show": false}, "subscription": {"update_seats": false, "update_plan": false}}}
         "422":
           application/json: {}
   organizations:get:
@@ -8789,7 +8793,7 @@ examples:
           id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737"
       responses:
         "200":
-          application/json: {"created_at": "2024-06-18T23:12:24.609Z", "modified_at": "2024-04-06T22:00:49.347Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://vast-shipper.biz/", "proration_behavior": "invoice", "allow_customer_updates": true, "email": "Aron.Aufderhar@hotmail.com", "website": "<value>", "socials": [], "status": "onboarding_started", "details_submitted_at": "2023-03-07T16:26:10.747Z", "default_presentment_currency": "usd", "feature_settings": {"issue_funding_enabled": false, "seat_based_pricing_enabled": false, "revops_enabled": false, "wallets_enabled": false, "member_model_enabled": false, "tinybird_read": false, "tinybird_compare": false, "presentment_currencies_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": true, "allow_customer_updates": true, "proration_behavior": "invoice", "benefit_revocation_grace_period": 488109, "prevent_trial_abuse": true}, "notification_settings": {"new_order": true, "new_subscription": true}, "customer_email_settings": {"order_confirmation": true, "subscription_cancellation": true, "subscription_confirmation": true, "subscription_cycled": false, "subscription_past_due": false, "subscription_revoked": true, "subscription_uncanceled": false, "subscription_updated": true}, "customer_portal_settings": {"usage": {"show": true}, "subscription": {"update_seats": true, "update_plan": true}}}
+          application/json: {"created_at": "2024-06-18T23:12:24.609Z", "modified_at": "2024-04-06T22:00:49.347Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://vast-shipper.biz/", "proration_behavior": "invoice", "allow_customer_updates": true, "email": "Aron.Aufderhar@hotmail.com", "website": "<value>", "socials": [], "status": "onboarding_started", "details_submitted_at": "2023-03-07T16:26:10.747Z", "default_presentment_currency": "usd", "feature_settings": {"issue_funding_enabled": false, "seat_based_pricing_enabled": false, "revops_enabled": false, "wallets_enabled": false, "member_model_enabled": false, "tinybird_read": false, "tinybird_compare": false, "presentment_currencies_enabled": false, "checkout_localization_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": true, "allow_customer_updates": true, "proration_behavior": "invoice", "benefit_revocation_grace_period": 488109, "prevent_trial_abuse": true}, "notification_settings": {"new_order": true, "new_subscription": true}, "customer_email_settings": {"order_confirmation": true, "subscription_cancellation": true, "subscription_confirmation": true, "subscription_cycled": false, "subscription_past_due": false, "subscription_revoked": true, "subscription_uncanceled": false, "subscription_updated": true}, "customer_portal_settings": {"usage": {"show": true}, "subscription": {"update_seats": true, "update_plan": true}}}
         "404":
           application/json: {"error": "ResourceNotFound", "detail": "<value>"}
         "422":
@@ -8803,7 +8807,7 @@ examples:
         application/json: {}
       responses:
         "200":
-          application/json: {"created_at": "2024-01-10T12:09:47.665Z", "modified_at": "2025-05-23T11:37:55.182Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://outstanding-gastropod.info", "proration_behavior": "invoice", "allow_customer_updates": false, "email": "Kaleb36@gmail.com", "website": "<value>", "socials": [{"platform": "tiktok", "url": "https://official-gerbil.biz/"}], "status": "onboarding_started", "details_submitted_at": "2024-05-05T07:08:22.735Z", "default_presentment_currency": "usd", "feature_settings": {"issue_funding_enabled": false, "seat_based_pricing_enabled": false, "revops_enabled": false, "wallets_enabled": false, "member_model_enabled": false, "tinybird_read": false, "tinybird_compare": false, "presentment_currencies_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": false, "allow_customer_updates": false, "proration_behavior": "prorate", "benefit_revocation_grace_period": 341703, "prevent_trial_abuse": true}, "notification_settings": {"new_order": true, "new_subscription": false}, "customer_email_settings": {"order_confirmation": true, "subscription_cancellation": false, "subscription_confirmation": false, "subscription_cycled": false, "subscription_past_due": true, "subscription_revoked": true, "subscription_uncanceled": true, "subscription_updated": false}, "customer_portal_settings": {"usage": {"show": true}, "subscription": {"update_seats": false, "update_plan": false}}}
+          application/json: {"created_at": "2024-01-10T12:09:47.665Z", "modified_at": "2025-05-23T11:37:55.182Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://outstanding-gastropod.info", "proration_behavior": "invoice", "allow_customer_updates": false, "email": "Kaleb36@gmail.com", "website": "<value>", "socials": [{"platform": "tiktok", "url": "https://official-gerbil.biz/"}], "status": "onboarding_started", "details_submitted_at": "2024-05-05T07:08:22.735Z", "default_presentment_currency": "usd", "feature_settings": {"issue_funding_enabled": false, "seat_based_pricing_enabled": false, "revops_enabled": false, "wallets_enabled": false, "member_model_enabled": false, "tinybird_read": false, "tinybird_compare": false, "presentment_currencies_enabled": false, "checkout_localization_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": false, "allow_customer_updates": false, "proration_behavior": "prorate", "benefit_revocation_grace_period": 341703, "prevent_trial_abuse": true}, "notification_settings": {"new_order": true, "new_subscription": false}, "customer_email_settings": {"order_confirmation": true, "subscription_cancellation": false, "subscription_confirmation": false, "subscription_cycled": false, "subscription_past_due": true, "subscription_revoked": true, "subscription_uncanceled": true, "subscription_updated": false}, "customer_portal_settings": {"usage": {"show": true}, "subscription": {"update_seats": false, "update_plan": false}}}
         "403":
           application/json: {"error": "NotPermitted", "detail": "<value>"}
         "404":
@@ -9161,6 +9165,8 @@ examples:
           application/json: {"error": "RefundedAlready", "detail": "<value>"}
         "422":
           application/json: {}
+        "201":
+          application/json: {"created_at": "2025-06-14T04:14:46.053Z", "modified_at": null, "id": "<value>", "metadata": {}, "status": "pending", "reason": "fraudulent", "amount": 138367, "tax_amount": 299454, "currency": "Surinam Dollar", "organization_id": "<value>", "order_id": "<value>", "subscription_id": "<value>", "customer_id": "<value>", "revoke_benefits": true, "dispute": {"created_at": "2024-07-22T01:16:24.885Z", "modified_at": "2024-06-14T01:16:01.696Z", "id": "<value>", "status": "needs_response", "resolved": false, "closed": false, "amount": 1000, "tax_amount": 200, "currency": "usd", "order_id": "57107b74-8400-4d80-a2fc-54c2b4239cb3", "payment_id": "42b94870-36b9-4573-96b6-b90b1c99a353"}}
   checkouts:list:
     speakeasy-default-checkouts:list:
       parameters:
@@ -10860,7 +10866,7 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Typescript SDK Changes:\n* `polar.checkoutLinks.list()`:  `response.items[].products[]` **Changed** (Breaking ⚠️)\n* `polar.subscriptions.create()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.subscriptions.get()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.subscriptions.revoke()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.subscriptions.update()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.organizationAccessTokens.update()`: \n  *  `request.organizationAccessTokenUpdate.scopes[]` **Changed** (Breaking ⚠️)\n  *  `response.scopes[]` **Changed** (Breaking ⚠️)\n* `polar.organizationAccessTokens.create()`: \n  *  `request.scopes[]` **Changed** (Breaking ⚠️)\n  *  `response.organizationAccessToken.scopes[]` **Changed** (Breaking ⚠️)\n* `polar.organizationAccessTokens.list()`:  `response.items[].scopes[]` **Changed** (Breaking ⚠️)\n* `polar.oauth2.authorize()`:  `response.union(user).scopes[]` **Changed** (Breaking ⚠️)\n* `polar.customerPortal.subscriptions.update()`:  `response.product` **Changed** (Breaking ⚠️)\n* `polar.customerPortal.subscriptions.cancel()`:  `response.product` **Changed** (Breaking ⚠️)\n* `polar.customerPortal.subscriptions.get()`:  `response.product` **Changed** (Breaking ⚠️)\n* `polar.customerPortal.subscriptions.list()`:  `response.items[].product` **Changed** (Breaking ⚠️)\n* `polar.customerPortal.organizations.get()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.customerPortal.orders.update()`:  `response.product` **Changed** (Breaking ⚠️)\n* `polar.customerPortal.orders.get()`:  `response.product` **Changed** (Breaking ⚠️)\n* `polar.webhooks.listWebhookEndpoints()`:  `response.items[].events[]` **Changed** (Breaking ⚠️)\n* `polar.webhooks.createWebhookEndpoint()`: \n  *  `request.events[]` **Changed**\n  *  `response.events[]` **Changed** (Breaking ⚠️)\n* `polar.webhooks.getWebhookEndpoint()`:  `response.events[]` **Changed** (Breaking ⚠️)\n* `polar.webhooks.updateWebhookEndpoint()`: \n  *  `request.webhookEndpointUpdate.events[]` **Changed**\n  *  `response.events[]` **Changed** (Breaking ⚠️)\n* `polar.webhooks.resetWebhookEndpointSecret()`:  `response.events[]` **Changed** (Breaking ⚠️)\n* `polar.webhooks.listWebhookDeliveries()`: \n  *  `request.eventType` **Changed**\n  *  `response.items[].webhookEvent.type` **Changed** (Breaking ⚠️)\n* `polar.products.list()`: \n  *  `request.visibility` **Added**\n  *  `response.items[]` **Changed** (Breaking ⚠️)\n* `polar.products.create()`: \n  *  `request` **Changed** (Breaking ⚠️)\n  *  `response` **Changed** (Breaking ⚠️)\n* `polar.products.get()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.products.update()`: \n  *  `request.productUpdate` **Changed** (Breaking ⚠️)\n  *  `response` **Changed** (Breaking ⚠️)\n* `polar.products.updateBenefits()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.customerPortal.orders.list()`:  `response.items[].product` **Changed** (Breaking ⚠️)\n* `polar.customerPortal.seats.listClaimedSubscriptions()`:  `response.[].product` **Changed** (Breaking ⚠️)\n* `polar.subscriptions.list()`:  `response.items[]` **Changed** (Breaking ⚠️)\n* `polar.checkouts.list()`:  `response.items[]` **Changed** (Breaking ⚠️)\n* `polar.checkouts.create()`: \n  *  `request` **Changed** (Breaking ⚠️)\n  *  `response` **Changed** (Breaking ⚠️)\n* `polar.checkouts.get()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.checkouts.update()`: \n  *  `request.checkoutUpdate` **Changed** (Breaking ⚠️)\n  *  `response` **Changed** (Breaking ⚠️)\n* `polar.checkouts.clientGet()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.checkouts.clientUpdate()`: \n  *  `request.checkoutUpdatePublic.locale` **Added**\n  *  `response` **Changed** (Breaking ⚠️)\n* `polar.checkouts.clientConfirm()`: \n  *  `request.checkoutConfirmStripe.locale` **Added**\n  *  `response` **Changed** (Breaking ⚠️)\n* `polar.checkoutLinks.update()`:  `response.products[]` **Changed** (Breaking ⚠️)\n* `polar.checkoutLinks.get()`:  `response.products[]` **Changed** (Breaking ⚠️)\n* `polar.checkoutLinks.create()`:  `response.products[]` **Changed** (Breaking ⚠️)\n* `polar.discounts.create()`:  `response.union(DiscountPercentageOnceForeverDuration).products[].visibility` **Added**\n* `polar.customerPortal.customerSession.getAuthenticatedUser()`:  `response.memberId` **Added**\n* `polar.licenseKeys.activate()`:  `response.licenseKey.customer.locale` **Added**\n* `polar.licenseKeys.getActivation()`:  `response.licenseKey.customer.locale` **Added**\n* `polar.licenseKeys.update()`:  `response.customer.locale` **Added**\n* `polar.licenseKeys.get()`:  `response.customer.locale` **Added**\n* `polar.licenseKeys.list()`:  `response.items[].customer.locale` **Added**\n* `polar.discounts.list()`:  `response.items[].union(DiscountFixedRepeatDuration).products[].visibility` **Added**\n* `polar.orders.update()`:  `response` **Changed**\n* `polar.discounts.get()`:  `response.union(DiscountFixedRepeatDuration).products[].visibility` **Added**\n* `polar.discounts.update()`:  `response.union(DiscountPercentageOnceForeverDuration).products[].visibility` **Added**\n* `polar.customers.list()`:  `response.items[].locale` **Added**\n* `polar.customers.create()`: \n  *  `request.locale` **Added**\n  *  `response.locale` **Added**\n* `polar.customers.get()`:  `response.locale` **Added**\n* `polar.customers.update()`: \n  *  `request.customerUpdate.locale` **Added**\n  *  `response.locale` **Added**\n* `polar.customers.getExternal()`:  `response.locale` **Added**\n* `polar.customers.updateExternal()`: \n  *  `request.customerUpdateExternalId.locale` **Added**\n  *  `response.locale` **Added**\n* `polar.customers.getState()`:  `response` **Changed**\n* `polar.customers.getStateExternal()`:  `response` **Changed**\n* `polar.customerPortal.benefitGrants.list()`: \n  *  `request.query` **Added**\n  *  `response.items[]` **Changed**\n* `polar.customerPortal.benefitGrants.get()`:  `response` **Changed**\n* `polar.customerPortal.benefitGrants.update()`:  `response` **Changed**\n* `polar.customerPortal.customers.get()`:  `response.type` **Added**\n* `polar.customerPortal.customers.update()`:  `response.type` **Added**\n* `polar.customerPortal.seats.listSeats()`:  `response.seats[].member` **Added**\n* `polar.customerPortal.seats.assignSeat()`: \n  *  `request` **Changed**\n  *  `response.member` **Added**\n* `polar.customerPortal.seats.revokeSeat()`:  `response.member` **Added**\n* `polar.customerPortal.seats.resendInvitation()`:  `response.member` **Added**\n* `polar.orders.get()`:  `response` **Changed**\n* `polar.licenseKeys.validate()`:  `response.customer.locale` **Added**\n* `polar.customerPortal.licenseKeys.list()`:  `response.items[].customer.locale` **Added**\n* `polar.customerPortal.licenseKeys.get()`:  `response.customer.locale` **Added**\n* `polar.customerPortal.licenseKeys.validate()`:  `response.customer.locale` **Added**\n* `polar.customerPortal.licenseKeys.activate()`:  `response.licenseKey.customer.locale` **Added**\n* `polar.orders.list()`:  `response.items[]` **Changed**\n* `polar.benefitGrants.list()`:  `response.items[]` **Changed**\n* `polar.benefits.grants()`:  `response.items[]` **Changed**\n* `polar.organizations.update()`: \n  *  `request.organizationUpdate` **Changed**\n  *  `response` **Changed**\n* `polar.organizations.get()`:  `response` **Changed**\n* `polar.organizations.create()`: \n  *  `request` **Changed**\n  *  `response` **Changed**\n* `polar.organizations.list()`:  `response.items[]` **Changed**\n* `polar.customerPortal.members.updateMember()`: **Added**\n* `polar.customerSeats.listSeats()`:  `response.seats[].member` **Added**\n* `polar.customerSeats.assignSeat()`: \n  *  `request` **Changed**\n  *  `response.member` **Added**\n* `polar.customerSeats.revokeSeat()`:  `response.member` **Added**\n* `polar.customerSeats.resendInvitation()`:  `response.member` **Added**\n* `polar.customerSeats.claimSeat()`:  `response.seat.member` **Added**\n* `polar.customerSessions.create()`:  `response.customer.locale` **Added**\n* `polar.memberSessions.create()`:  `response.customer.locale` **Added**\n* `polar.events.list()`:  `response.union(ListResourceWithCursorPagination_Event_).items[]` **Changed**\n* `polar.events.get()`:  `response` **Changed**\n* `polar.events.ingest()`: \n  *  `request.events[]` **Changed**\n* `polar.meters.quantities()`: \n  *  `request.timezone` **Added**\n* `polar.customerPortal.members.removeMember()`: **Added**\n* `polar.customerPortal.members.addMember()`: **Added**\n* `polar.customerPortal.members.listMembers()`: **Added**\n* `polar.customerMeters.list()`:  `response.items[].customer.locale` **Added**\n* `polar.customerMeters.get()`:  `response.customer.locale` **Added**\n"
+releaseNotes: "## Typescript SDK Changes:\n* `polar.refunds.create()`: \n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.organizations.create()`: \n  *  `request` **Changed**\n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.organizations.get()`: \n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.organizations.update()`: \n  *  `request.organizationUpdate` **Changed**\n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.subscriptions.list()`: \n  *  `response.items[].product.prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.subscriptions.create()`: \n  *  `response.product.prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.customerPortal.subscriptions.update()`: \n  *  `response.product.prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.subscriptions.get()`: \n  *  `response.product.prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.subscriptions.revoke()`: \n  *  `response.product.prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.subscriptions.update()`: \n  *  `response.product.prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.customerPortal.subscriptions.cancel()`: \n  *  `response.product.prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.customerPortal.subscriptions.get()`: \n  *  `response.product.prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.customerPortal.subscriptions.list()`: \n  *  `response.items[].product.prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.customerPortal.organizations.get()`: \n  *  `response.products[].prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.customerPortal.orders.update()`: \n  *  `response.product.prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.customerPortal.orders.get()`: \n  *  `response.product.prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.customerPortal.orders.list()`: \n  *  `response.items[].product.prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.customerPortal.seats.listClaimedSubscriptions()`:  `response.[].product.prices[]` **Changed** (Breaking ⚠️)\n* `polar.organizations.list()`: \n  *  `response.items[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.checkoutLinks.update()`: \n  *  `response.products[].prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.checkoutLinks.get()`: \n  *  `response.products[].prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.checkoutLinks.create()`: \n  *  `response.products[].prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.checkoutLinks.list()`: \n  *  `response.items[].products[].prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.checkouts.clientConfirm()`: \n  *  `response.products[].prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.checkouts.clientUpdate()`: \n  *  `response.products[].prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.checkouts.clientGet()`: \n  *  `response.products[].prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.checkouts.update()`: \n  *  `request.checkoutUpdate.currency` **Changed**\n  *  `response.products[].prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.checkouts.get()`: \n  *  `response.products[].prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.checkouts.create()`: \n  *  `request.currency` **Changed**\n  *  `response.products[].prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.products.list()`: \n  *  `response.items[].prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.products.create()`: \n  *  `request.union(ProductCreateOneTime).prices[].union(fixed).priceCurrency` **Changed**\n  *  `response.prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.products.get()`: \n  *  `response.prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.products.update()`: \n  *  `request.productUpdate.prices[].union(2).union(fixed).priceCurrency` **Changed**\n  *  `response.prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.products.updateBenefits()`: \n  *  `response.prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.checkouts.list()`: \n  *  `response.items[].products[].prices[]` **Changed** (Breaking ⚠️)\n  *  `error.detail[]` **Changed**\n* `polar.customers.list()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.benefitGrants.update()`:  `error.detail[]` **Changed**\n* `polar.orders.update()`:  `error.detail[]` **Changed**\n* `polar.orders.invoice()`:  `error.detail[]` **Changed**\n* `polar.refunds.list()`:  `error.detail[]` **Changed**\n* `polar.orders.export()`:  `error.detail[]` **Changed**\n* `polar.disputes.list()`:  `error.detail[]` **Changed**\n* `polar.disputes.get()`:  `error.detail[]` **Changed**\n* `polar.orders.list()`:  `error.detail[]` **Changed**\n* `polar.webhooks.redeliverWebhookEvent()`:  `error.detail[]` **Changed**\n* `polar.webhooks.listWebhookDeliveries()`:  `error.detail[]` **Changed**\n* `polar.webhooks.resetWebhookEndpointSecret()`:  `error.detail[]` **Changed**\n* `polar.webhooks.updateWebhookEndpoint()`:  `error.detail[]` **Changed**\n* `polar.webhooks.deleteWebhookEndpoint()`:  `error.detail[]` **Changed**\n* `polar.webhooks.getWebhookEndpoint()`:  `error.detail[]` **Changed**\n* `polar.files.list()`:  `error.detail[]` **Changed**\n* `polar.files.create()`:  `error.detail[]` **Changed**\n* `polar.files.uploaded()`:  `error.detail[]` **Changed**\n* `polar.files.delete()`:  `error.detail[]` **Changed**\n* `polar.files.update()`:  `error.detail[]` **Changed**\n* `polar.metrics.get()`:  `error.detail[]` **Changed**\n* `polar.licenseKeys.list()`:  `error.detail[]` **Changed**\n* `polar.licenseKeys.get()`:  `error.detail[]` **Changed**\n* `polar.licenseKeys.update()`:  `error.detail[]` **Changed**\n* `polar.licenseKeys.getActivation()`:  `error.detail[]` **Changed**\n* `polar.licenseKeys.validate()`:  `error.detail[]` **Changed**\n* `polar.licenseKeys.activate()`:  `error.detail[]` **Changed**\n* `polar.licenseKeys.deactivate()`:  `error.detail[]` **Changed**\n* `polar.webhooks.createWebhookEndpoint()`:  `error.detail[]` **Changed**\n* `polar.webhooks.listWebhookEndpoints()`:  `error.detail[]` **Changed**\n* `polar.benefitGrants.list()`:  `error.detail[]` **Changed**\n* `polar.checkoutLinks.delete()`:  `error.detail[]` **Changed**\n* `polar.benefits.grants()`:  `error.detail[]` **Changed**\n* `polar.customFields.list()`:  `error.detail[]` **Changed**\n* `polar.customFields.create()`:  `error.detail[]` **Changed**\n* `polar.customFields.get()`:  `error.detail[]` **Changed**\n* `polar.customFields.delete()`:  `error.detail[]` **Changed**\n* `polar.customFields.update()`:  `error.detail[]` **Changed**\n* `polar.discounts.list()`:  `error.detail[]` **Changed**\n* `polar.discounts.create()`:  `error.detail[]` **Changed**\n* `polar.discounts.get()`:  `error.detail[]` **Changed**\n* `polar.discounts.delete()`:  `error.detail[]` **Changed**\n* `polar.discounts.update()`:  `error.detail[]` **Changed**\n* `polar.benefits.update()`:  `error.detail[]` **Changed**\n* `polar.customers.create()`:  `error.detail[]` **Changed**\n* `polar.customers.export()`:  `error.detail[]` **Changed**\n* `polar.customers.get()`:  `error.detail[]` **Changed**\n* `polar.customers.delete()`:  `error.detail[]` **Changed**\n* `polar.customers.update()`:  `error.detail[]` **Changed**\n* `polar.customers.getExternal()`:  `error.detail[]` **Changed**\n* `polar.customers.deleteExternal()`:  `error.detail[]` **Changed**\n* `polar.customers.updateExternal()`:  `error.detail[]` **Changed**\n* `polar.customers.getState()`:  `error.detail[]` **Changed**\n* `polar.customers.getStateExternal()`:  `error.detail[]` **Changed**\n* `polar.members.listMembers()`:  `error.detail[]` **Changed**\n* `polar.members.createMember()`:  `error.detail[]` **Changed**\n* `polar.members.getMember()`:  `error.detail[]` **Changed**\n* `polar.members.deleteMember()`:  `error.detail[]` **Changed**\n* `polar.members.updateMember()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.benefitGrants.list()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.benefitGrants.get()`:  `error.detail[]` **Changed**\n* `polar.orders.get()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.customers.update()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.customers.listPaymentMethods()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.customers.addPaymentMethod()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.customers.confirmPaymentMethod()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.customers.deletePaymentMethod()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.customerMeters.list()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.customerMeters.get()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.seats.listSeats()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.seats.assignSeat()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.seats.revokeSeat()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.seats.resendInvitation()`:  `error.detail[]` **Changed**\n* `polar.benefits.delete()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.downloadables.list()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.licenseKeys.list()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.licenseKeys.get()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.licenseKeys.validate()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.licenseKeys.activate()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.licenseKeys.deactivate()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.members.addMember()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.members.removeMember()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.members.updateMember()`:  `error.detail[]` **Changed**\n* `polar.benefits.get()`:  `error.detail[]` **Changed**\n* `polar.benefits.create()`:  `error.detail[]` **Changed**\n* `polar.benefits.list()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.orders.invoice()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.orders.getPaymentStatus()`:  `error.detail[]` **Changed**\n* `polar.oauth2.clients.delete()`:  `error.detail[]` **Changed**\n* `polar.oauth2.clients.update()`:  `error.detail[]` **Changed**\n* `polar.oauth2.clients.get()`:  `error.detail[]` **Changed**\n* `polar.oauth2.clients.create()`:  `error.detail[]` **Changed**\n* `polar.subscriptions.export()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.wallets.list()`:  `error.detail[]` **Changed**\n* `polar.customerPortal.wallets.get()`:  `error.detail[]` **Changed**\n* `polar.customerSeats.listSeats()`:  `error.detail[]` **Changed**\n* `polar.customerSeats.assignSeat()`:  `error.detail[]` **Changed**\n* `polar.customerSeats.revokeSeat()`:  `error.detail[]` **Changed**\n* `polar.customerSeats.resendInvitation()`:  `error.detail[]` **Changed**\n* `polar.customerSeats.getClaimInfo()`:  `error.detail[]` **Changed**\n* `polar.customerSeats.claimSeat()`:  `error.detail[]` **Changed**\n* `polar.customerSessions.create()`:  `error.detail[]` **Changed**\n* `polar.memberSessions.create()`:  `error.detail[]` **Changed**\n* `polar.events.list()`: \n  *  `response.union(ListResource_Event_).items[].union(SystemEvent)` **Changed**\n  *  `error.detail[]` **Changed**\n* `polar.events.listNames()`:  `error.detail[]` **Changed**\n* `polar.events.get()`: \n  *  `response.union(SystemEvent)` **Changed**\n  *  `error.detail[]` **Changed**\n* `polar.events.ingest()`:  `error.detail[]` **Changed**\n* `polar.eventTypes.list()`:  `error.detail[]` **Changed**\n* `polar.eventTypes.update()`:  `error.detail[]` **Changed**\n* `polar.meters.list()`:  `error.detail[]` **Changed**\n* `polar.meters.create()`:  `error.detail[]` **Changed**\n* `polar.meters.get()`:  `error.detail[]` **Changed**\n* `polar.meters.update()`:  `error.detail[]` **Changed**\n* `polar.meters.quantities()`:  `error.detail[]` **Changed**\n* `polar.organizationAccessTokens.list()`:  `error.detail[]` **Changed**\n* `polar.organizationAccessTokens.create()`:  `error.detail[]` **Changed**\n* `polar.organizationAccessTokens.delete()`:  `error.detail[]` **Changed**\n* `polar.organizationAccessTokens.update()`:  `error.detail[]` **Changed**\n* `polar.customerMeters.list()`:  `error.detail[]` **Changed**\n* `polar.customerMeters.get()`:  `error.detail[]` **Changed**\n* `polar.payments.list()`:  `error.detail[]` **Changed**\n* `polar.payments.get()`:  `error.detail[]` **Changed**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

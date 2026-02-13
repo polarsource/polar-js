@@ -29,7 +29,7 @@ let value: Product = {
       id: "<value>",
       source: "catalog",
       amountType: "seat_based",
-      priceCurrency: "usd",
+      priceCurrency: "<value>",
       isArchived: true,
       productId: "<value>",
       type: "recurring",

@@ -8,11 +8,6 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  PresentmentCurrency,
-  PresentmentCurrency$inboundSchema,
-  PresentmentCurrency$outboundSchema,
-} from "./presentmentcurrency.js";
-import {
   ProductPriceMeter,
   ProductPriceMeter$inboundSchema,
   ProductPriceMeter$Outbound,
@@ -52,7 +47,10 @@ export type ProductPriceMeteredUnit = {
   id: string;
   source: ProductPriceSource;
   amountType: "metered_unit";
-  priceCurrency: PresentmentCurrency;
+  /**
+   * The currency in which the customer will be charged.
+   */
+  priceCurrency: string;
   /**
    * Whether the price is archived and no longer available.
    */
@@ -100,7 +98,7 @@ export const ProductPriceMeteredUnit$inboundSchema: z.ZodMiniType<
     id: z.string(),
     source: ProductPriceSource$inboundSchema,
     amount_type: z.literal("metered_unit"),
-    price_currency: PresentmentCurrency$inboundSchema,
+    price_currency: z.string(),
     is_archived: z.boolean(),
     product_id: z.string(),
     type: ProductPriceType$inboundSchema,
@@ -154,7 +152,7 @@ export const ProductPriceMeteredUnit$outboundSchema: z.ZodMiniType<
     id: z.string(),
     source: ProductPriceSource$outboundSchema,
     amountType: z.literal("metered_unit"),
-    priceCurrency: PresentmentCurrency$outboundSchema,
+    priceCurrency: z.string(),
     isArchived: z.boolean(),
     productId: z.string(),
     type: ProductPriceType$outboundSchema,
