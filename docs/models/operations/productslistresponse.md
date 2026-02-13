@@ -32,7 +32,7 @@ let value: ProductsListResponse = {
             id: "<value>",
             source: "catalog",
             amountType: "free",
-            priceCurrency: "usd",
+            priceCurrency: "<value>",
             isArchived: true,
             productId: "<value>",
             type: "recurring",

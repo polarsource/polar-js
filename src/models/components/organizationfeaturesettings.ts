@@ -41,6 +41,10 @@ export type OrganizationFeatureSettings = {
    * If this organization has multiple presentment currencies enabled
    */
   presentmentCurrenciesEnabled?: boolean | undefined;
+  /**
+   * If this organization has checkout localization enabled
+   */
+  checkoutLocalizationEnabled?: boolean | undefined;
 };
 
 /** @internal */
@@ -57,6 +61,7 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
     tinybird_read: z._default(z.boolean(), false),
     tinybird_compare: z._default(z.boolean(), false),
     presentment_currencies_enabled: z._default(z.boolean(), false),
+    checkout_localization_enabled: z._default(z.boolean(), false),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -68,6 +73,7 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
       "tinybird_read": "tinybirdRead",
       "tinybird_compare": "tinybirdCompare",
       "presentment_currencies_enabled": "presentmentCurrenciesEnabled",
+      "checkout_localization_enabled": "checkoutLocalizationEnabled",
     });
   }),
 );
@@ -81,6 +87,7 @@ export type OrganizationFeatureSettings$Outbound = {
   tinybird_read: boolean;
   tinybird_compare: boolean;
   presentment_currencies_enabled: boolean;
+  checkout_localization_enabled: boolean;
 };
 
 /** @internal */
@@ -97,6 +104,7 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
     tinybirdRead: z._default(z.boolean(), false),
     tinybirdCompare: z._default(z.boolean(), false),
     presentmentCurrenciesEnabled: z._default(z.boolean(), false),
+    checkoutLocalizationEnabled: z._default(z.boolean(), false),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -108,6 +116,7 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
       tinybirdRead: "tinybird_read",
       tinybirdCompare: "tinybird_compare",
       presentmentCurrenciesEnabled: "presentment_currencies_enabled",
+      checkoutLocalizationEnabled: "checkout_localization_enabled",
     });
   }),
 );

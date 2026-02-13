@@ -29,7 +29,7 @@ let value: CheckoutLinkProduct = {
       id: "<value>",
       source: "catalog",
       amountType: "free",
-      priceCurrency: "usd",
+      priceCurrency: "<value>",
       isArchived: false,
       productId: "<value>",
       type: "recurring",

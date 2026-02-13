@@ -49,11 +49,6 @@ import {
   OrganizationSubscriptionSettings$outboundSchema,
 } from "./organizationsubscriptionsettings.js";
 import {
-  PresentmentCurrency,
-  PresentmentCurrency$inboundSchema,
-  PresentmentCurrency$outboundSchema,
-} from "./presentmentcurrency.js";
-import {
   SubscriptionProrationBehavior,
   SubscriptionProrationBehavior$inboundSchema,
   SubscriptionProrationBehavior$outboundSchema,
@@ -106,7 +101,10 @@ export type Organization = {
    * When the business details were submitted.
    */
   detailsSubmittedAt: Date | null;
-  defaultPresentmentCurrency: PresentmentCurrency;
+  /**
+   * Default presentment currency. Used as fallback in checkout and customer portal, if the customer's local currency is not available.
+   */
+  defaultPresentmentCurrency: string;
   /**
    * Organization feature settings
    */
@@ -141,7 +139,7 @@ export const Organization$inboundSchema: z.ZodMiniType<Organization, unknown> =
       details_submitted_at: z.nullable(
         z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
       ),
-      default_presentment_currency: PresentmentCurrency$inboundSchema,
+      default_presentment_currency: z.string(),
       feature_settings: z.nullable(OrganizationFeatureSettings$inboundSchema),
       subscription_settings: OrganizationSubscriptionSettings$inboundSchema,
       notification_settings: OrganizationNotificationSettings$inboundSchema,
@@ -210,7 +208,7 @@ export const Organization$outboundSchema: z.ZodMiniType<
     detailsSubmittedAt: z.nullable(
       z.pipe(z.date(), z.transform(v => v.toISOString())),
     ),
-    defaultPresentmentCurrency: PresentmentCurrency$outboundSchema,
+    defaultPresentmentCurrency: z.string(),
     featureSettings: z.nullable(OrganizationFeatureSettings$outboundSchema),
     subscriptionSettings: OrganizationSubscriptionSettings$outboundSchema,
     notificationSettings: OrganizationNotificationSettings$outboundSchema,

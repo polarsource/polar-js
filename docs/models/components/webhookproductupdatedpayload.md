@@ -34,7 +34,7 @@ let value: WebhookProductUpdatedPayload = {
         id: "<value>",
         source: "catalog",
         amountType: "custom",
-        priceCurrency: "usd",
+        priceCurrency: "<value>",
         isArchived: true,
         productId: "<value>",
         type: "one_time",

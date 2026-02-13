@@ -51,7 +51,7 @@ export function refundsCreate(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    Refund | undefined,
+    Refund,
     | RefundedAlready
     | HTTPValidationError
     | PolarError
@@ -78,7 +78,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      Refund | undefined,
+      Refund,
       | RefundedAlready
       | HTTPValidationError
       | PolarError
@@ -161,7 +161,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    Refund | undefined,
+    Refund,
     | RefundedAlready
     | HTTPValidationError
     | PolarError
@@ -173,8 +173,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, z.optional(Refund$inboundSchema)),
-    M.nil(201, z.optional(Refund$inboundSchema)),
+    M.json(201, Refund$inboundSchema),
     M.jsonErr(403, RefundedAlready$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),

@@ -5,11 +5,11 @@
 ```typescript
 import { PresentmentCurrency } from "@polar-sh/sdk/models/components/presentmentcurrency.js";
 
-let value: PresentmentCurrency = "usd";
+let value: PresentmentCurrency = "jpy";
 ```
 
 ## Values
 
 ```typescript
-"usd"
+"aud" | "brl" | "cad" | "chf" | "eur" | "inr" | "gbp" | "jpy" | "sek" | "usd"
 ```

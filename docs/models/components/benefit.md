@@ -48,29 +48,6 @@ const value: components.BenefitDiscord = {
 };
 ```
 
-### `components.BenefitGitHubRepository`
-
-```typescript
-const value: components.BenefitGitHubRepository = {
-  id: "<value>",
-  createdAt: new Date("2026-09-20T17:50:31.812Z"),
-  modifiedAt: new Date("2024-09-08T10:06:16.908Z"),
-  type: "github_repository",
-  description: "hoarse secrecy entwine stunning energetically",
-  selectable: true,
-  deletable: true,
-  organizationId: "<value>",
-  metadata: {
-    "key": false,
-  },
-  properties: {
-    repositoryOwner: "polarsource",
-    repositoryName: "private_repo",
-    permission: "admin",
-  },
-};
-```
-
 ### `components.BenefitDownloadables`
 
 ```typescript
@@ -94,6 +71,29 @@ const value: components.BenefitDownloadables = {
       "<value 1>",
       "<value 2>",
     ],
+  },
+};
+```
+
+### `components.BenefitGitHubRepository`
+
+```typescript
+const value: components.BenefitGitHubRepository = {
+  id: "<value>",
+  createdAt: new Date("2026-09-20T17:50:31.812Z"),
+  modifiedAt: new Date("2024-09-08T10:06:16.908Z"),
+  type: "github_repository",
+  description: "hoarse secrecy entwine stunning energetically",
+  selectable: true,
+  deletable: true,
+  organizationId: "<value>",
+  metadata: {
+    "key": false,
+  },
+  properties: {
+    repositoryOwner: "polarsource",
+    repositoryName: "private_repo",
+    permission: "admin",
   },
 };
 ```

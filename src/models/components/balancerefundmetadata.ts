@@ -24,6 +24,7 @@ export type BalanceRefundMetadata = {
   taxState?: string | null | undefined;
   taxCountry?: string | null | undefined;
   fee: number;
+  exchangeRate?: number | undefined;
 };
 
 /** @internal */
@@ -47,6 +48,7 @@ export const BalanceRefundMetadata$inboundSchema: z.ZodMiniType<
     tax_state: z.optional(z.nullable(z.string())),
     tax_country: z.optional(z.nullable(z.string())),
     fee: z.int(),
+    exchange_rate: z.optional(z.number()),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -62,6 +64,7 @@ export const BalanceRefundMetadata$inboundSchema: z.ZodMiniType<
       "tax_amount": "taxAmount",
       "tax_state": "taxState",
       "tax_country": "taxCountry",
+      "exchange_rate": "exchangeRate",
     });
   }),
 );

@@ -50,7 +50,7 @@ let value: CustomerSubscription = {
         id: "<value>",
         source: "ad_hoc",
         amountType: "custom",
-        priceCurrency: "usd",
+        priceCurrency: "<value>",
         isArchived: false,
         productId: "<value>",
         type: "recurring",

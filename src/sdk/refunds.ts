@@ -45,7 +45,7 @@ export class Refunds extends ClientSDK {
   async create(
     request: RefundCreate,
     options?: RequestOptions,
-  ): Promise<Refund | undefined> {
+  ): Promise<Refund> {
     return unwrapAsync(refundsCreate(
       this,
       request,

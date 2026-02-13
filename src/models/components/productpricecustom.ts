@@ -8,11 +8,6 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  PresentmentCurrency,
-  PresentmentCurrency$inboundSchema,
-  PresentmentCurrency$outboundSchema,
-} from "./presentmentcurrency.js";
-import {
   ProductPriceSource,
   ProductPriceSource$inboundSchema,
   ProductPriceSource$outboundSchema,
@@ -46,7 +41,10 @@ export type ProductPriceCustom = {
   id: string;
   source: ProductPriceSource;
   amountType: "custom";
-  priceCurrency: PresentmentCurrency;
+  /**
+   * The currency in which the customer will be charged.
+   */
+  priceCurrency: string;
   /**
    * Whether the price is archived and no longer available.
    */
@@ -90,7 +88,7 @@ export const ProductPriceCustom$inboundSchema: z.ZodMiniType<
     id: z.string(),
     source: ProductPriceSource$inboundSchema,
     amount_type: z.literal("custom"),
-    price_currency: PresentmentCurrency$inboundSchema,
+    price_currency: z.string(),
     is_archived: z.boolean(),
     product_id: z.string(),
     type: ProductPriceType$inboundSchema,
@@ -142,7 +140,7 @@ export const ProductPriceCustom$outboundSchema: z.ZodMiniType<
     id: z.string(),
     source: ProductPriceSource$outboundSchema,
     amountType: z.literal("custom"),
-    priceCurrency: PresentmentCurrency$outboundSchema,
+    priceCurrency: z.string(),
     isArchived: z.boolean(),
     productId: z.string(),
     type: ProductPriceType$outboundSchema,
