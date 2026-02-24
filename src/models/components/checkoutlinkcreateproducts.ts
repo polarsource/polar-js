@@ -69,6 +69,10 @@ export type CheckoutLinkCreateProducts = {
    */
   successUrl?: string | null | undefined;
   /**
+   * When set, a back button will be shown in the checkout to return to this URL.
+   */
+  returnUrl?: string | null | undefined;
+  /**
    * List of products that will be available to select at checkout.
    */
   products: Array<string>;
@@ -108,6 +112,7 @@ export type CheckoutLinkCreateProducts$Outbound = {
   require_billing_address: boolean;
   discount_id?: string | null | undefined;
   success_url?: string | null | undefined;
+  return_url?: string | null | undefined;
   products: Array<string>;
 };
 
@@ -131,6 +136,7 @@ export const CheckoutLinkCreateProducts$outboundSchema: z.ZodMiniType<
     requireBillingAddress: z._default(z.boolean(), false),
     discountId: z.optional(z.nullable(z.string())),
     successUrl: z.optional(z.nullable(z.string())),
+    returnUrl: z.optional(z.nullable(z.string())),
     products: z.array(z.string()),
   }),
   z.transform((v) => {
@@ -142,6 +148,7 @@ export const CheckoutLinkCreateProducts$outboundSchema: z.ZodMiniType<
       requireBillingAddress: "require_billing_address",
       discountId: "discount_id",
       successUrl: "success_url",
+      returnUrl: "return_url",
     });
   }),
 );

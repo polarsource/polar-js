@@ -79,6 +79,10 @@ export type CheckoutLink = {
    */
   successUrl: string | null;
   /**
+   * When set, a back button will be shown in the checkout to return to this URL.
+   */
+  returnUrl: string | null;
+  /**
    * Optional label to distinguish links internally
    */
   label: string | null;
@@ -147,6 +151,7 @@ export const CheckoutLink$inboundSchema: z.ZodMiniType<CheckoutLink, unknown> =
       payment_processor: PaymentProcessor$inboundSchema,
       client_secret: z.string(),
       success_url: z.nullable(z.string()),
+      return_url: z.nullable(z.string()),
       label: z.nullable(z.string()),
       allow_discount_codes: z.boolean(),
       require_billing_address: z.boolean(),
@@ -172,6 +177,7 @@ export const CheckoutLink$inboundSchema: z.ZodMiniType<CheckoutLink, unknown> =
         "payment_processor": "paymentProcessor",
         "client_secret": "clientSecret",
         "success_url": "successUrl",
+        "return_url": "returnUrl",
         "allow_discount_codes": "allowDiscountCodes",
         "require_billing_address": "requireBillingAddress",
         "discount_id": "discountId",

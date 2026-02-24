@@ -4,15 +4,14 @@
 
 import * as z from "zod/v4-mini";
 import { PolarCore } from "../core.js";
+import { dlv } from "../lib/dlv.js";
+import { encodeFormQuery } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
+import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { resolveSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
-import {
-  CustomerSubscription,
-  CustomerSubscription$inboundSchema,
-} from "../models/components/customersubscription.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -20,12 +19,28 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
 import { PolarError } from "../models/errors/polarerror.js";
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import { CustomerPortalSeatsListClaimedSubscriptionsSecurity } from "../models/operations/customerportalseatslistclaimedsubscriptions.js";
+import {
+  CustomerPortalSeatsListClaimedSubscriptionsRequest,
+  CustomerPortalSeatsListClaimedSubscriptionsRequest$outboundSchema,
+  CustomerPortalSeatsListClaimedSubscriptionsResponse,
+  CustomerPortalSeatsListClaimedSubscriptionsResponse$inboundSchema,
+  CustomerPortalSeatsListClaimedSubscriptionsSecurity,
+} from "../models/operations/customerportalseatslistclaimedsubscriptions.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
+import {
+  createPageIterator,
+  haltIterator,
+  PageIterator,
+  Paginator,
+} from "../types/operations.js";
 
 /**
  * List Claimed Subscriptions
@@ -38,35 +53,13 @@ import { Result } from "../types/fp.js";
 export function customerPortalSeatsListClaimedSubscriptions(
   client: PolarCore,
   security: CustomerPortalSeatsListClaimedSubscriptionsSecurity,
+  request: CustomerPortalSeatsListClaimedSubscriptionsRequest,
   options?: RequestOptions,
 ): APIPromise<
-  Result<
-    Array<CustomerSubscription>,
-    | PolarError
-    | ResponseValidationError
-    | ConnectionError
-    | RequestAbortedError
-    | RequestTimeoutError
-    | InvalidRequestError
-    | UnexpectedClientError
-    | SDKValidationError
-  >
-> {
-  return new APIPromise($do(
-    client,
-    security,
-    options,
-  ));
-}
-
-async function $do(
-  client: PolarCore,
-  security: CustomerPortalSeatsListClaimedSubscriptionsSecurity,
-  options?: RequestOptions,
-): Promise<
-  [
+  PageIterator<
     Result<
-      Array<CustomerSubscription>,
+      CustomerPortalSeatsListClaimedSubscriptionsResponse,
+      | HTTPValidationError
       | PolarError
       | ResponseValidationError
       | ConnectionError
@@ -76,10 +69,63 @@ async function $do(
       | UnexpectedClientError
       | SDKValidationError
     >,
+    { page: number }
+  >
+> {
+  return new APIPromise($do(
+    client,
+    security,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: PolarCore,
+  security: CustomerPortalSeatsListClaimedSubscriptionsSecurity,
+  request: CustomerPortalSeatsListClaimedSubscriptionsRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    PageIterator<
+      Result<
+        CustomerPortalSeatsListClaimedSubscriptionsResponse,
+        | HTTPValidationError
+        | PolarError
+        | ResponseValidationError
+        | ConnectionError
+        | RequestAbortedError
+        | RequestTimeoutError
+        | InvalidRequestError
+        | UnexpectedClientError
+        | SDKValidationError
+      >,
+      { page: number }
+    >,
     APICall,
   ]
 > {
+  const parsed = safeParse(
+    request,
+    (value) =>
+      z.parse(
+        CustomerPortalSeatsListClaimedSubscriptionsRequest$outboundSchema,
+        value,
+      ),
+    "Input validation failed",
+  );
+  if (!parsed.ok) {
+    return [haltIterator(parsed), { status: "invalid" }];
+  }
+  const payload = parsed.value;
+  const body = null;
+
   const path = pathToFunc("/v1/customer-portal/seats/subscriptions")();
+
+  const query = encodeFormQuery({
+    "limit": payload.limit,
+    "page": payload.page,
+  });
 
   const headers = new Headers(compactMap({
     Accept: "application/json",
@@ -123,27 +169,34 @@ async function $do(
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
+    query: query,
+    body: body,
     userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return [requestRes, { status: "invalid" }];
+    return [haltIterator(requestRes), { status: "invalid" }];
   }
   const req = requestRes.value;
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["401", "4XX", "5XX"],
+    errorCodes: ["401", "422", "4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return [doResult, { status: "request-error", request: req }];
+    return [haltIterator(doResult), { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
-  const [result] = await M.match<
-    Array<CustomerSubscription>,
+  const responseFields = {
+    HttpMeta: { Response: response, Request: req },
+  };
+
+  const [result, raw] = await M.match<
+    CustomerPortalSeatsListClaimedSubscriptionsResponse,
+    | HTTPValidationError
     | PolarError
     | ResponseValidationError
     | ConnectionError
@@ -153,13 +206,79 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, z.array(CustomerSubscription$inboundSchema)),
+    M.json(
+      200,
+      CustomerPortalSeatsListClaimedSubscriptionsResponse$inboundSchema,
+      { key: "Result" },
+    ),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail([401, "4XX"]),
     M.fail("5XX"),
-  )(response, req);
+  )(response, req, { extraFields: responseFields });
   if (!result.ok) {
-    return [result, { status: "complete", request: req, response }];
+    return [haltIterator(result), {
+      status: "complete",
+      request: req,
+      response,
+    }];
   }
 
-  return [result, { status: "complete", request: req, response }];
+  const nextFunc = (
+    responseData: unknown,
+  ): {
+    next: Paginator<
+      Result<
+        CustomerPortalSeatsListClaimedSubscriptionsResponse,
+        | HTTPValidationError
+        | PolarError
+        | ResponseValidationError
+        | ConnectionError
+        | RequestAbortedError
+        | RequestTimeoutError
+        | InvalidRequestError
+        | UnexpectedClientError
+        | SDKValidationError
+      >
+    >;
+    "~next"?: { page: number };
+  } => {
+    const page = request?.page ?? 1;
+    const nextPage = page + 1;
+    const numPages = dlv(responseData, "pagination.max_page");
+    if (typeof numPages !== "number" || numPages <= page) {
+      return { next: () => null };
+    }
+
+    if (!responseData) {
+      return { next: () => null };
+    }
+    const results = dlv(responseData, "items");
+    if (!Array.isArray(results) || !results.length) {
+      return { next: () => null };
+    }
+    const limit = request?.limit ?? 10;
+    if (results.length < limit) {
+      return { next: () => null };
+    }
+
+    const nextVal = () =>
+      customerPortalSeatsListClaimedSubscriptions(
+        client,
+        security,
+        {
+          ...request,
+          page: nextPage,
+        },
+        options,
+      );
+
+    return { next: nextVal, "~next": { page: nextPage } };
+  };
+
+  const page = { ...result, ...nextFunc(raw) };
+  return [{ ...page, ...createPageIterator(page, (v) => !v.ok) }, {
+    status: "complete",
+    request: req,
+    response,
+  }];
 }

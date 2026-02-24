@@ -4,10 +4,32 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import {
+  ListResourceCustomerSubscription,
+  ListResourceCustomerSubscription$inboundSchema,
+} from "../components/listresourcecustomersubscription.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalSeatsListClaimedSubscriptionsSecurity = {
   customerSession?: string | undefined;
   memberSession?: string | undefined;
+};
+
+export type CustomerPortalSeatsListClaimedSubscriptionsRequest = {
+  /**
+   * Page number, defaults to 1.
+   */
+  page?: number | undefined;
+  /**
+   * Size of a page, defaults to 10. Maximum is 100.
+   */
+  limit?: number | undefined;
+};
+
+export type CustomerPortalSeatsListClaimedSubscriptionsResponse = {
+  result: ListResourceCustomerSubscription;
 };
 
 /** @internal */
@@ -42,5 +64,62 @@ export function customerPortalSeatsListClaimedSubscriptionsSecurityToJSON(
     CustomerPortalSeatsListClaimedSubscriptionsSecurity$outboundSchema.parse(
       customerPortalSeatsListClaimedSubscriptionsSecurity,
     ),
+  );
+}
+
+/** @internal */
+export type CustomerPortalSeatsListClaimedSubscriptionsRequest$Outbound = {
+  page: number;
+  limit: number;
+};
+
+/** @internal */
+export const CustomerPortalSeatsListClaimedSubscriptionsRequest$outboundSchema:
+  z.ZodMiniType<
+    CustomerPortalSeatsListClaimedSubscriptionsRequest$Outbound,
+    CustomerPortalSeatsListClaimedSubscriptionsRequest
+  > = z.object({
+    page: z._default(z.int(), 1),
+    limit: z._default(z.int(), 10),
+  });
+
+export function customerPortalSeatsListClaimedSubscriptionsRequestToJSON(
+  customerPortalSeatsListClaimedSubscriptionsRequest:
+    CustomerPortalSeatsListClaimedSubscriptionsRequest,
+): string {
+  return JSON.stringify(
+    CustomerPortalSeatsListClaimedSubscriptionsRequest$outboundSchema.parse(
+      customerPortalSeatsListClaimedSubscriptionsRequest,
+    ),
+  );
+}
+
+/** @internal */
+export const CustomerPortalSeatsListClaimedSubscriptionsResponse$inboundSchema:
+  z.ZodMiniType<CustomerPortalSeatsListClaimedSubscriptionsResponse, unknown> =
+    z.pipe(
+      z.object({
+        Result: ListResourceCustomerSubscription$inboundSchema,
+      }),
+      z.transform((v) => {
+        return remap$(v, {
+          "Result": "result",
+        });
+      }),
+    );
+
+export function customerPortalSeatsListClaimedSubscriptionsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CustomerPortalSeatsListClaimedSubscriptionsResponse,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CustomerPortalSeatsListClaimedSubscriptionsResponse$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'CustomerPortalSeatsListClaimedSubscriptionsResponse' from JSON`,
   );
 }

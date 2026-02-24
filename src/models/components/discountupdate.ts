@@ -10,6 +10,10 @@ import {
   DiscountDuration$outboundSchema,
 } from "./discountduration.js";
 import { DiscountType, DiscountType$outboundSchema } from "./discounttype.js";
+import {
+  PresentmentCurrency,
+  PresentmentCurrency$outboundSchema,
+} from "./presentmentcurrency.js";
 
 export type DiscountUpdateMetadata = string | number | number | boolean;
 
@@ -54,7 +58,7 @@ export type DiscountUpdate = {
   durationInMonths?: number | null | undefined;
   type?: DiscountType | null | undefined;
   amount?: number | null | undefined;
-  currency?: string | null | undefined;
+  currency?: PresentmentCurrency | null | undefined;
   basisPoints?: number | null | undefined;
   products?: Array<string> | null | undefined;
 };
@@ -122,7 +126,7 @@ export const DiscountUpdate$outboundSchema: z.ZodMiniType<
     durationInMonths: z.optional(z.nullable(z.int())),
     type: z.optional(z.nullable(DiscountType$outboundSchema)),
     amount: z.optional(z.nullable(z.int())),
-    currency: z.optional(z.nullable(z.string())),
+    currency: z.optional(z.nullable(PresentmentCurrency$outboundSchema)),
     basisPoints: z.optional(z.nullable(z.int())),
     products: z.optional(z.nullable(z.array(z.string()))),
   }),

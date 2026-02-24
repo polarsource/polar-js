@@ -10,6 +10,8 @@ let value: EventSource = "system";
 
 ## Values
 
+This is an open enum. Unrecognized values will be captured as the `Unrecognized<string>` branded type.
+
 ```typescript
-"system" | "user"
+"system" | "user" | Unrecognized<string>
 ```

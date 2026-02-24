@@ -3,7 +3,10 @@
  */
 
 import { subscriptionsCreate } from "../funcs/subscriptionsCreate.js";
-import { subscriptionsExport } from "../funcs/subscriptionsExport.js";
+import {
+  ExportAcceptEnum,
+  subscriptionsExport,
+} from "../funcs/subscriptionsExport.js";
 import { subscriptionsGet } from "../funcs/subscriptionsGet.js";
 import { subscriptionsList } from "../funcs/subscriptionsList.js";
 import { subscriptionsRevoke } from "../funcs/subscriptionsRevoke.js";
@@ -11,7 +14,10 @@ import { subscriptionsUpdate } from "../funcs/subscriptionsUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import { Subscription } from "../models/components/subscription.js";
 import { SubscriptionsCreateSubscriptionCreate } from "../models/operations/subscriptionscreate.js";
-import { SubscriptionsExportRequest } from "../models/operations/subscriptionsexport.js";
+import {
+  SubscriptionsExportRequest,
+  SubscriptionsExportResponse,
+} from "../models/operations/subscriptionsexport.js";
 import { SubscriptionsGetRequest } from "../models/operations/subscriptionsget.js";
 import {
   SubscriptionsListRequest,
@@ -21,6 +27,8 @@ import { SubscriptionsRevokeRequest } from "../models/operations/subscriptionsre
 import { SubscriptionsUpdateRequest } from "../models/operations/subscriptionsupdate.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
+
+export { ExportAcceptEnum } from "../funcs/subscriptionsExport.js";
 
 export class Subscriptions extends ClientSDK {
   /**
@@ -76,8 +84,8 @@ export class Subscriptions extends ClientSDK {
    */
   async export(
     request: SubscriptionsExportRequest,
-    options?: RequestOptions,
-  ): Promise<any> {
+    options?: RequestOptions & { acceptHeaderOverride?: ExportAcceptEnum },
+  ): Promise<SubscriptionsExportResponse> {
     return unwrapAsync(subscriptionsExport(
       this,
       request,

@@ -3,17 +3,18 @@
  */
 
 import * as z from "zod/v4-mini";
-import { ClosedEnum } from "../../types/enums.js";
+import * as openEnums from "../../types/enums.js";
+import { OpenEnum } from "../../types/enums.js";
 
 export const DiscountType = {
   Fixed: "fixed",
   Percentage: "percentage",
 } as const;
-export type DiscountType = ClosedEnum<typeof DiscountType>;
+export type DiscountType = OpenEnum<typeof DiscountType>;
 
 /** @internal */
-export const DiscountType$inboundSchema: z.ZodMiniEnum<typeof DiscountType> = z
-  .enum(DiscountType);
+export const DiscountType$inboundSchema: z.ZodMiniType<DiscountType, unknown> =
+  openEnums.inboundSchema(DiscountType);
 /** @internal */
-export const DiscountType$outboundSchema: z.ZodMiniEnum<typeof DiscountType> =
-  DiscountType$inboundSchema;
+export const DiscountType$outboundSchema: z.ZodMiniType<string, DiscountType> =
+  openEnums.outboundSchema(DiscountType);

@@ -373,7 +373,7 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 ### [Orders](docs/sdks/orders/README.md)
 
 * [list](docs/sdks/orders/README.md#list) - List Orders
-* [export](docs/sdks/orders/README.md#export) - Export Subscriptions
+* [export](docs/sdks/orders/README.md#export) - Export Orders
 * [get](docs/sdks/orders/README.md#get) - Get Order
 * [update](docs/sdks/orders/README.md#update) - Update Order
 * [invoice](docs/sdks/orders/README.md#invoice) - Get Order Invoice
@@ -582,7 +582,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`oauth2Revoke`](docs/sdks/oauth2/README.md#revoke) - Revoke Token
 - [`oauth2Token`](docs/sdks/oauth2/README.md#token) - Request Token
 - [`oauth2Userinfo`](docs/sdks/oauth2/README.md#userinfo) - Get User Info
-- [`ordersExport`](docs/sdks/orders/README.md#export) - Export Subscriptions
+- [`ordersExport`](docs/sdks/orders/README.md#export) - Export Orders
 - [`ordersGenerateInvoice`](docs/sdks/orders/README.md#generateinvoice) - Generate Order Invoice
 - [`ordersGet`](docs/sdks/orders/README.md#get) - Get Order
 - [`ordersInvoice`](docs/sdks/orders/README.md#invoice) - Get Order Invoice

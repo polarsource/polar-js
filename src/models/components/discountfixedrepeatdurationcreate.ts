@@ -10,6 +10,10 @@ import {
   DiscountDuration$outboundSchema,
 } from "./discountduration.js";
 import { DiscountType, DiscountType$outboundSchema } from "./discounttype.js";
+import {
+  PresentmentCurrency,
+  PresentmentCurrency$outboundSchema,
+} from "./presentmentcurrency.js";
 
 export type DiscountFixedRepeatDurationCreateMetadata =
   | string
@@ -39,10 +43,7 @@ export type DiscountFixedRepeatDurationCreate = {
    * Fixed amount to discount from the invoice total.
    */
   amount: number;
-  /**
-   * The currency. Currently, only `usd` is supported.
-   */
-  currency?: string | undefined;
+  currency?: PresentmentCurrency | undefined;
   /**
    * Key-value object allowing you to store additional information.
    *
@@ -117,7 +118,7 @@ export type DiscountFixedRepeatDurationCreate$Outbound = {
   duration_in_months: number;
   type: string;
   amount: number;
-  currency: string;
+  currency?: string | undefined;
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   name: string;
   code?: string | null | undefined;
@@ -138,7 +139,7 @@ export const DiscountFixedRepeatDurationCreate$outboundSchema: z.ZodMiniType<
     durationInMonths: z.int(),
     type: DiscountType$outboundSchema,
     amount: z.int(),
-    currency: z._default(z.string(), "usd"),
+    currency: z.optional(PresentmentCurrency$outboundSchema),
     metadata: z.optional(
       z.record(
         z.string(),

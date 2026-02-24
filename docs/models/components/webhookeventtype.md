@@ -10,6 +10,8 @@ let value: WebhookEventType = "customer_seat.revoked";
 
 ## Values
 
+This is an open enum. Unrecognized values will be captured as the `Unrecognized<string>` branded type.
+
 ```typescript
-"checkout.created" | "checkout.updated" | "checkout.expired" | "customer.created" | "customer.updated" | "customer.deleted" | "customer.state_changed" | "customer_seat.assigned" | "customer_seat.claimed" | "customer_seat.revoked" | "member.created" | "member.updated" | "member.deleted" | "order.created" | "order.updated" | "order.paid" | "order.refunded" | "subscription.created" | "subscription.updated" | "subscription.active" | "subscription.canceled" | "subscription.uncanceled" | "subscription.revoked" | "subscription.past_due" | "refund.created" | "refund.updated" | "product.created" | "product.updated" | "benefit.created" | "benefit.updated" | "benefit_grant.created" | "benefit_grant.cycled" | "benefit_grant.updated" | "benefit_grant.revoked" | "organization.updated"
+"checkout.created" | "checkout.updated" | "checkout.expired" | "customer.created" | "customer.updated" | "customer.deleted" | "customer.state_changed" | "customer_seat.assigned" | "customer_seat.claimed" | "customer_seat.revoked" | "member.created" | "member.updated" | "member.deleted" | "order.created" | "order.updated" | "order.paid" | "order.refunded" | "subscription.created" | "subscription.updated" | "subscription.active" | "subscription.canceled" | "subscription.uncanceled" | "subscription.revoked" | "subscription.past_due" | "refund.created" | "refund.updated" | "product.created" | "product.updated" | "benefit.created" | "benefit.updated" | "benefit_grant.created" | "benefit_grant.cycled" | "benefit_grant.updated" | "benefit_grant.revoked" | "organization.updated" | Unrecognized<string>
 ```

@@ -42,18 +42,19 @@ let value: Organization = {
     subscriptionCancellation: true,
     subscriptionConfirmation: false,
     subscriptionCycled: false,
+    subscriptionCycledAfterTrial: false,
     subscriptionPastDue: false,
     subscriptionRevoked: false,
-    subscriptionUncanceled: false,
-    subscriptionUpdated: true,
+    subscriptionUncanceled: true,
+    subscriptionUpdated: false,
   },
   customerPortalSettings: {
     usage: {
-      show: true,
+      show: false,
     },
     subscription: {
-      updateSeats: false,
-      updatePlan: true,
+      updateSeats: true,
+      updatePlan: false,
     },
   },
 };

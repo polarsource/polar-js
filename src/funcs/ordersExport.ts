@@ -28,12 +28,19 @@ import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
   OrdersExportRequest,
   OrdersExportRequest$outboundSchema,
+  OrdersExportResponse,
+  OrdersExportResponse$inboundSchema,
 } from "../models/operations/ordersexport.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
+export enum ExportAcceptEnum {
+  applicationJson = "application/json",
+  textCsv = "text/csv",
+}
+
 /**
- * Export Subscriptions
+ * Export Orders
  *
  * @remarks
  * Export orders as a CSV file.
@@ -43,10 +50,10 @@ import { Result } from "../types/fp.js";
 export function ordersExport(
   client: PolarCore,
   request: OrdersExportRequest,
-  options?: RequestOptions,
+  options?: RequestOptions & { acceptHeaderOverride?: ExportAcceptEnum },
 ): APIPromise<
   Result<
-    any,
+    OrdersExportResponse,
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -68,11 +75,11 @@ export function ordersExport(
 async function $do(
   client: PolarCore,
   request: OrdersExportRequest,
-  options?: RequestOptions,
+  options?: RequestOptions & { acceptHeaderOverride?: ExportAcceptEnum },
 ): Promise<
   [
     Result<
-      any,
+      OrdersExportResponse,
       | HTTPValidationError
       | PolarError
       | ResponseValidationError
@@ -105,7 +112,8 @@ async function $do(
   });
 
   const headers = new Headers(compactMap({
-    Accept: "application/json",
+    Accept: options?.acceptHeaderOverride
+      || "application/json;q=1, text/csv;q=0",
   }));
 
   const secConfig = await extractSecurity(client._options.accessToken);
@@ -159,7 +167,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    any,
+    OrdersExportResponse,
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -170,7 +178,8 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, z.any()),
+    M.json(200, OrdersExportResponse$inboundSchema),
+    M.text(200, OrdersExportResponse$inboundSchema, { ctype: "text/csv" }),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

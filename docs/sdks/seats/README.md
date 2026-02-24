@@ -323,9 +323,11 @@ const polar = new Polar();
 async function run() {
   const result = await polar.customerPortal.seats.listClaimedSubscriptions({
     customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
-  });
+  }, {});
 
-  console.log(result);
+  for await (const page of result) {
+    console.log(page);
+  }
 }
 
 run();
@@ -346,10 +348,12 @@ const polar = new PolarCore();
 async function run() {
   const res = await customerPortalSeatsListClaimedSubscriptions(polar, {
     customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
-  });
+  }, {});
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    for await (const page of result) {
+    console.log(page);
+  }
   } else {
     console.log("customerPortalSeatsListClaimedSubscriptions failed:", res.error);
   }
@@ -362,6 +366,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CustomerPortalSeatsListClaimedSubscriptionsRequest](../../models/operations/customerportalseatslistclaimedsubscriptionsrequest.md)                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `security`                                                                                                                                                                     | [operations.CustomerPortalSeatsListClaimedSubscriptionsSecurity](../../models/operations/customerportalseatslistclaimedsubscriptionssecurity.md)                               | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
@@ -369,10 +374,11 @@ run();
 
 ### Response
 
-**Promise\<[components.CustomerSubscription[]](../../models/.md)\>**
+**Promise\<[operations.CustomerPortalSeatsListClaimedSubscriptionsResponse](../../models/operations/customerportalseatslistclaimedsubscriptionsresponse.md)\>**
 
 ### Errors
 
-| Error Type      | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4XX, 5XX        | \*/\*           |
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |

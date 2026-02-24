@@ -61,6 +61,10 @@ export type CheckoutLinkUpdate = {
    * URL where the customer will be redirected after a successful payment.You can add the `checkout_id={CHECKOUT_ID}` query parameter to retrieve the checkout session id.
    */
   successUrl?: string | null | undefined;
+  /**
+   * When set, a back button will be shown in the checkout to return to this URL.
+   */
+  returnUrl?: string | null | undefined;
 };
 
 /** @internal */
@@ -95,6 +99,7 @@ export type CheckoutLinkUpdate$Outbound = {
   require_billing_address?: boolean | null | undefined;
   discount_id?: string | null | undefined;
   success_url?: string | null | undefined;
+  return_url?: string | null | undefined;
 };
 
 /** @internal */
@@ -117,6 +122,7 @@ export const CheckoutLinkUpdate$outboundSchema: z.ZodMiniType<
     requireBillingAddress: z.optional(z.nullable(z.boolean())),
     discountId: z.optional(z.nullable(z.string())),
     successUrl: z.optional(z.nullable(z.string())),
+    returnUrl: z.optional(z.nullable(z.string())),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -126,6 +132,7 @@ export const CheckoutLinkUpdate$outboundSchema: z.ZodMiniType<
       requireBillingAddress: "require_billing_address",
       discountId: "discount_id",
       successUrl: "success_url",
+      returnUrl: "return_url",
     });
   }),
 );

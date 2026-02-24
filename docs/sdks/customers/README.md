@@ -273,7 +273,7 @@ run();
 
 ### Response
 
-**Promise\<[any](../../models/.md)\>**
+**Promise\<[operations.CustomersExportResponse](../../models/operations/customersexportresponse.md)\>**
 
 ### Errors
 
