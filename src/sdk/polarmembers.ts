@@ -9,9 +9,14 @@ import { customerPortalMembersUpdateMember } from "../funcs/customerPortalMember
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import { CustomerPortalMember } from "../models/components/customerportalmember.js";
 import { CustomerPortalMemberCreate } from "../models/components/customerportalmembercreate.js";
+import {
+  CustomerPortalMembersListMembersRequest,
+  CustomerPortalMembersListMembersResponse,
+} from "../models/operations/customerportalmemberslistmembers.js";
 import { CustomerPortalMembersRemoveMemberRequest } from "../models/operations/customerportalmembersremovemember.js";
 import { CustomerPortalMembersUpdateMemberRequest } from "../models/operations/customerportalmembersupdatemember.js";
 import { unwrapAsync } from "../types/fp.js";
+import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class PolarMembers extends ClientSDK {
   /**
@@ -23,10 +28,14 @@ export class PolarMembers extends ClientSDK {
    * Only available to owners and billing managers of team customers.
    */
   async listMembers(
+    request: CustomerPortalMembersListMembersRequest,
     options?: RequestOptions,
-  ): Promise<Array<CustomerPortalMember>> {
-    return unwrapAsync(customerPortalMembersListMembers(
+  ): Promise<
+    PageIterator<CustomerPortalMembersListMembersResponse, { page: number }>
+  > {
+    return unwrapResultIterator(customerPortalMembersListMembers(
       this,
+      request,
       options,
     ));
   }

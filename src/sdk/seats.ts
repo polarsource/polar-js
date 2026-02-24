@@ -9,11 +9,14 @@ import { customerPortalSeatsResendInvitation } from "../funcs/customerPortalSeat
 import { customerPortalSeatsRevokeSeat } from "../funcs/customerPortalSeatsRevokeSeat.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import { CustomerSeat } from "../models/components/customerseat.js";
-import { CustomerSubscription } from "../models/components/customersubscription.js";
 import { SeatAssign } from "../models/components/seatassign.js";
 import { SeatsList } from "../models/components/seatslist.js";
 import { CustomerPortalSeatsAssignSeatSecurity } from "../models/operations/customerportalseatsassignseat.js";
-import { CustomerPortalSeatsListClaimedSubscriptionsSecurity } from "../models/operations/customerportalseatslistclaimedsubscriptions.js";
+import {
+  CustomerPortalSeatsListClaimedSubscriptionsRequest,
+  CustomerPortalSeatsListClaimedSubscriptionsResponse,
+  CustomerPortalSeatsListClaimedSubscriptionsSecurity,
+} from "../models/operations/customerportalseatslistclaimedsubscriptions.js";
 import {
   CustomerPortalSeatsListSeatsRequest,
   CustomerPortalSeatsListSeatsSecurity,
@@ -27,6 +30,7 @@ import {
   CustomerPortalSeatsRevokeSeatSecurity,
 } from "../models/operations/customerportalseatsrevokeseat.js";
 import { unwrapAsync } from "../types/fp.js";
+import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class Seats extends ClientSDK {
   /**
@@ -106,11 +110,18 @@ export class Seats extends ClientSDK {
    */
   async listClaimedSubscriptions(
     security: CustomerPortalSeatsListClaimedSubscriptionsSecurity,
+    request: CustomerPortalSeatsListClaimedSubscriptionsRequest,
     options?: RequestOptions,
-  ): Promise<Array<CustomerSubscription>> {
-    return unwrapAsync(customerPortalSeatsListClaimedSubscriptions(
+  ): Promise<
+    PageIterator<
+      CustomerPortalSeatsListClaimedSubscriptionsResponse,
+      { page: number }
+    >
+  > {
+    return unwrapResultIterator(customerPortalSeatsListClaimedSubscriptions(
       this,
       security,
+      request,
       options,
     ));
   }

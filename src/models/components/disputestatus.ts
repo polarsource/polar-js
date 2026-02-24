@@ -3,7 +3,8 @@
  */
 
 import * as z from "zod/v4-mini";
-import { ClosedEnum } from "../../types/enums.js";
+import * as openEnums from "../../types/enums.js";
+import { OpenEnum } from "../../types/enums.js";
 
 export const DisputeStatus = {
   Prevented: "prevented",
@@ -13,11 +14,15 @@ export const DisputeStatus = {
   Lost: "lost",
   Won: "won",
 } as const;
-export type DisputeStatus = ClosedEnum<typeof DisputeStatus>;
+export type DisputeStatus = OpenEnum<typeof DisputeStatus>;
 
 /** @internal */
-export const DisputeStatus$inboundSchema: z.ZodMiniEnum<typeof DisputeStatus> =
-  z.enum(DisputeStatus);
+export const DisputeStatus$inboundSchema: z.ZodMiniType<
+  DisputeStatus,
+  unknown
+> = openEnums.inboundSchema(DisputeStatus);
 /** @internal */
-export const DisputeStatus$outboundSchema: z.ZodMiniEnum<typeof DisputeStatus> =
-  DisputeStatus$inboundSchema;
+export const DisputeStatus$outboundSchema: z.ZodMiniType<
+  string,
+  DisputeStatus
+> = openEnums.outboundSchema(DisputeStatus);

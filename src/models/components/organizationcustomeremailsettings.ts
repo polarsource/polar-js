@@ -13,6 +13,7 @@ export type OrganizationCustomerEmailSettings = {
   subscriptionCancellation: boolean;
   subscriptionConfirmation: boolean;
   subscriptionCycled: boolean;
+  subscriptionCycledAfterTrial: boolean;
   subscriptionPastDue: boolean;
   subscriptionRevoked: boolean;
   subscriptionUncanceled: boolean;
@@ -29,6 +30,7 @@ export const OrganizationCustomerEmailSettings$inboundSchema: z.ZodMiniType<
     subscription_cancellation: z.boolean(),
     subscription_confirmation: z.boolean(),
     subscription_cycled: z.boolean(),
+    subscription_cycled_after_trial: z.boolean(),
     subscription_past_due: z.boolean(),
     subscription_revoked: z.boolean(),
     subscription_uncanceled: z.boolean(),
@@ -40,6 +42,7 @@ export const OrganizationCustomerEmailSettings$inboundSchema: z.ZodMiniType<
       "subscription_cancellation": "subscriptionCancellation",
       "subscription_confirmation": "subscriptionConfirmation",
       "subscription_cycled": "subscriptionCycled",
+      "subscription_cycled_after_trial": "subscriptionCycledAfterTrial",
       "subscription_past_due": "subscriptionPastDue",
       "subscription_revoked": "subscriptionRevoked",
       "subscription_uncanceled": "subscriptionUncanceled",
@@ -53,6 +56,7 @@ export type OrganizationCustomerEmailSettings$Outbound = {
   subscription_cancellation: boolean;
   subscription_confirmation: boolean;
   subscription_cycled: boolean;
+  subscription_cycled_after_trial: boolean;
   subscription_past_due: boolean;
   subscription_revoked: boolean;
   subscription_uncanceled: boolean;
@@ -69,6 +73,7 @@ export const OrganizationCustomerEmailSettings$outboundSchema: z.ZodMiniType<
     subscriptionCancellation: z.boolean(),
     subscriptionConfirmation: z.boolean(),
     subscriptionCycled: z.boolean(),
+    subscriptionCycledAfterTrial: z.boolean(),
     subscriptionPastDue: z.boolean(),
     subscriptionRevoked: z.boolean(),
     subscriptionUncanceled: z.boolean(),
@@ -80,6 +85,7 @@ export const OrganizationCustomerEmailSettings$outboundSchema: z.ZodMiniType<
       subscriptionCancellation: "subscription_cancellation",
       subscriptionConfirmation: "subscription_confirmation",
       subscriptionCycled: "subscription_cycled",
+      subscriptionCycledAfterTrial: "subscription_cycled_after_trial",
       subscriptionPastDue: "subscription_past_due",
       subscriptionRevoked: "subscription_revoked",
       subscriptionUncanceled: "subscription_uncanceled",

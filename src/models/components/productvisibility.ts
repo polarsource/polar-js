@@ -3,20 +3,23 @@
  */
 
 import * as z from "zod/v4-mini";
-import { ClosedEnum } from "../../types/enums.js";
+import * as openEnums from "../../types/enums.js";
+import { OpenEnum } from "../../types/enums.js";
 
 export const ProductVisibility = {
   Draft: "draft",
   Private: "private",
   Public: "public",
 } as const;
-export type ProductVisibility = ClosedEnum<typeof ProductVisibility>;
+export type ProductVisibility = OpenEnum<typeof ProductVisibility>;
 
 /** @internal */
-export const ProductVisibility$inboundSchema: z.ZodMiniEnum<
-  typeof ProductVisibility
-> = z.enum(ProductVisibility);
+export const ProductVisibility$inboundSchema: z.ZodMiniType<
+  ProductVisibility,
+  unknown
+> = openEnums.inboundSchema(ProductVisibility);
 /** @internal */
-export const ProductVisibility$outboundSchema: z.ZodMiniEnum<
-  typeof ProductVisibility
-> = ProductVisibility$inboundSchema;
+export const ProductVisibility$outboundSchema: z.ZodMiniType<
+  string,
+  ProductVisibility
+> = openEnums.outboundSchema(ProductVisibility);

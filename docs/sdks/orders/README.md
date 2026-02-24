@@ -5,7 +5,7 @@
 ### Available Operations
 
 * [list](#list) - List Orders
-* [export](#export) - Export Subscriptions
+* [export](#export) - Export Orders
 * [get](#get) - Get Order
 * [update](#update) - Update Order
 * [invoice](#invoice) - Get Order Invoice
@@ -158,7 +158,7 @@ run();
 
 ### Response
 
-**Promise\<[any](../../models/.md)\>**
+**Promise\<[operations.OrdersExportResponse](../../models/operations/ordersexportresponse.md)\>**
 
 ### Errors
 

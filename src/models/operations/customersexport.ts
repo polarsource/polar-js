@@ -4,7 +4,10 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import { smartUnion } from "../../types/smartUnion.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Filter by organization ID.
@@ -17,6 +20,8 @@ export type CustomersExportRequest = {
    */
   organizationId?: string | Array<string> | null | undefined;
 };
+
+export type CustomersExportResponse = any | string;
 
 /** @internal */
 export type CustomersExportQueryParamOrganizationId$Outbound =
@@ -68,5 +73,21 @@ export function customersExportRequestToJSON(
 ): string {
   return JSON.stringify(
     CustomersExportRequest$outboundSchema.parse(customersExportRequest),
+  );
+}
+
+/** @internal */
+export const CustomersExportResponse$inboundSchema: z.ZodMiniType<
+  CustomersExportResponse,
+  unknown
+> = smartUnion([z.any(), z.string()]);
+
+export function customersExportResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomersExportResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomersExportResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomersExportResponse' from JSON`,
   );
 }

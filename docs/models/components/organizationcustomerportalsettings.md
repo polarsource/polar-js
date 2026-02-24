@@ -7,11 +7,11 @@ import { OrganizationCustomerPortalSettings } from "@polar-sh/sdk/models/compone
 
 let value: OrganizationCustomerPortalSettings = {
   usage: {
-    show: true,
+    show: false,
   },
   subscription: {
-    updateSeats: false,
-    updatePlan: true,
+    updateSeats: true,
+    updatePlan: false,
   },
 };
 ```
