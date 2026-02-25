@@ -92,8 +92,6 @@ import {
 
 export type CheckoutCustomFieldData = string | number | boolean | Date;
 
-export type CheckoutProductPrice = LegacyRecurringProductPrice | ProductPrice;
-
 export type CheckoutPrices = LegacyRecurringProductPrice | ProductPrice;
 
 export type CheckoutDiscount =
@@ -209,12 +207,6 @@ export type Checkout = {
    */
   productId: string | null;
   /**
-   * ID of the product price to checkout.
-   *
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  productPriceId: string | null;
-  /**
    * ID of the discount applied to the checkout.
    */
   discountId: string | null;
@@ -280,10 +272,6 @@ export type Checkout = {
    */
   externalCustomerId: string | null;
   /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  customerExternalId: string | null;
-  /**
    * List of products available to select.
    */
   products: Array<CheckoutProduct>;
@@ -291,12 +279,6 @@ export type Checkout = {
    * Product selected to checkout.
    */
   product: CheckoutProduct | null;
-  /**
-   * Price of the selected product.
-   *
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  productPrice: LegacyRecurringProductPrice | ProductPrice | null;
   /**
    * Mapping of product IDs to their list of prices.
    */
@@ -356,45 +338,6 @@ export function checkoutCustomFieldDataFromJSON(
     jsonString,
     (x) => CheckoutCustomFieldData$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'CheckoutCustomFieldData' from JSON`,
-  );
-}
-
-/** @internal */
-export const CheckoutProductPrice$inboundSchema: z.ZodMiniType<
-  CheckoutProductPrice,
-  unknown
-> = smartUnion([
-  LegacyRecurringProductPrice$inboundSchema,
-  ProductPrice$inboundSchema,
-]);
-/** @internal */
-export type CheckoutProductPrice$Outbound =
-  | LegacyRecurringProductPrice$Outbound
-  | ProductPrice$Outbound;
-
-/** @internal */
-export const CheckoutProductPrice$outboundSchema: z.ZodMiniType<
-  CheckoutProductPrice$Outbound,
-  CheckoutProductPrice
-> = smartUnion([
-  LegacyRecurringProductPrice$outboundSchema,
-  ProductPrice$outboundSchema,
-]);
-
-export function checkoutProductPriceToJSON(
-  checkoutProductPrice: CheckoutProductPrice,
-): string {
-  return JSON.stringify(
-    CheckoutProductPrice$outboundSchema.parse(checkoutProductPrice),
-  );
-}
-export function checkoutProductPriceFromJSON(
-  jsonString: string,
-): SafeParseResult<CheckoutProductPrice, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CheckoutProductPrice$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutProductPrice' from JSON`,
   );
 }
 
@@ -563,7 +506,6 @@ export const Checkout$inboundSchema: z.ZodMiniType<Checkout, unknown> = z.pipe(
     ),
     organization_id: z.string(),
     product_id: z.nullable(z.string()),
-    product_price_id: z.nullable(z.string()),
     discount_id: z.nullable(z.string()),
     allow_discount_codes: z.boolean(),
     require_billing_address: z.boolean(),
@@ -587,15 +529,8 @@ export const Checkout$inboundSchema: z.ZodMiniType<Checkout, unknown> = z.pipe(
     trial_interval_count: z.nullable(z.int()),
     metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
     external_customer_id: z.nullable(z.string()),
-    customer_external_id: z.nullable(z.string()),
     products: z.array(CheckoutProduct$inboundSchema),
     product: z.nullable(CheckoutProduct$inboundSchema),
-    product_price: z.nullable(
-      smartUnion([
-        LegacyRecurringProductPrice$inboundSchema,
-        ProductPrice$inboundSchema,
-      ]),
-    ),
     prices: z.nullable(
       z.record(
         z.string(),
@@ -646,7 +581,6 @@ export const Checkout$inboundSchema: z.ZodMiniType<Checkout, unknown> = z.pipe(
       "trial_end": "trialEnd",
       "organization_id": "organizationId",
       "product_id": "productId",
-      "product_price_id": "productPriceId",
       "discount_id": "discountId",
       "allow_discount_codes": "allowDiscountCodes",
       "require_billing_address": "requireBillingAddress",
@@ -668,8 +602,6 @@ export const Checkout$inboundSchema: z.ZodMiniType<Checkout, unknown> = z.pipe(
       "trial_interval": "trialInterval",
       "trial_interval_count": "trialIntervalCount",
       "external_customer_id": "externalCustomerId",
-      "customer_external_id": "customerExternalId",
-      "product_price": "productPrice",
       "subscription_id": "subscriptionId",
       "attached_custom_fields": "attachedCustomFields",
       "customer_metadata": "customerMetadata",
@@ -706,7 +638,6 @@ export type Checkout$Outbound = {
   trial_end: string | null;
   organization_id: string;
   product_id: string | null;
-  product_price_id: string | null;
   discount_id: string | null;
   allow_discount_codes: boolean;
   require_billing_address: boolean;
@@ -730,13 +661,8 @@ export type Checkout$Outbound = {
   trial_interval_count: number | null;
   metadata: { [k: string]: MetadataOutputType$Outbound };
   external_customer_id: string | null;
-  customer_external_id: string | null;
   products: Array<CheckoutProduct$Outbound>;
   product: CheckoutProduct$Outbound | null;
-  product_price:
-    | LegacyRecurringProductPrice$Outbound
-    | ProductPrice$Outbound
-    | null;
   prices: {
     [k: string]: Array<
       LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound
@@ -797,7 +723,6 @@ export const Checkout$outboundSchema: z.ZodMiniType<
     trialEnd: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
     organizationId: z.string(),
     productId: z.nullable(z.string()),
-    productPriceId: z.nullable(z.string()),
     discountId: z.nullable(z.string()),
     allowDiscountCodes: z.boolean(),
     requireBillingAddress: z.boolean(),
@@ -821,15 +746,8 @@ export const Checkout$outboundSchema: z.ZodMiniType<
     trialIntervalCount: z.nullable(z.int()),
     metadata: z.record(z.string(), MetadataOutputType$outboundSchema),
     externalCustomerId: z.nullable(z.string()),
-    customerExternalId: z.nullable(z.string()),
     products: z.array(CheckoutProduct$outboundSchema),
     product: z.nullable(CheckoutProduct$outboundSchema),
-    productPrice: z.nullable(
-      smartUnion([
-        LegacyRecurringProductPrice$outboundSchema,
-        ProductPrice$outboundSchema,
-      ]),
-    ),
     prices: z.nullable(
       z.record(
         z.string(),
@@ -880,7 +798,6 @@ export const Checkout$outboundSchema: z.ZodMiniType<
       trialEnd: "trial_end",
       organizationId: "organization_id",
       productId: "product_id",
-      productPriceId: "product_price_id",
       discountId: "discount_id",
       allowDiscountCodes: "allow_discount_codes",
       requireBillingAddress: "require_billing_address",
@@ -902,8 +819,6 @@ export const Checkout$outboundSchema: z.ZodMiniType<
       trialInterval: "trial_interval",
       trialIntervalCount: "trial_interval_count",
       externalCustomerId: "external_customer_id",
-      customerExternalId: "customer_external_id",
-      productPrice: "product_price",
       subscriptionId: "subscription_id",
       attachedCustomFields: "attached_custom_fields",
       customerMetadata: "customer_metadata",

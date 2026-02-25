@@ -39,12 +39,6 @@ export type CheckoutUpdate = {
    * ID of the product to checkout. Must be present in the checkout's product list.
    */
   productId?: string | null | undefined;
-  /**
-   * ID of the product price to checkout. Must correspond to a price present in the checkout's product list.
-   *
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  productPriceId?: string | null | undefined;
   amount?: number | null | undefined;
   /**
    * Number of seats for seat-based pricing.
@@ -210,7 +204,6 @@ export type CheckoutUpdate$Outbound = {
     | { [k: string]: string | number | boolean | string | null }
     | undefined;
   product_id?: string | null | undefined;
-  product_price_id?: string | null | undefined;
   amount?: number | null | undefined;
   seats?: number | null | undefined;
   is_business_customer?: boolean | null | undefined;
@@ -258,7 +251,6 @@ export const CheckoutUpdate$outboundSchema: z.ZodMiniType<
       ),
     ),
     productId: z.optional(z.nullable(z.string())),
-    productPriceId: z.optional(z.nullable(z.string())),
     amount: z.optional(z.nullable(z.int())),
     seats: z.optional(z.nullable(z.int())),
     isBusinessCustomer: z.optional(z.nullable(z.boolean())),
@@ -298,7 +290,6 @@ export const CheckoutUpdate$outboundSchema: z.ZodMiniType<
     return remap$(v, {
       customFieldData: "custom_field_data",
       productId: "product_id",
-      productPriceId: "product_price_id",
       isBusinessCustomer: "is_business_customer",
       customerName: "customer_name",
       customerEmail: "customer_email",

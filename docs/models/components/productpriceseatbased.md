@@ -16,17 +16,15 @@ let value: ProductPriceSeatBased = {
   priceCurrency: "<value>",
   isArchived: false,
   productId: "<value>",
-  type: "recurring",
-  recurringInterval: "month",
   seatTiers: {
     tiers: [
       {
-        minSeats: 834838,
-        pricePerSeat: 337669,
+        minSeats: 675666,
+        pricePerSeat: 558084,
       },
     ],
-    minimumSeats: 958690,
-    maximumSeats: 665075,
+    minimumSeats: 922152,
+    maximumSeats: 164973,
   },
 };
 ```
@@ -43,6 +41,4 @@ let value: ProductPriceSeatBased = {
 | `priceCurrency`                                                                                                                                                                                                      | *string*                                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                                   | The currency in which the customer will be charged.                                                                                                                                                                  |
 | `isArchived`                                                                                                                                                                                                         | *boolean*                                                                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                                                                   | Whether the price is archived and no longer available.                                                                                                                                                               |
 | `productId`                                                                                                                                                                                                          | *string*                                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                                   | The ID of the product owning the price.                                                                                                                                                                              |
-| `type`                                                                                                                                                                                                               | [components.ProductPriceType](../../models/components/productpricetype.md)                                                                                                                                           | :heavy_check_mark:                                                                                                                                                                                                   | N/A                                                                                                                                                                                                                  |
-| ~~`recurringInterval`~~                                                                                                                                                                                              | [components.SubscriptionRecurringInterval](../../models/components/subscriptionrecurringinterval.md)                                                                                                                 | :heavy_check_mark:                                                                                                                                                                                                   | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.                                                                                              |
 | `seatTiers`                                                                                                                                                                                                          | [components.ProductPriceSeatTiersOutput](../../models/components/productpriceseattiersoutput.md)                                                                                                                     | :heavy_check_mark:                                                                                                                                                                                                   | List of pricing tiers for seat-based pricing.<br/><br/>The minimum and maximum seat limits are derived from the tiers:<br/>- minimum_seats = first tier's min_seats<br/>- maximum_seats = last tier's max_seats (None for unlimited) |

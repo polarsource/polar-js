@@ -33,7 +33,6 @@ let value: CustomerOrder = {
   discountId: "<value>",
   subscriptionId: null,
   checkoutId: "<value>",
-  userId: "<value>",
   product: {
     id: "<value>",
     createdAt: new Date("2025-05-31T12:38:58.045Z"),
@@ -56,20 +55,20 @@ let value: CustomerOrder = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/Applications",
+        path: "/private/tmp",
         mimeType: "<value>",
-        size: 764885,
+        size: 16733,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2024-04-23T23:01:02.489Z"),
+        lastModifiedAt: new Date("2026-12-06T15:49:55.309Z"),
         version: "<value>",
         service: "product_media",
         isUploaded: true,
-        createdAt: new Date("2025-12-09T18:31:15.290Z"),
+        createdAt: new Date("2025-07-11T05:48:37.631Z"),
         sizeReadable: "<value>",
-        publicUrl: "https://winding-godfather.name/",
+        publicUrl: "https://impressionable-viability.com/",
       },
     ],
     organization: {
@@ -163,7 +162,6 @@ let value: CustomerOrder = {
 | `discountId`                                                                                                                                                                                            | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | `subscriptionId`                                                                                                                                                                                        | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | `checkoutId`                                                                                                                                                                                            | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
-| ~~`userId`~~                                                                                                                                                                                            | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.                                                                                 |                                                                                                                                                                                                         |
 | `product`                                                                                                                                                                                               | [components.CustomerOrderProduct](../../models/components/customerorderproduct.md)                                                                                                                      | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | `subscription`                                                                                                                                                                                          | [components.CustomerOrderSubscription](../../models/components/customerordersubscription.md)                                                                                                            | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | `items`                                                                                                                                                                                                 | [components.OrderItemSchema](../../models/components/orderitemschema.md)[]                                                                                                                              | :heavy_check_mark:                                                                                                                                                                                      | Line items composing the order.                                                                                                                                                                         |                                                                                                                                                                                                         |

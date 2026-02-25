@@ -18,16 +18,6 @@ import {
   ProductPriceSource$inboundSchema,
   ProductPriceSource$outboundSchema,
 } from "./productpricesource.js";
-import {
-  ProductPriceType,
-  ProductPriceType$inboundSchema,
-  ProductPriceType$outboundSchema,
-} from "./productpricetype.js";
-import {
-  SubscriptionRecurringInterval,
-  SubscriptionRecurringInterval$inboundSchema,
-  SubscriptionRecurringInterval$outboundSchema,
-} from "./subscriptionrecurringinterval.js";
 
 /**
  * A metered, usage-based, price for a product, with a fixed unit price.
@@ -59,11 +49,6 @@ export type ProductPriceMeteredUnit = {
    * The ID of the product owning the price.
    */
   productId: string;
-  type: ProductPriceType;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  recurringInterval: SubscriptionRecurringInterval | null;
   /**
    * The price per unit in cents.
    */
@@ -101,8 +86,6 @@ export const ProductPriceMeteredUnit$inboundSchema: z.ZodMiniType<
     price_currency: z.string(),
     is_archived: z.boolean(),
     product_id: z.string(),
-    type: ProductPriceType$inboundSchema,
-    recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema),
     unit_amount: z.string(),
     cap_amount: z.nullable(z.int()),
     meter_id: z.string(),
@@ -116,7 +99,6 @@ export const ProductPriceMeteredUnit$inboundSchema: z.ZodMiniType<
       "price_currency": "priceCurrency",
       "is_archived": "isArchived",
       "product_id": "productId",
-      "recurring_interval": "recurringInterval",
       "unit_amount": "unitAmount",
       "cap_amount": "capAmount",
       "meter_id": "meterId",
@@ -133,8 +115,6 @@ export type ProductPriceMeteredUnit$Outbound = {
   price_currency: string;
   is_archived: boolean;
   product_id: string;
-  type: string;
-  recurring_interval: string | null;
   unit_amount: string;
   cap_amount: number | null;
   meter_id: string;
@@ -155,8 +135,6 @@ export const ProductPriceMeteredUnit$outboundSchema: z.ZodMiniType<
     priceCurrency: z.string(),
     isArchived: z.boolean(),
     productId: z.string(),
-    type: ProductPriceType$outboundSchema,
-    recurringInterval: z.nullable(SubscriptionRecurringInterval$outboundSchema),
     unitAmount: z.string(),
     capAmount: z.nullable(z.int()),
     meterId: z.string(),
@@ -170,7 +148,6 @@ export const ProductPriceMeteredUnit$outboundSchema: z.ZodMiniType<
       priceCurrency: "price_currency",
       isArchived: "is_archived",
       productId: "product_id",
-      recurringInterval: "recurring_interval",
       unitAmount: "unit_amount",
       capAmount: "cap_amount",
       meterId: "meter_id",
