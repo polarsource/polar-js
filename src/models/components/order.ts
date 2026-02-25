@@ -181,10 +181,6 @@ export type Order = {
    */
   platformFeeCurrency: string | null;
   customer: OrderCustomer;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  userId: string;
   product: OrderProduct | null;
   discount:
     | DiscountFixedRepeatDurationBase
@@ -339,7 +335,6 @@ export const Order$inboundSchema: z.ZodMiniType<Order, unknown> = z.pipe(
     platform_fee_amount: z.int(),
     platform_fee_currency: z.nullable(z.string()),
     customer: OrderCustomer$inboundSchema,
-    user_id: z.string(),
     product: z.nullable(OrderProduct$inboundSchema),
     discount: z.nullable(
       smartUnion([
@@ -379,7 +374,6 @@ export const Order$inboundSchema: z.ZodMiniType<Order, unknown> = z.pipe(
       "custom_field_data": "customFieldData",
       "platform_fee_amount": "platformFeeAmount",
       "platform_fee_currency": "platformFeeCurrency",
-      "user_id": "userId",
     });
   }),
 );
@@ -418,7 +412,6 @@ export type Order$Outbound = {
   platform_fee_amount: number;
   platform_fee_currency: string | null;
   customer: OrderCustomer$Outbound;
-  user_id: string;
   product: OrderProduct$Outbound | null;
   discount:
     | DiscountFixedRepeatDurationBase$Outbound
@@ -480,7 +473,6 @@ export const Order$outboundSchema: z.ZodMiniType<Order$Outbound, Order> = z
       platformFeeAmount: z.int(),
       platformFeeCurrency: z.nullable(z.string()),
       customer: OrderCustomer$outboundSchema,
-      userId: z.string(),
       product: z.nullable(OrderProduct$outboundSchema),
       discount: z.nullable(
         smartUnion([
@@ -520,7 +512,6 @@ export const Order$outboundSchema: z.ZodMiniType<Order$Outbound, Order> = z
         customFieldData: "custom_field_data",
         platformFeeAmount: "platform_fee_amount",
         platformFeeCurrency: "platform_fee_currency",
-        userId: "user_id",
       });
     }),
   );

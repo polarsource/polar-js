@@ -14,8 +14,8 @@ import { ProductPriceSeatTiersInput } from "@polar-sh/sdk/models/components/prod
 let value: ProductPriceSeatTiersInput = {
   tiers: [
     {
-      minSeats: 834838,
-      pricePerSeat: 337669,
+      minSeats: 675666,
+      pricePerSeat: 558084,
     },
   ],
 };

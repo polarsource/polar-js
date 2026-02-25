@@ -61,7 +61,6 @@ let value: Order = {
     deletedAt: new Date("2026-10-31T02:47:18.612Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
-  userId: "<value>",
   product: {
     metadata: {
       "key": 948.58,
@@ -81,21 +80,23 @@ let value: Order = {
     organizationId: "<value>",
   },
   discount: {
-    duration: "forever",
-    durationInMonths: 300165,
-    type: "fixed",
+    duration: "repeating",
+    durationInMonths: 424288,
+    type: "percentage",
     amount: 1000,
     currency: "usd",
-    createdAt: new Date("2024-05-28T14:09:28.797Z"),
-    modifiedAt: null,
+    createdAt: new Date("2024-04-24T03:43:50.210Z"),
+    modifiedAt: new Date("2026-12-03T13:13:09.933Z"),
     id: "<value>",
-    metadata: {},
+    metadata: {
+      "key": 97979,
+    },
     name: "<value>",
     code: "<value>",
-    startsAt: new Date("2024-01-13T13:43:10.078Z"),
-    endsAt: new Date("2025-08-25T16:24:44.378Z"),
-    maxRedemptions: 731444,
-    redemptionsCount: 88175,
+    startsAt: new Date("2026-03-20T02:25:31.650Z"),
+    endsAt: new Date("2025-06-05T08:55:27.030Z"),
+    maxRedemptions: 174869,
+    redemptionsCount: 624711,
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   },
   subscription: {
@@ -124,18 +125,7 @@ let value: Order = {
     customerCancellationReason: null,
     customerCancellationComment: "<value>",
   },
-  items: [
-    {
-      createdAt: new Date("2026-07-29T12:39:40.191Z"),
-      modifiedAt: new Date("2026-07-27T15:03:31.368Z"),
-      id: "<value>",
-      label: "Pro Plan",
-      amount: 10000,
-      taxAmount: 720,
-      proration: false,
-      productPriceId: "<value>",
-    },
-  ],
+  items: [],
   description: "Pro Plan",
 };
 ```
@@ -175,7 +165,6 @@ let value: Order = {
 | `platformFeeAmount`                                                                                                                                                                                     | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Platform fee amount in cents.                                                                                                                                                                           | 500                                                                                                                                                                                                     |
 | `platformFeeCurrency`                                                                                                                                                                                   | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Currency of the platform fee.                                                                                                                                                                           | usd                                                                                                                                                                                                     |
 | `customer`                                                                                                                                                                                              | [components.OrderCustomer](../../models/components/ordercustomer.md)                                                                                                                                    | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
-| ~~`userId`~~                                                                                                                                                                                            | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.                                                                                 |                                                                                                                                                                                                         |
 | `product`                                                                                                                                                                                               | [components.OrderProduct](../../models/components/orderproduct.md)                                                                                                                                      | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | `discount`                                                                                                                                                                                              | *components.OrderDiscount*                                                                                                                                                                              | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | `subscription`                                                                                                                                                                                          | [components.OrderSubscription](../../models/components/ordersubscription.md)                                                                                                                            | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |

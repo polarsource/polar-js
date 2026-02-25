@@ -32,67 +32,40 @@ let value: Product = {
       priceCurrency: "<value>",
       isArchived: true,
       productId: "<value>",
-      type: "recurring",
-      recurringInterval: "year",
       seatTiers: {
         tiers: [
           {
-            minSeats: 834838,
-            pricePerSeat: 337669,
+            minSeats: 675666,
+            pricePerSeat: 558084,
           },
         ],
-        minimumSeats: 958690,
-        maximumSeats: 665075,
+        minimumSeats: 922152,
+        maximumSeats: 164973,
       },
     },
   ],
-  benefits: [],
-  medias: [
+  benefits: [
     {
       id: "<value>",
+      createdAt: new Date("2026-09-26T10:37:01.387Z"),
+      modifiedAt: new Date("2026-01-09T18:16:10.566Z"),
+      type: "discord",
+      description:
+        "extremely relieve readily solder seagull weary smooth bore yet quaintly",
+      selectable: true,
+      deletable: false,
       organizationId: "<value>",
-      name: "<value>",
-      path: "/Applications",
-      mimeType: "<value>",
-      size: 764885,
-      storageVersion: "<value>",
-      checksumEtag: "<value>",
-      checksumSha256Base64: "<value>",
-      checksumSha256Hex: "<value>",
-      lastModifiedAt: new Date("2024-04-23T23:01:02.489Z"),
-      version: "<value>",
-      service: "product_media",
-      isUploaded: true,
-      createdAt: new Date("2025-12-09T18:31:15.290Z"),
-      sizeReadable: "<value>",
-      publicUrl: "https://winding-godfather.name/",
-    },
-  ],
-  attachedCustomFields: [
-    {
-      customFieldId: "<value>",
-      customField: {
-        createdAt: new Date("2024-09-17T23:34:10.111Z"),
-        modifiedAt: new Date("2025-04-12T21:32:26.120Z"),
-        id: "<value>",
-        metadata: {},
-        type: "select",
-        slug: "<value>",
-        name: "<value>",
-        organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-        properties: {
-          options: [
-            {
-              value: "<value>",
-              label: "<value>",
-            },
-          ],
-        },
+      metadata: {},
+      properties: {
+        guildId: "<id>",
+        roleId: "<id>",
+        kickMember: false,
+        guildToken: "<value>",
       },
-      order: 797456,
-      required: false,
     },
   ],
+  medias: [],
+  attachedCustomFields: [],
 };
 ```
 

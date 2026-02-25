@@ -15,11 +15,9 @@ const value: components.ProductPriceCustom = {
   priceCurrency: "<value>",
   isArchived: true,
   productId: "<value>",
-  type: "one_time",
-  recurringInterval: "day",
-  minimumAmount: 508827,
-  maximumAmount: 793062,
-  presetAmount: 879510,
+  minimumAmount: 338033,
+  maximumAmount: 234201,
+  presetAmount: 770732,
 };
 ```
 
@@ -35,9 +33,7 @@ const value: components.ProductPriceFixed = {
   priceCurrency: "<value>",
   isArchived: false,
   productId: "<value>",
-  type: "one_time",
-  recurringInterval: "week",
-  priceAmount: 589573,
+  priceAmount: 416058,
 };
 ```
 
@@ -53,8 +49,6 @@ const value: components.ProductPriceFree = {
   priceCurrency: "<value>",
   isArchived: false,
   productId: "<value>",
-  type: "recurring",
-  recurringInterval: "month",
 };
 ```
 
@@ -70,10 +64,8 @@ const value: components.ProductPriceMeteredUnit = {
   priceCurrency: "<value>",
   isArchived: false,
   productId: "<value>",
-  type: "recurring",
-  recurringInterval: "week",
   unitAmount: "<value>",
-  capAmount: 689871,
+  capAmount: 734968,
   meterId: "<value>",
   meter: {
     id: "<value>",
@@ -94,17 +86,15 @@ const value: components.ProductPriceSeatBased = {
   priceCurrency: "<value>",
   isArchived: false,
   productId: "<value>",
-  type: "recurring",
-  recurringInterval: "month",
   seatTiers: {
     tiers: [
       {
-        minSeats: 834838,
-        pricePerSeat: 337669,
+        minSeats: 675666,
+        pricePerSeat: 558084,
       },
     ],
-    minimumSeats: 958690,
-    maximumSeats: 665075,
+    minimumSeats: 922152,
+    maximumSeats: 164973,
   },
 };
 ```

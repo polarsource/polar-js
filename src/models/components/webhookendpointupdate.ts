@@ -17,10 +17,6 @@ import {
  */
 export type WebhookEndpointUpdate = {
   url?: string | null | undefined;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  secret?: string | null | undefined;
   format?: WebhookFormat | null | undefined;
   events?: Array<WebhookEventType> | null | undefined;
   /**
@@ -32,7 +28,6 @@ export type WebhookEndpointUpdate = {
 /** @internal */
 export type WebhookEndpointUpdate$Outbound = {
   url?: string | null | undefined;
-  secret?: string | null | undefined;
   format?: string | null | undefined;
   events?: Array<string> | null | undefined;
   enabled?: boolean | null | undefined;
@@ -44,7 +39,6 @@ export const WebhookEndpointUpdate$outboundSchema: z.ZodMiniType<
   WebhookEndpointUpdate
 > = z.object({
   url: z.optional(z.nullable(z.string())),
-  secret: z.optional(z.nullable(z.string())),
   format: z.optional(z.nullable(WebhookFormat$outboundSchema)),
   events: z.optional(z.nullable(z.array(WebhookEventType$outboundSchema))),
   enabled: z.optional(z.nullable(z.boolean())),

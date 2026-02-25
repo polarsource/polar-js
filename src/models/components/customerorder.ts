@@ -104,10 +104,6 @@ export type CustomerOrder = {
   discountId: string | null;
   subscriptionId: string | null;
   checkoutId: string | null;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  userId: string;
   product: CustomerOrderProduct | null;
   subscription: CustomerOrderSubscription | null;
   /**
@@ -161,7 +157,6 @@ export const CustomerOrder$inboundSchema: z.ZodMiniType<
     discount_id: z.nullable(z.string()),
     subscription_id: z.nullable(z.string()),
     checkout_id: z.nullable(z.string()),
-    user_id: z.string(),
     product: z.nullable(CustomerOrderProduct$inboundSchema),
     subscription: z.nullable(CustomerOrderSubscription$inboundSchema),
     items: z.array(OrderItemSchema$inboundSchema),
@@ -196,7 +191,6 @@ export const CustomerOrder$inboundSchema: z.ZodMiniType<
       "discount_id": "discountId",
       "subscription_id": "subscriptionId",
       "checkout_id": "checkoutId",
-      "user_id": "userId",
       "next_payment_attempt_at": "nextPaymentAttemptAt",
     });
   }),

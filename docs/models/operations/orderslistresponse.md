@@ -12,7 +12,7 @@ let value: OrdersListResponse = {
         id: "<value>",
         createdAt: new Date("2026-07-07T12:47:13.276Z"),
         modifiedAt: new Date("2024-06-14T22:50:06.458Z"),
-        status: "paid",
+        status: "refunded",
         paid: true,
         subtotalAmount: 10000,
         discountAmount: 1000,
@@ -62,7 +62,6 @@ let value: OrdersListResponse = {
           deletedAt: new Date("2026-10-31T02:47:18.612Z"),
           avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
         },
-        userId: "<value>",
         product: {
           metadata: {
             "key": 948.58,
