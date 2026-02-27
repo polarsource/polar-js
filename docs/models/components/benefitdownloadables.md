@@ -19,12 +19,10 @@ let value: BenefitDownloadables = {
   },
   properties: {
     archived: {
-      "key": false,
+      "key": true,
+      "key1": true,
     },
-    files: [
-      "<value 1>",
-      "<value 2>",
-    ],
+    files: [],
   },
 };
 ```

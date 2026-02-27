@@ -139,7 +139,7 @@ let value: CheckoutPublic = {
         id: "<value>",
         createdAt: new Date("2025-12-27T23:35:38.610Z"),
         modifiedAt: new Date("2025-09-14T06:36:06.854Z"),
-        type: "license_keys",
+        type: "meter_credit",
         description: "content react replacement",
         selectable: true,
         deletable: false,

@@ -304,7 +304,7 @@ const value: components.BenefitCycledEvent = {
   metadata: {
     benefitId: "<id>",
     benefitGrantId: "<id>",
-    benefitType: "github_repository",
+    benefitType: "downloadables",
   },
 };
 ```
@@ -347,7 +347,7 @@ const value: components.BenefitGrantedEvent = {
   metadata: {
     benefitId: "<id>",
     benefitGrantId: "<id>",
-    benefitType: "github_repository",
+    benefitType: "downloadables",
   },
 };
 ```
@@ -390,7 +390,7 @@ const value: components.BenefitRevokedEvent = {
   metadata: {
     benefitId: "<id>",
     benefitGrantId: "<id>",
-    benefitType: "github_repository",
+    benefitType: "downloadables",
   },
 };
 ```
@@ -433,7 +433,7 @@ const value: components.BenefitUpdatedEvent = {
   metadata: {
     benefitId: "<id>",
     benefitGrantId: "<id>",
-    benefitType: "github_repository",
+    benefitType: "downloadables",
   },
 };
 ```

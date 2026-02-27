@@ -14,6 +14,8 @@ export const OrganizationSocialPlatforms = {
   Youtube: "youtube",
   Tiktok: "tiktok",
   Linkedin: "linkedin",
+  Threads: "threads",
+  Discord: "discord",
   Other: "other",
 } as const;
 export type OrganizationSocialPlatforms = OpenEnum<

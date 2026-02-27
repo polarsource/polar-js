@@ -26,6 +26,10 @@ import {
   BenefitGrantError$inboundSchema,
 } from "./benefitgranterror.js";
 import {
+  BenefitGrantFeatureFlagProperties,
+  BenefitGrantFeatureFlagProperties$inboundSchema,
+} from "./benefitgrantfeatureflagproperties.js";
+import {
   BenefitGrantGitHubRepositoryProperties,
   BenefitGrantGitHubRepositoryProperties$inboundSchema,
 } from "./benefitgrantgithubrepositoryproperties.js";
@@ -41,7 +45,8 @@ export type Properties =
   | BenefitGrantGitHubRepositoryProperties
   | BenefitGrantDownloadablesProperties
   | BenefitGrantLicenseKeysProperties
-  | BenefitGrantCustomProperties;
+  | BenefitGrantCustomProperties
+  | BenefitGrantFeatureFlagProperties;
 
 export type BenefitGrant = {
   /**
@@ -107,7 +112,8 @@ export type BenefitGrant = {
     | BenefitGrantGitHubRepositoryProperties
     | BenefitGrantDownloadablesProperties
     | BenefitGrantLicenseKeysProperties
-    | BenefitGrantCustomProperties;
+    | BenefitGrantCustomProperties
+    | BenefitGrantFeatureFlagProperties;
 };
 
 /** @internal */
@@ -118,6 +124,7 @@ export const Properties$inboundSchema: z.ZodMiniType<Properties, unknown> =
     BenefitGrantDownloadablesProperties$inboundSchema,
     BenefitGrantLicenseKeysProperties$inboundSchema,
     BenefitGrantCustomProperties$inboundSchema,
+    BenefitGrantFeatureFlagProperties$inboundSchema,
   ]);
 
 export function propertiesFromJSON(
@@ -171,6 +178,7 @@ export const BenefitGrant$inboundSchema: z.ZodMiniType<BenefitGrant, unknown> =
         BenefitGrantDownloadablesProperties$inboundSchema,
         BenefitGrantLicenseKeysProperties$inboundSchema,
         BenefitGrantCustomProperties$inboundSchema,
+        BenefitGrantFeatureFlagProperties$inboundSchema,
       ]),
     }),
     z.transform((v) => {

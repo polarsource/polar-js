@@ -262,12 +262,10 @@ const value: components.BenefitGrantDownloadablesWebhook = {
     },
     properties: {
       archived: {
-        "key": false,
+        "key": true,
+        "key1": true,
       },
-      files: [
-        "<value 1>",
-        "<value 2>",
-      ],
+      files: [],
     },
   },
   properties: {},
@@ -409,6 +407,68 @@ const value: components.BenefitGrantMeterCreditWebhook = {
       rollover: false,
       meterId: "<value>",
     },
+  },
+  properties: {},
+};
+```
+
+### `components.BenefitGrantFeatureFlagWebhook`
+
+```typescript
+const value: components.BenefitGrantFeatureFlagWebhook = {
+  createdAt: new Date("2026-02-08T15:05:04.958Z"),
+  modifiedAt: new Date("2024-07-10T07:04:29.893Z"),
+  id: "<value>",
+  isGranted: false,
+  isRevoked: false,
+  subscriptionId: "<value>",
+  orderId: "<value>",
+  customerId: "<value>",
+  benefitId: "<value>",
+  customer: {
+    id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+    createdAt: new Date("2024-06-04T21:28:32.740Z"),
+    modifiedAt: new Date("2024-03-21T15:56:34.258Z"),
+    metadata: {
+      "key": "<value>",
+    },
+    externalId: "usr_1337",
+    email: "customer@example.com",
+    emailVerified: true,
+    type: "individual",
+    name: "John Doe",
+    billingAddress: {
+      country: "US",
+    },
+    taxId: [
+      "911144442",
+      "us_ein",
+    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    deletedAt: new Date("2026-09-04T17:38:48.600Z"),
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
+  },
+  member: {
+    id: "<value>",
+    createdAt: new Date("2026-04-15T16:04:23.824Z"),
+    modifiedAt: new Date("2025-04-16T17:12:33.507Z"),
+    customerId: "<value>",
+    email: "member@example.com",
+    name: "Jane Doe",
+    externalId: "usr_1337",
+    role: "member",
+  },
+  benefit: {
+    id: "<value>",
+    createdAt: new Date("2024-12-20T15:22:06.971Z"),
+    modifiedAt: new Date("2026-12-09T05:39:29.991Z"),
+    type: "feature_flag",
+    description: "obedience impure chubby fooey via welcome forgather",
+    selectable: true,
+    deletable: false,
+    organizationId: "<value>",
+    metadata: {},
+    properties: {},
   },
   properties: {},
 };

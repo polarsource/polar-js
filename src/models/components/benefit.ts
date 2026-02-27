@@ -25,6 +25,12 @@ import {
   BenefitDownloadables$outboundSchema,
 } from "./benefitdownloadables.js";
 import {
+  BenefitFeatureFlag,
+  BenefitFeatureFlag$inboundSchema,
+  BenefitFeatureFlag$Outbound,
+  BenefitFeatureFlag$outboundSchema,
+} from "./benefitfeatureflag.js";
+import {
   BenefitGitHubRepository,
   BenefitGitHubRepository$inboundSchema,
   BenefitGitHubRepository$Outbound,
@@ -47,6 +53,7 @@ export type Benefit =
   | BenefitCustom
   | BenefitDiscord
   | BenefitDownloadables
+  | BenefitFeatureFlag
   | BenefitGitHubRepository
   | BenefitLicenseKeys
   | BenefitMeterCredit;
@@ -56,6 +63,7 @@ export const Benefit$inboundSchema: z.ZodMiniType<Benefit, unknown> = z.union([
   BenefitCustom$inboundSchema,
   BenefitDiscord$inboundSchema,
   BenefitDownloadables$inboundSchema,
+  BenefitFeatureFlag$inboundSchema,
   BenefitGitHubRepository$inboundSchema,
   BenefitLicenseKeys$inboundSchema,
   BenefitMeterCredit$inboundSchema,
@@ -65,6 +73,7 @@ export type Benefit$Outbound =
   | BenefitCustom$Outbound
   | BenefitDiscord$Outbound
   | BenefitDownloadables$Outbound
+  | BenefitFeatureFlag$Outbound
   | BenefitGitHubRepository$Outbound
   | BenefitLicenseKeys$Outbound
   | BenefitMeterCredit$Outbound;
@@ -75,6 +84,7 @@ export const Benefit$outboundSchema: z.ZodMiniType<Benefit$Outbound, Benefit> =
     BenefitCustom$outboundSchema,
     BenefitDiscord$outboundSchema,
     BenefitDownloadables$outboundSchema,
+    BenefitFeatureFlag$outboundSchema,
     BenefitGitHubRepository$outboundSchema,
     BenefitLicenseKeys$outboundSchema,
     BenefitMeterCredit$outboundSchema,

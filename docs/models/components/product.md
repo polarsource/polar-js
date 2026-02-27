@@ -49,7 +49,7 @@ let value: Product = {
       id: "<value>",
       createdAt: new Date("2026-09-26T10:37:01.387Z"),
       modifiedAt: new Date("2026-01-09T18:16:10.566Z"),
-      type: "discord",
+      type: "downloadables",
       description:
         "extremely relieve readily solder seagull weary smooth bore yet quaintly",
       selectable: true,
@@ -57,10 +57,11 @@ let value: Product = {
       organizationId: "<value>",
       metadata: {},
       properties: {
-        guildId: "<id>",
-        roleId: "<id>",
-        kickMember: false,
-        guildToken: "<value>",
+        archived: {
+          "key": true,
+          "key1": true,
+        },
+        files: [],
       },
     },
   ],

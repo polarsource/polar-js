@@ -26,6 +26,12 @@ import {
   BenefitGrantDownloadablesWebhook$outboundSchema,
 } from "./benefitgrantdownloadableswebhook.js";
 import {
+  BenefitGrantFeatureFlagWebhook,
+  BenefitGrantFeatureFlagWebhook$inboundSchema,
+  BenefitGrantFeatureFlagWebhook$Outbound,
+  BenefitGrantFeatureFlagWebhook$outboundSchema,
+} from "./benefitgrantfeatureflagwebhook.js";
+import {
   BenefitGrantGitHubRepositoryWebhook,
   BenefitGrantGitHubRepositoryWebhook$inboundSchema,
   BenefitGrantGitHubRepositoryWebhook$Outbound,
@@ -50,7 +56,8 @@ export type BenefitGrantWebhook =
   | BenefitGrantGitHubRepositoryWebhook
   | BenefitGrantDownloadablesWebhook
   | BenefitGrantLicenseKeysWebhook
-  | BenefitGrantMeterCreditWebhook;
+  | BenefitGrantMeterCreditWebhook
+  | BenefitGrantFeatureFlagWebhook;
 
 /** @internal */
 export const BenefitGrantWebhook$inboundSchema: z.ZodMiniType<
@@ -63,6 +70,7 @@ export const BenefitGrantWebhook$inboundSchema: z.ZodMiniType<
   BenefitGrantDownloadablesWebhook$inboundSchema,
   BenefitGrantLicenseKeysWebhook$inboundSchema,
   BenefitGrantMeterCreditWebhook$inboundSchema,
+  BenefitGrantFeatureFlagWebhook$inboundSchema,
 ]);
 /** @internal */
 export type BenefitGrantWebhook$Outbound =
@@ -71,7 +79,8 @@ export type BenefitGrantWebhook$Outbound =
   | BenefitGrantGitHubRepositoryWebhook$Outbound
   | BenefitGrantDownloadablesWebhook$Outbound
   | BenefitGrantLicenseKeysWebhook$Outbound
-  | BenefitGrantMeterCreditWebhook$Outbound;
+  | BenefitGrantMeterCreditWebhook$Outbound
+  | BenefitGrantFeatureFlagWebhook$Outbound;
 
 /** @internal */
 export const BenefitGrantWebhook$outboundSchema: z.ZodMiniType<
@@ -84,6 +93,7 @@ export const BenefitGrantWebhook$outboundSchema: z.ZodMiniType<
   BenefitGrantDownloadablesWebhook$outboundSchema,
   BenefitGrantLicenseKeysWebhook$outboundSchema,
   BenefitGrantMeterCreditWebhook$outboundSchema,
+  BenefitGrantFeatureFlagWebhook$outboundSchema,
 ]);
 
 export function benefitGrantWebhookToJSON(

@@ -33,3 +33,9 @@ const value: components.BenefitGrantLicenseKeysProperties = {};
 const value: components.BenefitGrantCustomProperties = {};
 ```
 
+### `components.BenefitGrantFeatureFlagProperties`
+
+```typescript
+const value: components.BenefitGrantFeatureFlagProperties = {};
+```
+

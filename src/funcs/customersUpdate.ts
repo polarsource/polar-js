@@ -12,9 +12,9 @@ import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
-  CustomerWithMembers,
-  CustomerWithMembers$inboundSchema,
-} from "../models/components/customerwithmembers.js";
+  Customer,
+  Customer$inboundSchema,
+} from "../models/components/customer.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -54,7 +54,7 @@ export function customersUpdate(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    CustomerWithMembers,
+    Customer,
     | ResourceNotFound
     | HTTPValidationError
     | PolarError
@@ -81,7 +81,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      CustomerWithMembers,
+      Customer,
       | ResourceNotFound
       | HTTPValidationError
       | PolarError
@@ -171,7 +171,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    CustomerWithMembers,
+    Customer,
     | ResourceNotFound
     | HTTPValidationError
     | PolarError
@@ -183,7 +183,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, CustomerWithMembers$inboundSchema),
+    M.json(200, Customer$inboundSchema),
     M.jsonErr(404, ResourceNotFound$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),

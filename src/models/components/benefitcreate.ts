@@ -19,6 +19,11 @@ import {
   BenefitDownloadablesCreate$outboundSchema,
 } from "./benefitdownloadablescreate.js";
 import {
+  BenefitFeatureFlagCreate,
+  BenefitFeatureFlagCreate$Outbound,
+  BenefitFeatureFlagCreate$outboundSchema,
+} from "./benefitfeatureflagcreate.js";
+import {
   BenefitGitHubRepositoryCreate,
   BenefitGitHubRepositoryCreate$Outbound,
   BenefitGitHubRepositoryCreate$outboundSchema,
@@ -38,6 +43,7 @@ export type BenefitCreate =
   | BenefitCustomCreate
   | BenefitDiscordCreate
   | BenefitDownloadablesCreate
+  | BenefitFeatureFlagCreate
   | BenefitGitHubRepositoryCreate
   | BenefitLicenseKeysCreate
   | BenefitMeterCreditCreate;
@@ -47,6 +53,7 @@ export type BenefitCreate$Outbound =
   | BenefitCustomCreate$Outbound
   | BenefitDiscordCreate$Outbound
   | BenefitDownloadablesCreate$Outbound
+  | BenefitFeatureFlagCreate$Outbound
   | BenefitGitHubRepositoryCreate$Outbound
   | BenefitLicenseKeysCreate$Outbound
   | BenefitMeterCreditCreate$Outbound;
@@ -59,6 +66,7 @@ export const BenefitCreate$outboundSchema: z.ZodMiniType<
   BenefitCustomCreate$outboundSchema,
   BenefitDiscordCreate$outboundSchema,
   BenefitDownloadablesCreate$outboundSchema,
+  BenefitFeatureFlagCreate$outboundSchema,
   BenefitGitHubRepositoryCreate$outboundSchema,
   BenefitLicenseKeysCreate$outboundSchema,
   BenefitMeterCreditCreate$outboundSchema,

@@ -8,7 +8,7 @@ import { BenefitGrantMetadata } from "@polar-sh/sdk/models/components/benefitgra
 let value: BenefitGrantMetadata = {
   benefitId: "<id>",
   benefitGrantId: "<id>",
-  benefitType: "github_repository",
+  benefitType: "downloadables",
 };
 ```
 

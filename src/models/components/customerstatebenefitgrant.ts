@@ -27,6 +27,12 @@ import {
   BenefitGrantDownloadablesProperties$outboundSchema,
 } from "./benefitgrantdownloadablesproperties.js";
 import {
+  BenefitGrantFeatureFlagProperties,
+  BenefitGrantFeatureFlagProperties$inboundSchema,
+  BenefitGrantFeatureFlagProperties$Outbound,
+  BenefitGrantFeatureFlagProperties$outboundSchema,
+} from "./benefitgrantfeatureflagproperties.js";
+import {
   BenefitGrantGitHubRepositoryProperties,
   BenefitGrantGitHubRepositoryProperties$inboundSchema,
   BenefitGrantGitHubRepositoryProperties$Outbound,
@@ -55,7 +61,8 @@ export type CustomerStateBenefitGrantProperties =
   | BenefitGrantGitHubRepositoryProperties
   | BenefitGrantDownloadablesProperties
   | BenefitGrantLicenseKeysProperties
-  | BenefitGrantCustomProperties;
+  | BenefitGrantCustomProperties
+  | BenefitGrantFeatureFlagProperties;
 
 /**
  * An active benefit grant for a customer.
@@ -88,7 +95,8 @@ export type CustomerStateBenefitGrant = {
     | BenefitGrantGitHubRepositoryProperties
     | BenefitGrantDownloadablesProperties
     | BenefitGrantLicenseKeysProperties
-    | BenefitGrantCustomProperties;
+    | BenefitGrantCustomProperties
+    | BenefitGrantFeatureFlagProperties;
 };
 
 /** @internal */
@@ -101,6 +109,7 @@ export const CustomerStateBenefitGrantProperties$inboundSchema: z.ZodMiniType<
   BenefitGrantDownloadablesProperties$inboundSchema,
   BenefitGrantLicenseKeysProperties$inboundSchema,
   BenefitGrantCustomProperties$inboundSchema,
+  BenefitGrantFeatureFlagProperties$inboundSchema,
 ]);
 /** @internal */
 export type CustomerStateBenefitGrantProperties$Outbound =
@@ -108,7 +117,8 @@ export type CustomerStateBenefitGrantProperties$Outbound =
   | BenefitGrantGitHubRepositoryProperties$Outbound
   | BenefitGrantDownloadablesProperties$Outbound
   | BenefitGrantLicenseKeysProperties$Outbound
-  | BenefitGrantCustomProperties$Outbound;
+  | BenefitGrantCustomProperties$Outbound
+  | BenefitGrantFeatureFlagProperties$Outbound;
 
 /** @internal */
 export const CustomerStateBenefitGrantProperties$outboundSchema: z.ZodMiniType<
@@ -120,6 +130,7 @@ export const CustomerStateBenefitGrantProperties$outboundSchema: z.ZodMiniType<
   BenefitGrantDownloadablesProperties$outboundSchema,
   BenefitGrantLicenseKeysProperties$outboundSchema,
   BenefitGrantCustomProperties$outboundSchema,
+  BenefitGrantFeatureFlagProperties$outboundSchema,
 ]);
 
 export function customerStateBenefitGrantPropertiesToJSON(
@@ -169,6 +180,7 @@ export const CustomerStateBenefitGrant$inboundSchema: z.ZodMiniType<
       BenefitGrantDownloadablesProperties$inboundSchema,
       BenefitGrantLicenseKeysProperties$inboundSchema,
       BenefitGrantCustomProperties$inboundSchema,
+      BenefitGrantFeatureFlagProperties$inboundSchema,
     ]),
   }),
   z.transform((v) => {
@@ -196,7 +208,8 @@ export type CustomerStateBenefitGrant$Outbound = {
     | BenefitGrantGitHubRepositoryProperties$Outbound
     | BenefitGrantDownloadablesProperties$Outbound
     | BenefitGrantLicenseKeysProperties$Outbound
-    | BenefitGrantCustomProperties$Outbound;
+    | BenefitGrantCustomProperties$Outbound
+    | BenefitGrantFeatureFlagProperties$Outbound;
 };
 
 /** @internal */
@@ -218,6 +231,7 @@ export const CustomerStateBenefitGrant$outboundSchema: z.ZodMiniType<
       BenefitGrantDownloadablesProperties$outboundSchema,
       BenefitGrantLicenseKeysProperties$outboundSchema,
       BenefitGrantCustomProperties$outboundSchema,
+      BenefitGrantFeatureFlagProperties$outboundSchema,
     ]),
   }),
   z.transform((v) => {

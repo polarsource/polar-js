@@ -12,9 +12,9 @@ import {
   CustomerSortProperty$outboundSchema,
 } from "../components/customersortproperty.js";
 import {
-  ListResourceCustomerWithMembers,
-  ListResourceCustomerWithMembers$inboundSchema,
-} from "../components/listresourcecustomerwithmembers.js";
+  ListResourceCustomer,
+  ListResourceCustomer$inboundSchema,
+} from "../components/listresourcecustomer.js";
 import {
   MetadataQuery,
   MetadataQuery$Outbound,
@@ -61,7 +61,7 @@ export type CustomersListRequest = {
 };
 
 export type CustomersListResponse = {
-  result: ListResourceCustomerWithMembers;
+  result: ListResourceCustomer;
 };
 
 /** @internal */
@@ -139,7 +139,7 @@ export const CustomersListResponse$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    Result: ListResourceCustomerWithMembers$inboundSchema,
+    Result: ListResourceCustomer$inboundSchema,
   }),
   z.transform((v) => {
     return remap$(v, {

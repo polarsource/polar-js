@@ -14,9 +14,9 @@ import { customersList } from "../funcs/customersList.js";
 import { customersUpdate } from "../funcs/customersUpdate.js";
 import { customersUpdateExternal } from "../funcs/customersUpdateExternal.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
+import { Customer } from "../models/components/customer.js";
 import { CustomerCreate } from "../models/components/customercreate.js";
 import { CustomerState } from "../models/components/customerstate.js";
-import { CustomerWithMembers } from "../models/components/customerwithmembers.js";
 import { CustomersDeleteRequest } from "../models/operations/customersdelete.js";
 import { CustomersDeleteExternalRequest } from "../models/operations/customersdeleteexternal.js";
 import {
@@ -69,7 +69,7 @@ export class Customers extends ClientSDK {
   async create(
     request: CustomerCreate,
     options?: RequestOptions,
-  ): Promise<CustomerWithMembers> {
+  ): Promise<Customer> {
     return unwrapAsync(customersCreate(
       this,
       request,
@@ -107,7 +107,7 @@ export class Customers extends ClientSDK {
   async get(
     request: CustomersGetRequest,
     options?: RequestOptions,
-  ): Promise<CustomerWithMembers> {
+  ): Promise<Customer> {
     return unwrapAsync(customersGet(
       this,
       request,
@@ -159,7 +159,7 @@ export class Customers extends ClientSDK {
   async update(
     request: CustomersUpdateRequest,
     options?: RequestOptions,
-  ): Promise<CustomerWithMembers> {
+  ): Promise<Customer> {
     return unwrapAsync(customersUpdate(
       this,
       request,
@@ -178,7 +178,7 @@ export class Customers extends ClientSDK {
   async getExternal(
     request: CustomersGetExternalRequest,
     options?: RequestOptions,
-  ): Promise<CustomerWithMembers> {
+  ): Promise<Customer> {
     return unwrapAsync(customersGetExternal(
       this,
       request,
@@ -220,7 +220,7 @@ export class Customers extends ClientSDK {
   async updateExternal(
     request: CustomersUpdateExternalRequest,
     options?: RequestOptions,
-  ): Promise<CustomerWithMembers> {
+  ): Promise<Customer> {
     return unwrapAsync(customersUpdateExternal(
       this,
       request,

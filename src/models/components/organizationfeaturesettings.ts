@@ -38,10 +38,6 @@ export type OrganizationFeatureSettings = {
    */
   tinybirdCompare?: boolean | undefined;
   /**
-   * If this organization has multiple presentment currencies enabled
-   */
-  presentmentCurrenciesEnabled?: boolean | undefined;
-  /**
    * If this organization has checkout localization enabled
    */
   checkoutLocalizationEnabled?: boolean | undefined;
@@ -60,7 +56,6 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
     member_model_enabled: z._default(z.boolean(), false),
     tinybird_read: z._default(z.boolean(), false),
     tinybird_compare: z._default(z.boolean(), false),
-    presentment_currencies_enabled: z._default(z.boolean(), false),
     checkout_localization_enabled: z._default(z.boolean(), false),
   }),
   z.transform((v) => {
@@ -72,7 +67,6 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
       "member_model_enabled": "memberModelEnabled",
       "tinybird_read": "tinybirdRead",
       "tinybird_compare": "tinybirdCompare",
-      "presentment_currencies_enabled": "presentmentCurrenciesEnabled",
       "checkout_localization_enabled": "checkoutLocalizationEnabled",
     });
   }),
@@ -86,7 +80,6 @@ export type OrganizationFeatureSettings$Outbound = {
   member_model_enabled: boolean;
   tinybird_read: boolean;
   tinybird_compare: boolean;
-  presentment_currencies_enabled: boolean;
   checkout_localization_enabled: boolean;
 };
 
@@ -103,7 +96,6 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
     memberModelEnabled: z._default(z.boolean(), false),
     tinybirdRead: z._default(z.boolean(), false),
     tinybirdCompare: z._default(z.boolean(), false),
-    presentmentCurrenciesEnabled: z._default(z.boolean(), false),
     checkoutLocalizationEnabled: z._default(z.boolean(), false),
   }),
   z.transform((v) => {
@@ -115,7 +107,6 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
       memberModelEnabled: "member_model_enabled",
       tinybirdRead: "tinybird_read",
       tinybirdCompare: "tinybird_compare",
-      presentmentCurrenciesEnabled: "presentment_currencies_enabled",
       checkoutLocalizationEnabled: "checkout_localization_enabled",
     });
   }),

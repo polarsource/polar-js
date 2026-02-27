@@ -395,9 +395,78 @@ const value: components.CustomerBenefitGrantMeterCredit = {
   },
   benefit: {
     id: "<value>",
+    createdAt: new Date("2024-07-09T03:04:33.155Z"),
+    modifiedAt: new Date("2024-06-25T20:31:24.411Z"),
+    type: "meter_credit",
+    description:
+      "yowza er dreamily gadzooks eventually outrun playfully mortally",
+    selectable: false,
+    deletable: true,
+    organizationId: "<value>",
+    metadata: {},
+    organization: {
+      createdAt: new Date("2024-02-09T14:46:30.040Z"),
+      modifiedAt: new Date("2025-07-28T16:12:54.009Z"),
+      id: "<value>",
+      name: "<value>",
+      slug: "<value>",
+      avatarUrl: "https://spotless-knight.com/",
+      prorationBehavior: "prorate",
+      allowCustomerUpdates: true,
+    },
+    properties: {
+      units: 430943,
+      rollover: true,
+      meterId: "<value>",
+    },
+  },
+  properties: {},
+};
+```
+
+### `components.CustomerBenefitGrantFeatureFlag`
+
+```typescript
+const value: components.CustomerBenefitGrantFeatureFlag = {
+  createdAt: new Date("2024-08-28T20:11:59.181Z"),
+  modifiedAt: null,
+  id: "<value>",
+  grantedAt: new Date("2024-08-29T07:54:18.256Z"),
+  revokedAt: new Date("2025-11-22T10:02:14.734Z"),
+  customerId: "<value>",
+  benefitId: "<value>",
+  subscriptionId: "<value>",
+  orderId: "<value>",
+  isGranted: true,
+  isRevoked: true,
+  customer: {
+    createdAt: new Date("2024-10-05T17:24:11.012Z"),
+    modifiedAt: new Date("2024-12-27T23:55:37.070Z"),
+    id: "<value>",
+    email: "Greg77@hotmail.com",
+    emailVerified: true,
+    name: "<value>",
+    billingName: null,
+    billingAddress: {
+      country: "US",
+    },
+    taxId: [
+      "911144442",
+      "us_ein",
+    ],
+    oauthAccounts: {
+      "key": {
+        accountId: "<id>",
+        accountUsername: "<value>",
+      },
+    },
+    type: "individual",
+  },
+  benefit: {
+    id: "<value>",
     createdAt: new Date("2024-10-04T20:32:44.950Z"),
     modifiedAt: new Date("2025-09-25T16:16:12.273Z"),
-    type: "meter_credit",
+    type: "feature_flag",
     description: "considering kiddingly direct or",
     selectable: false,
     deletable: true,
@@ -415,11 +484,7 @@ const value: components.CustomerBenefitGrantMeterCredit = {
       prorationBehavior: "prorate",
       allowCustomerUpdates: true,
     },
-    properties: {
-      units: 246327,
-      rollover: false,
-      meterId: "<value>",
-    },
+    properties: {},
   },
   properties: {},
 };

@@ -18,7 +18,7 @@ let value: Organization = {
   website: "<value>",
   socials: [
     {
-      platform: "github",
+      platform: "facebook",
       url: "https://unhealthy-marksman.org/",
     },
   ],

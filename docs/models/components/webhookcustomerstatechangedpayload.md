@@ -45,7 +45,7 @@ let value: WebhookCustomerStateChangedPayload = {
         modifiedAt: new Date("2024-03-23T14:16:16.143Z"),
         grantedAt: new Date("2025-01-03T13:37:00Z"),
         benefitId: "397a17aa-15cf-4cb4-9333-18040203cf98",
-        benefitType: "downloadables",
+        benefitType: "license_keys",
         benefitMetadata: {},
         properties: {},
       },

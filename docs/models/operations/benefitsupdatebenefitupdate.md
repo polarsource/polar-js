@@ -56,3 +56,11 @@ const value: components.BenefitMeterCreditUpdate = {
 };
 ```
 
+### `components.BenefitFeatureFlagUpdate`
+
+```typescript
+const value: components.BenefitFeatureFlagUpdate = {
+  type: "feature_flag",
+};
+```
+

@@ -16,7 +16,7 @@ let value: WebhookBenefitUpdatedPayload = {
     id: "<value>",
     createdAt: new Date("2025-08-16T12:57:27.941Z"),
     modifiedAt: new Date("2026-01-19T10:49:02.218Z"),
-    type: "downloadables",
+    type: "feature_flag",
     description: "porter whoever nasalise what",
     selectable: true,
     deletable: false,
@@ -24,15 +24,7 @@ let value: WebhookBenefitUpdatedPayload = {
     metadata: {
       "key": false,
     },
-    properties: {
-      archived: {
-        "key": false,
-      },
-      files: [
-        "<value 1>",
-        "<value 2>",
-      ],
-    },
+    properties: {},
   },
 };
 ```

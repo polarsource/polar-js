@@ -5,7 +5,7 @@
 ```typescript
 import { OrganizationSocialPlatforms } from "@polar-sh/sdk/models/components/organizationsocialplatforms.js";
 
-let value: OrganizationSocialPlatforms = "tiktok";
+let value: OrganizationSocialPlatforms = "linkedin";
 ```
 
 ## Values
@@ -13,5 +13,5 @@ let value: OrganizationSocialPlatforms = "tiktok";
 This is an open enum. Unrecognized values will be captured as the `Unrecognized<string>` branded type.
 
 ```typescript
-"x" | "github" | "facebook" | "instagram" | "youtube" | "tiktok" | "linkedin" | "other" | Unrecognized<string>
+"x" | "github" | "facebook" | "instagram" | "youtube" | "tiktok" | "linkedin" | "threads" | "discord" | "other" | Unrecognized<string>
 ```
