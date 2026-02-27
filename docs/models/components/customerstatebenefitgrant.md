@@ -13,7 +13,7 @@ let value: CustomerStateBenefitGrant = {
   modifiedAt: new Date("2024-10-13T18:29:11.579Z"),
   grantedAt: new Date("2025-01-03T13:37:00Z"),
   benefitId: "397a17aa-15cf-4cb4-9333-18040203cf98",
-  benefitType: "license_keys",
+  benefitType: "meter_credit",
   benefitMetadata: {
     "key": 936,
   },

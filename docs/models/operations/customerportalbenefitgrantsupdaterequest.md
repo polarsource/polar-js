@@ -8,7 +8,10 @@ import { CustomerPortalBenefitGrantsUpdateRequest } from "@polar-sh/sdk/models/o
 let value: CustomerPortalBenefitGrantsUpdateRequest = {
   id: "<value>",
   customerBenefitGrantUpdate: {
-    benefitType: "meter_credit",
+    benefitType: "github_repository",
+    properties: {
+      accountId: "<id>",
+    },
   },
 };
 ```

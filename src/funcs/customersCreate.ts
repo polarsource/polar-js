@@ -12,13 +12,13 @@ import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
+  Customer,
+  Customer$inboundSchema,
+} from "../models/components/customer.js";
+import {
   CustomerCreate,
   CustomerCreate$outboundSchema,
 } from "../models/components/customercreate.js";
-import {
-  CustomerWithMembers,
-  CustomerWithMembers$inboundSchema,
-} from "../models/components/customerwithmembers.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -50,7 +50,7 @@ export function customersCreate(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    CustomerWithMembers,
+    Customer,
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -76,7 +76,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      CustomerWithMembers,
+      Customer,
       | HTTPValidationError
       | PolarError
       | ResponseValidationError
@@ -158,7 +158,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    CustomerWithMembers,
+    Customer,
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -169,7 +169,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(201, CustomerWithMembers$inboundSchema),
+    M.json(201, Customer$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

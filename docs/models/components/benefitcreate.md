@@ -45,6 +45,17 @@ const value: components.BenefitDownloadablesCreate = {
 };
 ```
 
+### `components.BenefitFeatureFlagCreate`
+
+```typescript
+const value: components.BenefitFeatureFlagCreate = {
+  type: "feature_flag",
+  description: "tarragon stunt deep phew unless inasmuch tut anti if",
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  properties: {},
+};
+```
+
 ### `components.BenefitGitHubRepositoryCreate`
 
 ```typescript

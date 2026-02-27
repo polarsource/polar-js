@@ -65,13 +65,28 @@ const value: components.BenefitDownloadables = {
   },
   properties: {
     archived: {
-      "key": false,
+      "key": true,
+      "key1": true,
     },
-    files: [
-      "<value 1>",
-      "<value 2>",
-    ],
+    files: [],
   },
+};
+```
+
+### `components.BenefitFeatureFlag`
+
+```typescript
+const value: components.BenefitFeatureFlag = {
+  id: "<value>",
+  createdAt: new Date("2026-01-23T21:17:09.985Z"),
+  modifiedAt: new Date("2026-03-18T19:56:22.426Z"),
+  type: "feature_flag",
+  description: "while dreary bestride revoke continually hm so terrible",
+  selectable: true,
+  deletable: true,
+  organizationId: "<value>",
+  metadata: {},
+  properties: {},
 };
 ```
 

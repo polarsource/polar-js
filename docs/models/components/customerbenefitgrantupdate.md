@@ -30,6 +30,14 @@ const value: components.CustomerBenefitGrantDownloadablesUpdate = {
 };
 ```
 
+### `components.CustomerBenefitGrantFeatureFlagUpdate`
+
+```typescript
+const value: components.CustomerBenefitGrantFeatureFlagUpdate = {
+  benefitType: "feature_flag",
+};
+```
+
 ### `components.CustomerBenefitGrantGitHubRepositoryUpdate`
 
 ```typescript

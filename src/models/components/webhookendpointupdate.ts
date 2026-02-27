@@ -17,6 +17,10 @@ import {
  */
 export type WebhookEndpointUpdate = {
   url?: string | null | undefined;
+  /**
+   * An optional name for the webhook endpoint to help organize and identify it.
+   */
+  name?: string | null | undefined;
   format?: WebhookFormat | null | undefined;
   events?: Array<WebhookEventType> | null | undefined;
   /**
@@ -28,6 +32,7 @@ export type WebhookEndpointUpdate = {
 /** @internal */
 export type WebhookEndpointUpdate$Outbound = {
   url?: string | null | undefined;
+  name?: string | null | undefined;
   format?: string | null | undefined;
   events?: Array<string> | null | undefined;
   enabled?: boolean | null | undefined;
@@ -39,6 +44,7 @@ export const WebhookEndpointUpdate$outboundSchema: z.ZodMiniType<
   WebhookEndpointUpdate
 > = z.object({
   url: z.optional(z.nullable(z.string())),
+  name: z.optional(z.nullable(z.string())),
   format: z.optional(z.nullable(WebhookFormat$outboundSchema)),
   events: z.optional(z.nullable(z.array(WebhookEventType$outboundSchema))),
   enabled: z.optional(z.nullable(z.boolean())),

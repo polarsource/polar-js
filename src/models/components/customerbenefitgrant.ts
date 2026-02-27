@@ -20,6 +20,10 @@ import {
   CustomerBenefitGrantDownloadables$inboundSchema,
 } from "./customerbenefitgrantdownloadables.js";
 import {
+  CustomerBenefitGrantFeatureFlag,
+  CustomerBenefitGrantFeatureFlag$inboundSchema,
+} from "./customerbenefitgrantfeatureflag.js";
+import {
   CustomerBenefitGrantGitHubRepository,
   CustomerBenefitGrantGitHubRepository$inboundSchema,
 } from "./customerbenefitgrantgithubrepository.js";
@@ -38,7 +42,8 @@ export type CustomerBenefitGrant =
   | CustomerBenefitGrantDownloadables
   | CustomerBenefitGrantLicenseKeys
   | CustomerBenefitGrantCustom
-  | CustomerBenefitGrantMeterCredit;
+  | CustomerBenefitGrantMeterCredit
+  | CustomerBenefitGrantFeatureFlag;
 
 /** @internal */
 export const CustomerBenefitGrant$inboundSchema: z.ZodMiniType<
@@ -51,6 +56,7 @@ export const CustomerBenefitGrant$inboundSchema: z.ZodMiniType<
   CustomerBenefitGrantLicenseKeys$inboundSchema,
   CustomerBenefitGrantCustom$inboundSchema,
   CustomerBenefitGrantMeterCredit$inboundSchema,
+  CustomerBenefitGrantFeatureFlag$inboundSchema,
 ]);
 
 export function customerBenefitGrantFromJSON(

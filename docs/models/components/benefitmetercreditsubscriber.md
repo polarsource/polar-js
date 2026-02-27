@@ -28,8 +28,8 @@ let value: BenefitMeterCreditSubscriber = {
     allowCustomerUpdates: true,
   },
   properties: {
-    units: 246327,
-    rollover: false,
+    units: 430943,
+    rollover: true,
     meterId: "<value>",
   },
 };

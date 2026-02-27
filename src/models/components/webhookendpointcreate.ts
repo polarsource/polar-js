@@ -21,6 +21,10 @@ export type WebhookEndpointCreate = {
    * The URL where the webhook events will be sent.
    */
   url: string;
+  /**
+   * An optional name for the webhook endpoint to help organize and identify it.
+   */
+  name?: string | null | undefined;
   format: WebhookFormat;
   /**
    * The events that will trigger the webhook.
@@ -35,6 +39,7 @@ export type WebhookEndpointCreate = {
 /** @internal */
 export type WebhookEndpointCreate$Outbound = {
   url: string;
+  name?: string | null | undefined;
   format: string;
   events: Array<string>;
   organization_id?: string | null | undefined;
@@ -47,6 +52,7 @@ export const WebhookEndpointCreate$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     url: z.string(),
+    name: z.optional(z.nullable(z.string())),
     format: WebhookFormat$outboundSchema,
     events: z.array(WebhookEventType$outboundSchema),
     organizationId: z.optional(z.nullable(z.string())),

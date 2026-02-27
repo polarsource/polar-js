@@ -35,7 +35,7 @@ export type LicenseKeyCustomer = {
   /**
    * The ID of the customer in your system. This must be unique within the organization. Once set, it can't be updated.
    */
-  externalId: string | null;
+  externalId?: string | null | undefined;
   /**
    * The email address of the customer. This must be unique within the organization.
    */
@@ -97,7 +97,7 @@ export const LicenseKeyCustomer$inboundSchema: z.ZodMiniType<
       z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
     metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
-    external_id: z.nullable(z.string()),
+    external_id: z.optional(z.nullable(z.string())),
     email: z.string(),
     email_verified: z.boolean(),
     type: z.optional(z.nullable(CustomerType$inboundSchema)),

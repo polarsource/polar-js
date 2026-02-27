@@ -20,6 +20,11 @@ import {
   BenefitDownloadablesUpdate$outboundSchema,
 } from "../components/benefitdownloadablesupdate.js";
 import {
+  BenefitFeatureFlagUpdate,
+  BenefitFeatureFlagUpdate$Outbound,
+  BenefitFeatureFlagUpdate$outboundSchema,
+} from "../components/benefitfeatureflagupdate.js";
+import {
   BenefitGitHubRepositoryUpdate,
   BenefitGitHubRepositoryUpdate$Outbound,
   BenefitGitHubRepositoryUpdate$outboundSchema,
@@ -41,7 +46,8 @@ export type BenefitsUpdateBenefitUpdate =
   | BenefitGitHubRepositoryUpdate
   | BenefitDownloadablesUpdate
   | BenefitLicenseKeysUpdate
-  | BenefitMeterCreditUpdate;
+  | BenefitMeterCreditUpdate
+  | BenefitFeatureFlagUpdate;
 
 export type BenefitsUpdateRequest = {
   id: string;
@@ -51,7 +57,8 @@ export type BenefitsUpdateRequest = {
     | BenefitGitHubRepositoryUpdate
     | BenefitDownloadablesUpdate
     | BenefitLicenseKeysUpdate
-    | BenefitMeterCreditUpdate;
+    | BenefitMeterCreditUpdate
+    | BenefitFeatureFlagUpdate;
 };
 
 /** @internal */
@@ -61,7 +68,8 @@ export type BenefitsUpdateBenefitUpdate$Outbound =
   | BenefitGitHubRepositoryUpdate$Outbound
   | BenefitDownloadablesUpdate$Outbound
   | BenefitLicenseKeysUpdate$Outbound
-  | BenefitMeterCreditUpdate$Outbound;
+  | BenefitMeterCreditUpdate$Outbound
+  | BenefitFeatureFlagUpdate$Outbound;
 
 /** @internal */
 export const BenefitsUpdateBenefitUpdate$outboundSchema: z.ZodMiniType<
@@ -74,6 +82,7 @@ export const BenefitsUpdateBenefitUpdate$outboundSchema: z.ZodMiniType<
   BenefitDownloadablesUpdate$outboundSchema,
   BenefitLicenseKeysUpdate$outboundSchema,
   BenefitMeterCreditUpdate$outboundSchema,
+  BenefitFeatureFlagUpdate$outboundSchema,
 ]);
 
 export function benefitsUpdateBenefitUpdateToJSON(
@@ -95,7 +104,8 @@ export type BenefitsUpdateRequest$Outbound = {
     | BenefitGitHubRepositoryUpdate$Outbound
     | BenefitDownloadablesUpdate$Outbound
     | BenefitLicenseKeysUpdate$Outbound
-    | BenefitMeterCreditUpdate$Outbound;
+    | BenefitMeterCreditUpdate$Outbound
+    | BenefitFeatureFlagUpdate$Outbound;
 };
 
 /** @internal */
@@ -112,6 +122,7 @@ export const BenefitsUpdateRequest$outboundSchema: z.ZodMiniType<
       BenefitDownloadablesUpdate$outboundSchema,
       BenefitLicenseKeysUpdate$outboundSchema,
       BenefitMeterCreditUpdate$outboundSchema,
+      BenefitFeatureFlagUpdate$outboundSchema,
     ]),
   }),
   z.transform((v) => {

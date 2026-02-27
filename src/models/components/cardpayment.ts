@@ -52,7 +52,7 @@ export type CardPayment = {
    */
   declineReason: string | null;
   /**
-   * Human-reasable error message, if the payment was declined.
+   * Human-readable error message, if the payment was declined.
    */
   declineMessage: string | null;
   /**

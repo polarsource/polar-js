@@ -8,7 +8,7 @@ Filter by benefit type.
 ### `components.BenefitType`
 
 ```typescript
-const value: components.BenefitType = "custom";
+const value: components.BenefitType = "discord";
 ```
 
 ### `components.BenefitType[]`

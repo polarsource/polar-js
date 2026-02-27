@@ -197,7 +197,7 @@ run();
 
 ### Response
 
-**Promise\<[components.CustomerWithMembers](../../models/components/customerwithmembers.md)\>**
+**Promise\<[components.Customer](../../models/components/customer.md)\>**
 
 ### Errors
 
@@ -349,7 +349,7 @@ run();
 
 ### Response
 
-**Promise\<[components.CustomerWithMembers](../../models/components/customerwithmembers.md)\>**
+**Promise\<[components.Customer](../../models/components/customer.md)\>**
 
 ### Errors
 
@@ -545,7 +545,7 @@ run();
 
 ### Response
 
-**Promise\<[components.CustomerWithMembers](../../models/components/customerwithmembers.md)\>**
+**Promise\<[components.Customer](../../models/components/customer.md)\>**
 
 ### Errors
 
@@ -622,7 +622,7 @@ run();
 
 ### Response
 
-**Promise\<[components.CustomerWithMembers](../../models/components/customerwithmembers.md)\>**
+**Promise\<[components.Customer](../../models/components/customer.md)\>**
 
 ### Errors
 
@@ -804,7 +804,7 @@ run();
 
 ### Response
 
-**Promise\<[components.CustomerWithMembers](../../models/components/customerwithmembers.md)\>**
+**Promise\<[components.Customer](../../models/components/customer.md)\>**
 
 ### Errors
 

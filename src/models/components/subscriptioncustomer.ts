@@ -50,7 +50,7 @@ export type SubscriptionCustomer = {
   /**
    * The ID of the customer in your system. This must be unique within the organization. Once set, it can't be updated.
    */
-  externalId: string | null;
+  externalId?: string | null | undefined;
   /**
    * The email address of the customer. This must be unique within the organization.
    */
@@ -121,7 +121,7 @@ export const SubscriptionCustomer$inboundSchema: z.ZodMiniType<
       z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
     metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
-    external_id: z.nullable(z.string()),
+    external_id: z.optional(z.nullable(z.string())),
     email: z.string(),
     email_verified: z.boolean(),
     type: z.optional(z.nullable(CustomerType$inboundSchema)),
@@ -157,7 +157,7 @@ export type SubscriptionCustomer$Outbound = {
   created_at: string;
   modified_at: string | null;
   metadata: { [k: string]: MetadataOutputType$Outbound };
-  external_id: string | null;
+  external_id?: string | null | undefined;
   email: string;
   email_verified: boolean;
   type?: string | null | undefined;
@@ -180,7 +180,7 @@ export const SubscriptionCustomer$outboundSchema: z.ZodMiniType<
     createdAt: z.pipe(z.date(), z.transform(v => v.toISOString())),
     modifiedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
     metadata: z.record(z.string(), MetadataOutputType$outboundSchema),
-    externalId: z.nullable(z.string()),
+    externalId: z.optional(z.nullable(z.string())),
     email: z.string(),
     emailVerified: z.boolean(),
     type: z.optional(z.nullable(CustomerType$outboundSchema)),

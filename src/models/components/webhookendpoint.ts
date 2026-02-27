@@ -33,6 +33,10 @@ export type WebhookEndpoint = {
    * The URL where the webhook events will be sent.
    */
   url: string;
+  /**
+   * An optional name for the webhook endpoint to help organize and identify it.
+   */
+  name?: string | null | undefined;
   format: WebhookFormat;
   /**
    * The secret used to sign the webhook events.
@@ -67,6 +71,7 @@ export const WebhookEndpoint$inboundSchema: z.ZodMiniType<
     ),
     id: z.string(),
     url: z.string(),
+    name: z.optional(z.nullable(z.string())),
     format: WebhookFormat$inboundSchema,
     secret: z.string(),
     organization_id: z.string(),

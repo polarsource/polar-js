@@ -42,7 +42,7 @@ let value: BenefitCycledEvent = {
   metadata: {
     benefitId: "<id>",
     benefitGrantId: "<id>",
-    benefitType: "github_repository",
+    benefitType: "downloadables",
   },
 };
 ```

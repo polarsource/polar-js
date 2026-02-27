@@ -19,6 +19,11 @@ import {
   CustomerBenefitGrantDownloadablesUpdate$outboundSchema,
 } from "./customerbenefitgrantdownloadablesupdate.js";
 import {
+  CustomerBenefitGrantFeatureFlagUpdate,
+  CustomerBenefitGrantFeatureFlagUpdate$Outbound,
+  CustomerBenefitGrantFeatureFlagUpdate$outboundSchema,
+} from "./customerbenefitgrantfeatureflagupdate.js";
+import {
   CustomerBenefitGrantGitHubRepositoryUpdate,
   CustomerBenefitGrantGitHubRepositoryUpdate$Outbound,
   CustomerBenefitGrantGitHubRepositoryUpdate$outboundSchema,
@@ -38,6 +43,7 @@ export type CustomerBenefitGrantUpdate =
   | CustomerBenefitGrantCustomUpdate
   | CustomerBenefitGrantDiscordUpdate
   | CustomerBenefitGrantDownloadablesUpdate
+  | CustomerBenefitGrantFeatureFlagUpdate
   | CustomerBenefitGrantGitHubRepositoryUpdate
   | CustomerBenefitGrantLicenseKeysUpdate
   | CustomerBenefitGrantMeterCreditUpdate;
@@ -47,6 +53,7 @@ export type CustomerBenefitGrantUpdate$Outbound =
   | CustomerBenefitGrantCustomUpdate$Outbound
   | CustomerBenefitGrantDiscordUpdate$Outbound
   | CustomerBenefitGrantDownloadablesUpdate$Outbound
+  | CustomerBenefitGrantFeatureFlagUpdate$Outbound
   | CustomerBenefitGrantGitHubRepositoryUpdate$Outbound
   | CustomerBenefitGrantLicenseKeysUpdate$Outbound
   | CustomerBenefitGrantMeterCreditUpdate$Outbound;
@@ -59,6 +66,7 @@ export const CustomerBenefitGrantUpdate$outboundSchema: z.ZodMiniType<
   CustomerBenefitGrantCustomUpdate$outboundSchema,
   CustomerBenefitGrantDiscordUpdate$outboundSchema,
   CustomerBenefitGrantDownloadablesUpdate$outboundSchema,
+  CustomerBenefitGrantFeatureFlagUpdate$outboundSchema,
   CustomerBenefitGrantGitHubRepositoryUpdate$outboundSchema,
   CustomerBenefitGrantLicenseKeysUpdate$outboundSchema,
   CustomerBenefitGrantMeterCreditUpdate$outboundSchema,
