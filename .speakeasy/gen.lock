@@ -1,25 +1,25 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: 26a471b01ce985eea976ca8281502262
+  docChecksum: 57a616207f168a5b55df8bc11afeace9
   docVersion: 0.1.0
-  speakeasyVersion: 1.731.2
-  generationVersion: 2.845.1
-  releaseVersion: 0.45.1
-  configChecksum: b7c64e0ab781aa7a615060258a6997bb
+  speakeasyVersion: 1.736.3
+  generationVersion: 2.845.15
+  releaseVersion: 0.45.2
+  configChecksum: e705621c626569dccb1e16ebd58297eb
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
 persistentEdits:
-  generation_id: b09fa9a5-ca1d-4454-a679-7379ccb70f28
-  pristine_commit_hash: 9510fcad6f4b7989d7d4dfc222895f8dcd3ce148
-  pristine_tree_hash: 99ea6bd5825b462d91048e0a5cecf055bdac4739
+  generation_id: 2b4f2fa9-dd88-495e-8cd1-b7793b36e6f7
+  pristine_commit_hash: 55df13074345072ac0c2a342f782d398624eb127
+  pristine_tree_hash: 89e9261d6ae9df92fad2347895972bd25f3e2133
 features:
   typescript:
     acceptHeaders: 2.81.2
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.14
-    core: 3.26.35
+    core: 3.26.38
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.1
     enumUnions: 0.1.0
@@ -29,7 +29,7 @@ features:
     globalSecurity: 2.82.15
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.1
-    globalServerURLs: 2.83.0
+    globalServerURLs: 2.83.1
     groups: 2.81.3
     methodSecurity: 2.82.7
     nameOverrides: 2.81.4
@@ -632,8 +632,8 @@ trackedFiles:
     pristine_git_object: 211eef9cf38231c2941709f2e050f5fabcd47aba
   docs/models/components/checkout.md:
     id: 32423a24d2b6
-    last_write_checksum: sha1:d5bbd166fa47e468a471e328ce8228e00ad24c00
-    pristine_git_object: 13d167cf0319320b63a88ff4fcdca27b68bd0daa
+    last_write_checksum: sha1:b3de92c954f408f35e76d5f81c574f6a42d08514
+    pristine_git_object: 94724df0be0dc8b78e3d378c4859b81cbc6fdea6
   docs/models/components/checkoutbillingaddressfields.md:
     id: 10859699f9a1
     last_write_checksum: sha1:31e313208de20bf8e7ab61bdb11c03dd9fec20b8
@@ -648,8 +648,8 @@ trackedFiles:
     pristine_git_object: f45d60f58bd3734a71fcbd0cbf1d3c642c5d7032
   docs/models/components/checkoutcreate.md:
     id: c28c3e505194
-    last_write_checksum: sha1:febf4316d07549cf72c60f697d0419917d7daa46
-    pristine_git_object: b2ed3f95bd7c2716e92ec33f4a4fc3cd34606d70
+    last_write_checksum: sha1:048e31407c392c321ac3fe1e537c1b7d3af271f7
+    pristine_git_object: bfacde6818dba05a1e96c713d1ae2079245bbcde
   docs/models/components/checkoutcreatecustomermetadata.md:
     id: c774a5379bb9
     last_write_checksum: sha1:6b3906bdc4cf53fbaffd64f4682a2c3ae5e3d853
@@ -772,12 +772,12 @@ trackedFiles:
     pristine_git_object: 18a0b6e270dad7259349e7730ecf5493dbeef104
   docs/models/components/checkoutpublic.md:
     id: 758de31b0ca4
-    last_write_checksum: sha1:20d4960c53af7603ddd7c943e1ad8c221f0542ba
-    pristine_git_object: b1f713528d1fc154959362b3c05c1d30a63f268d
+    last_write_checksum: sha1:be12968dda79c9f25a00620244786c682ed66f97
+    pristine_git_object: e9790bb039da54763e8131ed4a2af13942c8567a
   docs/models/components/checkoutpublicconfirmed.md:
     id: b59d98aeb24c
-    last_write_checksum: sha1:9c6767fd52466ed51eea9e8940efbc602aa75d2d
-    pristine_git_object: 3b119b9b887e3bc2c1df7100fd6d59440b51e31d
+    last_write_checksum: sha1:f2d34b5ef9baac59b2643dbbdb5d46e81f6dff7f
+    pristine_git_object: 5d16f56bd79defc5ca85269a16b6f0ae51ee1590
   docs/models/components/checkoutpublicconfirmedcustomfielddata.md:
     id: d19d64861532
     last_write_checksum: sha1:60b9cf3cbdc3da7a1afb7cef91a712c170d6564d
@@ -4700,12 +4700,12 @@ trackedFiles:
     pristine_git_object: 81b74b46d6979f928ebe4b20753635ba6f9a3882
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:099111cc99dce30e501a84667d2691e3a4ed3c3a
-    pristine_git_object: 2f61df73329f04368b872e5cb0381fba84e87687
+    last_write_checksum: sha1:d92a9a0ba88e912f13fa9a3ad915e72221346104
+    pristine_git_object: b99b68c383c4edc07c427b79d815115f6386d716
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:b30a814608035442ab4312de669283116f6768fe
-    pristine_git_object: d770978f7a000824904d310f9f9928ef6cc3a741
+    last_write_checksum: sha1:f46f29f5b1c827adb1000fd4718447b8d2aedc7b
+    pristine_git_object: 4fc0a18853e2ea095cecb80f776cf0352061d82e
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:6c0a3d0582afbdfea5d4052e704a9e0b6e29c273
@@ -5412,8 +5412,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:3bfcb05f793a60f293f17bdaa19be960f5463d78
-    pristine_git_object: ad16d96da546294df52fb74fdbbfb8fad4f8cee8
+    last_write_checksum: sha1:62f6697deaed3dd2f1621e1aaa55d80361fe6c59
+    pristine_git_object: 42188df19a3c1b3c17f48fce04f1d70f6827cdba
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
@@ -5896,8 +5896,8 @@ trackedFiles:
     pristine_git_object: 459e4dc4df7236eef3929d0f0cf436d4b383b378
   src/models/components/checkout.ts:
     id: 8cbe0de79149
-    last_write_checksum: sha1:4dde71b4fdd351766cab0c0d91f47a9cd4185c1c
-    pristine_git_object: 40da55e4ba79e62dc537c65bb4f6d10a344e0881
+    last_write_checksum: sha1:24d238a07339914783b8364f60f46dbadd4dfb21
+    pristine_git_object: 62e48b82683590e179c1daa4fd92a5f88329e9f5
   src/models/components/checkoutbillingaddressfields.ts:
     id: 9767e1c16486
     last_write_checksum: sha1:772fb5e379735d30f7736615501b5d70cd03f023
@@ -5908,8 +5908,8 @@ trackedFiles:
     pristine_git_object: 3840190fc10cb6293b5e2f1020c082827255b7d2
   src/models/components/checkoutcreate.ts:
     id: 79a8f9311287
-    last_write_checksum: sha1:a9d67059d6cc5ab3be98a1f4283134ba00cfeaa7
-    pristine_git_object: 70d9ef94714fb3f5b989613cb0051239c152a724
+    last_write_checksum: sha1:593b7874e66b41978b6b38f53319c3ed714a6902
+    pristine_git_object: f78d8c8dc9d58db8c39019c99755efc7ba9f1fc4
   src/models/components/checkoutcreatedevent.ts:
     id: 62d3a290abd7
     last_write_checksum: sha1:ea9354a6ebc324e1a03ccdb97aa4b477591f129b
@@ -5976,12 +5976,12 @@ trackedFiles:
     pristine_git_object: 7dd1b536eb22094e93fa68e2d82a432f1079d9f1
   src/models/components/checkoutpublic.ts:
     id: 2be39659bbf7
-    last_write_checksum: sha1:20066ec486cf6a480883f5540ac5618a84ec81a5
-    pristine_git_object: d82c25bddff322f6d12a059021b1c02869655d77
+    last_write_checksum: sha1:5672261e0ce77250b6e5d8695e97f01f7b750d51
+    pristine_git_object: 92e2ca5a25307ff16ad0889bfe5760e376dae9df
   src/models/components/checkoutpublicconfirmed.ts:
     id: 032cc8fc7349
-    last_write_checksum: sha1:7daf6d1d6a703d862f0ab7eb82639992e51332d7
-    pristine_git_object: 616666ae88e146c779f333da6c66d9a5985de7ef
+    last_write_checksum: sha1:8d909aee6ce215758cf593e9bb28626a208cb72d
+    pristine_git_object: 98a0e526010096c54e7a8b628a9a68b4b4fd1802
   src/models/components/checkoutsortproperty.ts:
     id: a40959842ad6
     last_write_checksum: sha1:f25594a02f626216edab237307822855de29e545
@@ -10985,7 +10985,7 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Typescript SDK Changes:\n* `polar.customers.list()`:  `response.items[]` **Changed** (Breaking ⚠️)\n* `polar.organizations.create()`: \n  *  `request` **Changed** (Breaking ⚠️)\n  *  `response` **Changed** (Breaking ⚠️)\n* `polar.organizations.get()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.organizations.update()`: \n  *  `request.organizationUpdate` **Changed** (Breaking ⚠️)\n  *  `response` **Changed** (Breaking ⚠️)\n* `polar.subscriptions.list()`:  `response.items[]` **Changed** (Breaking ⚠️)\n* `polar.subscriptions.create()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.subscriptions.get()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.subscriptions.revoke()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.subscriptions.update()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.benefits.list()`: \n  *  `request.typeFilter` **Changed**\n  *  `response.items[].union(feature_flag)` **Added** (Breaking ⚠️)\n* `polar.benefits.create()`: \n  *  `request.union(feature_flag)` **Added**\n  *  `response.union(feature_flag)` **Added** (Breaking ⚠️)\n* `polar.benefits.get()`:  `response.union(feature_flag)` **Added** (Breaking ⚠️)\n* `polar.benefits.update()`: \n  *  `request.requestBody.union(feature_flag)` **Added**\n  *  `response.union(feature_flag)` **Added** (Breaking ⚠️)\n* `polar.benefits.grants()`:  `response.items[]` **Changed** (Breaking ⚠️)\n* `polar.benefitGrants.list()`:  `response.items[]` **Changed** (Breaking ⚠️)\n* `polar.customerPortal.benefitGrants.update()`: \n  *  `request.customerBenefitGrantUpdate.union(feature_flag)` **Added**\n  *  `response.union(CustomerBenefitGrantFeatureFlag)` **Added** (Breaking ⚠️)\n* `polar.customerPortal.benefitGrants.get()`:  `response.union(CustomerBenefitGrantFeatureFlag)` **Added** (Breaking ⚠️)\n* `polar.customerPortal.benefitGrants.list()`: \n  *  `request.typeFilter` **Changed**\n  *  `response.items[].union(CustomerBenefitGrantFeatureFlag)` **Added** (Breaking ⚠️)\n* `polar.organizations.list()`:  `response.items[]` **Changed** (Breaking ⚠️)\n* `polar.customers.getStateExternal()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.products.list()`:  `response.items[].benefits[].union(feature_flag)` **Added** (Breaking ⚠️)\n* `polar.products.create()`:  `response.benefits[].union(feature_flag)` **Added** (Breaking ⚠️)\n* `polar.products.get()`:  `response.benefits[].union(feature_flag)` **Added** (Breaking ⚠️)\n* `polar.products.update()`:  `response.benefits[].union(feature_flag)` **Added** (Breaking ⚠️)\n* `polar.products.updateBenefits()`:  `response.benefits[].union(feature_flag)` **Added** (Breaking ⚠️)\n* `polar.customers.getState()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.customers.updateExternal()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.customers.getExternal()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.customers.update()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.customers.get()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.customers.create()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.webhooks.updateWebhookEndpoint()`: \n  *  `request.webhookEndpointUpdate.name` **Added**\n  *  `response.name` **Added**\n* `polar.webhooks.resetWebhookEndpointSecret()`:  `response.name` **Added**\n* `polar.checkouts.clientUpdate()`:  `response.products[].benefits[].type.enum(featureFlag)` **Added**\n* `polar.checkouts.clientConfirm()`:  `response.products[].benefits[].type.enum(featureFlag)` **Added**\n* `polar.licenseKeys.list()`:  `response.items[].customer.externalId` **Changed**\n* `polar.licenseKeys.get()`:  `response.customer.externalId` **Changed**\n* `polar.licenseKeys.update()`:  `response.customer.externalId` **Changed**\n* `polar.licenseKeys.getActivation()`:  `response.licenseKey.customer.externalId` **Changed**\n* `polar.licenseKeys.validate()`:  `response.customer.externalId` **Changed**\n* `polar.licenseKeys.activate()`:  `response.licenseKey.customer.externalId` **Changed**\n* `polar.checkoutLinks.list()`:  `response.items[].products[].benefits[].type.enum(featureFlag)` **Added**\n* `polar.checkoutLinks.create()`:  `response.products[].benefits[].type.enum(featureFlag)` **Added**\n* `polar.checkoutLinks.get()`:  `response.products[].benefits[].type.enum(featureFlag)` **Added**\n* `polar.checkoutLinks.update()`:  `response.products[].benefits[].type.enum(featureFlag)` **Added**\n* `polar.checkouts.update()`:  `response.products[].benefits[].type.enum(featureFlag)` **Added**\n* `polar.checkouts.get()`:  `response.products[].benefits[].type.enum(featureFlag)` **Added**\n* `polar.checkouts.create()`:  `response.products[].benefits[].type.enum(featureFlag)` **Added**\n* `polar.checkouts.list()`:  `response.items[].products[].benefits[].type.enum(featureFlag)` **Added**\n* `polar.orders.update()`:  `response.customer.externalId` **Changed**\n* `polar.orders.get()`:  `response.customer.externalId` **Changed**\n* `polar.orders.list()`:  `response.items[].customer.externalId` **Changed**\n* `polar.checkouts.clientGet()`:  `response.products[].benefits[].type.enum(featureFlag)` **Added**\n* `polar.webhooks.getWebhookEndpoint()`:  `response.name` **Added**\n* `polar.webhooks.createWebhookEndpoint()`: \n  *  `request.name` **Added**\n  *  `response.name` **Added**\n* `polar.webhooks.listWebhookEndpoints()`:  `response.items[].name` **Added**\n* `polar.customerPortal.seats.listClaimedSubscriptions()`:  `response.items[].product.benefits[].type.enum(featureFlag)` **Added**\n* `polar.customerPortal.licenseKeys.list()`:  `response.items[].customer.externalId` **Changed**\n* `polar.customerPortal.licenseKeys.get()`:  `response.customer.externalId` **Changed**\n* `polar.customerPortal.licenseKeys.validate()`:  `response.customer.externalId` **Changed**\n* `polar.customerPortal.licenseKeys.activate()`:  `response.licenseKey.customer.externalId` **Changed**\n* `polar.customerPortal.orders.list()`:  `response.items[].product.benefits[].type.enum(featureFlag)` **Added**\n* `polar.customerPortal.orders.get()`:  `response.product.benefits[].type.enum(featureFlag)` **Added**\n* `polar.customerPortal.orders.update()`:  `response.product.benefits[].type.enum(featureFlag)` **Added**\n* `polar.customerPortal.organizations.get()`:  `response.products[].benefits[].type.enum(featureFlag)` **Added**\n* `polar.customerPortal.subscriptions.list()`:  `response.items[].product.benefits[].type.enum(featureFlag)` **Added**\n* `polar.customerPortal.subscriptions.get()`:  `response.product.benefits[].type.enum(featureFlag)` **Added**\n* `polar.customerPortal.subscriptions.cancel()`:  `response.product.benefits[].type.enum(featureFlag)` **Added**\n* `polar.customerPortal.subscriptions.update()`:  `response.product.benefits[].type.enum(featureFlag)` **Added**\n* `polar.customerSessions.create()`:  `response.customer.externalId` **Changed**\n* `polar.memberSessions.create()`:  `response.customer.externalId` **Changed**\n* `polar.events.list()`:  `response.union(ListResource_Event_).items[].union(SystemEvent)` **Changed**\n* `polar.events.get()`:  `response.union(SystemEvent).union(benefit.cycled)` **Changed**\n* `polar.customerMeters.list()`:  `response.items[].customer.externalId` **Changed**\n* `polar.customerMeters.get()`:  `response.customer.externalId` **Changed**\n"
+releaseNotes: "## Typescript SDK Changes:\n* `polar.checkouts.list()`:  `response.items[]` **Changed**\n* `polar.checkouts.create()`: \n  *  `request` **Changed**\n  *  `response` **Changed**\n* `polar.checkouts.get()`:  `response` **Changed**\n* `polar.checkouts.update()`:  `response` **Changed**\n* `polar.checkouts.clientGet()`:  `response` **Changed**\n* `polar.checkouts.clientUpdate()`:  `response` **Changed**\n* `polar.checkouts.clientConfirm()`:  `response` **Changed**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

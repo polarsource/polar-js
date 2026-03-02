@@ -155,9 +155,17 @@ export type Checkout = {
    */
   amount: number;
   /**
-   * Number of seats for seat-based pricing.
+   * Predefined number of seats (works with seat-based pricing only)
    */
   seats?: number | null | undefined;
+  /**
+   * Minimum number of seats (works with seat-based pricing only)
+   */
+  minSeats?: number | null | undefined;
+  /**
+   * Maximum number of seats (works with seat-based pricing only)
+   */
+  maxSeats?: number | null | undefined;
   /**
    * Price per seat in cents for the current seat count, based on the applicable tier. Only relevant for seat-based pricing.
    */
@@ -492,6 +500,8 @@ export const Checkout$inboundSchema: z.ZodMiniType<Checkout, unknown> = z.pipe(
     embed_origin: z.nullable(z.string()),
     amount: z.int(),
     seats: z.optional(z.nullable(z.int())),
+    min_seats: z.optional(z.nullable(z.int())),
+    max_seats: z.optional(z.nullable(z.int())),
     price_per_seat: z.optional(z.nullable(z.int())),
     discount_amount: z.int(),
     net_amount: z.int(),
@@ -570,6 +580,8 @@ export const Checkout$inboundSchema: z.ZodMiniType<Checkout, unknown> = z.pipe(
       "success_url": "successUrl",
       "return_url": "returnUrl",
       "embed_origin": "embedOrigin",
+      "min_seats": "minSeats",
+      "max_seats": "maxSeats",
       "price_per_seat": "pricePerSeat",
       "discount_amount": "discountAmount",
       "net_amount": "netAmount",
@@ -626,6 +638,8 @@ export type Checkout$Outbound = {
   embed_origin: string | null;
   amount: number;
   seats?: number | null | undefined;
+  min_seats?: number | null | undefined;
+  max_seats?: number | null | undefined;
   price_per_seat?: number | null | undefined;
   discount_amount: number;
   net_amount: number;
@@ -711,6 +725,8 @@ export const Checkout$outboundSchema: z.ZodMiniType<
     embedOrigin: z.nullable(z.string()),
     amount: z.int(),
     seats: z.optional(z.nullable(z.int())),
+    minSeats: z.optional(z.nullable(z.int())),
+    maxSeats: z.optional(z.nullable(z.int())),
     pricePerSeat: z.optional(z.nullable(z.int())),
     discountAmount: z.int(),
     netAmount: z.int(),
@@ -787,6 +803,8 @@ export const Checkout$outboundSchema: z.ZodMiniType<
       successUrl: "success_url",
       returnUrl: "return_url",
       embedOrigin: "embed_origin",
+      minSeats: "min_seats",
+      maxSeats: "max_seats",
       pricePerSeat: "price_per_seat",
       discountAmount: "discount_amount",
       netAmount: "net_amount",

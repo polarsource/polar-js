@@ -111,9 +111,17 @@ export type CheckoutCreate = {
   requireBillingAddress?: boolean | undefined;
   amount?: number | null | undefined;
   /**
-   * Number of seats for seat-based pricing. Required for seat-based products.
+   * Predefined number of seats (works with seat-based pricing only)
    */
   seats?: number | null | undefined;
+  /**
+   * Minimum number of seats (works with seat-based pricing only)
+   */
+  minSeats?: number | null | undefined;
+  /**
+   * Maximum number of seats (works with seat-based pricing only)
+   */
+  maxSeats?: number | null | undefined;
   /**
    * Whether to enable the trial period for the checkout session. If `false`, the trial period will be disabled, even if the selected product has a trial configured.
    */
@@ -306,6 +314,8 @@ export type CheckoutCreate$Outbound = {
   require_billing_address: boolean;
   amount?: number | null | undefined;
   seats?: number | null | undefined;
+  min_seats?: number | null | undefined;
+  max_seats?: number | null | undefined;
   allow_trial: boolean;
   customer_id?: string | null | undefined;
   is_business_customer: boolean;
@@ -372,6 +382,8 @@ export const CheckoutCreate$outboundSchema: z.ZodMiniType<
     requireBillingAddress: z._default(z.boolean(), false),
     amount: z.optional(z.nullable(z.int())),
     seats: z.optional(z.nullable(z.int())),
+    minSeats: z.optional(z.nullable(z.int())),
+    maxSeats: z.optional(z.nullable(z.int())),
     allowTrial: z._default(z.boolean(), true),
     customerId: z.optional(z.nullable(z.string())),
     isBusinessCustomer: z._default(z.boolean(), false),
@@ -420,6 +432,8 @@ export const CheckoutCreate$outboundSchema: z.ZodMiniType<
       discountId: "discount_id",
       allowDiscountCodes: "allow_discount_codes",
       requireBillingAddress: "require_billing_address",
+      minSeats: "min_seats",
+      maxSeats: "max_seats",
       allowTrial: "allow_trial",
       customerId: "customer_id",
       isBusinessCustomer: "is_business_customer",
