@@ -42,12 +42,12 @@ let value: CustomerProduct = {
   benefits: [
     {
       id: "<value>",
-      createdAt: new Date("2025-12-27T23:35:38.610Z"),
-      modifiedAt: new Date("2025-09-14T06:36:06.854Z"),
-      type: "meter_credit",
-      description: "content react replacement",
+      createdAt: new Date("2026-05-16T12:02:57.993Z"),
+      modifiedAt: new Date("2026-10-28T04:30:12.327Z"),
+      type: "feature_flag",
+      description: "soybean tomorrow um where surprisingly",
       selectable: true,
-      deletable: false,
+      deletable: true,
       organizationId: "<value>",
     },
   ],
