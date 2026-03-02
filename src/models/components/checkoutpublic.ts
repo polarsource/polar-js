@@ -58,6 +58,10 @@ import { TrialInterval, TrialInterval$inboundSchema } from "./trialinterval.js";
 
 export type CheckoutPublicCustomFieldData = string | number | boolean | Date;
 
+export type CheckoutPublicProductPrice =
+  | LegacyRecurringProductPrice
+  | ProductPrice;
+
 export type CheckoutPublicPrices = LegacyRecurringProductPrice | ProductPrice;
 
 export type CheckoutPublicDiscount =
@@ -179,6 +183,12 @@ export type CheckoutPublic = {
    */
   productId: string | null;
   /**
+   * ID of the product price to checkout.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  productPriceId: string | null;
+  /**
    * ID of the discount applied to the checkout.
    */
   discountId: string | null;
@@ -239,6 +249,12 @@ export type CheckoutPublic = {
    */
   product: CheckoutProduct | null;
   /**
+   * Price of the selected product.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  productPrice: LegacyRecurringProductPrice | ProductPrice | null;
+  /**
    * Mapping of product IDs to their list of prices.
    */
   prices:
@@ -272,6 +288,25 @@ export function checkoutPublicCustomFieldDataFromJSON(
     jsonString,
     (x) => CheckoutPublicCustomFieldData$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'CheckoutPublicCustomFieldData' from JSON`,
+  );
+}
+
+/** @internal */
+export const CheckoutPublicProductPrice$inboundSchema: z.ZodMiniType<
+  CheckoutPublicProductPrice,
+  unknown
+> = smartUnion([
+  LegacyRecurringProductPrice$inboundSchema,
+  ProductPrice$inboundSchema,
+]);
+
+export function checkoutPublicProductPriceFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutPublicProductPrice, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutPublicProductPrice$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutPublicProductPrice' from JSON`,
   );
 }
 
@@ -374,6 +409,7 @@ export const CheckoutPublic$inboundSchema: z.ZodMiniType<
     ),
     organization_id: z.string(),
     product_id: z.nullable(z.string()),
+    product_price_id: z.nullable(z.string()),
     discount_id: z.nullable(z.string()),
     allow_discount_codes: z.boolean(),
     require_billing_address: z.boolean(),
@@ -395,6 +431,12 @@ export const CheckoutPublic$inboundSchema: z.ZodMiniType<
     billing_address_fields: CheckoutBillingAddressFields$inboundSchema,
     products: z.array(CheckoutProduct$inboundSchema),
     product: z.nullable(CheckoutProduct$inboundSchema),
+    product_price: z.nullable(
+      smartUnion([
+        LegacyRecurringProductPrice$inboundSchema,
+        ProductPrice$inboundSchema,
+      ]),
+    ),
     prices: z.nullable(
       z.record(
         z.string(),
@@ -443,6 +485,7 @@ export const CheckoutPublic$inboundSchema: z.ZodMiniType<
       "trial_end": "trialEnd",
       "organization_id": "organizationId",
       "product_id": "productId",
+      "product_price_id": "productPriceId",
       "discount_id": "discountId",
       "allow_discount_codes": "allowDiscountCodes",
       "require_billing_address": "requireBillingAddress",
@@ -461,6 +504,7 @@ export const CheckoutPublic$inboundSchema: z.ZodMiniType<
       "customer_tax_id": "customerTaxId",
       "payment_processor_metadata": "paymentProcessorMetadata",
       "billing_address_fields": "billingAddressFields",
+      "product_price": "productPrice",
       "attached_custom_fields": "attachedCustomFields",
     });
   }),

@@ -41,6 +41,10 @@ export type OrganizationFeatureSettings = {
    * If this organization has checkout localization enabled
    */
   checkoutLocalizationEnabled?: boolean | undefined;
+  /**
+   * Ordered list of metric slugs shown on the dashboard overview.
+   */
+  overviewMetrics?: Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -57,6 +61,7 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
     tinybird_read: z._default(z.boolean(), false),
     tinybird_compare: z._default(z.boolean(), false),
     checkout_localization_enabled: z._default(z.boolean(), false),
+    overview_metrics: z.optional(z.nullable(z.array(z.string()))),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -68,6 +73,7 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
       "tinybird_read": "tinybirdRead",
       "tinybird_compare": "tinybirdCompare",
       "checkout_localization_enabled": "checkoutLocalizationEnabled",
+      "overview_metrics": "overviewMetrics",
     });
   }),
 );
@@ -81,6 +87,7 @@ export type OrganizationFeatureSettings$Outbound = {
   tinybird_read: boolean;
   tinybird_compare: boolean;
   checkout_localization_enabled: boolean;
+  overview_metrics?: Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -97,6 +104,7 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
     tinybirdRead: z._default(z.boolean(), false),
     tinybirdCompare: z._default(z.boolean(), false),
     checkoutLocalizationEnabled: z._default(z.boolean(), false),
+    overviewMetrics: z.optional(z.nullable(z.array(z.string()))),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -108,6 +116,7 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
       tinybirdRead: "tinybird_read",
       tinybirdCompare: "tinybird_compare",
       checkoutLocalizationEnabled: "checkout_localization_enabled",
+      overviewMetrics: "overview_metrics",
     });
   }),
 );
