@@ -89,7 +89,7 @@ let value: CheckoutPublicConfirmed = {
           isArchived: true,
           productId: "<value>",
           type: "recurring",
-          recurringInterval: "week",
+          recurringInterval: "day",
           minimumAmount: 794310,
           maximumAmount: null,
           presetAmount: 748346,

@@ -1,6 +1,6 @@
 {
   "name": "@polar-sh/sdk",
-  "version": "0.46.0",
+  "version": "0.46.1",
   "author": "Speakeasy",
   "type": "module",
   "tshy": {
@@ -33,7 +33,7 @@
     "globals": "^15.14.0",
     "jest": "*",
     "ts-jest": "*",
-    "tshy": "^2.0.0",
+    "tshy": "^3.3.2",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.26.0"
   },

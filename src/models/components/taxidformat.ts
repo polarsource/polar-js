@@ -59,6 +59,7 @@ export const TaxIDFormat = {
   KrBrn: "kr_brn",
   KzBin: "kz_bin",
   LiUid: "li_uid",
+  MkVat: "mk_vat",
   MxRfc: "mx_rfc",
   MyFrp: "my_frp",
   MyItn: "my_itn",

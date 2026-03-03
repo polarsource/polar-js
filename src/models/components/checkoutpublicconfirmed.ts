@@ -275,7 +275,7 @@ export type CheckoutPublicConfirmed = {
     | null;
   organization: CheckoutOrganization;
   attachedCustomFields: Array<AttachedCustomField> | null;
-  customerSessionToken: string;
+  customerSessionToken: string | null;
 };
 
 /** @internal */
@@ -468,7 +468,7 @@ export const CheckoutPublicConfirmed$inboundSchema: z.ZodMiniType<
     attached_custom_fields: z.nullable(
       z.array(AttachedCustomField$inboundSchema),
     ),
-    customer_session_token: z.string(),
+    customer_session_token: z.nullable(z.string()),
   }),
   z.transform((v) => {
     return remap$(v, {
