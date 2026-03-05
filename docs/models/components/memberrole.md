@@ -6,11 +6,11 @@
 import { MemberRole } from "@polar-sh/sdk/models/components/memberrole.js";
 
 let value: MemberRole = "owner";
+
+// Open enum: unrecognized values are captured as Unrecognized<string>
 ```
 
 ## Values
-
-This is an open enum. Unrecognized values will be captured as the `Unrecognized<string>` branded type.
 
 ```typescript
 "owner" | "billing_manager" | "member" | Unrecognized<string>

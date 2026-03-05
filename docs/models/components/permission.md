@@ -8,11 +8,11 @@ The permission level to grant. Read more about roles and their permissions on [G
 import { Permission } from "@polar-sh/sdk/models/components/benefitgithubrepositoryproperties.js";
 
 let value: Permission = "admin";
+
+// Open enum: unrecognized values are captured as Unrecognized<string>
 ```
 
 ## Values
-
-This is an open enum. Unrecognized values will be captured as the `Unrecognized<string>` branded type.
 
 ```typescript
 "pull" | "triage" | "push" | "maintain" | "admin" | Unrecognized<string>
