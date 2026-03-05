@@ -54,7 +54,7 @@ export type CustomerOrderSubscription = {
   /**
    * The end timestamp of the current billing period.
    */
-  currentPeriodEnd: Date | null;
+  currentPeriodEnd: Date;
   /**
    * The start timestamp of the trial period, if any.
    */
@@ -127,8 +127,9 @@ export const CustomerOrderSubscription$inboundSchema: z.ZodMiniType<
       z.iso.datetime({ offset: true }),
       z.transform(v => new Date(v)),
     ),
-    current_period_end: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    current_period_end: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
     ),
     trial_start: z.nullable(
       z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),

@@ -15,7 +15,7 @@ let value: CustomerSubscription = {
   recurringIntervalCount: 135993,
   status: "active",
   currentPeriodStart: new Date("2025-09-05T20:42:48.893Z"),
-  currentPeriodEnd: null,
+  currentPeriodEnd: new Date("2024-03-09T15:25:48.651Z"),
   trialStart: new Date("2026-09-11T13:49:33.195Z"),
   trialEnd: null,
   cancelAtPeriodEnd: false,

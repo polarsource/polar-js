@@ -6,11 +6,11 @@
 import { LicenseKeyStatus } from "@polar-sh/sdk/models/components/licensekeystatus.js";
 
 let value: LicenseKeyStatus = "granted";
+
+// Open enum: unrecognized values are captured as Unrecognized<string>
 ```
 
 ## Values
-
-This is an open enum. Unrecognized values will be captured as the `Unrecognized<string>` branded type.
 
 ```typescript
 "granted" | "revoked" | "disabled" | Unrecognized<string>

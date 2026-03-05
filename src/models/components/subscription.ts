@@ -128,7 +128,7 @@ export type Subscription = {
   /**
    * The end timestamp of the current billing period.
    */
-  currentPeriodEnd: Date | null;
+  currentPeriodEnd: Date;
   /**
    * The start timestamp of the trial period, if any.
    */
@@ -348,8 +348,9 @@ export const Subscription$inboundSchema: z.ZodMiniType<Subscription, unknown> =
         z.iso.datetime({ offset: true }),
         z.transform(v => new Date(v)),
       ),
-      current_period_end: z.nullable(
-        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+      current_period_end: z.pipe(
+        z.iso.datetime({ offset: true }),
+        z.transform(v => new Date(v)),
       ),
       trial_start: z.nullable(
         z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
@@ -450,7 +451,7 @@ export type Subscription$Outbound = {
   recurring_interval_count: number;
   status: string;
   current_period_start: string;
-  current_period_end: string | null;
+  current_period_end: string;
   trial_start: string | null;
   trial_end: string | null;
   cancel_at_period_end: boolean;
@@ -496,9 +497,7 @@ export const Subscription$outboundSchema: z.ZodMiniType<
     recurringIntervalCount: z.int(),
     status: SubscriptionStatus$outboundSchema,
     currentPeriodStart: z.pipe(z.date(), z.transform(v => v.toISOString())),
-    currentPeriodEnd: z.nullable(
-      z.pipe(z.date(), z.transform(v => v.toISOString())),
-    ),
+    currentPeriodEnd: z.pipe(z.date(), z.transform(v => v.toISOString())),
     trialStart: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
     trialEnd: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
     cancelAtPeriodEnd: z.boolean(),

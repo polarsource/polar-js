@@ -57,7 +57,6 @@ import { EventTypes } from "./eventtypes.js";
 import { Files } from "./files.js";
 import { LicenseKeys } from "./licensekeys.js";
 import { Members } from "./members.js";
-import { MemberSessions } from "./membersessions.js";
 import { Meters } from "./meters.js";
 import { Metrics } from "./metrics.js";
 import { Oauth2 } from "./oauth2.js";
@@ -179,11 +178,6 @@ export class Polar extends ClientSDK {
   private _customerSessions?: CustomerSessions;
   get customerSessions(): CustomerSessions {
     return (this._customerSessions ??= new CustomerSessions(this._options));
-  }
-
-  private _memberSessions?: MemberSessions;
-  get memberSessions(): MemberSessions {
-    return (this._memberSessions ??= new MemberSessions(this._options));
   }
 
   private _events?: Events;

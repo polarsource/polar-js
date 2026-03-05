@@ -10,6 +10,14 @@ import { remap as remap$ } from "../../lib/primitives.js";
  */
 export type CustomerSessionCustomerExternalIDCreate = {
   /**
+   * ID of the member to create a session for. When not provided and the organization has `member_model_enabled`, the owner member of the customer will be used for individual customers.
+   */
+  memberId?: string | null | undefined;
+  /**
+   * External ID of the member to create a session for. Alternative to `member_id`.
+   */
+  externalMemberId?: string | null | undefined;
+  /**
    * When set, a back button will be shown in the customer portal to return to this URL.
    */
   returnUrl?: string | null | undefined;
@@ -21,6 +29,8 @@ export type CustomerSessionCustomerExternalIDCreate = {
 
 /** @internal */
 export type CustomerSessionCustomerExternalIDCreate$Outbound = {
+  member_id?: string | null | undefined;
+  external_member_id?: string | null | undefined;
   return_url?: string | null | undefined;
   external_customer_id: string;
 };
@@ -32,11 +42,15 @@ export const CustomerSessionCustomerExternalIDCreate$outboundSchema:
     CustomerSessionCustomerExternalIDCreate
   > = z.pipe(
     z.object({
+      memberId: z.optional(z.nullable(z.string())),
+      externalMemberId: z.optional(z.nullable(z.string())),
       returnUrl: z.optional(z.nullable(z.string())),
       externalCustomerId: z.string(),
     }),
     z.transform((v) => {
       return remap$(v, {
+        memberId: "member_id",
+        externalMemberId: "external_member_id",
         returnUrl: "return_url",
         externalCustomerId: "external_customer_id",
       });

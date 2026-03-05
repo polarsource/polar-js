@@ -669,12 +669,6 @@ actions:
         - "lang": "typescript"
           "label": "Typescript (SDK)"
           "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.licenseKeys.getActivation({\n    id: \"<value>\",\n    activationId: \"<value>\",\n  });\n\n  console.log(result);\n}\n\nrun();"
-  - target: $["paths"]["/v1/member-sessions/"]["post"]
-    update:
-      "x-codeSamples":
-        - "lang": "typescript"
-          "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.memberSessions.create({\n    memberId: \"<value>\",\n    returnUrl: \"https://example.com/account\",\n  });\n\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/v1/members/"]["get"]
     update:
       "x-codeSamples":
