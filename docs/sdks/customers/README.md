@@ -120,10 +120,6 @@ async function run() {
     billingAddress: {
       country: "US",
     },
-    taxId: [
-      "911144442",
-      "us_ein",
-    ],
     locale: "en",
     type: "individual",
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
@@ -162,10 +158,6 @@ async function run() {
     billingAddress: {
       country: "US",
     },
-    taxId: [
-      "911144442",
-      "us_ein",
-    ],
     locale: "en",
     type: "individual",
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
@@ -475,10 +467,6 @@ async function run() {
       billingAddress: {
         country: "US",
       },
-      taxId: [
-        "911144442",
-        "us_ein",
-      ],
       locale: "en",
       externalId: "usr_1337",
       type: "individual",
@@ -514,10 +502,6 @@ async function run() {
       billingAddress: {
         country: "US",
       },
-      taxId: [
-        "911144442",
-        "us_ein",
-      ],
       locale: "en",
       externalId: "usr_1337",
       type: "individual",
@@ -738,10 +722,6 @@ async function run() {
       billingAddress: {
         country: "US",
       },
-      taxId: [
-        "911144442",
-        "us_ein",
-      ],
       locale: "en",
     },
   });
@@ -775,10 +755,6 @@ async function run() {
       billingAddress: {
         country: "US",
       },
-      taxId: [
-        "911144442",
-        "us_ein",
-      ],
       locale: "en",
     },
   });

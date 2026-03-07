@@ -10,15 +10,12 @@ import {
   AddressInput$Outbound,
   AddressInput$outboundSchema,
 } from "./addressinput.js";
-import { TaxIDFormat, TaxIDFormat$outboundSchema } from "./taxidformat.js";
 
 export type CustomerUpdateExternalIDMetadata =
   | string
   | number
   | number
   | boolean;
-
-export type CustomerUpdateExternalIDTaxID = string | TaxIDFormat;
 
 export type CustomerUpdateExternalID = {
   /**
@@ -43,7 +40,7 @@ export type CustomerUpdateExternalID = {
   email?: string | null | undefined;
   name?: string | null | undefined;
   billingAddress?: AddressInput | null | undefined;
-  taxId?: Array<string | TaxIDFormat | null> | null | undefined;
+  taxId?: string | null | undefined;
   locale?: string | null | undefined;
 };
 
@@ -71,31 +68,12 @@ export function customerUpdateExternalIDMetadataToJSON(
 }
 
 /** @internal */
-export type CustomerUpdateExternalIDTaxID$Outbound = string | string;
-
-/** @internal */
-export const CustomerUpdateExternalIDTaxID$outboundSchema: z.ZodMiniType<
-  CustomerUpdateExternalIDTaxID$Outbound,
-  CustomerUpdateExternalIDTaxID
-> = smartUnion([z.string(), TaxIDFormat$outboundSchema]);
-
-export function customerUpdateExternalIDTaxIDToJSON(
-  customerUpdateExternalIDTaxID: CustomerUpdateExternalIDTaxID,
-): string {
-  return JSON.stringify(
-    CustomerUpdateExternalIDTaxID$outboundSchema.parse(
-      customerUpdateExternalIDTaxID,
-    ),
-  );
-}
-
-/** @internal */
 export type CustomerUpdateExternalID$Outbound = {
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   email?: string | null | undefined;
   name?: string | null | undefined;
   billing_address?: AddressInput$Outbound | null | undefined;
-  tax_id?: Array<string | string | null> | null | undefined;
+  tax_id?: string | null | undefined;
   locale?: string | null | undefined;
 };
 
@@ -114,13 +92,7 @@ export const CustomerUpdateExternalID$outboundSchema: z.ZodMiniType<
     email: z.optional(z.nullable(z.string())),
     name: z.optional(z.nullable(z.string())),
     billingAddress: z.optional(z.nullable(AddressInput$outboundSchema)),
-    taxId: z.optional(
-      z.nullable(
-        z.array(
-          z.nullable(smartUnion([z.string(), TaxIDFormat$outboundSchema])),
-        ),
-      ),
-    ),
+    taxId: z.optional(z.nullable(z.string())),
     locale: z.optional(z.nullable(z.string())),
   }),
   z.transform((v) => {

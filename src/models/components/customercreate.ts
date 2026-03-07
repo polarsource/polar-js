@@ -16,11 +16,8 @@ import {
   OwnerCreate$Outbound,
   OwnerCreate$outboundSchema,
 } from "./ownercreate.js";
-import { TaxIDFormat, TaxIDFormat$outboundSchema } from "./taxidformat.js";
 
 export type CustomerCreateMetadata = string | number | number | boolean;
-
-export type CustomerCreateTaxId = string | TaxIDFormat;
 
 export type CustomerCreate = {
   /**
@@ -49,7 +46,7 @@ export type CustomerCreate = {
   email: string;
   name?: string | null | undefined;
   billingAddress?: AddressInput | null | undefined;
-  taxId?: Array<string | TaxIDFormat | null> | null | undefined;
+  taxId?: string | null | undefined;
   locale?: string | null | undefined;
   /**
    * The type of customer. Defaults to 'individual'. Set to 'team' for customers that can have multiple members.
@@ -87,30 +84,13 @@ export function customerCreateMetadataToJSON(
 }
 
 /** @internal */
-export type CustomerCreateTaxId$Outbound = string | string;
-
-/** @internal */
-export const CustomerCreateTaxId$outboundSchema: z.ZodMiniType<
-  CustomerCreateTaxId$Outbound,
-  CustomerCreateTaxId
-> = smartUnion([z.string(), TaxIDFormat$outboundSchema]);
-
-export function customerCreateTaxIdToJSON(
-  customerCreateTaxId: CustomerCreateTaxId,
-): string {
-  return JSON.stringify(
-    CustomerCreateTaxId$outboundSchema.parse(customerCreateTaxId),
-  );
-}
-
-/** @internal */
 export type CustomerCreate$Outbound = {
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   external_id?: string | null | undefined;
   email: string;
   name?: string | null | undefined;
   billing_address?: AddressInput$Outbound | null | undefined;
-  tax_id?: Array<string | string | null> | null | undefined;
+  tax_id?: string | null | undefined;
   locale?: string | null | undefined;
   type?: string | null | undefined;
   organization_id?: string | null | undefined;
@@ -133,13 +113,7 @@ export const CustomerCreate$outboundSchema: z.ZodMiniType<
     email: z.string(),
     name: z.optional(z.nullable(z.string())),
     billingAddress: z.optional(z.nullable(AddressInput$outboundSchema)),
-    taxId: z.optional(
-      z.nullable(
-        z.array(
-          z.nullable(smartUnion([z.string(), TaxIDFormat$outboundSchema])),
-        ),
-      ),
-    ),
+    taxId: z.optional(z.nullable(z.string())),
     locale: z.optional(z.nullable(z.string())),
     type: z.optional(z.nullable(CustomerType$outboundSchema)),
     organizationId: z.optional(z.nullable(z.string())),

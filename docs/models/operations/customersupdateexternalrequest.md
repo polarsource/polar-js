@@ -13,10 +13,6 @@ let value: CustomersUpdateExternalRequest = {
     billingAddress: {
       country: "US",
     },
-    taxId: [
-      "911144442",
-      "us_ein",
-    ],
     locale: "en",
   },
 };

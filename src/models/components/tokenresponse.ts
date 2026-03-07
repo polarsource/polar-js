@@ -12,9 +12,9 @@ export type TokenResponse = {
   accessToken: string;
   tokenType: "Bearer";
   expiresIn: number;
-  refreshToken: string | null;
+  refreshToken?: string | null | undefined;
   scope: string;
-  idToken: string;
+  idToken?: string | null | undefined;
 };
 
 /** @internal */
@@ -26,9 +26,9 @@ export const TokenResponse$inboundSchema: z.ZodMiniType<
     access_token: z.string(),
     token_type: z.literal("Bearer"),
     expires_in: z.int(),
-    refresh_token: z.nullable(z.string()),
+    refresh_token: z.optional(z.nullable(z.string())),
     scope: z.string(),
-    id_token: z.string(),
+    id_token: z.optional(z.nullable(z.string())),
   }),
   z.transform((v) => {
     return remap$(v, {
