@@ -14,6 +14,8 @@ export const DiscountSortProperty = {
   MinusCode: "-code",
   RedemptionsCount: "redemptions_count",
   MinusRedemptionsCount: "-redemptions_count",
+  EndsAt: "ends_at",
+  MinusEndsAt: "-ends_at",
 } as const;
 export type DiscountSortProperty = ClosedEnum<typeof DiscountSortProperty>;
 

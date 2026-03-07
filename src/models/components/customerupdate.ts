@@ -11,11 +11,8 @@ import {
   AddressInput$outboundSchema,
 } from "./addressinput.js";
 import { CustomerType, CustomerType$outboundSchema } from "./customertype.js";
-import { TaxIDFormat, TaxIDFormat$outboundSchema } from "./taxidformat.js";
 
 export type CustomerUpdateMetadata = string | number | number | boolean;
-
-export type CustomerUpdateTaxId = string | TaxIDFormat;
 
 export type CustomerUpdate = {
   /**
@@ -40,7 +37,7 @@ export type CustomerUpdate = {
   email?: string | null | undefined;
   name?: string | null | undefined;
   billingAddress?: AddressInput | null | undefined;
-  taxId?: Array<string | TaxIDFormat | null> | null | undefined;
+  taxId?: string | null | undefined;
   locale?: string | null | undefined;
   /**
    * The ID of the customer in your system. This must be unique within the organization. Once set, it can't be updated.
@@ -74,29 +71,12 @@ export function customerUpdateMetadataToJSON(
 }
 
 /** @internal */
-export type CustomerUpdateTaxId$Outbound = string | string;
-
-/** @internal */
-export const CustomerUpdateTaxId$outboundSchema: z.ZodMiniType<
-  CustomerUpdateTaxId$Outbound,
-  CustomerUpdateTaxId
-> = smartUnion([z.string(), TaxIDFormat$outboundSchema]);
-
-export function customerUpdateTaxIdToJSON(
-  customerUpdateTaxId: CustomerUpdateTaxId,
-): string {
-  return JSON.stringify(
-    CustomerUpdateTaxId$outboundSchema.parse(customerUpdateTaxId),
-  );
-}
-
-/** @internal */
 export type CustomerUpdate$Outbound = {
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   email?: string | null | undefined;
   name?: string | null | undefined;
   billing_address?: AddressInput$Outbound | null | undefined;
-  tax_id?: Array<string | string | null> | null | undefined;
+  tax_id?: string | null | undefined;
   locale?: string | null | undefined;
   external_id?: string | null | undefined;
   type?: string | null | undefined;
@@ -117,13 +97,7 @@ export const CustomerUpdate$outboundSchema: z.ZodMiniType<
     email: z.optional(z.nullable(z.string())),
     name: z.optional(z.nullable(z.string())),
     billingAddress: z.optional(z.nullable(AddressInput$outboundSchema)),
-    taxId: z.optional(
-      z.nullable(
-        z.array(
-          z.nullable(smartUnion([z.string(), TaxIDFormat$outboundSchema])),
-        ),
-      ),
-    ),
+    taxId: z.optional(z.nullable(z.string())),
     locale: z.optional(z.nullable(z.string())),
     externalId: z.optional(z.nullable(z.string())),
     type: z.optional(z.nullable(CustomerType$outboundSchema)),
