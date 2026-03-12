@@ -33,6 +33,11 @@ import { WebhookCustomerStateChangedPayload$inboundSchema } from "./models/compo
 import { WebhookCustomerSeatAssignedPayload$inboundSchema } from "./models/components/webhookcustomerseatassignedpayload.js";
 import { WebhookCustomerSeatClaimedPayload$inboundSchema } from "./models/components/webhookcustomerseatclaimedpayload.js";
 import { WebhookCustomerSeatRevokedPayload$inboundSchema } from "./models/components/webhookcustomerseatrevokedpayload.js";
+import { WebhookMemberCreatedPayload$inboundSchema } from "./models/components/webhookmembercreatedpayload.js";
+import { WebhookMemberUpdatedPayload$inboundSchema } from "./models/components/webhookmemberupdatedpayload.js";
+import { WebhookMemberDeletedPayload$inboundSchema } from "./models/components/webhookmemberdeletedpayload.js";
+import { WebhookCheckoutExpiredPayload$inboundSchema } from "./models/components/webhookcheckoutexpiredpayload.js";
+import { WebhookSubscriptionPastDuePayload$inboundSchema } from "./models/components/webhooksubscriptionpastduepayload.js";
 import { SDKValidationError } from "./models/errors/sdkvalidationerror.js";
 
 class WebhookVerificationError extends Error {
@@ -59,6 +64,12 @@ const parseEvent = (parsed: any) => {
         return WebhookCustomerSeatClaimedPayload$inboundSchema.parse(parsed);
       case "customer_seat.revoked":
         return WebhookCustomerSeatRevokedPayload$inboundSchema.parse(parsed);
+      case "member.created":
+        return WebhookMemberCreatedPayload$inboundSchema.parse(parsed);
+      case "member.updated":
+        return WebhookMemberUpdatedPayload$inboundSchema.parse(parsed);
+      case "member.deleted":
+        return WebhookMemberDeletedPayload$inboundSchema.parse(parsed);
       case "benefit.created":
         return WebhookBenefitCreatedPayload$inboundSchema.parse(parsed);
       case "benefit_grant.created":
@@ -75,6 +86,8 @@ const parseEvent = (parsed: any) => {
         return WebhookCheckoutCreatedPayload$inboundSchema.parse(parsed);
       case "checkout.updated":
         return WebhookCheckoutUpdatedPayload$inboundSchema.parse(parsed);
+      case "checkout.expired":
+        return WebhookCheckoutExpiredPayload$inboundSchema.parse(parsed);
       case "order.created":
         return WebhookOrderCreatedPayload$inboundSchema.parse(parsed);
       case "order.paid":
@@ -105,6 +118,8 @@ const parseEvent = (parsed: any) => {
         return WebhookSubscriptionUncanceledPayload$inboundSchema.parse(parsed);
       case "subscription.updated":
         return WebhookSubscriptionUpdatedPayload$inboundSchema.parse(parsed);
+      case "subscription.past_due":
+        return WebhookSubscriptionPastDuePayload$inboundSchema.parse(parsed);
       default:
         throw new SDKValidationError(
           `Unknown event type: ${parsed.type}`,
