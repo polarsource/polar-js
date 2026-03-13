@@ -9,7 +9,6 @@
 const value: components.DiscountFixedOnceForeverDurationCreate = {
   duration: "forever",
   type: "percentage",
-  amount: 83830,
   name: "<value>",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
@@ -22,7 +21,6 @@ const value: components.DiscountFixedRepeatDurationCreate = {
   duration: "forever",
   durationInMonths: 446914,
   type: "percentage",
-  amount: 720369,
   name: "<value>",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };

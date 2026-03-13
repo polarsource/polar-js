@@ -27,8 +27,18 @@ import {
 export type DiscountFixedOnceForeverDuration = {
   duration: DiscountDuration;
   type: DiscountType;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
   amount: number;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
   currency: string;
+  /**
+   * Map of currency to fixed amount to discount from the total.
+   */
+  amounts: { [k: string]: number };
   /**
    * Creation timestamp of the object.
    */
@@ -83,6 +93,7 @@ export const DiscountFixedOnceForeverDuration$inboundSchema: z.ZodMiniType<
     type: DiscountType$inboundSchema,
     amount: z.int(),
     currency: z.string(),
+    amounts: z.record(z.string(), z.int()),
     created_at: z.pipe(
       z.iso.datetime({ offset: true }),
       z.transform(v => new Date(v)),

@@ -12,7 +12,7 @@ let value: BenefitSubscriberOrganization = {
   name: "<value>",
   slug: "<value>",
   avatarUrl: "https://misguided-release.biz",
-  prorationBehavior: "invoice",
+  prorationBehavior: "prorate",
   allowCustomerUpdates: true,
 };
 ```

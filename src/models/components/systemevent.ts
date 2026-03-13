@@ -110,6 +110,10 @@ import {
   SubscriptionUncanceledEvent,
   SubscriptionUncanceledEvent$inboundSchema,
 } from "./subscriptionuncanceledevent.js";
+import {
+  SubscriptionUpdatedEvent,
+  SubscriptionUpdatedEvent$inboundSchema,
+} from "./subscriptionupdatedevent.js";
 
 export type SystemEvent =
   | BalanceCreditOrderEvent
@@ -137,7 +141,8 @@ export type SystemEvent =
   | SubscriptionProductUpdatedEvent
   | SubscriptionRevokedEvent
   | SubscriptionSeatsUpdatedEvent
-  | SubscriptionUncanceledEvent;
+  | SubscriptionUncanceledEvent
+  | SubscriptionUpdatedEvent;
 
 /** @internal */
 export const SystemEvent$inboundSchema: z.ZodMiniType<SystemEvent, unknown> = z
@@ -168,6 +173,7 @@ export const SystemEvent$inboundSchema: z.ZodMiniType<SystemEvent, unknown> = z
     SubscriptionRevokedEvent$inboundSchema,
     SubscriptionSeatsUpdatedEvent$inboundSchema,
     SubscriptionUncanceledEvent$inboundSchema,
+    SubscriptionUpdatedEvent$inboundSchema,
   ]);
 
 export function systemEventFromJSON(

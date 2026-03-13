@@ -57,8 +57,15 @@ export type DiscountUpdate = {
   duration?: DiscountDuration | null | undefined;
   durationInMonths?: number | null | undefined;
   type?: DiscountType | null | undefined;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
   amount?: number | null | undefined;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
   currency?: PresentmentCurrency | null | undefined;
+  amounts?: { [k: string]: number } | null | undefined;
   basisPoints?: number | null | undefined;
   products?: Array<string> | null | undefined;
 };
@@ -97,6 +104,7 @@ export type DiscountUpdate$Outbound = {
   type?: string | null | undefined;
   amount?: number | null | undefined;
   currency?: string | null | undefined;
+  amounts?: { [k: string]: number } | null | undefined;
   basis_points?: number | null | undefined;
   products?: Array<string> | null | undefined;
 };
@@ -127,6 +135,7 @@ export const DiscountUpdate$outboundSchema: z.ZodMiniType<
     type: z.optional(z.nullable(DiscountType$outboundSchema)),
     amount: z.optional(z.nullable(z.int())),
     currency: z.optional(z.nullable(PresentmentCurrency$outboundSchema)),
+    amounts: z.optional(z.nullable(z.record(z.string(), z.int()))),
     basisPoints: z.optional(z.nullable(z.int())),
     products: z.optional(z.nullable(z.array(z.string()))),
   }),

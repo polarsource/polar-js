@@ -87,8 +87,8 @@ let value: ListResourceCustomerOrder = {
               show: false,
             },
             subscription: {
-              updateSeats: true,
-              updatePlan: false,
+              updateSeats: false,
+              updatePlan: true,
             },
           },
         },

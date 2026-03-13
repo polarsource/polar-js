@@ -8,7 +8,7 @@ import { OrganizationSubscriptionSettings } from "@polar-sh/sdk/models/component
 let value: OrganizationSubscriptionSettings = {
   allowMultipleSubscriptions: true,
   allowCustomerUpdates: true,
-  prorationBehavior: "prorate",
+  prorationBehavior: "next_period",
   benefitRevocationGracePeriod: 560557,
   preventTrialAbuse: false,
 };

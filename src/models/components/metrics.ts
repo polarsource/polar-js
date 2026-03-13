@@ -17,7 +17,6 @@ export type Metrics = {
   averageRevenuePerUser?: Metric | null | undefined;
   checkouts?: Metric | null | undefined;
   succeededCheckouts?: Metric | null | undefined;
-  checkoutsConversion?: Metric | null | undefined;
   churnedSubscriptions?: Metric | null | undefined;
   orders?: Metric | null | undefined;
   revenue?: Metric | null | undefined;
@@ -48,6 +47,7 @@ export type Metrics = {
   canceledSubscriptionsTooExpensive?: Metric | null | undefined;
   canceledSubscriptionsUnused?: Metric | null | undefined;
   canceledSubscriptionsOther?: Metric | null | undefined;
+  checkoutsConversion?: Metric | null | undefined;
   churnRate?: Metric | null | undefined;
   ltv?: Metric | null | undefined;
   grossMargin?: Metric | null | undefined;
@@ -67,7 +67,6 @@ export const Metrics$inboundSchema: z.ZodMiniType<Metrics, unknown> = z.pipe(
     average_revenue_per_user: z.optional(z.nullable(Metric$inboundSchema)),
     checkouts: z.optional(z.nullable(Metric$inboundSchema)),
     succeeded_checkouts: z.optional(z.nullable(Metric$inboundSchema)),
-    checkouts_conversion: z.optional(z.nullable(Metric$inboundSchema)),
     churned_subscriptions: z.optional(z.nullable(Metric$inboundSchema)),
     orders: z.optional(z.nullable(Metric$inboundSchema)),
     revenue: z.optional(z.nullable(Metric$inboundSchema)),
@@ -112,6 +111,7 @@ export const Metrics$inboundSchema: z.ZodMiniType<Metrics, unknown> = z.pipe(
     ),
     canceled_subscriptions_unused: z.optional(z.nullable(Metric$inboundSchema)),
     canceled_subscriptions_other: z.optional(z.nullable(Metric$inboundSchema)),
+    checkouts_conversion: z.optional(z.nullable(Metric$inboundSchema)),
     churn_rate: z.optional(z.nullable(Metric$inboundSchema)),
     ltv: z.optional(z.nullable(Metric$inboundSchema)),
     gross_margin: z.optional(z.nullable(Metric$inboundSchema)),
@@ -126,7 +126,6 @@ export const Metrics$inboundSchema: z.ZodMiniType<Metrics, unknown> = z.pipe(
       "committed_monthly_recurring_revenue": "committedMonthlyRecurringRevenue",
       "average_revenue_per_user": "averageRevenuePerUser",
       "succeeded_checkouts": "succeededCheckouts",
-      "checkouts_conversion": "checkoutsConversion",
       "churned_subscriptions": "churnedSubscriptions",
       "net_revenue": "netRevenue",
       "cumulative_revenue": "cumulativeRevenue",
@@ -158,6 +157,7 @@ export const Metrics$inboundSchema: z.ZodMiniType<Metrics, unknown> = z.pipe(
         "canceledSubscriptionsTooExpensive",
       "canceled_subscriptions_unused": "canceledSubscriptionsUnused",
       "canceled_subscriptions_other": "canceledSubscriptionsOther",
+      "checkouts_conversion": "checkoutsConversion",
       "churn_rate": "churnRate",
       "gross_margin": "grossMargin",
       "gross_margin_percentage": "grossMarginPercentage",

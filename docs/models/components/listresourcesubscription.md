@@ -161,6 +161,10 @@ let value: ListResourceSubscription = {
         type: "percentage",
         amount: 1000,
         currency: "usd",
+        amounts: {
+          "eur": 900,
+          "usd": 1000,
+        },
         createdAt: new Date("2024-04-24T03:43:50.210Z"),
         modifiedAt: new Date("2026-12-03T13:13:09.933Z"),
         id: "<value>",
@@ -220,6 +224,14 @@ let value: ListResourceSubscription = {
           },
         },
       ],
+      pendingUpdate: {
+        createdAt: new Date("2025-09-20T17:34:26.219Z"),
+        modifiedAt: new Date("2025-05-26T00:52:37.759Z"),
+        id: "<value>",
+        appliesAt: new Date("2025-07-13T01:01:57.978Z"),
+        productId: "<value>",
+        seats: 704811,
+      },
     },
   ],
   pagination: {

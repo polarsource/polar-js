@@ -38,13 +38,11 @@ const value: components.SystemEvent = {
   childCount: 0,
   label: "<value>",
   source: "system",
-  name: "customer.updated",
+  name: "meter.credited",
   metadata: {
-    customerId: "<id>",
-    customerEmail: "<value>",
-    customerName: "<value>",
-    customerExternalId: "<id>",
-    updatedFields: {},
+    meterId: "<id>",
+    units: 329918,
+    rollover: true,
   },
 };
 ```

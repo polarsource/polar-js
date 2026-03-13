@@ -11,6 +11,10 @@ const value: components.DiscountFixedOnceForeverDurationBase = {
   type: "fixed",
   amount: 1000,
   currency: "usd",
+  amounts: {
+    "eur": 900,
+    "usd": 1000,
+  },
   createdAt: new Date("2026-12-08T00:27:07.088Z"),
   modifiedAt: new Date("2024-11-28T22:19:07.374Z"),
   id: "<value>",
@@ -36,6 +40,10 @@ const value: components.DiscountFixedRepeatDurationBase = {
   type: "fixed",
   amount: 1000,
   currency: "usd",
+  amounts: {
+    "eur": 900,
+    "usd": 1000,
+  },
   createdAt: new Date("2025-04-29T00:55:32.664Z"),
   modifiedAt: new Date("2026-11-25T04:43:58.974Z"),
   id: "<value>",

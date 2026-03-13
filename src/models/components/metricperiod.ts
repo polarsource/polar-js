@@ -23,8 +23,6 @@ export type Checkouts = number | number;
 
 export type SucceededCheckouts = number | number;
 
-export type CheckoutsConversion = number | number;
-
 export type ChurnedSubscriptions = number | number;
 
 export type Orders = number | number;
@@ -85,6 +83,8 @@ export type CanceledSubscriptionsUnused = number | number;
 
 export type CanceledSubscriptionsOther = number | number;
 
+export type CheckoutsConversion = number | number;
+
 export type ChurnRate = number | number;
 
 export type Ltv = number | number;
@@ -107,7 +107,6 @@ export type MetricPeriod = {
   averageRevenuePerUser?: number | number | null | undefined;
   checkouts?: number | number | null | undefined;
   succeededCheckouts?: number | number | null | undefined;
-  checkoutsConversion?: number | number | null | undefined;
   churnedSubscriptions?: number | number | null | undefined;
   orders?: number | number | null | undefined;
   revenue?: number | number | null | undefined;
@@ -138,6 +137,7 @@ export type MetricPeriod = {
   canceledSubscriptionsTooExpensive?: number | number | null | undefined;
   canceledSubscriptionsUnused?: number | number | null | undefined;
   canceledSubscriptionsOther?: number | number | null | undefined;
+  checkoutsConversion?: number | number | null | undefined;
   churnRate?: number | number | null | undefined;
   ltv?: number | number | null | undefined;
   grossMargin?: number | number | null | undefined;
@@ -252,22 +252,6 @@ export function succeededCheckoutsFromJSON(
     jsonString,
     (x) => SucceededCheckouts$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'SucceededCheckouts' from JSON`,
-  );
-}
-
-/** @internal */
-export const CheckoutsConversion$inboundSchema: z.ZodMiniType<
-  CheckoutsConversion,
-  unknown
-> = smartUnion([z.int(), z.number()]);
-
-export function checkoutsConversionFromJSON(
-  jsonString: string,
-): SafeParseResult<CheckoutsConversion, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CheckoutsConversion$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutsConversion' from JSON`,
   );
 }
 
@@ -749,6 +733,22 @@ export function canceledSubscriptionsOtherFromJSON(
 }
 
 /** @internal */
+export const CheckoutsConversion$inboundSchema: z.ZodMiniType<
+  CheckoutsConversion,
+  unknown
+> = smartUnion([z.int(), z.number()]);
+
+export function checkoutsConversionFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutsConversion, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutsConversion$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutsConversion' from JSON`,
+  );
+}
+
+/** @internal */
 export const ChurnRate$inboundSchema: z.ZodMiniType<ChurnRate, unknown> =
   smartUnion([z.int(), z.number()]);
 
@@ -849,9 +849,6 @@ export const MetricPeriod$inboundSchema: z.ZodMiniType<MetricPeriod, unknown> =
       succeeded_checkouts: z.optional(
         z.nullable(smartUnion([z.int(), z.number()])),
       ),
-      checkouts_conversion: z.optional(
-        z.nullable(smartUnion([z.int(), z.number()])),
-      ),
       churned_subscriptions: z.optional(
         z.nullable(smartUnion([z.int(), z.number()])),
       ),
@@ -932,6 +929,9 @@ export const MetricPeriod$inboundSchema: z.ZodMiniType<MetricPeriod, unknown> =
       canceled_subscriptions_other: z.optional(
         z.nullable(smartUnion([z.int(), z.number()])),
       ),
+      checkouts_conversion: z.optional(
+        z.nullable(smartUnion([z.int(), z.number()])),
+      ),
       churn_rate: z.optional(z.nullable(smartUnion([z.int(), z.number()]))),
       ltv: z.optional(z.nullable(smartUnion([z.int(), z.number()]))),
       gross_margin: z.optional(z.nullable(smartUnion([z.int(), z.number()]))),
@@ -949,7 +949,6 @@ export const MetricPeriod$inboundSchema: z.ZodMiniType<MetricPeriod, unknown> =
           "committedMonthlyRecurringRevenue",
         "average_revenue_per_user": "averageRevenuePerUser",
         "succeeded_checkouts": "succeededCheckouts",
-        "checkouts_conversion": "checkoutsConversion",
         "churned_subscriptions": "churnedSubscriptions",
         "net_revenue": "netRevenue",
         "cumulative_revenue": "cumulativeRevenue",
@@ -981,6 +980,7 @@ export const MetricPeriod$inboundSchema: z.ZodMiniType<MetricPeriod, unknown> =
           "canceledSubscriptionsTooExpensive",
         "canceled_subscriptions_unused": "canceledSubscriptionsUnused",
         "canceled_subscriptions_other": "canceledSubscriptionsOther",
+        "checkouts_conversion": "checkoutsConversion",
         "churn_rate": "churnRate",
         "gross_margin": "grossMargin",
         "gross_margin_percentage": "grossMarginPercentage",

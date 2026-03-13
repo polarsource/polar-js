@@ -24,6 +24,10 @@ import {
   LegacyRecurringProductPrice,
   LegacyRecurringProductPrice$inboundSchema,
 } from "./legacyrecurringproductprice.js";
+import {
+  PendingSubscriptionUpdate,
+  PendingSubscriptionUpdate$inboundSchema,
+} from "./pendingsubscriptionupdate.js";
 import { ProductPrice, ProductPrice$inboundSchema } from "./productprice.js";
 import {
   SubscriptionRecurringInterval,
@@ -129,6 +133,10 @@ export type CustomerSubscription = {
    * List of meters associated with the subscription.
    */
   meters: Array<CustomerSubscriptionMeter>;
+  /**
+   * Pending subscription update that will be applied at the beginning of the next period. If `null`, there is no pending update.
+   */
+  pendingUpdate: PendingSubscriptionUpdate | null;
 };
 
 /** @internal */
@@ -213,6 +221,7 @@ export const CustomerSubscription$inboundSchema: z.ZodMiniType<
       ]),
     ),
     meters: z.array(CustomerSubscriptionMeter$inboundSchema),
+    pending_update: z.nullable(PendingSubscriptionUpdate$inboundSchema),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -235,6 +244,7 @@ export const CustomerSubscription$inboundSchema: z.ZodMiniType<
       "checkout_id": "checkoutId",
       "customer_cancellation_reason": "customerCancellationReason",
       "customer_cancellation_comment": "customerCancellationComment",
+      "pending_update": "pendingUpdate",
     });
   }),
 );

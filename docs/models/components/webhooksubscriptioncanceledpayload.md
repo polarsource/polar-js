@@ -225,6 +225,14 @@ let value: WebhookSubscriptionCanceledPayload = {
         },
       },
     ],
+    pendingUpdate: {
+      createdAt: new Date("2025-09-20T17:34:26.219Z"),
+      modifiedAt: new Date("2025-05-26T00:52:37.759Z"),
+      id: "<value>",
+      appliesAt: new Date("2025-07-13T01:01:57.978Z"),
+      productId: "<value>",
+      seats: 704811,
+    },
   },
 };
 ```

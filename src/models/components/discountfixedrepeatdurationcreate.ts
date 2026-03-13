@@ -40,10 +40,14 @@ export type DiscountFixedRepeatDurationCreate = {
   durationInMonths: number;
   type: DiscountType;
   /**
-   * Fixed amount to discount from the invoice total.
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
-  amount: number;
-  currency?: PresentmentCurrency | undefined;
+  amount?: number | null | undefined;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  currency?: PresentmentCurrency | null | undefined;
+  amounts?: { [k: string]: number } | null | undefined;
   /**
    * Key-value object allowing you to store additional information.
    *
@@ -117,8 +121,9 @@ export type DiscountFixedRepeatDurationCreate$Outbound = {
   duration: string;
   duration_in_months: number;
   type: string;
-  amount: number;
-  currency?: string | undefined;
+  amount?: number | null | undefined;
+  currency?: string | null | undefined;
+  amounts?: { [k: string]: number } | null | undefined;
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   name: string;
   code?: string | null | undefined;
@@ -138,8 +143,9 @@ export const DiscountFixedRepeatDurationCreate$outboundSchema: z.ZodMiniType<
     duration: DiscountDuration$outboundSchema,
     durationInMonths: z.int(),
     type: DiscountType$outboundSchema,
-    amount: z.int(),
-    currency: z.optional(PresentmentCurrency$outboundSchema),
+    amount: z.optional(z.nullable(z.int())),
+    currency: z.optional(z.nullable(PresentmentCurrency$outboundSchema)),
+    amounts: z.optional(z.nullable(z.record(z.string(), z.int()))),
     metadata: z.optional(
       z.record(
         z.string(),
