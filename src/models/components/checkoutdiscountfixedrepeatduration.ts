@@ -28,8 +28,18 @@ export type CheckoutDiscountFixedRepeatDuration = {
   duration: DiscountDuration;
   durationInMonths: number;
   type: DiscountType;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
   amount: number;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
   currency: string;
+  /**
+   * Map of currency to fixed amount to discount from the total.
+   */
+  amounts: { [k: string]: number };
   /**
    * The ID of the object.
    */
@@ -49,6 +59,7 @@ export const CheckoutDiscountFixedRepeatDuration$inboundSchema: z.ZodMiniType<
     type: DiscountType$inboundSchema,
     amount: z.int(),
     currency: z.string(),
+    amounts: z.record(z.string(), z.int()),
     id: z.string(),
     name: z.string(),
     code: z.nullable(z.string()),
@@ -66,6 +77,7 @@ export type CheckoutDiscountFixedRepeatDuration$Outbound = {
   type: string;
   amount: number;
   currency: string;
+  amounts: { [k: string]: number };
   id: string;
   name: string;
   code: string | null;
@@ -82,6 +94,7 @@ export const CheckoutDiscountFixedRepeatDuration$outboundSchema: z.ZodMiniType<
     type: DiscountType$outboundSchema,
     amount: z.int(),
     currency: z.string(),
+    amounts: z.record(z.string(), z.int()),
     id: z.string(),
     name: z.string(),
     code: z.nullable(z.string()),

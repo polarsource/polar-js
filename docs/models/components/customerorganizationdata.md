@@ -22,8 +22,8 @@ let value: CustomerOrganizationData = {
         show: false,
       },
       subscription: {
-        updateSeats: true,
-        updatePlan: false,
+        updateSeats: false,
+        updatePlan: true,
       },
     },
   },

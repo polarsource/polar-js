@@ -26,27 +26,27 @@ import {
 } from "./discountpercentagerepeatdurationcreate.js";
 
 export type DiscountCreate =
-  | DiscountFixedRepeatDurationCreate
   | DiscountPercentageRepeatDurationCreate
-  | DiscountFixedOnceForeverDurationCreate
-  | DiscountPercentageOnceForeverDurationCreate;
+  | DiscountFixedRepeatDurationCreate
+  | DiscountPercentageOnceForeverDurationCreate
+  | DiscountFixedOnceForeverDurationCreate;
 
 /** @internal */
 export type DiscountCreate$Outbound =
-  | DiscountFixedRepeatDurationCreate$Outbound
   | DiscountPercentageRepeatDurationCreate$Outbound
-  | DiscountFixedOnceForeverDurationCreate$Outbound
-  | DiscountPercentageOnceForeverDurationCreate$Outbound;
+  | DiscountFixedRepeatDurationCreate$Outbound
+  | DiscountPercentageOnceForeverDurationCreate$Outbound
+  | DiscountFixedOnceForeverDurationCreate$Outbound;
 
 /** @internal */
 export const DiscountCreate$outboundSchema: z.ZodMiniType<
   DiscountCreate$Outbound,
   DiscountCreate
 > = smartUnion([
-  DiscountFixedRepeatDurationCreate$outboundSchema,
   DiscountPercentageRepeatDurationCreate$outboundSchema,
-  DiscountFixedOnceForeverDurationCreate$outboundSchema,
+  DiscountFixedRepeatDurationCreate$outboundSchema,
   DiscountPercentageOnceForeverDurationCreate$outboundSchema,
+  DiscountFixedOnceForeverDurationCreate$outboundSchema,
 ]);
 
 export function discountCreateToJSON(discountCreate: DiscountCreate): string {

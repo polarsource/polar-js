@@ -60,8 +60,8 @@ let value: CustomerSubscription = {
           show: false,
         },
         subscription: {
-          updateSeats: true,
-          updatePlan: false,
+          updateSeats: false,
+          updatePlan: true,
         },
       },
     },
@@ -77,7 +77,7 @@ let value: CustomerSubscription = {
       isArchived: true,
       productId: "<value>",
       type: "recurring",
-      recurringInterval: "month",
+      recurringInterval: "week",
       minimumAmount: 366706,
       maximumAmount: 533387,
       presetAmount: 201639,
@@ -101,6 +101,14 @@ let value: CustomerSubscription = {
       },
     },
   ],
+  pendingUpdate: {
+    createdAt: new Date("2025-09-20T17:34:26.219Z"),
+    modifiedAt: new Date("2025-05-26T00:52:37.759Z"),
+    id: "<value>",
+    appliesAt: new Date("2025-07-13T01:01:57.978Z"),
+    productId: "<value>",
+    seats: 704811,
+  },
 };
 ```
 
@@ -135,3 +143,4 @@ let value: CustomerSubscription = {
 | `product`                                                                                                                                                                        | [components.CustomerSubscriptionProduct](../../models/components/customersubscriptionproduct.md)                                                                                 | :heavy_check_mark:                                                                                                                                                               | N/A                                                                                                                                                                              |                                                                                                                                                                                  |
 | `prices`                                                                                                                                                                         | *components.CustomerSubscriptionPrices*[]                                                                                                                                        | :heavy_check_mark:                                                                                                                                                               | List of enabled prices for the subscription.                                                                                                                                     |                                                                                                                                                                                  |
 | `meters`                                                                                                                                                                         | [components.CustomerSubscriptionMeter](../../models/components/customersubscriptionmeter.md)[]                                                                                   | :heavy_check_mark:                                                                                                                                                               | List of meters associated with the subscription.                                                                                                                                 |                                                                                                                                                                                  |
+| `pendingUpdate`                                                                                                                                                                  | [components.PendingSubscriptionUpdate](../../models/components/pendingsubscriptionupdate.md)                                                                                     | :heavy_check_mark:                                                                                                                                                               | Pending subscription update that will be applied at the beginning of the next period. If `null`, there is no pending update.                                                     |                                                                                                                                                                                  |

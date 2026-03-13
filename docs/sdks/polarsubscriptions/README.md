@@ -315,6 +315,7 @@ run();
 
 | Error Type                         | Status Code                        | Content Type                       |
 | ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| errors.PaymentFailed               | 402                                | application/json                   |
 | errors.AlreadyCanceledSubscription | 403                                | application/json                   |
 | errors.ResourceNotFound            | 404                                | application/json                   |
 | errors.HTTPValidationError         | 422                                | application/json                   |

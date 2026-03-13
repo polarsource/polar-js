@@ -220,6 +220,10 @@ let value: CheckoutPublicConfirmed = {
     type: "fixed",
     amount: 1000,
     currency: "usd",
+    amounts: {
+      "eur": 900,
+      "usd": 1000,
+    },
     id: "<value>",
     name: "<value>",
     code: "<value>",
@@ -231,7 +235,7 @@ let value: CheckoutPublicConfirmed = {
     name: "<value>",
     slug: "<value>",
     avatarUrl: "https://left-diver.org",
-    prorationBehavior: "invoice",
+    prorationBehavior: "prorate",
     allowCustomerUpdates: true,
   },
   attachedCustomFields: [

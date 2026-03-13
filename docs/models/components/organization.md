@@ -12,7 +12,7 @@ let value: Organization = {
   name: "<value>",
   slug: "<value>",
   avatarUrl: "https://weighty-goodwill.org/",
-  prorationBehavior: "prorate",
+  prorationBehavior: "next_period",
   allowCustomerUpdates: false,
   email: "Alaina8@yahoo.com",
   website: "<value>",
@@ -44,17 +44,19 @@ let value: Organization = {
     subscriptionCycled: false,
     subscriptionCycledAfterTrial: false,
     subscriptionPastDue: false,
-    subscriptionRevoked: false,
-    subscriptionUncanceled: true,
-    subscriptionUpdated: false,
+    subscriptionRenewalReminder: false,
+    subscriptionRevoked: true,
+    subscriptionTrialConversionReminder: false,
+    subscriptionUncanceled: false,
+    subscriptionUpdated: true,
   },
   customerPortalSettings: {
     usage: {
       show: false,
     },
     subscription: {
-      updateSeats: true,
-      updatePlan: false,
+      updateSeats: false,
+      updatePlan: true,
     },
   },
 };

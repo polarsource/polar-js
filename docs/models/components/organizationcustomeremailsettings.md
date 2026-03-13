@@ -12,22 +12,26 @@ let value: OrganizationCustomerEmailSettings = {
   subscriptionCycled: true,
   subscriptionCycledAfterTrial: true,
   subscriptionPastDue: true,
-  subscriptionRevoked: true,
-  subscriptionUncanceled: false,
-  subscriptionUpdated: true,
+  subscriptionRenewalReminder: true,
+  subscriptionRevoked: false,
+  subscriptionTrialConversionReminder: true,
+  subscriptionUncanceled: true,
+  subscriptionUpdated: false,
 };
 ```
 
 ## Fields
 
-| Field                          | Type                           | Required                       | Description                    |
-| ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ |
-| `orderConfirmation`            | *boolean*                      | :heavy_check_mark:             | N/A                            |
-| `subscriptionCancellation`     | *boolean*                      | :heavy_check_mark:             | N/A                            |
-| `subscriptionConfirmation`     | *boolean*                      | :heavy_check_mark:             | N/A                            |
-| `subscriptionCycled`           | *boolean*                      | :heavy_check_mark:             | N/A                            |
-| `subscriptionCycledAfterTrial` | *boolean*                      | :heavy_check_mark:             | N/A                            |
-| `subscriptionPastDue`          | *boolean*                      | :heavy_check_mark:             | N/A                            |
-| `subscriptionRevoked`          | *boolean*                      | :heavy_check_mark:             | N/A                            |
-| `subscriptionUncanceled`       | *boolean*                      | :heavy_check_mark:             | N/A                            |
-| `subscriptionUpdated`          | *boolean*                      | :heavy_check_mark:             | N/A                            |
+| Field                                 | Type                                  | Required                              | Description                           |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| `orderConfirmation`                   | *boolean*                             | :heavy_check_mark:                    | N/A                                   |
+| `subscriptionCancellation`            | *boolean*                             | :heavy_check_mark:                    | N/A                                   |
+| `subscriptionConfirmation`            | *boolean*                             | :heavy_check_mark:                    | N/A                                   |
+| `subscriptionCycled`                  | *boolean*                             | :heavy_check_mark:                    | N/A                                   |
+| `subscriptionCycledAfterTrial`        | *boolean*                             | :heavy_check_mark:                    | N/A                                   |
+| `subscriptionPastDue`                 | *boolean*                             | :heavy_check_mark:                    | N/A                                   |
+| `subscriptionRenewalReminder`         | *boolean*                             | :heavy_check_mark:                    | N/A                                   |
+| `subscriptionRevoked`                 | *boolean*                             | :heavy_check_mark:                    | N/A                                   |
+| `subscriptionTrialConversionReminder` | *boolean*                             | :heavy_check_mark:                    | N/A                                   |
+| `subscriptionUncanceled`              | *boolean*                             | :heavy_check_mark:                    | N/A                                   |
+| `subscriptionUpdated`                 | *boolean*                             | :heavy_check_mark:                    | N/A                                   |

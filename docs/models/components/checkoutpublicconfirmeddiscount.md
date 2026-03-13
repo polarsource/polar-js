@@ -11,6 +11,10 @@ const value: components.CheckoutDiscountFixedOnceForeverDuration = {
   type: "percentage",
   amount: 1000,
   currency: "usd",
+  amounts: {
+    "eur": 900,
+    "usd": 1000,
+  },
   id: "<value>",
   name: "<value>",
   code: "<value>",
@@ -26,6 +30,10 @@ const value: components.CheckoutDiscountFixedRepeatDuration = {
   type: "fixed",
   amount: 1000,
   currency: "usd",
+  amounts: {
+    "eur": 900,
+    "usd": 1000,
+  },
   id: "<value>",
   name: "<value>",
   code: "<value>",

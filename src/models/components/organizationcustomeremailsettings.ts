@@ -15,7 +15,9 @@ export type OrganizationCustomerEmailSettings = {
   subscriptionCycled: boolean;
   subscriptionCycledAfterTrial: boolean;
   subscriptionPastDue: boolean;
+  subscriptionRenewalReminder: boolean;
   subscriptionRevoked: boolean;
+  subscriptionTrialConversionReminder: boolean;
   subscriptionUncanceled: boolean;
   subscriptionUpdated: boolean;
 };
@@ -32,7 +34,9 @@ export const OrganizationCustomerEmailSettings$inboundSchema: z.ZodMiniType<
     subscription_cycled: z.boolean(),
     subscription_cycled_after_trial: z.boolean(),
     subscription_past_due: z.boolean(),
+    subscription_renewal_reminder: z.boolean(),
     subscription_revoked: z.boolean(),
+    subscription_trial_conversion_reminder: z.boolean(),
     subscription_uncanceled: z.boolean(),
     subscription_updated: z.boolean(),
   }),
@@ -44,7 +48,10 @@ export const OrganizationCustomerEmailSettings$inboundSchema: z.ZodMiniType<
       "subscription_cycled": "subscriptionCycled",
       "subscription_cycled_after_trial": "subscriptionCycledAfterTrial",
       "subscription_past_due": "subscriptionPastDue",
+      "subscription_renewal_reminder": "subscriptionRenewalReminder",
       "subscription_revoked": "subscriptionRevoked",
+      "subscription_trial_conversion_reminder":
+        "subscriptionTrialConversionReminder",
       "subscription_uncanceled": "subscriptionUncanceled",
       "subscription_updated": "subscriptionUpdated",
     });
@@ -58,7 +65,9 @@ export type OrganizationCustomerEmailSettings$Outbound = {
   subscription_cycled: boolean;
   subscription_cycled_after_trial: boolean;
   subscription_past_due: boolean;
+  subscription_renewal_reminder: boolean;
   subscription_revoked: boolean;
+  subscription_trial_conversion_reminder: boolean;
   subscription_uncanceled: boolean;
   subscription_updated: boolean;
 };
@@ -75,7 +84,9 @@ export const OrganizationCustomerEmailSettings$outboundSchema: z.ZodMiniType<
     subscriptionCycled: z.boolean(),
     subscriptionCycledAfterTrial: z.boolean(),
     subscriptionPastDue: z.boolean(),
+    subscriptionRenewalReminder: z.boolean(),
     subscriptionRevoked: z.boolean(),
+    subscriptionTrialConversionReminder: z.boolean(),
     subscriptionUncanceled: z.boolean(),
     subscriptionUpdated: z.boolean(),
   }),
@@ -87,7 +98,10 @@ export const OrganizationCustomerEmailSettings$outboundSchema: z.ZodMiniType<
       subscriptionCycled: "subscription_cycled",
       subscriptionCycledAfterTrial: "subscription_cycled_after_trial",
       subscriptionPastDue: "subscription_past_due",
+      subscriptionRenewalReminder: "subscription_renewal_reminder",
       subscriptionRevoked: "subscription_revoked",
+      subscriptionTrialConversionReminder:
+        "subscription_trial_conversion_reminder",
       subscriptionUncanceled: "subscription_uncanceled",
       subscriptionUpdated: "subscription_updated",
     });

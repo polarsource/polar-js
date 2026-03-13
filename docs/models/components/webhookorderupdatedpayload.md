@@ -97,6 +97,10 @@ let value: WebhookOrderUpdatedPayload = {
       type: "percentage",
       amount: 1000,
       currency: "usd",
+      amounts: {
+        "eur": 900,
+        "usd": 1000,
+      },
       createdAt: new Date("2024-04-24T03:43:50.210Z"),
       modifiedAt: new Date("2026-12-03T13:13:09.933Z"),
       id: "<value>",

@@ -13,5 +13,5 @@ let value: SubscriptionProrationBehavior = "invoice";
 ## Values
 
 ```typescript
-"invoice" | "prorate" | Unrecognized<string>
+"invoice" | "prorate" | "next_period" | Unrecognized<string>
 ```

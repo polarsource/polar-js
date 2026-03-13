@@ -50,6 +50,12 @@ import {
   MetadataOutputType$outboundSchema,
 } from "./metadataoutputtype.js";
 import {
+  PendingSubscriptionUpdate,
+  PendingSubscriptionUpdate$inboundSchema,
+  PendingSubscriptionUpdate$Outbound,
+  PendingSubscriptionUpdate$outboundSchema,
+} from "./pendingsubscriptionupdate.js";
+import {
   Product,
   Product$inboundSchema,
   Product$Outbound,
@@ -202,6 +208,10 @@ export type Subscription = {
    * List of meters associated with the subscription.
    */
   meters: Array<SubscriptionMeter>;
+  /**
+   * Pending subscription update that will be applied at the beginning of the next period. If `null`, there is no pending update.
+   */
+  pendingUpdate: PendingSubscriptionUpdate | null;
 };
 
 /** @internal */
@@ -414,6 +424,7 @@ export const Subscription$inboundSchema: z.ZodMiniType<Subscription, unknown> =
         ]),
       ),
       meters: z.array(SubscriptionMeter$inboundSchema),
+      pending_update: z.nullable(PendingSubscriptionUpdate$inboundSchema),
     }),
     z.transform((v) => {
       return remap$(v, {
@@ -437,6 +448,7 @@ export const Subscription$inboundSchema: z.ZodMiniType<Subscription, unknown> =
         "customer_cancellation_reason": "customerCancellationReason",
         "customer_cancellation_comment": "customerCancellationComment",
         "custom_field_data": "customFieldData",
+        "pending_update": "pendingUpdate",
       });
     }),
   );
@@ -480,6 +492,7 @@ export type Subscription$Outbound = {
     | null;
   prices: Array<LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound>;
   meters: Array<SubscriptionMeter$Outbound>;
+  pending_update: PendingSubscriptionUpdate$Outbound | null;
 };
 
 /** @internal */
@@ -545,6 +558,7 @@ export const Subscription$outboundSchema: z.ZodMiniType<
       ]),
     ),
     meters: z.array(SubscriptionMeter$outboundSchema),
+    pendingUpdate: z.nullable(PendingSubscriptionUpdate$outboundSchema),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -568,6 +582,7 @@ export const Subscription$outboundSchema: z.ZodMiniType<
       customerCancellationReason: "customer_cancellation_reason",
       customerCancellationComment: "customer_cancellation_comment",
       customFieldData: "custom_field_data",
+      pendingUpdate: "pending_update",
     });
   }),
 );

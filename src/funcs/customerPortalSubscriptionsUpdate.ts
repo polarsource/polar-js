@@ -30,6 +30,10 @@ import {
   HTTPValidationError,
   HTTPValidationError$inboundSchema,
 } from "../models/errors/httpvalidationerror.js";
+import {
+  PaymentFailed,
+  PaymentFailed$inboundSchema,
+} from "../models/errors/paymentfailed.js";
 import { PolarError } from "../models/errors/polarerror.js";
 import {
   ResourceNotFound,
@@ -59,6 +63,7 @@ export function customerPortalSubscriptionsUpdate(
 ): APIPromise<
   Result<
     CustomerSubscription,
+    | PaymentFailed
     | AlreadyCanceledSubscription
     | ResourceNotFound
     | HTTPValidationError
@@ -89,6 +94,7 @@ async function $do(
   [
     Result<
       CustomerSubscription,
+      | PaymentFailed
       | AlreadyCanceledSubscription
       | ResourceNotFound
       | HTTPValidationError
@@ -181,7 +187,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["403", "404", "422", "4XX", "5XX"],
+    errorCodes: ["402", "403", "404", "422", "4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -196,6 +202,7 @@ async function $do(
 
   const [result] = await M.match<
     CustomerSubscription,
+    | PaymentFailed
     | AlreadyCanceledSubscription
     | ResourceNotFound
     | HTTPValidationError
@@ -209,6 +216,7 @@ async function $do(
     | SDKValidationError
   >(
     M.json(200, CustomerSubscription$inboundSchema),
+    M.jsonErr(402, PaymentFailed$inboundSchema),
     M.jsonErr(403, AlreadyCanceledSubscription$inboundSchema),
     M.jsonErr(404, ResourceNotFound$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),

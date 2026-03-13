@@ -19,8 +19,8 @@ let value: CustomerOrganization = {
       show: false,
     },
     subscription: {
-      updateSeats: true,
-      updatePlan: false,
+      updateSeats: false,
+      updatePlan: true,
     },
   },
 };

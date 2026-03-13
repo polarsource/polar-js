@@ -9,6 +9,7 @@ import { OpenEnum } from "../../types/enums.js";
 export const SubscriptionProrationBehavior = {
   Invoice: "invoice",
   Prorate: "prorate",
+  NextPeriod: "next_period",
 } as const;
 export type SubscriptionProrationBehavior = OpenEnum<
   typeof SubscriptionProrationBehavior

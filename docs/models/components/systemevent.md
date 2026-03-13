@@ -650,7 +650,7 @@ const value: components.MeterCreditEvent = {
   name: "meter.credited",
   metadata: {
     meterId: "<id>",
-    units: 232955,
+    units: 329918,
     rollover: true,
   },
 };
@@ -1085,6 +1085,49 @@ const value: components.SubscriptionUncanceledEvent = {
     currency: "Rupiah",
     recurringInterval: "<value>",
     recurringIntervalCount: 383594,
+  },
+};
+```
+
+### `components.SubscriptionUpdatedEvent`
+
+```typescript
+const value: components.SubscriptionUpdatedEvent = {
+  id: "<value>",
+  timestamp: new Date("2026-12-14T12:28:45.732Z"),
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  customerId: "<value>",
+  customer: {
+    id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+    createdAt: new Date("2024-06-04T21:28:32.740Z"),
+    modifiedAt: new Date("2024-03-21T15:56:34.258Z"),
+    metadata: {
+      "key": "<value>",
+    },
+    externalId: "usr_1337",
+    email: "customer@example.com",
+    emailVerified: true,
+    type: "individual",
+    name: "John Doe",
+    billingAddress: {
+      country: "US",
+    },
+    taxId: [
+      "911144442",
+      "us_ein",
+    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    deletedAt: new Date("2026-09-04T17:38:48.600Z"),
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
+  },
+  externalCustomerId: "<id>",
+  label: "<value>",
+  source: "system",
+  name: "subscription.updated",
+  metadata: {
+    subscriptionId: "<id>",
+    productId: "<id>",
+    prorationBehavior: "prorate",
   },
 };
 ```
