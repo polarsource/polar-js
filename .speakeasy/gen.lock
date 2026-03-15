@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: 36806b140f8ccc419a54acefeffdf5d1
+  docChecksum: 37c181c90948495af5e7646b2a24eda7
   docVersion: 0.1.0
-  speakeasyVersion: 1.753.0
-  generationVersion: 2.862.0
-  releaseVersion: 0.46.4
-  configChecksum: f9f00625a42364102ec8be9765289b89
+  speakeasyVersion: 1.755.0
+  generationVersion: 2.865.2
+  releaseVersion: 0.46.5
+  configChecksum: 52f73b0c81049a1b8abfacf2eacba853
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
 persistentEdits:
-  generation_id: 6e8c86c3-3c31-40a3-b832-ef3d73f303f7
-  pristine_commit_hash: 341ad33eedf516fe7d8a957c70c462a7df9f4e15
-  pristine_tree_hash: 3b66a109939868852736c48021b42b2e2670a2e7
+  generation_id: 0622d680-3f41-42fc-9240-f1c31f269bfd
+  pristine_commit_hash: 9e2fb3e13630365dfa9011df500658b961833c05
+  pristine_tree_hash: a0d88cd3f88529f2f63551d807e6b70ec3c04f0f
 features:
   typescript:
     acceptHeaders: 2.81.2
@@ -2521,8 +2521,8 @@ trackedFiles:
     pristine_git_object: d0cc7cfc487c21dfeb6c938c9701d822c0dca663
   docs/models/components/presentmentcurrency.md:
     id: 05692c712fd7
-    last_write_checksum: sha1:bb9c36857e98c8d15c01239a1a8a9997884c1d80
-    pristine_git_object: f32977902298e576d4b7f4b80845bf6b5c0ebc82
+    last_write_checksum: sha1:ab11d2fba38de8588a2140b39f66aaedabdf71b2
+    pristine_git_object: e0e0096255c744783db99b4ed473acbfc10462b7
   docs/models/components/prices.md:
     id: 17a047033bc4
     last_write_checksum: sha1:f91bff3a5f71ec5924126df79ff7f883160f58fa
@@ -2593,8 +2593,8 @@ trackedFiles:
     pristine_git_object: 211bfa6c0dc01bbc1a4c80e0ae1dbc1df6ed267a
   docs/models/components/productpricefixedcreate.md:
     id: a5a6c5738ebd
-    last_write_checksum: sha1:7d965345a7fa05e21e6b956dd9b94c6f2e6bdc74
-    pristine_git_object: 39f2851f24f40304172c4f334da33fdf409d0bb7
+    last_write_checksum: sha1:a92dfc5733d3c241cab6f88fed52eae9a8482a51
+    pristine_git_object: 2d9dc66228729469e81d9725326befcdc0d27529
   docs/models/components/productpricefree.md:
     id: 510a3eeb79f1
     last_write_checksum: sha1:a14b2d82ca3e7f353f59147f041f875e2a9a4c74
@@ -2753,8 +2753,8 @@ trackedFiles:
     pristine_git_object: 7b5fd8cd9fd9143d3d86f2201c37da76b40fd2f2
   docs/models/components/seatassign.md:
     id: 07a9d70537a8
-    last_write_checksum: sha1:109eb0c9189446afa171f6d8c8ec0852b81e62ea
-    pristine_git_object: 421271b801d75f1ec5af3f37a4ab06123b5bdaa3
+    last_write_checksum: sha1:c46e9960e8d0bf82d1141fdda7bd57591f435cd3
+    pristine_git_object: cd46de08e539e7f5a68313219759339d5fed0646
   docs/models/components/seatclaim.md:
     id: 128f55531a0e
     last_write_checksum: sha1:d39e7f395c4396a30d9ac716fcb480925919a5da
@@ -4725,12 +4725,12 @@ trackedFiles:
     pristine_git_object: 81b74b46d6979f928ebe4b20753635ba6f9a3882
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:41600da5ea6389654da4697b5f26efdca4c96a5c
-    pristine_git_object: ca97afb3ac4d471a9333349be9a09bdc442599ff
+    last_write_checksum: sha1:abd47ae7a323b7e95f7a34a0a5c16602694bc3f7
+    pristine_git_object: 244269c65234db2d8c6045eb171040050b1d3f0a
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:f917ab9f9cd8fc20feed35af6977de306c5ae2bb
-    pristine_git_object: 110e49dc3a40b1aa6f9a4b411a1731e33a2a0368
+    last_write_checksum: sha1:75c29faa15cad3173aeff5e3352b6a97b2394547
+    pristine_git_object: 70b0ccf7a7701c4b92c9c1b4ef230b1bd5ae9cbd
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:6c0a3d0582afbdfea5d4052e704a9e0b6e29c273
@@ -5433,8 +5433,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:1c2f46d8ea4acb2e9e09b3aba0d7e45a9b621a61
-    pristine_git_object: 3bd65d53d393a13d06e81970852453d4eafd3003
+    last_write_checksum: sha1:09a343891b8f039ab6e452d1f668e40cf50990b0
+    pristine_git_object: 1d930ca8cdc8f45d4ccdc519b1e453ba698bf777
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
@@ -7193,8 +7193,8 @@ trackedFiles:
     pristine_git_object: 312502e4d4fb24ed5e96d8982004ec6f83b3ce49
   src/models/components/presentmentcurrency.ts:
     id: f1e9fa30e229
-    last_write_checksum: sha1:92ff213ea5883071c34ee6231cfb12354f66364e
-    pristine_git_object: 3940c842249e7a02df1384f16d7f732516a5062f
+    last_write_checksum: sha1:57282fc036fc31c36a8fcf9fd2ef96f792132848
+    pristine_git_object: 4f48cbf2f6f58d9e7dae1d42f43a2bec811c2f57
   src/models/components/product.ts:
     id: d3a4939b1094
     last_write_checksum: sha1:1d3f97a69b7b3298e0ca2ff5fa5dbaac2445d2ea
@@ -7245,8 +7245,8 @@ trackedFiles:
     pristine_git_object: 403d970471f82db9e919ec6d01b93dbf188fd613
   src/models/components/productpricefixedcreate.ts:
     id: e66ebb5488bd
-    last_write_checksum: sha1:638fd869fa6c8825010e6adb1e7ed874519950af
-    pristine_git_object: be294f9f184fa513657f549ebeb6d7af306d9f66
+    last_write_checksum: sha1:008e0944fa5472fbf710598334d61df4d2a3d135
+    pristine_git_object: afd6065e50da3643ac4c59d60852cf778aae05a2
   src/models/components/productpricefree.ts:
     id: 02c608e0bed5
     last_write_checksum: sha1:e6f38adf9f0977d67fc11114c587da7ab765b37d
@@ -7373,8 +7373,8 @@ trackedFiles:
     pristine_git_object: 11c282ec5b264f5d40bbc29619778ae3cc432864
   src/models/components/seatassign.ts:
     id: f1c44f675e1f
-    last_write_checksum: sha1:3534ce5d679a030644db012c63cfd1b32ae480d0
-    pristine_git_object: 63de458f6b6c72dc1752fb3cc6a6ea7ef94008bd
+    last_write_checksum: sha1:97efd7efa4b896a3338045bd7ac27a32cd14257e
+    pristine_git_object: aff401f2dc52ba316c368d8e3b956c72b60199f3
   src/models/components/seatclaim.ts:
     id: 3e828e45285e
     last_write_checksum: sha1:8d7d832a275709413dc3812c02cebc869ddc117a
@@ -11030,7 +11030,7 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Typescript SDK Changes:\n* `polar.events.list()`:  `response.union(ListResource_Event_).items[].union(SystemEvent).union(subscription.updated)` **Added** (Breaking ⚠️)\n* `polar.organizations.create()`: \n  *  `request` **Changed** (Breaking ⚠️)\n  *  `response` **Changed**\n* `polar.events.get()`:  `response.union(SystemEvent).union(subscription.updated)` **Added** (Breaking ⚠️)\n* `polar.organizations.update()`: \n  *  `request.organizationUpdate` **Changed** (Breaking ⚠️)\n  *  `response` **Changed**\n* `polar.checkoutLinks.create()`:  `response.discount` **Changed**\n* `polar.discounts.list()`:  `response.items[]` **Changed**\n* `polar.subscriptions.get()`:  `response` **Changed**\n* `polar.subscriptions.revoke()`:  `response` **Changed**\n* `polar.subscriptions.update()`: \n  *  `request.subscriptionUpdate.union(SubscriptionUpdateProduct).prorationBehavior.enum(nextPeriod)` **Added**\n  *  `response` **Changed**\n  *  `error.status[402]` **Added**\n* `polar.discounts.create()`: \n  *  `request` **Changed**\n  *  `response` **Changed**\n* `polar.orders.get()`:  `response.discount` **Changed**\n* `polar.orders.update()`:  `response.discount` **Changed**\n* `polar.checkouts.list()`:  `response.items[].discount` **Changed**\n* `polar.checkouts.create()`:  `response.discount` **Changed**\n* `polar.checkouts.get()`:  `response.discount` **Changed**\n* `polar.checkouts.update()`:  `response.discount` **Changed**\n* `polar.checkouts.clientGet()`:  `response` **Changed**\n* `polar.checkouts.clientUpdate()`:  `response` **Changed**\n* `polar.checkouts.clientConfirm()`:  `response` **Changed**\n* `polar.checkoutLinks.list()`:  `response.items[].discount` **Changed**\n* `polar.organizations.list()`:  `response.items[]` **Changed**\n* `polar.checkoutLinks.get()`:  `response.discount` **Changed**\n* `polar.subscriptions.create()`:  `response` **Changed**\n* `polar.checkoutLinks.update()`:  `response.discount` **Changed**\n* `polar.orders.list()`:  `response.items[].discount` **Changed**\n* `polar.discounts.get()`:  `response` **Changed**\n* `polar.discounts.update()`: \n  *  `request.discountUpdate.amounts` **Added**\n  *  `response` **Changed**\n* `polar.customerPortal.benefitGrants.list()`:  `response.items[].union(CustomerBenefitGrantDiscord).benefit.organization.prorationBehavior.enum(nextPeriod)` **Added**\n* `polar.customerPortal.benefitGrants.get()`:  `response.union(CustomerBenefitGrantGitHubRepository).benefit.organization.prorationBehavior.enum(nextPeriod)` **Added**\n* `polar.customerPortal.benefitGrants.update()`:  `response.union(CustomerBenefitGrantLicenseKeys).benefit.organization.prorationBehavior.enum(nextPeriod)` **Added**\n* `polar.customerPortal.seats.listClaimedSubscriptions()`:  `response.items[]` **Changed**\n* `polar.customerPortal.orders.list()`:  `response.items[].product.organization.prorationBehavior.enum(nextPeriod)` **Added**\n* `polar.customerPortal.orders.get()`:  `response.product.organization.prorationBehavior.enum(nextPeriod)` **Added**\n* `polar.customerPortal.orders.update()`:  `response.product.organization.prorationBehavior.enum(nextPeriod)` **Added**\n* `polar.customerPortal.organizations.get()`:  `response.organization.prorationBehavior.enum(nextPeriod)` **Added**\n* `polar.customerPortal.subscriptions.list()`:  `response.items[]` **Changed**\n* `polar.customerPortal.subscriptions.get()`:  `response` **Changed**\n* `polar.customerPortal.subscriptions.cancel()`:  `response` **Changed**\n* `polar.customerPortal.subscriptions.update()`: \n  *  `request.customerSubscriptionUpdate.union(CustomerSubscriptionUpdateSeats).prorationBehavior.enum(nextPeriod)` **Added**\n  *  `response` **Changed**\n  *  `error.status[402]` **Added**\n* `polar.subscriptions.list()`:  `response.items[]` **Changed**\n* `polar.organizations.get()`:  `response` **Changed**\n"
+releaseNotes: "## Typescript SDK Changes:\n* `polar.organizations.create()`: \n  *  `request.defaultPresentmentCurrency` **Changed**\n* `polar.organizations.update()`: \n  *  `request.organizationUpdate.defaultPresentmentCurrency` **Changed**\n* `polar.products.create()`: \n  *  `request.union(ProductCreateOneTime).prices[].union(metered_unit).priceCurrency` **Changed**\n* `polar.products.update()`: \n  *  `request.productUpdate.prices[].union(2).union(fixed).priceCurrency` **Changed**\n* `polar.checkouts.create()`: \n  *  `request.currency` **Changed**\n* `polar.checkouts.update()`: \n  *  `request.checkoutUpdate.currency` **Changed**\n* `polar.discounts.create()`: \n  *  `request.union(DiscountFixedRepeatDurationCreate).currency` **Changed**\n* `polar.discounts.update()`: \n  *  `request.discountUpdate.currency` **Changed**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
