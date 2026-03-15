@@ -31,11 +31,11 @@ export type SeatAssign = {
    */
   customerId?: string | null | undefined;
   /**
-   * External member ID for the seat assignment. Only supported when member_model_enabled is true. Can be used alone (lookup existing member) or with email (create/validate member).
+   * External member ID for the seat assignment. Can be used alone (lookup existing member) or with email (create/validate member).
    */
   externalMemberId?: string | null | undefined;
   /**
-   * Member ID for the seat assignment. Only supported when member_model_enabled is true.
+   * Member ID for the seat assignment.
    */
   memberId?: string | null | undefined;
   /**
