@@ -69,6 +69,7 @@ export class Events extends ClientSDK {
           name: eventOpts.name,
           externalId: eventOpts.externalId,
           parentId: eventOpts.parentId,
+          timestamp: eventOpts.timestamp,
           metadata,
           externalCustomerId: eventOpts.externalCustomerId,
         };
@@ -77,6 +78,7 @@ export class Events extends ClientSDK {
         name: eventOpts.name,
         externalId: eventOpts.externalId,
         parentId: eventOpts.parentId,
+        timestamp: eventOpts.timestamp,
         metadata,
         customerId: eventOpts.customerId!,
       };
@@ -97,12 +99,14 @@ export class Events extends ClientSDK {
       ? {
         name: options.name,
         externalId: options.externalId,
+        timestamp: options.timestamp,
         metadata: options.metadata,
         externalCustomerId: options.externalCustomerId,
       }
       : {
         name: options.name,
         externalId: options.externalId,
+        timestamp: options.timestamp,
         metadata: options.metadata,
         customerId: options.customerId!,
       };
@@ -121,6 +125,7 @@ export class Events extends ClientSDK {
               name: eventOpts.name,
               externalId: eventOpts.externalId,
               parentId,
+              timestamp: eventOpts.timestamp,
               metadata,
               externalCustomerId: options.externalCustomerId,
             };
@@ -129,6 +134,7 @@ export class Events extends ClientSDK {
             name: eventOpts.name,
             externalId: eventOpts.externalId,
             parentId,
+            timestamp: eventOpts.timestamp,
             metadata,
             customerId: options.customerId!,
           };
