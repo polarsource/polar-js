@@ -1,0 +1,93 @@
+# ListResourceCustomerBenefitGrant
+
+## Example Usage
+
+```typescript
+import { ListResourceCustomerBenefitGrant } from "@polar-sh/sdk/models/components/listresourcecustomerbenefitgrant.js";
+
+let value: ListResourceCustomerBenefitGrant = {
+  items: [
+    {
+      createdAt: new Date("2024-10-01T12:22:46.823Z"),
+      modifiedAt: new Date("2026-05-28T07:05:09.153Z"),
+      id: "<value>",
+      grantedAt: new Date("2026-03-02T17:39:16.099Z"),
+      revokedAt: null,
+      customerId: "<value>",
+      benefitId: "<value>",
+      subscriptionId: "<value>",
+      orderId: "<value>",
+      isGranted: false,
+      isRevoked: false,
+      customer: {
+        createdAt: new Date("2024-10-05T17:24:11.012Z"),
+        modifiedAt: new Date("2024-12-27T23:55:37.070Z"),
+        id: "<value>",
+        email: "Greg77@hotmail.com",
+        emailVerified: true,
+        name: "<value>",
+        billingName: null,
+        billingAddress: {
+          country: "US",
+        },
+        taxId: [
+          "911144442",
+          "us_ein",
+        ],
+        oauthAccounts: {
+          "key": {
+            accountId: "<id>",
+            accountUsername: "<value>",
+          },
+        },
+        type: "individual",
+      },
+      benefit: {
+        id: "<value>",
+        createdAt: new Date("2026-10-07T04:17:24.786Z"),
+        modifiedAt: new Date("2026-05-05T02:01:44.871Z"),
+        type: "license_keys",
+        description: "light indeed mmm scary import cricket wear mysteriously",
+        selectable: false,
+        deletable: false,
+        organizationId: "<value>",
+        metadata: {},
+        organization: {
+          createdAt: new Date("2024-02-09T14:46:30.040Z"),
+          modifiedAt: new Date("2025-07-28T16:12:54.009Z"),
+          id: "<value>",
+          name: "<value>",
+          slug: "<value>",
+          avatarUrl: "https://spotless-knight.com/",
+          prorationBehavior: "prorate",
+          allowCustomerUpdates: true,
+        },
+        properties: {
+          prefix: "<value>",
+          expires: {
+            ttl: 93452,
+            timeframe: "day",
+          },
+          activations: {
+            limit: 777902,
+            enableCustomerAdmin: true,
+          },
+          limitUsage: 977381,
+        },
+      },
+      properties: {},
+    },
+  ],
+  pagination: {
+    totalCount: 296266,
+    maxPage: 544155,
+  },
+};
+```
+
+## Fields
+
+| Field                                                          | Type                                                           | Required                                                       | Description                                                    |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| `items`                                                        | *components.CustomerBenefitGrant*[]                            | :heavy_check_mark:                                             | N/A                                                            |
+| `pagination`                                                   | [components.Pagination](../../models/components/pagination.md) | :heavy_check_mark:                                             | N/A                                                            |

@@ -1,0 +1,36 @@
+# CheckoutDiscountFixedOnceForeverDuration
+
+Schema for a fixed amount discount that is applied once or forever.
+
+## Example Usage
+
+```typescript
+import { CheckoutDiscountFixedOnceForeverDuration } from "@polar-sh/sdk/models/components/checkoutdiscountfixedonceforeverduration.js";
+
+let value: CheckoutDiscountFixedOnceForeverDuration = {
+  duration: "forever",
+  type: "percentage",
+  amount: 1000,
+  currency: "usd",
+  amounts: {
+    "eur": 900,
+    "usd": 1000,
+  },
+  id: "<value>",
+  name: "<value>",
+  code: "<value>",
+};
+```
+
+## Fields
+
+| Field                                                                                                                   | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             | Example                                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `duration`                                                                                                              | [components.DiscountDuration](../../models/components/discountduration.md)                                              | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |                                                                                                                         |
+| `type`                                                                                                                  | [components.DiscountType](../../models/components/discounttype.md)                                                      | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |                                                                                                                         |
+| ~~`amount`~~                                                                                                            | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible. | 1000                                                                                                                    |
+| ~~`currency`~~                                                                                                          | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible. | usd                                                                                                                     |
+| `amounts`                                                                                                               | Record<string, *number*>                                                                                                | :heavy_check_mark:                                                                                                      | Map of currency to fixed amount to discount from the total.                                                             | {<br/>"eur": 900,<br/>"usd": 1000<br/>}                                                                                 |
+| `id`                                                                                                                    | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | The ID of the object.                                                                                                   |                                                                                                                         |
+| `name`                                                                                                                  | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |                                                                                                                         |
+| `code`                                                                                                                  | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |                                                                                                                         |

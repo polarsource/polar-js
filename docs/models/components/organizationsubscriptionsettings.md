@@ -1,0 +1,25 @@
+# OrganizationSubscriptionSettings
+
+## Example Usage
+
+```typescript
+import { OrganizationSubscriptionSettings } from "@polar-sh/sdk/models/components/organizationsubscriptionsettings.js";
+
+let value: OrganizationSubscriptionSettings = {
+  allowMultipleSubscriptions: true,
+  allowCustomerUpdates: true,
+  prorationBehavior: "next_period",
+  benefitRevocationGracePeriod: 560557,
+  preventTrialAbuse: false,
+};
+```
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `allowMultipleSubscriptions`                                                                         | *boolean*                                                                                            | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `allowCustomerUpdates`                                                                               | *boolean*                                                                                            | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `prorationBehavior`                                                                                  | [components.SubscriptionProrationBehavior](../../models/components/subscriptionprorationbehavior.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `benefitRevocationGracePeriod`                                                                       | *number*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `preventTrialAbuse`                                                                                  | *boolean*                                                                                            | :heavy_check_mark:                                                                                   | N/A                                                                                                  |

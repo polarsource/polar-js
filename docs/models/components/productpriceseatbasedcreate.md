@@ -1,0 +1,24 @@
+# ProductPriceSeatBasedCreate
+
+Schema to create a seat-based price with volume-based tiers.
+
+## Example Usage
+
+```typescript
+import { ProductPriceSeatBasedCreate } from "@polar-sh/sdk/models/components/productpriceseatbasedcreate.js";
+
+let value: ProductPriceSeatBasedCreate = {
+  amountType: "seat_based",
+  seatTiers: {
+    tiers: [],
+  },
+};
+```
+
+## Fields
+
+| Field                                                                                                                                                                                                                | Type                                                                                                                                                                                                                 | Required                                                                                                                                                                                                             | Description                                                                                                                                                                                                          |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `amountType`                                                                                                                                                                                                         | *"seat_based"*                                                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                                                                   | N/A                                                                                                                                                                                                                  |
+| `priceCurrency`                                                                                                                                                                                                      | [components.PresentmentCurrency](../../models/components/presentmentcurrency.md)                                                                                                                                     | :heavy_minus_sign:                                                                                                                                                                                                   | N/A                                                                                                                                                                                                                  |
+| `seatTiers`                                                                                                                                                                                                          | [components.ProductPriceSeatTiersInput](../../models/components/productpriceseattiersinput.md)                                                                                                                       | :heavy_check_mark:                                                                                                                                                                                                   | List of pricing tiers for seat-based pricing.<br/><br/>The minimum and maximum seat limits are derived from the tiers:<br/>- minimum_seats = first tier's min_seats<br/>- maximum_seats = last tier's max_seats (None for unlimited) |

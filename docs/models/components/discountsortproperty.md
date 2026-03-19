@@ -1,0 +1,15 @@
+# DiscountSortProperty
+
+## Example Usage
+
+```typescript
+import { DiscountSortProperty } from "@polar-sh/sdk/models/components/discountsortproperty.js";
+
+let value: DiscountSortProperty = "-name";
+```
+
+## Values
+
+```typescript
+"created_at" | "-created_at" | "name" | "-name" | "code" | "-code" | "redemptions_count" | "-redemptions_count" | "ends_at" | "-ends_at"
+```
