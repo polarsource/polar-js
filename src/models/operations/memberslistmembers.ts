@@ -11,6 +11,10 @@ import {
   ListResourceMember$inboundSchema,
 } from "../components/listresourcemember.js";
 import {
+  MemberRole,
+  MemberRole$outboundSchema,
+} from "../components/memberrole.js";
+import {
   MemberSortProperty,
   MemberSortProperty$outboundSchema,
 } from "../components/membersortproperty.js";
@@ -25,6 +29,10 @@ export type MembersListMembersRequest = {
    * Filter by customer external ID.
    */
   externalCustomerId?: string | null | undefined;
+  /**
+   * Filter by member role.
+   */
+  role?: MemberRole | null | undefined;
   /**
    * Page number, defaults to 1.
    */
@@ -47,6 +55,7 @@ export type MembersListMembersResponse = {
 export type MembersListMembersRequest$Outbound = {
   customer_id?: string | null | undefined;
   external_customer_id?: string | null | undefined;
+  role?: string | null | undefined;
   page: number;
   limit: number;
   sorting?: Array<string> | null | undefined;
@@ -60,6 +69,7 @@ export const MembersListMembersRequest$outboundSchema: z.ZodMiniType<
   z.object({
     customerId: z.optional(z.nullable(z.string())),
     externalCustomerId: z.optional(z.nullable(z.string())),
+    role: z.optional(z.nullable(MemberRole$outboundSchema)),
     page: z._default(z.int(), 1),
     limit: z._default(z.int(), 10),
     sorting: z.optional(z.nullable(z.array(MemberSortProperty$outboundSchema))),

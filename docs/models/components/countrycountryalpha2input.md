@@ -1,11 +1,11 @@
-# CountryAlpha2Input
+# CountryCountryAlpha2Input
 
 ## Example Usage
 
 ```typescript
-import { CountryAlpha2Input } from "@polar-sh/sdk/models/components/organizationcreate.js";
+import { CountryCountryAlpha2Input } from "@polar-sh/sdk/models/components/organizationupdate.js";
 
-let value: CountryAlpha2Input = "CW";
+let value: CountryCountryAlpha2Input = "KE";
 ```
 
 ## Values

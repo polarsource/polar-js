@@ -6,7 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { ClosedEnum } from "../../types/enums.js";
 
-export const CountryAlpha2Input = {
+export const AddressInputCountryAlpha2Input = {
   Ad: "AD",
   Ae: "AE",
   Af: "AF",
@@ -252,7 +252,9 @@ export const CountryAlpha2Input = {
   Zm: "ZM",
   Zw: "ZW",
 } as const;
-export type CountryAlpha2Input = ClosedEnum<typeof CountryAlpha2Input>;
+export type AddressInputCountryAlpha2Input = ClosedEnum<
+  typeof AddressInputCountryAlpha2Input
+>;
 
 export type AddressInput = {
   line1?: string | null | undefined;
@@ -260,13 +262,13 @@ export type AddressInput = {
   postalCode?: string | null | undefined;
   city?: string | null | undefined;
   state?: string | null | undefined;
-  country: CountryAlpha2Input;
+  country: AddressInputCountryAlpha2Input;
 };
 
 /** @internal */
-export const CountryAlpha2Input$outboundSchema: z.ZodMiniEnum<
-  typeof CountryAlpha2Input
-> = z.enum(CountryAlpha2Input);
+export const AddressInputCountryAlpha2Input$outboundSchema: z.ZodMiniEnum<
+  typeof AddressInputCountryAlpha2Input
+> = z.enum(AddressInputCountryAlpha2Input);
 
 /** @internal */
 export type AddressInput$Outbound = {
@@ -289,7 +291,7 @@ export const AddressInput$outboundSchema: z.ZodMiniType<
     postalCode: z.optional(z.nullable(z.string())),
     city: z.optional(z.nullable(z.string())),
     state: z.optional(z.nullable(z.string())),
-    country: CountryAlpha2Input$outboundSchema,
+    country: AddressInputCountryAlpha2Input$outboundSchema,
   }),
   z.transform((v) => {
     return remap$(v, {

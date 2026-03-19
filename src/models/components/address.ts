@@ -10,7 +10,7 @@ import { OpenEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const CountryAlpha2 = {
+export const AddressCountryAlpha2 = {
   Ad: "AD",
   Ae: "AE",
   Af: "AF",
@@ -261,7 +261,7 @@ export const CountryAlpha2 = {
   Zm: "ZM",
   Zw: "ZW",
 } as const;
-export type CountryAlpha2 = OpenEnum<typeof CountryAlpha2>;
+export type AddressCountryAlpha2 = OpenEnum<typeof AddressCountryAlpha2>;
 
 export type Address = {
   line1?: string | null | undefined;
@@ -269,19 +269,19 @@ export type Address = {
   postalCode?: string | null | undefined;
   city?: string | null | undefined;
   state?: string | null | undefined;
-  country: CountryAlpha2;
+  country: AddressCountryAlpha2;
 };
 
 /** @internal */
-export const CountryAlpha2$inboundSchema: z.ZodMiniType<
-  CountryAlpha2,
+export const AddressCountryAlpha2$inboundSchema: z.ZodMiniType<
+  AddressCountryAlpha2,
   unknown
-> = openEnums.inboundSchema(CountryAlpha2);
+> = openEnums.inboundSchema(AddressCountryAlpha2);
 /** @internal */
-export const CountryAlpha2$outboundSchema: z.ZodMiniType<
+export const AddressCountryAlpha2$outboundSchema: z.ZodMiniType<
   string,
-  CountryAlpha2
-> = openEnums.outboundSchema(CountryAlpha2);
+  AddressCountryAlpha2
+> = openEnums.outboundSchema(AddressCountryAlpha2);
 
 /** @internal */
 export const Address$inboundSchema: z.ZodMiniType<Address, unknown> = z.pipe(
@@ -291,7 +291,7 @@ export const Address$inboundSchema: z.ZodMiniType<Address, unknown> = z.pipe(
     postal_code: z.optional(z.nullable(z.string())),
     city: z.optional(z.nullable(z.string())),
     state: z.optional(z.nullable(z.string())),
-    country: CountryAlpha2$inboundSchema,
+    country: AddressCountryAlpha2$inboundSchema,
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -318,7 +318,7 @@ export const Address$outboundSchema: z.ZodMiniType<Address$Outbound, Address> =
       postalCode: z.optional(z.nullable(z.string())),
       city: z.optional(z.nullable(z.string())),
       state: z.optional(z.nullable(z.string())),
-      country: CountryAlpha2$outboundSchema,
+      country: AddressCountryAlpha2$outboundSchema,
     }),
     z.transform((v) => {
       return remap$(v, {
