@@ -119,6 +119,7 @@ async function $do(
     "external_customer_id": payload.external_customer_id,
     "limit": payload.limit,
     "page": payload.page,
+    "role": payload.role,
     "sorting": payload.sorting,
   });
 

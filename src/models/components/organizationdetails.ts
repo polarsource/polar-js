@@ -19,7 +19,7 @@ export type OrganizationDetails = {
   /**
    * Brief information about you and your business.
    */
-  about: string;
+  about?: string | null | undefined;
   /**
    * Description of digital products being sold.
    */
@@ -27,15 +27,15 @@ export type OrganizationDetails = {
   /**
    * How the organization will integrate and use Polar.
    */
-  intendedUse: string;
+  intendedUse?: string | null | undefined;
   /**
    * Main customer acquisition channels.
    */
-  customerAcquisition: Array<string>;
+  customerAcquisition?: Array<string> | undefined;
   /**
    * Estimated revenue in the next 12 months
    */
-  futureAnnualRevenue: number;
+  futureAnnualRevenue?: number | undefined;
   /**
    * Switching from another platform?
    */
@@ -56,10 +56,10 @@ export const SwitchingFrom$outboundSchema: z.ZodMiniEnum<typeof SwitchingFrom> =
 
 /** @internal */
 export type OrganizationDetails$Outbound = {
-  about: string;
+  about?: string | null | undefined;
   product_description: string;
-  intended_use: string;
-  customer_acquisition: Array<string>;
+  intended_use?: string | null | undefined;
+  customer_acquisition?: Array<string> | undefined;
   future_annual_revenue: number;
   switching: boolean;
   switching_from?: string | null | undefined;
@@ -72,11 +72,11 @@ export const OrganizationDetails$outboundSchema: z.ZodMiniType<
   OrganizationDetails
 > = z.pipe(
   z.object({
-    about: z.string(),
+    about: z.optional(z.nullable(z.string())),
     productDescription: z.string(),
-    intendedUse: z.string(),
-    customerAcquisition: z.array(z.string()),
-    futureAnnualRevenue: z.int(),
+    intendedUse: z.optional(z.nullable(z.string())),
+    customerAcquisition: z.optional(z.array(z.string())),
+    futureAnnualRevenue: z._default(z.int(), 0),
     switching: z._default(z.boolean(), true),
     switchingFrom: z.optional(z.nullable(SwitchingFrom$outboundSchema)),
     previousAnnualRevenue: z._default(z.int(), 0),

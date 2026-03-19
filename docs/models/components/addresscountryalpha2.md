@@ -1,11 +1,11 @@
-# CountryAlpha2
+# AddressCountryAlpha2
 
 ## Example Usage
 
 ```typescript
-import { CountryAlpha2 } from "@polar-sh/sdk/models/components/organization.js";
+import { AddressCountryAlpha2 } from "@polar-sh/sdk/models/components/address.js";
 
-let value: CountryAlpha2 = "LA";
+let value: AddressCountryAlpha2 = "US";
 
 // Open enum: unrecognized values are captured as Unrecognized<string>
 ```
