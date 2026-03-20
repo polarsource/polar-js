@@ -135,10 +135,6 @@ export type CheckoutPublic = {
    */
   maxSeats?: number | null | undefined;
   /**
-   * Price per seat in cents for the current seat count, based on the applicable tier. Only relevant for seat-based pricing.
-   */
-  pricePerSeat?: number | null | undefined;
-  /**
    * Discount amount in cents.
    */
   discountAmount: number;
@@ -395,7 +391,6 @@ export const CheckoutPublic$inboundSchema: z.ZodMiniType<
     seats: z.optional(z.nullable(z.int())),
     min_seats: z.optional(z.nullable(z.int())),
     max_seats: z.optional(z.nullable(z.int())),
-    price_per_seat: z.optional(z.nullable(z.int())),
     discount_amount: z.int(),
     net_amount: z.int(),
     tax_amount: z.nullable(z.int()),
@@ -474,7 +469,6 @@ export const CheckoutPublic$inboundSchema: z.ZodMiniType<
       "embed_origin": "embedOrigin",
       "min_seats": "minSeats",
       "max_seats": "maxSeats",
-      "price_per_seat": "pricePerSeat",
       "discount_amount": "discountAmount",
       "net_amount": "netAmount",
       "tax_amount": "taxAmount",

@@ -169,10 +169,6 @@ export type Checkout = {
    */
   maxSeats?: number | null | undefined;
   /**
-   * Price per seat in cents for the current seat count, based on the applicable tier. Only relevant for seat-based pricing.
-   */
-  pricePerSeat?: number | null | undefined;
-  /**
    * Discount amount in cents.
    */
   discountAmount: number;
@@ -555,7 +551,6 @@ export const Checkout$inboundSchema: z.ZodMiniType<Checkout, unknown> = z.pipe(
     seats: z.optional(z.nullable(z.int())),
     min_seats: z.optional(z.nullable(z.int())),
     max_seats: z.optional(z.nullable(z.int())),
-    price_per_seat: z.optional(z.nullable(z.int())),
     discount_amount: z.int(),
     net_amount: z.int(),
     tax_amount: z.nullable(z.int()),
@@ -642,7 +637,6 @@ export const Checkout$inboundSchema: z.ZodMiniType<Checkout, unknown> = z.pipe(
       "embed_origin": "embedOrigin",
       "min_seats": "minSeats",
       "max_seats": "maxSeats",
-      "price_per_seat": "pricePerSeat",
       "discount_amount": "discountAmount",
       "net_amount": "netAmount",
       "tax_amount": "taxAmount",
@@ -702,7 +696,6 @@ export type Checkout$Outbound = {
   seats?: number | null | undefined;
   min_seats?: number | null | undefined;
   max_seats?: number | null | undefined;
-  price_per_seat?: number | null | undefined;
   discount_amount: number;
   net_amount: number;
   tax_amount: number | null;
@@ -794,7 +787,6 @@ export const Checkout$outboundSchema: z.ZodMiniType<
     seats: z.optional(z.nullable(z.int())),
     minSeats: z.optional(z.nullable(z.int())),
     maxSeats: z.optional(z.nullable(z.int())),
-    pricePerSeat: z.optional(z.nullable(z.int())),
     discountAmount: z.int(),
     netAmount: z.int(),
     taxAmount: z.nullable(z.int()),
@@ -879,7 +871,6 @@ export const Checkout$outboundSchema: z.ZodMiniType<
       embedOrigin: "embed_origin",
       minSeats: "min_seats",
       maxSeats: "max_seats",
-      pricePerSeat: "price_per_seat",
       discountAmount: "discount_amount",
       netAmount: "net_amount",
       taxAmount: "tax_amount",

@@ -13,6 +13,11 @@ import {
   ProductPriceSeatTier$Outbound,
   ProductPriceSeatTier$outboundSchema,
 } from "./productpriceseattier.js";
+import {
+  SeatTierType,
+  SeatTierType$inboundSchema,
+  SeatTierType$outboundSchema,
+} from "./seattiertype.js";
 
 /**
  * List of pricing tiers for seat-based pricing.
@@ -24,6 +29,7 @@ import {
  * - maximum_seats = last tier's max_seats (None for unlimited)
  */
 export type ProductPriceSeatTiersOutput = {
+  seatTierType?: SeatTierType | undefined;
   /**
    * List of pricing tiers
    */
@@ -44,12 +50,14 @@ export const ProductPriceSeatTiersOutput$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
+    seat_tier_type: z.optional(SeatTierType$inboundSchema),
     tiers: z.array(ProductPriceSeatTier$inboundSchema),
     minimum_seats: z.int(),
     maximum_seats: z.nullable(z.int()),
   }),
   z.transform((v) => {
     return remap$(v, {
+      "seat_tier_type": "seatTierType",
       "minimum_seats": "minimumSeats",
       "maximum_seats": "maximumSeats",
     });
@@ -57,6 +65,7 @@ export const ProductPriceSeatTiersOutput$inboundSchema: z.ZodMiniType<
 );
 /** @internal */
 export type ProductPriceSeatTiersOutput$Outbound = {
+  seat_tier_type?: string | undefined;
   tiers: Array<ProductPriceSeatTier$Outbound>;
   minimum_seats: number;
   maximum_seats: number | null;
@@ -68,12 +77,14 @@ export const ProductPriceSeatTiersOutput$outboundSchema: z.ZodMiniType<
   ProductPriceSeatTiersOutput
 > = z.pipe(
   z.object({
+    seatTierType: z.optional(SeatTierType$outboundSchema),
     tiers: z.array(ProductPriceSeatTier$outboundSchema),
     minimumSeats: z.int(),
     maximumSeats: z.nullable(z.int()),
   }),
   z.transform((v) => {
     return remap$(v, {
+      seatTierType: "seat_tier_type",
       minimumSeats: "minimum_seats",
       maximumSeats: "maximum_seats",
     });
