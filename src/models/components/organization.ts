@@ -353,7 +353,7 @@ export type Organization = {
   socials: Array<OrganizationSocialLink>;
   status: OrganizationStatus;
   /**
-   * When the business details were submitted.
+   * When the business details were submitted for review.
    */
   detailsSubmittedAt: Date | null;
   /**

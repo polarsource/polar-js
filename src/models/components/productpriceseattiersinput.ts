@@ -3,11 +3,13 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
 import {
   ProductPriceSeatTier,
   ProductPriceSeatTier$Outbound,
   ProductPriceSeatTier$outboundSchema,
 } from "./productpriceseattier.js";
+import { SeatTierType, SeatTierType$outboundSchema } from "./seattiertype.js";
 
 /**
  * List of pricing tiers for seat-based pricing.
@@ -19,6 +21,7 @@ import {
  * - maximum_seats = last tier's max_seats (None for unlimited)
  */
 export type ProductPriceSeatTiersInput = {
+  seatTierType?: SeatTierType | undefined;
   /**
    * List of pricing tiers
    */
@@ -27,6 +30,7 @@ export type ProductPriceSeatTiersInput = {
 
 /** @internal */
 export type ProductPriceSeatTiersInput$Outbound = {
+  seat_tier_type?: string | undefined;
   tiers: Array<ProductPriceSeatTier$Outbound>;
 };
 
@@ -34,9 +38,17 @@ export type ProductPriceSeatTiersInput$Outbound = {
 export const ProductPriceSeatTiersInput$outboundSchema: z.ZodMiniType<
   ProductPriceSeatTiersInput$Outbound,
   ProductPriceSeatTiersInput
-> = z.object({
-  tiers: z.array(ProductPriceSeatTier$outboundSchema),
-});
+> = z.pipe(
+  z.object({
+    seatTierType: z.optional(SeatTierType$outboundSchema),
+    tiers: z.array(ProductPriceSeatTier$outboundSchema),
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      seatTierType: "seat_tier_type",
+    });
+  }),
+);
 
 export function productPriceSeatTiersInputToJSON(
   productPriceSeatTiersInput: ProductPriceSeatTiersInput,

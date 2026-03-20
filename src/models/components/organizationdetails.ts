@@ -18,24 +18,40 @@ export type SwitchingFrom = ClosedEnum<typeof SwitchingFrom>;
 export type OrganizationDetails = {
   /**
    * Brief information about you and your business.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   about?: string | null | undefined;
   /**
    * Description of digital products being sold.
    */
-  productDescription: string;
+  productDescription?: string | null | undefined;
+  /**
+   * Categories of products being sold.
+   */
+  sellingCategories?: Array<string> | undefined;
+  /**
+   * Pricing models used by the organization.
+   */
+  pricingModels?: Array<string> | undefined;
   /**
    * How the organization will integrate and use Polar.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   intendedUse?: string | null | undefined;
   /**
    * Main customer acquisition channels.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   customerAcquisition?: Array<string> | undefined;
   /**
    * Estimated revenue in the next 12 months
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
-  futureAnnualRevenue?: number | undefined;
+  futureAnnualRevenue?: number | null | undefined;
   /**
    * Switching from another platform?
    */
@@ -46,8 +62,10 @@ export type OrganizationDetails = {
   switchingFrom?: SwitchingFrom | null | undefined;
   /**
    * Revenue from last year if applicable.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
-  previousAnnualRevenue?: number | undefined;
+  previousAnnualRevenue?: number | null | undefined;
 };
 
 /** @internal */
@@ -57,13 +75,15 @@ export const SwitchingFrom$outboundSchema: z.ZodMiniEnum<typeof SwitchingFrom> =
 /** @internal */
 export type OrganizationDetails$Outbound = {
   about?: string | null | undefined;
-  product_description: string;
+  product_description?: string | null | undefined;
+  selling_categories?: Array<string> | undefined;
+  pricing_models?: Array<string> | undefined;
   intended_use?: string | null | undefined;
   customer_acquisition?: Array<string> | undefined;
-  future_annual_revenue: number;
+  future_annual_revenue?: number | null | undefined;
   switching: boolean;
   switching_from?: string | null | undefined;
-  previous_annual_revenue: number;
+  previous_annual_revenue?: number | null | undefined;
 };
 
 /** @internal */
@@ -73,17 +93,21 @@ export const OrganizationDetails$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     about: z.optional(z.nullable(z.string())),
-    productDescription: z.string(),
+    productDescription: z.optional(z.nullable(z.string())),
+    sellingCategories: z.optional(z.array(z.string())),
+    pricingModels: z.optional(z.array(z.string())),
     intendedUse: z.optional(z.nullable(z.string())),
     customerAcquisition: z.optional(z.array(z.string())),
-    futureAnnualRevenue: z._default(z.int(), 0),
-    switching: z._default(z.boolean(), true),
+    futureAnnualRevenue: z.optional(z.nullable(z.int())),
+    switching: z._default(z.boolean(), false),
     switchingFrom: z.optional(z.nullable(SwitchingFrom$outboundSchema)),
-    previousAnnualRevenue: z._default(z.int(), 0),
+    previousAnnualRevenue: z.optional(z.nullable(z.int())),
   }),
   z.transform((v) => {
     return remap$(v, {
       productDescription: "product_description",
+      sellingCategories: "selling_categories",
+      pricingModels: "pricing_models",
       intendedUse: "intended_use",
       customerAcquisition: "customer_acquisition",
       futureAnnualRevenue: "future_annual_revenue",
