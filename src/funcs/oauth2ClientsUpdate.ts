@@ -104,7 +104,6 @@ async function $do(
       charEncoding: "percent",
     }),
   };
-
   const path = pathToFunc("/v1/oauth2/register/{client_id}")(pathParams);
 
   const headers = new Headers(compactMap({

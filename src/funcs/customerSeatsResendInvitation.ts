@@ -106,7 +106,6 @@ async function $do(
       charEncoding: "percent",
     }),
   };
-
   const path = pathToFunc("/v1/customer-seats/{seat_id}/resend")(pathParams);
 
   const headers = new Headers(compactMap({

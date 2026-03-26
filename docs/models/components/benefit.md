@@ -65,10 +65,12 @@ const value: components.BenefitDownloadables = {
   },
   properties: {
     archived: {
-      "key": true,
-      "key1": true,
+      "key": false,
     },
-    files: [],
+    files: [
+      "<value 1>",
+      "<value 2>",
+    ],
   },
 };
 ```

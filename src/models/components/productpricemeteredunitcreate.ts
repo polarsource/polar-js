@@ -9,6 +9,10 @@ import {
   PresentmentCurrency,
   PresentmentCurrency$outboundSchema,
 } from "./presentmentcurrency.js";
+import {
+  TaxBehaviorOption,
+  TaxBehaviorOption$outboundSchema,
+} from "./taxbehavioroption.js";
 
 /**
  * The price per unit in cents. Supports up to 12 decimal places.
@@ -21,6 +25,10 @@ export type UnitAmount = number | string;
 export type ProductPriceMeteredUnitCreate = {
   amountType: "metered_unit";
   priceCurrency?: PresentmentCurrency | undefined;
+  /**
+   * The tax behavior of the price. If not set, it will default to the organization's default tax behavior.
+   */
+  taxBehavior?: TaxBehaviorOption | null | undefined;
   /**
    * The ID of the meter associated to the price.
    */
@@ -52,6 +60,7 @@ export function unitAmountToJSON(unitAmount: UnitAmount): string {
 export type ProductPriceMeteredUnitCreate$Outbound = {
   amount_type: "metered_unit";
   price_currency?: string | undefined;
+  tax_behavior?: string | null | undefined;
   meter_id: string;
   unit_amount: number | string;
   cap_amount?: number | null | undefined;
@@ -65,6 +74,7 @@ export const ProductPriceMeteredUnitCreate$outboundSchema: z.ZodMiniType<
   z.object({
     amountType: z.literal("metered_unit"),
     priceCurrency: z.optional(PresentmentCurrency$outboundSchema),
+    taxBehavior: z.optional(z.nullable(TaxBehaviorOption$outboundSchema)),
     meterId: z.string(),
     unitAmount: smartUnion([z.number(), z.string()]),
     capAmount: z.optional(z.nullable(z.int())),
@@ -73,6 +83,7 @@ export const ProductPriceMeteredUnitCreate$outboundSchema: z.ZodMiniType<
     return remap$(v, {
       amountType: "amount_type",
       priceCurrency: "price_currency",
+      taxBehavior: "tax_behavior",
       meterId: "meter_id",
       unitAmount: "unit_amount",
       capAmount: "cap_amount",

@@ -13,6 +13,10 @@ import {
   ProductPriceSeatTiersInput$Outbound,
   ProductPriceSeatTiersInput$outboundSchema,
 } from "./productpriceseattiersinput.js";
+import {
+  TaxBehaviorOption,
+  TaxBehaviorOption$outboundSchema,
+} from "./taxbehavioroption.js";
 
 /**
  * Schema to create a seat-based price with volume-based tiers.
@@ -20,6 +24,10 @@ import {
 export type ProductPriceSeatBasedCreate = {
   amountType: "seat_based";
   priceCurrency?: PresentmentCurrency | undefined;
+  /**
+   * The tax behavior of the price. If not set, it will default to the organization's default tax behavior.
+   */
+  taxBehavior?: TaxBehaviorOption | null | undefined;
   /**
    * List of pricing tiers for seat-based pricing.
    *
@@ -36,6 +44,7 @@ export type ProductPriceSeatBasedCreate = {
 export type ProductPriceSeatBasedCreate$Outbound = {
   amount_type: "seat_based";
   price_currency?: string | undefined;
+  tax_behavior?: string | null | undefined;
   seat_tiers: ProductPriceSeatTiersInput$Outbound;
 };
 
@@ -47,12 +56,14 @@ export const ProductPriceSeatBasedCreate$outboundSchema: z.ZodMiniType<
   z.object({
     amountType: z.literal("seat_based"),
     priceCurrency: z.optional(PresentmentCurrency$outboundSchema),
+    taxBehavior: z.optional(z.nullable(TaxBehaviorOption$outboundSchema)),
     seatTiers: ProductPriceSeatTiersInput$outboundSchema,
   }),
   z.transform((v) => {
     return remap$(v, {
       amountType: "amount_type",
       priceCurrency: "price_currency",
+      taxBehavior: "tax_behavior",
       seatTiers: "seat_tiers",
     });
   }),

@@ -118,7 +118,6 @@ async function $do(
       charEncoding: "percent",
     }),
   };
-
   const path = pathToFunc("/v1/customer-portal/benefit-grants/{id}")(
     pathParams,
   );

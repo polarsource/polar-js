@@ -10,7 +10,7 @@ let value: OrganizationCustomerPortalSettings = {
     show: false,
   },
   subscription: {
-    updateSeats: false,
+    updateSeats: true,
     updatePlan: true,
   },
 };

@@ -16,11 +16,12 @@ let value: LegacyRecurringProductPriceFixed = {
   source: "ad_hoc",
   amountType: "fixed",
   priceCurrency: "<value>",
+  taxBehavior: "inclusive",
   isArchived: false,
   productId: "<value>",
   type: "recurring",
-  recurringInterval: "month",
-  priceAmount: 905396,
+  recurringInterval: "day",
+  priceAmount: 37176,
   legacy: true,
 };
 ```
@@ -35,6 +36,7 @@ let value: LegacyRecurringProductPriceFixed = {
 | `source`                                                                                             | [components.ProductPriceSource](../../models/components/productpricesource.md)                       | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `amountType`                                                                                         | *"fixed"*                                                                                            | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `priceCurrency`                                                                                      | *string*                                                                                             | :heavy_check_mark:                                                                                   | The currency in which the customer will be charged.                                                  |
+| `taxBehavior`                                                                                        | [components.TaxBehaviorOption](../../models/components/taxbehavioroption.md)                         | :heavy_check_mark:                                                                                   | The tax behavior of the price. If null, it defaults to the organization's default tax behavior.      |
 | `isArchived`                                                                                         | *boolean*                                                                                            | :heavy_check_mark:                                                                                   | Whether the price is archived and no longer available.                                               |
 | `productId`                                                                                          | *string*                                                                                             | :heavy_check_mark:                                                                                   | The ID of the product owning the price.                                                              |
 | `type`                                                                                               | *"recurring"*                                                                                        | :heavy_check_mark:                                                                                   | The type of the price.                                                                               |

@@ -54,6 +54,10 @@ import {
   PresentmentCurrency,
   PresentmentCurrency$outboundSchema,
 } from "./presentmentcurrency.js";
+import {
+  TaxBehaviorOption,
+  TaxBehaviorOption$outboundSchema,
+} from "./taxbehavioroption.js";
 
 export type LegalEntity =
   | OrganizationCompanyLegalEntitySchema
@@ -345,6 +349,7 @@ export type OrganizationCreate = {
     | null
     | undefined;
   defaultPresentmentCurrency?: PresentmentCurrency | undefined;
+  defaultTaxBehavior?: TaxBehaviorOption | undefined;
 };
 
 /** @internal */
@@ -403,6 +408,7 @@ export type OrganizationCreate$Outbound = {
     | null
     | undefined;
   default_presentment_currency?: string | undefined;
+  default_tax_behavior?: string | undefined;
 };
 
 /** @internal */
@@ -445,6 +451,7 @@ export const OrganizationCreate$outboundSchema: z.ZodMiniType<
       z.nullable(OrganizationCustomerPortalSettings$outboundSchema),
     ),
     defaultPresentmentCurrency: z.optional(PresentmentCurrency$outboundSchema),
+    defaultTaxBehavior: z.optional(TaxBehaviorOption$outboundSchema),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -456,6 +463,7 @@ export const OrganizationCreate$outboundSchema: z.ZodMiniType<
       customerEmailSettings: "customer_email_settings",
       customerPortalSettings: "customer_portal_settings",
       defaultPresentmentCurrency: "default_presentment_currency",
+      defaultTaxBehavior: "default_tax_behavior",
     });
   }),
 );

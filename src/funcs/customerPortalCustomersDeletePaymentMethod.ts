@@ -121,7 +121,6 @@ async function $do(
       charEncoding: "percent",
     }),
   };
-
   const path = pathToFunc(
     "/v1/customer-portal/customers/me/payment-methods/{id}",
   )(pathParams);

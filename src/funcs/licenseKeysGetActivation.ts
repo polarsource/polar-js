@@ -123,7 +123,6 @@ async function $do(
       charEncoding: "percent",
     }),
   };
-
   const path = pathToFunc("/v1/license-keys/{id}/activations/{activation_id}")(
     pathParams,
   );

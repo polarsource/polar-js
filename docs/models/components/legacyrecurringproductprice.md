@@ -13,13 +13,14 @@ const value: components.LegacyRecurringProductPriceCustom = {
   source: "catalog",
   amountType: "custom",
   priceCurrency: "<value>",
+  taxBehavior: null,
   isArchived: true,
   productId: "<value>",
   type: "recurring",
   recurringInterval: "day",
-  minimumAmount: 96295,
-  maximumAmount: 385918,
-  presetAmount: 774449,
+  minimumAmount: 218083,
+  maximumAmount: 545728,
+  presetAmount: 786,
   legacy: true,
 };
 ```
@@ -34,11 +35,12 @@ const value: components.LegacyRecurringProductPriceFixed = {
   source: "ad_hoc",
   amountType: "fixed",
   priceCurrency: "<value>",
+  taxBehavior: "inclusive",
   isArchived: false,
   productId: "<value>",
   type: "recurring",
-  recurringInterval: "month",
-  priceAmount: 905396,
+  recurringInterval: "day",
+  priceAmount: 37176,
   legacy: true,
 };
 ```
@@ -53,10 +55,11 @@ const value: components.LegacyRecurringProductPriceFree = {
   source: "catalog",
   amountType: "free",
   priceCurrency: "<value>",
+  taxBehavior: "location",
   isArchived: false,
   productId: "<value>",
   type: "recurring",
-  recurringInterval: "week",
+  recurringInterval: "year",
   legacy: true,
 };
 ```

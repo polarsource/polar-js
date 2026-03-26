@@ -8,6 +8,10 @@ import {
   PresentmentCurrency,
   PresentmentCurrency$outboundSchema,
 } from "./presentmentcurrency.js";
+import {
+  TaxBehaviorOption,
+  TaxBehaviorOption$outboundSchema,
+} from "./taxbehavioroption.js";
 
 /**
  * Schema to create a fixed price.
@@ -15,6 +19,10 @@ import {
 export type ProductPriceFixedCreate = {
   amountType: "fixed";
   priceCurrency?: PresentmentCurrency | undefined;
+  /**
+   * The tax behavior of the price. If not set, it will default to the organization's default tax behavior.
+   */
+  taxBehavior?: TaxBehaviorOption | null | undefined;
   /**
    * The price in cents.
    *
@@ -59,6 +67,7 @@ export type ProductPriceFixedCreate = {
 export type ProductPriceFixedCreate$Outbound = {
   amount_type: "fixed";
   price_currency?: string | undefined;
+  tax_behavior?: string | null | undefined;
   price_amount: number;
 };
 
@@ -70,12 +79,14 @@ export const ProductPriceFixedCreate$outboundSchema: z.ZodMiniType<
   z.object({
     amountType: z.literal("fixed"),
     priceCurrency: z.optional(PresentmentCurrency$outboundSchema),
+    taxBehavior: z.optional(z.nullable(TaxBehaviorOption$outboundSchema)),
     priceAmount: z.int(),
   }),
   z.transform((v) => {
     return remap$(v, {
       amountType: "amount_type",
       priceCurrency: "price_currency",
+      taxBehavior: "tax_behavior",
       priceAmount: "price_amount",
     });
   }),

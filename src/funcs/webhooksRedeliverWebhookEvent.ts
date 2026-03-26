@@ -110,7 +110,6 @@ async function $do(
       charEncoding: "percent",
     }),
   };
-
   const path = pathToFunc("/v1/webhooks/events/{id}/redeliver")(pathParams);
 
   const headers = new Headers(compactMap({

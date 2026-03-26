@@ -18,6 +18,11 @@ import {
   ProductPriceSource$inboundSchema,
   ProductPriceSource$outboundSchema,
 } from "./productpricesource.js";
+import {
+  TaxBehaviorOption,
+  TaxBehaviorOption$inboundSchema,
+  TaxBehaviorOption$outboundSchema,
+} from "./taxbehavioroption.js";
 
 /**
  * A seat-based price for a product.
@@ -41,6 +46,10 @@ export type ProductPriceSeatBased = {
    * The currency in which the customer will be charged.
    */
   priceCurrency: string;
+  /**
+   * The tax behavior of the price. If null, it defaults to the organization's default tax behavior.
+   */
+  taxBehavior: TaxBehaviorOption | null;
   /**
    * Whether the price is archived and no longer available.
    */
@@ -78,6 +87,7 @@ export const ProductPriceSeatBased$inboundSchema: z.ZodMiniType<
     source: ProductPriceSource$inboundSchema,
     amount_type: z.literal("seat_based"),
     price_currency: z.string(),
+    tax_behavior: z.nullable(TaxBehaviorOption$inboundSchema),
     is_archived: z.boolean(),
     product_id: z.string(),
     seat_tiers: ProductPriceSeatTiersOutput$inboundSchema,
@@ -88,6 +98,7 @@ export const ProductPriceSeatBased$inboundSchema: z.ZodMiniType<
       "modified_at": "modifiedAt",
       "amount_type": "amountType",
       "price_currency": "priceCurrency",
+      "tax_behavior": "taxBehavior",
       "is_archived": "isArchived",
       "product_id": "productId",
       "seat_tiers": "seatTiers",
@@ -102,6 +113,7 @@ export type ProductPriceSeatBased$Outbound = {
   source: string;
   amount_type: "seat_based";
   price_currency: string;
+  tax_behavior: string | null;
   is_archived: boolean;
   product_id: string;
   seat_tiers: ProductPriceSeatTiersOutput$Outbound;
@@ -119,6 +131,7 @@ export const ProductPriceSeatBased$outboundSchema: z.ZodMiniType<
     source: ProductPriceSource$outboundSchema,
     amountType: z.literal("seat_based"),
     priceCurrency: z.string(),
+    taxBehavior: z.nullable(TaxBehaviorOption$outboundSchema),
     isArchived: z.boolean(),
     productId: z.string(),
     seatTiers: ProductPriceSeatTiersOutput$outboundSchema,
@@ -129,6 +142,7 @@ export const ProductPriceSeatBased$outboundSchema: z.ZodMiniType<
       modifiedAt: "modified_at",
       amountType: "amount_type",
       priceCurrency: "price_currency",
+      taxBehavior: "tax_behavior",
       isArchived: "is_archived",
       productId: "product_id",
       seatTiers: "seat_tiers",
