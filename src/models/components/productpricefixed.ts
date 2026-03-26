@@ -12,6 +12,11 @@ import {
   ProductPriceSource$inboundSchema,
   ProductPriceSource$outboundSchema,
 } from "./productpricesource.js";
+import {
+  TaxBehaviorOption,
+  TaxBehaviorOption$inboundSchema,
+  TaxBehaviorOption$outboundSchema,
+} from "./taxbehavioroption.js";
 
 /**
  * A fixed price for a product.
@@ -35,6 +40,10 @@ export type ProductPriceFixed = {
    * The currency in which the customer will be charged.
    */
   priceCurrency: string;
+  /**
+   * The tax behavior of the price. If null, it defaults to the organization's default tax behavior.
+   */
+  taxBehavior: TaxBehaviorOption | null;
   /**
    * Whether the price is archived and no longer available.
    */
@@ -66,6 +75,7 @@ export const ProductPriceFixed$inboundSchema: z.ZodMiniType<
     source: ProductPriceSource$inboundSchema,
     amount_type: z.literal("fixed"),
     price_currency: z.string(),
+    tax_behavior: z.nullable(TaxBehaviorOption$inboundSchema),
     is_archived: z.boolean(),
     product_id: z.string(),
     price_amount: z.int(),
@@ -76,6 +86,7 @@ export const ProductPriceFixed$inboundSchema: z.ZodMiniType<
       "modified_at": "modifiedAt",
       "amount_type": "amountType",
       "price_currency": "priceCurrency",
+      "tax_behavior": "taxBehavior",
       "is_archived": "isArchived",
       "product_id": "productId",
       "price_amount": "priceAmount",
@@ -90,6 +101,7 @@ export type ProductPriceFixed$Outbound = {
   source: string;
   amount_type: "fixed";
   price_currency: string;
+  tax_behavior: string | null;
   is_archived: boolean;
   product_id: string;
   price_amount: number;
@@ -107,6 +119,7 @@ export const ProductPriceFixed$outboundSchema: z.ZodMiniType<
     source: ProductPriceSource$outboundSchema,
     amountType: z.literal("fixed"),
     priceCurrency: z.string(),
+    taxBehavior: z.nullable(TaxBehaviorOption$outboundSchema),
     isArchived: z.boolean(),
     productId: z.string(),
     priceAmount: z.int(),
@@ -117,6 +130,7 @@ export const ProductPriceFixed$outboundSchema: z.ZodMiniType<
       modifiedAt: "modified_at",
       amountType: "amount_type",
       priceCurrency: "price_currency",
+      taxBehavior: "tax_behavior",
       isArchived: "is_archived",
       productId: "product_id",
       priceAmount: "price_amount",

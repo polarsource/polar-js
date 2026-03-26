@@ -133,7 +133,6 @@ async function $do(
       charEncoding: "percent",
     }),
   };
-
   const path = pathToFunc("/v1/checkouts/client/{client_secret}/confirm")(
     pathParams,
   );

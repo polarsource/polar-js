@@ -22,7 +22,7 @@ let value: CustomerOrganizationData = {
         show: false,
       },
       subscription: {
-        updateSeats: false,
+        updateSeats: true,
         updatePlan: true,
       },
     },

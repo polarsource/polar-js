@@ -13,11 +13,12 @@ const value: components.ProductPriceCustom = {
   source: "ad_hoc",
   amountType: "custom",
   priceCurrency: "<value>",
+  taxBehavior: null,
   isArchived: true,
   productId: "<value>",
-  minimumAmount: 338033,
-  maximumAmount: 234201,
-  presetAmount: 770732,
+  minimumAmount: 867213,
+  maximumAmount: 508827,
+  presetAmount: 793062,
 };
 ```
 
@@ -31,9 +32,10 @@ const value: components.ProductPriceFixed = {
   source: "catalog",
   amountType: "fixed",
   priceCurrency: "<value>",
+  taxBehavior: "inclusive",
   isArchived: false,
   productId: "<value>",
-  priceAmount: 416058,
+  priceAmount: 286494,
 };
 ```
 
@@ -47,6 +49,7 @@ const value: components.ProductPriceFree = {
   source: "ad_hoc",
   amountType: "free",
   priceCurrency: "<value>",
+  taxBehavior: "exclusive",
   isArchived: false,
   productId: "<value>",
 };
@@ -62,10 +65,11 @@ const value: components.ProductPriceMeteredUnit = {
   source: "ad_hoc",
   amountType: "metered_unit",
   priceCurrency: "<value>",
+  taxBehavior: "exclusive",
   isArchived: false,
   productId: "<value>",
   unitAmount: "<value>",
-  capAmount: 734968,
+  capAmount: 700651,
   meterId: "<value>",
   meter: {
     id: "<value>",
@@ -84,17 +88,18 @@ const value: components.ProductPriceSeatBased = {
   source: "catalog",
   amountType: "seat_based",
   priceCurrency: "<value>",
+  taxBehavior: "inclusive",
   isArchived: false,
   productId: "<value>",
   seatTiers: {
     tiers: [
       {
-        minSeats: 675666,
-        pricePerSeat: 558084,
+        minSeats: 922152,
+        pricePerSeat: 415895,
       },
     ],
-    minimumSeats: 922152,
-    maximumSeats: 164973,
+    minimumSeats: 164973,
+    maximumSeats: 735578,
   },
 };
 ```

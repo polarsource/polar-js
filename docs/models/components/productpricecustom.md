@@ -14,11 +14,12 @@ let value: ProductPriceCustom = {
   source: "ad_hoc",
   amountType: "custom",
   priceCurrency: "<value>",
+  taxBehavior: null,
   isArchived: true,
   productId: "<value>",
-  minimumAmount: 338033,
-  maximumAmount: 234201,
-  presetAmount: 770732,
+  minimumAmount: 867213,
+  maximumAmount: 508827,
+  presetAmount: 793062,
 };
 ```
 
@@ -32,6 +33,7 @@ let value: ProductPriceCustom = {
 | `source`                                                                                                       | [components.ProductPriceSource](../../models/components/productpricesource.md)                                 | :heavy_check_mark:                                                                                             | N/A                                                                                                            |
 | `amountType`                                                                                                   | *"custom"*                                                                                                     | :heavy_check_mark:                                                                                             | N/A                                                                                                            |
 | `priceCurrency`                                                                                                | *string*                                                                                                       | :heavy_check_mark:                                                                                             | The currency in which the customer will be charged.                                                            |
+| `taxBehavior`                                                                                                  | [components.TaxBehaviorOption](../../models/components/taxbehavioroption.md)                                   | :heavy_check_mark:                                                                                             | The tax behavior of the price. If null, it defaults to the organization's default tax behavior.                |
 | `isArchived`                                                                                                   | *boolean*                                                                                                      | :heavy_check_mark:                                                                                             | Whether the price is archived and no longer available.                                                         |
 | `productId`                                                                                                    | *string*                                                                                                       | :heavy_check_mark:                                                                                             | The ID of the product owning the price.                                                                        |
 | `minimumAmount`                                                                                                | *number*                                                                                                       | :heavy_check_mark:                                                                                             | The minimum amount the customer can pay. If 0, the price is 'free or pay what you want'. Defaults to 50 cents. |

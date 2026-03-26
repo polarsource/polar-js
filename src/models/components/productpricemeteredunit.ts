@@ -18,6 +18,11 @@ import {
   ProductPriceSource$inboundSchema,
   ProductPriceSource$outboundSchema,
 } from "./productpricesource.js";
+import {
+  TaxBehaviorOption,
+  TaxBehaviorOption$inboundSchema,
+  TaxBehaviorOption$outboundSchema,
+} from "./taxbehavioroption.js";
 
 /**
  * A metered, usage-based, price for a product, with a fixed unit price.
@@ -41,6 +46,10 @@ export type ProductPriceMeteredUnit = {
    * The currency in which the customer will be charged.
    */
   priceCurrency: string;
+  /**
+   * The tax behavior of the price. If null, it defaults to the organization's default tax behavior.
+   */
+  taxBehavior: TaxBehaviorOption | null;
   /**
    * Whether the price is archived and no longer available.
    */
@@ -84,6 +93,7 @@ export const ProductPriceMeteredUnit$inboundSchema: z.ZodMiniType<
     source: ProductPriceSource$inboundSchema,
     amount_type: z.literal("metered_unit"),
     price_currency: z.string(),
+    tax_behavior: z.nullable(TaxBehaviorOption$inboundSchema),
     is_archived: z.boolean(),
     product_id: z.string(),
     unit_amount: z.string(),
@@ -97,6 +107,7 @@ export const ProductPriceMeteredUnit$inboundSchema: z.ZodMiniType<
       "modified_at": "modifiedAt",
       "amount_type": "amountType",
       "price_currency": "priceCurrency",
+      "tax_behavior": "taxBehavior",
       "is_archived": "isArchived",
       "product_id": "productId",
       "unit_amount": "unitAmount",
@@ -113,6 +124,7 @@ export type ProductPriceMeteredUnit$Outbound = {
   source: string;
   amount_type: "metered_unit";
   price_currency: string;
+  tax_behavior: string | null;
   is_archived: boolean;
   product_id: string;
   unit_amount: string;
@@ -133,6 +145,7 @@ export const ProductPriceMeteredUnit$outboundSchema: z.ZodMiniType<
     source: ProductPriceSource$outboundSchema,
     amountType: z.literal("metered_unit"),
     priceCurrency: z.string(),
+    taxBehavior: z.nullable(TaxBehaviorOption$outboundSchema),
     isArchived: z.boolean(),
     productId: z.string(),
     unitAmount: z.string(),
@@ -146,6 +159,7 @@ export const ProductPriceMeteredUnit$outboundSchema: z.ZodMiniType<
       modifiedAt: "modified_at",
       amountType: "amount_type",
       priceCurrency: "price_currency",
+      taxBehavior: "tax_behavior",
       isArchived: "is_archived",
       productId: "product_id",
       unitAmount: "unit_amount",

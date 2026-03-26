@@ -17,6 +17,11 @@ import {
   SubscriptionRecurringInterval$inboundSchema,
   SubscriptionRecurringInterval$outboundSchema,
 } from "./subscriptionrecurringinterval.js";
+import {
+  TaxBehaviorOption,
+  TaxBehaviorOption$inboundSchema,
+  TaxBehaviorOption$outboundSchema,
+} from "./taxbehavioroption.js";
 
 /**
  * A free recurring price for a product, i.e. a subscription.
@@ -44,6 +49,10 @@ export type LegacyRecurringProductPriceFree = {
    * The currency in which the customer will be charged.
    */
   priceCurrency: string;
+  /**
+   * The tax behavior of the price. If null, it defaults to the organization's default tax behavior.
+   */
+  taxBehavior: TaxBehaviorOption | null;
   /**
    * Whether the price is archived and no longer available.
    */
@@ -77,6 +86,7 @@ export const LegacyRecurringProductPriceFree$inboundSchema: z.ZodMiniType<
     source: ProductPriceSource$inboundSchema,
     amount_type: z.literal("free"),
     price_currency: z.string(),
+    tax_behavior: z.nullable(TaxBehaviorOption$inboundSchema),
     is_archived: z.boolean(),
     product_id: z.string(),
     type: z.literal("recurring"),
@@ -89,6 +99,7 @@ export const LegacyRecurringProductPriceFree$inboundSchema: z.ZodMiniType<
       "modified_at": "modifiedAt",
       "amount_type": "amountType",
       "price_currency": "priceCurrency",
+      "tax_behavior": "taxBehavior",
       "is_archived": "isArchived",
       "product_id": "productId",
       "recurring_interval": "recurringInterval",
@@ -103,6 +114,7 @@ export type LegacyRecurringProductPriceFree$Outbound = {
   source: string;
   amount_type: "free";
   price_currency: string;
+  tax_behavior: string | null;
   is_archived: boolean;
   product_id: string;
   type: "recurring";
@@ -122,6 +134,7 @@ export const LegacyRecurringProductPriceFree$outboundSchema: z.ZodMiniType<
     source: ProductPriceSource$outboundSchema,
     amountType: z.literal("free"),
     priceCurrency: z.string(),
+    taxBehavior: z.nullable(TaxBehaviorOption$outboundSchema),
     isArchived: z.boolean(),
     productId: z.string(),
     type: z.literal("recurring"),
@@ -134,6 +147,7 @@ export const LegacyRecurringProductPriceFree$outboundSchema: z.ZodMiniType<
       modifiedAt: "modified_at",
       amountType: "amount_type",
       priceCurrency: "price_currency",
+      taxBehavior: "tax_behavior",
       isArchived: "is_archived",
       productId: "product_id",
       recurringInterval: "recurring_interval",

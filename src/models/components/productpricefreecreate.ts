@@ -8,6 +8,10 @@ import {
   PresentmentCurrency,
   PresentmentCurrency$outboundSchema,
 } from "./presentmentcurrency.js";
+import {
+  TaxBehaviorOption,
+  TaxBehaviorOption$outboundSchema,
+} from "./taxbehavioroption.js";
 
 /**
  * Schema to create a free price.
@@ -15,12 +19,17 @@ import {
 export type ProductPriceFreeCreate = {
   amountType: "free";
   priceCurrency?: PresentmentCurrency | undefined;
+  /**
+   * The tax behavior of the price. If not set, it will default to the organization's default tax behavior.
+   */
+  taxBehavior?: TaxBehaviorOption | null | undefined;
 };
 
 /** @internal */
 export type ProductPriceFreeCreate$Outbound = {
   amount_type: "free";
   price_currency?: string | undefined;
+  tax_behavior?: string | null | undefined;
 };
 
 /** @internal */
@@ -31,11 +40,13 @@ export const ProductPriceFreeCreate$outboundSchema: z.ZodMiniType<
   z.object({
     amountType: z.literal("free"),
     priceCurrency: z.optional(PresentmentCurrency$outboundSchema),
+    taxBehavior: z.optional(z.nullable(TaxBehaviorOption$outboundSchema)),
   }),
   z.transform((v) => {
     return remap$(v, {
       amountType: "amount_type",
       priceCurrency: "price_currency",
+      taxBehavior: "tax_behavior",
     });
   }),
 );

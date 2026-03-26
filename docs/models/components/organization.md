@@ -25,37 +25,38 @@ let value: Organization = {
   status: "active",
   detailsSubmittedAt: new Date("2024-08-01T14:19:41.512Z"),
   defaultPresentmentCurrency: "<value>",
+  defaultTaxBehavior: "exclusive",
   featureSettings: {},
   subscriptionSettings: {
-    allowMultipleSubscriptions: true,
-    allowCustomerUpdates: false,
+    allowMultipleSubscriptions: false,
+    allowCustomerUpdates: true,
     prorationBehavior: "invoice",
-    benefitRevocationGracePeriod: 288227,
-    preventTrialAbuse: false,
+    benefitRevocationGracePeriod: 730000,
+    preventTrialAbuse: true,
   },
   notificationSettings: {
-    newOrder: true,
-    newSubscription: false,
+    newOrder: false,
+    newSubscription: true,
   },
   customerEmailSettings: {
     orderConfirmation: true,
-    subscriptionCancellation: true,
+    subscriptionCancellation: false,
     subscriptionConfirmation: false,
     subscriptionCycled: false,
     subscriptionCycledAfterTrial: false,
     subscriptionPastDue: false,
-    subscriptionRenewalReminder: false,
-    subscriptionRevoked: true,
+    subscriptionRenewalReminder: true,
+    subscriptionRevoked: false,
     subscriptionTrialConversionReminder: false,
-    subscriptionUncanceled: false,
-    subscriptionUpdated: true,
+    subscriptionUncanceled: true,
+    subscriptionUpdated: false,
   },
   customerPortalSettings: {
     usage: {
       show: false,
     },
     subscription: {
-      updateSeats: false,
+      updateSeats: true,
       updatePlan: true,
     },
   },
@@ -80,6 +81,7 @@ let value: Organization = {
 | `status`                                                                                                                           | [components.OrganizationStatus](../../models/components/organizationstatus.md)                                                     | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |
 | `detailsSubmittedAt`                                                                                                               | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                      | :heavy_check_mark:                                                                                                                 | When the business details were submitted for review.                                                                               |
 | `defaultPresentmentCurrency`                                                                                                       | *string*                                                                                                                           | :heavy_check_mark:                                                                                                                 | Default presentment currency. Used as fallback in checkout and customer portal, if the customer's local currency is not available. |
+| `defaultTaxBehavior`                                                                                                               | [components.TaxBehaviorOption](../../models/components/taxbehavioroption.md)                                                       | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |
 | `featureSettings`                                                                                                                  | [components.OrganizationFeatureSettings](../../models/components/organizationfeaturesettings.md)                                   | :heavy_check_mark:                                                                                                                 | Organization feature settings                                                                                                      |
 | `subscriptionSettings`                                                                                                             | [components.OrganizationSubscriptionSettings](../../models/components/organizationsubscriptionsettings.md)                         | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |
 | `notificationSettings`                                                                                                             | [components.OrganizationNotificationSettings](../../models/components/organizationnotificationsettings.md)                         | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |

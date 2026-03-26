@@ -106,7 +106,6 @@ async function $do(
       charEncoding: "percent",
     }),
   };
-
   const path = pathToFunc("/v1/customer-portal/orders/{id}/invoice")(
     pathParams,
   );

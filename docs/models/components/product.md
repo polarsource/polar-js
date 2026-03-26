@@ -30,43 +30,63 @@ let value: Product = {
       source: "catalog",
       amountType: "seat_based",
       priceCurrency: "<value>",
+      taxBehavior: "exclusive",
       isArchived: true,
       productId: "<value>",
       seatTiers: {
         tiers: [
           {
-            minSeats: 675666,
-            pricePerSeat: 558084,
+            minSeats: 922152,
+            pricePerSeat: 415895,
           },
         ],
-        minimumSeats: 922152,
-        maximumSeats: 164973,
+        minimumSeats: 164973,
+        maximumSeats: 735578,
       },
     },
   ],
   benefits: [
     {
       id: "<value>",
-      createdAt: new Date("2026-09-26T10:37:01.387Z"),
-      modifiedAt: new Date("2026-01-09T18:16:10.566Z"),
-      type: "downloadables",
-      description:
-        "extremely relieve readily solder seagull weary smooth bore yet quaintly",
-      selectable: true,
+      createdAt: new Date("2026-01-09T18:16:10.566Z"),
+      modifiedAt: new Date("2026-01-13T18:10:25.062Z"),
+      type: "discord",
+      description: "whether regularly necessary",
+      selectable: false,
       deletable: false,
       organizationId: "<value>",
-      metadata: {},
+      metadata: {
+        "key": "<value>",
+      },
       properties: {
-        archived: {
-          "key": true,
-          "key1": true,
-        },
-        files: [],
+        guildId: "<id>",
+        roleId: "<id>",
+        kickMember: false,
+        guildToken: "<value>",
       },
     },
   ],
   medias: [],
-  attachedCustomFields: [],
+  attachedCustomFields: [
+    {
+      customFieldId: "<value>",
+      customField: {
+        createdAt: new Date("2026-07-16T19:04:19.230Z"),
+        modifiedAt: new Date("2025-02-05T20:03:25.495Z"),
+        id: "<value>",
+        metadata: {
+          "key": 6988.1,
+        },
+        type: "text",
+        slug: "<value>",
+        name: "<value>",
+        organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+        properties: {},
+      },
+      order: 235618,
+      required: true,
+    },
+  ],
 };
 ```
 

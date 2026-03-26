@@ -8,6 +8,10 @@ import {
   PresentmentCurrency,
   PresentmentCurrency$outboundSchema,
 } from "./presentmentcurrency.js";
+import {
+  TaxBehaviorOption,
+  TaxBehaviorOption$outboundSchema,
+} from "./taxbehavioroption.js";
 
 /**
  * Schema to create a pay-what-you-want price.
@@ -15,6 +19,10 @@ import {
 export type ProductPriceCustomCreate = {
   amountType: "custom";
   priceCurrency?: PresentmentCurrency | undefined;
+  /**
+   * The tax behavior of the price. If not set, it will default to the organization's default tax behavior.
+   */
+  taxBehavior?: TaxBehaviorOption | null | undefined;
   /**
    * The minimum amount the customer can pay. If set to 0, the price is 'free or pay what you want' and $0 is accepted. If set to a value between 1-49, it will be rejected. Defaults to 50 cents.
    */
@@ -33,6 +41,7 @@ export type ProductPriceCustomCreate = {
 export type ProductPriceCustomCreate$Outbound = {
   amount_type: "custom";
   price_currency?: string | undefined;
+  tax_behavior?: string | null | undefined;
   minimum_amount: number;
   maximum_amount?: number | null | undefined;
   preset_amount?: number | null | undefined;
@@ -46,6 +55,7 @@ export const ProductPriceCustomCreate$outboundSchema: z.ZodMiniType<
   z.object({
     amountType: z.literal("custom"),
     priceCurrency: z.optional(PresentmentCurrency$outboundSchema),
+    taxBehavior: z.optional(z.nullable(TaxBehaviorOption$outboundSchema)),
     minimumAmount: z._default(z.int(), 50),
     maximumAmount: z.optional(z.nullable(z.int())),
     presetAmount: z.optional(z.nullable(z.int())),
@@ -54,6 +64,7 @@ export const ProductPriceCustomCreate$outboundSchema: z.ZodMiniType<
     return remap$(v, {
       amountType: "amount_type",
       priceCurrency: "price_currency",
+      taxBehavior: "tax_behavior",
       minimumAmount: "minimum_amount",
       maximumAmount: "maximum_amount",
       presetAmount: "preset_amount",

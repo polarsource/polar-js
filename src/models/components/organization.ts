@@ -55,6 +55,11 @@ import {
   SubscriptionProrationBehavior$inboundSchema,
   SubscriptionProrationBehavior$outboundSchema,
 } from "./subscriptionprorationbehavior.js";
+import {
+  TaxBehaviorOption,
+  TaxBehaviorOption$inboundSchema,
+  TaxBehaviorOption$outboundSchema,
+} from "./taxbehavioroption.js";
 
 export const CountryAlpha2 = {
   Ad: "AD",
@@ -360,6 +365,7 @@ export type Organization = {
    * Default presentment currency. Used as fallback in checkout and customer portal, if the customer's local currency is not available.
    */
   defaultPresentmentCurrency: string;
+  defaultTaxBehavior: TaxBehaviorOption;
   /**
    * Organization feature settings
    */
@@ -410,6 +416,7 @@ export const Organization$inboundSchema: z.ZodMiniType<Organization, unknown> =
         z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
       ),
       default_presentment_currency: z.string(),
+      default_tax_behavior: TaxBehaviorOption$inboundSchema,
       feature_settings: z.nullable(OrganizationFeatureSettings$inboundSchema),
       subscription_settings: OrganizationSubscriptionSettings$inboundSchema,
       notification_settings: OrganizationNotificationSettings$inboundSchema,
@@ -427,6 +434,7 @@ export const Organization$inboundSchema: z.ZodMiniType<Organization, unknown> =
         "allow_customer_updates": "allowCustomerUpdates",
         "details_submitted_at": "detailsSubmittedAt",
         "default_presentment_currency": "defaultPresentmentCurrency",
+        "default_tax_behavior": "defaultTaxBehavior",
         "feature_settings": "featureSettings",
         "subscription_settings": "subscriptionSettings",
         "notification_settings": "notificationSettings",
@@ -451,6 +459,7 @@ export type Organization$Outbound = {
   status: string;
   details_submitted_at: string | null;
   default_presentment_currency: string;
+  default_tax_behavior: string;
   feature_settings: OrganizationFeatureSettings$Outbound | null;
   subscription_settings: OrganizationSubscriptionSettings$Outbound;
   notification_settings: OrganizationNotificationSettings$Outbound;
@@ -481,6 +490,7 @@ export const Organization$outboundSchema: z.ZodMiniType<
       z.pipe(z.date(), z.transform(v => v.toISOString())),
     ),
     defaultPresentmentCurrency: z.string(),
+    defaultTaxBehavior: TaxBehaviorOption$outboundSchema,
     featureSettings: z.nullable(OrganizationFeatureSettings$outboundSchema),
     subscriptionSettings: OrganizationSubscriptionSettings$outboundSchema,
     notificationSettings: OrganizationNotificationSettings$outboundSchema,
@@ -497,6 +507,7 @@ export const Organization$outboundSchema: z.ZodMiniType<
       allowCustomerUpdates: "allow_customer_updates",
       detailsSubmittedAt: "details_submitted_at",
       defaultPresentmentCurrency: "default_presentment_currency",
+      defaultTaxBehavior: "default_tax_behavior",
       featureSettings: "feature_settings",
       subscriptionSettings: "subscription_settings",
       notificationSettings: "notification_settings",
