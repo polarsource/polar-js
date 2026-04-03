@@ -1,4 +1,4 @@
-# CustomerTaxId
+# CustomerTeamTaxId
 
 
 ## Supported Types

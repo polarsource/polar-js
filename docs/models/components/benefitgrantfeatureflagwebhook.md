@@ -17,15 +17,13 @@ let value: BenefitGrantFeatureFlagWebhook = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-06-04T21:28:32.740Z"),
-    modifiedAt: new Date("2024-03-21T15:56:34.258Z"),
+    createdAt: new Date("2024-12-20T15:22:06.971Z"),
+    modifiedAt: new Date("2026-12-09T05:39:29.991Z"),
     metadata: {
-      "key": "<value>",
+      "key": 655761,
     },
-    externalId: "usr_1337",
-    email: "customer@example.com",
     emailVerified: true,
-    type: "individual",
+    type: "team",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -35,29 +33,31 @@ let value: BenefitGrantFeatureFlagWebhook = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2026-09-04T17:38:48.600Z"),
+    deletedAt: new Date("2026-10-31T23:00:34.339Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   member: {
     id: "<value>",
-    createdAt: new Date("2026-04-15T16:04:23.824Z"),
-    modifiedAt: new Date("2025-04-16T17:12:33.507Z"),
+    createdAt: new Date("2024-08-29T23:41:53.521Z"),
+    modifiedAt: new Date("2024-05-20T19:39:16.494Z"),
     customerId: "<value>",
     email: "member@example.com",
     name: "Jane Doe",
     externalId: "usr_1337",
-    role: "member",
+    role: "billing_manager",
   },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2024-12-20T15:22:06.971Z"),
-    modifiedAt: new Date("2026-12-09T05:39:29.991Z"),
+    createdAt: new Date("2025-11-03T12:51:50.168Z"),
+    modifiedAt: new Date("2026-03-21T04:27:51.216Z"),
     type: "feature_flag",
-    description: "obedience impure chubby fooey via welcome forgather",
+    description: "outgoing upright avow pinion excitedly gripping",
     selectable: true,
     deletable: false,
     organizationId: "<value>",
-    metadata: {},
+    metadata: {
+      "key": true,
+    },
     properties: {},
   },
   properties: {},
@@ -81,7 +81,7 @@ let value: BenefitGrantFeatureFlagWebhook = {
 | `memberId`                                                                                                                             | *string*                                                                                                                               | :heavy_minus_sign:                                                                                                                     | The ID of the member concerned by this grant.                                                                                          |
 | `benefitId`                                                                                                                            | *string*                                                                                                                               | :heavy_check_mark:                                                                                                                     | The ID of the benefit concerned by this grant.                                                                                         |
 | `error`                                                                                                                                | [components.BenefitGrantError](../../models/components/benefitgranterror.md)                                                           | :heavy_minus_sign:                                                                                                                     | The error information if the benefit grant failed with an unrecoverable error.                                                         |
-| `customer`                                                                                                                             | [components.Customer](../../models/components/customer.md)                                                                             | :heavy_check_mark:                                                                                                                     | A customer in an organization.                                                                                                         |
+| `customer`                                                                                                                             | *components.Customer*                                                                                                                  | :heavy_check_mark:                                                                                                                     | N/A                                                                                                                                    |
 | `member`                                                                                                                               | [components.Member](../../models/components/member.md)                                                                                 | :heavy_minus_sign:                                                                                                                     | N/A                                                                                                                                    |
 | `benefit`                                                                                                                              | [components.BenefitFeatureFlag](../../models/components/benefitfeatureflag.md)                                                         | :heavy_check_mark:                                                                                                                     | A benefit of type `feature_flag`.<br/><br/>Use it to grant feature flags with key-value metadata<br/>that can be queried via the API and webhooks. |
 | `properties`                                                                                                                           | [components.BenefitGrantFeatureFlagProperties](../../models/components/benefitgrantfeatureflagproperties.md)                           | :heavy_check_mark:                                                                                                                     | N/A                                                                                                                                    |

@@ -39,15 +39,12 @@ export type LicenseKeyCustomer = {
   /**
    * The email address of the customer. This must be unique within the organization.
    */
-  email: string;
+  email?: string | null | undefined;
   /**
    * Whether the customer email address is verified. The address is automatically verified when the customer accesses the customer portal using their email address.
    */
   emailVerified: boolean;
-  /**
-   * The type of customer: 'individual' for single users, 'team' for customers with multiple members. Legacy customers may have NULL type which is treated as 'individual'.
-   */
-  type?: CustomerType | null | undefined;
+  type: CustomerType;
   /**
    * The name of the customer.
    */
@@ -98,9 +95,9 @@ export const LicenseKeyCustomer$inboundSchema: z.ZodMiniType<
     ),
     metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
     external_id: z.optional(z.nullable(z.string())),
-    email: z.string(),
+    email: z.optional(z.nullable(z.string())),
     email_verified: z.boolean(),
-    type: z.optional(z.nullable(CustomerType$inboundSchema)),
+    type: CustomerType$inboundSchema,
     name: z.nullable(z.string()),
     billing_address: z.nullable(Address$inboundSchema),
     tax_id: z.nullable(

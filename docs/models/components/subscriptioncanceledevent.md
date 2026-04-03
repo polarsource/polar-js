@@ -14,12 +14,11 @@ let value: SubscriptionCanceledEvent = {
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-06-04T21:28:32.740Z"),
-    modifiedAt: new Date("2024-03-21T15:56:34.258Z"),
+    createdAt: new Date("2026-10-05T18:12:17.403Z"),
+    modifiedAt: new Date("2025-08-20T11:27:10.452Z"),
     metadata: {
-      "key": "<value>",
+      "key": 5529.49,
     },
-    externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
     type: "individual",
@@ -32,19 +31,19 @@ let value: SubscriptionCanceledEvent = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2026-09-04T17:38:48.600Z"),
+    deletedAt: new Date("2025-06-14T08:14:54.827Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
-  externalCustomerId: "<id>",
+  externalCustomerId: null,
   label: "<value>",
   source: "system",
   name: "subscription.canceled",
   metadata: {
     subscriptionId: "<id>",
-    amount: 920401,
-    currency: "Swedish Krona",
+    amount: 776946,
+    currency: "Rufiyaa",
     recurringInterval: "<value>",
-    recurringIntervalCount: 545143,
+    recurringIntervalCount: 156481,
     canceledAt: "<value>",
   },
 };
@@ -58,7 +57,7 @@ let value: SubscriptionCanceledEvent = {
 | `timestamp`                                                                                                                    | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                  | :heavy_check_mark:                                                                                                             | The timestamp of the event.                                                                                                    |                                                                                                                                |
 | `organizationId`                                                                                                               | *string*                                                                                                                       | :heavy_check_mark:                                                                                                             | The ID of the organization owning the event.                                                                                   | 1dbfc517-0bbf-4301-9ba8-555ca42b9737                                                                                           |
 | `customerId`                                                                                                                   | *string*                                                                                                                       | :heavy_check_mark:                                                                                                             | ID of the customer in your Polar organization associated with the event.                                                       |                                                                                                                                |
-| `customer`                                                                                                                     | [components.Customer](../../models/components/customer.md)                                                                     | :heavy_check_mark:                                                                                                             | The customer associated with the event.                                                                                        |                                                                                                                                |
+| `customer`                                                                                                                     | *components.Customer*                                                                                                          | :heavy_check_mark:                                                                                                             | The customer associated with the event.                                                                                        |                                                                                                                                |
 | `externalCustomerId`                                                                                                           | *string*                                                                                                                       | :heavy_check_mark:                                                                                                             | ID of the customer in your system associated with the event.                                                                   |                                                                                                                                |
 | `memberId`                                                                                                                     | *string*                                                                                                                       | :heavy_minus_sign:                                                                                                             | ID of the member within the customer's organization who performed the action inside B2B.                                       |                                                                                                                                |
 | `externalMemberId`                                                                                                             | *string*                                                                                                                       | :heavy_minus_sign:                                                                                                             | ID of the member in your system within the customer's organization who performed the action inside B2B.                        |                                                                                                                                |

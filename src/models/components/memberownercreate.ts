@@ -8,11 +8,11 @@ import { remap as remap$ } from "../../lib/primitives.js";
 /**
  * Schema for creating an owner member during customer creation.
  */
-export type OwnerCreate = {
+export type MemberOwnerCreate = {
   /**
    * The email address of the member.
    */
-  email?: string | null | undefined;
+  email: string;
   name?: string | null | undefined;
   /**
    * The ID of the member in your system. This must be unique within the customer.
@@ -21,19 +21,19 @@ export type OwnerCreate = {
 };
 
 /** @internal */
-export type OwnerCreate$Outbound = {
-  email?: string | null | undefined;
+export type MemberOwnerCreate$Outbound = {
+  email: string;
   name?: string | null | undefined;
   external_id?: string | null | undefined;
 };
 
 /** @internal */
-export const OwnerCreate$outboundSchema: z.ZodMiniType<
-  OwnerCreate$Outbound,
-  OwnerCreate
+export const MemberOwnerCreate$outboundSchema: z.ZodMiniType<
+  MemberOwnerCreate$Outbound,
+  MemberOwnerCreate
 > = z.pipe(
   z.object({
-    email: z.optional(z.nullable(z.string())),
+    email: z.string(),
     name: z.optional(z.nullable(z.string())),
     externalId: z.optional(z.nullable(z.string())),
   }),
@@ -44,6 +44,10 @@ export const OwnerCreate$outboundSchema: z.ZodMiniType<
   }),
 );
 
-export function ownerCreateToJSON(ownerCreate: OwnerCreate): string {
-  return JSON.stringify(OwnerCreate$outboundSchema.parse(ownerCreate));
+export function memberOwnerCreateToJSON(
+  memberOwnerCreate: MemberOwnerCreate,
+): string {
+  return JSON.stringify(
+    MemberOwnerCreate$outboundSchema.parse(memberOwnerCreate),
+  );
 }

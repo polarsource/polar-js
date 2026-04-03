@@ -21,10 +21,10 @@ let value: CustomerBenefitGrantDiscord = {
     createdAt: new Date("2024-10-05T17:24:11.012Z"),
     modifiedAt: new Date("2024-12-27T23:55:37.070Z"),
     id: "<value>",
-    email: "Greg77@hotmail.com",
+    email: "Javonte_Bradtke81@yahoo.com",
     emailVerified: true,
-    name: "<value>",
-    billingName: null,
+    name: null,
+    billingName: "<value>",
     billingAddress: {
       country: "US",
     },
@@ -32,13 +32,7 @@ let value: CustomerBenefitGrantDiscord = {
       "911144442",
       "us_ein",
     ],
-    oauthAccounts: {
-      "key": {
-        accountId: "<id>",
-        accountUsername: "<value>",
-      },
-    },
-    type: "individual",
+    oauthAccounts: {},
   },
   benefit: {
     id: "<value>",

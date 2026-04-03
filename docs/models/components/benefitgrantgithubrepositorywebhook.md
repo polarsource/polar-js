@@ -17,12 +17,9 @@ let value: BenefitGrantGitHubRepositoryWebhook = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-06-04T21:28:32.740Z"),
-    modifiedAt: new Date("2024-03-21T15:56:34.258Z"),
-    metadata: {
-      "key": "<value>",
-    },
-    externalId: "usr_1337",
+    createdAt: new Date("2026-05-01T16:24:20.581Z"),
+    modifiedAt: null,
+    metadata: {},
     email: "customer@example.com",
     emailVerified: true,
     type: "individual",
@@ -35,31 +32,29 @@ let value: BenefitGrantGitHubRepositoryWebhook = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2026-09-04T17:38:48.600Z"),
+    deletedAt: new Date("2025-07-06T14:17:18.041Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   member: {
     id: "<value>",
-    createdAt: new Date("2026-04-15T16:04:23.824Z"),
-    modifiedAt: new Date("2025-04-16T17:12:33.507Z"),
+    createdAt: new Date("2024-08-29T23:41:53.521Z"),
+    modifiedAt: new Date("2024-05-20T19:39:16.494Z"),
     customerId: "<value>",
     email: "member@example.com",
     name: "Jane Doe",
     externalId: "usr_1337",
-    role: "member",
+    role: "billing_manager",
   },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2026-05-01T16:24:20.581Z"),
-    modifiedAt: null,
+    createdAt: new Date("2025-10-27T15:55:44.917Z"),
+    modifiedAt: new Date("2026-11-26T16:25:16.282Z"),
     type: "github_repository",
-    description: "vicinity spectate publication athwart likely far",
-    selectable: true,
-    deletable: true,
+    description: "teammate or ravage indeed",
+    selectable: false,
+    deletable: false,
     organizationId: "<value>",
-    metadata: {
-      "key": false,
-    },
+    metadata: {},
     properties: {
       repositoryOwner: "polarsource",
       repositoryName: "private_repo",
@@ -87,7 +82,7 @@ let value: BenefitGrantGitHubRepositoryWebhook = {
 | `memberId`                                                                                                             | *string*                                                                                                               | :heavy_minus_sign:                                                                                                     | The ID of the member concerned by this grant.                                                                          |
 | `benefitId`                                                                                                            | *string*                                                                                                               | :heavy_check_mark:                                                                                                     | The ID of the benefit concerned by this grant.                                                                         |
 | `error`                                                                                                                | [components.BenefitGrantError](../../models/components/benefitgranterror.md)                                           | :heavy_minus_sign:                                                                                                     | The error information if the benefit grant failed with an unrecoverable error.                                         |
-| `customer`                                                                                                             | [components.Customer](../../models/components/customer.md)                                                             | :heavy_check_mark:                                                                                                     | A customer in an organization.                                                                                         |
+| `customer`                                                                                                             | *components.Customer*                                                                                                  | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
 | `member`                                                                                                               | [components.Member](../../models/components/member.md)                                                                 | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
 | `benefit`                                                                                                              | [components.BenefitGitHubRepository](../../models/components/benefitgithubrepository.md)                               | :heavy_check_mark:                                                                                                     | A benefit of type `github_repository`.<br/><br/>Use it to automatically invite your backers to a private GitHub repository. |
 | `properties`                                                                                                           | [components.BenefitGrantGitHubRepositoryProperties](../../models/components/benefitgrantgithubrepositoryproperties.md) | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |

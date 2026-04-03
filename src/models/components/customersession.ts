@@ -30,9 +30,6 @@ export type CustomerSession = {
   returnUrl: string | null;
   customerPortalUrl: string;
   customerId: string;
-  /**
-   * A customer in an organization.
-   */
   customer: Customer;
 };
 

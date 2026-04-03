@@ -17,12 +17,11 @@ let value: BenefitGrantMeterCreditWebhook = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-06-04T21:28:32.740Z"),
-    modifiedAt: new Date("2024-03-21T15:56:34.258Z"),
+    createdAt: new Date("2025-10-04T20:17:27.013Z"),
+    modifiedAt: new Date("2026-12-13T13:45:10.283Z"),
     metadata: {
-      "key": "<value>",
+      "key": 5682.16,
     },
-    externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
     type: "individual",
@@ -35,30 +34,32 @@ let value: BenefitGrantMeterCreditWebhook = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2026-09-04T17:38:48.600Z"),
+    deletedAt: new Date("2025-06-14T19:06:24.911Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   member: {
     id: "<value>",
-    createdAt: new Date("2026-04-15T16:04:23.824Z"),
-    modifiedAt: new Date("2025-04-16T17:12:33.507Z"),
+    createdAt: new Date("2024-08-29T23:41:53.521Z"),
+    modifiedAt: new Date("2024-05-20T19:39:16.494Z"),
     customerId: "<value>",
     email: "member@example.com",
     name: "Jane Doe",
     externalId: "usr_1337",
-    role: "member",
+    role: "billing_manager",
   },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2025-10-04T20:17:27.013Z"),
-    modifiedAt: new Date("2026-12-13T13:45:10.283Z"),
+    createdAt: new Date("2025-09-07T16:41:04.296Z"),
+    modifiedAt: null,
     type: "meter_credit",
     description:
-      "since longingly store from failing graceful afore hungry trench rim",
+      "blah sometimes catalog uh-huh drat phew impure whole ah darling",
     selectable: false,
     deletable: true,
     organizationId: "<value>",
-    metadata: {},
+    metadata: {
+      "key": 97475,
+    },
     properties: {
       units: 298008,
       rollover: false,
@@ -86,7 +87,7 @@ let value: BenefitGrantMeterCreditWebhook = {
 | `memberId`                                                                                                   | *string*                                                                                                     | :heavy_minus_sign:                                                                                           | The ID of the member concerned by this grant.                                                                |
 | `benefitId`                                                                                                  | *string*                                                                                                     | :heavy_check_mark:                                                                                           | The ID of the benefit concerned by this grant.                                                               |
 | `error`                                                                                                      | [components.BenefitGrantError](../../models/components/benefitgranterror.md)                                 | :heavy_minus_sign:                                                                                           | The error information if the benefit grant failed with an unrecoverable error.                               |
-| `customer`                                                                                                   | [components.Customer](../../models/components/customer.md)                                                   | :heavy_check_mark:                                                                                           | A customer in an organization.                                                                               |
+| `customer`                                                                                                   | *components.Customer*                                                                                        | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `member`                                                                                                     | [components.Member](../../models/components/member.md)                                                       | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |
 | `benefit`                                                                                                    | [components.BenefitMeterCredit](../../models/components/benefitmetercredit.md)                               | :heavy_check_mark:                                                                                           | A benefit of type `meter_unit`.<br/><br/>Use it to grant a number of units on a specific meter.              |
 | `properties`                                                                                                 | [components.BenefitGrantMeterCreditProperties](../../models/components/benefitgrantmetercreditproperties.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |

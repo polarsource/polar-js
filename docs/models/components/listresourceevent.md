@@ -14,12 +14,11 @@ let value: ListResourceEvent = {
       customerId: "<value>",
       customer: {
         id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-        createdAt: new Date("2024-06-04T21:28:32.740Z"),
-        modifiedAt: new Date("2024-03-21T15:56:34.258Z"),
+        createdAt: new Date("2026-10-13T21:10:48.290Z"),
+        modifiedAt: null,
         metadata: {
           "key": "<value>",
         },
-        externalId: "usr_1337",
         email: "customer@example.com",
         emailVerified: true,
         type: "individual",

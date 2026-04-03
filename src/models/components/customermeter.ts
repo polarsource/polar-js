@@ -46,9 +46,6 @@ export type CustomerMeter = {
    * The balance of the meter, i.e. the difference between credited and consumed units.
    */
   balance: number;
-  /**
-   * A customer in an organization.
-   */
   customer: Customer;
   meter: Meter;
 };

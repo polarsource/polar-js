@@ -54,15 +54,12 @@ export type OrderCustomer = {
   /**
    * The email address of the customer. This must be unique within the organization.
    */
-  email: string;
+  email?: string | null | undefined;
   /**
    * Whether the customer email address is verified. The address is automatically verified when the customer accesses the customer portal using their email address.
    */
   emailVerified: boolean;
-  /**
-   * The type of customer: 'individual' for single users, 'team' for customers with multiple members. Legacy customers may have NULL type which is treated as 'individual'.
-   */
-  type?: CustomerType | null | undefined;
+  type: CustomerType;
   /**
    * The name of the customer.
    */
@@ -128,9 +125,9 @@ export const OrderCustomer$inboundSchema: z.ZodMiniType<
     ),
     metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
     external_id: z.optional(z.nullable(z.string())),
-    email: z.string(),
+    email: z.optional(z.nullable(z.string())),
     email_verified: z.boolean(),
-    type: z.optional(z.nullable(CustomerType$inboundSchema)),
+    type: CustomerType$inboundSchema,
     name: z.nullable(z.string()),
     billing_address: z.nullable(Address$inboundSchema),
     tax_id: z.nullable(
@@ -164,9 +161,9 @@ export type OrderCustomer$Outbound = {
   modified_at: string | null;
   metadata: { [k: string]: MetadataOutputType$Outbound };
   external_id?: string | null | undefined;
-  email: string;
+  email?: string | null | undefined;
   email_verified: boolean;
-  type?: string | null | undefined;
+  type: string;
   name: string | null;
   billing_address: Address$Outbound | null;
   tax_id: Array<string | string | null> | null;
@@ -187,9 +184,9 @@ export const OrderCustomer$outboundSchema: z.ZodMiniType<
     modifiedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
     metadata: z.record(z.string(), MetadataOutputType$outboundSchema),
     externalId: z.optional(z.nullable(z.string())),
-    email: z.string(),
+    email: z.optional(z.nullable(z.string())),
     emailVerified: z.boolean(),
-    type: z.optional(z.nullable(CustomerType$outboundSchema)),
+    type: CustomerType$outboundSchema,
     name: z.nullable(z.string()),
     billingAddress: z.nullable(Address$outboundSchema),
     taxId: z.nullable(

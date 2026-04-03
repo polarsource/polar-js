@@ -9,24 +9,26 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Pagination, Pagination$inboundSchema } from "./pagination.js";
 import { Payment, Payment$inboundSchema } from "./payment.js";
 
-export type ListResource = {
+export type ListResourcePayment = {
   items: Array<Payment>;
   pagination: Pagination;
 };
 
 /** @internal */
-export const ListResource$inboundSchema: z.ZodMiniType<ListResource, unknown> =
-  z.object({
-    items: z.array(Payment$inboundSchema),
-    pagination: Pagination$inboundSchema,
-  });
+export const ListResourcePayment$inboundSchema: z.ZodMiniType<
+  ListResourcePayment,
+  unknown
+> = z.object({
+  items: z.array(Payment$inboundSchema),
+  pagination: Pagination$inboundSchema,
+});
 
-export function listResourceFromJSON(
+export function listResourcePaymentFromJSON(
   jsonString: string,
-): SafeParseResult<ListResource, SDKValidationError> {
+): SafeParseResult<ListResourcePayment, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => ListResource$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ListResource' from JSON`,
+    (x) => ListResourcePayment$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListResourcePayment' from JSON`,
   );
 }
