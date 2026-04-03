@@ -125,6 +125,9 @@ async function $do(
     encodeFormQuery({
       "active": payload.active,
       "cancel_at_period_end": payload.cancel_at_period_end,
+      "canceled_at_after": payload.canceled_at_after,
+      "canceled_at_before": payload.canceled_at_before,
+      "customer_cancellation_reason": payload.customer_cancellation_reason,
       "customer_id": payload.customer_id,
       "discount_id": payload.discount_id,
       "external_customer_id": payload.external_customer_id,

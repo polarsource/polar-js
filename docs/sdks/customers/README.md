@@ -115,19 +115,19 @@ const polar = new Polar({
 async function run() {
   const result = await polar.customers.create({
     externalId: "usr_1337",
-    email: "customer@example.com",
     name: "John Doe",
     billingAddress: {
       country: "US",
     },
     locale: "en",
-    type: "individual",
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     owner: {
       email: "member@example.com",
       name: "Jane Doe",
       externalId: "usr_1337",
     },
+    type: "individual",
+    email: "customer@example.com",
   });
 
   console.log(result);
@@ -153,19 +153,19 @@ const polar = new PolarCore({
 async function run() {
   const res = await customersCreate(polar, {
     externalId: "usr_1337",
-    email: "customer@example.com",
     name: "John Doe",
     billingAddress: {
       country: "US",
     },
     locale: "en",
-    type: "individual",
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     owner: {
       email: "member@example.com",
       name: "Jane Doe",
       externalId: "usr_1337",
     },
+    type: "individual",
+    email: "customer@example.com",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -469,7 +469,6 @@ async function run() {
       },
       locale: "en",
       externalId: "usr_1337",
-      type: "individual",
     },
   });
 
@@ -504,7 +503,6 @@ async function run() {
       },
       locale: "en",
       externalId: "usr_1337",
-      type: "individual",
     },
   });
   if (res.ok) {

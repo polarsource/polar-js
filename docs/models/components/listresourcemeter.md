@@ -15,7 +15,12 @@ let value: ListResourceMeter = {
       name: "<value>",
       filter: {
         conjunction: "or",
-        clauses: [],
+        clauses: [
+          {
+            conjunction: "and",
+            clauses: [],
+          },
+        ],
       },
       aggregation: {
         func: "max",

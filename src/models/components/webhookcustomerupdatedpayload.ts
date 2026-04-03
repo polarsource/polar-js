@@ -27,9 +27,6 @@ import {
 export type WebhookCustomerUpdatedPayload = {
   type: "customer.updated";
   timestamp: Date;
-  /**
-   * A customer in an organization.
-   */
   data: Customer;
 };
 

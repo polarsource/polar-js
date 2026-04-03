@@ -103,12 +103,12 @@ let value: CustomerSubscription = {
     },
   ],
   pendingUpdate: {
-    createdAt: new Date("2026-10-18T04:31:13.670Z"),
-    modifiedAt: new Date("2025-07-05T12:20:19.177Z"),
+    createdAt: new Date("2024-02-25T01:22:58.741Z"),
+    modifiedAt: new Date("2025-03-01T22:24:22.500Z"),
     id: "<value>",
-    appliesAt: new Date("2026-11-05T15:07:01.438Z"),
-    productId: "<value>",
-    seats: 664617,
+    appliesAt: new Date("2026-04-07T05:04:30.181Z"),
+    productId: null,
+    seats: 226862,
   },
 };
 ```

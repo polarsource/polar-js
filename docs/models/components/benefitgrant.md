@@ -17,12 +17,11 @@ let value: BenefitGrant = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-06-04T21:28:32.740Z"),
-    modifiedAt: new Date("2024-03-21T15:56:34.258Z"),
+    createdAt: new Date("2024-10-27T06:21:23.052Z"),
+    modifiedAt: new Date("2026-06-23T08:48:04.338Z"),
     metadata: {
-      "key": "<value>",
+      "key": 8409.19,
     },
-    externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
     type: "individual",
@@ -35,26 +34,33 @@ let value: BenefitGrant = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2026-09-04T17:38:48.600Z"),
+    deletedAt: new Date("2026-12-09T05:38:07.432Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
-  member: null,
+  member: {
+    id: "<value>",
+    createdAt: new Date("2024-08-29T23:41:53.521Z"),
+    modifiedAt: new Date("2024-05-20T19:39:16.494Z"),
+    customerId: "<value>",
+    email: "member@example.com",
+    name: "Jane Doe",
+    externalId: "usr_1337",
+    role: "billing_manager",
+  },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2025-09-18T01:13:07.880Z"),
-    modifiedAt: new Date("2025-08-08T09:02:13.151Z"),
-    type: "discord",
-    description:
-      "formamide excitedly suspiciously wherever flu microchip basic um",
+    createdAt: new Date("2025-12-02T19:15:10.730Z"),
+    modifiedAt: new Date("2024-04-06T16:51:23.311Z"),
+    type: "meter_credit",
+    description: "suspiciously wherever flu microchip",
     selectable: false,
-    deletable: false,
+    deletable: true,
     organizationId: "<value>",
     metadata: {},
     properties: {
-      guildId: "<id>",
-      roleId: "<id>",
-      kickMember: false,
-      guildToken: "<value>",
+      units: 298008,
+      rollover: false,
+      meterId: "<value>",
     },
   },
   properties: {},
@@ -78,7 +84,7 @@ let value: BenefitGrant = {
 | `memberId`                                                                                    | *string*                                                                                      | :heavy_minus_sign:                                                                            | The ID of the member concerned by this grant.                                                 |
 | `benefitId`                                                                                   | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the benefit concerned by this grant.                                                |
 | `error`                                                                                       | [components.BenefitGrantError](../../models/components/benefitgranterror.md)                  | :heavy_minus_sign:                                                                            | The error information if the benefit grant failed with an unrecoverable error.                |
-| `customer`                                                                                    | [components.Customer](../../models/components/customer.md)                                    | :heavy_check_mark:                                                                            | A customer in an organization.                                                                |
+| `customer`                                                                                    | *components.Customer*                                                                         | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `member`                                                                                      | [components.Member](../../models/components/member.md)                                        | :heavy_minus_sign:                                                                            | N/A                                                                                           |
 | `benefit`                                                                                     | *components.Benefit*                                                                          | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `properties`                                                                                  | *components.Properties*                                                                       | :heavy_check_mark:                                                                            | N/A                                                                                           |

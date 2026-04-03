@@ -14,7 +14,7 @@ import {
 
 export type CustomerUpdatedMetadata = {
   customerId: string;
-  customerEmail: string;
+  customerEmail: string | null;
   customerName: string | null;
   customerExternalId: string | null;
   updatedFields: CustomerUpdatedFields;
@@ -27,7 +27,7 @@ export const CustomerUpdatedMetadata$inboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     customer_id: z.string(),
-    customer_email: z.string(),
+    customer_email: z.nullable(z.string()),
     customer_name: z.nullable(z.string()),
     customer_external_id: z.nullable(z.string()),
     updated_fields: CustomerUpdatedFields$inboundSchema,

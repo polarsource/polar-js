@@ -29,15 +29,6 @@ import {
 export type WebhookCustomerStateChangedPayload = {
   type: "customer.state_changed";
   timestamp: Date;
-  /**
-   * A customer along with additional state information:
-   *
-   * @remarks
-   *
-   * * Active subscriptions
-   * * Granted benefits
-   * * Active meters
-   */
   data: CustomerState;
 };
 

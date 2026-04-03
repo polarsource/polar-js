@@ -9,7 +9,7 @@ let value: CustomerCreatedMetadata = {
   customerId: "<id>",
   customerEmail: "<value>",
   customerName: "<value>",
-  customerExternalId: "<id>",
+  customerExternalId: null,
 };
 ```
 

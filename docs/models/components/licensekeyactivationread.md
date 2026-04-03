@@ -28,7 +28,7 @@ let value: LicenseKeyActivationRead = {
       externalId: "usr_1337",
       email: "customer@example.com",
       emailVerified: true,
-      type: "individual",
+      type: "team",
       name: "John Doe",
       billingAddress: {
         country: "US",
@@ -38,7 +38,7 @@ let value: LicenseKeyActivationRead = {
         "us_ein",
       ],
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-      deletedAt: new Date("2026-05-27T20:24:19.765Z"),
+      deletedAt: new Date("2025-02-19T00:49:10.274Z"),
       avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
     },
     benefitId: "<value>",

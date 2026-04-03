@@ -1,4 +1,4 @@
-# CustomerCreateMetadata
+# CustomerIndividualCreateMetadata
 
 
 ## Supported Types

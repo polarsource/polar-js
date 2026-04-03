@@ -32,7 +32,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 typescript:
-  version: 0.46.7
+  version: 0.46.8
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies:
@@ -57,6 +57,7 @@ typescript:
   enumFormat: union
   envVarPrefix: POLAR
   exportZodModelNamespace: false
+  fixEnumNameSanitization: false
   flatAdditionalProperties: false
   flattenGlobalSecurity: true
   flatteningOrder: body-first

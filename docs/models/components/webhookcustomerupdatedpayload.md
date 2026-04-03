@@ -18,25 +18,19 @@ let value: WebhookCustomerUpdatedPayload = {
   timestamp: new Date("2024-04-16T17:52:21.274Z"),
   data: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2026-01-09T10:52:27.442Z"),
-    modifiedAt: new Date("2024-09-13T11:32:42.486Z"),
-    metadata: {
-      "key": "<value>",
-    },
-    externalId: "usr_1337",
-    email: "customer@example.com",
+    createdAt: new Date("2025-10-02T14:58:50.060Z"),
+    modifiedAt: new Date("2024-10-30T12:50:28.009Z"),
+    metadata: {},
     emailVerified: true,
-    type: "individual",
+    type: "team",
     name: "John Doe",
-    billingAddress: {
-      country: "US",
-    },
+    billingAddress: null,
     taxId: [
       "911144442",
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-19T01:01:52.549Z"),
+    deletedAt: new Date("2026-06-29T02:57:53.986Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
 };
@@ -48,4 +42,4 @@ let value: WebhookCustomerUpdatedPayload = {
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | `type`                                                                                        | *"customer.updated"*                                                                          | :heavy_check_mark:                                                                            | N/A                                                                                           | customer.updated                                                                              |
 | `timestamp`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
-| `data`                                                                                        | [components.Customer](../../models/components/customer.md)                                    | :heavy_check_mark:                                                                            | A customer in an organization.                                                                |                                                                                               |
+| `data`                                                                                        | *components.Customer*                                                                         | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |

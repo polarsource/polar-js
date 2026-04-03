@@ -49,7 +49,7 @@ let value: OrdersListResponse = {
           externalId: "usr_1337",
           email: "customer@example.com",
           emailVerified: true,
-          type: "individual",
+          type: "team",
           name: "John Doe",
           billingAddress: {
             country: "US",
@@ -59,12 +59,12 @@ let value: OrdersListResponse = {
             "us_ein",
           ],
           organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-          deletedAt: new Date("2026-10-31T02:47:18.612Z"),
+          deletedAt: new Date("2026-01-06T00:41:18.481Z"),
           avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
         },
         product: {
           metadata: {
-            "key": 948.58,
+            "key": "<value>",
           },
           id: "<value>",
           createdAt: new Date("2025-08-02T16:31:19.549Z"),

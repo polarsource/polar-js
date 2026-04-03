@@ -17,12 +17,9 @@ let value: BenefitGrantLicenseKeysWebhook = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-06-04T21:28:32.740Z"),
-    modifiedAt: new Date("2024-03-21T15:56:34.258Z"),
-    metadata: {
-      "key": "<value>",
-    },
-    externalId: "usr_1337",
+    createdAt: new Date("2024-12-24T12:07:36.548Z"),
+    modifiedAt: new Date("2025-12-03T11:49:28.207Z"),
+    metadata: {},
     email: "customer@example.com",
     emailVerified: true,
     type: "individual",
@@ -35,27 +32,27 @@ let value: BenefitGrantLicenseKeysWebhook = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2026-09-04T17:38:48.600Z"),
+    deletedAt: new Date("2026-12-15T07:47:35.269Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   member: {
     id: "<value>",
-    createdAt: new Date("2026-04-15T16:04:23.824Z"),
-    modifiedAt: new Date("2025-04-16T17:12:33.507Z"),
+    createdAt: new Date("2024-08-29T23:41:53.521Z"),
+    modifiedAt: new Date("2024-05-20T19:39:16.494Z"),
     customerId: "<value>",
     email: "member@example.com",
     name: "Jane Doe",
     externalId: "usr_1337",
-    role: "member",
+    role: "billing_manager",
   },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2025-11-28T17:40:59.074Z"),
-    modifiedAt: new Date("2025-10-14T07:36:23.610Z"),
+    createdAt: new Date("2025-10-15T22:21:01.919Z"),
+    modifiedAt: new Date("2024-02-16T12:33:48.786Z"),
     type: "license_keys",
-    description: "artistic monasticism when that",
-    selectable: true,
-    deletable: true,
+    description: "ouch woot geez wheel analyse duh",
+    selectable: false,
+    deletable: false,
     organizationId: "<value>",
     metadata: {},
     properties: {
@@ -92,7 +89,7 @@ let value: BenefitGrantLicenseKeysWebhook = {
 | `memberId`                                                                                                   | *string*                                                                                                     | :heavy_minus_sign:                                                                                           | The ID of the member concerned by this grant.                                                                |
 | `benefitId`                                                                                                  | *string*                                                                                                     | :heavy_check_mark:                                                                                           | The ID of the benefit concerned by this grant.                                                               |
 | `error`                                                                                                      | [components.BenefitGrantError](../../models/components/benefitgranterror.md)                                 | :heavy_minus_sign:                                                                                           | The error information if the benefit grant failed with an unrecoverable error.                               |
-| `customer`                                                                                                   | [components.Customer](../../models/components/customer.md)                                                   | :heavy_check_mark:                                                                                           | A customer in an organization.                                                                               |
+| `customer`                                                                                                   | *components.Customer*                                                                                        | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `member`                                                                                                     | [components.Member](../../models/components/member.md)                                                       | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |
 | `benefit`                                                                                                    | [components.BenefitLicenseKeys](../../models/components/benefitlicensekeys.md)                               | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `properties`                                                                                                 | [components.BenefitGrantLicenseKeysProperties](../../models/components/benefitgrantlicensekeysproperties.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |

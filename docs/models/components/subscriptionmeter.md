@@ -16,17 +16,24 @@ let value: SubscriptionMeter = {
   amount: 0,
   meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
   meter: {
-    metadata: {},
-    createdAt: new Date("2026-01-05T19:13:23.632Z"),
-    modifiedAt: new Date("2026-10-09T02:26:38.751Z"),
+    metadata: {
+      "key": 661.85,
+    },
+    createdAt: new Date("2025-08-16T16:57:16.542Z"),
+    modifiedAt: null,
     id: "<value>",
     name: "<value>",
     filter: {
       conjunction: "or",
-      clauses: [],
+      clauses: [
+        {
+          conjunction: "and",
+          clauses: [],
+        },
+      ],
     },
     aggregation: {
-      func: "unique",
+      func: "min",
       property: "<value>",
     },
     organizationId: "<value>",
