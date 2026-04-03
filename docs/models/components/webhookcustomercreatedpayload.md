@@ -19,15 +19,11 @@ let value: WebhookCustomerCreatedPayload = {
   timestamp: new Date("2025-07-14T00:49:20.816Z"),
   data: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2026-01-09T10:52:27.442Z"),
-    modifiedAt: new Date("2024-09-13T11:32:42.486Z"),
-    metadata: {
-      "key": "<value>",
-    },
-    externalId: "usr_1337",
-    email: "customer@example.com",
+    createdAt: new Date("2024-10-12T13:15:56.261Z"),
+    modifiedAt: new Date("2026-10-02T19:27:52.254Z"),
+    metadata: {},
     emailVerified: true,
-    type: "individual",
+    type: "team",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -49,4 +45,4 @@ let value: WebhookCustomerCreatedPayload = {
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | `type`                                                                                        | *"customer.created"*                                                                          | :heavy_check_mark:                                                                            | N/A                                                                                           | customer.created                                                                              |
 | `timestamp`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
-| `data`                                                                                        | [components.Customer](../../models/components/customer.md)                                    | :heavy_check_mark:                                                                            | A customer in an organization.                                                                |                                                                                               |
+| `data`                                                                                        | *components.Customer*                                                                         | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |

@@ -17,15 +17,11 @@ let value: BenefitGrantDownloadablesWebhook = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-06-04T21:28:32.740Z"),
-    modifiedAt: new Date("2024-03-21T15:56:34.258Z"),
-    metadata: {
-      "key": "<value>",
-    },
-    externalId: "usr_1337",
-    email: "customer@example.com",
+    createdAt: new Date("2025-09-23T13:35:30.918Z"),
+    modifiedAt: new Date("2025-06-07T16:02:28.341Z"),
+    metadata: {},
     emailVerified: true,
-    type: "individual",
+    type: "team",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -35,30 +31,30 @@ let value: BenefitGrantDownloadablesWebhook = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2026-09-04T17:38:48.600Z"),
+    deletedAt: new Date("2024-08-08T13:30:36.964Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   member: {
     id: "<value>",
-    createdAt: new Date("2026-04-15T16:04:23.824Z"),
-    modifiedAt: new Date("2025-04-16T17:12:33.507Z"),
+    createdAt: new Date("2024-08-29T23:41:53.521Z"),
+    modifiedAt: new Date("2024-05-20T19:39:16.494Z"),
     customerId: "<value>",
     email: "member@example.com",
     name: "Jane Doe",
     externalId: "usr_1337",
-    role: "member",
+    role: "billing_manager",
   },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2025-09-23T13:35:30.918Z"),
-    modifiedAt: new Date("2025-06-07T16:02:28.341Z"),
+    createdAt: new Date("2025-03-02T22:46:32.281Z"),
+    modifiedAt: new Date("2025-12-18T13:53:02.296Z"),
     type: "downloadables",
-    description: "opposite instead aha delete ick",
-    selectable: false,
+    description: "until loudly replacement though junior agreeable excited",
+    selectable: true,
     deletable: false,
     organizationId: "<value>",
     metadata: {
-      "key": false,
+      "key": 109323,
     },
     properties: {
       archived: {
@@ -91,7 +87,7 @@ let value: BenefitGrantDownloadablesWebhook = {
 | `memberId`                                                                                                       | *string*                                                                                                         | :heavy_minus_sign:                                                                                               | The ID of the member concerned by this grant.                                                                    |
 | `benefitId`                                                                                                      | *string*                                                                                                         | :heavy_check_mark:                                                                                               | The ID of the benefit concerned by this grant.                                                                   |
 | `error`                                                                                                          | [components.BenefitGrantError](../../models/components/benefitgranterror.md)                                     | :heavy_minus_sign:                                                                                               | The error information if the benefit grant failed with an unrecoverable error.                                   |
-| `customer`                                                                                                       | [components.Customer](../../models/components/customer.md)                                                       | :heavy_check_mark:                                                                                               | A customer in an organization.                                                                                   |
+| `customer`                                                                                                       | *components.Customer*                                                                                            | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
 | `member`                                                                                                         | [components.Member](../../models/components/member.md)                                                           | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |
 | `benefit`                                                                                                        | [components.BenefitDownloadables](../../models/components/benefitdownloadables.md)                               | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
 | `properties`                                                                                                     | [components.BenefitGrantDownloadablesProperties](../../models/components/benefitgrantdownloadablesproperties.md) | :heavy_check_mark:                                                                                               | N/A                                                                                                              |

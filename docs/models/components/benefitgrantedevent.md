@@ -14,25 +14,22 @@ let value: BenefitGrantedEvent = {
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-06-04T21:28:32.740Z"),
-    modifiedAt: new Date("2024-03-21T15:56:34.258Z"),
+    createdAt: new Date("2024-05-21T18:25:59.959Z"),
+    modifiedAt: null,
     metadata: {
-      "key": "<value>",
+      "key": 9968.19,
     },
-    externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
     type: "individual",
     name: "John Doe",
-    billingAddress: {
-      country: "US",
-    },
+    billingAddress: null,
     taxId: [
       "911144442",
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2026-09-04T17:38:48.600Z"),
+    deletedAt: new Date("2026-11-01T01:26:40.175Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
@@ -42,7 +39,7 @@ let value: BenefitGrantedEvent = {
   metadata: {
     benefitId: "<id>",
     benefitGrantId: "<id>",
-    benefitType: "downloadables",
+    benefitType: "discord",
   },
 };
 ```
@@ -55,7 +52,7 @@ let value: BenefitGrantedEvent = {
 | `timestamp`                                                                                                                    | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                  | :heavy_check_mark:                                                                                                             | The timestamp of the event.                                                                                                    |                                                                                                                                |
 | `organizationId`                                                                                                               | *string*                                                                                                                       | :heavy_check_mark:                                                                                                             | The ID of the organization owning the event.                                                                                   | 1dbfc517-0bbf-4301-9ba8-555ca42b9737                                                                                           |
 | `customerId`                                                                                                                   | *string*                                                                                                                       | :heavy_check_mark:                                                                                                             | ID of the customer in your Polar organization associated with the event.                                                       |                                                                                                                                |
-| `customer`                                                                                                                     | [components.Customer](../../models/components/customer.md)                                                                     | :heavy_check_mark:                                                                                                             | The customer associated with the event.                                                                                        |                                                                                                                                |
+| `customer`                                                                                                                     | *components.Customer*                                                                                                          | :heavy_check_mark:                                                                                                             | The customer associated with the event.                                                                                        |                                                                                                                                |
 | `externalCustomerId`                                                                                                           | *string*                                                                                                                       | :heavy_check_mark:                                                                                                             | ID of the customer in your system associated with the event.                                                                   |                                                                                                                                |
 | `memberId`                                                                                                                     | *string*                                                                                                                       | :heavy_minus_sign:                                                                                                             | ID of the member within the customer's organization who performed the action inside B2B.                                       |                                                                                                                                |
 | `externalMemberId`                                                                                                             | *string*                                                                                                                       | :heavy_minus_sign:                                                                                                             | ID of the member in your system within the customer's organization who performed the action inside B2B.                        |                                                                                                                                |

@@ -55,6 +55,7 @@ export const AvailableScope = {
   RefundsWrite: "refunds:write",
   PaymentsRead: "payments:read",
   MetricsRead: "metrics:read",
+  MetricsWrite: "metrics:write",
   WebhooksRead: "webhooks:read",
   WebhooksWrite: "webhooks:write",
   LicenseKeysRead: "license_keys:read",

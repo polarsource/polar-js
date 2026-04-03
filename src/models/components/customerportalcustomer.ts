@@ -31,7 +31,7 @@ export type CustomerPortalCustomer = {
    * The ID of the object.
    */
   id: string;
-  email: string;
+  email: string | null;
   emailVerified: boolean;
   name: string | null;
   billingName: string | null;
@@ -72,7 +72,7 @@ export const CustomerPortalCustomer$inboundSchema: z.ZodMiniType<
       z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
     id: z.string(),
-    email: z.string(),
+    email: z.nullable(z.string()),
     email_verified: z.boolean(),
     name: z.nullable(z.string()),
     billing_name: z.nullable(z.string()),

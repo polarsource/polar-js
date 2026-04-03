@@ -8,9 +8,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { smartUnion } from "../../types/smartUnion.js";
 import {
-  ListResource,
-  ListResource$inboundSchema,
-} from "../components/listresource.js";
+  ListResourcePayment,
+  ListResourcePayment$inboundSchema,
+} from "../components/listresourcepayment.js";
 import {
   PaymentSortProperty,
   PaymentSortProperty$outboundSchema,
@@ -93,7 +93,7 @@ export type PaymentsListRequest = {
 };
 
 export type PaymentsListResponse = {
-  result: ListResource;
+  result: ListResourcePayment;
 };
 
 /** @internal */
@@ -289,7 +289,7 @@ export const PaymentsListResponse$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    Result: ListResource$inboundSchema,
+    Result: ListResourcePayment$inboundSchema,
   }),
   z.transform((v) => {
     return remap$(v, {

@@ -9,11 +9,13 @@ let value: CustomerPortalCustomer = {
   createdAt: new Date("2024-04-02T06:47:49.140Z"),
   modifiedAt: new Date("2026-03-12T05:12:55.257Z"),
   id: "<value>",
-  email: "Katharina.Frami89@gmail.com",
-  emailVerified: true,
+  email: null,
+  emailVerified: false,
   name: "<value>",
   billingName: "<value>",
-  billingAddress: null,
+  billingAddress: {
+    country: "US",
+  },
   taxId: [
     "911144442",
     "us_ein",
@@ -24,7 +26,6 @@ let value: CustomerPortalCustomer = {
       accountUsername: "<value>",
     },
   },
-  type: "individual",
 };
 ```
 
@@ -43,4 +44,4 @@ let value: CustomerPortalCustomer = {
 | `taxId`                                                                                                        | *components.CustomerPortalCustomerTaxId*[]                                                                     | :heavy_check_mark:                                                                                             | N/A                                                                                                            | **Example 1:** [<br/>"911144442",<br/>"us_ein"<br/>]<br/>**Example 2:** [<br/>"FR61954506077",<br/>"eu_vat"<br/>] |
 | `oauthAccounts`                                                                                                | Record<string, [components.CustomerPortalOAuthAccount](../../models/components/customerportaloauthaccount.md)> | :heavy_check_mark:                                                                                             | N/A                                                                                                            |                                                                                                                |
 | `defaultPaymentMethodId`                                                                                       | *string*                                                                                                       | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |                                                                                                                |
-| `type`                                                                                                         | [components.CustomerType](../../models/components/customertype.md)                                             | :heavy_minus_sign:                                                                                             | N/A                                                                                                            | individual                                                                                                     |
+| `type`                                                                                                         | [components.CustomerType](../../models/components/customertype.md)                                             | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |                                                                                                                |

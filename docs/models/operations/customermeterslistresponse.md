@@ -19,12 +19,11 @@ let value: CustomerMetersListResponse = {
         balance: 75,
         customer: {
           id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-          createdAt: new Date("2024-06-04T21:28:32.740Z"),
-          modifiedAt: new Date("2024-03-21T15:56:34.258Z"),
+          createdAt: new Date("2026-01-05T19:13:23.632Z"),
+          modifiedAt: new Date("2026-10-09T02:26:38.751Z"),
           metadata: {
             "key": "<value>",
           },
-          externalId: "usr_1337",
           email: "customer@example.com",
           emailVerified: true,
           type: "individual",
@@ -37,21 +36,28 @@ let value: CustomerMetersListResponse = {
             "us_ein",
           ],
           organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-          deletedAt: new Date("2026-09-04T17:38:48.600Z"),
+          deletedAt: new Date("2026-07-26T09:42:30.311Z"),
           avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
         },
         meter: {
-          metadata: {},
-          createdAt: new Date("2026-01-05T19:13:23.632Z"),
-          modifiedAt: new Date("2026-10-09T02:26:38.751Z"),
+          metadata: {
+            "key": 661.85,
+          },
+          createdAt: new Date("2025-08-16T16:57:16.542Z"),
+          modifiedAt: null,
           id: "<value>",
           name: "<value>",
           filter: {
             conjunction: "or",
-            clauses: [],
+            clauses: [
+              {
+                conjunction: "and",
+                clauses: [],
+              },
+            ],
           },
           aggregation: {
-            func: "unique",
+            func: "min",
             property: "<value>",
           },
           organizationId: "<value>",

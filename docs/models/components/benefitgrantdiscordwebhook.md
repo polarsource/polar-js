@@ -17,15 +17,11 @@ let value: BenefitGrantDiscordWebhook = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-06-04T21:28:32.740Z"),
-    modifiedAt: new Date("2024-03-21T15:56:34.258Z"),
-    metadata: {
-      "key": "<value>",
-    },
-    externalId: "usr_1337",
-    email: "customer@example.com",
+    createdAt: new Date("2026-12-31T14:07:04.115Z"),
+    modifiedAt: new Date("2024-06-10T03:32:41.157Z"),
+    metadata: {},
     emailVerified: true,
-    type: "individual",
+    type: "team",
     name: "John Doe",
     billingAddress: {
       country: "US",
@@ -35,26 +31,26 @@ let value: BenefitGrantDiscordWebhook = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2026-09-04T17:38:48.600Z"),
+    deletedAt: new Date("2024-07-02T06:56:14.780Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   member: {
     id: "<value>",
-    createdAt: new Date("2026-04-15T16:04:23.824Z"),
-    modifiedAt: new Date("2025-04-16T17:12:33.507Z"),
+    createdAt: new Date("2024-08-29T23:41:53.521Z"),
+    modifiedAt: new Date("2024-05-20T19:39:16.494Z"),
     customerId: "<value>",
     email: "member@example.com",
     name: "Jane Doe",
     externalId: "usr_1337",
-    role: "member",
+    role: "billing_manager",
   },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2026-12-31T14:07:04.115Z"),
-    modifiedAt: new Date("2024-06-10T03:32:41.157Z"),
+    createdAt: new Date("2025-05-20T12:56:24.489Z"),
+    modifiedAt: new Date("2025-12-01T02:59:14.937Z"),
     type: "discord",
-    description: "that frightfully fantastic wound as",
-    selectable: true,
+    description: "sense apud ha lest courageous",
+    selectable: false,
     deletable: false,
     organizationId: "<value>",
     metadata: {},
@@ -86,7 +82,7 @@ let value: BenefitGrantDiscordWebhook = {
 | `memberId`                                                                                           | *string*                                                                                             | :heavy_minus_sign:                                                                                   | The ID of the member concerned by this grant.                                                        |
 | `benefitId`                                                                                          | *string*                                                                                             | :heavy_check_mark:                                                                                   | The ID of the benefit concerned by this grant.                                                       |
 | `error`                                                                                              | [components.BenefitGrantError](../../models/components/benefitgranterror.md)                         | :heavy_minus_sign:                                                                                   | The error information if the benefit grant failed with an unrecoverable error.                       |
-| `customer`                                                                                           | [components.Customer](../../models/components/customer.md)                                           | :heavy_check_mark:                                                                                   | A customer in an organization.                                                                       |
+| `customer`                                                                                           | *components.Customer*                                                                                | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `member`                                                                                             | [components.Member](../../models/components/member.md)                                               | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
 | `benefit`                                                                                            | [components.BenefitDiscord](../../models/components/benefitdiscord.md)                               | :heavy_check_mark:                                                                                   | A benefit of type `discord`.<br/><br/>Use it to automatically invite your backers to a Discord server. |
 | `properties`                                                                                         | [components.BenefitGrantDiscordProperties](../../models/components/benefitgrantdiscordproperties.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |

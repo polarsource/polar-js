@@ -3,213 +3,38 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  Address,
-  Address$inboundSchema,
-  Address$Outbound,
-  Address$outboundSchema,
-} from "./address.js";
+  CustomerIndividual,
+  CustomerIndividual$inboundSchema,
+  CustomerIndividual$Outbound,
+  CustomerIndividual$outboundSchema,
+} from "./customerindividual.js";
 import {
-  CustomerType,
-  CustomerType$inboundSchema,
-  CustomerType$outboundSchema,
-} from "./customertype.js";
-import {
-  MetadataOutputType,
-  MetadataOutputType$inboundSchema,
-  MetadataOutputType$Outbound,
-  MetadataOutputType$outboundSchema,
-} from "./metadataoutputtype.js";
-import {
-  TaxIDFormat,
-  TaxIDFormat$inboundSchema,
-  TaxIDFormat$outboundSchema,
-} from "./taxidformat.js";
+  CustomerTeam,
+  CustomerTeam$inboundSchema,
+  CustomerTeam$Outbound,
+  CustomerTeam$outboundSchema,
+} from "./customerteam.js";
 
-export type CustomerTaxId = string | TaxIDFormat;
-
-/**
- * A customer in an organization.
- */
-export type Customer = {
-  /**
-   * The ID of the customer.
-   */
-  id: string;
-  /**
-   * Creation timestamp of the object.
-   */
-  createdAt: Date;
-  /**
-   * Last modification timestamp of the object.
-   */
-  modifiedAt: Date | null;
-  metadata: { [k: string]: MetadataOutputType };
-  /**
-   * The ID of the customer in your system. This must be unique within the organization. Once set, it can't be updated.
-   */
-  externalId?: string | null | undefined;
-  /**
-   * The email address of the customer. This must be unique within the organization.
-   */
-  email: string;
-  /**
-   * Whether the customer email address is verified. The address is automatically verified when the customer accesses the customer portal using their email address.
-   */
-  emailVerified: boolean;
-  /**
-   * The type of customer: 'individual' for single users, 'team' for customers with multiple members. Legacy customers may have NULL type which is treated as 'individual'.
-   */
-  type?: CustomerType | null | undefined;
-  /**
-   * The name of the customer.
-   */
-  name: string | null;
-  billingAddress: Address | null;
-  taxId: Array<string | TaxIDFormat | null> | null;
-  locale?: string | null | undefined;
-  /**
-   * The ID of the organization owning the customer.
-   */
-  organizationId: string;
-  /**
-   * Timestamp for when the customer was soft deleted.
-   */
-  deletedAt: Date | null;
-  avatarUrl: string;
-};
+export type Customer = CustomerIndividual | CustomerTeam;
 
 /** @internal */
-export const CustomerTaxId$inboundSchema: z.ZodMiniType<
-  CustomerTaxId,
-  unknown
-> = smartUnion([z.string(), TaxIDFormat$inboundSchema]);
-/** @internal */
-export type CustomerTaxId$Outbound = string | string;
-
-/** @internal */
-export const CustomerTaxId$outboundSchema: z.ZodMiniType<
-  CustomerTaxId$Outbound,
-  CustomerTaxId
-> = smartUnion([z.string(), TaxIDFormat$outboundSchema]);
-
-export function customerTaxIdToJSON(customerTaxId: CustomerTaxId): string {
-  return JSON.stringify(CustomerTaxId$outboundSchema.parse(customerTaxId));
-}
-export function customerTaxIdFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerTaxId, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerTaxId$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerTaxId' from JSON`,
-  );
-}
-
-/** @internal */
-export const Customer$inboundSchema: z.ZodMiniType<Customer, unknown> = z.pipe(
-  z.object({
-    id: z.string(),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
-    external_id: z.optional(z.nullable(z.string())),
-    email: z.string(),
-    email_verified: z.boolean(),
-    type: z.optional(z.nullable(CustomerType$inboundSchema)),
-    name: z.nullable(z.string()),
-    billing_address: z.nullable(Address$inboundSchema),
-    tax_id: z.nullable(
-      z.array(z.nullable(smartUnion([z.string(), TaxIDFormat$inboundSchema]))),
-    ),
-    locale: z.optional(z.nullable(z.string())),
-    organization_id: z.string(),
-    deleted_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    avatar_url: z.string(),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "created_at": "createdAt",
-      "modified_at": "modifiedAt",
-      "external_id": "externalId",
-      "email_verified": "emailVerified",
-      "billing_address": "billingAddress",
-      "tax_id": "taxId",
-      "organization_id": "organizationId",
-      "deleted_at": "deletedAt",
-      "avatar_url": "avatarUrl",
-    });
-  }),
+export const Customer$inboundSchema: z.ZodMiniType<Customer, unknown> = z.union(
+  [CustomerIndividual$inboundSchema, CustomerTeam$inboundSchema],
 );
 /** @internal */
-export type Customer$Outbound = {
-  id: string;
-  created_at: string;
-  modified_at: string | null;
-  metadata: { [k: string]: MetadataOutputType$Outbound };
-  external_id?: string | null | undefined;
-  email: string;
-  email_verified: boolean;
-  type?: string | null | undefined;
-  name: string | null;
-  billing_address: Address$Outbound | null;
-  tax_id: Array<string | string | null> | null;
-  locale?: string | null | undefined;
-  organization_id: string;
-  deleted_at: string | null;
-  avatar_url: string;
-};
+export type Customer$Outbound =
+  | CustomerIndividual$Outbound
+  | CustomerTeam$Outbound;
 
 /** @internal */
 export const Customer$outboundSchema: z.ZodMiniType<
   Customer$Outbound,
   Customer
-> = z.pipe(
-  z.object({
-    id: z.string(),
-    createdAt: z.pipe(z.date(), z.transform(v => v.toISOString())),
-    modifiedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
-    metadata: z.record(z.string(), MetadataOutputType$outboundSchema),
-    externalId: z.optional(z.nullable(z.string())),
-    email: z.string(),
-    emailVerified: z.boolean(),
-    type: z.optional(z.nullable(CustomerType$outboundSchema)),
-    name: z.nullable(z.string()),
-    billingAddress: z.nullable(Address$outboundSchema),
-    taxId: z.nullable(
-      z.array(z.nullable(smartUnion([z.string(), TaxIDFormat$outboundSchema]))),
-    ),
-    locale: z.optional(z.nullable(z.string())),
-    organizationId: z.string(),
-    deletedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
-    avatarUrl: z.string(),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      createdAt: "created_at",
-      modifiedAt: "modified_at",
-      externalId: "external_id",
-      emailVerified: "email_verified",
-      billingAddress: "billing_address",
-      taxId: "tax_id",
-      organizationId: "organization_id",
-      deletedAt: "deleted_at",
-      avatarUrl: "avatar_url",
-    });
-  }),
-);
+> = z.union([CustomerIndividual$outboundSchema, CustomerTeam$outboundSchema]);
 
 export function customerToJSON(customer: Customer): string {
   return JSON.stringify(Customer$outboundSchema.parse(customer));

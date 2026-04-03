@@ -91,9 +91,6 @@ export type BenefitGrantGitHubRepositoryWebhook = {
    * The error information if the benefit grant failed with an unrecoverable error.
    */
   error?: BenefitGrantError | null | undefined;
-  /**
-   * A customer in an organization.
-   */
   customer: Customer;
   member?: Member | null | undefined;
   /**

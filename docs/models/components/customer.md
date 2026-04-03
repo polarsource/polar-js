@@ -1,19 +1,16 @@
 # Customer
 
-A customer in an organization.
 
-## Example Usage
+## Supported Types
+
+### `components.CustomerIndividual`
 
 ```typescript
-import { Customer } from "@polar-sh/sdk/models/components/customer.js";
-
-let value: Customer = {
+const value: components.CustomerIndividual = {
   id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-  createdAt: new Date("2026-07-08T03:18:52.668Z"),
+  createdAt: new Date("2025-02-09T18:45:42.435Z"),
   modifiedAt: null,
-  metadata: {
-    "key": 5696.82,
-  },
+  metadata: {},
   externalId: "usr_1337",
   email: "customer@example.com",
   emailVerified: true,
@@ -27,27 +24,34 @@ let value: Customer = {
     "us_ein",
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  deletedAt: new Date("2026-05-17T23:18:50.377Z"),
+  deletedAt: new Date("2025-10-18T05:57:51.705Z"),
   avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
 };
 ```
 
-## Fields
+### `components.CustomerTeam`
 
-| Field                                                                                                                                                                  | Type                                                                                                                                                                   | Required                                                                                                                                                               | Description                                                                                                                                                            | Example                                                                                                                                                                |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`                                                                                                                                                                   | *string*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                     | The ID of the customer.                                                                                                                                                | 992fae2a-2a17-4b7a-8d9e-e287cf90131b                                                                                                                                   |
-| `createdAt`                                                                                                                                                            | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                          | :heavy_check_mark:                                                                                                                                                     | Creation timestamp of the object.                                                                                                                                      |                                                                                                                                                                        |
-| `modifiedAt`                                                                                                                                                           | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                          | :heavy_check_mark:                                                                                                                                                     | Last modification timestamp of the object.                                                                                                                             |                                                                                                                                                                        |
-| `metadata`                                                                                                                                                             | Record<string, *components.MetadataOutputType*>                                                                                                                        | :heavy_check_mark:                                                                                                                                                     | N/A                                                                                                                                                                    |                                                                                                                                                                        |
-| `externalId`                                                                                                                                                           | *string*                                                                                                                                                               | :heavy_minus_sign:                                                                                                                                                     | The ID of the customer in your system. This must be unique within the organization. Once set, it can't be updated.                                                     | usr_1337                                                                                                                                                               |
-| `email`                                                                                                                                                                | *string*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                     | The email address of the customer. This must be unique within the organization.                                                                                        | customer@example.com                                                                                                                                                   |
-| `emailVerified`                                                                                                                                                        | *boolean*                                                                                                                                                              | :heavy_check_mark:                                                                                                                                                     | Whether the customer email address is verified. The address is automatically verified when the customer accesses the customer portal using their email address.        | true                                                                                                                                                                   |
-| `type`                                                                                                                                                                 | [components.CustomerType](../../models/components/customertype.md)                                                                                                     | :heavy_minus_sign:                                                                                                                                                     | The type of customer: 'individual' for single users, 'team' for customers with multiple members. Legacy customers may have NULL type which is treated as 'individual'. | individual                                                                                                                                                             |
-| `name`                                                                                                                                                                 | *string*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                     | The name of the customer.                                                                                                                                              | John Doe                                                                                                                                                               |
-| `billingAddress`                                                                                                                                                       | [components.Address](../../models/components/address.md)                                                                                                               | :heavy_check_mark:                                                                                                                                                     | N/A                                                                                                                                                                    |                                                                                                                                                                        |
-| `taxId`                                                                                                                                                                | *components.CustomerTaxId*[]                                                                                                                                           | :heavy_check_mark:                                                                                                                                                     | N/A                                                                                                                                                                    | **Example 1:** [<br/>"911144442",<br/>"us_ein"<br/>]<br/>**Example 2:** [<br/>"FR61954506077",<br/>"eu_vat"<br/>]                                                      |
-| `locale`                                                                                                                                                               | *string*                                                                                                                                                               | :heavy_minus_sign:                                                                                                                                                     | N/A                                                                                                                                                                    |                                                                                                                                                                        |
-| `organizationId`                                                                                                                                                       | *string*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                     | The ID of the organization owning the customer.                                                                                                                        | 1dbfc517-0bbf-4301-9ba8-555ca42b9737                                                                                                                                   |
-| `deletedAt`                                                                                                                                                            | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                          | :heavy_check_mark:                                                                                                                                                     | Timestamp for when the customer was soft deleted.                                                                                                                      |                                                                                                                                                                        |
-| `avatarUrl`                                                                                                                                                            | *string*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                     | N/A                                                                                                                                                                    | https://www.gravatar.com/avatar/xxx?d=404                                                                                                                              |
+```typescript
+const value: components.CustomerTeam = {
+  id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+  createdAt: new Date("2025-02-03T08:52:07.468Z"),
+  modifiedAt: new Date("2026-11-19T04:02:41.641Z"),
+  metadata: {},
+  externalId: "usr_1337",
+  email: "customer@example.com",
+  emailVerified: true,
+  type: "team",
+  name: "John Doe",
+  billingAddress: {
+    country: "US",
+  },
+  taxId: [
+    "911144442",
+    "us_ein",
+  ],
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  deletedAt: null,
+  avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
+};
+```
+

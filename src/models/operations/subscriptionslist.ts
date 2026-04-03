@@ -8,6 +8,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { smartUnion } from "../../types/smartUnion.js";
 import {
+  CustomerCancellationReason,
+  CustomerCancellationReason$outboundSchema,
+} from "../components/customercancellationreason.js";
+import {
   ListResourceSubscription,
   ListResourceSubscription$inboundSchema,
 } from "../components/listresourcesubscription.js";
@@ -47,6 +51,13 @@ export type ExternalCustomerIDFilter = string | Array<string>;
  */
 export type DiscountIDFilter = string | Array<string>;
 
+/**
+ * Filter by customer cancellation reason.
+ */
+export type CustomerCancellationReasonFilter =
+  | CustomerCancellationReason
+  | Array<CustomerCancellationReason>;
+
 export type SubscriptionsListRequest = {
   /**
    * Filter by organization ID.
@@ -76,6 +87,22 @@ export type SubscriptionsListRequest = {
    * Filter by subscriptions that are set to cancel at period end.
    */
   cancelAtPeriodEnd?: boolean | null | undefined;
+  /**
+   * Filter by customer cancellation reason.
+   */
+  customerCancellationReason?:
+    | CustomerCancellationReason
+    | Array<CustomerCancellationReason>
+    | null
+    | undefined;
+  /**
+   * Filter by cancellation date (after or equal to).
+   */
+  canceledAtAfter?: Date | null | undefined;
+  /**
+   * Filter by cancellation date (before or equal to).
+   */
+  canceledAtBefore?: Date | null | undefined;
   /**
    * Page number, defaults to 1.
    */
@@ -182,6 +209,28 @@ export function discountIDFilterToJSON(
 }
 
 /** @internal */
+export type CustomerCancellationReasonFilter$Outbound = string | Array<string>;
+
+/** @internal */
+export const CustomerCancellationReasonFilter$outboundSchema: z.ZodMiniType<
+  CustomerCancellationReasonFilter$Outbound,
+  CustomerCancellationReasonFilter
+> = smartUnion([
+  CustomerCancellationReason$outboundSchema,
+  z.array(CustomerCancellationReason$outboundSchema),
+]);
+
+export function customerCancellationReasonFilterToJSON(
+  customerCancellationReasonFilter: CustomerCancellationReasonFilter,
+): string {
+  return JSON.stringify(
+    CustomerCancellationReasonFilter$outboundSchema.parse(
+      customerCancellationReasonFilter,
+    ),
+  );
+}
+
+/** @internal */
 export type SubscriptionsListRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
   product_id?: string | Array<string> | null | undefined;
@@ -190,6 +239,9 @@ export type SubscriptionsListRequest$Outbound = {
   discount_id?: string | Array<string> | null | undefined;
   active?: boolean | null | undefined;
   cancel_at_period_end?: boolean | null | undefined;
+  customer_cancellation_reason?: string | Array<string> | null | undefined;
+  canceled_at_after?: string | null | undefined;
+  canceled_at_before?: string | null | undefined;
   page: number;
   limit: number;
   sorting?: Array<string> | null | undefined;
@@ -219,6 +271,20 @@ export const SubscriptionsListRequest$outboundSchema: z.ZodMiniType<
     ),
     active: z.optional(z.nullable(z.boolean())),
     cancelAtPeriodEnd: z.optional(z.nullable(z.boolean())),
+    customerCancellationReason: z.optional(
+      z.nullable(
+        smartUnion([
+          CustomerCancellationReason$outboundSchema,
+          z.array(CustomerCancellationReason$outboundSchema),
+        ]),
+      ),
+    ),
+    canceledAtAfter: z.optional(
+      z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    ),
+    canceledAtBefore: z.optional(
+      z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    ),
     page: z._default(z.int(), 1),
     limit: z._default(z.int(), 10),
     sorting: z.optional(
@@ -237,6 +303,9 @@ export const SubscriptionsListRequest$outboundSchema: z.ZodMiniType<
       externalCustomerId: "external_customer_id",
       discountId: "discount_id",
       cancelAtPeriodEnd: "cancel_at_period_end",
+      customerCancellationReason: "customer_cancellation_reason",
+      canceledAtAfter: "canceled_at_after",
+      canceledAtBefore: "canceled_at_before",
     });
   }),
 );

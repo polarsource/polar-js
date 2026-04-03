@@ -3,131 +3,33 @@
  */
 
 import * as z from "zod/v4-mini";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { smartUnion } from "../../types/smartUnion.js";
 import {
-  AddressInput,
-  AddressInput$Outbound,
-  AddressInput$outboundSchema,
-} from "./addressinput.js";
-import { CustomerType, CustomerType$outboundSchema } from "./customertype.js";
+  CustomerIndividualCreate,
+  CustomerIndividualCreate$Outbound,
+  CustomerIndividualCreate$outboundSchema,
+} from "./customerindividualcreate.js";
 import {
-  OwnerCreate,
-  OwnerCreate$Outbound,
-  OwnerCreate$outboundSchema,
-} from "./ownercreate.js";
+  CustomerTeamCreate,
+  CustomerTeamCreate$Outbound,
+  CustomerTeamCreate$outboundSchema,
+} from "./customerteamcreate.js";
 
-export type CustomerCreateMetadata = string | number | number | boolean;
-
-export type CustomerCreate = {
-  /**
-   * Key-value object allowing you to store additional information.
-   *
-   * @remarks
-   *
-   * The key must be a string with a maximum length of **40 characters**.
-   * The value must be either:
-   *
-   * * A string with a maximum length of **500 characters**
-   * * An integer
-   * * A floating-point number
-   * * A boolean
-   *
-   * You can store up to **50 key-value pairs**.
-   */
-  metadata?: { [k: string]: string | number | number | boolean } | undefined;
-  /**
-   * The ID of the customer in your system. This must be unique within the organization. Once set, it can't be updated.
-   */
-  externalId?: string | null | undefined;
-  /**
-   * The email address of the customer. This must be unique within the organization.
-   */
-  email: string;
-  name?: string | null | undefined;
-  billingAddress?: AddressInput | null | undefined;
-  taxId?: string | null | undefined;
-  locale?: string | null | undefined;
-  /**
-   * The type of customer. Defaults to 'individual'. Set to 'team' for customers that can have multiple members.
-   */
-  type?: CustomerType | null | undefined;
-  /**
-   * The ID of the organization owning the customer. **Required unless you use an organization token.**
-   */
-  organizationId?: string | null | undefined;
-  /**
-   * Optional owner member to create with the customer. If not provided, an owner member will be automatically created using the customer's email and name.
-   */
-  owner?: OwnerCreate | null | undefined;
-};
+export type CustomerCreate = CustomerIndividualCreate | CustomerTeamCreate;
 
 /** @internal */
-export type CustomerCreateMetadata$Outbound =
-  | string
-  | number
-  | number
-  | boolean;
-
-/** @internal */
-export const CustomerCreateMetadata$outboundSchema: z.ZodMiniType<
-  CustomerCreateMetadata$Outbound,
-  CustomerCreateMetadata
-> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
-
-export function customerCreateMetadataToJSON(
-  customerCreateMetadata: CustomerCreateMetadata,
-): string {
-  return JSON.stringify(
-    CustomerCreateMetadata$outboundSchema.parse(customerCreateMetadata),
-  );
-}
-
-/** @internal */
-export type CustomerCreate$Outbound = {
-  metadata?: { [k: string]: string | number | number | boolean } | undefined;
-  external_id?: string | null | undefined;
-  email: string;
-  name?: string | null | undefined;
-  billing_address?: AddressInput$Outbound | null | undefined;
-  tax_id?: string | null | undefined;
-  locale?: string | null | undefined;
-  type?: string | null | undefined;
-  organization_id?: string | null | undefined;
-  owner?: OwnerCreate$Outbound | null | undefined;
-};
+export type CustomerCreate$Outbound =
+  | CustomerIndividualCreate$Outbound
+  | CustomerTeamCreate$Outbound;
 
 /** @internal */
 export const CustomerCreate$outboundSchema: z.ZodMiniType<
   CustomerCreate$Outbound,
   CustomerCreate
-> = z.pipe(
-  z.object({
-    metadata: z.optional(
-      z.record(
-        z.string(),
-        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
-      ),
-    ),
-    externalId: z.optional(z.nullable(z.string())),
-    email: z.string(),
-    name: z.optional(z.nullable(z.string())),
-    billingAddress: z.optional(z.nullable(AddressInput$outboundSchema)),
-    taxId: z.optional(z.nullable(z.string())),
-    locale: z.optional(z.nullable(z.string())),
-    type: z.optional(z.nullable(CustomerType$outboundSchema)),
-    organizationId: z.optional(z.nullable(z.string())),
-    owner: z.optional(z.nullable(OwnerCreate$outboundSchema)),
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      externalId: "external_id",
-      billingAddress: "billing_address",
-      taxId: "tax_id",
-      organizationId: "organization_id",
-    });
-  }),
-);
+> = smartUnion([
+  CustomerIndividualCreate$outboundSchema,
+  CustomerTeamCreate$outboundSchema,
+]);
 
 export function customerCreateToJSON(customerCreate: CustomerCreate): string {
   return JSON.stringify(CustomerCreate$outboundSchema.parse(customerCreate));

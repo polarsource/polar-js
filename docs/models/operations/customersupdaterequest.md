@@ -15,7 +15,6 @@ let value: CustomersUpdateRequest = {
     },
     locale: "en",
     externalId: "usr_1337",
-    type: "individual",
   },
 };
 ```
