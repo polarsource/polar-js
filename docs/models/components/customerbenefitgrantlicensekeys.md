@@ -51,7 +51,7 @@ let value: CustomerBenefitGrantLicenseKeys = {
       name: "<value>",
       slug: "<value>",
       avatarUrl: "https://spotless-knight.com/",
-      prorationBehavior: "prorate",
+      prorationBehavior: "next_period",
       allowCustomerUpdates: true,
     },
     properties: {

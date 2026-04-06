@@ -226,7 +226,7 @@ let value: CheckoutPublicConfirmed = {
     name: "<value>",
     slug: "<value>",
     avatarUrl: null,
-    prorationBehavior: "invoice",
+    prorationBehavior: "prorate",
     allowCustomerUpdates: false,
   },
   attachedCustomFields: [],

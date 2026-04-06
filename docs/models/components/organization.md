@@ -12,7 +12,7 @@ let value: Organization = {
   name: "<value>",
   slug: "<value>",
   avatarUrl: "https://weighty-goodwill.org/",
-  prorationBehavior: "next_period",
+  prorationBehavior: "reset",
   allowCustomerUpdates: false,
   email: "Alaina8@yahoo.com",
   website: "<value>",
@@ -29,10 +29,10 @@ let value: Organization = {
   featureSettings: {},
   subscriptionSettings: {
     allowMultipleSubscriptions: false,
-    allowCustomerUpdates: true,
     prorationBehavior: "invoice",
-    benefitRevocationGracePeriod: 730000,
-    preventTrialAbuse: true,
+    benefitRevocationGracePeriod: 288227,
+    preventTrialAbuse: false,
+    allowCustomerUpdates: true,
   },
   notificationSettings: {
     newOrder: false,

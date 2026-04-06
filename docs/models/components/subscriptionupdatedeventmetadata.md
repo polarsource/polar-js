@@ -37,7 +37,7 @@ const value: components.SubscriptionUpdatedTrialMetadata = {
 const value: components.SubscriptionUpdatedSeatsMetadata = {
   subscriptionId: "<id>",
   seats: 355196,
-  prorationBehavior: "prorate",
+  prorationBehavior: "next_period",
 };
 ```
 
