@@ -45,6 +45,10 @@ export type OrganizationFeatureSettings = {
    * Ordered list of metric slugs shown on the dashboard overview.
    */
   overviewMetrics?: Array<string> | null | undefined;
+  /**
+   * If this organization has access to reset proration behavior.
+   */
+  resetProrationBehaviorEnabled?: boolean | undefined;
 };
 
 /** @internal */
@@ -62,6 +66,7 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
     tinybird_compare: z._default(z.boolean(), false),
     checkout_localization_enabled: z._default(z.boolean(), false),
     overview_metrics: z.optional(z.nullable(z.array(z.string()))),
+    reset_proration_behavior_enabled: z._default(z.boolean(), false),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -74,6 +79,7 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
       "tinybird_compare": "tinybirdCompare",
       "checkout_localization_enabled": "checkoutLocalizationEnabled",
       "overview_metrics": "overviewMetrics",
+      "reset_proration_behavior_enabled": "resetProrationBehaviorEnabled",
     });
   }),
 );
@@ -88,6 +94,7 @@ export type OrganizationFeatureSettings$Outbound = {
   tinybird_compare: boolean;
   checkout_localization_enabled: boolean;
   overview_metrics?: Array<string> | null | undefined;
+  reset_proration_behavior_enabled: boolean;
 };
 
 /** @internal */
@@ -105,6 +112,7 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
     tinybirdCompare: z._default(z.boolean(), false),
     checkoutLocalizationEnabled: z._default(z.boolean(), false),
     overviewMetrics: z.optional(z.nullable(z.array(z.string()))),
+    resetProrationBehaviorEnabled: z._default(z.boolean(), false),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -117,6 +125,7 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
       tinybirdCompare: "tinybird_compare",
       checkoutLocalizationEnabled: "checkout_localization_enabled",
       overviewMetrics: "overview_metrics",
+      resetProrationBehaviorEnabled: "reset_proration_behavior_enabled",
     });
   }),
 );

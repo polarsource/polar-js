@@ -8,7 +8,7 @@ import { SubscriptionUpdatedSeatsMetadata } from "@polar-sh/sdk/models/component
 let value: SubscriptionUpdatedSeatsMetadata = {
   subscriptionId: "<id>",
   seats: 355196,
-  prorationBehavior: "prorate",
+  prorationBehavior: "next_period",
 };
 ```
 

@@ -12,7 +12,7 @@ let value: CheckoutOrganization = {
   name: "<value>",
   slug: "<value>",
   avatarUrl: "https://unsightly-hunt.org",
-  prorationBehavior: "prorate",
+  prorationBehavior: "next_period",
   allowCustomerUpdates: false,
 };
 ```

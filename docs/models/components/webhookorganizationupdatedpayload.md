@@ -31,10 +31,10 @@ let value: WebhookOrganizationUpdatedPayload = {
     featureSettings: null,
     subscriptionSettings: {
       allowMultipleSubscriptions: false,
-      allowCustomerUpdates: true,
       prorationBehavior: "invoice",
-      benefitRevocationGracePeriod: 730000,
-      preventTrialAbuse: true,
+      benefitRevocationGracePeriod: 288227,
+      preventTrialAbuse: false,
+      allowCustomerUpdates: true,
     },
     notificationSettings: {
       newOrder: false,

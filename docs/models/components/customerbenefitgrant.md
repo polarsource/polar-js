@@ -55,7 +55,7 @@ const value: components.CustomerBenefitGrantDiscord = {
       name: "<value>",
       slug: "<value>",
       avatarUrl: "https://spotless-knight.com/",
-      prorationBehavior: "prorate",
+      prorationBehavior: "next_period",
       allowCustomerUpdates: true,
     },
     properties: {
@@ -117,7 +117,7 @@ const value: components.CustomerBenefitGrantGitHubRepository = {
       name: "<value>",
       slug: "<value>",
       avatarUrl: "https://spotless-knight.com/",
-      prorationBehavior: "prorate",
+      prorationBehavior: "next_period",
       allowCustomerUpdates: true,
     },
     properties: {
@@ -178,7 +178,7 @@ const value: components.CustomerBenefitGrantDownloadables = {
       name: "<value>",
       slug: "<value>",
       avatarUrl: "https://spotless-knight.com/",
-      prorationBehavior: "prorate",
+      prorationBehavior: "next_period",
       allowCustomerUpdates: true,
     },
     properties: {
@@ -242,7 +242,7 @@ const value: components.CustomerBenefitGrantLicenseKeys = {
       name: "<value>",
       slug: "<value>",
       avatarUrl: "https://spotless-knight.com/",
-      prorationBehavior: "prorate",
+      prorationBehavior: "next_period",
       allowCustomerUpdates: true,
     },
     properties: {
@@ -314,7 +314,7 @@ const value: components.CustomerBenefitGrantCustom = {
       name: "<value>",
       slug: "<value>",
       avatarUrl: "https://spotless-knight.com/",
-      prorationBehavior: "prorate",
+      prorationBehavior: "next_period",
       allowCustomerUpdates: true,
     },
     properties: {
@@ -375,7 +375,7 @@ const value: components.CustomerBenefitGrantMeterCredit = {
       name: "<value>",
       slug: "<value>",
       avatarUrl: "https://spotless-knight.com/",
-      prorationBehavior: "prorate",
+      prorationBehavior: "next_period",
       allowCustomerUpdates: true,
     },
     properties: {
@@ -439,7 +439,7 @@ const value: components.CustomerBenefitGrantFeatureFlag = {
       name: "<value>",
       slug: "<value>",
       avatarUrl: "https://spotless-knight.com/",
-      prorationBehavior: "prorate",
+      prorationBehavior: "next_period",
       allowCustomerUpdates: true,
     },
     properties: {},
