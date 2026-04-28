@@ -21,12 +21,13 @@ let value: WebhookBenefitCreatedPayload = {
       "while sticky hm saturate inasmuch quizzically although formation helpful",
     selectable: true,
     deletable: false,
+    isDeleted: true,
     organizationId: "<value>",
     metadata: {},
     properties: {
       repositoryOwner: "polarsource",
       repositoryName: "private_repo",
-      permission: "admin",
+      permission: "triage",
     },
   },
 };

@@ -15,6 +15,10 @@ export type SeatAssign = {
    */
   checkoutId?: string | null | undefined;
   /**
+   * Client secret of the checkout. Required when assigning seats via checkout_id as an anonymous caller (e.g. the checkout confirmation page).
+   */
+  checkoutClientSecret?: string | null | undefined;
+  /**
    * Order ID for one-time purchases. Required if subscription_id and checkout_id are not provided.
    */
   orderId?: string | null | undefined;
@@ -52,6 +56,7 @@ export type SeatAssign = {
 export type SeatAssign$Outbound = {
   subscription_id?: string | null | undefined;
   checkout_id?: string | null | undefined;
+  checkout_client_secret?: string | null | undefined;
   order_id?: string | null | undefined;
   email?: string | null | undefined;
   external_customer_id?: string | null | undefined;
@@ -70,6 +75,7 @@ export const SeatAssign$outboundSchema: z.ZodMiniType<
   z.object({
     subscriptionId: z.optional(z.nullable(z.string())),
     checkoutId: z.optional(z.nullable(z.string())),
+    checkoutClientSecret: z.optional(z.nullable(z.string())),
     orderId: z.optional(z.nullable(z.string())),
     email: z.optional(z.nullable(z.string())),
     externalCustomerId: z.optional(z.nullable(z.string())),
@@ -83,6 +89,7 @@ export const SeatAssign$outboundSchema: z.ZodMiniType<
     return remap$(v, {
       subscriptionId: "subscription_id",
       checkoutId: "checkout_id",
+      checkoutClientSecret: "checkout_client_secret",
       orderId: "order_id",
       externalCustomerId: "external_customer_id",
       customerId: "customer_id",

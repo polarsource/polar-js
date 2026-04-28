@@ -52,6 +52,7 @@ let value: BenefitGrantDiscordWebhook = {
     description: "sense apud ha lest courageous",
     selectable: false,
     deletable: false,
+    isDeleted: true,
     organizationId: "<value>",
     metadata: {},
     properties: {

@@ -554,4 +554,5 @@ run();
 | errors.ResourceNotFound         | 404                             | application/json                |
 | errors.PaymentAlreadyInProgress | 409                             | application/json                |
 | errors.OrderNotEligibleForRetry | 422                             | application/json                |
+| errors.ManualRetryLimitExceeded | 429                             | application/json                |
 | errors.SDKError                 | 4XX, 5XX                        | \*/\*                           |

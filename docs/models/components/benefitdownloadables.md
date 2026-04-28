@@ -13,17 +13,20 @@ let value: BenefitDownloadables = {
   description: "supposing allocation dull scowl bootleg illiterate hmph amid",
   selectable: true,
   deletable: true,
+  isDeleted: false,
   organizationId: "<value>",
   metadata: {
-    "key": false,
+    "key": 3971.46,
   },
   properties: {
     archived: {
       "key": false,
+      "key1": false,
     },
     files: [
       "<value 1>",
       "<value 2>",
+      "<value 3>",
     ],
   },
 };
@@ -40,6 +43,7 @@ let value: BenefitDownloadables = {
 | `description`                                                                                          | *string*                                                                                               | :heavy_check_mark:                                                                                     | The description of the benefit.                                                                        |
 | `selectable`                                                                                           | *boolean*                                                                                              | :heavy_check_mark:                                                                                     | Whether the benefit is selectable when creating a product.                                             |
 | `deletable`                                                                                            | *boolean*                                                                                              | :heavy_check_mark:                                                                                     | Whether the benefit is deletable.                                                                      |
+| `isDeleted`                                                                                            | *boolean*                                                                                              | :heavy_check_mark:                                                                                     | Whether the benefit is deleted.                                                                        |
 | `organizationId`                                                                                       | *string*                                                                                               | :heavy_check_mark:                                                                                     | The ID of the organization owning the benefit.                                                         |
 | `metadata`                                                                                             | Record<string, *components.MetadataOutputType*>                                                        | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
 | `properties`                                                                                           | [components.BenefitDownloadablesProperties](../../models/components/benefitdownloadablesproperties.md) | :heavy_check_mark:                                                                                     | N/A                                                                                                    |

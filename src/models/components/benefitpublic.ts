@@ -40,6 +40,10 @@ export type BenefitPublic = {
    */
   deletable: boolean;
   /**
+   * Whether the benefit is deleted.
+   */
+  isDeleted: boolean;
+  /**
    * The ID of the organization owning the benefit.
    */
   organizationId: string;
@@ -63,12 +67,14 @@ export const BenefitPublic$inboundSchema: z.ZodMiniType<
     description: z.string(),
     selectable: z.boolean(),
     deletable: z.boolean(),
+    is_deleted: z.boolean(),
     organization_id: z.string(),
   }),
   z.transform((v) => {
     return remap$(v, {
       "created_at": "createdAt",
       "modified_at": "modifiedAt",
+      "is_deleted": "isDeleted",
       "organization_id": "organizationId",
     });
   }),
@@ -82,6 +88,7 @@ export type BenefitPublic$Outbound = {
   description: string;
   selectable: boolean;
   deletable: boolean;
+  is_deleted: boolean;
   organization_id: string;
 };
 
@@ -98,12 +105,14 @@ export const BenefitPublic$outboundSchema: z.ZodMiniType<
     description: z.string(),
     selectable: z.boolean(),
     deletable: z.boolean(),
+    isDeleted: z.boolean(),
     organizationId: z.string(),
   }),
   z.transform((v) => {
     return remap$(v, {
       createdAt: "created_at",
       modifiedAt: "modified_at",
+      isDeleted: "is_deleted",
       organizationId: "organization_id",
     });
   }),

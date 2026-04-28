@@ -20,6 +20,7 @@ let value: WebhookBenefitUpdatedPayload = {
     description: "porter whoever nasalise what",
     selectable: true,
     deletable: false,
+    isDeleted: false,
     organizationId: "<value>",
     metadata: {
       "key": false,

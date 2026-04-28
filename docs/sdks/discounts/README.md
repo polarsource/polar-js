@@ -108,11 +108,10 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.discounts.create({
-    duration: "once",
-    type: "fixed",
-    basisPoints: 449604,
     name: "<value>",
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    type: "fixed",
+    duration: "once",
   });
 
   console.log(result);
@@ -137,11 +136,10 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await discountsCreate(polar, {
-    duration: "once",
-    type: "fixed",
-    basisPoints: 449604,
     name: "<value>",
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    type: "fixed",
+    duration: "once",
   });
   if (res.ok) {
     const { value: result } = res;

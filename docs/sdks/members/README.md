@@ -9,6 +9,9 @@
 * [getMember](#getmember) - Get Member
 * [deleteMember](#deletemember) - Delete Member
 * [updateMember](#updatemember) - Update Member
+* [getMemberByExternalId](#getmemberbyexternalid) - Get Member by External ID
+* [deleteMemberByExternalId](#deletememberbyexternalid) - Delete Member by External ID
+* [updateMemberByExternalId](#updatememberbyexternalid) - Update Member by External ID
 
 ## listMembers
 
@@ -400,6 +403,243 @@ run();
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `request`                                                                                                                                                                      | [operations.MembersUpdateMemberRequest](../../models/operations/membersupdatememberrequest.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.Member](../../models/components/member.md)\>**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.ResourceNotFound    | 404                        | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
+
+## getMemberByExternalId
+
+Get a member by external ID. One of customer_id or external_customer_id must be specified.
+
+**Scopes**: `members:read` `members:write`
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="members:get_member_by_external_id" method="get" path="/v1/members/external/{external_id}" -->
+```typescript
+import { Polar } from "@polar-sh/sdk";
+
+const polar = new Polar({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  const result = await polar.members.getMemberByExternalId({
+    externalId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { PolarCore } from "@polar-sh/sdk/core.js";
+import { membersGetMemberByExternalId } from "@polar-sh/sdk/funcs/membersGetMemberByExternalId.js";
+
+// Use `PolarCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const polar = new PolarCore({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  const res = await membersGetMemberByExternalId(polar, {
+    externalId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("membersGetMemberByExternalId failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.MembersGetMemberByExternalIdRequest](../../models/operations/membersgetmemberbyexternalidrequest.md)                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.Member](../../models/components/member.md)\>**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.ResourceNotFound    | 404                        | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
+
+## deleteMemberByExternalId
+
+Delete a member by external ID. One of customer_id or external_customer_id must be specified.
+
+**Scopes**: `members:write`
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="members:delete_member_by_external_id" method="delete" path="/v1/members/external/{external_id}" -->
+```typescript
+import { Polar } from "@polar-sh/sdk";
+
+const polar = new Polar({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  await polar.members.deleteMemberByExternalId({
+    externalId: "<id>",
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { PolarCore } from "@polar-sh/sdk/core.js";
+import { membersDeleteMemberByExternalId } from "@polar-sh/sdk/funcs/membersDeleteMemberByExternalId.js";
+
+// Use `PolarCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const polar = new PolarCore({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  const res = await membersDeleteMemberByExternalId(polar, {
+    externalId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("membersDeleteMemberByExternalId failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.MembersDeleteMemberByExternalIdRequest](../../models/operations/membersdeletememberbyexternalidrequest.md)                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.ResourceNotFound    | 404                        | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
+
+## updateMemberByExternalId
+
+Update a member by external ID. One of customer_id or external_customer_id must be specified.
+
+**Scopes**: `members:write`
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="members:update_member_by_external_id" method="patch" path="/v1/members/external/{external_id}" -->
+```typescript
+import { Polar } from "@polar-sh/sdk";
+
+const polar = new Polar({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  const result = await polar.members.updateMemberByExternalId({
+    externalId: "<id>",
+    memberUpdate: {
+      name: "Jane Doe",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { PolarCore } from "@polar-sh/sdk/core.js";
+import { membersUpdateMemberByExternalId } from "@polar-sh/sdk/funcs/membersUpdateMemberByExternalId.js";
+
+// Use `PolarCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const polar = new PolarCore({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  const res = await membersUpdateMemberByExternalId(polar, {
+    externalId: "<id>",
+    memberUpdate: {
+      name: "Jane Doe",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("membersUpdateMemberByExternalId failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.MembersUpdateMemberByExternalIdRequest](../../models/operations/membersupdatememberbyexternalidrequest.md)                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |

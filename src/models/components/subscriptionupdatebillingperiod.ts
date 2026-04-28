@@ -7,7 +7,7 @@ import { remap as remap$ } from "../../lib/primitives.js";
 
 export type SubscriptionUpdateBillingPeriod = {
   /**
-   * Set a new date for the end of the current billing period. The subscription will renew on this date. Needs to be later than the current value.
+   * Set a new date for the end of the current billing period. The subscription will renew on this date. The new date can be earlier or later than the current period end, as long as it's in the future.
    *
    * @remarks
    *

@@ -4,19 +4,25 @@
 
 import { membersCreateMember } from "../funcs/membersCreateMember.js";
 import { membersDeleteMember } from "../funcs/membersDeleteMember.js";
+import { membersDeleteMemberByExternalId } from "../funcs/membersDeleteMemberByExternalId.js";
 import { membersGetMember } from "../funcs/membersGetMember.js";
+import { membersGetMemberByExternalId } from "../funcs/membersGetMemberByExternalId.js";
 import { membersListMembers } from "../funcs/membersListMembers.js";
 import { membersUpdateMember } from "../funcs/membersUpdateMember.js";
+import { membersUpdateMemberByExternalId } from "../funcs/membersUpdateMemberByExternalId.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import { Member } from "../models/components/member.js";
 import { MemberCreate } from "../models/components/membercreate.js";
 import { MembersDeleteMemberRequest } from "../models/operations/membersdeletemember.js";
+import { MembersDeleteMemberByExternalIdRequest } from "../models/operations/membersdeletememberbyexternalid.js";
 import { MembersGetMemberRequest } from "../models/operations/membersgetmember.js";
+import { MembersGetMemberByExternalIdRequest } from "../models/operations/membersgetmemberbyexternalid.js";
 import {
   MembersListMembersRequest,
   MembersListMembersResponse,
 } from "../models/operations/memberslistmembers.js";
 import { MembersUpdateMemberRequest } from "../models/operations/membersupdatemember.js";
+import { MembersUpdateMemberByExternalIdRequest } from "../models/operations/membersupdatememberbyexternalid.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -120,6 +126,63 @@ export class Members extends ClientSDK {
     options?: RequestOptions,
   ): Promise<Member> {
     return unwrapAsync(membersUpdateMember(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get Member by External ID
+   *
+   * @remarks
+   * Get a member by external ID. One of customer_id or external_customer_id must be specified.
+   *
+   * **Scopes**: `members:read` `members:write`
+   */
+  async getMemberByExternalId(
+    request: MembersGetMemberByExternalIdRequest,
+    options?: RequestOptions,
+  ): Promise<Member> {
+    return unwrapAsync(membersGetMemberByExternalId(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Delete Member by External ID
+   *
+   * @remarks
+   * Delete a member by external ID. One of customer_id or external_customer_id must be specified.
+   *
+   * **Scopes**: `members:write`
+   */
+  async deleteMemberByExternalId(
+    request: MembersDeleteMemberByExternalIdRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(membersDeleteMemberByExternalId(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update Member by External ID
+   *
+   * @remarks
+   * Update a member by external ID. One of customer_id or external_customer_id must be specified.
+   *
+   * **Scopes**: `members:write`
+   */
+  async updateMemberByExternalId(
+    request: MembersUpdateMemberByExternalIdRequest,
+    options?: RequestOptions,
+  ): Promise<Member> {
+    return unwrapAsync(membersUpdateMemberByExternalId(
       this,
       request,
       options,

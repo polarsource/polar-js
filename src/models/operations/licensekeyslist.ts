@@ -8,6 +8,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { smartUnion } from "../../types/smartUnion.js";
 import {
+  LicenseKeyStatus,
+  LicenseKeyStatus$outboundSchema,
+} from "../components/licensekeystatus.js";
+import {
   ListResourceLicenseKeyRead,
   ListResourceLicenseKeyRead$inboundSchema,
 } from "../components/listresourcelicensekeyread.js";
@@ -25,6 +29,11 @@ export type LicenseKeysListQueryParamOrganizationIDFilter =
  */
 export type QueryParamBenefitIDFilter = string | Array<string>;
 
+/**
+ * Filter by license key status.
+ */
+export type LicenseKeyStatusFilter = LicenseKeyStatus | Array<LicenseKeyStatus>;
+
 export type LicenseKeysListRequest = {
   /**
    * Filter by organization ID.
@@ -34,6 +43,10 @@ export type LicenseKeysListRequest = {
    * Filter by benefit ID.
    */
   benefitId?: string | Array<string> | null | undefined;
+  /**
+   * Filter by license key status.
+   */
+  status?: LicenseKeyStatus | Array<LicenseKeyStatus> | null | undefined;
   /**
    * Page number, defaults to 1.
    */
@@ -89,9 +102,30 @@ export function queryParamBenefitIDFilterToJSON(
 }
 
 /** @internal */
+export type LicenseKeyStatusFilter$Outbound = string | Array<string>;
+
+/** @internal */
+export const LicenseKeyStatusFilter$outboundSchema: z.ZodMiniType<
+  LicenseKeyStatusFilter$Outbound,
+  LicenseKeyStatusFilter
+> = smartUnion([
+  LicenseKeyStatus$outboundSchema,
+  z.array(LicenseKeyStatus$outboundSchema),
+]);
+
+export function licenseKeyStatusFilterToJSON(
+  licenseKeyStatusFilter: LicenseKeyStatusFilter,
+): string {
+  return JSON.stringify(
+    LicenseKeyStatusFilter$outboundSchema.parse(licenseKeyStatusFilter),
+  );
+}
+
+/** @internal */
 export type LicenseKeysListRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
   benefit_id?: string | Array<string> | null | undefined;
+  status?: string | Array<string> | null | undefined;
   page: number;
   limit: number;
 };
@@ -107,6 +141,14 @@ export const LicenseKeysListRequest$outboundSchema: z.ZodMiniType<
     ),
     benefitId: z.optional(
       z.nullable(smartUnion([z.string(), z.array(z.string())])),
+    ),
+    status: z.optional(
+      z.nullable(
+        smartUnion([
+          LicenseKeyStatus$outboundSchema,
+          z.array(LicenseKeyStatus$outboundSchema),
+        ]),
+      ),
     ),
     page: z._default(z.int(), 1),
     limit: z._default(z.int(), 10),

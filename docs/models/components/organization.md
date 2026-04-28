@@ -12,7 +12,7 @@ let value: Organization = {
   name: "<value>",
   slug: "<value>",
   avatarUrl: "https://weighty-goodwill.org/",
-  prorationBehavior: "next_period",
+  prorationBehavior: "reset",
   allowCustomerUpdates: false,
   email: "Alaina8@yahoo.com",
   website: "<value>",
@@ -22,17 +22,17 @@ let value: Organization = {
       url: "https://unhealthy-marksman.org/",
     },
   ],
-  status: "active",
+  status: "offboarding",
   detailsSubmittedAt: new Date("2024-08-01T14:19:41.512Z"),
   defaultPresentmentCurrency: "<value>",
   defaultTaxBehavior: "exclusive",
   featureSettings: {},
   subscriptionSettings: {
     allowMultipleSubscriptions: false,
-    allowCustomerUpdates: true,
     prorationBehavior: "invoice",
-    benefitRevocationGracePeriod: 730000,
-    preventTrialAbuse: true,
+    benefitRevocationGracePeriod: 288227,
+    preventTrialAbuse: false,
+    allowCustomerUpdates: true,
   },
   notificationSettings: {
     newOrder: false,
@@ -59,6 +59,16 @@ let value: Organization = {
       updateSeats: true,
       updatePlan: true,
     },
+  },
+  accountId: null,
+  payoutAccountId: "<value>",
+  capabilities: {
+    checkoutPayments: true,
+    subscriptionRenewals: false,
+    payouts: false,
+    refunds: false,
+    apiAccess: false,
+    dashboardAccess: false,
   },
 };
 ```
@@ -88,3 +98,6 @@ let value: Organization = {
 | `customerEmailSettings`                                                                                                            | [components.OrganizationCustomerEmailSettings](../../models/components/organizationcustomeremailsettings.md)                       | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |
 | `customerPortalSettings`                                                                                                           | [components.OrganizationCustomerPortalSettings](../../models/components/organizationcustomerportalsettings.md)                     | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |
 | `country`                                                                                                                          | [components.CountryAlpha2](../../models/components/countryalpha2.md)                                                               | :heavy_minus_sign:                                                                                                                 | Two-letter country code (ISO 3166-1 alpha-2).                                                                                      |
+| `accountId`                                                                                                                        | *string*                                                                                                                           | :heavy_check_mark:                                                                                                                 | ID of the transactions account.                                                                                                    |
+| `payoutAccountId`                                                                                                                  | *string*                                                                                                                           | :heavy_check_mark:                                                                                                                 | ID of the payout account.                                                                                                          |
+| `capabilities`                                                                                                                     | [components.OrganizationCapabilities](../../models/components/organizationcapabilities.md)                                         | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |

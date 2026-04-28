@@ -11,6 +11,7 @@ import {
   CountAggregation$outboundSchema,
 } from "./countaggregation.js";
 import { Filter, Filter$Outbound, Filter$outboundSchema } from "./filter.js";
+import { MeterUnit, MeterUnit$outboundSchema } from "./meterunit.js";
 import {
   PropertyAggregation,
   PropertyAggregation$Outbound,
@@ -53,6 +54,18 @@ export type MeterUpdate = {
    * The name of the meter. Will be shown on customer's invoices and usage.
    */
   name?: string | null | undefined;
+  /**
+   * The unit of the meter.
+   */
+  unit?: MeterUnit | null | undefined;
+  /**
+   * The label for the custom unit. Required when unit is 'custom'.
+   */
+  customLabel?: string | null | undefined;
+  /**
+   * The multiplier to convert from base unit to display scale. Required when unit is 'custom'.
+   */
+  customMultiplier?: number | null | undefined;
   /**
    * The filter to apply on events that'll be used to calculate the meter.
    */
@@ -134,6 +147,9 @@ export function aggregationToJSON(aggregation: Aggregation): string {
 export type MeterUpdate$Outbound = {
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   name?: string | null | undefined;
+  unit?: string | null | undefined;
+  custom_label?: string | null | undefined;
+  custom_multiplier?: number | null | undefined;
   filter?: Filter$Outbound | null | undefined;
   aggregation?:
     | (PropertyAggregation$Outbound & { func: "avg" })
@@ -160,6 +176,9 @@ export const MeterUpdate$outboundSchema: z.ZodMiniType<
       ),
     ),
     name: z.optional(z.nullable(z.string())),
+    unit: z.optional(z.nullable(MeterUnit$outboundSchema)),
+    customLabel: z.optional(z.nullable(z.string())),
+    customMultiplier: z.optional(z.nullable(z.int())),
     filter: z.optional(z.nullable(Filter$outboundSchema)),
     aggregation: z.optional(
       z.nullable(
@@ -189,6 +208,8 @@ export const MeterUpdate$outboundSchema: z.ZodMiniType<
   }),
   z.transform((v) => {
     return remap$(v, {
+      customLabel: "custom_label",
+      customMultiplier: "custom_multiplier",
       isArchived: "is_archived",
     });
   }),

@@ -53,7 +53,9 @@ export type CustomerPortalBenefitGrantsListQueryParamOrderIDFilter =
 /**
  * Filter by subscription ID.
  */
-export type QueryParamSubscriptionIDFilter = string | Array<string>;
+export type CustomerPortalBenefitGrantsListQueryParamSubscriptionIDFilter =
+  | string
+  | Array<string>;
 
 /**
  * Filter by member ID.
@@ -227,21 +229,24 @@ export function customerPortalBenefitGrantsListQueryParamOrderIDFilterToJSON(
 }
 
 /** @internal */
-export type QueryParamSubscriptionIDFilter$Outbound = string | Array<string>;
+export type CustomerPortalBenefitGrantsListQueryParamSubscriptionIDFilter$Outbound =
+  | string
+  | Array<string>;
 
 /** @internal */
-export const QueryParamSubscriptionIDFilter$outboundSchema: z.ZodMiniType<
-  QueryParamSubscriptionIDFilter$Outbound,
-  QueryParamSubscriptionIDFilter
-> = smartUnion([z.string(), z.array(z.string())]);
+export const CustomerPortalBenefitGrantsListQueryParamSubscriptionIDFilter$outboundSchema:
+  z.ZodMiniType<
+    CustomerPortalBenefitGrantsListQueryParamSubscriptionIDFilter$Outbound,
+    CustomerPortalBenefitGrantsListQueryParamSubscriptionIDFilter
+  > = smartUnion([z.string(), z.array(z.string())]);
 
-export function queryParamSubscriptionIDFilterToJSON(
-  queryParamSubscriptionIDFilter: QueryParamSubscriptionIDFilter,
+export function customerPortalBenefitGrantsListQueryParamSubscriptionIDFilterToJSON(
+  customerPortalBenefitGrantsListQueryParamSubscriptionIDFilter:
+    CustomerPortalBenefitGrantsListQueryParamSubscriptionIDFilter,
 ): string {
   return JSON.stringify(
-    QueryParamSubscriptionIDFilter$outboundSchema.parse(
-      queryParamSubscriptionIDFilter,
-    ),
+    CustomerPortalBenefitGrantsListQueryParamSubscriptionIDFilter$outboundSchema
+      .parse(customerPortalBenefitGrantsListQueryParamSubscriptionIDFilter),
   );
 }
 

@@ -13,12 +13,20 @@ export type Metrics = {
   activeSubscriptions?: Metric | null | undefined;
   committedSubscriptions?: Metric | null | undefined;
   monthlyRecurringRevenue?: Metric | null | undefined;
+  trialMonthlyRecurringRevenue?: Metric | null | undefined;
   committedMonthlyRecurringRevenue?: Metric | null | undefined;
+  trialCommittedMonthlyRecurringRevenue?: Metric | null | undefined;
   averageRevenuePerUser?: Metric | null | undefined;
   checkouts?: Metric | null | undefined;
   succeededCheckouts?: Metric | null | undefined;
   churnedSubscriptions?: Metric | null | undefined;
   churnRate?: Metric | null | undefined;
+  seatsTotal?: Metric | null | undefined;
+  seatsClaimed?: Metric | null | undefined;
+  seatsPending?: Metric | null | undefined;
+  seatCustomers?: Metric | null | undefined;
+  newSeatCustomers?: Metric | null | undefined;
+  churnedSeatCustomers?: Metric | null | undefined;
   orders?: Metric | null | undefined;
   revenue?: Metric | null | undefined;
   netRevenue?: Metric | null | undefined;
@@ -48,11 +56,15 @@ export type Metrics = {
   canceledSubscriptionsTooExpensive?: Metric | null | undefined;
   canceledSubscriptionsUnused?: Metric | null | undefined;
   canceledSubscriptionsOther?: Metric | null | undefined;
+  annualRecurringRevenue?: Metric | null | undefined;
+  committedAnnualRecurringRevenue?: Metric | null | undefined;
   checkoutsConversion?: Metric | null | undefined;
   ltv?: Metric | null | undefined;
   grossMargin?: Metric | null | undefined;
   grossMarginPercentage?: Metric | null | undefined;
   cashflow?: Metric | null | undefined;
+  averageSeatsPerCustomer?: Metric | null | undefined;
+  seatUtilizationRate?: Metric | null | undefined;
 };
 
 /** @internal */
@@ -61,7 +73,13 @@ export const Metrics$inboundSchema: z.ZodMiniType<Metrics, unknown> = z.pipe(
     active_subscriptions: z.optional(z.nullable(Metric$inboundSchema)),
     committed_subscriptions: z.optional(z.nullable(Metric$inboundSchema)),
     monthly_recurring_revenue: z.optional(z.nullable(Metric$inboundSchema)),
+    trial_monthly_recurring_revenue: z.optional(
+      z.nullable(Metric$inboundSchema),
+    ),
     committed_monthly_recurring_revenue: z.optional(
+      z.nullable(Metric$inboundSchema),
+    ),
+    trial_committed_monthly_recurring_revenue: z.optional(
       z.nullable(Metric$inboundSchema),
     ),
     average_revenue_per_user: z.optional(z.nullable(Metric$inboundSchema)),
@@ -69,6 +87,12 @@ export const Metrics$inboundSchema: z.ZodMiniType<Metrics, unknown> = z.pipe(
     succeeded_checkouts: z.optional(z.nullable(Metric$inboundSchema)),
     churned_subscriptions: z.optional(z.nullable(Metric$inboundSchema)),
     churn_rate: z.optional(z.nullable(Metric$inboundSchema)),
+    seats_total: z.optional(z.nullable(Metric$inboundSchema)),
+    seats_claimed: z.optional(z.nullable(Metric$inboundSchema)),
+    seats_pending: z.optional(z.nullable(Metric$inboundSchema)),
+    seat_customers: z.optional(z.nullable(Metric$inboundSchema)),
+    new_seat_customers: z.optional(z.nullable(Metric$inboundSchema)),
+    churned_seat_customers: z.optional(z.nullable(Metric$inboundSchema)),
     orders: z.optional(z.nullable(Metric$inboundSchema)),
     revenue: z.optional(z.nullable(Metric$inboundSchema)),
     net_revenue: z.optional(z.nullable(Metric$inboundSchema)),
@@ -112,22 +136,37 @@ export const Metrics$inboundSchema: z.ZodMiniType<Metrics, unknown> = z.pipe(
     ),
     canceled_subscriptions_unused: z.optional(z.nullable(Metric$inboundSchema)),
     canceled_subscriptions_other: z.optional(z.nullable(Metric$inboundSchema)),
+    annual_recurring_revenue: z.optional(z.nullable(Metric$inboundSchema)),
+    committed_annual_recurring_revenue: z.optional(
+      z.nullable(Metric$inboundSchema),
+    ),
     checkouts_conversion: z.optional(z.nullable(Metric$inboundSchema)),
     ltv: z.optional(z.nullable(Metric$inboundSchema)),
     gross_margin: z.optional(z.nullable(Metric$inboundSchema)),
     gross_margin_percentage: z.optional(z.nullable(Metric$inboundSchema)),
     cashflow: z.optional(z.nullable(Metric$inboundSchema)),
+    average_seats_per_customer: z.optional(z.nullable(Metric$inboundSchema)),
+    seat_utilization_rate: z.optional(z.nullable(Metric$inboundSchema)),
   }),
   z.transform((v) => {
     return remap$(v, {
       "active_subscriptions": "activeSubscriptions",
       "committed_subscriptions": "committedSubscriptions",
       "monthly_recurring_revenue": "monthlyRecurringRevenue",
+      "trial_monthly_recurring_revenue": "trialMonthlyRecurringRevenue",
       "committed_monthly_recurring_revenue": "committedMonthlyRecurringRevenue",
+      "trial_committed_monthly_recurring_revenue":
+        "trialCommittedMonthlyRecurringRevenue",
       "average_revenue_per_user": "averageRevenuePerUser",
       "succeeded_checkouts": "succeededCheckouts",
       "churned_subscriptions": "churnedSubscriptions",
       "churn_rate": "churnRate",
+      "seats_total": "seatsTotal",
+      "seats_claimed": "seatsClaimed",
+      "seats_pending": "seatsPending",
+      "seat_customers": "seatCustomers",
+      "new_seat_customers": "newSeatCustomers",
+      "churned_seat_customers": "churnedSeatCustomers",
       "net_revenue": "netRevenue",
       "cumulative_revenue": "cumulativeRevenue",
       "net_cumulative_revenue": "netCumulativeRevenue",
@@ -158,9 +197,13 @@ export const Metrics$inboundSchema: z.ZodMiniType<Metrics, unknown> = z.pipe(
         "canceledSubscriptionsTooExpensive",
       "canceled_subscriptions_unused": "canceledSubscriptionsUnused",
       "canceled_subscriptions_other": "canceledSubscriptionsOther",
+      "annual_recurring_revenue": "annualRecurringRevenue",
+      "committed_annual_recurring_revenue": "committedAnnualRecurringRevenue",
       "checkouts_conversion": "checkoutsConversion",
       "gross_margin": "grossMargin",
       "gross_margin_percentage": "grossMarginPercentage",
+      "average_seats_per_customer": "averageSeatsPerCustomer",
+      "seat_utilization_rate": "seatUtilizationRate",
     });
   }),
 );

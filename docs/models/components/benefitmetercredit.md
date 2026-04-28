@@ -17,10 +17,11 @@ let value: BenefitMeterCredit = {
   description: "pish than huzzah rekindle lively approximate against meal",
   selectable: true,
   deletable: false,
+  isDeleted: true,
   organizationId: "<value>",
   metadata: {},
   properties: {
-    units: 298008,
+    units: 507849,
     rollover: false,
     meterId: "<value>",
   },
@@ -38,6 +39,7 @@ let value: BenefitMeterCredit = {
 | `description`                                                                                      | *string*                                                                                           | :heavy_check_mark:                                                                                 | The description of the benefit.                                                                    |
 | `selectable`                                                                                       | *boolean*                                                                                          | :heavy_check_mark:                                                                                 | Whether the benefit is selectable when creating a product.                                         |
 | `deletable`                                                                                        | *boolean*                                                                                          | :heavy_check_mark:                                                                                 | Whether the benefit is deletable.                                                                  |
+| `isDeleted`                                                                                        | *boolean*                                                                                          | :heavy_check_mark:                                                                                 | Whether the benefit is deleted.                                                                    |
 | `organizationId`                                                                                   | *string*                                                                                           | :heavy_check_mark:                                                                                 | The ID of the organization owning the benefit.                                                     |
 | `metadata`                                                                                         | Record<string, *components.MetadataOutputType*>                                                    | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 | `properties`                                                                                       | [components.BenefitMeterCreditProperties](../../models/components/benefitmetercreditproperties.md) | :heavy_check_mark:                                                                                 | Properties for a benefit of type `meter_unit`.                                                     |

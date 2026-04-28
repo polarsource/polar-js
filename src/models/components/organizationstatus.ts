@@ -8,11 +8,12 @@ import { OpenEnum } from "../../types/enums.js";
 
 export const OrganizationStatus = {
   Created: "created",
-  OnboardingStarted: "onboarding_started",
-  InitialReview: "initial_review",
-  OngoingReview: "ongoing_review",
+  Review: "review",
+  Snoozed: "snoozed",
   Denied: "denied",
   Active: "active",
+  Blocked: "blocked",
+  Offboarding: "offboarding",
 } as const;
 export type OrganizationStatus = OpenEnum<typeof OrganizationStatus>;
 

@@ -65,6 +65,11 @@ export type OrdersListQueryParamExternalCustomerIDFilter =
  */
 export type CheckoutIDFilter = string | Array<string>;
 
+/**
+ * Filter by subscription ID.
+ */
+export type SubscriptionIDFilter = string | Array<string>;
+
 export type OrdersListRequest = {
   /**
    * Filter by organization ID.
@@ -98,6 +103,10 @@ export type OrdersListRequest = {
    * Filter by checkout ID.
    */
   checkoutId?: string | Array<string> | null | undefined;
+  /**
+   * Filter by subscription ID.
+   */
+  subscriptionId?: string | Array<string> | null | undefined;
   /**
    * Page number, defaults to 1.
    */
@@ -263,6 +272,23 @@ export function checkoutIDFilterToJSON(
 }
 
 /** @internal */
+export type SubscriptionIDFilter$Outbound = string | Array<string>;
+
+/** @internal */
+export const SubscriptionIDFilter$outboundSchema: z.ZodMiniType<
+  SubscriptionIDFilter$Outbound,
+  SubscriptionIDFilter
+> = smartUnion([z.string(), z.array(z.string())]);
+
+export function subscriptionIDFilterToJSON(
+  subscriptionIDFilter: SubscriptionIDFilter,
+): string {
+  return JSON.stringify(
+    SubscriptionIDFilter$outboundSchema.parse(subscriptionIDFilter),
+  );
+}
+
+/** @internal */
 export type OrdersListRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
   product_id?: string | Array<string> | null | undefined;
@@ -271,6 +297,7 @@ export type OrdersListRequest$Outbound = {
   customer_id?: string | Array<string> | null | undefined;
   external_customer_id?: string | Array<string> | null | undefined;
   checkout_id?: string | Array<string> | null | undefined;
+  subscription_id?: string | Array<string> | null | undefined;
   page: number;
   limit: number;
   sorting?: Array<string> | null | undefined;
@@ -309,6 +336,9 @@ export const OrdersListRequest$outboundSchema: z.ZodMiniType<
     checkoutId: z.optional(
       z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
+    subscriptionId: z.optional(
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+    ),
     page: z._default(z.int(), 1),
     limit: z._default(z.int(), 10),
     sorting: z.optional(z.nullable(z.array(OrderSortProperty$outboundSchema))),
@@ -325,6 +355,7 @@ export const OrdersListRequest$outboundSchema: z.ZodMiniType<
       customerId: "customer_id",
       externalCustomerId: "external_customer_id",
       checkoutId: "checkout_id",
+      subscriptionId: "subscription_id",
     });
   }),
 );

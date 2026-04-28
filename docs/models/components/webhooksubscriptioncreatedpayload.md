@@ -154,6 +154,7 @@ let value: WebhookSubscriptionCreatedPayload = {
         meter: {
           id: "<value>",
           name: "<value>",
+          unit: "scalar",
         },
       },
     ],

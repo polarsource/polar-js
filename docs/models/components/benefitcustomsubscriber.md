@@ -14,17 +14,20 @@ let value: BenefitCustomSubscriber = {
     "innocently selfish hence manner manner climb reasoning mentor upside-down at",
   selectable: false,
   deletable: true,
+  isDeleted: true,
   organizationId: "<value>",
-  metadata: {},
+  metadata: {
+    "key": 6520.28,
+  },
   organization: {
-    createdAt: new Date("2024-02-09T14:46:30.040Z"),
-    modifiedAt: new Date("2025-07-28T16:12:54.009Z"),
+    createdAt: new Date("2026-08-25T19:07:42.873Z"),
+    modifiedAt: new Date("2025-12-26T12:35:13.942Z"),
     id: "<value>",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://spotless-knight.com/",
-    prorationBehavior: "prorate",
-    allowCustomerUpdates: true,
+    avatarUrl: null,
+    prorationBehavior: "reset",
+    allowCustomerUpdates: false,
   },
   properties: {
     note: "<value>",
@@ -43,6 +46,7 @@ let value: BenefitCustomSubscriber = {
 | `description`                                                                                                | *string*                                                                                                     | :heavy_check_mark:                                                                                           | The description of the benefit.                                                                              |
 | `selectable`                                                                                                 | *boolean*                                                                                                    | :heavy_check_mark:                                                                                           | Whether the benefit is selectable when creating a product.                                                   |
 | `deletable`                                                                                                  | *boolean*                                                                                                    | :heavy_check_mark:                                                                                           | Whether the benefit is deletable.                                                                            |
+| `isDeleted`                                                                                                  | *boolean*                                                                                                    | :heavy_check_mark:                                                                                           | Whether the benefit is deleted.                                                                              |
 | `organizationId`                                                                                             | *string*                                                                                                     | :heavy_check_mark:                                                                                           | The ID of the organization owning the benefit.                                                               |
 | `metadata`                                                                                                   | Record<string, *components.MetadataOutputType*>                                                              | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `organization`                                                                                               | [components.BenefitSubscriberOrganization](../../models/components/benefitsubscriberorganization.md)         | :heavy_check_mark:                                                                                           | N/A                                                                                                          |

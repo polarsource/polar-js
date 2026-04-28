@@ -7,6 +7,12 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  CustomerPortalCustomerSettings,
+  CustomerPortalCustomerSettings$inboundSchema,
+  CustomerPortalCustomerSettings$Outbound,
+  CustomerPortalCustomerSettings$outboundSchema,
+} from "./customerportalcustomersettings.js";
+import {
   CustomerPortalSubscriptionSettings,
   CustomerPortalSubscriptionSettings$inboundSchema,
   CustomerPortalSubscriptionSettings$Outbound,
@@ -22,6 +28,7 @@ import {
 export type OrganizationCustomerPortalSettings = {
   usage: CustomerPortalUsageSettings;
   subscription: CustomerPortalSubscriptionSettings;
+  customer?: CustomerPortalCustomerSettings | undefined;
 };
 
 /** @internal */
@@ -31,11 +38,13 @@ export const OrganizationCustomerPortalSettings$inboundSchema: z.ZodMiniType<
 > = z.object({
   usage: CustomerPortalUsageSettings$inboundSchema,
   subscription: CustomerPortalSubscriptionSettings$inboundSchema,
+  customer: z.optional(CustomerPortalCustomerSettings$inboundSchema),
 });
 /** @internal */
 export type OrganizationCustomerPortalSettings$Outbound = {
   usage: CustomerPortalUsageSettings$Outbound;
   subscription: CustomerPortalSubscriptionSettings$Outbound;
+  customer?: CustomerPortalCustomerSettings$Outbound | undefined;
 };
 
 /** @internal */
@@ -45,6 +54,7 @@ export const OrganizationCustomerPortalSettings$outboundSchema: z.ZodMiniType<
 > = z.object({
   usage: CustomerPortalUsageSettings$outboundSchema,
   subscription: CustomerPortalSubscriptionSettings$outboundSchema,
+  customer: z.optional(CustomerPortalCustomerSettings$outboundSchema),
 });
 
 export function organizationCustomerPortalSettingsToJSON(

@@ -155,6 +155,7 @@ let value: WebhookSubscriptionRevokedPayload = {
         meter: {
           id: "<value>",
           name: "<value>",
+          unit: "scalar",
         },
       },
     ],

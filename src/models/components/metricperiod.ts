@@ -15,7 +15,11 @@ export type CommittedSubscriptions = number | number;
 
 export type MonthlyRecurringRevenue = number | number;
 
+export type TrialMonthlyRecurringRevenue = number | number;
+
 export type CommittedMonthlyRecurringRevenue = number | number;
+
+export type TrialCommittedMonthlyRecurringRevenue = number | number;
 
 export type AverageRevenuePerUser = number | number;
 
@@ -26,6 +30,18 @@ export type SucceededCheckouts = number | number;
 export type ChurnedSubscriptions = number | number;
 
 export type ChurnRate = number | number;
+
+export type SeatsTotal = number | number;
+
+export type SeatsClaimed = number | number;
+
+export type SeatsPending = number | number;
+
+export type SeatCustomers = number | number;
+
+export type NewSeatCustomers = number | number;
+
+export type ChurnedSeatCustomers = number | number;
 
 export type Orders = number | number;
 
@@ -85,6 +101,10 @@ export type CanceledSubscriptionsUnused = number | number;
 
 export type CanceledSubscriptionsOther = number | number;
 
+export type AnnualRecurringRevenue = number | number;
+
+export type CommittedAnnualRecurringRevenue = number | number;
+
 export type CheckoutsConversion = number | number;
 
 export type Ltv = number | number;
@@ -95,6 +115,10 @@ export type GrossMarginPercentage = number | number;
 
 export type Cashflow = number | number;
 
+export type AverageSeatsPerCustomer = number | number;
+
+export type SeatUtilizationRate = number | number;
+
 export type MetricPeriod = {
   /**
    * Timestamp of this period data.
@@ -103,12 +127,20 @@ export type MetricPeriod = {
   activeSubscriptions?: number | number | null | undefined;
   committedSubscriptions?: number | number | null | undefined;
   monthlyRecurringRevenue?: number | number | null | undefined;
+  trialMonthlyRecurringRevenue?: number | number | null | undefined;
   committedMonthlyRecurringRevenue?: number | number | null | undefined;
+  trialCommittedMonthlyRecurringRevenue?: number | number | null | undefined;
   averageRevenuePerUser?: number | number | null | undefined;
   checkouts?: number | number | null | undefined;
   succeededCheckouts?: number | number | null | undefined;
   churnedSubscriptions?: number | number | null | undefined;
   churnRate?: number | number | null | undefined;
+  seatsTotal?: number | number | null | undefined;
+  seatsClaimed?: number | number | null | undefined;
+  seatsPending?: number | number | null | undefined;
+  seatCustomers?: number | number | null | undefined;
+  newSeatCustomers?: number | number | null | undefined;
+  churnedSeatCustomers?: number | number | null | undefined;
   orders?: number | number | null | undefined;
   revenue?: number | number | null | undefined;
   netRevenue?: number | number | null | undefined;
@@ -138,11 +170,15 @@ export type MetricPeriod = {
   canceledSubscriptionsTooExpensive?: number | number | null | undefined;
   canceledSubscriptionsUnused?: number | number | null | undefined;
   canceledSubscriptionsOther?: number | number | null | undefined;
+  annualRecurringRevenue?: number | number | null | undefined;
+  committedAnnualRecurringRevenue?: number | number | null | undefined;
   checkoutsConversion?: number | number | null | undefined;
   ltv?: number | number | null | undefined;
   grossMargin?: number | number | null | undefined;
   grossMarginPercentage?: number | number | null | undefined;
   cashflow?: number | number | null | undefined;
+  averageSeatsPerCustomer?: number | number | null | undefined;
+  seatUtilizationRate?: number | number | null | undefined;
 };
 
 /** @internal */
@@ -194,6 +230,22 @@ export function monthlyRecurringRevenueFromJSON(
 }
 
 /** @internal */
+export const TrialMonthlyRecurringRevenue$inboundSchema: z.ZodMiniType<
+  TrialMonthlyRecurringRevenue,
+  unknown
+> = smartUnion([z.int(), z.number()]);
+
+export function trialMonthlyRecurringRevenueFromJSON(
+  jsonString: string,
+): SafeParseResult<TrialMonthlyRecurringRevenue, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => TrialMonthlyRecurringRevenue$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TrialMonthlyRecurringRevenue' from JSON`,
+  );
+}
+
+/** @internal */
 export const CommittedMonthlyRecurringRevenue$inboundSchema: z.ZodMiniType<
   CommittedMonthlyRecurringRevenue,
   unknown
@@ -206,6 +258,23 @@ export function committedMonthlyRecurringRevenueFromJSON(
     jsonString,
     (x) => CommittedMonthlyRecurringRevenue$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'CommittedMonthlyRecurringRevenue' from JSON`,
+  );
+}
+
+/** @internal */
+export const TrialCommittedMonthlyRecurringRevenue$inboundSchema: z.ZodMiniType<
+  TrialCommittedMonthlyRecurringRevenue,
+  unknown
+> = smartUnion([z.int(), z.number()]);
+
+export function trialCommittedMonthlyRecurringRevenueFromJSON(
+  jsonString: string,
+): SafeParseResult<TrialCommittedMonthlyRecurringRevenue, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TrialCommittedMonthlyRecurringRevenue$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TrialCommittedMonthlyRecurringRevenue' from JSON`,
   );
 }
 
@@ -282,6 +351,96 @@ export function churnRateFromJSON(
     jsonString,
     (x) => ChurnRate$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'ChurnRate' from JSON`,
+  );
+}
+
+/** @internal */
+export const SeatsTotal$inboundSchema: z.ZodMiniType<SeatsTotal, unknown> =
+  smartUnion([z.int(), z.number()]);
+
+export function seatsTotalFromJSON(
+  jsonString: string,
+): SafeParseResult<SeatsTotal, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SeatsTotal$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SeatsTotal' from JSON`,
+  );
+}
+
+/** @internal */
+export const SeatsClaimed$inboundSchema: z.ZodMiniType<SeatsClaimed, unknown> =
+  smartUnion([z.int(), z.number()]);
+
+export function seatsClaimedFromJSON(
+  jsonString: string,
+): SafeParseResult<SeatsClaimed, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SeatsClaimed$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SeatsClaimed' from JSON`,
+  );
+}
+
+/** @internal */
+export const SeatsPending$inboundSchema: z.ZodMiniType<SeatsPending, unknown> =
+  smartUnion([z.int(), z.number()]);
+
+export function seatsPendingFromJSON(
+  jsonString: string,
+): SafeParseResult<SeatsPending, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SeatsPending$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SeatsPending' from JSON`,
+  );
+}
+
+/** @internal */
+export const SeatCustomers$inboundSchema: z.ZodMiniType<
+  SeatCustomers,
+  unknown
+> = smartUnion([z.int(), z.number()]);
+
+export function seatCustomersFromJSON(
+  jsonString: string,
+): SafeParseResult<SeatCustomers, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SeatCustomers$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SeatCustomers' from JSON`,
+  );
+}
+
+/** @internal */
+export const NewSeatCustomers$inboundSchema: z.ZodMiniType<
+  NewSeatCustomers,
+  unknown
+> = smartUnion([z.int(), z.number()]);
+
+export function newSeatCustomersFromJSON(
+  jsonString: string,
+): SafeParseResult<NewSeatCustomers, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => NewSeatCustomers$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'NewSeatCustomers' from JSON`,
+  );
+}
+
+/** @internal */
+export const ChurnedSeatCustomers$inboundSchema: z.ZodMiniType<
+  ChurnedSeatCustomers,
+  unknown
+> = smartUnion([z.int(), z.number()]);
+
+export function churnedSeatCustomersFromJSON(
+  jsonString: string,
+): SafeParseResult<ChurnedSeatCustomers, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ChurnedSeatCustomers$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ChurnedSeatCustomers' from JSON`,
   );
 }
 
@@ -747,6 +906,38 @@ export function canceledSubscriptionsOtherFromJSON(
 }
 
 /** @internal */
+export const AnnualRecurringRevenue$inboundSchema: z.ZodMiniType<
+  AnnualRecurringRevenue,
+  unknown
+> = smartUnion([z.int(), z.number()]);
+
+export function annualRecurringRevenueFromJSON(
+  jsonString: string,
+): SafeParseResult<AnnualRecurringRevenue, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AnnualRecurringRevenue$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AnnualRecurringRevenue' from JSON`,
+  );
+}
+
+/** @internal */
+export const CommittedAnnualRecurringRevenue$inboundSchema: z.ZodMiniType<
+  CommittedAnnualRecurringRevenue,
+  unknown
+> = smartUnion([z.int(), z.number()]);
+
+export function committedAnnualRecurringRevenueFromJSON(
+  jsonString: string,
+): SafeParseResult<CommittedAnnualRecurringRevenue, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CommittedAnnualRecurringRevenue$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CommittedAnnualRecurringRevenue' from JSON`,
+  );
+}
+
+/** @internal */
 export const CheckoutsConversion$inboundSchema: z.ZodMiniType<
   CheckoutsConversion,
   unknown
@@ -823,6 +1014,38 @@ export function cashflowFromJSON(
 }
 
 /** @internal */
+export const AverageSeatsPerCustomer$inboundSchema: z.ZodMiniType<
+  AverageSeatsPerCustomer,
+  unknown
+> = smartUnion([z.int(), z.number()]);
+
+export function averageSeatsPerCustomerFromJSON(
+  jsonString: string,
+): SafeParseResult<AverageSeatsPerCustomer, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AverageSeatsPerCustomer$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AverageSeatsPerCustomer' from JSON`,
+  );
+}
+
+/** @internal */
+export const SeatUtilizationRate$inboundSchema: z.ZodMiniType<
+  SeatUtilizationRate,
+  unknown
+> = smartUnion([z.int(), z.number()]);
+
+export function seatUtilizationRateFromJSON(
+  jsonString: string,
+): SafeParseResult<SeatUtilizationRate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SeatUtilizationRate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SeatUtilizationRate' from JSON`,
+  );
+}
+
+/** @internal */
 export const MetricPeriod$inboundSchema: z.ZodMiniType<MetricPeriod, unknown> =
   z.pipe(
     z.object({
@@ -839,7 +1062,13 @@ export const MetricPeriod$inboundSchema: z.ZodMiniType<MetricPeriod, unknown> =
       monthly_recurring_revenue: z.optional(
         z.nullable(smartUnion([z.int(), z.number()])),
       ),
+      trial_monthly_recurring_revenue: z.optional(
+        z.nullable(smartUnion([z.int(), z.number()])),
+      ),
       committed_monthly_recurring_revenue: z.optional(
+        z.nullable(smartUnion([z.int(), z.number()])),
+      ),
+      trial_committed_monthly_recurring_revenue: z.optional(
         z.nullable(smartUnion([z.int(), z.number()])),
       ),
       average_revenue_per_user: z.optional(
@@ -853,6 +1082,16 @@ export const MetricPeriod$inboundSchema: z.ZodMiniType<MetricPeriod, unknown> =
         z.nullable(smartUnion([z.int(), z.number()])),
       ),
       churn_rate: z.optional(z.nullable(smartUnion([z.int(), z.number()]))),
+      seats_total: z.optional(z.nullable(smartUnion([z.int(), z.number()]))),
+      seats_claimed: z.optional(z.nullable(smartUnion([z.int(), z.number()]))),
+      seats_pending: z.optional(z.nullable(smartUnion([z.int(), z.number()]))),
+      seat_customers: z.optional(z.nullable(smartUnion([z.int(), z.number()]))),
+      new_seat_customers: z.optional(
+        z.nullable(smartUnion([z.int(), z.number()])),
+      ),
+      churned_seat_customers: z.optional(
+        z.nullable(smartUnion([z.int(), z.number()])),
+      ),
       orders: z.optional(z.nullable(smartUnion([z.int(), z.number()]))),
       revenue: z.optional(z.nullable(smartUnion([z.int(), z.number()]))),
       net_revenue: z.optional(z.nullable(smartUnion([z.int(), z.number()]))),
@@ -930,6 +1169,12 @@ export const MetricPeriod$inboundSchema: z.ZodMiniType<MetricPeriod, unknown> =
       canceled_subscriptions_other: z.optional(
         z.nullable(smartUnion([z.int(), z.number()])),
       ),
+      annual_recurring_revenue: z.optional(
+        z.nullable(smartUnion([z.int(), z.number()])),
+      ),
+      committed_annual_recurring_revenue: z.optional(
+        z.nullable(smartUnion([z.int(), z.number()])),
+      ),
       checkouts_conversion: z.optional(
         z.nullable(smartUnion([z.int(), z.number()])),
       ),
@@ -939,18 +1184,33 @@ export const MetricPeriod$inboundSchema: z.ZodMiniType<MetricPeriod, unknown> =
         z.nullable(smartUnion([z.int(), z.number()])),
       ),
       cashflow: z.optional(z.nullable(smartUnion([z.int(), z.number()]))),
+      average_seats_per_customer: z.optional(
+        z.nullable(smartUnion([z.int(), z.number()])),
+      ),
+      seat_utilization_rate: z.optional(
+        z.nullable(smartUnion([z.int(), z.number()])),
+      ),
     }),
     z.transform((v) => {
       return remap$(v, {
         "active_subscriptions": "activeSubscriptions",
         "committed_subscriptions": "committedSubscriptions",
         "monthly_recurring_revenue": "monthlyRecurringRevenue",
+        "trial_monthly_recurring_revenue": "trialMonthlyRecurringRevenue",
         "committed_monthly_recurring_revenue":
           "committedMonthlyRecurringRevenue",
+        "trial_committed_monthly_recurring_revenue":
+          "trialCommittedMonthlyRecurringRevenue",
         "average_revenue_per_user": "averageRevenuePerUser",
         "succeeded_checkouts": "succeededCheckouts",
         "churned_subscriptions": "churnedSubscriptions",
         "churn_rate": "churnRate",
+        "seats_total": "seatsTotal",
+        "seats_claimed": "seatsClaimed",
+        "seats_pending": "seatsPending",
+        "seat_customers": "seatCustomers",
+        "new_seat_customers": "newSeatCustomers",
+        "churned_seat_customers": "churnedSeatCustomers",
         "net_revenue": "netRevenue",
         "cumulative_revenue": "cumulativeRevenue",
         "net_cumulative_revenue": "netCumulativeRevenue",
@@ -981,9 +1241,13 @@ export const MetricPeriod$inboundSchema: z.ZodMiniType<MetricPeriod, unknown> =
           "canceledSubscriptionsTooExpensive",
         "canceled_subscriptions_unused": "canceledSubscriptionsUnused",
         "canceled_subscriptions_other": "canceledSubscriptionsOther",
+        "annual_recurring_revenue": "annualRecurringRevenue",
+        "committed_annual_recurring_revenue": "committedAnnualRecurringRevenue",
         "checkouts_conversion": "checkoutsConversion",
         "gross_margin": "grossMargin",
         "gross_margin_percentage": "grossMarginPercentage",
+        "average_seats_per_customer": "averageSeatsPerCustomer",
+        "seat_utilization_rate": "seatUtilizationRate",
       });
     }),
   );
