@@ -14,10 +14,9 @@ const value: components.BenefitCustom = {
   description: "how nor limited scoff ownership",
   selectable: false,
   deletable: true,
+  isDeleted: false,
   organizationId: "<value>",
-  metadata: {
-    "key": 936136,
-  },
+  metadata: {},
   properties: {
     note: "<value>",
   },
@@ -35,10 +34,9 @@ const value: components.BenefitDiscord = {
   description: "after incidentally whose",
   selectable: false,
   deletable: true,
+  isDeleted: false,
   organizationId: "<value>",
-  metadata: {
-    "key": 337726,
-  },
+  metadata: {},
   properties: {
     guildId: "<id>",
     roleId: "<id>",
@@ -59,17 +57,20 @@ const value: components.BenefitDownloadables = {
   description: "supposing allocation dull scowl bootleg illiterate hmph amid",
   selectable: true,
   deletable: true,
+  isDeleted: false,
   organizationId: "<value>",
   metadata: {
-    "key": false,
+    "key": 3971.46,
   },
   properties: {
     archived: {
       "key": false,
+      "key1": false,
     },
     files: [
       "<value 1>",
       "<value 2>",
+      "<value 3>",
     ],
   },
 };
@@ -86,6 +87,7 @@ const value: components.BenefitFeatureFlag = {
   description: "while dreary bestride revoke continually hm so terrible",
   selectable: true,
   deletable: true,
+  isDeleted: true,
   organizationId: "<value>",
   metadata: {},
   properties: {},
@@ -103,14 +105,15 @@ const value: components.BenefitGitHubRepository = {
   description: "hoarse secrecy entwine stunning energetically",
   selectable: true,
   deletable: true,
+  isDeleted: false,
   organizationId: "<value>",
   metadata: {
-    "key": false,
+    "key": 8581.7,
   },
   properties: {
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "admin",
+    permission: "triage",
   },
 };
 ```
@@ -126,17 +129,15 @@ const value: components.BenefitLicenseKeys = {
   description: "vivaciously now that",
   selectable: true,
   deletable: true,
+  isDeleted: true,
   organizationId: "<value>",
   metadata: {},
   properties: {
     prefix: "<value>",
-    expires: {
-      ttl: 93452,
-      timeframe: "day",
-    },
+    expires: null,
     activations: {
-      limit: 777902,
-      enableCustomerAdmin: true,
+      limit: 240022,
+      enableCustomerAdmin: false,
     },
     limitUsage: null,
   },
@@ -154,10 +155,11 @@ const value: components.BenefitMeterCredit = {
   description: "pish than huzzah rekindle lively approximate against meal",
   selectable: true,
   deletable: false,
+  isDeleted: true,
   organizationId: "<value>",
   metadata: {},
   properties: {
-    units: 298008,
+    units: 507849,
     rollover: false,
     meterId: "<value>",
   },

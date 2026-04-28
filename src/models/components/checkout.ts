@@ -85,6 +85,11 @@ import {
   ProductPrice$outboundSchema,
 } from "./productprice.js";
 import {
+  TaxBehavior,
+  TaxBehavior$inboundSchema,
+  TaxBehavior$outboundSchema,
+} from "./taxbehavior.js";
+import {
   TrialInterval,
   TrialInterval$inboundSchema,
   TrialInterval$outboundSchema,
@@ -180,6 +185,10 @@ export type Checkout = {
    * Sales tax amount in cents. If `null`, it means there is no enough information yet to calculate it.
    */
   taxAmount: number | null;
+  /**
+   * Tax behavior of the checkout. `inclusive` means the price includes tax, `exclusive` means tax is added on top. If `null`, tax is not yet calculated.
+   */
+  taxBehavior: TaxBehavior | null;
   /**
    * Amount in cents, after discounts and taxes.
    */
@@ -554,6 +563,7 @@ export const Checkout$inboundSchema: z.ZodMiniType<Checkout, unknown> = z.pipe(
     discount_amount: z.int(),
     net_amount: z.int(),
     tax_amount: z.nullable(z.int()),
+    tax_behavior: z.nullable(TaxBehavior$inboundSchema),
     total_amount: z.int(),
     currency: z.string(),
     allow_trial: z.nullable(z.boolean()),
@@ -640,6 +650,7 @@ export const Checkout$inboundSchema: z.ZodMiniType<Checkout, unknown> = z.pipe(
       "discount_amount": "discountAmount",
       "net_amount": "netAmount",
       "tax_amount": "taxAmount",
+      "tax_behavior": "taxBehavior",
       "total_amount": "totalAmount",
       "allow_trial": "allowTrial",
       "active_trial_interval": "activeTrialInterval",
@@ -699,6 +710,7 @@ export type Checkout$Outbound = {
   discount_amount: number;
   net_amount: number;
   tax_amount: number | null;
+  tax_behavior: string | null;
   total_amount: number;
   currency: string;
   allow_trial: boolean | null;
@@ -790,6 +802,7 @@ export const Checkout$outboundSchema: z.ZodMiniType<
     discountAmount: z.int(),
     netAmount: z.int(),
     taxAmount: z.nullable(z.int()),
+    taxBehavior: z.nullable(TaxBehavior$outboundSchema),
     totalAmount: z.int(),
     currency: z.string(),
     allowTrial: z.nullable(z.boolean()),
@@ -874,6 +887,7 @@ export const Checkout$outboundSchema: z.ZodMiniType<
       discountAmount: "discount_amount",
       netAmount: "net_amount",
       taxAmount: "tax_amount",
+      taxBehavior: "tax_behavior",
       totalAmount: "total_amount",
       allowTrial: "allow_trial",
       activeTrialInterval: "active_trial_interval",

@@ -47,6 +47,10 @@ export type BenefitMeterCreditSubscriber = {
    */
   deletable: boolean;
   /**
+   * Whether the benefit is deleted.
+   */
+  isDeleted: boolean;
+  /**
    * The ID of the organization owning the benefit.
    */
   organizationId: string;
@@ -76,6 +80,7 @@ export const BenefitMeterCreditSubscriber$inboundSchema: z.ZodMiniType<
     description: z.string(),
     selectable: z.boolean(),
     deletable: z.boolean(),
+    is_deleted: z.boolean(),
     organization_id: z.string(),
     metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
     organization: BenefitSubscriberOrganization$inboundSchema,
@@ -85,6 +90,7 @@ export const BenefitMeterCreditSubscriber$inboundSchema: z.ZodMiniType<
     return remap$(v, {
       "created_at": "createdAt",
       "modified_at": "modifiedAt",
+      "is_deleted": "isDeleted",
       "organization_id": "organizationId",
     });
   }),

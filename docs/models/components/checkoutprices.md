@@ -44,6 +44,7 @@ const value: components.ProductPrice = {
   meter: {
     id: "<value>",
     name: "<value>",
+    unit: "scalar",
   },
 };
 ```

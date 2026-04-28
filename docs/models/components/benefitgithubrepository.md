@@ -17,14 +17,15 @@ let value: BenefitGitHubRepository = {
   description: "hoarse secrecy entwine stunning energetically",
   selectable: true,
   deletable: true,
+  isDeleted: false,
   organizationId: "<value>",
   metadata: {
-    "key": false,
+    "key": 8581.7,
   },
   properties: {
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "admin",
+    permission: "triage",
   },
 };
 ```
@@ -40,6 +41,7 @@ let value: BenefitGitHubRepository = {
 | `description`                                                                                                | *string*                                                                                                     | :heavy_check_mark:                                                                                           | The description of the benefit.                                                                              |
 | `selectable`                                                                                                 | *boolean*                                                                                                    | :heavy_check_mark:                                                                                           | Whether the benefit is selectable when creating a product.                                                   |
 | `deletable`                                                                                                  | *boolean*                                                                                                    | :heavy_check_mark:                                                                                           | Whether the benefit is deletable.                                                                            |
+| `isDeleted`                                                                                                  | *boolean*                                                                                                    | :heavy_check_mark:                                                                                           | Whether the benefit is deleted.                                                                              |
 | `organizationId`                                                                                             | *string*                                                                                                     | :heavy_check_mark:                                                                                           | The ID of the organization owning the benefit.                                                               |
 | `metadata`                                                                                                   | Record<string, *components.MetadataOutputType*>                                                              | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `properties`                                                                                                 | [components.BenefitGitHubRepositoryProperties](../../models/components/benefitgithubrepositoryproperties.md) | :heavy_check_mark:                                                                                           | Properties for a benefit of type `github_repository`.                                                        |

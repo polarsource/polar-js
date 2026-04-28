@@ -54,6 +54,7 @@ import {
   PaymentProcessor$inboundSchema,
 } from "./paymentprocessor.js";
 import { ProductPrice, ProductPrice$inboundSchema } from "./productprice.js";
+import { TaxBehavior, TaxBehavior$inboundSchema } from "./taxbehavior.js";
 import { TrialInterval, TrialInterval$inboundSchema } from "./trialinterval.js";
 
 export type CheckoutPublicCustomFieldData = string | number | boolean | Date;
@@ -146,6 +147,10 @@ export type CheckoutPublic = {
    * Sales tax amount in cents. If `null`, it means there is no enough information yet to calculate it.
    */
   taxAmount: number | null;
+  /**
+   * Tax behavior of the checkout. `inclusive` means the price includes tax, `exclusive` means tax is added on top. If `null`, tax is not yet calculated.
+   */
+  taxBehavior: TaxBehavior | null;
   /**
    * Amount in cents, after discounts and taxes.
    */
@@ -394,6 +399,7 @@ export const CheckoutPublic$inboundSchema: z.ZodMiniType<
     discount_amount: z.int(),
     net_amount: z.int(),
     tax_amount: z.nullable(z.int()),
+    tax_behavior: z.nullable(TaxBehavior$inboundSchema),
     total_amount: z.int(),
     currency: z.string(),
     allow_trial: z.nullable(z.boolean()),
@@ -472,6 +478,7 @@ export const CheckoutPublic$inboundSchema: z.ZodMiniType<
       "discount_amount": "discountAmount",
       "net_amount": "netAmount",
       "tax_amount": "taxAmount",
+      "tax_behavior": "taxBehavior",
       "total_amount": "totalAmount",
       "allow_trial": "allowTrial",
       "active_trial_interval": "activeTrialInterval",

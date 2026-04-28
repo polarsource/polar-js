@@ -13,17 +13,19 @@ let value: ListResourceMeter = {
       modifiedAt: new Date("2024-09-05T03:20:48.650Z"),
       id: "<value>",
       name: "<value>",
+      unit: "token",
       filter: {
         conjunction: "or",
         clauses: [
           {
-            conjunction: "and",
-            clauses: [],
+            property: "<value>",
+            operator: "lt",
+            value: false,
           },
         ],
       },
       aggregation: {
-        func: "max",
+        func: "unique",
         property: "<value>",
       },
       organizationId: "<value>",

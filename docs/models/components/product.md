@@ -54,10 +54,9 @@ let value: Product = {
       description: "whether regularly necessary",
       selectable: false,
       deletable: false,
+      isDeleted: false,
       organizationId: "<value>",
-      metadata: {
-        "key": "<value>",
-      },
+      metadata: {},
       properties: {
         guildId: "<id>",
         roleId: "<id>",

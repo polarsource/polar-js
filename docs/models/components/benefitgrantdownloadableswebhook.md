@@ -52,17 +52,18 @@ let value: BenefitGrantDownloadablesWebhook = {
     description: "until loudly replacement though junior agreeable excited",
     selectable: true,
     deletable: false,
+    isDeleted: false,
     organizationId: "<value>",
-    metadata: {
-      "key": 109323,
-    },
+    metadata: {},
     properties: {
       archived: {
         "key": false,
+        "key1": false,
       },
       files: [
         "<value 1>",
         "<value 2>",
+        "<value 3>",
       ],
     },
   },

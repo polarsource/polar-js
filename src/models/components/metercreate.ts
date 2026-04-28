@@ -11,6 +11,7 @@ import {
   CountAggregation$outboundSchema,
 } from "./countaggregation.js";
 import { Filter, Filter$Outbound, Filter$outboundSchema } from "./filter.js";
+import { MeterUnit, MeterUnit$outboundSchema } from "./meterunit.js";
 import {
   PropertyAggregation,
   PropertyAggregation$Outbound,
@@ -56,6 +57,15 @@ export type MeterCreate = {
    * The name of the meter. Will be shown on customer's invoices and usage.
    */
   name: string;
+  unit?: MeterUnit | undefined;
+  /**
+   * The label for the custom unit, e.g. 'request'. Required when unit is 'custom'.
+   */
+  customLabel?: string | null | undefined;
+  /**
+   * The multiplier to convert from the base unit to display scale, e.g. 1000 to display per 1000 units. Defaults to 1 when not provided.
+   */
+  customMultiplier?: number | null | undefined;
   filter: Filter;
   /**
    * The aggregation to apply on the filtered events to calculate the meter.
@@ -136,6 +146,9 @@ export function meterCreateAggregationToJSON(
 export type MeterCreate$Outbound = {
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   name: string;
+  unit?: string | undefined;
+  custom_label?: string | null | undefined;
+  custom_multiplier?: number | null | undefined;
   filter: Filter$Outbound;
   aggregation:
     | (PropertyAggregation$Outbound & { func: "avg" })
@@ -160,6 +173,9 @@ export const MeterCreate$outboundSchema: z.ZodMiniType<
       ),
     ),
     name: z.string(),
+    unit: z.optional(MeterUnit$outboundSchema),
+    customLabel: z.optional(z.nullable(z.string())),
+    customMultiplier: z.optional(z.nullable(z.int())),
     filter: Filter$outboundSchema,
     aggregation: z.union([
       z.intersection(
@@ -185,6 +201,8 @@ export const MeterCreate$outboundSchema: z.ZodMiniType<
   }),
   z.transform((v) => {
     return remap$(v, {
+      customLabel: "custom_label",
+      customMultiplier: "custom_multiplier",
       organizationId: "organization_id",
     });
   }),

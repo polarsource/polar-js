@@ -5,21 +5,38 @@
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
+import * as openEnums from "../../types/enums.js";
+import { OpenEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  SubscriptionProrationBehavior,
-  SubscriptionProrationBehavior$inboundSchema,
-  SubscriptionProrationBehavior$outboundSchema,
-} from "./subscriptionprorationbehavior.js";
+
+export const PublicSubscriptionProrationBehavior = {
+  Invoice: "invoice",
+  Prorate: "prorate",
+  NextPeriod: "next_period",
+} as const;
+export type PublicSubscriptionProrationBehavior = OpenEnum<
+  typeof PublicSubscriptionProrationBehavior
+>;
 
 export type OrganizationSubscriptionSettings = {
   allowMultipleSubscriptions: boolean;
-  allowCustomerUpdates: boolean;
-  prorationBehavior: SubscriptionProrationBehavior;
+  prorationBehavior: PublicSubscriptionProrationBehavior;
   benefitRevocationGracePeriod: number;
   preventTrialAbuse: boolean;
+  allowCustomerUpdates: boolean;
 };
+
+/** @internal */
+export const PublicSubscriptionProrationBehavior$inboundSchema: z.ZodMiniType<
+  PublicSubscriptionProrationBehavior,
+  unknown
+> = openEnums.inboundSchema(PublicSubscriptionProrationBehavior);
+/** @internal */
+export const PublicSubscriptionProrationBehavior$outboundSchema: z.ZodMiniType<
+  string,
+  PublicSubscriptionProrationBehavior
+> = openEnums.outboundSchema(PublicSubscriptionProrationBehavior);
 
 /** @internal */
 export const OrganizationSubscriptionSettings$inboundSchema: z.ZodMiniType<
@@ -28,28 +45,28 @@ export const OrganizationSubscriptionSettings$inboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     allow_multiple_subscriptions: z.boolean(),
-    allow_customer_updates: z.boolean(),
-    proration_behavior: SubscriptionProrationBehavior$inboundSchema,
+    proration_behavior: PublicSubscriptionProrationBehavior$inboundSchema,
     benefit_revocation_grace_period: z.int(),
     prevent_trial_abuse: z.boolean(),
+    allow_customer_updates: z.boolean(),
   }),
   z.transform((v) => {
     return remap$(v, {
       "allow_multiple_subscriptions": "allowMultipleSubscriptions",
-      "allow_customer_updates": "allowCustomerUpdates",
       "proration_behavior": "prorationBehavior",
       "benefit_revocation_grace_period": "benefitRevocationGracePeriod",
       "prevent_trial_abuse": "preventTrialAbuse",
+      "allow_customer_updates": "allowCustomerUpdates",
     });
   }),
 );
 /** @internal */
 export type OrganizationSubscriptionSettings$Outbound = {
   allow_multiple_subscriptions: boolean;
-  allow_customer_updates: boolean;
   proration_behavior: string;
   benefit_revocation_grace_period: number;
   prevent_trial_abuse: boolean;
+  allow_customer_updates: boolean;
 };
 
 /** @internal */
@@ -59,18 +76,18 @@ export const OrganizationSubscriptionSettings$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     allowMultipleSubscriptions: z.boolean(),
-    allowCustomerUpdates: z.boolean(),
-    prorationBehavior: SubscriptionProrationBehavior$outboundSchema,
+    prorationBehavior: PublicSubscriptionProrationBehavior$outboundSchema,
     benefitRevocationGracePeriod: z.int(),
     preventTrialAbuse: z.boolean(),
+    allowCustomerUpdates: z.boolean(),
   }),
   z.transform((v) => {
     return remap$(v, {
       allowMultipleSubscriptions: "allow_multiple_subscriptions",
-      allowCustomerUpdates: "allow_customer_updates",
       prorationBehavior: "proration_behavior",
       benefitRevocationGracePeriod: "benefit_revocation_grace_period",
       preventTrialAbuse: "prevent_trial_abuse",
+      allowCustomerUpdates: "allow_customer_updates",
     });
   }),
 );

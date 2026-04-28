@@ -53,6 +53,7 @@ const value: components.BenefitGrantDiscordWebhook = {
     description: "sense apud ha lest courageous",
     selectable: false,
     deletable: false,
+    isDeleted: true,
     organizationId: "<value>",
     metadata: {},
     properties: {
@@ -120,9 +121,10 @@ const value: components.BenefitGrantCustomWebhook = {
       "unibody ambitious boohoo culture well-made technician opposite subtle pish",
     selectable: false,
     deletable: true,
+    isDeleted: false,
     organizationId: "<value>",
     metadata: {
-      "key": true,
+      "key": "<value>",
     },
     properties: {
       note: "<value>",
@@ -183,12 +185,15 @@ const value: components.BenefitGrantGitHubRepositoryWebhook = {
     description: "teammate or ravage indeed",
     selectable: false,
     deletable: false,
+    isDeleted: true,
     organizationId: "<value>",
-    metadata: {},
+    metadata: {
+      "key": 234300,
+    },
     properties: {
       repositoryOwner: "polarsource",
       repositoryName: "private_repo",
-      permission: "admin",
+      permission: "triage",
     },
   },
   properties: {},
@@ -245,17 +250,18 @@ const value: components.BenefitGrantDownloadablesWebhook = {
     description: "until loudly replacement though junior agreeable excited",
     selectable: true,
     deletable: false,
+    isDeleted: false,
     organizationId: "<value>",
-    metadata: {
-      "key": 109323,
-    },
+    metadata: {},
     properties: {
       archived: {
         "key": false,
+        "key1": false,
       },
       files: [
         "<value 1>",
         "<value 2>",
+        "<value 3>",
       ],
     },
   },
@@ -314,17 +320,15 @@ const value: components.BenefitGrantLicenseKeysWebhook = {
     description: "ouch woot geez wheel analyse duh",
     selectable: false,
     deletable: false,
+    isDeleted: true,
     organizationId: "<value>",
     metadata: {},
     properties: {
       prefix: "<value>",
-      expires: {
-        ttl: 93452,
-        timeframe: "day",
-      },
+      expires: null,
       activations: {
-        limit: 777902,
-        enableCustomerAdmin: true,
+        limit: 240022,
+        enableCustomerAdmin: false,
       },
       limitUsage: null,
     },
@@ -387,12 +391,11 @@ const value: components.BenefitGrantMeterCreditWebhook = {
       "blah sometimes catalog uh-huh drat phew impure whole ah darling",
     selectable: false,
     deletable: true,
+    isDeleted: false,
     organizationId: "<value>",
-    metadata: {
-      "key": 97475,
-    },
+    metadata: {},
     properties: {
-      units: 298008,
+      units: 507849,
       rollover: false,
       meterId: "<value>",
     },
@@ -453,9 +456,10 @@ const value: components.BenefitGrantFeatureFlagWebhook = {
     description: "outgoing upright avow pinion excitedly gripping",
     selectable: true,
     deletable: false,
+    isDeleted: false,
     organizationId: "<value>",
     metadata: {
-      "key": true,
+      "key": "<value>",
     },
     properties: {},
   },

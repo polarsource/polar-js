@@ -3,9 +3,15 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  MeterUnit,
+  MeterUnit$inboundSchema,
+  MeterUnit$outboundSchema,
+} from "./meterunit.js";
 
 /**
  * A meter associated to a metered price.
@@ -19,30 +25,64 @@ export type ProductPriceMeter = {
    * The name of the meter.
    */
   name: string;
+  unit: MeterUnit;
+  /**
+   * The label for the custom unit.
+   */
+  customLabel?: string | null | undefined;
+  /**
+   * The multiplier to convert from base unit to display scale.
+   */
+  customMultiplier?: number | null | undefined;
 };
 
 /** @internal */
 export const ProductPriceMeter$inboundSchema: z.ZodMiniType<
   ProductPriceMeter,
   unknown
-> = z.object({
-  id: z.string(),
-  name: z.string(),
-});
+> = z.pipe(
+  z.object({
+    id: z.string(),
+    name: z.string(),
+    unit: MeterUnit$inboundSchema,
+    custom_label: z.optional(z.nullable(z.string())),
+    custom_multiplier: z.optional(z.nullable(z.int())),
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      "custom_label": "customLabel",
+      "custom_multiplier": "customMultiplier",
+    });
+  }),
+);
 /** @internal */
 export type ProductPriceMeter$Outbound = {
   id: string;
   name: string;
+  unit: string;
+  custom_label?: string | null | undefined;
+  custom_multiplier?: number | null | undefined;
 };
 
 /** @internal */
 export const ProductPriceMeter$outboundSchema: z.ZodMiniType<
   ProductPriceMeter$Outbound,
   ProductPriceMeter
-> = z.object({
-  id: z.string(),
-  name: z.string(),
-});
+> = z.pipe(
+  z.object({
+    id: z.string(),
+    name: z.string(),
+    unit: MeterUnit$outboundSchema,
+    customLabel: z.optional(z.nullable(z.string())),
+    customMultiplier: z.optional(z.nullable(z.int())),
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      customLabel: "custom_label",
+      customMultiplier: "custom_multiplier",
+    });
+  }),
+);
 
 export function productPriceMeterToJSON(
   productPriceMeter: ProductPriceMeter,

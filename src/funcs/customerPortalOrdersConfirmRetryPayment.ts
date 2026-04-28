@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { PolarCore } from "../core.js";
 import { encodeJSON, encodeSimple } from "../lib/encodings.js";
+import { matchStatusCode } from "../lib/http.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -22,6 +23,10 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
+import {
+  ManualRetryLimitExceeded,
+  ManualRetryLimitExceeded$inboundSchema,
+} from "../models/errors/manualretrylimitexceeded.js";
 import {
   OrderNotEligibleForRetry,
   OrderNotEligibleForRetry$inboundSchema,
@@ -62,6 +67,7 @@ export function customerPortalOrdersConfirmRetryPayment(
     | ResourceNotFound
     | PaymentAlreadyInProgress
     | OrderNotEligibleForRetry
+    | ManualRetryLimitExceeded
     | PolarError
     | ResponseValidationError
     | ConnectionError
@@ -92,6 +98,7 @@ async function $do(
       | ResourceNotFound
       | PaymentAlreadyInProgress
       | OrderNotEligibleForRetry
+      | ManualRetryLimitExceeded
       | PolarError
       | ResponseValidationError
       | ConnectionError
@@ -185,7 +192,8 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["404", "409", "422", "4XX", "5XX"],
+    isErrorStatusCode: (statusCode: number) =>
+      matchStatusCode({ status: statusCode } as Response, ["4XX", "5XX"]),
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -203,6 +211,7 @@ async function $do(
     | ResourceNotFound
     | PaymentAlreadyInProgress
     | OrderNotEligibleForRetry
+    | ManualRetryLimitExceeded
     | PolarError
     | ResponseValidationError
     | ConnectionError
@@ -216,6 +225,7 @@ async function $do(
     M.jsonErr(404, ResourceNotFound$inboundSchema),
     M.jsonErr(409, PaymentAlreadyInProgress$inboundSchema),
     M.jsonErr(422, OrderNotEligibleForRetry$inboundSchema),
+    M.jsonErr(429, ManualRetryLimitExceeded$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

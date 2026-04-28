@@ -4,7 +4,19 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { MemberRole, MemberRole$outboundSchema } from "./memberrole.js";
+import { ClosedEnum } from "../../types/enums.js";
+
+/**
+ * The role of the member within the customer. To assign or transfer ownership, use the member update endpoint.
+ */
+export const Role = {
+  Member: "member",
+  BillingManager: "billing_manager",
+} as const;
+/**
+ * The role of the member within the customer. To assign or transfer ownership, use the member update endpoint.
+ */
+export type Role = ClosedEnum<typeof Role>;
 
 /**
  * Schema for creating a new member.
@@ -23,8 +35,14 @@ export type MemberCreate = {
    * The ID of the member in your system. This must be unique within the customer.
    */
   externalId?: string | null | undefined;
-  role?: MemberRole | undefined;
+  /**
+   * The role of the member within the customer. To assign or transfer ownership, use the member update endpoint.
+   */
+  role?: Role | undefined;
 };
+
+/** @internal */
+export const Role$outboundSchema: z.ZodMiniEnum<typeof Role> = z.enum(Role);
 
 /** @internal */
 export type MemberCreate$Outbound = {
@@ -32,7 +50,7 @@ export type MemberCreate$Outbound = {
   email: string;
   name?: string | null | undefined;
   external_id?: string | null | undefined;
-  role?: string | undefined;
+  role: string;
 };
 
 /** @internal */
@@ -45,7 +63,7 @@ export const MemberCreate$outboundSchema: z.ZodMiniType<
     email: z.string(),
     name: z.optional(z.nullable(z.string())),
     externalId: z.optional(z.nullable(z.string())),
-    role: z.optional(MemberRole$outboundSchema),
+    role: z._default(Role$outboundSchema, "member"),
   }),
   z.transform((v) => {
     return remap$(v, {

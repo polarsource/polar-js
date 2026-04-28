@@ -201,6 +201,24 @@ actions:
         - "lang": "typescript"
           "label": "Typescript (SDK)"
           "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar();\n\nasync function run() {\n  const result = await polar.customerPortal.customers.update({\n    customerSession: process.env[\"POLAR_CUSTOMER_SESSION\"] ?? \"\",\n  }, {\n    billingAddress: {\n      country: \"US\",\n    },\n  });\n\n  console.log(result);\n}\n\nrun();"
+  - target: $["paths"]["/v1/customer-portal/customers/me/email-update/check"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "typescript"
+          "label": "Typescript (SDK)"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar();\n\nasync function run() {\n  await polar.customerPortal.customers.checkEmailUpdate({\n    token: \"<value>\",\n  });\n\n\n}\n\nrun();"
+  - target: $["paths"]["/v1/customer-portal/customers/me/email-update/request"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "typescript"
+          "label": "Typescript (SDK)"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar();\n\nasync function run() {\n  const result = await polar.customerPortal.customers.requestEmailUpdate({\n    customerSession: process.env[\"POLAR_CUSTOMER_SESSION\"] ?? \"\",\n  }, {\n    email: \"Tommie_Larkin78@gmail.com\",\n  });\n\n  console.log(result);\n}\n\nrun();"
+  - target: $["paths"]["/v1/customer-portal/customers/me/email-update/verify"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "typescript"
+          "label": "Typescript (SDK)"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar();\n\nasync function run() {\n  const result = await polar.customerPortal.customers.verifyEmailUpdate({\n    token: \"<value>\",\n  });\n\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/v1/customer-portal/customers/me/payment-methods"]["get"]
     update:
       "x-codeSamples":
@@ -530,7 +548,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.discounts.create({\n    duration: \"once\",\n    type: \"fixed\",\n    basisPoints: 449604,\n    name: \"<value>\",\n    organizationId: \"1dbfc517-0bbf-4301-9ba8-555ca42b9737\",\n  });\n\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.discounts.create({\n    name: \"<value>\",\n    organizationId: \"1dbfc517-0bbf-4301-9ba8-555ca42b9737\",\n    type: \"fixed\",\n    duration: \"once\",\n  });\n\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/v1/discounts/{id}"]["delete"]
     update:
       "x-codeSamples":
@@ -681,6 +699,24 @@ actions:
         - "lang": "typescript"
           "label": "Typescript (SDK)"
           "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.members.createMember({\n    customerId: \"<value>\",\n    email: \"member@example.com\",\n    name: \"Jane Doe\",\n    externalId: \"usr_1337\",\n  });\n\n  console.log(result);\n}\n\nrun();"
+  - target: $["paths"]["/v1/members/external/{external_id}"]["delete"]
+    update:
+      "x-codeSamples":
+        - "lang": "typescript"
+          "label": "Typescript (SDK)"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  await polar.members.deleteMemberByExternalId({\n    externalId: \"<id>\",\n  });\n\n\n}\n\nrun();"
+  - target: $["paths"]["/v1/members/external/{external_id}"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "typescript"
+          "label": "Typescript (SDK)"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.members.getMemberByExternalId({\n    externalId: \"<id>\",\n  });\n\n  console.log(result);\n}\n\nrun();"
+  - target: $["paths"]["/v1/members/external/{external_id}"]["patch"]
+    update:
+      "x-codeSamples":
+        - "lang": "typescript"
+          "label": "Typescript (SDK)"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.members.updateMemberByExternalId({\n    externalId: \"<id>\",\n    memberUpdate: {\n      name: \"Jane Doe\",\n    },\n  });\n\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/v1/members/{id}"]["delete"]
     update:
       "x-codeSamples":
@@ -765,6 +801,12 @@ actions:
         - "lang": "typescript"
           "label": "Typescript (SDK)"
           "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.metrics.updateDashboard({\n    id: \"<value>\",\n    metricDashboardUpdate: {},\n  });\n\n  console.log(result);\n}\n\nrun();"
+  - target: $["paths"]["/v1/metrics/export"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "typescript"
+          "label": "Typescript (SDK)"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\nimport { RFCDate } from \"@polar-sh/sdk/types/rfcdate.js\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.metrics.export({\n    startDate: new RFCDate(\"2026-07-17\"),\n    endDate: new RFCDate(\"2024-05-06\"),\n    interval: \"year\",\n    organizationId: \"1dbfc517-0bbf-4301-9ba8-555ca42b9737\",\n  });\n\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/v1/metrics/limits"]["get"]
     update:
       "x-codeSamples":

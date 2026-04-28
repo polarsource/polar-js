@@ -55,10 +55,13 @@ let value: BenefitGrant = {
     description: "suspiciously wherever flu microchip",
     selectable: false,
     deletable: true,
+    isDeleted: true,
     organizationId: "<value>",
-    metadata: {},
+    metadata: {
+      "key": 7257.4,
+    },
     properties: {
-      units: 298008,
+      units: 507849,
       rollover: false,
       meterId: "<value>",
     },

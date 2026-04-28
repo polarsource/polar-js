@@ -10,6 +10,7 @@ export const SubscriptionProrationBehavior = {
   Invoice: "invoice",
   Prorate: "prorate",
   NextPeriod: "next_period",
+  Reset: "reset",
 } as const;
 export type SubscriptionProrationBehavior = OpenEnum<
   typeof SubscriptionProrationBehavior

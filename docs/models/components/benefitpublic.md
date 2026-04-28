@@ -14,6 +14,7 @@ let value: BenefitPublic = {
     "pro hm jubilant though stupendous straw bookend longingly around",
   selectable: true,
   deletable: false,
+  isDeleted: false,
   organizationId: "<value>",
 };
 ```
@@ -29,4 +30,5 @@ let value: BenefitPublic = {
 | `description`                                                                                 | *string*                                                                                      | :heavy_check_mark:                                                                            | The description of the benefit.                                                               |
 | `selectable`                                                                                  | *boolean*                                                                                     | :heavy_check_mark:                                                                            | Whether the benefit is selectable when creating a product.                                    |
 | `deletable`                                                                                   | *boolean*                                                                                     | :heavy_check_mark:                                                                            | Whether the benefit is deletable.                                                             |
+| `isDeleted`                                                                                   | *boolean*                                                                                     | :heavy_check_mark:                                                                            | Whether the benefit is deleted.                                                               |
 | `organizationId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the organization owning the benefit.                                                |

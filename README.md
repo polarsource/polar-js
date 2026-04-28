@@ -206,6 +206,9 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [addPaymentMethod](docs/sdks/polarcustomers/README.md#addpaymentmethod) - Add Customer Payment Method
 * [confirmPaymentMethod](docs/sdks/polarcustomers/README.md#confirmpaymentmethod) - Confirm Customer Payment Method
 * [deletePaymentMethod](docs/sdks/polarcustomers/README.md#deletepaymentmethod) - Delete Customer Payment Method
+* [requestEmailUpdate](docs/sdks/polarcustomers/README.md#requestemailupdate) - Request Email Change
+* [checkEmailUpdate](docs/sdks/polarcustomers/README.md#checkemailupdate) - Check Email Change Token
+* [verifyEmailUpdate](docs/sdks/polarcustomers/README.md#verifyemailupdate) - Verify Email Change
 
 ### [CustomerPortal.Downloadables](docs/sdks/downloadables/README.md)
 
@@ -337,6 +340,9 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [getMember](docs/sdks/members/README.md#getmember) - Get Member
 * [deleteMember](docs/sdks/members/README.md#deletemember) - Delete Member
 * [updateMember](docs/sdks/members/README.md#updatemember) - Update Member
+* [getMemberByExternalId](docs/sdks/members/README.md#getmemberbyexternalid) - Get Member by External ID
+* [deleteMemberByExternalId](docs/sdks/members/README.md#deletememberbyexternalid) - Delete Member by External ID
+* [updateMemberByExternalId](docs/sdks/members/README.md#updatememberbyexternalid) - Update Member by External ID
 
 ### [Meters](docs/sdks/meters/README.md)
 
@@ -349,6 +355,7 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 ### [Metrics](docs/sdks/metrics/README.md)
 
 * [get](docs/sdks/metrics/README.md#get) - Get Metrics
+* [export](docs/sdks/metrics/README.md#export) - Export Metrics
 * [limits](docs/sdks/metrics/README.md#limits) - Get Metrics Limits
 * [listDashboards](docs/sdks/metrics/README.md#listdashboards) - List Metric Dashboards
 * [createDashboard](docs/sdks/metrics/README.md#createdashboard) - Create Metric Dashboard
@@ -477,13 +484,16 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`customerPortalCustomerMetersGet`](docs/sdks/polarcustomermeters/README.md#get) - Get Customer Meter
 - [`customerPortalCustomerMetersList`](docs/sdks/polarcustomermeters/README.md#list) - List Meters
 - [`customerPortalCustomersAddPaymentMethod`](docs/sdks/polarcustomers/README.md#addpaymentmethod) - Add Customer Payment Method
+- [`customerPortalCustomersCheckEmailUpdate`](docs/sdks/polarcustomers/README.md#checkemailupdate) - Check Email Change Token
 - [`customerPortalCustomersConfirmPaymentMethod`](docs/sdks/polarcustomers/README.md#confirmpaymentmethod) - Confirm Customer Payment Method
 - [`customerPortalCustomersDeletePaymentMethod`](docs/sdks/polarcustomers/README.md#deletepaymentmethod) - Delete Customer Payment Method
 - [`customerPortalCustomerSessionGetAuthenticatedUser`](docs/sdks/customersession/README.md#getauthenticateduser) - Get Authenticated Portal User
 - [`customerPortalCustomerSessionIntrospect`](docs/sdks/customersession/README.md#introspect) - Introspect Customer Session
 - [`customerPortalCustomersGet`](docs/sdks/polarcustomers/README.md#get) - Get Customer
 - [`customerPortalCustomersListPaymentMethods`](docs/sdks/polarcustomers/README.md#listpaymentmethods) - List Customer Payment Methods
+- [`customerPortalCustomersRequestEmailUpdate`](docs/sdks/polarcustomers/README.md#requestemailupdate) - Request Email Change
 - [`customerPortalCustomersUpdate`](docs/sdks/polarcustomers/README.md#update) - Update Customer
+- [`customerPortalCustomersVerifyEmailUpdate`](docs/sdks/polarcustomers/README.md#verifyemailupdate) - Verify Email Change
 - [`customerPortalDownloadablesList`](docs/sdks/downloadables/README.md#list) - List Downloadables
 - [`customerPortalLicenseKeysActivate`](docs/sdks/polarlicensekeys/README.md#activate) - Activate License Key
 - [`customerPortalLicenseKeysDeactivate`](docs/sdks/polarlicensekeys/README.md#deactivate) - Deactivate License Key
@@ -563,9 +573,12 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`licenseKeysValidate`](docs/sdks/licensekeys/README.md#validate) - Validate License Key
 - [`membersCreateMember`](docs/sdks/members/README.md#createmember) - Create Member
 - [`membersDeleteMember`](docs/sdks/members/README.md#deletemember) - Delete Member
+- [`membersDeleteMemberByExternalId`](docs/sdks/members/README.md#deletememberbyexternalid) - Delete Member by External ID
 - [`membersGetMember`](docs/sdks/members/README.md#getmember) - Get Member
+- [`membersGetMemberByExternalId`](docs/sdks/members/README.md#getmemberbyexternalid) - Get Member by External ID
 - [`membersListMembers`](docs/sdks/members/README.md#listmembers) - List Members
 - [`membersUpdateMember`](docs/sdks/members/README.md#updatemember) - Update Member
+- [`membersUpdateMemberByExternalId`](docs/sdks/members/README.md#updatememberbyexternalid) - Update Member by External ID
 - [`metersCreate`](docs/sdks/meters/README.md#create) - Create Meter
 - [`metersGet`](docs/sdks/meters/README.md#get) - Get Meter
 - [`metersList`](docs/sdks/meters/README.md#list) - List Meters
@@ -573,6 +586,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`metersUpdate`](docs/sdks/meters/README.md#update) - Update Meter
 - [`metricsCreateDashboard`](docs/sdks/metrics/README.md#createdashboard) - Create Metric Dashboard
 - [`metricsDeleteDashboard`](docs/sdks/metrics/README.md#deletedashboard) - Delete Metric Dashboard
+- [`metricsExport`](docs/sdks/metrics/README.md#export) - Export Metrics
 - [`metricsGet`](docs/sdks/metrics/README.md#get) - Get Metrics
 - [`metricsGetDashboard`](docs/sdks/metrics/README.md#getdashboard) - Get Metric Dashboard
 - [`metricsLimits`](docs/sdks/metrics/README.md#limits) - Get Metrics Limits
@@ -783,7 +797,7 @@ run();
 * [`PolarError`](./src/models/errors/polarerror.ts): The base class for HTTP error responses.
   * [`HTTPValidationError`](./src/models/errors/httpvalidationerror.ts): Validation Error. Status code `422`. *
 
-<details><summary>Less common errors (25)</summary>
+<details><summary>Less common errors (26)</summary>
 
 <br />
 
@@ -796,25 +810,26 @@ run();
 
 
 **Inherit from [`PolarError`](./src/models/errors/polarerror.ts)**:
-* [`ResourceNotFound`](./src/models/errors/resourcenotfound.ts): Status code `404`. Applicable to 82 of 174 methods.*
-* [`NotPermitted`](./src/models/errors/notpermitted.ts): Status code `403`. Applicable to 10 of 174 methods.*
-* [`Unauthorized`](./src/models/errors/unauthorized.ts): Not authorized to manage license key. Status code `401`. Applicable to 5 of 174 methods.*
-* [`AlreadyCanceledSubscription`](./src/models/errors/alreadycanceledsubscription.ts): Status code `403`. Applicable to 4 of 174 methods.*
-* [`AlreadyActiveSubscriptionError`](./src/models/errors/alreadyactivesubscriptionerror.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 174 methods.*
-* [`NotOpenCheckout`](./src/models/errors/notopencheckout.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 174 methods.*
-* [`PaymentNotReady`](./src/models/errors/paymentnotready.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 174 methods.*
-* [`TrialAlreadyRedeemed`](./src/models/errors/trialalreadyredeemed.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 174 methods.*
-* [`ExpiredCheckoutError`](./src/models/errors/expiredcheckouterror.ts): The checkout session is expired. Status code `410`. Applicable to 3 of 174 methods.*
-* [`PaymentFailed`](./src/models/errors/paymentfailed.ts): Payment required to apply the subscription update. Status code `402`. Applicable to 2 of 174 methods.*
-* [`SubscriptionLocked`](./src/models/errors/subscriptionlocked.ts): Subscription is pending an update. Status code `409`. Applicable to 2 of 174 methods.*
-* [`MissingInvoiceBillingDetails`](./src/models/errors/missinginvoicebillingdetails.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 174 methods.*
-* [`NotPaidOrder`](./src/models/errors/notpaidorder.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 174 methods.*
-* [`PaymentError`](./src/models/errors/paymenterror.ts): The payment failed. Status code `400`. Applicable to 1 of 174 methods.*
-* [`CustomerNotReady`](./src/models/errors/customernotready.ts): Customer is not ready to confirm a payment method. Status code `400`. Applicable to 1 of 174 methods.*
-* [`PaymentMethodInUseByActiveSubscription`](./src/models/errors/paymentmethodinusebyactivesubscription.ts): Payment method is used by active subscription(s). Status code `400`. Applicable to 1 of 174 methods.*
-* [`RefundedAlready`](./src/models/errors/refundedalready.ts): Order is already fully refunded. Status code `403`. Applicable to 1 of 174 methods.*
-* [`PaymentAlreadyInProgress`](./src/models/errors/paymentalreadyinprogress.ts): Payment already in progress. Status code `409`. Applicable to 1 of 174 methods.*
-* [`OrderNotEligibleForRetry`](./src/models/errors/ordernoteligibleforretry.ts): Order not eligible for retry or payment confirmation failed. Status code `422`. Applicable to 1 of 174 methods.*
+* [`ResourceNotFound`](./src/models/errors/resourcenotfound.ts): Status code `404`. Applicable to 85 of 181 methods.*
+* [`NotPermitted`](./src/models/errors/notpermitted.ts): Status code `403`. Applicable to 10 of 181 methods.*
+* [`Unauthorized`](./src/models/errors/unauthorized.ts): Not authorized to manage license key. Status code `401`. Applicable to 5 of 181 methods.*
+* [`AlreadyCanceledSubscription`](./src/models/errors/alreadycanceledsubscription.ts): Status code `403`. Applicable to 4 of 181 methods.*
+* [`AlreadyActiveSubscriptionError`](./src/models/errors/alreadyactivesubscriptionerror.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 181 methods.*
+* [`NotOpenCheckout`](./src/models/errors/notopencheckout.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 181 methods.*
+* [`PaymentNotReady`](./src/models/errors/paymentnotready.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 181 methods.*
+* [`TrialAlreadyRedeemed`](./src/models/errors/trialalreadyredeemed.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 181 methods.*
+* [`ExpiredCheckoutError`](./src/models/errors/expiredcheckouterror.ts): The checkout session is expired. Status code `410`. Applicable to 3 of 181 methods.*
+* [`PaymentFailed`](./src/models/errors/paymentfailed.ts): Payment required to apply the subscription update. Status code `402`. Applicable to 2 of 181 methods.*
+* [`SubscriptionLocked`](./src/models/errors/subscriptionlocked.ts): Subscription is pending an update. Status code `409`. Applicable to 2 of 181 methods.*
+* [`MissingInvoiceBillingDetails`](./src/models/errors/missinginvoicebillingdetails.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 181 methods.*
+* [`NotPaidOrder`](./src/models/errors/notpaidorder.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 181 methods.*
+* [`PaymentError`](./src/models/errors/paymenterror.ts): The payment failed. Status code `400`. Applicable to 1 of 181 methods.*
+* [`CustomerNotReady`](./src/models/errors/customernotready.ts): Customer is not ready to confirm a payment method. Status code `400`. Applicable to 1 of 181 methods.*
+* [`PaymentMethodInUseByActiveSubscription`](./src/models/errors/paymentmethodinusebyactivesubscription.ts): Payment method is used by active subscription(s). Status code `400`. Applicable to 1 of 181 methods.*
+* [`RefundedAlready`](./src/models/errors/refundedalready.ts): Order is already fully refunded. Status code `403`. Applicable to 1 of 181 methods.*
+* [`PaymentAlreadyInProgress`](./src/models/errors/paymentalreadyinprogress.ts): Payment already in progress. Status code `409`. Applicable to 1 of 181 methods.*
+* [`OrderNotEligibleForRetry`](./src/models/errors/ordernoteligibleforretry.ts): Order not eligible for retry or payment confirmation failed. Status code `422`. Applicable to 1 of 181 methods.*
+* [`ManualRetryLimitExceeded`](./src/models/errors/manualretrylimitexceeded.ts): Manual retry limit exceeded. Status code `429`. Applicable to 1 of 181 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

@@ -38,7 +38,7 @@ let value: SubscriptionUpdatedEvent = {
   metadata: {
     subscriptionId: "<id>",
     seats: 417281,
-    prorationBehavior: "next_period",
+    prorationBehavior: "reset",
   },
 };
 ```

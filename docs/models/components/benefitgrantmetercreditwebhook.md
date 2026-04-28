@@ -56,12 +56,11 @@ let value: BenefitGrantMeterCreditWebhook = {
       "blah sometimes catalog uh-huh drat phew impure whole ah darling",
     selectable: false,
     deletable: true,
+    isDeleted: false,
     organizationId: "<value>",
-    metadata: {
-      "key": 97475,
-    },
+    metadata: {},
     properties: {
-      units: 298008,
+      units: 507849,
       rollover: false,
       meterId: "<value>",
     },

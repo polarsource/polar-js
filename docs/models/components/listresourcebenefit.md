@@ -15,6 +15,7 @@ let value: ListResourceBenefit = {
       description: "hyena sarong under",
       selectable: true,
       deletable: true,
+      isDeleted: true,
       organizationId: "<value>",
       metadata: {},
       properties: {

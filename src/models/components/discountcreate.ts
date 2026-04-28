@@ -3,50 +3,31 @@
  */
 
 import * as z from "zod/v4-mini";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
-  DiscountFixedOnceForeverDurationCreate,
-  DiscountFixedOnceForeverDurationCreate$Outbound,
-  DiscountFixedOnceForeverDurationCreate$outboundSchema,
-} from "./discountfixedonceforeverdurationcreate.js";
+  DiscountFixedCreate,
+  DiscountFixedCreate$Outbound,
+  DiscountFixedCreate$outboundSchema,
+} from "./discountfixedcreate.js";
 import {
-  DiscountFixedRepeatDurationCreate,
-  DiscountFixedRepeatDurationCreate$Outbound,
-  DiscountFixedRepeatDurationCreate$outboundSchema,
-} from "./discountfixedrepeatdurationcreate.js";
-import {
-  DiscountPercentageOnceForeverDurationCreate,
-  DiscountPercentageOnceForeverDurationCreate$Outbound,
-  DiscountPercentageOnceForeverDurationCreate$outboundSchema,
-} from "./discountpercentageonceforeverdurationcreate.js";
-import {
-  DiscountPercentageRepeatDurationCreate,
-  DiscountPercentageRepeatDurationCreate$Outbound,
-  DiscountPercentageRepeatDurationCreate$outboundSchema,
-} from "./discountpercentagerepeatdurationcreate.js";
+  DiscountPercentageCreate,
+  DiscountPercentageCreate$Outbound,
+  DiscountPercentageCreate$outboundSchema,
+} from "./discountpercentagecreate.js";
 
-export type DiscountCreate =
-  | DiscountPercentageRepeatDurationCreate
-  | DiscountFixedRepeatDurationCreate
-  | DiscountPercentageOnceForeverDurationCreate
-  | DiscountFixedOnceForeverDurationCreate;
+export type DiscountCreate = DiscountFixedCreate | DiscountPercentageCreate;
 
 /** @internal */
 export type DiscountCreate$Outbound =
-  | DiscountPercentageRepeatDurationCreate$Outbound
-  | DiscountFixedRepeatDurationCreate$Outbound
-  | DiscountPercentageOnceForeverDurationCreate$Outbound
-  | DiscountFixedOnceForeverDurationCreate$Outbound;
+  | DiscountFixedCreate$Outbound
+  | DiscountPercentageCreate$Outbound;
 
 /** @internal */
 export const DiscountCreate$outboundSchema: z.ZodMiniType<
   DiscountCreate$Outbound,
   DiscountCreate
-> = smartUnion([
-  DiscountPercentageRepeatDurationCreate$outboundSchema,
-  DiscountFixedRepeatDurationCreate$outboundSchema,
-  DiscountPercentageOnceForeverDurationCreate$outboundSchema,
-  DiscountFixedOnceForeverDurationCreate$outboundSchema,
+> = z.union([
+  DiscountFixedCreate$outboundSchema,
+  DiscountPercentageCreate$outboundSchema,
 ]);
 
 export function discountCreateToJSON(discountCreate: DiscountCreate): string {

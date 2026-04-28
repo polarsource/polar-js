@@ -53,12 +53,15 @@ let value: BenefitGrantGitHubRepositoryWebhook = {
     description: "teammate or ravage indeed",
     selectable: false,
     deletable: false,
+    isDeleted: true,
     organizationId: "<value>",
-    metadata: {},
+    metadata: {
+      "key": 234300,
+    },
     properties: {
       repositoryOwner: "polarsource",
       repositoryName: "private_repo",
-      permission: "admin",
+      permission: "triage",
     },
   },
   properties: {},

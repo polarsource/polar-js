@@ -26,6 +26,11 @@ import {
   MetadataOutputType$outboundSchema,
 } from "./metadataoutputtype.js";
 import {
+  MeterUnit,
+  MeterUnit$inboundSchema,
+  MeterUnit$outboundSchema,
+} from "./meterunit.js";
+import {
   PropertyAggregation,
   PropertyAggregation$inboundSchema,
   PropertyAggregation$Outbound,
@@ -67,6 +72,15 @@ export type Meter = {
    * The name of the meter. Will be shown on customer's invoices and usage.
    */
   name: string;
+  unit: MeterUnit;
+  /**
+   * The label for the custom unit.
+   */
+  customLabel?: string | null | undefined;
+  /**
+   * The multiplier to convert from base unit to display scale.
+   */
+  customMultiplier?: number | null | undefined;
   filter: Filter;
   /**
    * The aggregation to apply on the filtered events to calculate the meter.
@@ -176,6 +190,9 @@ export const Meter$inboundSchema: z.ZodMiniType<Meter, unknown> = z.pipe(
     ),
     id: z.string(),
     name: z.string(),
+    unit: MeterUnit$inboundSchema,
+    custom_label: z.optional(z.nullable(z.string())),
+    custom_multiplier: z.optional(z.nullable(z.int())),
     filter: Filter$inboundSchema,
     aggregation: z.union([
       z.intersection(
@@ -209,6 +226,8 @@ export const Meter$inboundSchema: z.ZodMiniType<Meter, unknown> = z.pipe(
     return remap$(v, {
       "created_at": "createdAt",
       "modified_at": "modifiedAt",
+      "custom_label": "customLabel",
+      "custom_multiplier": "customMultiplier",
       "organization_id": "organizationId",
       "archived_at": "archivedAt",
     });
@@ -221,6 +240,9 @@ export type Meter$Outbound = {
   modified_at: string | null;
   id: string;
   name: string;
+  unit: string;
+  custom_label?: string | null | undefined;
+  custom_multiplier?: number | null | undefined;
   filter: Filter$Outbound;
   aggregation:
     | (PropertyAggregation$Outbound & { func: "avg" })
@@ -244,6 +266,9 @@ export const Meter$outboundSchema: z.ZodMiniType<Meter$Outbound, Meter> = z
       ),
       id: z.string(),
       name: z.string(),
+      unit: MeterUnit$outboundSchema,
+      customLabel: z.optional(z.nullable(z.string())),
+      customMultiplier: z.optional(z.nullable(z.int())),
       filter: Filter$outboundSchema,
       aggregation: z.union([
         z.intersection(
@@ -274,6 +299,8 @@ export const Meter$outboundSchema: z.ZodMiniType<Meter$Outbound, Meter> = z
       return remap$(v, {
         createdAt: "created_at",
         modifiedAt: "modified_at",
+        customLabel: "custom_label",
+        customMultiplier: "custom_multiplier",
         organizationId: "organization_id",
         archivedAt: "archived_at",
       });

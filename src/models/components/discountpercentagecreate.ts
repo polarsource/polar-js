@@ -9,45 +9,17 @@ import {
   DiscountDuration,
   DiscountDuration$outboundSchema,
 } from "./discountduration.js";
-import { DiscountType, DiscountType$outboundSchema } from "./discounttype.js";
-import {
-  PresentmentCurrency,
-  PresentmentCurrency$outboundSchema,
-} from "./presentmentcurrency.js";
 
-export type DiscountFixedRepeatDurationCreateMetadata =
+export type DiscountPercentageCreateMetadata =
   | string
   | number
   | number
   | boolean;
 
 /**
- * Schema to create a fixed amount discount that is applied on every invoice
- *
- * @remarks
- * for a certain number of months.
+ * Schema to create a percentage discount.
  */
-export type DiscountFixedRepeatDurationCreate = {
-  duration: DiscountDuration;
-  /**
-   * Number of months the discount should be applied.
-   *
-   * @remarks
-   *
-   * For this to work on yearly pricing, you should multiply this by 12.
-   * For example, to apply the discount for 2 years, set this to 24.
-   */
-  durationInMonths: number;
-  type: DiscountType;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  amount?: number | null | undefined;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  currency?: PresentmentCurrency | null | undefined;
-  amounts?: { [k: string]: number } | null | undefined;
+export type DiscountPercentageCreate = {
   /**
    * Key-value object allowing you to store additional information.
    *
@@ -89,41 +61,55 @@ export type DiscountFixedRepeatDurationCreate = {
    * The ID of the organization owning the discount. **Required unless you use an organization token.**
    */
   organizationId?: string | null | undefined;
+  type: "percentage";
+  duration: DiscountDuration;
+  /**
+   * Number of months the discount should be applied.
+   *
+   * @remarks
+   *
+   * Required when `duration` is `repeating`. Must be omitted otherwise.
+   *
+   * For this to work on yearly pricing, you should multiply this by 12.
+   * For example, to apply the discount for 2 years, set this to 24.
+   */
+  durationInMonths?: number | null | undefined;
+  /**
+   * Discount percentage in basis points.
+   *
+   * @remarks
+   *
+   * A basis point is 1/100th of a percent.
+   * For example, to create a 25.5% discount, set this to 2550.
+   */
+  basisPoints: number;
 };
 
 /** @internal */
-export type DiscountFixedRepeatDurationCreateMetadata$Outbound =
+export type DiscountPercentageCreateMetadata$Outbound =
   | string
   | number
   | number
   | boolean;
 
 /** @internal */
-export const DiscountFixedRepeatDurationCreateMetadata$outboundSchema:
-  z.ZodMiniType<
-    DiscountFixedRepeatDurationCreateMetadata$Outbound,
-    DiscountFixedRepeatDurationCreateMetadata
-  > = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
+export const DiscountPercentageCreateMetadata$outboundSchema: z.ZodMiniType<
+  DiscountPercentageCreateMetadata$Outbound,
+  DiscountPercentageCreateMetadata
+> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
 
-export function discountFixedRepeatDurationCreateMetadataToJSON(
-  discountFixedRepeatDurationCreateMetadata:
-    DiscountFixedRepeatDurationCreateMetadata,
+export function discountPercentageCreateMetadataToJSON(
+  discountPercentageCreateMetadata: DiscountPercentageCreateMetadata,
 ): string {
   return JSON.stringify(
-    DiscountFixedRepeatDurationCreateMetadata$outboundSchema.parse(
-      discountFixedRepeatDurationCreateMetadata,
+    DiscountPercentageCreateMetadata$outboundSchema.parse(
+      discountPercentageCreateMetadata,
     ),
   );
 }
 
 /** @internal */
-export type DiscountFixedRepeatDurationCreate$Outbound = {
-  duration: string;
-  duration_in_months: number;
-  type: string;
-  amount?: number | null | undefined;
-  currency?: string | null | undefined;
-  amounts?: { [k: string]: number } | null | undefined;
+export type DiscountPercentageCreate$Outbound = {
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   name: string;
   code?: string | null | undefined;
@@ -132,20 +118,18 @@ export type DiscountFixedRepeatDurationCreate$Outbound = {
   max_redemptions?: number | null | undefined;
   products?: Array<string> | null | undefined;
   organization_id?: string | null | undefined;
+  type: "percentage";
+  duration: string;
+  duration_in_months?: number | null | undefined;
+  basis_points: number;
 };
 
 /** @internal */
-export const DiscountFixedRepeatDurationCreate$outboundSchema: z.ZodMiniType<
-  DiscountFixedRepeatDurationCreate$Outbound,
-  DiscountFixedRepeatDurationCreate
+export const DiscountPercentageCreate$outboundSchema: z.ZodMiniType<
+  DiscountPercentageCreate$Outbound,
+  DiscountPercentageCreate
 > = z.pipe(
   z.object({
-    duration: DiscountDuration$outboundSchema,
-    durationInMonths: z.int(),
-    type: DiscountType$outboundSchema,
-    amount: z.optional(z.nullable(z.int())),
-    currency: z.optional(z.nullable(PresentmentCurrency$outboundSchema)),
-    amounts: z.optional(z.nullable(z.record(z.string(), z.int()))),
     metadata: z.optional(
       z.record(
         z.string(),
@@ -163,24 +147,27 @@ export const DiscountFixedRepeatDurationCreate$outboundSchema: z.ZodMiniType<
     maxRedemptions: z.optional(z.nullable(z.int())),
     products: z.optional(z.nullable(z.array(z.string()))),
     organizationId: z.optional(z.nullable(z.string())),
+    type: z.literal("percentage"),
+    duration: DiscountDuration$outboundSchema,
+    durationInMonths: z.optional(z.nullable(z.int())),
+    basisPoints: z.int(),
   }),
   z.transform((v) => {
     return remap$(v, {
-      durationInMonths: "duration_in_months",
       startsAt: "starts_at",
       endsAt: "ends_at",
       maxRedemptions: "max_redemptions",
       organizationId: "organization_id",
+      durationInMonths: "duration_in_months",
+      basisPoints: "basis_points",
     });
   }),
 );
 
-export function discountFixedRepeatDurationCreateToJSON(
-  discountFixedRepeatDurationCreate: DiscountFixedRepeatDurationCreate,
+export function discountPercentageCreateToJSON(
+  discountPercentageCreate: DiscountPercentageCreate,
 ): string {
   return JSON.stringify(
-    DiscountFixedRepeatDurationCreate$outboundSchema.parse(
-      discountFixedRepeatDurationCreate,
-    ),
+    DiscountPercentageCreate$outboundSchema.parse(discountPercentageCreate),
   );
 }

@@ -54,9 +54,10 @@ let value: BenefitGrantFeatureFlagWebhook = {
     description: "outgoing upright avow pinion excitedly gripping",
     selectable: true,
     deletable: false,
+    isDeleted: false,
     organizationId: "<value>",
     metadata: {
-      "key": true,
+      "key": "<value>",
     },
     properties: {},
   },

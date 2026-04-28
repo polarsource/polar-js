@@ -13,17 +13,15 @@ let value: BenefitLicenseKeys = {
   description: "vivaciously now that",
   selectable: true,
   deletable: true,
+  isDeleted: true,
   organizationId: "<value>",
   metadata: {},
   properties: {
     prefix: "<value>",
-    expires: {
-      ttl: 93452,
-      timeframe: "day",
-    },
+    expires: null,
     activations: {
-      limit: 777902,
-      enableCustomerAdmin: true,
+      limit: 240022,
+      enableCustomerAdmin: false,
     },
     limitUsage: null,
   },
@@ -41,6 +39,7 @@ let value: BenefitLicenseKeys = {
 | `description`                                                                                      | *string*                                                                                           | :heavy_check_mark:                                                                                 | The description of the benefit.                                                                    |
 | `selectable`                                                                                       | *boolean*                                                                                          | :heavy_check_mark:                                                                                 | Whether the benefit is selectable when creating a product.                                         |
 | `deletable`                                                                                        | *boolean*                                                                                          | :heavy_check_mark:                                                                                 | Whether the benefit is deletable.                                                                  |
+| `isDeleted`                                                                                        | *boolean*                                                                                          | :heavy_check_mark:                                                                                 | Whether the benefit is deleted.                                                                    |
 | `organizationId`                                                                                   | *string*                                                                                           | :heavy_check_mark:                                                                                 | The ID of the organization owning the benefit.                                                     |
 | `metadata`                                                                                         | Record<string, *components.MetadataOutputType*>                                                    | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 | `properties`                                                                                       | [components.BenefitLicenseKeysProperties](../../models/components/benefitlicensekeysproperties.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |

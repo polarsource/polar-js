@@ -56,9 +56,10 @@ let value: BenefitGrantCustomWebhook = {
       "unibody ambitious boohoo culture well-made technician opposite subtle pish",
     selectable: false,
     deletable: true,
+    isDeleted: false,
     organizationId: "<value>",
     metadata: {
-      "key": true,
+      "key": "<value>",
     },
     properties: {
       note: "<value>",

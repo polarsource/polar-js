@@ -23,6 +23,7 @@ let value: ProductPriceMeteredUnit = {
   meter: {
     id: "<value>",
     name: "<value>",
+    unit: "scalar",
   },
 };
 ```

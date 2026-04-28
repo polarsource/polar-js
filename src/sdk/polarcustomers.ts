@@ -3,18 +3,25 @@
  */
 
 import { customerPortalCustomersAddPaymentMethod } from "../funcs/customerPortalCustomersAddPaymentMethod.js";
+import { customerPortalCustomersCheckEmailUpdate } from "../funcs/customerPortalCustomersCheckEmailUpdate.js";
 import { customerPortalCustomersConfirmPaymentMethod } from "../funcs/customerPortalCustomersConfirmPaymentMethod.js";
 import { customerPortalCustomersDeletePaymentMethod } from "../funcs/customerPortalCustomersDeletePaymentMethod.js";
 import { customerPortalCustomersGet } from "../funcs/customerPortalCustomersGet.js";
 import { customerPortalCustomersListPaymentMethods } from "../funcs/customerPortalCustomersListPaymentMethods.js";
+import { customerPortalCustomersRequestEmailUpdate } from "../funcs/customerPortalCustomersRequestEmailUpdate.js";
 import { customerPortalCustomersUpdate } from "../funcs/customerPortalCustomersUpdate.js";
+import { customerPortalCustomersVerifyEmailUpdate } from "../funcs/customerPortalCustomersVerifyEmailUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
+import { CustomerEmailUpdateRequest } from "../models/components/customeremailupdaterequest.js";
+import { CustomerEmailUpdateVerifyRequest } from "../models/components/customeremailupdateverifyrequest.js";
+import { CustomerEmailUpdateVerifyResponse } from "../models/components/customeremailupdateverifyresponse.js";
 import { CustomerPaymentMethodConfirm } from "../models/components/customerpaymentmethodconfirm.js";
 import { CustomerPaymentMethodCreate } from "../models/components/customerpaymentmethodcreate.js";
 import { CustomerPaymentMethodCreateResponse } from "../models/components/customerpaymentmethodcreateresponse.js";
 import { CustomerPortalCustomer } from "../models/components/customerportalcustomer.js";
 import { CustomerPortalCustomerUpdate } from "../models/components/customerportalcustomerupdate.js";
 import { CustomerPortalCustomersAddPaymentMethodSecurity } from "../models/operations/customerportalcustomersaddpaymentmethod.js";
+import { CustomerPortalCustomersCheckEmailUpdateRequest } from "../models/operations/customerportalcustomerscheckemailupdate.js";
 import { CustomerPortalCustomersConfirmPaymentMethodSecurity } from "../models/operations/customerportalcustomersconfirmpaymentmethod.js";
 import {
   CustomerPortalCustomersDeletePaymentMethodRequest,
@@ -26,6 +33,7 @@ import {
   CustomerPortalCustomersListPaymentMethodsResponse,
   CustomerPortalCustomersListPaymentMethodsSecurity,
 } from "../models/operations/customerportalcustomerslistpaymentmethods.js";
+import { CustomerPortalCustomersRequestEmailUpdateSecurity } from "../models/operations/customerportalcustomersrequestemailupdate.js";
 import { CustomerPortalCustomersUpdateSecurity } from "../models/operations/customerportalcustomersupdate.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
@@ -145,6 +153,59 @@ export class PolarCustomers extends ClientSDK {
     return unwrapAsync(customerPortalCustomersDeletePaymentMethod(
       this,
       security,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Request Email Change
+   *
+   * @remarks
+   * Request an email change for the authenticated customer.
+   */
+  async requestEmailUpdate(
+    security: CustomerPortalCustomersRequestEmailUpdateSecurity,
+    request: CustomerEmailUpdateRequest,
+    options?: RequestOptions,
+  ): Promise<any> {
+    return unwrapAsync(customerPortalCustomersRequestEmailUpdate(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Check Email Change Token
+   *
+   * @remarks
+   * Check if an email change verification token is still valid.
+   */
+  async checkEmailUpdate(
+    request: CustomerPortalCustomersCheckEmailUpdateRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(customerPortalCustomersCheckEmailUpdate(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Verify Email Change
+   *
+   * @remarks
+   * Verify an email change using the token from the verification email.
+   */
+  async verifyEmailUpdate(
+    request: CustomerEmailUpdateVerifyRequest,
+    options?: RequestOptions,
+  ): Promise<CustomerEmailUpdateVerifyResponse> {
+    return unwrapAsync(customerPortalCustomersVerifyEmailUpdate(
+      this,
       request,
       options,
     ));

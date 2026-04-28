@@ -39,6 +39,8 @@ export class EventTypes extends ClientSDK {
    *
    * @remarks
    * Update an event type's label.
+   *
+   * **Scopes**: `events:write`
    */
   async update(
     request: EventTypesUpdateRequest,

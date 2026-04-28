@@ -53,17 +53,15 @@ let value: BenefitGrantLicenseKeysWebhook = {
     description: "ouch woot geez wheel analyse duh",
     selectable: false,
     deletable: false,
+    isDeleted: true,
     organizationId: "<value>",
     metadata: {},
     properties: {
       prefix: "<value>",
-      expires: {
-        ttl: 93452,
-        timeframe: "day",
-      },
+      expires: null,
       activations: {
-        limit: 777902,
-        enableCustomerAdmin: true,
+        limit: 240022,
+        enableCustomerAdmin: false,
       },
       limitUsage: null,
     },

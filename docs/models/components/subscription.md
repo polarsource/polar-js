@@ -151,18 +151,19 @@ let value: Subscription = {
         modifiedAt: null,
         id: "<value>",
         name: "<value>",
+        unit: "token",
         filter: {
           conjunction: "or",
           clauses: [
             {
-              conjunction: "and",
-              clauses: [],
+              property: "<value>",
+              operator: "lt",
+              value: false,
             },
           ],
         },
         aggregation: {
-          func: "min",
-          property: "<value>",
+          func: "count",
         },
         organizationId: "<value>",
       },

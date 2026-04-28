@@ -10,6 +10,12 @@ import { OpenEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  OrganizationCapabilities,
+  OrganizationCapabilities$inboundSchema,
+  OrganizationCapabilities$Outbound,
+  OrganizationCapabilities$outboundSchema,
+} from "./organizationcapabilities.js";
+import {
   OrganizationCustomerEmailSettings,
   OrganizationCustomerEmailSettings$inboundSchema,
   OrganizationCustomerEmailSettings$Outbound,
@@ -378,6 +384,15 @@ export type Organization = {
    * Two-letter country code (ISO 3166-1 alpha-2).
    */
   country?: CountryAlpha2 | null | undefined;
+  /**
+   * ID of the transactions account.
+   */
+  accountId: string | null;
+  /**
+   * ID of the payout account.
+   */
+  payoutAccountId: string | null;
+  capabilities: OrganizationCapabilities;
 };
 
 /** @internal */
@@ -424,6 +439,9 @@ export const Organization$inboundSchema: z.ZodMiniType<Organization, unknown> =
       customer_portal_settings:
         OrganizationCustomerPortalSettings$inboundSchema,
       country: z.optional(z.nullable(CountryAlpha2$inboundSchema)),
+      account_id: z.nullable(z.string()),
+      payout_account_id: z.nullable(z.string()),
+      capabilities: OrganizationCapabilities$inboundSchema,
     }),
     z.transform((v) => {
       return remap$(v, {
@@ -440,6 +458,8 @@ export const Organization$inboundSchema: z.ZodMiniType<Organization, unknown> =
         "notification_settings": "notificationSettings",
         "customer_email_settings": "customerEmailSettings",
         "customer_portal_settings": "customerPortalSettings",
+        "account_id": "accountId",
+        "payout_account_id": "payoutAccountId",
       });
     }),
   );
@@ -466,6 +486,9 @@ export type Organization$Outbound = {
   customer_email_settings: OrganizationCustomerEmailSettings$Outbound;
   customer_portal_settings: OrganizationCustomerPortalSettings$Outbound;
   country?: string | null | undefined;
+  account_id: string | null;
+  payout_account_id: string | null;
+  capabilities: OrganizationCapabilities$Outbound;
 };
 
 /** @internal */
@@ -497,6 +520,9 @@ export const Organization$outboundSchema: z.ZodMiniType<
     customerEmailSettings: OrganizationCustomerEmailSettings$outboundSchema,
     customerPortalSettings: OrganizationCustomerPortalSettings$outboundSchema,
     country: z.optional(z.nullable(CountryAlpha2$outboundSchema)),
+    accountId: z.nullable(z.string()),
+    payoutAccountId: z.nullable(z.string()),
+    capabilities: OrganizationCapabilities$outboundSchema,
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -513,6 +539,8 @@ export const Organization$outboundSchema: z.ZodMiniType<
       notificationSettings: "notification_settings",
       customerEmailSettings: "customer_email_settings",
       customerPortalSettings: "customer_portal_settings",
+      accountId: "account_id",
+      payoutAccountId: "payout_account_id",
     });
   }),
 );

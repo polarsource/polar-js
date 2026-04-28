@@ -35,7 +35,7 @@ export type OrderIDFilter = string | Array<string>;
 /**
  * Filter by subscription ID.
  */
-export type SubscriptionIDFilter = string | Array<string>;
+export type QueryParamSubscriptionIDFilter = string | Array<string>;
 
 /**
  * Filter by customer ID.
@@ -146,19 +146,21 @@ export function orderIDFilterToJSON(orderIDFilter: OrderIDFilter): string {
 }
 
 /** @internal */
-export type SubscriptionIDFilter$Outbound = string | Array<string>;
+export type QueryParamSubscriptionIDFilter$Outbound = string | Array<string>;
 
 /** @internal */
-export const SubscriptionIDFilter$outboundSchema: z.ZodMiniType<
-  SubscriptionIDFilter$Outbound,
-  SubscriptionIDFilter
+export const QueryParamSubscriptionIDFilter$outboundSchema: z.ZodMiniType<
+  QueryParamSubscriptionIDFilter$Outbound,
+  QueryParamSubscriptionIDFilter
 > = smartUnion([z.string(), z.array(z.string())]);
 
-export function subscriptionIDFilterToJSON(
-  subscriptionIDFilter: SubscriptionIDFilter,
+export function queryParamSubscriptionIDFilterToJSON(
+  queryParamSubscriptionIDFilter: QueryParamSubscriptionIDFilter,
 ): string {
   return JSON.stringify(
-    SubscriptionIDFilter$outboundSchema.parse(subscriptionIDFilter),
+    QueryParamSubscriptionIDFilter$outboundSchema.parse(
+      queryParamSubscriptionIDFilter,
+    ),
   );
 }
 
