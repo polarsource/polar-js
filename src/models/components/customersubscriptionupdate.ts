@@ -10,6 +10,11 @@ import {
   CustomerSubscriptionCancel$outboundSchema,
 } from "./customersubscriptioncancel.js";
 import {
+  CustomerSubscriptionUpdateClear,
+  CustomerSubscriptionUpdateClear$Outbound,
+  CustomerSubscriptionUpdateClear$outboundSchema,
+} from "./customersubscriptionupdateclear.js";
+import {
   CustomerSubscriptionUpdateProduct,
   CustomerSubscriptionUpdateProduct$Outbound,
   CustomerSubscriptionUpdateProduct$outboundSchema,
@@ -23,12 +28,14 @@ import {
 export type CustomerSubscriptionUpdate =
   | CustomerSubscriptionUpdateProduct
   | CustomerSubscriptionUpdateSeats
+  | CustomerSubscriptionUpdateClear
   | CustomerSubscriptionCancel;
 
 /** @internal */
 export type CustomerSubscriptionUpdate$Outbound =
   | CustomerSubscriptionUpdateProduct$Outbound
   | CustomerSubscriptionUpdateSeats$Outbound
+  | CustomerSubscriptionUpdateClear$Outbound
   | CustomerSubscriptionCancel$Outbound;
 
 /** @internal */
@@ -38,6 +45,7 @@ export const CustomerSubscriptionUpdate$outboundSchema: z.ZodMiniType<
 > = smartUnion([
   CustomerSubscriptionUpdateProduct$outboundSchema,
   CustomerSubscriptionUpdateSeats$outboundSchema,
+  CustomerSubscriptionUpdateClear$outboundSchema,
   CustomerSubscriptionCancel$outboundSchema,
 ]);
 

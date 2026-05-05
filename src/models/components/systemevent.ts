@@ -115,6 +115,10 @@ import {
   SubscriptionUncanceledEvent$inboundSchema,
 } from "./subscriptionuncanceledevent.js";
 import {
+  SubscriptionUpdateClearedEvent,
+  SubscriptionUpdateClearedEvent$inboundSchema,
+} from "./subscriptionupdateclearedevent.js";
+import {
   SubscriptionUpdatedEvent,
   SubscriptionUpdatedEvent$inboundSchema,
 } from "./subscriptionupdatedevent.js";
@@ -147,6 +151,7 @@ export type SystemEvent =
   | SubscriptionRevokedEvent
   | SubscriptionSeatsUpdatedEvent
   | SubscriptionUncanceledEvent
+  | SubscriptionUpdateClearedEvent
   | SubscriptionUpdatedEvent;
 
 /** @internal */
@@ -179,6 +184,7 @@ export const SystemEvent$inboundSchema: z.ZodMiniType<SystemEvent, unknown> = z
     SubscriptionRevokedEvent$inboundSchema,
     SubscriptionSeatsUpdatedEvent$inboundSchema,
     SubscriptionUncanceledEvent$inboundSchema,
+    SubscriptionUpdateClearedEvent$inboundSchema,
     SubscriptionUpdatedEvent$inboundSchema,
   ]);
 

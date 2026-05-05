@@ -8,12 +8,14 @@ import { customerPortalOrdersGet } from "../funcs/customerPortalOrdersGet.js";
 import { customerPortalOrdersGetPaymentStatus } from "../funcs/customerPortalOrdersGetPaymentStatus.js";
 import { customerPortalOrdersInvoice } from "../funcs/customerPortalOrdersInvoice.js";
 import { customerPortalOrdersList } from "../funcs/customerPortalOrdersList.js";
+import { customerPortalOrdersReceipt } from "../funcs/customerPortalOrdersReceipt.js";
 import { customerPortalOrdersUpdate } from "../funcs/customerPortalOrdersUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import { CustomerOrder } from "../models/components/customerorder.js";
 import { CustomerOrderInvoice } from "../models/components/customerorderinvoice.js";
 import { CustomerOrderPaymentConfirmation } from "../models/components/customerorderpaymentconfirmation.js";
 import { CustomerOrderPaymentStatus } from "../models/components/customerorderpaymentstatus.js";
+import { CustomerOrderReceipt } from "../models/components/customerorderreceipt.js";
 import {
   CustomerPortalOrdersConfirmRetryPaymentRequest,
   CustomerPortalOrdersConfirmRetryPaymentSecurity,
@@ -39,6 +41,10 @@ import {
   CustomerPortalOrdersListResponse,
   CustomerPortalOrdersListSecurity,
 } from "../models/operations/customerportalorderslist.js";
+import {
+  CustomerPortalOrdersReceiptRequest,
+  CustomerPortalOrdersReceiptSecurity,
+} from "../models/operations/customerportalordersreceipt.js";
 import {
   CustomerPortalOrdersUpdateRequest,
   CustomerPortalOrdersUpdateSecurity,
@@ -135,6 +141,25 @@ export class PolarOrders extends ClientSDK {
     options?: RequestOptions,
   ): Promise<any> {
     return unwrapAsync(customerPortalOrdersGenerateInvoice(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get Order Receipt
+   *
+   * @remarks
+   * Get a presigned URL to download an order's receipt PDF.
+   */
+  async receipt(
+    security: CustomerPortalOrdersReceiptSecurity,
+    request: CustomerPortalOrdersReceiptRequest,
+    options?: RequestOptions,
+  ): Promise<CustomerOrderReceipt | undefined> {
+    return unwrapAsync(customerPortalOrdersReceipt(
       this,
       security,
       request,

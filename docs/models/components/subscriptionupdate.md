@@ -59,3 +59,11 @@ const value: components.SubscriptionRevoke = {
 };
 ```
 
+### `components.SubscriptionUpdateClear`
+
+```typescript
+const value: components.SubscriptionUpdateClear = {
+  pendingUpdate: "<value>",
+};
+```
+
