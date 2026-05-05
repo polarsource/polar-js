@@ -26,14 +26,6 @@ export type OrganizationFeatureSettings = {
    */
   memberModelEnabled?: boolean | undefined;
   /**
-   * If this organization reads from Tinybird
-   */
-  tinybirdRead?: boolean | undefined;
-  /**
-   * If this organization compares Tinybird results with database
-   */
-  tinybirdCompare?: boolean | undefined;
-  /**
    * If this organization has checkout localization enabled
    */
   checkoutLocalizationEnabled?: boolean | undefined;
@@ -57,8 +49,6 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
     seat_based_pricing_enabled: z._default(z.boolean(), false),
     wallets_enabled: z._default(z.boolean(), false),
     member_model_enabled: z._default(z.boolean(), false),
-    tinybird_read: z._default(z.boolean(), false),
-    tinybird_compare: z._default(z.boolean(), false),
     checkout_localization_enabled: z._default(z.boolean(), false),
     overview_metrics: z.optional(z.nullable(z.array(z.string()))),
     reset_proration_behavior_enabled: z._default(z.boolean(), false),
@@ -69,8 +59,6 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
       "seat_based_pricing_enabled": "seatBasedPricingEnabled",
       "wallets_enabled": "walletsEnabled",
       "member_model_enabled": "memberModelEnabled",
-      "tinybird_read": "tinybirdRead",
-      "tinybird_compare": "tinybirdCompare",
       "checkout_localization_enabled": "checkoutLocalizationEnabled",
       "overview_metrics": "overviewMetrics",
       "reset_proration_behavior_enabled": "resetProrationBehaviorEnabled",
@@ -83,8 +71,6 @@ export type OrganizationFeatureSettings$Outbound = {
   seat_based_pricing_enabled: boolean;
   wallets_enabled: boolean;
   member_model_enabled: boolean;
-  tinybird_read: boolean;
-  tinybird_compare: boolean;
   checkout_localization_enabled: boolean;
   overview_metrics?: Array<string> | null | undefined;
   reset_proration_behavior_enabled: boolean;
@@ -100,8 +86,6 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
     seatBasedPricingEnabled: z._default(z.boolean(), false),
     walletsEnabled: z._default(z.boolean(), false),
     memberModelEnabled: z._default(z.boolean(), false),
-    tinybirdRead: z._default(z.boolean(), false),
-    tinybirdCompare: z._default(z.boolean(), false),
     checkoutLocalizationEnabled: z._default(z.boolean(), false),
     overviewMetrics: z.optional(z.nullable(z.array(z.string()))),
     resetProrationBehaviorEnabled: z._default(z.boolean(), false),
@@ -112,8 +96,6 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
       seatBasedPricingEnabled: "seat_based_pricing_enabled",
       walletsEnabled: "wallets_enabled",
       memberModelEnabled: "member_model_enabled",
-      tinybirdRead: "tinybird_read",
-      tinybirdCompare: "tinybird_compare",
       checkoutLocalizationEnabled: "checkout_localization_enabled",
       overviewMetrics: "overview_metrics",
       resetProrationBehaviorEnabled: "reset_proration_behavior_enabled",

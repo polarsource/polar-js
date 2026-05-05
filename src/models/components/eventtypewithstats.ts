@@ -11,17 +11,17 @@ import { EventSource, EventSource$inboundSchema } from "./eventsource.js";
 
 export type EventTypeWithStats = {
   /**
-   * Creation timestamp of the object.
+   * The ID of the event type. Null for system event types.
    */
-  createdAt: Date;
+  id?: string | null | undefined;
   /**
-   * Last modification timestamp of the object.
+   * Creation timestamp of the event type. Null for system event types.
    */
-  modifiedAt: Date | null;
+  createdAt?: Date | null | undefined;
   /**
-   * The ID of the object.
+   * Last modification timestamp of the event type. Null for system event types.
    */
-  id: string;
+  modifiedAt?: Date | null | undefined;
   /**
    * The name of the event type.
    */
@@ -59,14 +59,19 @@ export const EventTypeWithStats$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
+    id: z.optional(z.nullable(z.string())),
+    created_at: z.optional(
+      z.nullable(z.pipe(
+        z.iso.datetime({ offset: true }),
+        z.transform(v => new Date(v)),
+      )),
     ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    modified_at: z.optional(
+      z.nullable(z.pipe(
+        z.iso.datetime({ offset: true }),
+        z.transform(v => new Date(v)),
+      )),
     ),
-    id: z.string(),
     name: z.string(),
     label: z.string(),
     label_property_selector: z.optional(z.nullable(z.string())),

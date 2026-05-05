@@ -7,10 +7,12 @@ import { ordersGenerateInvoice } from "../funcs/ordersGenerateInvoice.js";
 import { ordersGet } from "../funcs/ordersGet.js";
 import { ordersInvoice } from "../funcs/ordersInvoice.js";
 import { ordersList } from "../funcs/ordersList.js";
+import { ordersReceipt } from "../funcs/ordersReceipt.js";
 import { ordersUpdate } from "../funcs/ordersUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import { Order } from "../models/components/order.js";
 import { OrderInvoice } from "../models/components/orderinvoice.js";
+import { OrderReceipt } from "../models/components/orderreceipt.js";
 import {
   OrdersExportRequest,
   OrdersExportResponse,
@@ -22,6 +24,7 @@ import {
   OrdersListRequest,
   OrdersListResponse,
 } from "../models/operations/orderslist.js";
+import { OrdersReceiptRequest } from "../models/operations/ordersreceipt.js";
 import { OrdersUpdateRequest } from "../models/operations/ordersupdate.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
@@ -137,6 +140,25 @@ export class Orders extends ClientSDK {
     options?: RequestOptions,
   ): Promise<any> {
     return unwrapAsync(ordersGenerateInvoice(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get Order Receipt
+   *
+   * @remarks
+   * Get a presigned URL to download an order's receipt PDF.
+   *
+   * **Scopes**: `orders:read`
+   */
+  async receipt(
+    request: OrdersReceiptRequest,
+    options?: RequestOptions,
+  ): Promise<OrderReceipt | undefined> {
+    return unwrapAsync(ordersReceipt(
       this,
       request,
       options,

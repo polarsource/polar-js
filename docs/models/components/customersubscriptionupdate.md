@@ -25,3 +25,11 @@ const value: components.CustomerSubscriptionUpdateSeats = {
 const value: components.CustomerSubscriptionCancel = {};
 ```
 
+### `components.CustomerSubscriptionUpdateClear`
+
+```typescript
+const value: components.CustomerSubscriptionUpdateClear = {
+  pendingUpdate: "<value>",
+};
+```
+
