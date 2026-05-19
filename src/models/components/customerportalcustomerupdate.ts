@@ -14,6 +14,7 @@ export type CustomerPortalCustomerUpdate = {
   billingName?: string | null | undefined;
   billingAddress?: AddressInput | null | undefined;
   taxId?: string | null | undefined;
+  defaultPaymentMethodId?: string | null | undefined;
 };
 
 /** @internal */
@@ -21,6 +22,7 @@ export type CustomerPortalCustomerUpdate$Outbound = {
   billing_name?: string | null | undefined;
   billing_address?: AddressInput$Outbound | null | undefined;
   tax_id?: string | null | undefined;
+  default_payment_method_id?: string | null | undefined;
 };
 
 /** @internal */
@@ -32,12 +34,14 @@ export const CustomerPortalCustomerUpdate$outboundSchema: z.ZodMiniType<
     billingName: z.optional(z.nullable(z.string())),
     billingAddress: z.optional(z.nullable(AddressInput$outboundSchema)),
     taxId: z.optional(z.nullable(z.string())),
+    defaultPaymentMethodId: z.optional(z.nullable(z.string())),
   }),
   z.transform((v) => {
     return remap$(v, {
       billingName: "billing_name",
       billingAddress: "billing_address",
       taxId: "tax_id",
+      defaultPaymentMethodId: "default_payment_method_id",
     });
   }),
 );

@@ -34,9 +34,10 @@ const value: components.SystemEvent = {
   childCount: 0,
   label: "<value>",
   source: "system",
-  name: "meter.reset",
+  name: "order.paid",
   metadata: {
-    meterId: "<id>",
+    orderId: "<id>",
+    amount: 638838,
   },
 };
 ```

@@ -28,49 +28,41 @@ let value: CustomerOrder = {
   },
   invoiceNumber: "<value>",
   isInvoiceGenerated: false,
+  receiptNumber: "<value>",
   customerId: "<value>",
   productId: "<value>",
-  discountId: "<value>",
-  subscriptionId: null,
+  discountId: null,
+  subscriptionId: "<value>",
   checkoutId: "<value>",
   product: {
     id: "<value>",
-    createdAt: new Date("2025-05-31T12:38:58.045Z"),
-    modifiedAt: new Date("2024-07-01T22:48:54.737Z"),
-    trialInterval: null,
-    trialIntervalCount: 57218,
+    createdAt: new Date("2025-02-28T16:11:09.166Z"),
+    modifiedAt: new Date("2024-03-25T07:15:50.587Z"),
+    trialInterval: "day",
+    trialIntervalCount: 918472,
     name: "<value>",
-    description:
-      "arraign but insistent provided apud um furiously palate devise yowza",
+    description: "gee than elementary restructure defrag",
     visibility: "private",
-    recurringInterval: "year",
-    recurringIntervalCount: 344241,
-    isRecurring: false,
-    isArchived: true,
+    recurringInterval: "week",
+    recurringIntervalCount: 984078,
+    isRecurring: true,
+    isArchived: false,
     organizationId: "<value>",
     prices: [],
-    benefits: [],
-    medias: [
+    benefits: [
       {
         id: "<value>",
+        createdAt: new Date("2024-10-10T05:16:33.838Z"),
+        modifiedAt: new Date("2026-02-25T08:33:06.239Z"),
+        type: "feature_flag",
+        description: "sushi fortunately gigantic soybean tomorrow um where",
+        selectable: false,
+        deletable: false,
+        isDeleted: false,
         organizationId: "<value>",
-        name: "<value>",
-        path: "/usr/libexec",
-        mimeType: "<value>",
-        size: 238122,
-        storageVersion: "<value>",
-        checksumEtag: "<value>",
-        checksumSha256Base64: "<value>",
-        checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2026-06-12T01:48:20.505Z"),
-        version: "<value>",
-        service: "product_media",
-        isUploaded: true,
-        createdAt: new Date("2026-06-20T18:25:36.529Z"),
-        sizeReadable: "<value>",
-        publicUrl: "https://sophisticated-affect.biz",
       },
     ],
+    medias: [],
     organization: {
       createdAt: new Date("2026-09-30T11:33:49.764Z"),
       modifiedAt: new Date("2024-03-13T19:22:24.375Z"),
@@ -92,28 +84,28 @@ let value: CustomerOrder = {
     },
   },
   subscription: {
-    createdAt: new Date("2026-10-22T14:36:45.718Z"),
-    modifiedAt: new Date("2025-04-25T00:52:48.048Z"),
+    createdAt: new Date("2024-11-04T19:41:36.912Z"),
+    modifiedAt: null,
     id: "<value>",
     amount: 10000,
     currency: "usd",
-    recurringInterval: "year",
-    recurringIntervalCount: 407509,
-    status: "past_due",
-    currentPeriodStart: new Date("2026-09-10T09:16:21.463Z"),
-    currentPeriodEnd: new Date("2026-04-25T19:12:17.639Z"),
-    trialStart: new Date("2025-07-25T01:03:46.818Z"),
-    trialEnd: new Date("2026-09-06T02:36:50.793Z"),
+    recurringInterval: "day",
+    recurringIntervalCount: 413401,
+    status: "canceled",
+    currentPeriodStart: new Date("2025-10-12T05:58:53.192Z"),
+    currentPeriodEnd: new Date("2024-12-06T08:15:27.487Z"),
+    trialStart: new Date("2025-09-13T03:55:10.034Z"),
+    trialEnd: new Date("2025-05-13T02:59:27.247Z"),
     cancelAtPeriodEnd: false,
-    canceledAt: new Date("2025-02-27T03:03:35.134Z"),
-    startedAt: new Date("2024-12-11T17:15:19.456Z"),
-    endsAt: new Date("2026-05-22T22:43:11.961Z"),
-    endedAt: new Date("2026-06-01T22:56:15.909Z"),
+    canceledAt: new Date("2025-05-02T19:24:39.019Z"),
+    startedAt: new Date("2024-05-18T07:14:51.645Z"),
+    endsAt: new Date("2025-05-29T21:01:39.779Z"),
+    endedAt: new Date("2024-08-17T08:05:21.446Z"),
     customerId: "<value>",
     productId: "<value>",
     discountId: "<value>",
     checkoutId: "<value>",
-    customerCancellationReason: null,
+    customerCancellationReason: "low_quality",
     customerCancellationComment: "<value>",
   },
   items: [
@@ -129,6 +121,8 @@ let value: CustomerOrder = {
     },
   ],
   description: "Pro Plan",
+  refundableAmount: 9000,
+  refundableTaxAmount: 720,
 };
 ```
 
@@ -156,6 +150,7 @@ let value: CustomerOrder = {
 | `billingAddress`                                                                                                                                                                                        | [components.Address](../../models/components/address.md)                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | `invoiceNumber`                                                                                                                                                                                         | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | The invoice number associated with this order.                                                                                                                                                          |                                                                                                                                                                                                         |
 | `isInvoiceGenerated`                                                                                                                                                                                    | *boolean*                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                      | Whether an invoice has been generated for this order.                                                                                                                                                   |                                                                                                                                                                                                         |
+| `receiptNumber`                                                                                                                                                                                         | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | The receipt number for this order. Set once the order is paid for organizations with receipts enabled. When set, a downloadable receipt PDF can be obtained via the receipt endpoint.                   |                                                                                                                                                                                                         |
 | `seats`                                                                                                                                                                                                 | *number*                                                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                                                      | Number of seats purchased (for seat-based one-time orders).                                                                                                                                             |                                                                                                                                                                                                         |
 | `customerId`                                                                                                                                                                                            | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | `productId`                                                                                                                                                                                             | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
@@ -167,3 +162,5 @@ let value: CustomerOrder = {
 | `items`                                                                                                                                                                                                 | [components.OrderItemSchema](../../models/components/orderitemschema.md)[]                                                                                                                              | :heavy_check_mark:                                                                                                                                                                                      | Line items composing the order.                                                                                                                                                                         |                                                                                                                                                                                                         |
 | `description`                                                                                                                                                                                           | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | A summary description of the order.                                                                                                                                                                     | Pro Plan                                                                                                                                                                                                |
 | `nextPaymentAttemptAt`                                                                                                                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                                           | :heavy_minus_sign:                                                                                                                                                                                      | When the next payment retry is scheduled                                                                                                                                                                |                                                                                                                                                                                                         |
+| `refundableAmount`                                                                                                                                                                                      | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Amount in cents that can still be refunded (net, before taxes). Accounts for any applied customer balance and previous refunds.                                                                         | 9000                                                                                                                                                                                                    |
+| `refundableTaxAmount`                                                                                                                                                                                   | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Sales tax in cents that would be refunded if the full refundable amount is refunded.                                                                                                                    | 720                                                                                                                                                                                                     |

@@ -96,6 +96,10 @@ export type CustomerOrder = {
    */
   isInvoiceGenerated: boolean;
   /**
+   * The receipt number for this order. Set once the order is paid for organizations with receipts enabled. When set, a downloadable receipt PDF can be obtained via the receipt endpoint.
+   */
+  receiptNumber: string | null;
+  /**
    * Number of seats purchased (for seat-based one-time orders).
    */
   seats?: number | null | undefined;
@@ -118,6 +122,14 @@ export type CustomerOrder = {
    * When the next payment retry is scheduled
    */
   nextPaymentAttemptAt?: Date | null | undefined;
+  /**
+   * Amount in cents that can still be refunded (net, before taxes). Accounts for any applied customer balance and previous refunds.
+   */
+  refundableAmount: number;
+  /**
+   * Sales tax in cents that would be refunded if the full refundable amount is refunded.
+   */
+  refundableTaxAmount: number;
 };
 
 /** @internal */
@@ -151,6 +163,7 @@ export const CustomerOrder$inboundSchema: z.ZodMiniType<
     billing_address: z.nullable(Address$inboundSchema),
     invoice_number: z.string(),
     is_invoice_generated: z.boolean(),
+    receipt_number: z.nullable(z.string()),
     seats: z.optional(z.nullable(z.int())),
     customer_id: z.string(),
     product_id: z.nullable(z.string()),
@@ -167,6 +180,8 @@ export const CustomerOrder$inboundSchema: z.ZodMiniType<
         z.transform(v => new Date(v)),
       )),
     ),
+    refundable_amount: z.int(),
+    refundable_tax_amount: z.int(),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -186,12 +201,15 @@ export const CustomerOrder$inboundSchema: z.ZodMiniType<
       "billing_address": "billingAddress",
       "invoice_number": "invoiceNumber",
       "is_invoice_generated": "isInvoiceGenerated",
+      "receipt_number": "receiptNumber",
       "customer_id": "customerId",
       "product_id": "productId",
       "discount_id": "discountId",
       "subscription_id": "subscriptionId",
       "checkout_id": "checkoutId",
       "next_payment_attempt_at": "nextPaymentAttemptAt",
+      "refundable_amount": "refundableAmount",
+      "refundable_tax_amount": "refundableTaxAmount",
     });
   }),
 );

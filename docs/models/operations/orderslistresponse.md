@@ -31,6 +31,7 @@ let value: OrdersListResponse = {
         },
         invoiceNumber: "<value>",
         isInvoiceGenerated: true,
+        receiptNumber: "<value>",
         customerId: "<value>",
         productId: "<value>",
         discountId: "<value>",
@@ -41,11 +42,9 @@ let value: OrdersListResponse = {
         platformFeeCurrency: "usd",
         customer: {
           id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-          createdAt: new Date("2025-03-24T08:16:45.004Z"),
-          modifiedAt: new Date("2026-06-03T00:19:30.299Z"),
-          metadata: {
-            "key": "<value>",
-          },
+          createdAt: new Date("2025-11-14T03:36:49.517Z"),
+          modifiedAt: new Date("2026-10-03T16:05:36.713Z"),
+          metadata: {},
           externalId: "usr_1337",
           email: "customer@example.com",
           emailVerified: true,
@@ -137,6 +136,8 @@ let value: OrdersListResponse = {
           },
         ],
         description: "Pro Plan",
+        refundableAmount: 9000,
+        refundableTaxAmount: 720,
       },
     ],
     pagination: {

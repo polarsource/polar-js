@@ -167,6 +167,8 @@ run();
 
 Get an organization by ID.
 
+**Scopes**: `organizations:read` `organizations:write`
+
 ### Example Usage
 
 <!-- UsageSnippet language="typescript" operationID="organizations:get" method="get" path="/v1/organizations/{id}" -->
@@ -241,6 +243,8 @@ run();
 ## update
 
 Update an organization.
+
+**Scopes**: `organizations:write`
 
 ### Example Usage
 
