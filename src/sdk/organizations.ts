@@ -62,6 +62,8 @@ export class Organizations extends ClientSDK {
    *
    * @remarks
    * Get an organization by ID.
+   *
+   * **Scopes**: `organizations:read` `organizations:write`
    */
   async get(
     request: OrganizationsGetRequest,
@@ -79,6 +81,8 @@ export class Organizations extends ClientSDK {
    *
    * @remarks
    * Update an organization.
+   *
+   * **Scopes**: `organizations:write`
    */
   async update(
     request: OrganizationsUpdateRequest,

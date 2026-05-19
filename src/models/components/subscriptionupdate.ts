@@ -20,6 +20,11 @@ import {
   SubscriptionUpdateBillingPeriod$outboundSchema,
 } from "./subscriptionupdatebillingperiod.js";
 import {
+  SubscriptionUpdateClear,
+  SubscriptionUpdateClear$Outbound,
+  SubscriptionUpdateClear$outboundSchema,
+} from "./subscriptionupdateclear.js";
+import {
   SubscriptionUpdateDiscount,
   SubscriptionUpdateDiscount$Outbound,
   SubscriptionUpdateDiscount$outboundSchema,
@@ -47,7 +52,8 @@ export type SubscriptionUpdate =
   | SubscriptionUpdateSeats
   | SubscriptionUpdateBillingPeriod
   | SubscriptionCancel
-  | SubscriptionRevoke;
+  | SubscriptionRevoke
+  | SubscriptionUpdateClear;
 
 /** @internal */
 export type SubscriptionUpdate$Outbound =
@@ -57,7 +63,8 @@ export type SubscriptionUpdate$Outbound =
   | SubscriptionUpdateSeats$Outbound
   | SubscriptionUpdateBillingPeriod$Outbound
   | SubscriptionCancel$Outbound
-  | SubscriptionRevoke$Outbound;
+  | SubscriptionRevoke$Outbound
+  | SubscriptionUpdateClear$Outbound;
 
 /** @internal */
 export const SubscriptionUpdate$outboundSchema: z.ZodMiniType<
@@ -71,6 +78,7 @@ export const SubscriptionUpdate$outboundSchema: z.ZodMiniType<
   SubscriptionUpdateBillingPeriod$outboundSchema,
   SubscriptionCancel$outboundSchema,
   SubscriptionRevoke$outboundSchema,
+  SubscriptionUpdateClear$outboundSchema,
 ]);
 
 export function subscriptionUpdateToJSON(

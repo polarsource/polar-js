@@ -9,7 +9,7 @@ import { customerPortalSeatsResendInvitation } from "../funcs/customerPortalSeat
 import { customerPortalSeatsRevokeSeat } from "../funcs/customerPortalSeatsRevokeSeat.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import { CustomerSeat } from "../models/components/customerseat.js";
-import { SeatAssign } from "../models/components/seatassign.js";
+import { CustomerSeatAssign } from "../models/components/customerseatassign.js";
 import { SeatsList } from "../models/components/seatslist.js";
 import { CustomerPortalSeatsAssignSeatSecurity } from "../models/operations/customerportalseatsassignseat.js";
 import {
@@ -57,7 +57,7 @@ export class Seats extends ClientSDK {
    */
   async assignSeat(
     security: CustomerPortalSeatsAssignSeatSecurity,
-    request: SeatAssign,
+    request: CustomerSeatAssign,
     options?: RequestOptions,
   ): Promise<CustomerSeat> {
     return unwrapAsync(customerPortalSeatsAssignSeat(
