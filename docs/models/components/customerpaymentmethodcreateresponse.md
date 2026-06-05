@@ -27,8 +27,8 @@ const value: components.CustomerPaymentMethodCreateSucceededResponse = {
     methodMetadata: {
       brand: "<value>",
       last4: "<value>",
-      expMonth: 438108,
-      expYear: 447179,
+      expMonth: 166298,
+      expYear: 515575,
     },
   },
 };

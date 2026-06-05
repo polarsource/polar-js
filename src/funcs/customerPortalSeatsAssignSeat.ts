@@ -17,9 +17,9 @@ import {
   CustomerSeat$inboundSchema,
 } from "../models/components/customerseat.js";
 import {
-  SeatAssign,
-  SeatAssign$outboundSchema,
-} from "../models/components/seatassign.js";
+  CustomerSeatAssign,
+  CustomerSeatAssign$outboundSchema,
+} from "../models/components/customerseatassign.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -44,7 +44,7 @@ import { Result } from "../types/fp.js";
 export function customerPortalSeatsAssignSeat(
   client: PolarCore,
   security: CustomerPortalSeatsAssignSeatSecurity,
-  request: SeatAssign,
+  request: CustomerSeatAssign,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -71,7 +71,7 @@ export function customerPortalSeatsAssignSeat(
 async function $do(
   client: PolarCore,
   security: CustomerPortalSeatsAssignSeatSecurity,
-  request: SeatAssign,
+  request: CustomerSeatAssign,
   options?: RequestOptions,
 ): Promise<
   [
@@ -92,7 +92,7 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => z.parse(SeatAssign$outboundSchema, value),
+    (value) => z.parse(CustomerSeatAssign$outboundSchema, value),
     "Input validation failed",
   );
   if (!parsed.ok) {

@@ -8,7 +8,7 @@ dotenv.config();
  * Example usage of the @polar-sh/sdk SDK
  *
  * To run this example from the examples directory:
- * npm run build && npx tsx organizationsList.example.ts
+ * npm run build && npx tsx organizationsListOrganizations.example.ts
  */
 
 import { Polar } from "@polar-sh/sdk";
@@ -18,7 +18,7 @@ const polar = new Polar({
 });
 
 async function main() {
-  const result = await polar.organizations.list({});
+  const result = await polar.organizations.listOrganizations({});
 
   for await (const page of result) {
     console.log(page);

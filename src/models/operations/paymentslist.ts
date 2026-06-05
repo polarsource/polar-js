@@ -37,6 +37,11 @@ export type PaymentsListQueryParamCheckoutIDFilter = string | Array<string>;
 export type PaymentsListQueryParamOrderIDFilter = string | Array<string>;
 
 /**
+ * Filter by customer ID.
+ */
+export type PaymentsListQueryParamCustomerIDFilter = string | Array<string>;
+
+/**
  * Filter by payment status.
  */
 export type PaymentsListQueryParamStatusFilter =
@@ -66,6 +71,10 @@ export type PaymentsListRequest = {
    * Filter by order ID.
    */
   orderId?: string | Array<string> | null | undefined;
+  /**
+   * Filter by customer ID.
+   */
+  customerId?: string | Array<string> | null | undefined;
   /**
    * Filter by payment status.
    */
@@ -164,6 +173,29 @@ export function paymentsListQueryParamOrderIDFilterToJSON(
 }
 
 /** @internal */
+export type PaymentsListQueryParamCustomerIDFilter$Outbound =
+  | string
+  | Array<string>;
+
+/** @internal */
+export const PaymentsListQueryParamCustomerIDFilter$outboundSchema:
+  z.ZodMiniType<
+    PaymentsListQueryParamCustomerIDFilter$Outbound,
+    PaymentsListQueryParamCustomerIDFilter
+  > = smartUnion([z.string(), z.array(z.string())]);
+
+export function paymentsListQueryParamCustomerIDFilterToJSON(
+  paymentsListQueryParamCustomerIDFilter:
+    PaymentsListQueryParamCustomerIDFilter,
+): string {
+  return JSON.stringify(
+    PaymentsListQueryParamCustomerIDFilter$outboundSchema.parse(
+      paymentsListQueryParamCustomerIDFilter,
+    ),
+  );
+}
+
+/** @internal */
 export type PaymentsListQueryParamStatusFilter$Outbound =
   | string
   | Array<string>;
@@ -222,6 +254,7 @@ export type PaymentsListRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
   checkout_id?: string | Array<string> | null | undefined;
   order_id?: string | Array<string> | null | undefined;
+  customer_id?: string | Array<string> | null | undefined;
   status?: string | Array<string> | null | undefined;
   method?: string | Array<string> | null | undefined;
   customer_email?: string | Array<string> | null | undefined;
@@ -243,6 +276,9 @@ export const PaymentsListRequest$outboundSchema: z.ZodMiniType<
       z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     orderId: z.optional(
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+    ),
+    customerId: z.optional(
       z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     status: z.optional(
@@ -270,6 +306,7 @@ export const PaymentsListRequest$outboundSchema: z.ZodMiniType<
       organizationId: "organization_id",
       checkoutId: "checkout_id",
       orderId: "order_id",
+      customerId: "customer_id",
       customerEmail: "customer_email",
     });
   }),

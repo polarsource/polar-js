@@ -26,17 +26,13 @@ export type OrganizationFeatureSettings = {
    */
   memberModelEnabled?: boolean | undefined;
   /**
-   * If this organization reads from Tinybird
-   */
-  tinybirdRead?: boolean | undefined;
-  /**
-   * If this organization compares Tinybird results with database
-   */
-  tinybirdCompare?: boolean | undefined;
-  /**
    * If this organization has checkout localization enabled
    */
   checkoutLocalizationEnabled?: boolean | undefined;
+  /**
+   * If this organization sees the new account review checklist UI.
+   */
+  accountReviewV2Enabled?: boolean | undefined;
   /**
    * Ordered list of metric slugs shown on the dashboard overview.
    */
@@ -45,6 +41,14 @@ export type OrganizationFeatureSettings = {
    * If this organization has access to reset proration behavior.
    */
   resetProrationBehaviorEnabled?: boolean | undefined;
+  /**
+   * If this organization can create and finalize draft orders via the API (off-session charges against a saved payment method).
+   */
+  offSessionChargesEnabled?: boolean | undefined;
+  /**
+   * If this organization has billing enabled
+   */
+  billingEnabled?: boolean | undefined;
 };
 
 /** @internal */
@@ -57,11 +61,12 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
     seat_based_pricing_enabled: z._default(z.boolean(), false),
     wallets_enabled: z._default(z.boolean(), false),
     member_model_enabled: z._default(z.boolean(), false),
-    tinybird_read: z._default(z.boolean(), false),
-    tinybird_compare: z._default(z.boolean(), false),
     checkout_localization_enabled: z._default(z.boolean(), false),
+    account_review_v2_enabled: z._default(z.boolean(), false),
     overview_metrics: z.optional(z.nullable(z.array(z.string()))),
     reset_proration_behavior_enabled: z._default(z.boolean(), false),
+    off_session_charges_enabled: z._default(z.boolean(), false),
+    billing_enabled: z._default(z.boolean(), false),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -69,11 +74,12 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
       "seat_based_pricing_enabled": "seatBasedPricingEnabled",
       "wallets_enabled": "walletsEnabled",
       "member_model_enabled": "memberModelEnabled",
-      "tinybird_read": "tinybirdRead",
-      "tinybird_compare": "tinybirdCompare",
       "checkout_localization_enabled": "checkoutLocalizationEnabled",
+      "account_review_v2_enabled": "accountReviewV2Enabled",
       "overview_metrics": "overviewMetrics",
       "reset_proration_behavior_enabled": "resetProrationBehaviorEnabled",
+      "off_session_charges_enabled": "offSessionChargesEnabled",
+      "billing_enabled": "billingEnabled",
     });
   }),
 );
@@ -83,11 +89,12 @@ export type OrganizationFeatureSettings$Outbound = {
   seat_based_pricing_enabled: boolean;
   wallets_enabled: boolean;
   member_model_enabled: boolean;
-  tinybird_read: boolean;
-  tinybird_compare: boolean;
   checkout_localization_enabled: boolean;
+  account_review_v2_enabled: boolean;
   overview_metrics?: Array<string> | null | undefined;
   reset_proration_behavior_enabled: boolean;
+  off_session_charges_enabled: boolean;
+  billing_enabled: boolean;
 };
 
 /** @internal */
@@ -100,11 +107,12 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
     seatBasedPricingEnabled: z._default(z.boolean(), false),
     walletsEnabled: z._default(z.boolean(), false),
     memberModelEnabled: z._default(z.boolean(), false),
-    tinybirdRead: z._default(z.boolean(), false),
-    tinybirdCompare: z._default(z.boolean(), false),
     checkoutLocalizationEnabled: z._default(z.boolean(), false),
+    accountReviewV2Enabled: z._default(z.boolean(), false),
     overviewMetrics: z.optional(z.nullable(z.array(z.string()))),
     resetProrationBehaviorEnabled: z._default(z.boolean(), false),
+    offSessionChargesEnabled: z._default(z.boolean(), false),
+    billingEnabled: z._default(z.boolean(), false),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -112,11 +120,12 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
       seatBasedPricingEnabled: "seat_based_pricing_enabled",
       walletsEnabled: "wallets_enabled",
       memberModelEnabled: "member_model_enabled",
-      tinybirdRead: "tinybird_read",
-      tinybirdCompare: "tinybird_compare",
       checkoutLocalizationEnabled: "checkout_localization_enabled",
+      accountReviewV2Enabled: "account_review_v2_enabled",
       overviewMetrics: "overview_metrics",
       resetProrationBehaviorEnabled: "reset_proration_behavior_enabled",
+      offSessionChargesEnabled: "off_session_charges_enabled",
+      billingEnabled: "billing_enabled",
     });
   }),
 );

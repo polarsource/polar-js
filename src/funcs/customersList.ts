@@ -124,6 +124,7 @@ async function $do(
       "metadata": payload.metadata,
     }),
     encodeFormQuery({
+      "active": payload.active,
       "email": payload.email,
       "limit": payload.limit,
       "organization_id": payload.organization_id,

@@ -94,7 +94,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.organizations.list({});
+  const result = await polar.organizations.listOrganizations({});
 
   for await (const page of result) {
     console.log(page);
@@ -236,6 +236,7 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [update](docs/sdks/polarorders/README.md#update) - Update Order
 * [invoice](docs/sdks/polarorders/README.md#invoice) - Get Order Invoice
 * [generateInvoice](docs/sdks/polarorders/README.md#generateinvoice) - Generate Order Invoice
+* [receipt](docs/sdks/polarorders/README.md#receipt) - Get Order Receipt
 * [getPaymentStatus](docs/sdks/polarorders/README.md#getpaymentstatus) - Get Order Payment Status
 * [confirmRetryPayment](docs/sdks/polarorders/README.md#confirmretrypayment) - Confirm Retry Payment
 
@@ -289,6 +290,8 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [updateExternal](docs/sdks/customers/README.md#updateexternal) - Update Customer by External ID
 * [getState](docs/sdks/customers/README.md#getstate) - Get Customer State
 * [getStateExternal](docs/sdks/customers/README.md#getstateexternal) - Get Customer State by External ID
+* [listPaymentMethods](docs/sdks/customers/README.md#listpaymentmethods) - List Customer Payment Methods
+* [listPaymentMethodsExternal](docs/sdks/customers/README.md#listpaymentmethodsexternal) - List Customer Payment Methods by External ID
 
 ### [Discounts](docs/sdks/discounts/README.md)
 
@@ -381,11 +384,14 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 ### [Orders](docs/sdks/orders/README.md)
 
 * [list](docs/sdks/orders/README.md#list) - List Orders
+* [create](docs/sdks/orders/README.md#create) - Create Order
 * [export](docs/sdks/orders/README.md#export) - Export Orders
 * [get](docs/sdks/orders/README.md#get) - Get Order
 * [update](docs/sdks/orders/README.md#update) - Update Order
+* [finalize](docs/sdks/orders/README.md#finalize) - Finalize Order
 * [invoice](docs/sdks/orders/README.md#invoice) - Get Order Invoice
 * [generateInvoice](docs/sdks/orders/README.md#generateinvoice) - Generate Order Invoice
+* [receipt](docs/sdks/orders/README.md#receipt) - Get Order Receipt
 
 ### [OrganizationAccessTokens](docs/sdks/organizationaccesstokens/README.md)
 
@@ -396,7 +402,7 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 
 ### [Organizations](docs/sdks/organizations/README.md)
 
-* [list](docs/sdks/organizations/README.md#list) - List Organizations
+* [listOrganizations](docs/sdks/organizations/README.md#listorganizations) - List Organizations
 * [create](docs/sdks/organizations/README.md#create) - Create Organization
 * [get](docs/sdks/organizations/README.md#get) - Get Organization
 * [update](docs/sdks/organizations/README.md#update) - Update Organization
@@ -510,6 +516,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`customerPortalOrdersGetPaymentStatus`](docs/sdks/polarorders/README.md#getpaymentstatus) - Get Order Payment Status
 - [`customerPortalOrdersInvoice`](docs/sdks/polarorders/README.md#invoice) - Get Order Invoice
 - [`customerPortalOrdersList`](docs/sdks/polarorders/README.md#list) - List Orders
+- [`customerPortalOrdersReceipt`](docs/sdks/polarorders/README.md#receipt) - Get Order Receipt
 - [`customerPortalOrdersUpdate`](docs/sdks/polarorders/README.md#update) - Update Order
 - [`customerPortalOrganizationsGet`](docs/sdks/polarorganizations/README.md#get) - Get Organization
 - [`customerPortalSeatsAssignSeat`](docs/sdks/seats/README.md#assignseat) - Assign Seat
@@ -539,6 +546,8 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`customersGetState`](docs/sdks/customers/README.md#getstate) - Get Customer State
 - [`customersGetStateExternal`](docs/sdks/customers/README.md#getstateexternal) - Get Customer State by External ID
 - [`customersList`](docs/sdks/customers/README.md#list) - List Customers
+- [`customersListPaymentMethods`](docs/sdks/customers/README.md#listpaymentmethods) - List Customer Payment Methods
+- [`customersListPaymentMethodsExternal`](docs/sdks/customers/README.md#listpaymentmethodsexternal) - List Customer Payment Methods by External ID
 - [`customersUpdate`](docs/sdks/customers/README.md#update) - Update Customer
 - [`customersUpdateExternal`](docs/sdks/customers/README.md#updateexternal) - Update Customer by External ID
 - [`customFieldsCreate`](docs/sdks/customfields/README.md#create) - Create Custom Field
@@ -601,11 +610,14 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`oauth2Revoke`](docs/sdks/oauth2/README.md#revoke) - Revoke Token
 - [`oauth2Token`](docs/sdks/oauth2/README.md#token) - Request Token
 - [`oauth2Userinfo`](docs/sdks/oauth2/README.md#userinfo) - Get User Info
+- [`ordersCreate`](docs/sdks/orders/README.md#create) - Create Order
 - [`ordersExport`](docs/sdks/orders/README.md#export) - Export Orders
+- [`ordersFinalize`](docs/sdks/orders/README.md#finalize) - Finalize Order
 - [`ordersGenerateInvoice`](docs/sdks/orders/README.md#generateinvoice) - Generate Order Invoice
 - [`ordersGet`](docs/sdks/orders/README.md#get) - Get Order
 - [`ordersInvoice`](docs/sdks/orders/README.md#invoice) - Get Order Invoice
 - [`ordersList`](docs/sdks/orders/README.md#list) - List Orders
+- [`ordersReceipt`](docs/sdks/orders/README.md#receipt) - Get Order Receipt
 - [`ordersUpdate`](docs/sdks/orders/README.md#update) - Update Order
 - [`organizationAccessTokensCreate`](docs/sdks/organizationaccesstokens/README.md#create) - Create
 - [`organizationAccessTokensDelete`](docs/sdks/organizationaccesstokens/README.md#delete) - Delete
@@ -613,7 +625,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`organizationAccessTokensUpdate`](docs/sdks/organizationaccesstokens/README.md#update) - Update
 - [`organizationsCreate`](docs/sdks/organizations/README.md#create) - Create Organization
 - [`organizationsGet`](docs/sdks/organizations/README.md#get) - Get Organization
-- [`organizationsList`](docs/sdks/organizations/README.md#list) - List Organizations
+- [`organizationsListOrganizations`](docs/sdks/organizations/README.md#listorganizations) - List Organizations
 - [`organizationsUpdate`](docs/sdks/organizations/README.md#update) - Update Organization
 - [`paymentsGet`](docs/sdks/payments/README.md#get) - Get Payment
 - [`paymentsList`](docs/sdks/payments/README.md#list) - List Payments
@@ -662,7 +674,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.organizations.list({});
+  const result = await polar.organizations.listOrganizations({});
 
   for await (const page of result) {
     console.log(page);
@@ -688,7 +700,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.organizations.list({}, {
+  const result = await polar.organizations.listOrganizations({}, {
     retries: {
       strategy: "backoff",
       backoff: {
@@ -729,7 +741,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.organizations.list({});
+  const result = await polar.organizations.listOrganizations({});
 
   for await (const page of result) {
     console.log(page);
@@ -767,7 +779,7 @@ const polar = new Polar({
 
 async function run() {
   try {
-    const result = await polar.organizations.list({});
+    const result = await polar.organizations.listOrganizations({});
 
     for await (const page of result) {
       console.log(page);
@@ -797,7 +809,7 @@ run();
 * [`PolarError`](./src/models/errors/polarerror.ts): The base class for HTTP error responses.
   * [`HTTPValidationError`](./src/models/errors/httpvalidationerror.ts): Validation Error. Status code `422`. *
 
-<details><summary>Less common errors (26)</summary>
+<details><summary>Less common errors (31)</summary>
 
 <br />
 
@@ -810,26 +822,31 @@ run();
 
 
 **Inherit from [`PolarError`](./src/models/errors/polarerror.ts)**:
-* [`ResourceNotFound`](./src/models/errors/resourcenotfound.ts): Status code `404`. Applicable to 85 of 181 methods.*
-* [`NotPermitted`](./src/models/errors/notpermitted.ts): Status code `403`. Applicable to 10 of 181 methods.*
-* [`Unauthorized`](./src/models/errors/unauthorized.ts): Not authorized to manage license key. Status code `401`. Applicable to 5 of 181 methods.*
-* [`AlreadyCanceledSubscription`](./src/models/errors/alreadycanceledsubscription.ts): Status code `403`. Applicable to 4 of 181 methods.*
-* [`AlreadyActiveSubscriptionError`](./src/models/errors/alreadyactivesubscriptionerror.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 181 methods.*
-* [`NotOpenCheckout`](./src/models/errors/notopencheckout.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 181 methods.*
-* [`PaymentNotReady`](./src/models/errors/paymentnotready.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 181 methods.*
-* [`TrialAlreadyRedeemed`](./src/models/errors/trialalreadyredeemed.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 181 methods.*
-* [`ExpiredCheckoutError`](./src/models/errors/expiredcheckouterror.ts): The checkout session is expired. Status code `410`. Applicable to 3 of 181 methods.*
-* [`PaymentFailed`](./src/models/errors/paymentfailed.ts): Payment required to apply the subscription update. Status code `402`. Applicable to 2 of 181 methods.*
-* [`SubscriptionLocked`](./src/models/errors/subscriptionlocked.ts): Subscription is pending an update. Status code `409`. Applicable to 2 of 181 methods.*
-* [`MissingInvoiceBillingDetails`](./src/models/errors/missinginvoicebillingdetails.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 181 methods.*
-* [`NotPaidOrder`](./src/models/errors/notpaidorder.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 181 methods.*
-* [`PaymentError`](./src/models/errors/paymenterror.ts): The payment failed. Status code `400`. Applicable to 1 of 181 methods.*
-* [`CustomerNotReady`](./src/models/errors/customernotready.ts): Customer is not ready to confirm a payment method. Status code `400`. Applicable to 1 of 181 methods.*
-* [`PaymentMethodInUseByActiveSubscription`](./src/models/errors/paymentmethodinusebyactivesubscription.ts): Payment method is used by active subscription(s). Status code `400`. Applicable to 1 of 181 methods.*
-* [`RefundedAlready`](./src/models/errors/refundedalready.ts): Order is already fully refunded. Status code `403`. Applicable to 1 of 181 methods.*
-* [`PaymentAlreadyInProgress`](./src/models/errors/paymentalreadyinprogress.ts): Payment already in progress. Status code `409`. Applicable to 1 of 181 methods.*
-* [`OrderNotEligibleForRetry`](./src/models/errors/ordernoteligibleforretry.ts): Order not eligible for retry or payment confirmation failed. Status code `422`. Applicable to 1 of 181 methods.*
-* [`ManualRetryLimitExceeded`](./src/models/errors/manualretrylimitexceeded.ts): Manual retry limit exceeded. Status code `429`. Applicable to 1 of 181 methods.*
+* [`ResourceNotFound`](./src/models/errors/resourcenotfound.ts): Status code `404`. Applicable to 90 of 187 methods.*
+* [`NotPermitted`](./src/models/errors/notpermitted.ts): Status code `403`. Applicable to 10 of 187 methods.*
+* [`Unauthorized`](./src/models/errors/unauthorized.ts): Not authorized to manage license key. Status code `401`. Applicable to 5 of 187 methods.*
+* [`AlreadyCanceledSubscription`](./src/models/errors/alreadycanceledsubscription.ts): Status code `403`. Applicable to 4 of 187 methods.*
+* [`PaymentFailed`](./src/models/errors/paymentfailed.ts): Status code `402`. Applicable to 3 of 187 methods.*
+* [`AlreadyActiveSubscriptionError`](./src/models/errors/alreadyactivesubscriptionerror.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 187 methods.*
+* [`NotOpenCheckout`](./src/models/errors/notopencheckout.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 187 methods.*
+* [`PaymentNotReady`](./src/models/errors/paymentnotready.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 187 methods.*
+* [`TrialAlreadyRedeemed`](./src/models/errors/trialalreadyredeemed.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 187 methods.*
+* [`ExpiredCheckoutError`](./src/models/errors/expiredcheckouterror.ts): The checkout session is expired. Status code `410`. Applicable to 3 of 187 methods.*
+* [`SubscriptionLocked`](./src/models/errors/subscriptionlocked.ts): Subscription is pending an update. Status code `409`. Applicable to 2 of 187 methods.*
+* [`MissingInvoiceBillingDetails`](./src/models/errors/missinginvoicebillingdetails.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 187 methods.*
+* [`NotPaidOrder`](./src/models/errors/notpaidorder.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 187 methods.*
+* [`PaymentError`](./src/models/errors/paymenterror.ts): The payment failed. Status code `400`. Applicable to 1 of 187 methods.*
+* [`PaymentMethodSetupFailed`](./src/models/errors/paymentmethodsetupfailed.ts): The card was declined while setting up the payment method. Status code `400`. Applicable to 1 of 187 methods.*
+* [`CustomerNotReady`](./src/models/errors/customernotready.ts): Customer is not ready to confirm a payment method. Status code `400`. Applicable to 1 of 187 methods.*
+* [`PaymentMethodInUseByActiveSubscription`](./src/models/errors/paymentmethodinusebyactivesubscription.ts): Payment method is used by active subscription(s). Status code `400`. Applicable to 1 of 187 methods.*
+* [`PaymentActionRequired`](./src/models/errors/paymentactionrequired.ts): The charge failed, or requires customer authentication (e.g. a 3DS challenge) that can't be completed off-session. Status code `402`. Applicable to 1 of 187 methods.*
+* [`OffSessionChargesNotEnabled`](./src/models/errors/offsessionchargesnotenabled.ts): Off-session charges are not enabled for this organization, or its account can't currently accept payments. Status code `403`. Applicable to 1 of 187 methods.*
+* [`OrganizationNotReadyForPayments`](./src/models/errors/organizationnotreadyforpayments.ts): Off-session charges are not enabled for this organization, or its account can't currently accept payments. Status code `403`. Applicable to 1 of 187 methods.*
+* [`RefundedAlready`](./src/models/errors/refundedalready.ts): Order is already fully refunded. Status code `403`. Applicable to 1 of 187 methods.*
+* [`PaymentAlreadyInProgress`](./src/models/errors/paymentalreadyinprogress.ts): Payment already in progress. Status code `409`. Applicable to 1 of 187 methods.*
+* [`OrderNotDraft`](./src/models/errors/ordernotdraft.ts): The order is not in `draft` status. Status code `412`. Applicable to 1 of 187 methods.*
+* [`OrderNotEligibleForRetry`](./src/models/errors/ordernoteligibleforretry.ts): Order not eligible for retry or payment confirmation failed. Status code `422`. Applicable to 1 of 187 methods.*
+* [`ManualRetryLimitExceeded`](./src/models/errors/manualretrylimitexceeded.ts): Manual retry limit exceeded. Status code `429`. Applicable to 1 of 187 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
@@ -860,7 +877,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.organizations.list({});
+  const result = await polar.organizations.listOrganizations({});
 
   for await (const page of result) {
     console.log(page);
@@ -883,7 +900,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.organizations.list({});
+  const result = await polar.organizations.listOrganizations({});
 
   for await (const page of result) {
     console.log(page);
@@ -968,7 +985,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.organizations.list({});
+  const result = await polar.organizations.listOrganizations({});
 
   for await (const page of result) {
     console.log(page);

@@ -7,6 +7,7 @@ import * as openEnums from "../../types/enums.js";
 import { OpenEnum } from "../../types/enums.js";
 
 export const OrderStatus = {
+  Draft: "draft",
   Pending: "pending",
   Paid: "paid",
   Refunded: "refunded",

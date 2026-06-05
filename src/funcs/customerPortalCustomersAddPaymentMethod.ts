@@ -31,6 +31,10 @@ import {
   HTTPValidationError,
   HTTPValidationError$inboundSchema,
 } from "../models/errors/httpvalidationerror.js";
+import {
+  PaymentMethodSetupFailed,
+  PaymentMethodSetupFailed$inboundSchema,
+} from "../models/errors/paymentmethodsetupfailed.js";
 import { PolarError } from "../models/errors/polarerror.js";
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
@@ -52,6 +56,7 @@ export function customerPortalCustomersAddPaymentMethod(
 ): APIPromise<
   Result<
     CustomerPaymentMethodCreateResponse,
+    | PaymentMethodSetupFailed
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -80,6 +85,7 @@ async function $do(
   [
     Result<
       CustomerPaymentMethodCreateResponse,
+      | PaymentMethodSetupFailed
       | HTTPValidationError
       | PolarError
       | ResponseValidationError
@@ -176,6 +182,7 @@ async function $do(
 
   const [result] = await M.match<
     CustomerPaymentMethodCreateResponse,
+    | PaymentMethodSetupFailed
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -187,6 +194,7 @@ async function $do(
     | SDKValidationError
   >(
     M.json(201, CustomerPaymentMethodCreateResponse$inboundSchema),
+    M.jsonErr(400, PaymentMethodSetupFailed$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

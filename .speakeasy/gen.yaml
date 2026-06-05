@@ -32,7 +32,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 typescript:
-  version: 0.47.1
+  version: 0.48.0
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies:
@@ -87,6 +87,7 @@ typescript:
   packageName: '@polar-sh/sdk'
   preApplyUnionDiscriminators: true
   preserveModelFieldNames: false
+  privateIdentifierPrefix: '#'
   responseFormat: flat
   sseFlatResponse: false
   templateVersion: v2

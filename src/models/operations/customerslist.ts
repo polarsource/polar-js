@@ -43,6 +43,10 @@ export type CustomersListRequest = {
    */
   query?: string | null | undefined;
   /**
+   * Filter by active customers, i.e. customers with at least one trialing, active or past_due subscription.
+   */
+  active?: boolean | null | undefined;
+  /**
    * Page number, defaults to 1.
    */
   page?: number | undefined;
@@ -92,6 +96,7 @@ export type CustomersListRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
   email?: string | null | undefined;
   query?: string | null | undefined;
+  active?: boolean | null | undefined;
   page: number;
   limit: number;
   sorting?: Array<string> | null | undefined;
@@ -109,6 +114,7 @@ export const CustomersListRequest$outboundSchema: z.ZodMiniType<
     ),
     email: z.optional(z.nullable(z.string())),
     query: z.optional(z.nullable(z.string())),
+    active: z.optional(z.nullable(z.boolean())),
     page: z._default(z.int(), 1),
     limit: z._default(z.int(), 10),
     sorting: z.optional(

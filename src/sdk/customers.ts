@@ -11,6 +11,8 @@ import { customersGetExternal } from "../funcs/customersGetExternal.js";
 import { customersGetState } from "../funcs/customersGetState.js";
 import { customersGetStateExternal } from "../funcs/customersGetStateExternal.js";
 import { customersList } from "../funcs/customersList.js";
+import { customersListPaymentMethods } from "../funcs/customersListPaymentMethods.js";
+import { customersListPaymentMethodsExternal } from "../funcs/customersListPaymentMethodsExternal.js";
 import { customersUpdate } from "../funcs/customersUpdate.js";
 import { customersUpdateExternal } from "../funcs/customersUpdateExternal.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
@@ -31,6 +33,14 @@ import {
   CustomersListRequest,
   CustomersListResponse,
 } from "../models/operations/customerslist.js";
+import {
+  CustomersListPaymentMethodsRequest,
+  CustomersListPaymentMethodsResponse,
+} from "../models/operations/customerslistpaymentmethods.js";
+import {
+  CustomersListPaymentMethodsExternalRequest,
+  CustomersListPaymentMethodsExternalResponse,
+} from "../models/operations/customerslistpaymentmethodsexternal.js";
 import { CustomersUpdateRequest } from "../models/operations/customersupdate.js";
 import { CustomersUpdateExternalRequest } from "../models/operations/customersupdateexternal.js";
 import { unwrapAsync } from "../types/fp.js";
@@ -272,6 +282,48 @@ export class Customers extends ClientSDK {
     options?: RequestOptions,
   ): Promise<CustomerState> {
     return unwrapAsync(customersGetStateExternal(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List Customer Payment Methods
+   *
+   * @remarks
+   * Get saved payment methods of a customer.
+   *
+   * **Scopes**: `customers:read` `customers:write`
+   */
+  async listPaymentMethods(
+    request: CustomersListPaymentMethodsRequest,
+    options?: RequestOptions,
+  ): Promise<
+    PageIterator<CustomersListPaymentMethodsResponse, { page: number }>
+  > {
+    return unwrapResultIterator(customersListPaymentMethods(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List Customer Payment Methods by External ID
+   *
+   * @remarks
+   * Get saved payment methods of a customer by external ID.
+   *
+   * **Scopes**: `customers:read` `customers:write`
+   */
+  async listPaymentMethodsExternal(
+    request: CustomersListPaymentMethodsExternalRequest,
+    options?: RequestOptions,
+  ): Promise<
+    PageIterator<CustomersListPaymentMethodsExternalResponse, { page: number }>
+  > {
+    return unwrapResultIterator(customersListPaymentMethodsExternal(
       this,
       request,
       options,

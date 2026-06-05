@@ -50,7 +50,7 @@ import {
  *
  * **Scopes**: `organizations:read` `organizations:write`
  */
-export function organizationsList(
+export function organizationsListOrganizations(
   client: PolarCore,
   request: OrganizationsListRequest,
   options?: RequestOptions,
@@ -241,7 +241,7 @@ async function $do(
     }
 
     const nextVal = () =>
-      organizationsList(
+      organizationsListOrganizations(
         client,
         {
           ...request,
