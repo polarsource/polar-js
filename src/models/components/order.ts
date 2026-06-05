@@ -149,13 +149,17 @@ export type Order = {
   billingName: string | null;
   billingAddress: Address | null;
   /**
-   * The invoice number associated with this order.
+   * The invoice number associated with this order. `null` while the order is in `draft` status; assigned at finalize.
    */
-  invoiceNumber: string;
+  invoiceNumber: string | null;
   /**
    * Whether an invoice has been generated for this order.
    */
   isInvoiceGenerated: boolean;
+  /**
+   * The receipt number for this order. Set once the order is paid for organizations with receipts enabled. When set, a downloadable receipt PDF can be obtained via the receipt endpoint.
+   */
+  receiptNumber: string | null;
   /**
    * Number of seats purchased (for seat-based one-time orders).
    */
@@ -197,6 +201,14 @@ export type Order = {
    * A summary description of the order.
    */
   description: string;
+  /**
+   * Amount in cents that can still be refunded (net, before taxes). Accounts for any applied customer balance and previous refunds.
+   */
+  refundableAmount: number;
+  /**
+   * Sales tax in cents that would be refunded if the full refundable amount is refunded.
+   */
+  refundableTaxAmount: number;
 };
 
 /** @internal */
@@ -307,8 +319,9 @@ export const Order$inboundSchema: z.ZodMiniType<Order, unknown> = z.pipe(
     billing_reason: OrderBillingReason$inboundSchema,
     billing_name: z.nullable(z.string()),
     billing_address: z.nullable(Address$inboundSchema),
-    invoice_number: z.string(),
+    invoice_number: z.nullable(z.string()),
     is_invoice_generated: z.boolean(),
+    receipt_number: z.nullable(z.string()),
     seats: z.optional(z.nullable(z.int())),
     customer_id: z.string(),
     product_id: z.nullable(z.string()),
@@ -347,6 +360,8 @@ export const Order$inboundSchema: z.ZodMiniType<Order, unknown> = z.pipe(
     subscription: z.nullable(OrderSubscription$inboundSchema),
     items: z.array(OrderItemSchema$inboundSchema),
     description: z.string(),
+    refundable_amount: z.int(),
+    refundable_tax_amount: z.int(),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -366,6 +381,7 @@ export const Order$inboundSchema: z.ZodMiniType<Order, unknown> = z.pipe(
       "billing_address": "billingAddress",
       "invoice_number": "invoiceNumber",
       "is_invoice_generated": "isInvoiceGenerated",
+      "receipt_number": "receiptNumber",
       "customer_id": "customerId",
       "product_id": "productId",
       "discount_id": "discountId",
@@ -374,6 +390,8 @@ export const Order$inboundSchema: z.ZodMiniType<Order, unknown> = z.pipe(
       "custom_field_data": "customFieldData",
       "platform_fee_amount": "platformFeeAmount",
       "platform_fee_currency": "platformFeeCurrency",
+      "refundable_amount": "refundableAmount",
+      "refundable_tax_amount": "refundableTaxAmount",
     });
   }),
 );
@@ -397,8 +415,9 @@ export type Order$Outbound = {
   billing_reason: string;
   billing_name: string | null;
   billing_address: Address$Outbound | null;
-  invoice_number: string;
+  invoice_number: string | null;
   is_invoice_generated: boolean;
+  receipt_number: string | null;
   seats?: number | null | undefined;
   customer_id: string;
   product_id: string | null;
@@ -422,6 +441,8 @@ export type Order$Outbound = {
   subscription: OrderSubscription$Outbound | null;
   items: Array<OrderItemSchema$Outbound>;
   description: string;
+  refundable_amount: number;
+  refundable_tax_amount: number;
 };
 
 /** @internal */
@@ -448,8 +469,9 @@ export const Order$outboundSchema: z.ZodMiniType<Order$Outbound, Order> = z
       billingReason: OrderBillingReason$outboundSchema,
       billingName: z.nullable(z.string()),
       billingAddress: z.nullable(Address$outboundSchema),
-      invoiceNumber: z.string(),
+      invoiceNumber: z.nullable(z.string()),
       isInvoiceGenerated: z.boolean(),
+      receiptNumber: z.nullable(z.string()),
       seats: z.optional(z.nullable(z.int())),
       customerId: z.string(),
       productId: z.nullable(z.string()),
@@ -485,6 +507,8 @@ export const Order$outboundSchema: z.ZodMiniType<Order$Outbound, Order> = z
       subscription: z.nullable(OrderSubscription$outboundSchema),
       items: z.array(OrderItemSchema$outboundSchema),
       description: z.string(),
+      refundableAmount: z.int(),
+      refundableTaxAmount: z.int(),
     }),
     z.transform((v) => {
       return remap$(v, {
@@ -504,6 +528,7 @@ export const Order$outboundSchema: z.ZodMiniType<Order$Outbound, Order> = z
         billingAddress: "billing_address",
         invoiceNumber: "invoice_number",
         isInvoiceGenerated: "is_invoice_generated",
+        receiptNumber: "receipt_number",
         customerId: "customer_id",
         productId: "product_id",
         discountId: "discount_id",
@@ -512,6 +537,8 @@ export const Order$outboundSchema: z.ZodMiniType<Order$Outbound, Order> = z
         customFieldData: "custom_field_data",
         platformFeeAmount: "platform_fee_amount",
         platformFeeCurrency: "platform_fee_currency",
+        refundableAmount: "refundable_amount",
+        refundableTaxAmount: "refundable_tax_amount",
       });
     }),
   );

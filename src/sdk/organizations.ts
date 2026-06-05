@@ -4,7 +4,7 @@
 
 import { organizationsCreate } from "../funcs/organizationsCreate.js";
 import { organizationsGet } from "../funcs/organizationsGet.js";
-import { organizationsList } from "../funcs/organizationsList.js";
+import { organizationsListOrganizations } from "../funcs/organizationsListOrganizations.js";
 import { organizationsUpdate } from "../funcs/organizationsUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import { Organization } from "../models/components/organization.js";
@@ -27,11 +27,11 @@ export class Organizations extends ClientSDK {
    *
    * **Scopes**: `organizations:read` `organizations:write`
    */
-  async list(
+  async listOrganizations(
     request: OrganizationsListRequest,
     options?: RequestOptions,
   ): Promise<PageIterator<OrganizationsListResponse, { page: number }>> {
-    return unwrapResultIterator(organizationsList(
+    return unwrapResultIterator(organizationsListOrganizations(
       this,
       request,
       options,
@@ -62,6 +62,8 @@ export class Organizations extends ClientSDK {
    *
    * @remarks
    * Get an organization by ID.
+   *
+   * **Scopes**: `organizations:read` `organizations:write`
    */
   async get(
     request: OrganizationsGetRequest,
@@ -79,6 +81,8 @@ export class Organizations extends ClientSDK {
    *
    * @remarks
    * Update an organization.
+   *
+   * **Scopes**: `organizations:write`
    */
   async update(
     request: OrganizationsUpdateRequest,

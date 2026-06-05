@@ -118,6 +118,7 @@ async function $do(
   const query = encodeFormQuery({
     "checkout_id": payload.checkout_id,
     "customer_email": payload.customer_email,
+    "customer_id": payload.customer_id,
     "limit": payload.limit,
     "method": payload.method,
     "order_id": payload.order_id,

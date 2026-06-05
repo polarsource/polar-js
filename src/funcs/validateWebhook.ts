@@ -196,6 +196,7 @@ export async function validateWebhook(_client: PolarCore, {
   >
 > {
   const request = normalizeRequest(rawRequest);
+  const jsonString = await request.text();
   const knownSchemas = [
     webhookCheckoutCreatedPayloadFromJSON,
     webhookCheckoutUpdatedPayloadFromJSON,
@@ -233,8 +234,6 @@ export async function validateWebhook(_client: PolarCore, {
     webhookBenefitGrantCycledPayloadFromJSON,
     webhookBenefitGrantRevokedPayloadFromJSON,
   ];
-
-  const jsonString = await request.text();
 
   for (const schema of knownSchemas) {
     const ret = schema(jsonString);

@@ -12,8 +12,6 @@ export const Scope = {
   Email: "email",
   UserRead: "user:read",
   UserWrite: "user:write",
-  WebRead: "web:read",
-  WebWrite: "web:write",
   OrganizationsRead: "organizations:read",
   OrganizationsWrite: "organizations:write",
   CustomFieldsRead: "custom_fields:read",

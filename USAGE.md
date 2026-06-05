@@ -7,7 +7,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.organizations.list({});
+  const result = await polar.organizations.listOrganizations({});
 
   for await (const page of result) {
     console.log(page);

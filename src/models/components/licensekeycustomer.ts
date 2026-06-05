@@ -57,6 +57,10 @@ export type LicenseKeyCustomer = {
    */
   organizationId: string;
   /**
+   * The ID of the customer's default payment method, if any. Use the payment methods endpoint to retrieve its details.
+   */
+  defaultPaymentMethodId?: string | null | undefined;
+  /**
    * Timestamp for when the customer was soft deleted.
    */
   deletedAt: Date | null;
@@ -105,6 +109,7 @@ export const LicenseKeyCustomer$inboundSchema: z.ZodMiniType<
     ),
     locale: z.optional(z.nullable(z.string())),
     organization_id: z.string(),
+    default_payment_method_id: z.optional(z.nullable(z.string())),
     deleted_at: z.nullable(
       z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
@@ -119,6 +124,7 @@ export const LicenseKeyCustomer$inboundSchema: z.ZodMiniType<
       "billing_address": "billingAddress",
       "tax_id": "taxId",
       "organization_id": "organizationId",
+      "default_payment_method_id": "defaultPaymentMethodId",
       "deleted_at": "deletedAt",
       "avatar_url": "avatarUrl",
     });

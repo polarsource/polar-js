@@ -72,6 +72,10 @@ export type SubscriptionCustomer = {
    */
   organizationId: string;
   /**
+   * The ID of the customer's default payment method, if any. Use the payment methods endpoint to retrieve its details.
+   */
+  defaultPaymentMethodId?: string | null | undefined;
+  /**
    * Timestamp for when the customer was soft deleted.
    */
   deletedAt: Date | null;
@@ -129,6 +133,7 @@ export const SubscriptionCustomer$inboundSchema: z.ZodMiniType<
     ),
     locale: z.optional(z.nullable(z.string())),
     organization_id: z.string(),
+    default_payment_method_id: z.optional(z.nullable(z.string())),
     deleted_at: z.nullable(
       z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
@@ -143,6 +148,7 @@ export const SubscriptionCustomer$inboundSchema: z.ZodMiniType<
       "billing_address": "billingAddress",
       "tax_id": "taxId",
       "organization_id": "organizationId",
+      "default_payment_method_id": "defaultPaymentMethodId",
       "deleted_at": "deletedAt",
       "avatar_url": "avatarUrl",
     });
@@ -163,6 +169,7 @@ export type SubscriptionCustomer$Outbound = {
   tax_id: Array<string | string | null> | null;
   locale?: string | null | undefined;
   organization_id: string;
+  default_payment_method_id?: string | null | undefined;
   deleted_at: string | null;
   avatar_url: string;
 };
@@ -188,6 +195,7 @@ export const SubscriptionCustomer$outboundSchema: z.ZodMiniType<
     ),
     locale: z.optional(z.nullable(z.string())),
     organizationId: z.string(),
+    defaultPaymentMethodId: z.optional(z.nullable(z.string())),
     deletedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
     avatarUrl: z.string(),
   }),
@@ -200,6 +208,7 @@ export const SubscriptionCustomer$outboundSchema: z.ZodMiniType<
       billingAddress: "billing_address",
       taxId: "tax_id",
       organizationId: "organization_id",
+      defaultPaymentMethodId: "default_payment_method_id",
       deletedAt: "deleted_at",
       avatarUrl: "avatar_url",
     });

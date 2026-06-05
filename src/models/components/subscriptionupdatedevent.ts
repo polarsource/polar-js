@@ -6,36 +6,12 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Customer, Customer$inboundSchema } from "./customer.js";
 import {
-  SubscriptionUpdatedBillingPeriodMetadata,
-  SubscriptionUpdatedBillingPeriodMetadata$inboundSchema,
-} from "./subscriptionupdatedbillingperiodmetadata.js";
-import {
-  SubscriptionUpdatedDiscountMetadata,
-  SubscriptionUpdatedDiscountMetadata$inboundSchema,
-} from "./subscriptionupdateddiscountmetadata.js";
-import {
-  SubscriptionUpdatedProductMetadata,
-  SubscriptionUpdatedProductMetadata$inboundSchema,
-} from "./subscriptionupdatedproductmetadata.js";
-import {
-  SubscriptionUpdatedSeatsMetadata,
-  SubscriptionUpdatedSeatsMetadata$inboundSchema,
-} from "./subscriptionupdatedseatsmetadata.js";
-import {
-  SubscriptionUpdatedTrialMetadata,
-  SubscriptionUpdatedTrialMetadata$inboundSchema,
-} from "./subscriptionupdatedtrialmetadata.js";
-
-export type SubscriptionUpdatedEventMetadata =
-  | SubscriptionUpdatedProductMetadata
-  | SubscriptionUpdatedSeatsMetadata
-  | SubscriptionUpdatedDiscountMetadata
-  | SubscriptionUpdatedTrialMetadata
-  | SubscriptionUpdatedBillingPeriodMetadata;
+  SubscriptionUpdatedMetadata,
+  SubscriptionUpdatedMetadata$inboundSchema,
+} from "./subscriptionupdatedmetadata.js";
 
 /**
  * An event created by Polar when a subscription is updated.
@@ -93,35 +69,8 @@ export type SubscriptionUpdatedEvent = {
    * The name of the event.
    */
   name: "subscription.updated";
-  metadata:
-    | SubscriptionUpdatedProductMetadata
-    | SubscriptionUpdatedSeatsMetadata
-    | SubscriptionUpdatedDiscountMetadata
-    | SubscriptionUpdatedTrialMetadata
-    | SubscriptionUpdatedBillingPeriodMetadata;
+  metadata: SubscriptionUpdatedMetadata;
 };
-
-/** @internal */
-export const SubscriptionUpdatedEventMetadata$inboundSchema: z.ZodMiniType<
-  SubscriptionUpdatedEventMetadata,
-  unknown
-> = smartUnion([
-  SubscriptionUpdatedProductMetadata$inboundSchema,
-  SubscriptionUpdatedSeatsMetadata$inboundSchema,
-  SubscriptionUpdatedDiscountMetadata$inboundSchema,
-  SubscriptionUpdatedTrialMetadata$inboundSchema,
-  SubscriptionUpdatedBillingPeriodMetadata$inboundSchema,
-]);
-
-export function subscriptionUpdatedEventMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<SubscriptionUpdatedEventMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SubscriptionUpdatedEventMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SubscriptionUpdatedEventMetadata' from JSON`,
-  );
-}
 
 /** @internal */
 export const SubscriptionUpdatedEvent$inboundSchema: z.ZodMiniType<
@@ -145,13 +94,7 @@ export const SubscriptionUpdatedEvent$inboundSchema: z.ZodMiniType<
     label: z.string(),
     source: z.literal("system"),
     name: z.literal("subscription.updated"),
-    metadata: smartUnion([
-      SubscriptionUpdatedProductMetadata$inboundSchema,
-      SubscriptionUpdatedSeatsMetadata$inboundSchema,
-      SubscriptionUpdatedDiscountMetadata$inboundSchema,
-      SubscriptionUpdatedTrialMetadata$inboundSchema,
-      SubscriptionUpdatedBillingPeriodMetadata$inboundSchema,
-    ]),
+    metadata: SubscriptionUpdatedMetadata$inboundSchema,
   }),
   z.transform((v) => {
     return remap$(v, {

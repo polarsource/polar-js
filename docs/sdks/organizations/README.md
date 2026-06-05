@@ -4,12 +4,12 @@
 
 ### Available Operations
 
-* [list](#list) - List Organizations
+* [listOrganizations](#listorganizations) - List Organizations
 * [create](#create) - Create Organization
 * [get](#get) - Get Organization
 * [update](#update) - Update Organization
 
-## list
+## listOrganizations
 
 List organizations.
 
@@ -26,7 +26,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.organizations.list({});
+  const result = await polar.organizations.listOrganizations({});
 
   for await (const page of result) {
     console.log(page);
@@ -42,7 +42,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { organizationsList } from "@polar-sh/sdk/funcs/organizationsList.js";
+import { organizationsListOrganizations } from "@polar-sh/sdk/funcs/organizationsListOrganizations.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -51,14 +51,14 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await organizationsList(polar, {});
+  const res = await organizationsListOrganizations(polar, {});
   if (res.ok) {
     const { value: result } = res;
     for await (const page of result) {
     console.log(page);
   }
   } else {
-    console.log("organizationsList failed:", res.error);
+    console.log("organizationsListOrganizations failed:", res.error);
   }
 }
 
@@ -167,6 +167,8 @@ run();
 
 Get an organization by ID.
 
+**Scopes**: `organizations:read` `organizations:write`
+
 ### Example Usage
 
 <!-- UsageSnippet language="typescript" operationID="organizations:get" method="get" path="/v1/organizations/{id}" -->
@@ -241,6 +243,8 @@ run();
 ## update
 
 Update an organization.
+
+**Scopes**: `organizations:write`
 
 ### Example Usage
 

@@ -673,7 +673,7 @@ const value: components.OrderPaidEvent = {
   name: "order.paid",
   metadata: {
     orderId: "<id>",
-    amount: 52059,
+    amount: 638838,
   },
 };
 ```
@@ -908,6 +908,45 @@ const value: components.SubscriptionCycledEvent = {
 };
 ```
 
+### `components.SubscriptionPastDueEvent`
+
+```typescript
+const value: components.SubscriptionPastDueEvent = {
+  id: "<value>",
+  timestamp: new Date("2024-03-03T00:32:25.153Z"),
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  customerId: "<value>",
+  customer: {
+    id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+    createdAt: new Date("2026-06-07T13:43:45.696Z"),
+    modifiedAt: new Date("2026-09-17T20:49:29.736Z"),
+    metadata: {},
+    email: "customer@example.com",
+    emailVerified: true,
+    type: "individual",
+    name: "John Doe",
+    billingAddress: {
+      country: "US",
+    },
+    taxId: [
+      "911144442",
+      "us_ein",
+    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    deletedAt: new Date("2024-10-29T01:35:19.127Z"),
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
+  },
+  externalCustomerId: null,
+  label: "<value>",
+  source: "system",
+  name: "subscription.past_due",
+  metadata: {
+    subscriptionId: "<id>",
+    pastDueAt: "<value>",
+  },
+};
+```
+
 ### `components.SubscriptionProductUpdatedEvent`
 
 ```typescript
@@ -945,6 +984,46 @@ const value: components.SubscriptionProductUpdatedEvent = {
     subscriptionId: "<id>",
     oldProductId: "<id>",
     newProductId: "<id>",
+  },
+};
+```
+
+### `components.SubscriptionReactivatedEvent`
+
+```typescript
+const value: components.SubscriptionReactivatedEvent = {
+  id: "<value>",
+  timestamp: new Date("2024-02-26T16:29:33.810Z"),
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  customerId: "<value>",
+  customer: {
+    id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+    createdAt: new Date("2024-08-09T00:24:50.043Z"),
+    modifiedAt: new Date("2026-11-09T03:25:01.429Z"),
+    metadata: {
+      "key": false,
+    },
+    email: "customer@example.com",
+    emailVerified: true,
+    type: "individual",
+    name: "John Doe",
+    billingAddress: {
+      country: "US",
+    },
+    taxId: [
+      "911144442",
+      "us_ein",
+    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    deletedAt: new Date("2026-05-14T04:39:05.968Z"),
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
+  },
+  externalCustomerId: "<id>",
+  label: "<value>",
+  source: "system",
+  name: "subscription.reactivated",
+  metadata: {
+    subscriptionId: "<id>",
   },
 };
 ```
@@ -1068,6 +1147,46 @@ const value: components.SubscriptionUncanceledEvent = {
 };
 ```
 
+### `components.SubscriptionUpdateClearedEvent`
+
+```typescript
+const value: components.SubscriptionUpdateClearedEvent = {
+  id: "<value>",
+  timestamp: new Date("2026-12-21T15:01:22.949Z"),
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  customerId: "<value>",
+  customer: {
+    id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+    createdAt: new Date("2026-04-28T10:41:39.747Z"),
+    modifiedAt: new Date("2024-01-12T21:09:13.363Z"),
+    metadata: {
+      "key": 73570,
+    },
+    email: "customer@example.com",
+    emailVerified: true,
+    type: "individual",
+    name: "John Doe",
+    billingAddress: {
+      country: "US",
+    },
+    taxId: [
+      "911144442",
+      "us_ein",
+    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    deletedAt: new Date("2026-03-22T06:37:27.750Z"),
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
+  },
+  externalCustomerId: null,
+  label: "<value>",
+  source: "system",
+  name: "subscription.update_cleared",
+  metadata: {
+    subscriptionId: "<id>",
+  },
+};
+```
+
 ### `components.SubscriptionUpdatedEvent`
 
 ```typescript
@@ -1101,8 +1220,6 @@ const value: components.SubscriptionUpdatedEvent = {
   name: "subscription.updated",
   metadata: {
     subscriptionId: "<id>",
-    seats: 417281,
-    prorationBehavior: "reset",
   },
 };
 ```

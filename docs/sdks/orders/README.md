@@ -5,11 +5,14 @@
 ### Available Operations
 
 * [list](#list) - List Orders
+* [create](#create) - Create Order
 * [export](#export) - Export Orders
 * [get](#get) - Get Order
 * [update](#update) - Update Order
+* [finalize](#finalize) - Finalize Order
 * [invoice](#invoice) - Get Order Invoice
 * [generateInvoice](#generateinvoice) - Generate Order Invoice
+* [receipt](#receipt) - Get Order Receipt
 
 ## list
 
@@ -83,6 +86,90 @@ run();
 ### Response
 
 **Promise\<[operations.OrdersListResponse](../../models/operations/orderslistresponse.md)\>**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
+
+## create
+
+Create a draft order for an off-session charge against a saved payment
+method. The order is created with `status=draft` and no invoice number;
+call `POST /v1/orders/{id}/finalize` to attempt the charge.
+
+The organization must have the `off_session_charges_enabled` feature flag.
+
+**Scopes**: `orders:write`
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="orders:create" method="post" path="/v1/orders/" -->
+```typescript
+import { Polar } from "@polar-sh/sdk";
+
+const polar = new Polar({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  const result = await polar.orders.create({
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    customerId: "<value>",
+    productId: "<value>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { PolarCore } from "@polar-sh/sdk/core.js";
+import { ordersCreate } from "@polar-sh/sdk/funcs/ordersCreate.js";
+
+// Use `PolarCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const polar = new PolarCore({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  const res = await ordersCreate(polar, {
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    customerId: "<value>",
+    productId: "<value>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ordersCreate failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [components.OrderCreate](../../models/components/ordercreate.md)                                                                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.Order](../../models/components/order.md)\>**
 
 ### Errors
 
@@ -331,6 +418,94 @@ run();
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
+## finalize
+
+Finalize a draft order and synchronously attempt an off-session charge.
+
+On success, the order transitions to `paid` and benefit grants fire
+before the response returns. On failure (decline, missing payment method,
+SCA challenge), the order stays in `draft` and a 4xx error is returned.
+
+The request fails with 412 if the order is not in `draft` status.
+
+**Scopes**: `orders:write`
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="orders:finalize" method="post" path="/v1/orders/{id}/finalize" -->
+```typescript
+import { Polar } from "@polar-sh/sdk";
+
+const polar = new Polar({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  const result = await polar.orders.finalize({
+    id: "<value>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { PolarCore } from "@polar-sh/sdk/core.js";
+import { ordersFinalize } from "@polar-sh/sdk/funcs/ordersFinalize.js";
+
+// Use `PolarCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const polar = new PolarCore({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  const res = await ordersFinalize(polar, {
+    id: "<value>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ordersFinalize failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.OrdersFinalizeRequest](../../models/operations/ordersfinalizerequest.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.Order](../../models/components/order.md)\>**
+
+### Errors
+
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.PaymentFailed                   | 402                                    | application/json                       |
+| errors.PaymentActionRequired           | 402                                    | application/json                       |
+| errors.OffSessionChargesNotEnabled     | 403                                    | application/json                       |
+| errors.OrganizationNotReadyForPayments | 403                                    | application/json                       |
+| errors.ResourceNotFound                | 404                                    | application/json                       |
+| errors.OrderNotDraft                   | 412                                    | application/json                       |
+| errors.HTTPValidationError             | 422                                    | application/json                       |
+| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+
 ## invoice
 
 Get an order's invoice data.
@@ -484,3 +659,80 @@ run();
 | errors.MissingInvoiceBillingDetails | 422                                 | application/json                    |
 | errors.NotPaidOrder                 | 422                                 | application/json                    |
 | errors.SDKError                     | 4XX, 5XX                            | \*/\*                               |
+
+## receipt
+
+Get a presigned URL to download an order's receipt PDF.
+
+**Scopes**: `orders:read`
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="orders:receipt" method="get" path="/v1/orders/{id}/receipt" -->
+```typescript
+import { Polar } from "@polar-sh/sdk";
+
+const polar = new Polar({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  const result = await polar.orders.receipt({
+    id: "<value>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { PolarCore } from "@polar-sh/sdk/core.js";
+import { ordersReceipt } from "@polar-sh/sdk/funcs/ordersReceipt.js";
+
+// Use `PolarCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const polar = new PolarCore({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  const res = await ordersReceipt(polar, {
+    id: "<value>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ordersReceipt failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.OrdersReceiptRequest](../../models/operations/ordersreceiptrequest.md)                                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.OrderReceipt](../../models/components/orderreceipt.md)\>**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.ResourceNotFound    | 404                        | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |

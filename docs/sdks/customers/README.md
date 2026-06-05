@@ -15,6 +15,8 @@
 * [updateExternal](#updateexternal) - Update Customer by External ID
 * [getState](#getstate) - Get Customer State
 * [getStateExternal](#getstateexternal) - Get Customer State by External ID
+* [listPaymentMethods](#listpaymentmethods) - List Customer Payment Methods
+* [listPaymentMethodsExternal](#listpaymentmethodsexternal) - List Customer Payment Methods by External ID
 
 ## list
 
@@ -945,6 +947,168 @@ run();
 ### Response
 
 **Promise\<[components.CustomerState](../../models/components/customerstate.md)\>**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.ResourceNotFound    | 404                        | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
+
+## listPaymentMethods
+
+Get saved payment methods of a customer.
+
+**Scopes**: `customers:read` `customers:write`
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="customers:list_payment_methods" method="get" path="/v1/customers/{id}/payment-methods" -->
+```typescript
+import { Polar } from "@polar-sh/sdk";
+
+const polar = new Polar({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  const result = await polar.customers.listPaymentMethods({
+    id: "<value>",
+  });
+
+  for await (const page of result) {
+    console.log(page);
+  }
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { PolarCore } from "@polar-sh/sdk/core.js";
+import { customersListPaymentMethods } from "@polar-sh/sdk/funcs/customersListPaymentMethods.js";
+
+// Use `PolarCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const polar = new PolarCore({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  const res = await customersListPaymentMethods(polar, {
+    id: "<value>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    for await (const page of result) {
+    console.log(page);
+  }
+  } else {
+    console.log("customersListPaymentMethods failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CustomersListPaymentMethodsRequest](../../models/operations/customerslistpaymentmethodsrequest.md)                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.CustomersListPaymentMethodsResponse](../../models/operations/customerslistpaymentmethodsresponse.md)\>**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.ResourceNotFound    | 404                        | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
+
+## listPaymentMethodsExternal
+
+Get saved payment methods of a customer by external ID.
+
+**Scopes**: `customers:read` `customers:write`
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="customers:list_payment_methods_external" method="get" path="/v1/customers/external/{external_id}/payment-methods" -->
+```typescript
+import { Polar } from "@polar-sh/sdk";
+
+const polar = new Polar({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  const result = await polar.customers.listPaymentMethodsExternal({
+    externalId: "<id>",
+  });
+
+  for await (const page of result) {
+    console.log(page);
+  }
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { PolarCore } from "@polar-sh/sdk/core.js";
+import { customersListPaymentMethodsExternal } from "@polar-sh/sdk/funcs/customersListPaymentMethodsExternal.js";
+
+// Use `PolarCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const polar = new PolarCore({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  const res = await customersListPaymentMethodsExternal(polar, {
+    externalId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    for await (const page of result) {
+    console.log(page);
+  }
+  } else {
+    console.log("customersListPaymentMethodsExternal failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CustomersListPaymentMethodsExternalRequest](../../models/operations/customerslistpaymentmethodsexternalrequest.md)                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.CustomersListPaymentMethodsExternalResponse](../../models/operations/customerslistpaymentmethodsexternalresponse.md)\>**
 
 ### Errors
 

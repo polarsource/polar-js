@@ -8,34 +8,31 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type SubscriptionUpdatedTrialMetadata = {
+export type SubscriptionUpdateClearedMetadata = {
   subscriptionId: string;
-  trialEnd: string;
 };
 
 /** @internal */
-export const SubscriptionUpdatedTrialMetadata$inboundSchema: z.ZodMiniType<
-  SubscriptionUpdatedTrialMetadata,
+export const SubscriptionUpdateClearedMetadata$inboundSchema: z.ZodMiniType<
+  SubscriptionUpdateClearedMetadata,
   unknown
 > = z.pipe(
   z.object({
     subscription_id: z.string(),
-    trial_end: z.string(),
   }),
   z.transform((v) => {
     return remap$(v, {
       "subscription_id": "subscriptionId",
-      "trial_end": "trialEnd",
     });
   }),
 );
 
-export function subscriptionUpdatedTrialMetadataFromJSON(
+export function subscriptionUpdateClearedMetadataFromJSON(
   jsonString: string,
-): SafeParseResult<SubscriptionUpdatedTrialMetadata, SDKValidationError> {
+): SafeParseResult<SubscriptionUpdateClearedMetadata, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => SubscriptionUpdatedTrialMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SubscriptionUpdatedTrialMetadata' from JSON`,
+    (x) => SubscriptionUpdateClearedMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SubscriptionUpdateClearedMetadata' from JSON`,
   );
 }

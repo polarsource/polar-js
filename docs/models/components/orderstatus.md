@@ -13,5 +13,5 @@ let value: OrderStatus = "void";
 ## Values
 
 ```typescript
-"pending" | "paid" | "refunded" | "partially_refunded" | "void" | Unrecognized<string>
+"draft" | "pending" | "paid" | "refunded" | "partially_refunded" | "void" | Unrecognized<string>
 ```
