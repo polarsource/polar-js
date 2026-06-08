@@ -3,27 +3,11 @@
 
 ## Supported Types
 
-### `components.SubscriptionUpdateProduct`
+### `components.SubscriptionUpdateBase`
 
 ```typescript
-const value: components.SubscriptionUpdateProduct = {
+const value: components.SubscriptionUpdateBase = {
   productId: "d8dd2de1-21b7-4a41-8bc3-ce909c0cfe23",
-};
-```
-
-### `components.SubscriptionUpdateDiscount`
-
-```typescript
-const value: components.SubscriptionUpdateDiscount = {
-  discountId: "<value>",
-};
-```
-
-### `components.SubscriptionUpdateTrial`
-
-```typescript
-const value: components.SubscriptionUpdateTrial = {
-  trialEnd: new Date("2024-10-11T00:45:49.772Z"),
 };
 ```
 
