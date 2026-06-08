@@ -51,7 +51,7 @@ typescript:
   clientServerStatusCodesAsErrors: true
   constFieldsAlwaysOptional: false
   defaultErrorName: SDKError
-  enableCustomCodeRegions: false
+  enableCustomCodeRegions: true
   enableMCPServer: false
   enableReactQuery: false
   enumFormat: union
