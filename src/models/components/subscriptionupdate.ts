@@ -15,6 +15,11 @@ import {
   SubscriptionRevoke$outboundSchema,
 } from "./subscriptionrevoke.js";
 import {
+  SubscriptionUpdateBase,
+  SubscriptionUpdateBase$Outbound,
+  SubscriptionUpdateBase$outboundSchema,
+} from "./subscriptionupdatebase.js";
+import {
   SubscriptionUpdateBillingPeriod,
   SubscriptionUpdateBillingPeriod$Outbound,
   SubscriptionUpdateBillingPeriod$outboundSchema,
@@ -25,60 +30,39 @@ import {
   SubscriptionUpdateClear$outboundSchema,
 } from "./subscriptionupdateclear.js";
 import {
-  SubscriptionUpdateDiscount,
-  SubscriptionUpdateDiscount$Outbound,
-  SubscriptionUpdateDiscount$outboundSchema,
-} from "./subscriptionupdatediscount.js";
-import {
-  SubscriptionUpdateProduct,
-  SubscriptionUpdateProduct$Outbound,
-  SubscriptionUpdateProduct$outboundSchema,
-} from "./subscriptionupdateproduct.js";
-import {
   SubscriptionUpdateSeats,
   SubscriptionUpdateSeats$Outbound,
   SubscriptionUpdateSeats$outboundSchema,
 } from "./subscriptionupdateseats.js";
-import {
-  SubscriptionUpdateTrial,
-  SubscriptionUpdateTrial$Outbound,
-  SubscriptionUpdateTrial$outboundSchema,
-} from "./subscriptionupdatetrial.js";
 
 export type SubscriptionUpdate =
-  | SubscriptionUpdateProduct
-  | SubscriptionUpdateDiscount
-  | SubscriptionUpdateTrial
   | SubscriptionUpdateSeats
   | SubscriptionUpdateBillingPeriod
   | SubscriptionCancel
   | SubscriptionRevoke
-  | SubscriptionUpdateClear;
+  | SubscriptionUpdateClear
+  | SubscriptionUpdateBase;
 
 /** @internal */
 export type SubscriptionUpdate$Outbound =
-  | SubscriptionUpdateProduct$Outbound
-  | SubscriptionUpdateDiscount$Outbound
-  | SubscriptionUpdateTrial$Outbound
   | SubscriptionUpdateSeats$Outbound
   | SubscriptionUpdateBillingPeriod$Outbound
   | SubscriptionCancel$Outbound
   | SubscriptionRevoke$Outbound
-  | SubscriptionUpdateClear$Outbound;
+  | SubscriptionUpdateClear$Outbound
+  | SubscriptionUpdateBase$Outbound;
 
 /** @internal */
 export const SubscriptionUpdate$outboundSchema: z.ZodMiniType<
   SubscriptionUpdate$Outbound,
   SubscriptionUpdate
 > = smartUnion([
-  SubscriptionUpdateProduct$outboundSchema,
-  SubscriptionUpdateDiscount$outboundSchema,
-  SubscriptionUpdateTrial$outboundSchema,
   SubscriptionUpdateSeats$outboundSchema,
   SubscriptionUpdateBillingPeriod$outboundSchema,
   SubscriptionCancel$outboundSchema,
   SubscriptionRevoke$outboundSchema,
   SubscriptionUpdateClear$outboundSchema,
+  SubscriptionUpdateBase$outboundSchema,
 ]);
 
 export function subscriptionUpdateToJSON(

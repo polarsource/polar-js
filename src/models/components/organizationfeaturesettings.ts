@@ -49,6 +49,10 @@ export type OrganizationFeatureSettings = {
    * If this organization has billing enabled
    */
   billingEnabled?: boolean | undefined;
+  /**
+   * Enables the slack shared channel benefit
+   */
+  slackBenefitEnabled?: boolean | undefined;
 };
 
 /** @internal */
@@ -67,6 +71,7 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
     reset_proration_behavior_enabled: z._default(z.boolean(), false),
     off_session_charges_enabled: z._default(z.boolean(), false),
     billing_enabled: z._default(z.boolean(), false),
+    slack_benefit_enabled: z._default(z.boolean(), false),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -80,6 +85,7 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
       "reset_proration_behavior_enabled": "resetProrationBehaviorEnabled",
       "off_session_charges_enabled": "offSessionChargesEnabled",
       "billing_enabled": "billingEnabled",
+      "slack_benefit_enabled": "slackBenefitEnabled",
     });
   }),
 );
@@ -95,6 +101,7 @@ export type OrganizationFeatureSettings$Outbound = {
   reset_proration_behavior_enabled: boolean;
   off_session_charges_enabled: boolean;
   billing_enabled: boolean;
+  slack_benefit_enabled: boolean;
 };
 
 /** @internal */
@@ -113,6 +120,7 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
     resetProrationBehaviorEnabled: z._default(z.boolean(), false),
     offSessionChargesEnabled: z._default(z.boolean(), false),
     billingEnabled: z._default(z.boolean(), false),
+    slackBenefitEnabled: z._default(z.boolean(), false),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -126,6 +134,7 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
       resetProrationBehaviorEnabled: "reset_proration_behavior_enabled",
       offSessionChargesEnabled: "off_session_charges_enabled",
       billingEnabled: "billing_enabled",
+      slackBenefitEnabled: "slack_benefit_enabled",
     });
   }),
 );

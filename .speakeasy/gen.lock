@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: 94d469a53945f50c6156f54dab3e831f
+  docChecksum: 6cbf62f61359f98db72b2bb9d07d6b25
   docVersion: 0.1.0
-  speakeasyVersion: 1.770.0
+  speakeasyVersion: 1.771.0
   generationVersion: 2.893.0
-  releaseVersion: 0.48.0
-  configChecksum: 82c9dfb33d04e9b2385d522c9481673e
+  releaseVersion: 0.48.1
+  configChecksum: bef54d825899e22deaad72957f934b59
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
 persistentEdits:
-  generation_id: c204cee9-d382-4cb2-ac36-ad2bb0060e81
-  pristine_commit_hash: 62dc61a0dc6c362546c13a46d0ad5a9ab71fcf2f
-  pristine_tree_hash: 18d9e37f077b2107c6cd790ec90e928ba400aa13
+  generation_id: 68d3709e-a735-47e6-bbc5-5d571ce2f12c
+  pristine_commit_hash: 78eaf59d77ee4b52543b9899c04d329249cca033
+  pristine_tree_hash: b39af386ca298f0da79b93d469c04036338b9215
 features:
   typescript:
     acceptHeaders: 2.81.2
@@ -2641,8 +2641,8 @@ trackedFiles:
     pristine_git_object: 84646325984cf8e82c52a8ba699557a3f6512dfb
   docs/models/components/organizationfeaturesettings.md:
     id: 782a878ff492
-    last_write_checksum: sha1:7896572bebc2d77d2ae034cabf58ea778e5a7402
-    pristine_git_object: df9e6e9bf15883553605b8962aa7c39d5d5aa7a7
+    last_write_checksum: sha1:23ce9f765f7b3df0028f23bf54f2f93abd889ef8
+    pristine_git_object: 7425d8d0222081b1bd0df87c9a83a261eacfb3bd
   docs/models/components/organizationindividuallegalentityschema.md:
     id: bc7c7400e9f9
     last_write_checksum: sha1:b68a3721ac37eda2dca107031c53837fc2015893
@@ -3153,8 +3153,12 @@ trackedFiles:
     pristine_git_object: 1c1b29d5cbbf40ac7eb27ed577c119e4e7a5dc44
   docs/models/components/subscriptionupdate.md:
     id: 1ae3eaf1625a
-    last_write_checksum: sha1:a1dd2f9e69a3736f2019b02b4af8ad82b18bf4e0
-    pristine_git_object: bebe58367cc6450c6c0b928724ea1cd3c8ba8830
+    last_write_checksum: sha1:45588fc73190c38aadc788dbd51867b8b414b470
+    pristine_git_object: c0abe6489dd19cc99c84bf50e9a0a3d43e5db44b
+  docs/models/components/subscriptionupdatebase.md:
+    id: 291088ad6cf9
+    last_write_checksum: sha1:599e2a41c3c8b308682cae3351c7feac54b8c606
+    pristine_git_object: 2967d78cc535c3c8a5b85d1e7ab9b6bb81bfd066
   docs/models/components/subscriptionupdatebillingperiod.md:
     id: 8b3a18faa5f3
     last_write_checksum: sha1:6f9a09395c5857f5c261dc6c6f89980d18946263
@@ -3175,26 +3179,14 @@ trackedFiles:
     id: 9a08eb916abc
     last_write_checksum: sha1:7750743870ac90589c78c47b6e152c92e2bc0e0e
     pristine_git_object: 2a619bfc312b09bf0a567051a7da2b6c6481f312
-  docs/models/components/subscriptionupdatediscount.md:
-    id: 4aff8a5b9cc7
-    last_write_checksum: sha1:4812cba63b3ca7eda528c439dae0fb6d23a364d7
-    pristine_git_object: ff525e833a17c6d82261f6bc2c1f43410c1a2c31
   docs/models/components/subscriptionupdatedmetadata.md:
     id: 39438290ee2c
     last_write_checksum: sha1:85992537bd5842b389c77e9e2b72fb6602ec1a5f
     pristine_git_object: 0cd8c42d2b6fc3c9c4d0b0a4b3785323573938df
-  docs/models/components/subscriptionupdateproduct.md:
-    id: 710f02c4f473
-    last_write_checksum: sha1:ac0141edfcad946f9a502afa0cade3ce4364e440
-    pristine_git_object: 37a9b06274cc2b9f914565465f6d2ec0f491850b
   docs/models/components/subscriptionupdateseats.md:
     id: 52490daf1994
     last_write_checksum: sha1:08f627f1955c74d767dfa27c66cf498a3e19eaac
     pristine_git_object: 24c98223a6f04ca3d2d083e5d9c493a6084b93c1
-  docs/models/components/subscriptionupdatetrial.md:
-    id: 735fa4663d57
-    last_write_checksum: sha1:128a27768e732622205de5d8401bec5e1bbd9562
-    pristine_git_object: 52a40edda5f823333e34ab46d9e2449bb14cc4ba
   docs/models/components/subtype.md:
     id: 72c18fbcfe75
     last_write_checksum: sha1:0e6f4c6611043941c15528437a665cb610dffd18
@@ -4905,8 +4897,8 @@ trackedFiles:
     pristine_git_object: 2f818e4e2acb732fdd97b190b1b819142e53cec5
   docs/models/operations/subscriptionsupdaterequest.md:
     id: 5739f754f03c
-    last_write_checksum: sha1:5a8c32ffa535a03357edcc04c0d64634c93a6e1c
-    pristine_git_object: 5266b7ee848d94f1b851632360c376649adcb583
+    last_write_checksum: sha1:121adfd0dd4d5943b95e62e391a62c0eeb08c3ab
+    pristine_git_object: 7df144f8dd969dd5b33fd651d47dea5e8faab197
   docs/models/operations/webhooksdeletewebhookendpointrequest.md:
     id: 707b9d83956d
     last_write_checksum: sha1:b12d4a3623ff2359d764674421e3b56a6582923a
@@ -5129,12 +5121,12 @@ trackedFiles:
     pristine_git_object: 81b74b46d6979f928ebe4b20753635ba6f9a3882
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:e051fe07e1da502a7bf2f66b5716e17c8dd6e5ea
-    pristine_git_object: 34f7af2243c66d949c18019b1e41c257930f94d8
+    last_write_checksum: sha1:25a5e7a9ef69e9dc9a6a439bd4f7afc168481f45
+    pristine_git_object: 5f78782e1d1e0d02dc06f453ad021c526463a475
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:964d819e4983016e80b39cddc80a6c947287f31f
-    pristine_git_object: 51e05f581def4b2a8c2eea1b9258b9081e795b25
+    last_write_checksum: sha1:4cb8656a9da01db1b4d6cfa7bbe27577e956b5b3
+    pristine_git_object: 0aaeca3d75d9376a8105976d76d207edf52f674f
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:6c0a3d0582afbdfea5d4052e704a9e0b6e29c273
@@ -5909,8 +5901,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:f26dae99f52f85e7edf789a2eeaf68ab1d4eeb54
-    pristine_git_object: 5d89abe1e9063eac65ea7952f80477144e7fbe91
+    last_write_checksum: sha1:a2f32b6bb15997c9ceb07120de64f26ab31d271b
+    pristine_git_object: 3ff4e797e7eefc9a3b2f37df4b7b2b5f2fe78572
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
@@ -7697,8 +7689,8 @@ trackedFiles:
     pristine_git_object: 59548c6870c8c4100a44a73820d8b3969e4f86d5
   src/models/components/organizationfeaturesettings.ts:
     id: 8a5bb6cffecc
-    last_write_checksum: sha1:3631ea3ca39e8a3661274ff4a2bf14b6653c07e0
-    pristine_git_object: 13e570df139516dece2970ebad7ab4ae2a6f21d6
+    last_write_checksum: sha1:b9daaba1151991df4f9d53724a974346de0edada
+    pristine_git_object: 397a901163f27f3b5d411229db0faaa252c46626
   src/models/components/organizationindividuallegalentityschema.ts:
     id: 9972a6c445d1
     last_write_checksum: sha1:60e90fb19c0a421cbc0df06329e1109248cbb40d
@@ -8113,8 +8105,12 @@ trackedFiles:
     pristine_git_object: 3898967b4276c7ad9015ece572f83ea821b2fdd5
   src/models/components/subscriptionupdate.ts:
     id: bdc49e27e3d7
-    last_write_checksum: sha1:819547498c4e6985fa8c2fb9f50cce3eb786a201
-    pristine_git_object: 5a9806e9bd61ee55c8b6ac2757baa15f2f55d914
+    last_write_checksum: sha1:0e0d78e407ea7644f7a4cd8ff93fa5574f4dd63d
+    pristine_git_object: 93b0e62868f9cc9fa5d958591e6a59355b53eff5
+  src/models/components/subscriptionupdatebase.ts:
+    id: d4bf91f506d0
+    last_write_checksum: sha1:f8a9561272f670c2b3fa98fa059956af0647c15d
+    pristine_git_object: 001579ff3ab9a11bb96fd8c3b29518f54750e3a1
   src/models/components/subscriptionupdatebillingperiod.ts:
     id: 12cd06e117b9
     last_write_checksum: sha1:93ae5f4856aaab35e1685311837d870b34fd4b83
@@ -8135,26 +8131,14 @@ trackedFiles:
     id: 951917ee01f4
     last_write_checksum: sha1:f2edb6419122fa01fffaf4255d3241614c35a8a1
     pristine_git_object: 54592a9e37d35308372a9cdfdb846586df855d44
-  src/models/components/subscriptionupdatediscount.ts:
-    id: 6ac659d2d423
-    last_write_checksum: sha1:5b9fb74996ed4a7e46b1ad833582718d095a5f52
-    pristine_git_object: 9f3c0b2899ee1f0267ef70dc2ebbdd8fb8936e9a
   src/models/components/subscriptionupdatedmetadata.ts:
     id: b98deaf07804
     last_write_checksum: sha1:6ed3e93b1b1265ff284d7282294a2466e4dc2a10
     pristine_git_object: bff418f13217418f28a56de50a36d2277262a4b0
-  src/models/components/subscriptionupdateproduct.ts:
-    id: eceb09adc904
-    last_write_checksum: sha1:fa666cf8c943341a170bf140b3ca0f090be78a3a
-    pristine_git_object: 723956d288254e1877b6aa653b3cbd347757581a
   src/models/components/subscriptionupdateseats.ts:
     id: 6cf2804bb62f
     last_write_checksum: sha1:eb463e4d4252c4cf7a3c1ab74dff6b9a3b3f44a2
     pristine_git_object: 659074ba1cdb944957e2cf4f53a14420523c6285
-  src/models/components/subscriptionupdatetrial.ts:
-    id: 44c2e66a684e
-    last_write_checksum: sha1:ef075d7ca2ba902ac4a28d39b1291fb0f8ed9c94
-    pristine_git_object: fca8ff1187f3cc1249516773bf342ef13b4526ca
   src/models/components/subtype.ts:
     id: "802607222822"
     last_write_checksum: sha1:688a219be139a74eaf9dfedcda85380a5f4d7c35
@@ -9624,7 +9608,7 @@ examples:
         application/json: {"name": "<value>", "slug": "<value>"}
       responses:
         "201":
-          application/json: {"created_at": "2024-12-19T02:20:41.368Z", "modified_at": "2025-03-11T17:26:29.230Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://substantial-wasabi.name", "proration_behavior": "prorate", "allow_customer_updates": false, "email": "Queen_Homenick@gmail.com", "website": "<value>", "socials": [{"platform": "other", "url": "https://enchanted-hose.biz"}, {"platform": "other", "url": "https://enchanted-hose.biz"}, {"platform": "other", "url": "https://enchanted-hose.biz"}], "status": "denied", "details_submitted_at": "2023-03-22T18:01:32.205Z", "default_presentment_currency": "usd", "default_tax_behavior": "inclusive", "feature_settings": {"issue_funding_enabled": false, "seat_based_pricing_enabled": false, "wallets_enabled": false, "member_model_enabled": false, "checkout_localization_enabled": false, "account_review_v2_enabled": false, "reset_proration_behavior_enabled": false, "off_session_charges_enabled": false, "billing_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": true, "proration_behavior": "invoice", "benefit_revocation_grace_period": 655199, "prevent_trial_abuse": false, "allow_customer_updates": true}, "notification_settings": {"new_order": false, "new_subscription": false}, "customer_email_settings": {"order_confirmation": false, "subscription_cancellation": false, "subscription_confirmation": false, "subscription_cycled": false, "subscription_cycled_after_trial": false, "subscription_past_due": false, "subscription_renewal_reminder": false, "subscription_revoked": false, "subscription_trial_conversion_reminder": false, "subscription_uncanceled": true, "subscription_updated": false}, "customer_portal_settings": {"usage": {"show": false}, "subscription": {"update_seats": false, "update_plan": false}}, "account_id": "<value>", "payout_account_id": "<value>", "capabilities": {"checkout_payments": false, "subscription_renewals": false, "payouts": false, "refunds": false, "api_access": true, "dashboard_access": false}}
+          application/json: {"created_at": "2024-12-19T02:20:41.368Z", "modified_at": "2025-03-11T17:26:29.230Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://substantial-wasabi.name", "proration_behavior": "prorate", "allow_customer_updates": false, "email": "Queen_Homenick@gmail.com", "website": "<value>", "socials": [{"platform": "other", "url": "https://enchanted-hose.biz"}, {"platform": "other", "url": "https://enchanted-hose.biz"}, {"platform": "other", "url": "https://enchanted-hose.biz"}], "status": "denied", "details_submitted_at": "2023-03-22T18:01:32.205Z", "default_presentment_currency": "usd", "default_tax_behavior": "inclusive", "feature_settings": {"issue_funding_enabled": false, "seat_based_pricing_enabled": false, "wallets_enabled": false, "member_model_enabled": false, "checkout_localization_enabled": false, "account_review_v2_enabled": false, "reset_proration_behavior_enabled": false, "off_session_charges_enabled": false, "billing_enabled": false, "slack_benefit_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": true, "proration_behavior": "invoice", "benefit_revocation_grace_period": 655199, "prevent_trial_abuse": false, "allow_customer_updates": true}, "notification_settings": {"new_order": false, "new_subscription": false}, "customer_email_settings": {"order_confirmation": false, "subscription_cancellation": false, "subscription_confirmation": false, "subscription_cycled": false, "subscription_cycled_after_trial": false, "subscription_past_due": false, "subscription_renewal_reminder": false, "subscription_revoked": false, "subscription_trial_conversion_reminder": false, "subscription_uncanceled": true, "subscription_updated": false}, "customer_portal_settings": {"usage": {"show": false}, "subscription": {"update_seats": false, "update_plan": false}}, "account_id": "<value>", "payout_account_id": "<value>", "capabilities": {"checkout_payments": false, "subscription_renewals": false, "payouts": false, "refunds": false, "api_access": true, "dashboard_access": false}}
         "422":
           application/json: {}
   organizations:get:
@@ -9634,7 +9618,7 @@ examples:
           id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737"
       responses:
         "200":
-          application/json: {"created_at": "2024-06-18T23:12:24.609Z", "modified_at": "2024-04-06T22:00:49.347Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://vast-shipper.biz/", "proration_behavior": "invoice", "allow_customer_updates": true, "email": "Aron.Aufderhar@hotmail.com", "website": "<value>", "socials": [], "status": "denied", "details_submitted_at": "2023-03-07T16:26:10.747Z", "default_presentment_currency": "usd", "default_tax_behavior": "inclusive", "feature_settings": {"issue_funding_enabled": false, "seat_based_pricing_enabled": false, "wallets_enabled": false, "member_model_enabled": false, "checkout_localization_enabled": false, "account_review_v2_enabled": false, "reset_proration_behavior_enabled": false, "off_session_charges_enabled": false, "billing_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": true, "proration_behavior": "invoice", "benefit_revocation_grace_period": 488109, "prevent_trial_abuse": true, "allow_customer_updates": true}, "notification_settings": {"new_order": true, "new_subscription": true}, "customer_email_settings": {"order_confirmation": true, "subscription_cancellation": true, "subscription_confirmation": true, "subscription_cycled": false, "subscription_cycled_after_trial": true, "subscription_past_due": false, "subscription_renewal_reminder": true, "subscription_revoked": true, "subscription_trial_conversion_reminder": true, "subscription_uncanceled": false, "subscription_updated": true}, "customer_portal_settings": {"usage": {"show": true}, "subscription": {"update_seats": true, "update_plan": true}}, "account_id": "<value>", "payout_account_id": "<value>", "capabilities": {"checkout_payments": false, "subscription_renewals": false, "payouts": true, "refunds": false, "api_access": true, "dashboard_access": false}}
+          application/json: {"created_at": "2024-06-18T23:12:24.609Z", "modified_at": "2024-04-06T22:00:49.347Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://vast-shipper.biz/", "proration_behavior": "invoice", "allow_customer_updates": true, "email": "Aron.Aufderhar@hotmail.com", "website": "<value>", "socials": [], "status": "denied", "details_submitted_at": "2023-03-07T16:26:10.747Z", "default_presentment_currency": "usd", "default_tax_behavior": "inclusive", "feature_settings": {"issue_funding_enabled": false, "seat_based_pricing_enabled": false, "wallets_enabled": false, "member_model_enabled": false, "checkout_localization_enabled": false, "account_review_v2_enabled": false, "reset_proration_behavior_enabled": false, "off_session_charges_enabled": false, "billing_enabled": false, "slack_benefit_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": true, "proration_behavior": "invoice", "benefit_revocation_grace_period": 488109, "prevent_trial_abuse": true, "allow_customer_updates": true}, "notification_settings": {"new_order": true, "new_subscription": true}, "customer_email_settings": {"order_confirmation": true, "subscription_cancellation": true, "subscription_confirmation": true, "subscription_cycled": false, "subscription_cycled_after_trial": true, "subscription_past_due": false, "subscription_renewal_reminder": true, "subscription_revoked": true, "subscription_trial_conversion_reminder": true, "subscription_uncanceled": false, "subscription_updated": true}, "customer_portal_settings": {"usage": {"show": true}, "subscription": {"update_seats": true, "update_plan": true}}, "account_id": "<value>", "payout_account_id": "<value>", "capabilities": {"checkout_payments": false, "subscription_renewals": false, "payouts": true, "refunds": false, "api_access": true, "dashboard_access": false}}
         "404":
           application/json: {"error": "ResourceNotFound", "detail": "<value>"}
         "422":
@@ -9648,7 +9632,7 @@ examples:
         application/json: {}
       responses:
         "200":
-          application/json: {"created_at": "2024-01-10T12:09:47.665Z", "modified_at": "2025-05-23T11:37:55.182Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://outstanding-gastropod.info", "proration_behavior": "invoice", "allow_customer_updates": false, "email": "Kaleb36@gmail.com", "website": "<value>", "socials": [{"platform": "tiktok", "url": "https://official-gerbil.biz/"}], "status": "snoozed", "details_submitted_at": "2024-05-05T07:08:22.735Z", "default_presentment_currency": "usd", "default_tax_behavior": "inclusive", "feature_settings": {"issue_funding_enabled": false, "seat_based_pricing_enabled": false, "wallets_enabled": false, "member_model_enabled": false, "checkout_localization_enabled": false, "account_review_v2_enabled": false, "reset_proration_behavior_enabled": false, "off_session_charges_enabled": false, "billing_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": false, "proration_behavior": "prorate", "benefit_revocation_grace_period": 341703, "prevent_trial_abuse": true, "allow_customer_updates": false}, "notification_settings": {"new_order": true, "new_subscription": false}, "customer_email_settings": {"order_confirmation": true, "subscription_cancellation": false, "subscription_confirmation": false, "subscription_cycled": false, "subscription_cycled_after_trial": true, "subscription_past_due": true, "subscription_renewal_reminder": true, "subscription_revoked": true, "subscription_trial_conversion_reminder": false, "subscription_uncanceled": true, "subscription_updated": false}, "customer_portal_settings": {"usage": {"show": true}, "subscription": {"update_seats": false, "update_plan": false}}, "account_id": "<value>", "payout_account_id": "<value>", "capabilities": {"checkout_payments": false, "subscription_renewals": true, "payouts": true, "refunds": true, "api_access": false, "dashboard_access": true}}
+          application/json: {"created_at": "2024-01-10T12:09:47.665Z", "modified_at": "2025-05-23T11:37:55.182Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://outstanding-gastropod.info", "proration_behavior": "invoice", "allow_customer_updates": false, "email": "Kaleb36@gmail.com", "website": "<value>", "socials": [{"platform": "tiktok", "url": "https://official-gerbil.biz/"}], "status": "snoozed", "details_submitted_at": "2024-05-05T07:08:22.735Z", "default_presentment_currency": "usd", "default_tax_behavior": "inclusive", "feature_settings": {"issue_funding_enabled": false, "seat_based_pricing_enabled": false, "wallets_enabled": false, "member_model_enabled": false, "checkout_localization_enabled": false, "account_review_v2_enabled": false, "reset_proration_behavior_enabled": false, "off_session_charges_enabled": false, "billing_enabled": false, "slack_benefit_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": false, "proration_behavior": "prorate", "benefit_revocation_grace_period": 341703, "prevent_trial_abuse": true, "allow_customer_updates": false}, "notification_settings": {"new_order": true, "new_subscription": false}, "customer_email_settings": {"order_confirmation": true, "subscription_cancellation": false, "subscription_confirmation": false, "subscription_cycled": false, "subscription_cycled_after_trial": true, "subscription_past_due": true, "subscription_renewal_reminder": true, "subscription_revoked": true, "subscription_trial_conversion_reminder": false, "subscription_uncanceled": true, "subscription_updated": false}, "customer_portal_settings": {"usage": {"show": true}, "subscription": {"update_seats": false, "update_plan": false}}, "account_id": "<value>", "payout_account_id": "<value>", "capabilities": {"checkout_payments": false, "subscription_renewals": true, "payouts": true, "refunds": true, "api_access": false, "dashboard_access": true}}
         "403":
           application/json: {"error": "NotPermitted", "detail": "<value>"}
         "404":
@@ -11935,7 +11919,7 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Typescript SDK Changes:\n* `polar.orders.list()`:  `response.items[]` **Changed** (Breaking ⚠️)\n* `polar.organizationAccessTokens.update()`:  `response.scopes[]` **Changed** (Breaking ⚠️)\n* `polar.organizationAccessTokens.create()`:  `response.organizationAccessToken.scopes[]` **Changed** (Breaking ⚠️)\n* `polar.organizationAccessTokens.list()`:  `response.items[].scopes[]` **Changed** (Breaking ⚠️)\n* `polar.eventTypes.list()`:  `response.items[]` **Changed** (Breaking ⚠️)\n* `polar.events.get()`:  `response.union(SystemEvent)` **Changed** (Breaking ⚠️)\n* `polar.events.list()`:  `response.union(ListResource_Event_).items[]` **Changed** (Breaking ⚠️)\n* `polar.customerSeats.assignSeat()`:  `request` **Changed** (Breaking ⚠️)\n* `polar.organizations.create()`: \n  *  `request.featureSettings` **Changed** (Breaking ⚠️)\n  *  `response.featureSettings` **Changed** (Breaking ⚠️)\n* `polar.organizations.get()`:  `response.featureSettings` **Changed** (Breaking ⚠️)\n* `polar.organizations.update()`: \n  *  `request.organizationUpdate.featureSettings` **Changed** (Breaking ⚠️)\n  *  `response.featureSettings` **Changed** (Breaking ⚠️)\n* `polar.customerPortal.orders.update()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.customerPortal.orders.get()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.customerPortal.orders.list()`:  `response.items[]` **Changed** (Breaking ⚠️)\n* `polar.customerPortal.seats.assignSeat()`: \n  *  `request.checkoutClientSecret` **Removed** (Breaking ⚠️)\n* `polar.orders.update()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.oauth2.authorize()`:  `response.union(organization).scopes[]` **Changed** (Breaking ⚠️)\n* `polar.orders.get()`:  `response` **Changed** (Breaking ⚠️)\n* `polar.customers.list()`: \n  *  `request.active` **Added**\n  *  `response.items[]` **Changed**\n* `polar.customerPortal.customers.addPaymentMethod()`:  `error.status[400]` **Added**\n* `polar.benefits.grants()`:  `response.items[].customer` **Changed**\n* `polar.subscriptions.update()`: \n  *  `request.subscriptionUpdate.union(SubscriptionUpdateClear)` **Added**\n  *  `response.customer.defaultPaymentMethodId` **Added**\n* `polar.licenseKeys.list()`:  `response.items[].customer.defaultPaymentMethodId` **Added**\n* `polar.licenseKeys.get()`:  `response.customer.defaultPaymentMethodId` **Added**\n* `polar.licenseKeys.update()`:  `response.customer.defaultPaymentMethodId` **Added**\n* `polar.licenseKeys.getActivation()`:  `response.licenseKey.customer.defaultPaymentMethodId` **Added**\n* `polar.licenseKeys.validate()`:  `response.customer.defaultPaymentMethodId` **Added**\n* `polar.licenseKeys.activate()`:  `response.licenseKey.customer.defaultPaymentMethodId` **Added**\n* `polar.organizations.listOrganizations()`: **Added**\n* `polar.customers.create()`:  `response` **Changed**\n* `polar.customers.get()`:  `response` **Changed**\n* `polar.customers.update()`:  `response` **Changed**\n* `polar.customers.getExternal()`:  `response` **Changed**\n* `polar.customers.updateExternal()`:  `response` **Changed**\n* `polar.customers.getState()`:  `response` **Changed**\n* `polar.customers.getStateExternal()`:  `response` **Changed**\n* `polar.customerPortal.customers.update()`: \n  *  `request.defaultPaymentMethodId` **Added**\n* `polar.benefitGrants.list()`:  `response.items[].customer` **Changed**\n* `polar.subscriptions.revoke()`:  `response.customer.defaultPaymentMethodId` **Added**\n* `polar.customerPortal.licenseKeys.list()`:  `response.items[].customer.defaultPaymentMethodId` **Added**\n* `polar.customerPortal.licenseKeys.get()`:  `response.customer.defaultPaymentMethodId` **Added**\n* `polar.customerPortal.licenseKeys.validate()`:  `response.customer.defaultPaymentMethodId` **Added**\n* `polar.customerPortal.licenseKeys.activate()`:  `response.licenseKey.customer.defaultPaymentMethodId` **Added**\n* `polar.subscriptions.get()`:  `response.customer.defaultPaymentMethodId` **Added**\n* `polar.subscriptions.create()`:  `response.customer.defaultPaymentMethodId` **Added**\n* `polar.subscriptions.list()`:  `response.items[].customer.defaultPaymentMethodId` **Added**\n* `polar.customerPortal.subscriptions.update()`: \n  *  `request.customerSubscriptionUpdate.union(CustomerSubscriptionUpdateClear)` **Added**\n* `polar.organizations.list()`: **Removed** (Breaking ⚠️)\n* `polar.customerSessions.create()`:  `response.customer` **Changed**\n* `polar.customerPortal.orders.receipt()`: **Added**\n* `polar.customers.listPaymentMethodsExternal()`: **Added**\n* `polar.customers.listPaymentMethods()`: **Added**\n* `polar.orders.receipt()`: **Added**\n* `polar.orders.finalize()`: **Added**\n* `polar.orders.create()`: **Added**\n* `polar.customerMeters.list()`:  `response.items[].customer` **Changed**\n* `polar.customerMeters.get()`:  `response.customer` **Changed**\n* `polar.payments.list()`: \n  *  `request.customerId` **Added**\n"
+releaseNotes: "## Typescript SDK Changes:\n* `polar.subscriptions.update()`: \n  *  `request.subscriptionUpdate` **Changed** (Breaking ⚠️)\n* `polar.organizations.listOrganizations()`:  `response.items[].featureSettings.slackBenefitEnabled` **Added**\n* `polar.organizations.create()`: \n  *  `request.featureSettings.slackBenefitEnabled` **Added**\n  *  `response.featureSettings.slackBenefitEnabled` **Added**\n* `polar.organizations.get()`:  `response.featureSettings.slackBenefitEnabled` **Added**\n* `polar.organizations.update()`: \n  *  `request.organizationUpdate.featureSettings.slackBenefitEnabled` **Added**\n  *  `response.featureSettings.slackBenefitEnabled` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
