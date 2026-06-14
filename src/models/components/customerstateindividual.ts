@@ -89,6 +89,10 @@ export type CustomerStateIndividual = {
    * The name of the customer.
    */
   name: string | null;
+  /**
+   * The name that should appear on the customer's invoices. Falls back to the customer name when not explicitly set.
+   */
+  billingName: string | null;
   billingAddress: Address | null;
   taxId: Array<string | TaxIDFormat | null> | null;
   locale?: string | null | undefined;
@@ -172,6 +176,7 @@ export const CustomerStateIndividual$inboundSchema: z.ZodMiniType<
     email_verified: z.boolean(),
     type: z.literal("individual"),
     name: z.nullable(z.string()),
+    billing_name: z.nullable(z.string()),
     billing_address: z.nullable(Address$inboundSchema),
     tax_id: z.nullable(
       z.array(z.nullable(smartUnion([z.string(), TaxIDFormat$inboundSchema]))),
@@ -193,6 +198,7 @@ export const CustomerStateIndividual$inboundSchema: z.ZodMiniType<
       "modified_at": "modifiedAt",
       "external_id": "externalId",
       "email_verified": "emailVerified",
+      "billing_name": "billingName",
       "billing_address": "billingAddress",
       "tax_id": "taxId",
       "organization_id": "organizationId",
@@ -216,6 +222,7 @@ export type CustomerStateIndividual$Outbound = {
   email_verified: boolean;
   type: "individual";
   name: string | null;
+  billing_name: string | null;
   billing_address: Address$Outbound | null;
   tax_id: Array<string | string | null> | null;
   locale?: string | null | undefined;
@@ -243,6 +250,7 @@ export const CustomerStateIndividual$outboundSchema: z.ZodMiniType<
     emailVerified: z.boolean(),
     type: z.literal("individual"),
     name: z.nullable(z.string()),
+    billingName: z.nullable(z.string()),
     billingAddress: z.nullable(Address$outboundSchema),
     taxId: z.nullable(
       z.array(z.nullable(smartUnion([z.string(), TaxIDFormat$outboundSchema]))),
@@ -262,6 +270,7 @@ export const CustomerStateIndividual$outboundSchema: z.ZodMiniType<
       modifiedAt: "modified_at",
       externalId: "external_id",
       emailVerified: "email_verified",
+      billingName: "billing_name",
       billingAddress: "billing_address",
       taxId: "tax_id",
       organizationId: "organization_id",

@@ -26,6 +26,7 @@ let value: BenefitGrantCustomWebhook = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -61,9 +62,11 @@ let value: BenefitGrantCustomWebhook = {
     metadata: {
       "key": "<value>",
     },
+    visibility: "private",
     properties: {
       note: "<value>",
     },
+    visibilityConfigurable: true,
   },
   properties: {},
 };

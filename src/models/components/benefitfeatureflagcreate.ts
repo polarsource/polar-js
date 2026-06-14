@@ -10,6 +10,10 @@ import {
   BenefitFeatureFlagCreateProperties$Outbound,
   BenefitFeatureFlagCreateProperties$outboundSchema,
 } from "./benefitfeatureflagcreateproperties.js";
+import {
+  BenefitVisibility,
+  BenefitVisibility$outboundSchema,
+} from "./benefitvisibility.js";
 
 export type BenefitFeatureFlagCreateMetadata =
   | string
@@ -47,6 +51,10 @@ export type BenefitFeatureFlagCreate = {
    */
   organizationId?: string | null | undefined;
   /**
+   * The visibility of the benefit in the customer portal.
+   */
+  visibility?: BenefitVisibility | null | undefined;
+  /**
    * Properties for creating a benefit of type `feature_flag`.
    */
   properties: BenefitFeatureFlagCreateProperties;
@@ -81,6 +89,7 @@ export type BenefitFeatureFlagCreate$Outbound = {
   type: "feature_flag";
   description: string;
   organization_id?: string | null | undefined;
+  visibility?: string | null | undefined;
   properties: BenefitFeatureFlagCreateProperties$Outbound;
 };
 
@@ -99,6 +108,7 @@ export const BenefitFeatureFlagCreate$outboundSchema: z.ZodMiniType<
     type: z.literal("feature_flag"),
     description: z.string(),
     organizationId: z.optional(z.nullable(z.string())),
+    visibility: z.optional(z.nullable(BenefitVisibility$outboundSchema)),
     properties: BenefitFeatureFlagCreateProperties$outboundSchema,
   }),
   z.transform((v) => {

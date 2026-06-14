@@ -21,6 +21,7 @@ let value: MeterResetEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },

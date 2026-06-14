@@ -23,6 +23,7 @@ let value: BenefitGrantDownloadablesWebhook = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -55,17 +56,15 @@ let value: BenefitGrantDownloadablesWebhook = {
     isDeleted: false,
     organizationId: "<value>",
     metadata: {},
+    visibility: "draft",
     properties: {
       archived: {
         "key": false,
         "key1": false,
       },
-      files: [
-        "<value 1>",
-        "<value 2>",
-        "<value 3>",
-      ],
+      files: [],
     },
+    visibilityConfigurable: true,
   },
   properties: {},
 };

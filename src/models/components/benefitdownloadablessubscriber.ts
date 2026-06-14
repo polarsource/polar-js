@@ -15,10 +15,6 @@ import {
   BenefitSubscriberOrganization,
   BenefitSubscriberOrganization$inboundSchema,
 } from "./benefitsubscriberorganization.js";
-import {
-  MetadataOutputType,
-  MetadataOutputType$inboundSchema,
-} from "./metadataoutputtype.js";
 
 export type BenefitDownloadablesSubscriber = {
   /**
@@ -54,7 +50,6 @@ export type BenefitDownloadablesSubscriber = {
    * The ID of the organization owning the benefit.
    */
   organizationId: string;
-  metadata: { [k: string]: MetadataOutputType };
   organization: BenefitSubscriberOrganization;
   properties: BenefitDownloadablesSubscriberProperties;
 };
@@ -79,7 +74,6 @@ export const BenefitDownloadablesSubscriber$inboundSchema: z.ZodMiniType<
     deletable: z.boolean(),
     is_deleted: z.boolean(),
     organization_id: z.string(),
-    metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
     organization: BenefitSubscriberOrganization$inboundSchema,
     properties: BenefitDownloadablesSubscriberProperties$inboundSchema,
   }),

@@ -9,6 +9,10 @@ import {
   BenefitCustomProperties$Outbound,
   BenefitCustomProperties$outboundSchema,
 } from "./benefitcustomproperties.js";
+import {
+  BenefitVisibility,
+  BenefitVisibility$outboundSchema,
+} from "./benefitvisibility.js";
 
 export type BenefitCustomUpdateMetadata = string | number | number | boolean;
 
@@ -33,6 +37,10 @@ export type BenefitCustomUpdate = {
    * The description of the benefit. Will be displayed on products having this benefit.
    */
   description?: string | null | undefined;
+  /**
+   * The visibility of the benefit in the customer portal.
+   */
+  visibility?: BenefitVisibility | null | undefined;
   type: "custom";
   properties?: BenefitCustomProperties | null | undefined;
 };
@@ -64,6 +72,7 @@ export function benefitCustomUpdateMetadataToJSON(
 export type BenefitCustomUpdate$Outbound = {
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   description?: string | null | undefined;
+  visibility?: string | null | undefined;
   type: "custom";
   properties?: BenefitCustomProperties$Outbound | null | undefined;
 };
@@ -80,6 +89,7 @@ export const BenefitCustomUpdate$outboundSchema: z.ZodMiniType<
     ),
   ),
   description: z.optional(z.nullable(z.string())),
+  visibility: z.optional(z.nullable(BenefitVisibility$outboundSchema)),
   type: z.literal("custom"),
   properties: z.optional(z.nullable(BenefitCustomProperties$outboundSchema)),
 });

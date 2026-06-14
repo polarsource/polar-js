@@ -19,15 +19,23 @@ import {
   ProductMediaFileRead,
   ProductMediaFileRead$inboundSchema,
 } from "./productmediafileread.js";
+import {
+  SupportCaseAttachmentFileRead,
+  SupportCaseAttachmentFileRead$inboundSchema,
+} from "./supportcaseattachmentfileread.js";
 
 export type FileRead =
   | DownloadableFileRead
   | OrganizationAvatarFileRead
-  | ProductMediaFileRead;
+  | ProductMediaFileRead
+  | SupportCaseAttachmentFileRead;
 
 export type ListResourceFileRead = {
   items: Array<
-    DownloadableFileRead | OrganizationAvatarFileRead | ProductMediaFileRead
+    | DownloadableFileRead
+    | OrganizationAvatarFileRead
+    | ProductMediaFileRead
+    | SupportCaseAttachmentFileRead
   >;
   pagination: Pagination;
 };
@@ -38,6 +46,7 @@ export const FileRead$inboundSchema: z.ZodMiniType<FileRead, unknown> = z.union(
     DownloadableFileRead$inboundSchema,
     OrganizationAvatarFileRead$inboundSchema,
     ProductMediaFileRead$inboundSchema,
+    SupportCaseAttachmentFileRead$inboundSchema,
   ],
 );
 
@@ -61,6 +70,7 @@ export const ListResourceFileRead$inboundSchema: z.ZodMiniType<
       DownloadableFileRead$inboundSchema,
       OrganizationAvatarFileRead$inboundSchema,
       ProductMediaFileRead$inboundSchema,
+      SupportCaseAttachmentFileRead$inboundSchema,
     ]),
   ),
   pagination: Pagination$inboundSchema,

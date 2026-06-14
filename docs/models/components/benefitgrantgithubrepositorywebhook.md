@@ -24,6 +24,7 @@ let value: BenefitGrantGitHubRepositoryWebhook = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -58,11 +59,13 @@ let value: BenefitGrantGitHubRepositoryWebhook = {
     metadata: {
       "key": 234300,
     },
+    visibility: "private",
     properties: {
       repositoryOwner: "polarsource",
       repositoryName: "private_repo",
-      permission: "triage",
+      permission: "pull",
     },
+    visibilityConfigurable: true,
   },
   properties: {},
 };

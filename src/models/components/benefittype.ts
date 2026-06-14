@@ -14,6 +14,7 @@ export const BenefitType = {
   LicenseKeys: "license_keys",
   MeterCredit: "meter_credit",
   FeatureFlag: "feature_flag",
+  SlackSharedChannel: "slack_shared_channel",
 } as const;
 export type BenefitType = OpenEnum<typeof BenefitType>;
 

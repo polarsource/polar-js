@@ -65,3 +65,14 @@ const value: components.CustomerBenefitGrantMeterCreditUpdate = {
 };
 ```
 
+### `components.CustomerBenefitGrantSlackSharedChannelUpdate`
+
+```typescript
+const value: components.CustomerBenefitGrantSlackSharedChannelUpdate = {
+  benefitType: "slack_shared_channel",
+  properties: {
+    invitedEmail: "Alexane.Hansen24@yahoo.com",
+  },
+};
+```
+

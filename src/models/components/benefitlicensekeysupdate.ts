@@ -9,6 +9,10 @@ import {
   BenefitLicenseKeysCreateProperties$Outbound,
   BenefitLicenseKeysCreateProperties$outboundSchema,
 } from "./benefitlicensekeyscreateproperties.js";
+import {
+  BenefitVisibility,
+  BenefitVisibility$outboundSchema,
+} from "./benefitvisibility.js";
 
 export type BenefitLicenseKeysUpdateMetadata =
   | string
@@ -37,6 +41,10 @@ export type BenefitLicenseKeysUpdate = {
    * The description of the benefit. Will be displayed on products having this benefit.
    */
   description?: string | null | undefined;
+  /**
+   * The visibility of the benefit in the customer portal.
+   */
+  visibility?: BenefitVisibility | null | undefined;
   type: "license_keys";
   properties?: BenefitLicenseKeysCreateProperties | null | undefined;
 };
@@ -68,6 +76,7 @@ export function benefitLicenseKeysUpdateMetadataToJSON(
 export type BenefitLicenseKeysUpdate$Outbound = {
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   description?: string | null | undefined;
+  visibility?: string | null | undefined;
   type: "license_keys";
   properties?: BenefitLicenseKeysCreateProperties$Outbound | null | undefined;
 };
@@ -84,6 +93,7 @@ export const BenefitLicenseKeysUpdate$outboundSchema: z.ZodMiniType<
     ),
   ),
   description: z.optional(z.nullable(z.string())),
+  visibility: z.optional(z.nullable(BenefitVisibility$outboundSchema)),
   type: z.literal("license_keys"),
   properties: z.optional(
     z.nullable(BenefitLicenseKeysCreateProperties$outboundSchema),

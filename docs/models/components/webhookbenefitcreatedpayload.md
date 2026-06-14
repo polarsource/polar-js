@@ -16,7 +16,7 @@ let value: WebhookBenefitCreatedPayload = {
     id: "<value>",
     createdAt: new Date("2026-01-16T07:13:19.224Z"),
     modifiedAt: new Date("2026-06-11T23:07:15.256Z"),
-    type: "github_repository",
+    type: "license_keys",
     description:
       "while sticky hm saturate inasmuch quizzically although formation helpful",
     selectable: true,
@@ -24,11 +24,17 @@ let value: WebhookBenefitCreatedPayload = {
     isDeleted: true,
     organizationId: "<value>",
     metadata: {},
+    visibility: "draft",
     properties: {
-      repositoryOwner: "polarsource",
-      repositoryName: "private_repo",
-      permission: "triage",
+      prefix: null,
+      expires: {
+        ttl: 240022,
+        timeframe: "day",
+      },
+      activations: null,
+      limitUsage: null,
     },
+    visibilityConfigurable: true,
   },
 };
 ```

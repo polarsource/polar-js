@@ -23,6 +23,10 @@ import {
   ProductMediaFileRead,
   ProductMediaFileRead$inboundSchema,
 } from "../components/productmediafileread.js";
+import {
+  SupportCaseAttachmentFileRead,
+  SupportCaseAttachmentFileRead$inboundSchema,
+} from "../components/supportcaseattachmentfileread.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type FilesUpdateRequest = {
@@ -39,7 +43,8 @@ export type FilesUpdateRequest = {
 export type FilesUpdateResponseFilesUpdate =
   | DownloadableFileRead
   | ProductMediaFileRead
-  | OrganizationAvatarFileRead;
+  | OrganizationAvatarFileRead
+  | SupportCaseAttachmentFileRead;
 
 /** @internal */
 export type FilesUpdateRequest$Outbound = {
@@ -79,6 +84,7 @@ export const FilesUpdateResponseFilesUpdate$inboundSchema: z.ZodMiniType<
   DownloadableFileRead$inboundSchema,
   ProductMediaFileRead$inboundSchema,
   OrganizationAvatarFileRead$inboundSchema,
+  SupportCaseAttachmentFileRead$inboundSchema,
 ]);
 
 export function filesUpdateResponseFilesUpdateFromJSON(

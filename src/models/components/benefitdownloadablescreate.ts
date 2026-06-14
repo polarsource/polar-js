@@ -10,6 +10,10 @@ import {
   BenefitDownloadablesCreateProperties$Outbound,
   BenefitDownloadablesCreateProperties$outboundSchema,
 } from "./benefitdownloadablescreateproperties.js";
+import {
+  BenefitVisibility,
+  BenefitVisibility$outboundSchema,
+} from "./benefitvisibility.js";
 
 export type BenefitDownloadablesCreateMetadata =
   | string
@@ -43,6 +47,10 @@ export type BenefitDownloadablesCreate = {
    * The ID of the organization owning the benefit. **Required unless you use an organization token.**
    */
   organizationId?: string | null | undefined;
+  /**
+   * The visibility of the benefit in the customer portal.
+   */
+  visibility?: BenefitVisibility | null | undefined;
   properties: BenefitDownloadablesCreateProperties;
 };
 
@@ -75,6 +83,7 @@ export type BenefitDownloadablesCreate$Outbound = {
   type: "downloadables";
   description: string;
   organization_id?: string | null | undefined;
+  visibility?: string | null | undefined;
   properties: BenefitDownloadablesCreateProperties$Outbound;
 };
 
@@ -93,6 +102,7 @@ export const BenefitDownloadablesCreate$outboundSchema: z.ZodMiniType<
     type: z.literal("downloadables"),
     description: z.string(),
     organizationId: z.optional(z.nullable(z.string())),
+    visibility: z.optional(z.nullable(BenefitVisibility$outboundSchema)),
     properties: BenefitDownloadablesCreateProperties$outboundSchema,
   }),
   z.transform((v) => {

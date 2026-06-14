@@ -99,6 +99,10 @@ export type CheckoutLink = {
    */
   discountId: string | null;
   /**
+   * Preconfigured number of seats for seat-based pricing. When set, checkout sessions created from this link are locked to this number of seats and the customer won't be able to change it. All products on the link must use seat-based pricing and allow this number of seats. If the products no longer accommodate this value when the link is opened, it'll be ignored.
+   */
+  seats: number | null;
+  /**
    * The organization ID.
    */
   organizationId: string;
@@ -156,6 +160,7 @@ export const CheckoutLink$inboundSchema: z.ZodMiniType<CheckoutLink, unknown> =
       allow_discount_codes: z.boolean(),
       require_billing_address: z.boolean(),
       discount_id: z.nullable(z.string()),
+      seats: z.nullable(z.int()),
       organization_id: z.string(),
       products: z.array(CheckoutLinkProduct$inboundSchema),
       discount: z.nullable(

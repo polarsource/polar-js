@@ -23,6 +23,7 @@ let value: BenefitGrantedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: null,
     taxId: [
       "911144442",

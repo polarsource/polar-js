@@ -54,7 +54,7 @@ let value: CustomerOrder = {
         id: "<value>",
         createdAt: new Date("2024-10-10T05:16:33.838Z"),
         modifiedAt: new Date("2026-02-25T08:33:06.239Z"),
-        type: "feature_flag",
+        type: "slack_shared_channel",
         description: "sushi fortunately gigantic soybean tomorrow um where",
         selectable: false,
         deletable: false,

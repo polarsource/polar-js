@@ -13,5 +13,5 @@ let value: FileServiceTypes = "product_media";
 ## Values
 
 ```typescript
-"downloadable" | "product_media" | "organization_avatar" | Unrecognized<string>
+"downloadable" | "product_media" | "organization_avatar" | "support_case_attachment" | Unrecognized<string>
 ```

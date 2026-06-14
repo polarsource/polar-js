@@ -30,10 +30,6 @@ export type OrganizationFeatureSettings = {
    */
   checkoutLocalizationEnabled?: boolean | undefined;
   /**
-   * If this organization sees the new account review checklist UI.
-   */
-  accountReviewV2Enabled?: boolean | undefined;
-  /**
    * Ordered list of metric slugs shown on the dashboard overview.
    */
   overviewMetrics?: Array<string> | null | undefined;
@@ -66,7 +62,6 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
     wallets_enabled: z._default(z.boolean(), false),
     member_model_enabled: z._default(z.boolean(), false),
     checkout_localization_enabled: z._default(z.boolean(), false),
-    account_review_v2_enabled: z._default(z.boolean(), false),
     overview_metrics: z.optional(z.nullable(z.array(z.string()))),
     reset_proration_behavior_enabled: z._default(z.boolean(), false),
     off_session_charges_enabled: z._default(z.boolean(), false),
@@ -80,7 +75,6 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
       "wallets_enabled": "walletsEnabled",
       "member_model_enabled": "memberModelEnabled",
       "checkout_localization_enabled": "checkoutLocalizationEnabled",
-      "account_review_v2_enabled": "accountReviewV2Enabled",
       "overview_metrics": "overviewMetrics",
       "reset_proration_behavior_enabled": "resetProrationBehaviorEnabled",
       "off_session_charges_enabled": "offSessionChargesEnabled",
@@ -96,7 +90,6 @@ export type OrganizationFeatureSettings$Outbound = {
   wallets_enabled: boolean;
   member_model_enabled: boolean;
   checkout_localization_enabled: boolean;
-  account_review_v2_enabled: boolean;
   overview_metrics?: Array<string> | null | undefined;
   reset_proration_behavior_enabled: boolean;
   off_session_charges_enabled: boolean;
@@ -115,7 +108,6 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
     walletsEnabled: z._default(z.boolean(), false),
     memberModelEnabled: z._default(z.boolean(), false),
     checkoutLocalizationEnabled: z._default(z.boolean(), false),
-    accountReviewV2Enabled: z._default(z.boolean(), false),
     overviewMetrics: z.optional(z.nullable(z.array(z.string()))),
     resetProrationBehaviorEnabled: z._default(z.boolean(), false),
     offSessionChargesEnabled: z._default(z.boolean(), false),
@@ -129,7 +121,6 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
       walletsEnabled: "wallets_enabled",
       memberModelEnabled: "member_model_enabled",
       checkoutLocalizationEnabled: "checkout_localization_enabled",
-      accountReviewV2Enabled: "account_review_v2_enabled",
       overviewMetrics: "overview_metrics",
       resetProrationBehaviorEnabled: "reset_proration_behavior_enabled",
       offSessionChargesEnabled: "off_session_charges_enabled",

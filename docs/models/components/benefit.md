@@ -17,9 +17,11 @@ const value: components.BenefitCustom = {
   isDeleted: false,
   organizationId: "<value>",
   metadata: {},
+  visibility: "public",
   properties: {
     note: "<value>",
   },
+  visibilityConfigurable: false,
 };
 ```
 
@@ -37,12 +39,14 @@ const value: components.BenefitDiscord = {
   isDeleted: false,
   organizationId: "<value>",
   metadata: {},
+  visibility: "private",
   properties: {
     guildId: "<id>",
     roleId: "<id>",
-    kickMember: false,
+    kickMember: true,
     guildToken: "<value>",
   },
+  visibilityConfigurable: false,
 };
 ```
 
@@ -62,17 +66,15 @@ const value: components.BenefitDownloadables = {
   metadata: {
     "key": 3971.46,
   },
+  visibility: "private",
   properties: {
     archived: {
       "key": false,
       "key1": false,
     },
-    files: [
-      "<value 1>",
-      "<value 2>",
-      "<value 3>",
-    ],
+    files: [],
   },
+  visibilityConfigurable: true,
 };
 ```
 
@@ -90,7 +92,9 @@ const value: components.BenefitFeatureFlag = {
   isDeleted: true,
   organizationId: "<value>",
   metadata: {},
+  visibility: "public",
   properties: {},
+  visibilityConfigurable: false,
 };
 ```
 
@@ -110,11 +114,13 @@ const value: components.BenefitGitHubRepository = {
   metadata: {
     "key": 8581.7,
   },
+  visibility: "draft",
   properties: {
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "triage",
+    permission: "pull",
   },
+  visibilityConfigurable: true,
 };
 ```
 
@@ -132,15 +138,17 @@ const value: components.BenefitLicenseKeys = {
   isDeleted: true,
   organizationId: "<value>",
   metadata: {},
+  visibility: "public",
   properties: {
-    prefix: "<value>",
-    expires: null,
-    activations: {
-      limit: 240022,
-      enableCustomerAdmin: false,
+    prefix: null,
+    expires: {
+      ttl: 240022,
+      timeframe: "day",
     },
+    activations: null,
     limitUsage: null,
   },
+  visibilityConfigurable: false,
 };
 ```
 
@@ -158,11 +166,38 @@ const value: components.BenefitMeterCredit = {
   isDeleted: true,
   organizationId: "<value>",
   metadata: {},
+  visibility: "private",
   properties: {
-    units: 507849,
+    units: 953570,
     rollover: false,
     meterId: "<value>",
   },
+  visibilityConfigurable: true,
+};
+```
+
+### `components.BenefitSlackSharedChannel`
+
+```typescript
+const value: components.BenefitSlackSharedChannel = {
+  id: "<value>",
+  createdAt: new Date("2025-10-12T14:29:51.310Z"),
+  modifiedAt: new Date("2026-10-16T23:28:38.799Z"),
+  type: "slack_shared_channel",
+  description: "inside aboard swear including randomize qua",
+  selectable: true,
+  deletable: true,
+  isDeleted: true,
+  organizationId: "<value>",
+  metadata: {
+    "key": false,
+  },
+  visibility: "public",
+  properties: {
+    slackIntegrationId: "<value>",
+    channelNameTemplate: "<value>",
+  },
+  visibilityConfigurable: false,
 };
 ```
 

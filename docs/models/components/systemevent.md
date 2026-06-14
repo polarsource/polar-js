@@ -42,6 +42,7 @@ const value: components.BalanceDisputeEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -89,6 +90,7 @@ const value: components.BalanceDisputeReversalEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -135,6 +137,7 @@ const value: components.BalanceOrderEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -181,6 +184,7 @@ const value: components.BalanceRefundEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -228,6 +232,7 @@ const value: components.BalanceRefundReversalEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -274,6 +279,7 @@ const value: components.BenefitCycledEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -316,6 +322,7 @@ const value: components.BenefitGrantedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: null,
     taxId: [
       "911144442",
@@ -354,6 +361,7 @@ const value: components.BenefitRevokedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -394,6 +402,7 @@ const value: components.BenefitUpdatedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -434,6 +443,7 @@ const value: components.CheckoutCreatedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: null,
     taxId: [
       "911144442",
@@ -473,6 +483,7 @@ const value: components.CustomerCreatedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -515,6 +526,7 @@ const value: components.CustomerDeletedEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -556,6 +568,7 @@ const value: components.CustomerUpdatedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: null,
     taxId: [
       "911144442",
@@ -597,6 +610,7 @@ const value: components.MeterCreditEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -637,6 +651,7 @@ const value: components.MeterResetEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -716,6 +731,7 @@ const value: components.OrderVoidedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -758,6 +774,7 @@ const value: components.SubscriptionBillingPeriodUpdatedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -800,6 +817,7 @@ const value: components.SubscriptionCanceledEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -843,6 +861,7 @@ const value: components.SubscriptionCreatedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -887,6 +906,7 @@ const value: components.SubscriptionCycledEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -925,6 +945,7 @@ const value: components.SubscriptionPastDueEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -965,6 +986,7 @@ const value: components.SubscriptionProductUpdatedEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -1007,6 +1029,7 @@ const value: components.SubscriptionReactivatedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -1044,6 +1067,7 @@ const value: components.SubscriptionRevokedEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -1081,6 +1105,7 @@ const value: components.SubscriptionSeatsUpdatedEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -1121,6 +1146,7 @@ const value: components.SubscriptionUncanceledEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -1166,6 +1192,7 @@ const value: components.SubscriptionUpdateClearedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -1203,6 +1230,7 @@ const value: components.SubscriptionUpdatedEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },

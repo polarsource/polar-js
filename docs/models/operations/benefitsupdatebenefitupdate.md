@@ -64,3 +64,11 @@ const value: components.BenefitFeatureFlagUpdate = {
 };
 ```
 
+### `components.BenefitSlackSharedChannelUpdate`
+
+```typescript
+const value: components.BenefitSlackSharedChannelUpdate = {
+  type: "slack_shared_channel",
+};
+```
+

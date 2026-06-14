@@ -14,6 +14,11 @@ import {
   BenefitGitHubRepositoryProperties$outboundSchema,
 } from "./benefitgithubrepositoryproperties.js";
 import {
+  BenefitVisibility,
+  BenefitVisibility$inboundSchema,
+  BenefitVisibility$outboundSchema,
+} from "./benefitvisibility.js";
+import {
   MetadataOutputType,
   MetadataOutputType$inboundSchema,
   MetadataOutputType$Outbound,
@@ -62,10 +67,12 @@ export type BenefitGitHubRepository = {
    */
   organizationId: string;
   metadata: { [k: string]: MetadataOutputType };
+  visibility: BenefitVisibility;
   /**
    * Properties for a benefit of type `github_repository`.
    */
   properties: BenefitGitHubRepositoryProperties;
+  visibilityConfigurable: boolean;
 };
 
 /** @internal */
@@ -89,7 +96,9 @@ export const BenefitGitHubRepository$inboundSchema: z.ZodMiniType<
     is_deleted: z.boolean(),
     organization_id: z.string(),
     metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
+    visibility: BenefitVisibility$inboundSchema,
     properties: BenefitGitHubRepositoryProperties$inboundSchema,
+    visibility_configurable: z.boolean(),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -97,6 +106,7 @@ export const BenefitGitHubRepository$inboundSchema: z.ZodMiniType<
       "modified_at": "modifiedAt",
       "is_deleted": "isDeleted",
       "organization_id": "organizationId",
+      "visibility_configurable": "visibilityConfigurable",
     });
   }),
 );
@@ -112,7 +122,9 @@ export type BenefitGitHubRepository$Outbound = {
   is_deleted: boolean;
   organization_id: string;
   metadata: { [k: string]: MetadataOutputType$Outbound };
+  visibility: string;
   properties: BenefitGitHubRepositoryProperties$Outbound;
+  visibility_configurable: boolean;
 };
 
 /** @internal */
@@ -131,7 +143,9 @@ export const BenefitGitHubRepository$outboundSchema: z.ZodMiniType<
     isDeleted: z.boolean(),
     organizationId: z.string(),
     metadata: z.record(z.string(), MetadataOutputType$outboundSchema),
+    visibility: BenefitVisibility$outboundSchema,
     properties: BenefitGitHubRepositoryProperties$outboundSchema,
+    visibilityConfigurable: z.boolean(),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -139,6 +153,7 @@ export const BenefitGitHubRepository$outboundSchema: z.ZodMiniType<
       modifiedAt: "modified_at",
       isDeleted: "is_deleted",
       organizationId: "organization_id",
+      visibilityConfigurable: "visibility_configurable",
     });
   }),
 );

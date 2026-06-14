@@ -48,6 +48,12 @@ import {
   BenefitMeterCredit$Outbound,
   BenefitMeterCredit$outboundSchema,
 } from "./benefitmetercredit.js";
+import {
+  BenefitSlackSharedChannel,
+  BenefitSlackSharedChannel$inboundSchema,
+  BenefitSlackSharedChannel$Outbound,
+  BenefitSlackSharedChannel$outboundSchema,
+} from "./benefitslacksharedchannel.js";
 
 export type Benefit =
   | BenefitCustom
@@ -56,7 +62,8 @@ export type Benefit =
   | BenefitFeatureFlag
   | BenefitGitHubRepository
   | BenefitLicenseKeys
-  | BenefitMeterCredit;
+  | BenefitMeterCredit
+  | BenefitSlackSharedChannel;
 
 /** @internal */
 export const Benefit$inboundSchema: z.ZodMiniType<Benefit, unknown> = z.union([
@@ -67,6 +74,7 @@ export const Benefit$inboundSchema: z.ZodMiniType<Benefit, unknown> = z.union([
   BenefitGitHubRepository$inboundSchema,
   BenefitLicenseKeys$inboundSchema,
   BenefitMeterCredit$inboundSchema,
+  BenefitSlackSharedChannel$inboundSchema,
 ]);
 /** @internal */
 export type Benefit$Outbound =
@@ -76,7 +84,8 @@ export type Benefit$Outbound =
   | BenefitFeatureFlag$Outbound
   | BenefitGitHubRepository$Outbound
   | BenefitLicenseKeys$Outbound
-  | BenefitMeterCredit$Outbound;
+  | BenefitMeterCredit$Outbound
+  | BenefitSlackSharedChannel$Outbound;
 
 /** @internal */
 export const Benefit$outboundSchema: z.ZodMiniType<Benefit$Outbound, Benefit> =
@@ -88,6 +97,7 @@ export const Benefit$outboundSchema: z.ZodMiniType<Benefit$Outbound, Benefit> =
     BenefitGitHubRepository$outboundSchema,
     BenefitLicenseKeys$outboundSchema,
     BenefitMeterCredit$outboundSchema,
+    BenefitSlackSharedChannel$outboundSchema,
   ]);
 
 export function benefitToJSON(benefit: Benefit): string {

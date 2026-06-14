@@ -1,19 +1,21 @@
 # StatusFilter
 
-Filter by dispute status.
+Filter by subscription status.
 
 
 ## Supported Types
 
-### `components.DisputeStatus`
+### `components.SubscriptionStatus`
 
 ```typescript
-const value: components.DisputeStatus = "needs_response";
+const value: components.SubscriptionStatus = "incomplete_expired";
 ```
 
-### `components.DisputeStatus[]`
+### `components.SubscriptionStatus[]`
 
 ```typescript
-const value: components.DisputeStatus[] = [];
+const value: components.SubscriptionStatus[] = [
+  "unpaid",
+];
 ```
 

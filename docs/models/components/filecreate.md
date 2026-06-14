@@ -66,3 +66,24 @@ const value: components.ProductMediaFileCreate = {
 };
 ```
 
+### `components.SupportCaseAttachmentFileCreate`
+
+```typescript
+const value: components.SupportCaseAttachmentFileCreate = {
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  name: "<value>",
+  mimeType: "<value>",
+  size: 791869,
+  upload: {
+    parts: [
+      {
+        number: 963617,
+        chunkStart: 986190,
+        chunkEnd: 98032,
+      },
+    ],
+  },
+  service: "support_case_attachment",
+};
+```
+

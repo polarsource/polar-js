@@ -26,6 +26,7 @@ let value: BenefitGrant = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -51,7 +52,7 @@ let value: BenefitGrant = {
     id: "<value>",
     createdAt: new Date("2025-12-02T19:15:10.730Z"),
     modifiedAt: new Date("2024-04-06T16:51:23.311Z"),
-    type: "meter_credit",
+    type: "slack_shared_channel",
     description: "suspiciously wherever flu microchip",
     selectable: false,
     deletable: true,
@@ -60,11 +61,14 @@ let value: BenefitGrant = {
     metadata: {
       "key": 7257.4,
     },
+    visibility: "draft",
     properties: {
-      units: 507849,
-      rollover: false,
-      meterId: "<value>",
+      slackIntegrationId: "<value>",
+      channelNameTemplate: "<value>",
+      private: true,
+      archiveOnRevoke: true,
     },
+    visibilityConfigurable: true,
   },
   properties: {},
 };

@@ -49,6 +49,10 @@ export type LicenseKeyCustomer = {
    * The name of the customer.
    */
   name: string | null;
+  /**
+   * The name that should appear on the customer's invoices. Falls back to the customer name when not explicitly set.
+   */
+  billingName: string | null;
   billingAddress: Address | null;
   taxId: Array<string | TaxIDFormat | null> | null;
   locale?: string | null | undefined;
@@ -103,6 +107,7 @@ export const LicenseKeyCustomer$inboundSchema: z.ZodMiniType<
     email_verified: z.boolean(),
     type: CustomerType$inboundSchema,
     name: z.nullable(z.string()),
+    billing_name: z.nullable(z.string()),
     billing_address: z.nullable(Address$inboundSchema),
     tax_id: z.nullable(
       z.array(z.nullable(smartUnion([z.string(), TaxIDFormat$inboundSchema]))),
@@ -121,6 +126,7 @@ export const LicenseKeyCustomer$inboundSchema: z.ZodMiniType<
       "modified_at": "modifiedAt",
       "external_id": "externalId",
       "email_verified": "emailVerified",
+      "billing_name": "billingName",
       "billing_address": "billingAddress",
       "tax_id": "taxId",
       "organization_id": "organizationId",

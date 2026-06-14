@@ -9,6 +9,10 @@ import {
   BenefitFeatureFlagProperties$Outbound,
   BenefitFeatureFlagProperties$outboundSchema,
 } from "./benefitfeatureflagproperties.js";
+import {
+  BenefitVisibility,
+  BenefitVisibility$outboundSchema,
+} from "./benefitvisibility.js";
 
 export type BenefitFeatureFlagUpdateMetadata =
   | string
@@ -37,6 +41,10 @@ export type BenefitFeatureFlagUpdate = {
    * The description of the benefit. Will be displayed on products having this benefit.
    */
   description?: string | null | undefined;
+  /**
+   * The visibility of the benefit in the customer portal.
+   */
+  visibility?: BenefitVisibility | null | undefined;
   type: "feature_flag";
   properties?: BenefitFeatureFlagProperties | null | undefined;
 };
@@ -68,6 +76,7 @@ export function benefitFeatureFlagUpdateMetadataToJSON(
 export type BenefitFeatureFlagUpdate$Outbound = {
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   description?: string | null | undefined;
+  visibility?: string | null | undefined;
   type: "feature_flag";
   properties?: BenefitFeatureFlagProperties$Outbound | null | undefined;
 };
@@ -84,6 +93,7 @@ export const BenefitFeatureFlagUpdate$outboundSchema: z.ZodMiniType<
     ),
   ),
   description: z.optional(z.nullable(z.string())),
+  visibility: z.optional(z.nullable(BenefitVisibility$outboundSchema)),
   type: z.literal("feature_flag"),
   properties: z.optional(
     z.nullable(BenefitFeatureFlagProperties$outboundSchema),
