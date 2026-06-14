@@ -21,6 +21,7 @@ let value: SubscriptionCreatedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },

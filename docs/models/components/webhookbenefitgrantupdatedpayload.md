@@ -32,6 +32,7 @@ let value: WebhookBenefitGrantUpdatedPayload = {
       emailVerified: true,
       type: "team",
       name: "John Doe",
+      billingName: "John Doe",
       billingAddress: {
         country: "US",
       },
@@ -67,9 +68,11 @@ let value: WebhookBenefitGrantUpdatedPayload = {
       metadata: {
         "key": "<value>",
       },
+      visibility: "private",
       properties: {
         note: "<value>",
       },
+      visibilityConfigurable: true,
     },
     properties: {},
   },

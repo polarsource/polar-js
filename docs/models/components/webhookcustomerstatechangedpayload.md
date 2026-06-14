@@ -27,6 +27,7 @@ let value: WebhookCustomerStateChangedPayload = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -44,7 +45,7 @@ let value: WebhookCustomerStateChangedPayload = {
         modifiedAt: new Date("2026-05-27T23:44:19.476Z"),
         grantedAt: new Date("2025-01-03T13:37:00Z"),
         benefitId: "397a17aa-15cf-4cb4-9333-18040203cf98",
-        benefitType: "license_keys",
+        benefitType: "meter_credit",
         benefitMetadata: {},
         properties: {},
       },

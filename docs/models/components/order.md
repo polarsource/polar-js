@@ -49,6 +49,7 @@ let value: Order = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: null,
     taxId: [
       "911144442",

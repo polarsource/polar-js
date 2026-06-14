@@ -23,6 +23,7 @@ let value: ListResourceWithCursorPaginationEvent = {
         emailVerified: true,
         type: "individual",
         name: "John Doe",
+        billingName: "John Doe",
         billingAddress: {
           country: "US",
         },

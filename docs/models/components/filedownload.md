@@ -23,7 +23,7 @@ let value: FileDownload = {
   },
   version: null,
   isUploaded: true,
-  service: "organization_avatar",
+  service: "support_case_attachment",
   sizeReadable: "<value>",
 };
 ```

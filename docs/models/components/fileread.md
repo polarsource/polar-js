@@ -74,3 +74,26 @@ const value: components.ProductMediaFileRead = {
 };
 ```
 
+### `components.SupportCaseAttachmentFileRead`
+
+```typescript
+const value: components.SupportCaseAttachmentFileRead = {
+  id: "<value>",
+  organizationId: "<value>",
+  name: "<value>",
+  path: "/Network",
+  mimeType: "<value>",
+  size: 210068,
+  storageVersion: "<value>",
+  checksumEtag: "<value>",
+  checksumSha256Base64: "<value>",
+  checksumSha256Hex: "<value>",
+  lastModifiedAt: new Date("2026-03-17T05:44:25.863Z"),
+  version: "<value>",
+  service: "support_case_attachment",
+  isUploaded: true,
+  createdAt: new Date("2026-06-07T08:48:05.842Z"),
+  sizeReadable: "<value>",
+};
+```
+

@@ -25,7 +25,9 @@ let value: WebhookBenefitUpdatedPayload = {
     metadata: {
       "key": false,
     },
+    visibility: "public",
     properties: {},
+    visibilityConfigurable: true,
   },
 };
 ```

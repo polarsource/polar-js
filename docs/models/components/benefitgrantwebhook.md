@@ -24,6 +24,7 @@ const value: components.BenefitGrantDiscordWebhook = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -56,12 +57,14 @@ const value: components.BenefitGrantDiscordWebhook = {
     isDeleted: true,
     organizationId: "<value>",
     metadata: {},
+    visibility: "draft",
     properties: {
       guildId: "<id>",
       roleId: "<id>",
-      kickMember: false,
+      kickMember: true,
       guildToken: "<value>",
     },
+    visibilityConfigurable: true,
   },
   properties: {},
 };
@@ -91,6 +94,7 @@ const value: components.BenefitGrantCustomWebhook = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -126,9 +130,11 @@ const value: components.BenefitGrantCustomWebhook = {
     metadata: {
       "key": "<value>",
     },
+    visibility: "private",
     properties: {
       note: "<value>",
     },
+    visibilityConfigurable: true,
   },
   properties: {},
 };
@@ -156,6 +162,7 @@ const value: components.BenefitGrantGitHubRepositoryWebhook = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -190,11 +197,13 @@ const value: components.BenefitGrantGitHubRepositoryWebhook = {
     metadata: {
       "key": 234300,
     },
+    visibility: "private",
     properties: {
       repositoryOwner: "polarsource",
       repositoryName: "private_repo",
-      permission: "triage",
+      permission: "pull",
     },
+    visibilityConfigurable: true,
   },
   properties: {},
 };
@@ -221,6 +230,7 @@ const value: components.BenefitGrantDownloadablesWebhook = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -253,17 +263,15 @@ const value: components.BenefitGrantDownloadablesWebhook = {
     isDeleted: false,
     organizationId: "<value>",
     metadata: {},
+    visibility: "draft",
     properties: {
       archived: {
         "key": false,
         "key1": false,
       },
-      files: [
-        "<value 1>",
-        "<value 2>",
-        "<value 3>",
-      ],
+      files: [],
     },
+    visibilityConfigurable: true,
   },
   properties: {},
 };
@@ -291,6 +299,7 @@ const value: components.BenefitGrantLicenseKeysWebhook = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -314,24 +323,28 @@ const value: components.BenefitGrantLicenseKeysWebhook = {
   },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2025-10-15T22:21:01.919Z"),
-    modifiedAt: new Date("2024-02-16T12:33:48.786Z"),
+    createdAt: new Date("2024-03-14T07:10:48.297Z"),
+    modifiedAt: new Date("2024-11-30T18:06:24.097Z"),
     type: "license_keys",
-    description: "ouch woot geez wheel analyse duh",
+    description: "round brown extra-large imagineer",
     selectable: false,
-    deletable: false,
-    isDeleted: true,
+    deletable: true,
+    isDeleted: false,
     organizationId: "<value>",
-    metadata: {},
+    metadata: {
+      "key": "<value>",
+    },
+    visibility: "private",
     properties: {
-      prefix: "<value>",
-      expires: null,
-      activations: {
-        limit: 240022,
-        enableCustomerAdmin: false,
+      prefix: null,
+      expires: {
+        ttl: 240022,
+        timeframe: "day",
       },
+      activations: null,
       limitUsage: null,
     },
+    visibilityConfigurable: true,
   },
   properties: {},
 };
@@ -361,6 +374,7 @@ const value: components.BenefitGrantMeterCreditWebhook = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -384,21 +398,22 @@ const value: components.BenefitGrantMeterCreditWebhook = {
   },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2025-09-07T16:41:04.296Z"),
-    modifiedAt: null,
+    createdAt: new Date("2025-10-15T22:21:01.919Z"),
+    modifiedAt: new Date("2024-02-16T12:33:48.786Z"),
     type: "meter_credit",
-    description:
-      "blah sometimes catalog uh-huh drat phew impure whole ah darling",
+    description: "ouch woot geez wheel analyse duh",
     selectable: false,
-    deletable: true,
-    isDeleted: false,
+    deletable: false,
+    isDeleted: true,
     organizationId: "<value>",
     metadata: {},
+    visibility: "public",
     properties: {
-      units: 507849,
+      units: 953570,
       rollover: false,
       meterId: "<value>",
     },
+    visibilityConfigurable: false,
   },
   properties: {},
 };
@@ -427,6 +442,7 @@ const value: components.BenefitGrantFeatureFlagWebhook = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -461,7 +477,78 @@ const value: components.BenefitGrantFeatureFlagWebhook = {
     metadata: {
       "key": "<value>",
     },
+    visibility: "private",
     properties: {},
+    visibilityConfigurable: true,
+  },
+  properties: {},
+};
+```
+
+### `components.BenefitGrantSlackSharedChannelWebhook`
+
+```typescript
+const value: components.BenefitGrantSlackSharedChannelWebhook = {
+  createdAt: new Date("2024-06-28T05:52:04.301Z"),
+  modifiedAt: new Date("2025-07-14T01:56:01.573Z"),
+  id: "<value>",
+  isGranted: true,
+  isRevoked: true,
+  subscriptionId: "<value>",
+  orderId: "<value>",
+  customerId: "<value>",
+  benefitId: "<value>",
+  customer: {
+    id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+    createdAt: new Date("2025-06-17T00:37:51.966Z"),
+    modifiedAt: null,
+    metadata: {
+      "key": false,
+    },
+    emailVerified: true,
+    type: "team",
+    name: "John Doe",
+    billingName: "John Doe",
+    billingAddress: {
+      country: "US",
+    },
+    taxId: [
+      "911144442",
+      "us_ein",
+    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    deletedAt: new Date("2026-05-07T07:40:23.194Z"),
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
+  },
+  member: {
+    id: "<value>",
+    createdAt: new Date("2024-08-29T23:41:53.521Z"),
+    modifiedAt: new Date("2024-05-20T19:39:16.494Z"),
+    customerId: "<value>",
+    email: "member@example.com",
+    name: "Jane Doe",
+    externalId: "usr_1337",
+    role: "billing_manager",
+  },
+  benefit: {
+    id: "<value>",
+    createdAt: new Date("2025-09-07T08:47:55.525Z"),
+    modifiedAt: new Date("2024-05-14T18:17:34.719Z"),
+    type: "slack_shared_channel",
+    description: "wetly unless glossy",
+    selectable: true,
+    deletable: true,
+    isDeleted: false,
+    organizationId: "<value>",
+    metadata: {
+      "key": false,
+    },
+    visibility: "draft",
+    properties: {
+      slackIntegrationId: "<value>",
+      channelNameTemplate: "<value>",
+    },
+    visibilityConfigurable: true,
   },
   properties: {},
 };

@@ -25,6 +25,7 @@ let value: BenefitGrantFeatureFlagWebhook = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -59,7 +60,9 @@ let value: BenefitGrantFeatureFlagWebhook = {
     metadata: {
       "key": "<value>",
     },
+    visibility: "private",
     properties: {},
+    visibilityConfigurable: true,
   },
   properties: {},
 };

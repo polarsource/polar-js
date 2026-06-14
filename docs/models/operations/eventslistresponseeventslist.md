@@ -26,6 +26,7 @@ const value: components.ListResourceEvent = {
         emailVerified: true,
         type: "individual",
         name: "John Doe",
+        billingName: "John Doe",
         billingAddress: {
           country: "US",
         },
@@ -73,6 +74,7 @@ const value: components.ListResourceWithCursorPaginationEvent = {
         emailVerified: true,
         type: "individual",
         name: "John Doe",
+        billingName: "John Doe",
         billingAddress: {
           country: "US",
         },

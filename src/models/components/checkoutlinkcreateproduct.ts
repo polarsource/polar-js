@@ -69,6 +69,10 @@ export type CheckoutLinkCreateProduct = {
    */
   discountId?: string | null | undefined;
   /**
+   * Preconfigured number of seats for seat-based pricing. When set, checkout sessions created from this link are locked to this number of seats and the customer won't be able to change it. All products on the link must use seat-based pricing and allow this number of seats. If the products no longer accommodate this value when the link is opened, it'll be ignored.
+   */
+  seats?: number | null | undefined;
+  /**
    * URL where the customer will be redirected after a successful payment.You can add the `checkout_id={CHECKOUT_ID}` query parameter to retrieve the checkout session id.
    */
   successUrl?: string | null | undefined;
@@ -112,6 +116,7 @@ export type CheckoutLinkCreateProduct$Outbound = {
   allow_discount_codes: boolean;
   require_billing_address: boolean;
   discount_id?: string | null | undefined;
+  seats?: number | null | undefined;
   success_url?: string | null | undefined;
   return_url?: string | null | undefined;
   product_id: string;
@@ -136,6 +141,7 @@ export const CheckoutLinkCreateProduct$outboundSchema: z.ZodMiniType<
     allowDiscountCodes: z._default(z.boolean(), true),
     requireBillingAddress: z._default(z.boolean(), false),
     discountId: z.optional(z.nullable(z.string())),
+    seats: z.optional(z.nullable(z.int())),
     successUrl: z.optional(z.nullable(z.string())),
     returnUrl: z.optional(z.nullable(z.string())),
     productId: z.string(),

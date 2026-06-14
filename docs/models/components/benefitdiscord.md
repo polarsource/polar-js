@@ -20,12 +20,14 @@ let value: BenefitDiscord = {
   isDeleted: false,
   organizationId: "<value>",
   metadata: {},
+  visibility: "private",
   properties: {
     guildId: "<id>",
     roleId: "<id>",
-    kickMember: false,
+    kickMember: true,
     guildToken: "<value>",
   },
+  visibilityConfigurable: false,
 };
 ```
 
@@ -43,4 +45,6 @@ let value: BenefitDiscord = {
 | `isDeleted`                                                                                   | *boolean*                                                                                     | :heavy_check_mark:                                                                            | Whether the benefit is deleted.                                                               |
 | `organizationId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the organization owning the benefit.                                                |
 | `metadata`                                                                                    | Record<string, *components.MetadataOutputType*>                                               | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `visibility`                                                                                  | [components.BenefitVisibility](../../models/components/benefitvisibility.md)                  | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `properties`                                                                                  | [components.BenefitDiscordProperties](../../models/components/benefitdiscordproperties.md)    | :heavy_check_mark:                                                                            | Properties for a benefit of type `discord`.                                                   |
+| `visibilityConfigurable`                                                                      | *boolean*                                                                                     | :heavy_check_mark:                                                                            | N/A                                                                                           |

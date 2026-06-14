@@ -26,10 +26,10 @@ import {
   OrganizationDetails$outboundSchema,
 } from "./organizationdetails.js";
 import {
-  OrganizationFeatureSettings,
-  OrganizationFeatureSettings$Outbound,
-  OrganizationFeatureSettings$outboundSchema,
-} from "./organizationfeaturesettings.js";
+  OrganizationFeatureSettingsUpdate,
+  OrganizationFeatureSettingsUpdate$Outbound,
+  OrganizationFeatureSettingsUpdate$outboundSchema,
+} from "./organizationfeaturesettingsupdate.js";
 import {
   OrganizationIndividualLegalEntitySchema,
   OrganizationIndividualLegalEntitySchema$Outbound,
@@ -340,7 +340,7 @@ export type OrganizationCreate = {
    * Two-letter country code (ISO 3166-1 alpha-2).
    */
   country?: CountryAlpha2Input | null | undefined;
-  featureSettings?: OrganizationFeatureSettings | null | undefined;
+  featureSettings?: OrganizationFeatureSettingsUpdate | null | undefined;
   subscriptionSettings?: OrganizationSubscriptionSettings | null | undefined;
   notificationSettings?: OrganizationNotificationSettings | null | undefined;
   customerEmailSettings?: OrganizationCustomerEmailSettings | null | undefined;
@@ -390,7 +390,10 @@ export type OrganizationCreate$Outbound = {
   socials?: Array<OrganizationSocialLink$Outbound> | null | undefined;
   details?: OrganizationDetails$Outbound | null | undefined;
   country?: string | null | undefined;
-  feature_settings?: OrganizationFeatureSettings$Outbound | null | undefined;
+  feature_settings?:
+    | OrganizationFeatureSettingsUpdate$Outbound
+    | null
+    | undefined;
   subscription_settings?:
     | OrganizationSubscriptionSettings$Outbound
     | null
@@ -436,7 +439,7 @@ export const OrganizationCreate$outboundSchema: z.ZodMiniType<
     details: z.optional(z.nullable(OrganizationDetails$outboundSchema)),
     country: z.optional(z.nullable(CountryAlpha2Input$outboundSchema)),
     featureSettings: z.optional(
-      z.nullable(OrganizationFeatureSettings$outboundSchema),
+      z.nullable(OrganizationFeatureSettingsUpdate$outboundSchema),
     ),
     subscriptionSettings: z.optional(
       z.nullable(OrganizationSubscriptionSettings$outboundSchema),

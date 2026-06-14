@@ -9,6 +9,10 @@ import {
   BenefitMeterCreditCreateProperties$Outbound,
   BenefitMeterCreditCreateProperties$outboundSchema,
 } from "./benefitmetercreditcreateproperties.js";
+import {
+  BenefitVisibility,
+  BenefitVisibility$outboundSchema,
+} from "./benefitvisibility.js";
 
 export type BenefitMeterCreditUpdateMetadata =
   | string
@@ -37,6 +41,10 @@ export type BenefitMeterCreditUpdate = {
    * The description of the benefit. Will be displayed on products having this benefit.
    */
   description?: string | null | undefined;
+  /**
+   * The visibility of the benefit in the customer portal.
+   */
+  visibility?: BenefitVisibility | null | undefined;
   type: "meter_credit";
   properties?: BenefitMeterCreditCreateProperties | null | undefined;
 };
@@ -68,6 +76,7 @@ export function benefitMeterCreditUpdateMetadataToJSON(
 export type BenefitMeterCreditUpdate$Outbound = {
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   description?: string | null | undefined;
+  visibility?: string | null | undefined;
   type: "meter_credit";
   properties?: BenefitMeterCreditCreateProperties$Outbound | null | undefined;
 };
@@ -84,6 +93,7 @@ export const BenefitMeterCreditUpdate$outboundSchema: z.ZodMiniType<
     ),
   ),
   description: z.optional(z.nullable(z.string())),
+  visibility: z.optional(z.nullable(BenefitVisibility$outboundSchema)),
   type: z.literal("meter_credit"),
   properties: z.optional(
     z.nullable(BenefitMeterCreditCreateProperties$outboundSchema),

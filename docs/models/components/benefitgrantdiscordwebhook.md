@@ -23,6 +23,7 @@ let value: BenefitGrantDiscordWebhook = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -55,12 +56,14 @@ let value: BenefitGrantDiscordWebhook = {
     isDeleted: true,
     organizationId: "<value>",
     metadata: {},
+    visibility: "draft",
     properties: {
       guildId: "<id>",
       roleId: "<id>",
-      kickMember: false,
+      kickMember: true,
       guildToken: "<value>",
     },
+    visibilityConfigurable: true,
   },
   properties: {},
 };

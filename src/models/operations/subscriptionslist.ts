@@ -24,6 +24,10 @@ import {
   SubscriptionSortProperty,
   SubscriptionSortProperty$outboundSchema,
 } from "../components/subscriptionsortproperty.js";
+import {
+  SubscriptionStatus,
+  SubscriptionStatus$outboundSchema,
+} from "../components/subscriptionstatus.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -50,6 +54,11 @@ export type ExternalCustomerIDFilter = string | Array<string>;
  * Filter by discount ID.
  */
 export type DiscountIDFilter = string | Array<string>;
+
+/**
+ * Filter by subscription status.
+ */
+export type StatusFilter = SubscriptionStatus | Array<SubscriptionStatus>;
 
 /**
  * Filter by customer cancellation reason.
@@ -81,8 +90,14 @@ export type SubscriptionsListRequest = {
   discountId?: string | Array<string> | null | undefined;
   /**
    * Filter by active or inactive subscription.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   active?: boolean | null | undefined;
+  /**
+   * Filter by subscription status.
+   */
+  status?: SubscriptionStatus | Array<SubscriptionStatus> | null | undefined;
   /**
    * Filter by subscriptions that are set to cancel at period end.
    */
@@ -209,6 +224,22 @@ export function discountIDFilterToJSON(
 }
 
 /** @internal */
+export type StatusFilter$Outbound = string | Array<string>;
+
+/** @internal */
+export const StatusFilter$outboundSchema: z.ZodMiniType<
+  StatusFilter$Outbound,
+  StatusFilter
+> = smartUnion([
+  SubscriptionStatus$outboundSchema,
+  z.array(SubscriptionStatus$outboundSchema),
+]);
+
+export function statusFilterToJSON(statusFilter: StatusFilter): string {
+  return JSON.stringify(StatusFilter$outboundSchema.parse(statusFilter));
+}
+
+/** @internal */
 export type CustomerCancellationReasonFilter$Outbound = string | Array<string>;
 
 /** @internal */
@@ -238,6 +269,7 @@ export type SubscriptionsListRequest$Outbound = {
   external_customer_id?: string | Array<string> | null | undefined;
   discount_id?: string | Array<string> | null | undefined;
   active?: boolean | null | undefined;
+  status?: string | Array<string> | null | undefined;
   cancel_at_period_end?: boolean | null | undefined;
   customer_cancellation_reason?: string | Array<string> | null | undefined;
   canceled_at_after?: string | null | undefined;
@@ -270,6 +302,14 @@ export const SubscriptionsListRequest$outboundSchema: z.ZodMiniType<
       z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     active: z.optional(z.nullable(z.boolean())),
+    status: z.optional(
+      z.nullable(
+        smartUnion([
+          SubscriptionStatus$outboundSchema,
+          z.array(SubscriptionStatus$outboundSchema),
+        ]),
+      ),
+    ),
     cancelAtPeriodEnd: z.optional(z.nullable(z.boolean())),
     customerCancellationReason: z.optional(
       z.nullable(

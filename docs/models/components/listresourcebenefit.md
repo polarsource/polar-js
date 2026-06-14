@@ -18,12 +18,14 @@ let value: ListResourceBenefit = {
       isDeleted: true,
       organizationId: "<value>",
       metadata: {},
+      visibility: "public",
       properties: {
         guildId: "<id>",
         roleId: "<id>",
-        kickMember: false,
+        kickMember: true,
         guildToken: "<value>",
       },
+      visibilityConfigurable: true,
     },
   ],
   pagination: {

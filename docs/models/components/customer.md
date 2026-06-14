@@ -16,6 +16,7 @@ const value: components.CustomerIndividual = {
   emailVerified: true,
   type: "individual",
   name: "John Doe",
+  billingName: "John Doe",
   billingAddress: {
     country: "US",
   },
@@ -42,6 +43,7 @@ const value: components.CustomerTeam = {
   emailVerified: true,
   type: "team",
   name: "John Doe",
+  billingName: "John Doe",
   billingAddress: {
     country: "US",
   },

@@ -21,7 +21,9 @@ let value: BenefitFeatureFlag = {
   isDeleted: true,
   organizationId: "<value>",
   metadata: {},
+  visibility: "public",
   properties: {},
+  visibilityConfigurable: false,
 };
 ```
 
@@ -39,4 +41,6 @@ let value: BenefitFeatureFlag = {
 | `isDeleted`                                                                                        | *boolean*                                                                                          | :heavy_check_mark:                                                                                 | Whether the benefit is deleted.                                                                    |
 | `organizationId`                                                                                   | *string*                                                                                           | :heavy_check_mark:                                                                                 | The ID of the organization owning the benefit.                                                     |
 | `metadata`                                                                                         | Record<string, *components.MetadataOutputType*>                                                    | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `visibility`                                                                                       | [components.BenefitVisibility](../../models/components/benefitvisibility.md)                       | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 | `properties`                                                                                       | [components.BenefitFeatureFlagProperties](../../models/components/benefitfeatureflagproperties.md) | :heavy_check_mark:                                                                                 | Properties for a benefit of type `feature_flag`.                                                   |
+| `visibilityConfigurable`                                                                           | *boolean*                                                                                          | :heavy_check_mark:                                                                                 | N/A                                                                                                |

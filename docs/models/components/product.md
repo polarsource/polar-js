@@ -57,35 +57,18 @@ let value: Product = {
       isDeleted: false,
       organizationId: "<value>",
       metadata: {},
+      visibility: "public",
       properties: {
         guildId: "<id>",
         roleId: "<id>",
-        kickMember: false,
+        kickMember: true,
         guildToken: "<value>",
       },
+      visibilityConfigurable: false,
     },
   ],
   medias: [],
-  attachedCustomFields: [
-    {
-      customFieldId: "<value>",
-      customField: {
-        createdAt: new Date("2026-07-16T19:04:19.230Z"),
-        modifiedAt: new Date("2025-02-05T20:03:25.495Z"),
-        id: "<value>",
-        metadata: {
-          "key": 6988.1,
-        },
-        type: "text",
-        slug: "<value>",
-        name: "<value>",
-        organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-        properties: {},
-      },
-      order: 235618,
-      required: true,
-    },
-  ],
+  attachedCustomFields: [],
 };
 ```
 

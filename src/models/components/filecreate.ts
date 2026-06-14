@@ -18,17 +18,24 @@ import {
   ProductMediaFileCreate$Outbound,
   ProductMediaFileCreate$outboundSchema,
 } from "./productmediafilecreate.js";
+import {
+  SupportCaseAttachmentFileCreate,
+  SupportCaseAttachmentFileCreate$Outbound,
+  SupportCaseAttachmentFileCreate$outboundSchema,
+} from "./supportcaseattachmentfilecreate.js";
 
 export type FileCreate =
   | DownloadableFileCreate
   | OrganizationAvatarFileCreate
-  | ProductMediaFileCreate;
+  | ProductMediaFileCreate
+  | SupportCaseAttachmentFileCreate;
 
 /** @internal */
 export type FileCreate$Outbound =
   | DownloadableFileCreate$Outbound
   | OrganizationAvatarFileCreate$Outbound
-  | ProductMediaFileCreate$Outbound;
+  | ProductMediaFileCreate$Outbound
+  | SupportCaseAttachmentFileCreate$Outbound;
 
 /** @internal */
 export const FileCreate$outboundSchema: z.ZodMiniType<
@@ -38,6 +45,7 @@ export const FileCreate$outboundSchema: z.ZodMiniType<
   DownloadableFileCreate$outboundSchema,
   OrganizationAvatarFileCreate$outboundSchema,
   ProductMediaFileCreate$outboundSchema,
+  SupportCaseAttachmentFileCreate$outboundSchema,
 ]);
 
 export function fileCreateToJSON(fileCreate: FileCreate): string {
