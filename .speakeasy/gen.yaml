@@ -43,7 +43,8 @@ typescript:
       jest: '*'
       ts-jest: '*'
     peerDependencies: {}
-  additionalPackageJSON: {}
+  additionalPackageJSON:
+    license: MIT
   additionalScripts: {}
   alwaysIncludeInboundAndOutbound: false
   author: Speakeasy

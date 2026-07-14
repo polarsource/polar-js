@@ -2,6 +2,7 @@
   "name": "@polar-sh/sdk",
   "version": "0.48.1",
   "author": "Speakeasy",
+  "license": "MIT",
   "type": "module",
   "tshy": {
     "sourceDialects": [
