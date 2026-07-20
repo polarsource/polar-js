@@ -16,11 +16,11 @@ let value: CustomerOrganization = {
   allowCustomerUpdates: true,
   customerPortalSettings: {
     usage: {
-      show: false,
+      show: true,
     },
     subscription: {
       updateSeats: true,
-      updatePlan: true,
+      updatePlan: false,
     },
   },
 };

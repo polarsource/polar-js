@@ -10,6 +10,10 @@ import {
   BenefitGitHubRepositoryCreateProperties$Outbound,
   BenefitGitHubRepositoryCreateProperties$outboundSchema,
 } from "./benefitgithubrepositorycreateproperties.js";
+import {
+  BenefitVisibility,
+  BenefitVisibility$outboundSchema,
+} from "./benefitvisibility.js";
 
 export type BenefitGitHubRepositoryCreateMetadata =
   | string
@@ -43,6 +47,10 @@ export type BenefitGitHubRepositoryCreate = {
    * The ID of the organization owning the benefit. **Required unless you use an organization token.**
    */
   organizationId?: string | null | undefined;
+  /**
+   * The visibility of the benefit in the customer portal.
+   */
+  visibility?: BenefitVisibility | null | undefined;
   /**
    * Properties to create a benefit of type `github_repository`.
    */
@@ -79,6 +87,7 @@ export type BenefitGitHubRepositoryCreate$Outbound = {
   type: "github_repository";
   description: string;
   organization_id?: string | null | undefined;
+  visibility?: string | null | undefined;
   properties: BenefitGitHubRepositoryCreateProperties$Outbound;
 };
 
@@ -97,6 +106,7 @@ export const BenefitGitHubRepositoryCreate$outboundSchema: z.ZodMiniType<
     type: z.literal("github_repository"),
     description: z.string(),
     organizationId: z.optional(z.nullable(z.string())),
+    visibility: z.optional(z.nullable(BenefitVisibility$outboundSchema)),
     properties: BenefitGitHubRepositoryCreateProperties$outboundSchema,
   }),
   z.transform((v) => {

@@ -26,7 +26,7 @@ export class CustomerSeats extends ClientSDK {
    * List Seats
    *
    * @remarks
-   * **Scopes**: `customer_seats:write`
+   * **Scopes**: `customer_seats:read`
    */
   async listSeats(
     request: CustomerSeatsListSeatsRequest,

@@ -64,6 +64,10 @@ export type SubscriptionCustomer = {
    * The name of the customer.
    */
   name: string | null;
+  /**
+   * The name that should appear on the customer's invoices. Falls back to the customer name when not explicitly set.
+   */
+  billingName: string | null;
   billingAddress: Address | null;
   taxId: Array<string | TaxIDFormat | null> | null;
   locale?: string | null | undefined;
@@ -79,7 +83,7 @@ export type SubscriptionCustomer = {
    * Timestamp for when the customer was soft deleted.
    */
   deletedAt: Date | null;
-  avatarUrl: string;
+  avatarUrl: string | null;
 };
 
 /** @internal */
@@ -127,6 +131,7 @@ export const SubscriptionCustomer$inboundSchema: z.ZodMiniType<
     email_verified: z.boolean(),
     type: CustomerType$inboundSchema,
     name: z.nullable(z.string()),
+    billing_name: z.nullable(z.string()),
     billing_address: z.nullable(Address$inboundSchema),
     tax_id: z.nullable(
       z.array(z.nullable(smartUnion([z.string(), TaxIDFormat$inboundSchema]))),
@@ -137,7 +142,7 @@ export const SubscriptionCustomer$inboundSchema: z.ZodMiniType<
     deleted_at: z.nullable(
       z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
-    avatar_url: z.string(),
+    avatar_url: z.nullable(z.string()),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -145,6 +150,7 @@ export const SubscriptionCustomer$inboundSchema: z.ZodMiniType<
       "modified_at": "modifiedAt",
       "external_id": "externalId",
       "email_verified": "emailVerified",
+      "billing_name": "billingName",
       "billing_address": "billingAddress",
       "tax_id": "taxId",
       "organization_id": "organizationId",
@@ -165,13 +171,14 @@ export type SubscriptionCustomer$Outbound = {
   email_verified: boolean;
   type: string;
   name: string | null;
+  billing_name: string | null;
   billing_address: Address$Outbound | null;
   tax_id: Array<string | string | null> | null;
   locale?: string | null | undefined;
   organization_id: string;
   default_payment_method_id?: string | null | undefined;
   deleted_at: string | null;
-  avatar_url: string;
+  avatar_url: string | null;
 };
 
 /** @internal */
@@ -189,6 +196,7 @@ export const SubscriptionCustomer$outboundSchema: z.ZodMiniType<
     emailVerified: z.boolean(),
     type: CustomerType$outboundSchema,
     name: z.nullable(z.string()),
+    billingName: z.nullable(z.string()),
     billingAddress: z.nullable(Address$outboundSchema),
     taxId: z.nullable(
       z.array(z.nullable(smartUnion([z.string(), TaxIDFormat$outboundSchema]))),
@@ -197,7 +205,7 @@ export const SubscriptionCustomer$outboundSchema: z.ZodMiniType<
     organizationId: z.string(),
     defaultPaymentMethodId: z.optional(z.nullable(z.string())),
     deletedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
-    avatarUrl: z.string(),
+    avatarUrl: z.nullable(z.string()),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -205,6 +213,7 @@ export const SubscriptionCustomer$outboundSchema: z.ZodMiniType<
       modifiedAt: "modified_at",
       externalId: "external_id",
       emailVerified: "email_verified",
+      billingName: "billing_name",
       billingAddress: "billing_address",
       taxId: "tax_id",
       organizationId: "organization_id",

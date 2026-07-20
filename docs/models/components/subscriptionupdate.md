@@ -43,6 +43,22 @@ const value: components.SubscriptionRevoke = {
 };
 ```
 
+### `components.SubscriptionPause`
+
+```typescript
+const value: components.SubscriptionPause = {
+  pauseAtPeriodEnd: false,
+};
+```
+
+### `components.SubscriptionResume`
+
+```typescript
+const value: components.SubscriptionResume = {
+  resume: true,
+};
+```
+
 ### `components.SubscriptionUpdateClear`
 
 ```typescript

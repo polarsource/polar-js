@@ -29,11 +29,11 @@ export type ProductPriceMeter = {
   /**
    * The label for the custom unit.
    */
-  customLabel?: string | null | undefined;
+  customLabel: string | null;
   /**
    * The multiplier to convert from base unit to display scale.
    */
-  customMultiplier?: number | null | undefined;
+  customMultiplier: number | null;
 };
 
 /** @internal */
@@ -45,8 +45,8 @@ export const ProductPriceMeter$inboundSchema: z.ZodMiniType<
     id: z.string(),
     name: z.string(),
     unit: MeterUnit$inboundSchema,
-    custom_label: z.optional(z.nullable(z.string())),
-    custom_multiplier: z.optional(z.nullable(z.int())),
+    custom_label: z.nullable(z.string()),
+    custom_multiplier: z.nullable(z.int()),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -60,8 +60,8 @@ export type ProductPriceMeter$Outbound = {
   id: string;
   name: string;
   unit: string;
-  custom_label?: string | null | undefined;
-  custom_multiplier?: number | null | undefined;
+  custom_label: string | null;
+  custom_multiplier: number | null;
 };
 
 /** @internal */
@@ -73,8 +73,8 @@ export const ProductPriceMeter$outboundSchema: z.ZodMiniType<
     id: z.string(),
     name: z.string(),
     unit: MeterUnit$outboundSchema,
-    customLabel: z.optional(z.nullable(z.string())),
-    customMultiplier: z.optional(z.nullable(z.int())),
+    customLabel: z.nullable(z.string()),
+    customMultiplier: z.nullable(z.int()),
   }),
   z.transform((v) => {
     return remap$(v, {

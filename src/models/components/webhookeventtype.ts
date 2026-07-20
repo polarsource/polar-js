@@ -31,6 +31,8 @@ export const WebhookEventType = {
   SubscriptionUncanceled: "subscription.uncanceled",
   SubscriptionRevoked: "subscription.revoked",
   SubscriptionPastDue: "subscription.past_due",
+  SubscriptionPaused: "subscription.paused",
+  SubscriptionResumed: "subscription.resumed",
   RefundCreated: "refund.created",
   RefundUpdated: "refund.updated",
   ProductCreated: "product.created",

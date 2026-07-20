@@ -89,6 +89,7 @@ export const TaxIDFormat = {
   VeRif: "ve_rif",
   VnTin: "vn_tin",
   ZaVat: "za_vat",
+  MuTan: "mu_tan",
 } as const;
 /**
  * List of supported tax ID formats.

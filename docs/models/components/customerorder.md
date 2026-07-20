@@ -45,68 +45,63 @@ let value: CustomerOrder = {
     visibility: "private",
     recurringInterval: "week",
     recurringIntervalCount: 984078,
-    isRecurring: true,
-    isArchived: false,
+    meterInterval: "year",
+    meterIntervalCount: null,
+    isRecurring: false,
+    isArchived: true,
     organizationId: "<value>",
     prices: [],
-    benefits: [
-      {
-        id: "<value>",
-        createdAt: new Date("2024-10-10T05:16:33.838Z"),
-        modifiedAt: new Date("2026-02-25T08:33:06.239Z"),
-        type: "feature_flag",
-        description: "sushi fortunately gigantic soybean tomorrow um where",
-        selectable: false,
-        deletable: false,
-        isDeleted: false,
-        organizationId: "<value>",
-      },
-    ],
+    benefits: [],
     medias: [],
     organization: {
-      createdAt: new Date("2026-09-30T11:33:49.764Z"),
-      modifiedAt: new Date("2024-03-13T19:22:24.375Z"),
+      createdAt: new Date("2024-11-13T04:56:58.190Z"),
+      modifiedAt: new Date("2025-02-17T06:08:03.827Z"),
       id: "<value>",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://forceful-grass.com/",
+      avatarUrl: null,
       prorationBehavior: "invoice",
-      allowCustomerUpdates: true,
+      allowCustomerUpdates: false,
       customerPortalSettings: {
         usage: {
-          show: false,
+          show: true,
         },
         subscription: {
           updateSeats: true,
-          updatePlan: true,
+          updatePlan: false,
         },
       },
     },
   },
   subscription: {
-    createdAt: new Date("2024-11-04T19:41:36.912Z"),
-    modifiedAt: null,
+    createdAt: new Date("2026-03-05T16:50:20.068Z"),
+    modifiedAt: new Date("2025-11-25T08:25:46.285Z"),
     id: "<value>",
     amount: 10000,
     currency: "usd",
-    recurringInterval: "day",
-    recurringIntervalCount: 413401,
-    status: "canceled",
-    currentPeriodStart: new Date("2025-10-12T05:58:53.192Z"),
-    currentPeriodEnd: new Date("2024-12-06T08:15:27.487Z"),
-    trialStart: new Date("2025-09-13T03:55:10.034Z"),
-    trialEnd: new Date("2025-05-13T02:59:27.247Z"),
-    cancelAtPeriodEnd: false,
-    canceledAt: new Date("2025-05-02T19:24:39.019Z"),
-    startedAt: new Date("2024-05-18T07:14:51.645Z"),
-    endsAt: new Date("2025-05-29T21:01:39.779Z"),
-    endedAt: new Date("2024-08-17T08:05:21.446Z"),
+    recurringInterval: "week",
+    recurringIntervalCount: 572488,
+    status: "paused",
+    currentPeriodStart: new Date("2026-02-16T11:27:14.433Z"),
+    currentPeriodEnd: new Date("2024-01-28T08:53:17.167Z"),
+    currentMeterPeriodStart: new Date("2026-04-11T01:29:26.587Z"),
+    currentMeterPeriodEnd: null,
+    trialStart: new Date("2026-01-31T12:06:59.543Z"),
+    trialEnd: new Date("2025-12-22T13:25:32.132Z"),
+    cancelAtPeriodEnd: true,
+    canceledAt: new Date("2026-02-05T17:54:42.992Z"),
+    startedAt: new Date("2024-12-05T03:46:07.807Z"),
+    endsAt: new Date("2025-01-03T23:26:47.932Z"),
+    endedAt: new Date("2025-07-31T01:48:14.412Z"),
+    pauseAtPeriodEnd: false,
+    pausedAt: new Date("2026-03-13T10:06:28.765Z"),
+    resumesAt: new Date("2026-04-21T02:49:45.227Z"),
     customerId: "<value>",
     productId: "<value>",
     discountId: "<value>",
     checkoutId: "<value>",
     customerCancellationReason: "low_quality",
-    customerCancellationComment: "<value>",
+    customerCancellationComment: null,
   },
   items: [
     {
@@ -157,10 +152,10 @@ let value: CustomerOrder = {
 | `discountId`                                                                                                                                                                                            | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | `subscriptionId`                                                                                                                                                                                        | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | `checkoutId`                                                                                                                                                                                            | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
+| `nextPaymentAttemptAt`                                                                                                                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                                           | :heavy_minus_sign:                                                                                                                                                                                      | When the next automatic payment retry is scheduled. `null` if the order is not in dunning or all retries have been exhausted.                                                                           |                                                                                                                                                                                                         |
 | `product`                                                                                                                                                                                               | [components.CustomerOrderProduct](../../models/components/customerorderproduct.md)                                                                                                                      | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | `subscription`                                                                                                                                                                                          | [components.CustomerOrderSubscription](../../models/components/customerordersubscription.md)                                                                                                            | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | `items`                                                                                                                                                                                                 | [components.OrderItemSchema](../../models/components/orderitemschema.md)[]                                                                                                                              | :heavy_check_mark:                                                                                                                                                                                      | Line items composing the order.                                                                                                                                                                         |                                                                                                                                                                                                         |
 | `description`                                                                                                                                                                                           | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | A summary description of the order.                                                                                                                                                                     | Pro Plan                                                                                                                                                                                                |
-| `nextPaymentAttemptAt`                                                                                                                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                                           | :heavy_minus_sign:                                                                                                                                                                                      | When the next payment retry is scheduled                                                                                                                                                                |                                                                                                                                                                                                         |
 | `refundableAmount`                                                                                                                                                                                      | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Amount in cents that can still be refunded (net, before taxes). Accounts for any applied customer balance and previous refunds.                                                                         | 9000                                                                                                                                                                                                    |
 | `refundableTaxAmount`                                                                                                                                                                                   | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Sales tax in cents that would be refunded if the full refundable amount is refunded.                                                                                                                    | 720                                                                                                                                                                                                     |

@@ -267,7 +267,7 @@ run();
 
 ### Response
 
-**Promise\<[operations.CustomersExportResponse](../../models/operations/customersexportresponse.md)\>**
+**Promise\<[string](../../models/.md)\>**
 
 ### Errors
 

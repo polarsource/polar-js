@@ -7,6 +7,10 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  AuthorizeOrganization,
+  AuthorizeOrganization$inboundSchema,
+} from "./authorizeorganization.js";
 import { AuthorizeUser, AuthorizeUser$inboundSchema } from "./authorizeuser.js";
 import {
   OAuth2ClientPublic,
@@ -19,6 +23,8 @@ export type AuthorizeResponseUser = {
   subType: "user";
   sub: AuthorizeUser | null;
   scopes: Array<Scope>;
+  organizations: Array<AuthorizeOrganization>;
+  requiresSingleOrganization: boolean;
   scopeDisplayNames?: { [k: string]: string } | undefined;
 };
 
@@ -32,11 +38,14 @@ export const AuthorizeResponseUser$inboundSchema: z.ZodMiniType<
     sub_type: z.literal("user"),
     sub: z.nullable(AuthorizeUser$inboundSchema),
     scopes: z.array(Scope$inboundSchema),
+    organizations: z.array(AuthorizeOrganization$inboundSchema),
+    requires_single_organization: z._default(z.boolean(), false),
     scope_display_names: z.optional(z.record(z.string(), z.string())),
   }),
   z.transform((v) => {
     return remap$(v, {
       "sub_type": "subType",
+      "requires_single_organization": "requiresSingleOrganization",
       "scope_display_names": "scopeDisplayNames",
     });
   }),

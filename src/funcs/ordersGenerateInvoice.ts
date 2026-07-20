@@ -20,10 +20,18 @@ import {
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
 import {
-  OrdersGenerateInvoiceResponse422OrdersGenerateInvoice,
-  OrdersGenerateInvoiceResponse422OrdersGenerateInvoice$inboundSchema,
-} from "../models/errors/ordersgenerateinvoice.js";
+  MissingInvoiceBillingDetails,
+  MissingInvoiceBillingDetails$inboundSchema,
+} from "../models/errors/missinginvoicebillingdetails.js";
+import {
+  OrderNotEligibleForInvoice,
+  OrderNotEligibleForInvoice$inboundSchema,
+} from "../models/errors/ordernoteligibleforinvoice.js";
 import { PolarError } from "../models/errors/polarerror.js";
+import {
+  ResourceNotFound,
+  ResourceNotFound$inboundSchema,
+} from "../models/errors/resourcenotfound.js";
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
@@ -48,7 +56,9 @@ export function ordersGenerateInvoice(
 ): APIPromise<
   Result<
     any,
-    | OrdersGenerateInvoiceResponse422OrdersGenerateInvoice
+    | ResourceNotFound
+    | OrderNotEligibleForInvoice
+    | MissingInvoiceBillingDetails
     | PolarError
     | ResponseValidationError
     | ConnectionError
@@ -74,7 +84,9 @@ async function $do(
   [
     Result<
       any,
-      | OrdersGenerateInvoiceResponse422OrdersGenerateInvoice
+      | ResourceNotFound
+      | OrderNotEligibleForInvoice
+      | MissingInvoiceBillingDetails
       | PolarError
       | ResponseValidationError
       | ConnectionError
@@ -162,7 +174,9 @@ async function $do(
 
   const [result] = await M.match<
     any,
-    | OrdersGenerateInvoiceResponse422OrdersGenerateInvoice
+    | ResourceNotFound
+    | OrderNotEligibleForInvoice
+    | MissingInvoiceBillingDetails
     | PolarError
     | ResponseValidationError
     | ConnectionError
@@ -173,10 +187,9 @@ async function $do(
     | SDKValidationError
   >(
     M.json(202, z.any()),
-    M.jsonErr(
-      422,
-      OrdersGenerateInvoiceResponse422OrdersGenerateInvoice$inboundSchema,
-    ),
+    M.jsonErr(404, ResourceNotFound$inboundSchema),
+    M.jsonErr(409, OrderNotEligibleForInvoice$inboundSchema),
+    M.jsonErr(422, MissingInvoiceBillingDetails$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

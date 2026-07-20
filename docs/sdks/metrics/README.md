@@ -174,7 +174,7 @@ run();
 
 ### Response
 
-**Promise\<[operations.MetricsExportResponse](../../models/operations/metricsexportresponse.md)\>**
+**Promise\<[string](../../models/.md)\>**
 
 ### Errors
 

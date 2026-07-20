@@ -1,23 +1,30 @@
-# CustomerPortal.Members
+# Customers.Members
 
 ## Overview
 
 ### Available Operations
 
-* [listMembers](#listmembers) - List Members
-* [addMember](#addmember) - Add Member
-* [removeMember](#removemember) - Remove Member
-* [updateMember](#updatemember) - Update Member
+* [create](#create) - Create Member
+* [createExternal](#createexternal) - Create Member by Customer External ID
+* [get](#get) - Get Member
+* [delete](#delete) - Delete Member
+* [update](#update) - Update Member
+* [getExternal](#getexternal) - Get Member by External ID
+* [deleteExternal](#deleteexternal) - Delete Member by External ID
+* [updateExternal](#updateexternal) - Update Member by External ID
 
-## listMembers
+## create
 
-List all members of the customer's team.
+Create a new member for a customer.
 
-Only available to owners and billing managers of team customers.
+Only B2B customers with the member management feature enabled can add members.
+The authenticated user or organization must have access to the customer's organization.
+
+**Scopes**: `members:write`
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="customer_portal:members:list_members" method="get" path="/v1/customer-portal/members" -->
+<!-- UsageSnippet language="typescript" operationID="customers:members:create" method="post" path="/v1/customers/{id}/members" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -26,88 +33,13 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.customerPortal.members.listMembers({});
-
-  for await (const page of result) {
-    console.log(page);
-  }
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { PolarCore } from "@polar-sh/sdk/core.js";
-import { customerPortalMembersListMembers } from "@polar-sh/sdk/funcs/customerPortalMembersListMembers.js";
-
-// Use `PolarCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const polar = new PolarCore({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
-
-async function run() {
-  const res = await customerPortalMembersListMembers(polar, {});
-  if (res.ok) {
-    const { value: result } = res;
-    for await (const page of result) {
-    console.log(page);
-  }
-  } else {
-    console.log("customerPortalMembersListMembers failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.CustomerPortalMembersListMembersRequest](../../models/operations/customerportalmemberslistmembersrequest.md)                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[operations.CustomerPortalMembersListMembersResponse](../../models/operations/customerportalmemberslistmembersresponse.md)\>**
-
-### Errors
-
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPValidationError | 422                        | application/json           |
-| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
-
-## addMember
-
-Add a new member to the customer's team.
-
-Only available to owners and billing managers of team customers.
-
-Rules:
-- Cannot add a member with the owner role (there must be exactly one owner)
-- If a member with this email already exists, the existing member is returned
-
-### Example Usage
-
-<!-- UsageSnippet language="typescript" operationID="customer_portal:members:add_member" method="post" path="/v1/customer-portal/members" -->
-```typescript
-import { Polar } from "@polar-sh/sdk";
-
-const polar = new Polar({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
-
-async function run() {
-  const result = await polar.customerPortal.members.addMember({
-    email: "Domenica.Schamberger@yahoo.com",
+  const result = await polar.customers.members.create({
+    id: "<value>",
+    memberCreateFromCustomer: {
+      email: "member@example.com",
+      name: "Jane Doe",
+      externalId: "usr_1337",
+    },
   });
 
   console.log(result);
@@ -122,7 +54,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { customerPortalMembersAddMember } from "@polar-sh/sdk/funcs/customerPortalMembersAddMember.js";
+import { customersMembersCreate } from "@polar-sh/sdk/funcs/customersMembersCreate.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -131,14 +63,19 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await customerPortalMembersAddMember(polar, {
-    email: "Domenica.Schamberger@yahoo.com",
+  const res = await customersMembersCreate(polar, {
+    id: "<value>",
+    memberCreateFromCustomer: {
+      email: "member@example.com",
+      name: "Jane Doe",
+      externalId: "usr_1337",
+    },
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("customerPortalMembersAddMember failed:", res.error);
+    console.log("customersMembersCreate failed:", res.error);
   }
 }
 
@@ -149,35 +86,33 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [components.CustomerPortalMemberCreate](../../models/components/customerportalmembercreate.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CustomersMembersCreateRequest](../../models/operations/customersmemberscreaterequest.md)                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[components.CustomerPortalMember](../../models/components/customerportalmember.md)\>**
+**Promise\<[components.Member](../../models/components/member.md)\>**
 
 ### Errors
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
+| errors.NotPermitted        | 403                        | application/json           |
+| errors.ResourceNotFound    | 404                        | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
-## removeMember
+## createExternal
 
-Remove a member from the team.
+Create a new member for a customer identified by its external ID.
 
-Only available to owners and billing managers of team customers.
-
-Rules:
-- Cannot remove yourself
-- Cannot remove the only owner
+**Scopes**: `members:write`
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="customer_portal:members:remove_member" method="delete" path="/v1/customer-portal/members/{id}" -->
+<!-- UsageSnippet language="typescript" operationID="customers:members:create_external" method="post" path="/v1/customers/external/{external_id}/members" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -186,8 +121,177 @@ const polar = new Polar({
 });
 
 async function run() {
-  await polar.customerPortal.members.removeMember({
-    id: "b61c5e87-cda5-4b14-93ee-71a695f42d9d",
+  const result = await polar.customers.members.createExternal({
+    externalId: "<id>",
+    memberCreateFromCustomer: {
+      email: "member@example.com",
+      name: "Jane Doe",
+      externalId: "usr_1337",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { PolarCore } from "@polar-sh/sdk/core.js";
+import { customersMembersCreateExternal } from "@polar-sh/sdk/funcs/customersMembersCreateExternal.js";
+
+// Use `PolarCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const polar = new PolarCore({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  const res = await customersMembersCreateExternal(polar, {
+    externalId: "<id>",
+    memberCreateFromCustomer: {
+      email: "member@example.com",
+      name: "Jane Doe",
+      externalId: "usr_1337",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("customersMembersCreateExternal failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CustomersMembersCreateExternalRequest](../../models/operations/customersmemberscreateexternalrequest.md)                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.Member](../../models/components/member.md)\>**
+
+### Errors
+
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| errors.NotPermitted                | 403                                | application/json                   |
+| errors.ResourceNotFound            | 404                                | application/json                   |
+| errors.AmbiguousExternalCustomerID | 409                                | application/json                   |
+| errors.HTTPValidationError         | 422                                | application/json                   |
+| errors.SDKError                    | 4XX, 5XX                           | \*/\*                              |
+
+## get
+
+Get a member of a customer by its ID.
+
+**Scopes**: `members:read` `members:write`
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="customers:members:get" method="get" path="/v1/customers/{id}/members/{member_id}" -->
+```typescript
+import { Polar } from "@polar-sh/sdk";
+
+const polar = new Polar({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  const result = await polar.customers.members.get({
+    id: "<value>",
+    memberId: "a794a9c8-dc43-40b4-b2f5-ed16145e28ac",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { PolarCore } from "@polar-sh/sdk/core.js";
+import { customersMembersGet } from "@polar-sh/sdk/funcs/customersMembersGet.js";
+
+// Use `PolarCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const polar = new PolarCore({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  const res = await customersMembersGet(polar, {
+    id: "<value>",
+    memberId: "a794a9c8-dc43-40b4-b2f5-ed16145e28ac",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("customersMembersGet failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CustomersMembersGetRequest](../../models/operations/customersmembersgetrequest.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.Member](../../models/components/member.md)\>**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.ResourceNotFound    | 404                        | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
+
+## delete
+
+Delete a member of a customer.
+
+**Scopes**: `members:write`
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="customers:members:delete" method="delete" path="/v1/customers/{id}/members/{member_id}" -->
+```typescript
+import { Polar } from "@polar-sh/sdk";
+
+const polar = new Polar({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  await polar.customers.members.delete({
+    id: "<value>",
+    memberId: "a6d6f519-f76e-49a0-9868-b346c98100a6",
   });
 
 
@@ -202,7 +306,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { customerPortalMembersRemoveMember } from "@polar-sh/sdk/funcs/customerPortalMembersRemoveMember.js";
+import { customersMembersDelete } from "@polar-sh/sdk/funcs/customersMembersDelete.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -211,14 +315,15 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await customerPortalMembersRemoveMember(polar, {
-    id: "b61c5e87-cda5-4b14-93ee-71a695f42d9d",
+  const res = await customersMembersDelete(polar, {
+    id: "<value>",
+    memberId: "a6d6f519-f76e-49a0-9868-b346c98100a6",
   });
   if (res.ok) {
     const { value: result } = res;
     
   } else {
-    console.log("customerPortalMembersRemoveMember failed:", res.error);
+    console.log("customersMembersDelete failed:", res.error);
   }
 }
 
@@ -229,7 +334,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.CustomerPortalMembersRemoveMemberRequest](../../models/operations/customerportalmembersremovememberrequest.md)                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CustomersMembersDeleteRequest](../../models/operations/customersmembersdeleterequest.md)                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -242,22 +347,21 @@ run();
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
+| errors.ResourceNotFound    | 404                        | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
-## updateMember
+## update
 
-Update a member's role.
+Update a member of a customer.
 
-Only available to owners and billing managers of team customers.
+Only name, email and role can be updated.
 
-Rules:
-- Cannot modify your own role (to prevent self-demotion)
-- Customer must have exactly one owner at all times
+**Scopes**: `members:write`
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="customer_portal:members:update_member" method="patch" path="/v1/customer-portal/members/{id}" -->
+<!-- UsageSnippet language="typescript" operationID="customers:members:update" method="patch" path="/v1/customers/{id}/members/{member_id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -266,9 +370,12 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.customerPortal.members.updateMember({
-    id: "8319ae11-ed5f-4642-81e4-4b40731df195",
-    customerPortalMemberUpdate: {},
+  const result = await polar.customers.members.update({
+    id: "<value>",
+    memberId: "f48ea05d-6a60-4bb1-b3d9-4b3cd7194f3a",
+    memberUpdate: {
+      name: "Jane Doe",
+    },
   });
 
   console.log(result);
@@ -283,7 +390,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { customerPortalMembersUpdateMember } from "@polar-sh/sdk/funcs/customerPortalMembersUpdateMember.js";
+import { customersMembersUpdate } from "@polar-sh/sdk/funcs/customersMembersUpdate.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -292,15 +399,18 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await customerPortalMembersUpdateMember(polar, {
-    id: "8319ae11-ed5f-4642-81e4-4b40731df195",
-    customerPortalMemberUpdate: {},
+  const res = await customersMembersUpdate(polar, {
+    id: "<value>",
+    memberId: "f48ea05d-6a60-4bb1-b3d9-4b3cd7194f3a",
+    memberUpdate: {
+      name: "Jane Doe",
+    },
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("customerPortalMembersUpdateMember failed:", res.error);
+    console.log("customersMembersUpdate failed:", res.error);
   }
 }
 
@@ -311,18 +421,265 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.CustomerPortalMembersUpdateMemberRequest](../../models/operations/customerportalmembersupdatememberrequest.md)                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CustomersMembersUpdateRequest](../../models/operations/customersmembersupdaterequest.md)                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[components.CustomerPortalMember](../../models/components/customerportalmember.md)\>**
+**Promise\<[components.Member](../../models/components/member.md)\>**
 
 ### Errors
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
+| errors.ResourceNotFound    | 404                        | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
+
+## getExternal
+
+Get a member by external ID for a customer identified by its external ID.
+
+**Scopes**: `members:read` `members:write`
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="customers:members:get_external" method="get" path="/v1/customers/external/{external_id}/members/{member_external_id}" -->
+```typescript
+import { Polar } from "@polar-sh/sdk";
+
+const polar = new Polar({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  const result = await polar.customers.members.getExternal({
+    externalId: "<id>",
+    memberExternalId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { PolarCore } from "@polar-sh/sdk/core.js";
+import { customersMembersGetExternal } from "@polar-sh/sdk/funcs/customersMembersGetExternal.js";
+
+// Use `PolarCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const polar = new PolarCore({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  const res = await customersMembersGetExternal(polar, {
+    externalId: "<id>",
+    memberExternalId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("customersMembersGetExternal failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CustomersMembersGetExternalRequest](../../models/operations/customersmembersgetexternalrequest.md)                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.Member](../../models/components/member.md)\>**
+
+### Errors
+
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| errors.ResourceNotFound            | 404                                | application/json                   |
+| errors.AmbiguousExternalCustomerID | 409                                | application/json                   |
+| errors.HTTPValidationError         | 422                                | application/json                   |
+| errors.SDKError                    | 4XX, 5XX                           | \*/\*                              |
+
+## deleteExternal
+
+Delete a member by external ID for a customer identified by its external ID.
+
+**Scopes**: `members:write`
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="customers:members:delete_external" method="delete" path="/v1/customers/external/{external_id}/members/{member_external_id}" -->
+```typescript
+import { Polar } from "@polar-sh/sdk";
+
+const polar = new Polar({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  await polar.customers.members.deleteExternal({
+    externalId: "<id>",
+    memberExternalId: "<id>",
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { PolarCore } from "@polar-sh/sdk/core.js";
+import { customersMembersDeleteExternal } from "@polar-sh/sdk/funcs/customersMembersDeleteExternal.js";
+
+// Use `PolarCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const polar = new PolarCore({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  const res = await customersMembersDeleteExternal(polar, {
+    externalId: "<id>",
+    memberExternalId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("customersMembersDeleteExternal failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CustomersMembersDeleteExternalRequest](../../models/operations/customersmembersdeleteexternalrequest.md)                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| errors.ResourceNotFound            | 404                                | application/json                   |
+| errors.AmbiguousExternalCustomerID | 409                                | application/json                   |
+| errors.HTTPValidationError         | 422                                | application/json                   |
+| errors.SDKError                    | 4XX, 5XX                           | \*/\*                              |
+
+## updateExternal
+
+Update a member by external ID for a customer identified by its external ID.
+
+**Scopes**: `members:write`
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="customers:members:update_external" method="patch" path="/v1/customers/external/{external_id}/members/{member_external_id}" -->
+```typescript
+import { Polar } from "@polar-sh/sdk";
+
+const polar = new Polar({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  const result = await polar.customers.members.updateExternal({
+    externalId: "<id>",
+    memberExternalId: "<id>",
+    memberUpdate: {
+      name: "Jane Doe",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { PolarCore } from "@polar-sh/sdk/core.js";
+import { customersMembersUpdateExternal } from "@polar-sh/sdk/funcs/customersMembersUpdateExternal.js";
+
+// Use `PolarCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const polar = new PolarCore({
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+});
+
+async function run() {
+  const res = await customersMembersUpdateExternal(polar, {
+    externalId: "<id>",
+    memberExternalId: "<id>",
+    memberUpdate: {
+      name: "Jane Doe",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("customersMembersUpdateExternal failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CustomersMembersUpdateExternalRequest](../../models/operations/customersmembersupdateexternalrequest.md)                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.Member](../../models/components/member.md)\>**
+
+### Errors
+
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| errors.ResourceNotFound            | 404                                | application/json                   |
+| errors.AmbiguousExternalCustomerID | 409                                | application/json                   |
+| errors.HTTPValidationError         | 422                                | application/json                   |
+| errors.SDKError                    | 4XX, 5XX                           | \*/\*                              |

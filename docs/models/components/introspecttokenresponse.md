@@ -12,10 +12,14 @@ let value: IntrospectTokenResponse = {
   scope: "<value>",
   subType: "organization",
   sub: "<value>",
+  organizations: [
+    "<value 1>",
+    "<value 2>",
+  ],
   aud: "<value>",
   iss: "<value>",
-  exp: 646198,
-  iat: 983245,
+  exp: 983245,
+  iat: 971619,
 };
 ```
 
@@ -29,6 +33,7 @@ let value: IntrospectTokenResponse = {
 | `scope`                                                      | *string*                                                     | :heavy_check_mark:                                           | N/A                                                          |
 | `subType`                                                    | [components.SubType](../../models/components/subtype.md)     | :heavy_check_mark:                                           | N/A                                                          |
 | `sub`                                                        | *string*                                                     | :heavy_check_mark:                                           | N/A                                                          |
+| `organizations`                                              | *string*[]                                                   | :heavy_check_mark:                                           | N/A                                                          |
 | `aud`                                                        | *string*                                                     | :heavy_check_mark:                                           | N/A                                                          |
 | `iss`                                                        | *string*                                                     | :heavy_check_mark:                                           | N/A                                                          |
 | `exp`                                                        | *number*                                                     | :heavy_check_mark:                                           | N/A                                                          |

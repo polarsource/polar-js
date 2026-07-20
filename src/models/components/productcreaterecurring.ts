@@ -21,11 +21,6 @@ import {
   ProductPriceFixedCreate$outboundSchema,
 } from "./productpricefixedcreate.js";
 import {
-  ProductPriceFreeCreate,
-  ProductPriceFreeCreate$Outbound,
-  ProductPriceFreeCreate$outboundSchema,
-} from "./productpricefreecreate.js";
-import {
   ProductPriceMeteredUnitCreate,
   ProductPriceMeteredUnitCreate$Outbound,
   ProductPriceMeteredUnitCreate$outboundSchema,
@@ -40,9 +35,9 @@ import {
   ProductVisibility$outboundSchema,
 } from "./productvisibility.js";
 import {
-  SubscriptionRecurringInterval,
-  SubscriptionRecurringInterval$outboundSchema,
-} from "./subscriptionrecurringinterval.js";
+  RecurringInterval,
+  RecurringInterval$outboundSchema,
+} from "./recurringinterval.js";
 import {
   TrialInterval,
   TrialInterval$outboundSchema,
@@ -53,7 +48,6 @@ export type ProductCreateRecurringMetadata = string | number | number | boolean;
 export type ProductCreateRecurringPrices =
   | ProductPriceCustomCreate
   | ProductPriceFixedCreate
-  | ProductPriceFreeCreate
   | ProductPriceMeteredUnitCreate
   | ProductPriceSeatBasedCreate;
 
@@ -84,12 +78,11 @@ export type ProductCreateRecurring = {
   description?: string | null | undefined;
   visibility?: ProductVisibility | undefined;
   /**
-   * List of available prices for this product. It should contain at most one static price (fixed, custom or free), and any number of metered prices. Metered prices are not supported on one-time purchase products.
+   * List of available prices for this product. It may combine at most one fixed price with one seat-based price (billed as `fixed + seat_charge`), or contain a single custom or free price, plus any number of metered prices. A free price cannot be combined with other prices, and a custom price cannot be combined with a fixed or seat-based price. Metered prices are not supported on one-time purchase products.
    */
   prices: Array<
     | ProductPriceCustomCreate
     | ProductPriceFixedCreate
-    | ProductPriceFreeCreate
     | ProductPriceMeteredUnitCreate
     | ProductPriceSeatBasedCreate
   >;
@@ -113,11 +106,19 @@ export type ProductCreateRecurring = {
    * The number of interval units for the trial period.
    */
   trialIntervalCount?: number | null | undefined;
-  recurringInterval: SubscriptionRecurringInterval;
+  recurringInterval: RecurringInterval;
   /**
    * Number of interval units of the subscription. If this is set to 1 the charge will happen every interval (e.g. every month), if set to 2 it will be every other month, and so on.
    */
   recurringIntervalCount?: number | undefined;
+  /**
+   * Optional meter cycle, independent of the billing interval. When set, overage settlement, meter resets and meter-credit grants run on this cadence rather than the billing interval — e.g. yearly billing with monthly credits. It must evenly divide the billing interval. If `None`, metered concerns follow the billing interval. **Once set, it can't be changed.**
+   */
+  meterInterval?: RecurringInterval | null | undefined;
+  /**
+   * Number of meter interval units. Defaults to 1 when `meter_interval` is set. Ignored when `meter_interval` is `None`.
+   */
+  meterIntervalCount?: number | null | undefined;
 };
 
 /** @internal */
@@ -147,7 +148,6 @@ export function productCreateRecurringMetadataToJSON(
 export type ProductCreateRecurringPrices$Outbound =
   | ProductPriceCustomCreate$Outbound
   | ProductPriceFixedCreate$Outbound
-  | ProductPriceFreeCreate$Outbound
   | ProductPriceMeteredUnitCreate$Outbound
   | ProductPriceSeatBasedCreate$Outbound;
 
@@ -158,7 +158,6 @@ export const ProductCreateRecurringPrices$outboundSchema: z.ZodMiniType<
 > = z.union([
   ProductPriceCustomCreate$outboundSchema,
   ProductPriceFixedCreate$outboundSchema,
-  ProductPriceFreeCreate$outboundSchema,
   ProductPriceMeteredUnitCreate$outboundSchema,
   ProductPriceSeatBasedCreate$outboundSchema,
 ]);
@@ -182,7 +181,6 @@ export type ProductCreateRecurring$Outbound = {
   prices: Array<
     | ProductPriceCustomCreate$Outbound
     | ProductPriceFixedCreate$Outbound
-    | ProductPriceFreeCreate$Outbound
     | ProductPriceMeteredUnitCreate$Outbound
     | ProductPriceSeatBasedCreate$Outbound
   >;
@@ -195,6 +193,8 @@ export type ProductCreateRecurring$Outbound = {
   trial_interval_count?: number | null | undefined;
   recurring_interval: string;
   recurring_interval_count: number;
+  meter_interval?: string | null | undefined;
+  meter_interval_count?: number | null | undefined;
 };
 
 /** @internal */
@@ -216,7 +216,6 @@ export const ProductCreateRecurring$outboundSchema: z.ZodMiniType<
       z.union([
         ProductPriceCustomCreate$outboundSchema,
         ProductPriceFixedCreate$outboundSchema,
-        ProductPriceFreeCreate$outboundSchema,
         ProductPriceMeteredUnitCreate$outboundSchema,
         ProductPriceSeatBasedCreate$outboundSchema,
       ]),
@@ -228,8 +227,10 @@ export const ProductCreateRecurring$outboundSchema: z.ZodMiniType<
     organizationId: z.optional(z.nullable(z.string())),
     trialInterval: z.optional(z.nullable(TrialInterval$outboundSchema)),
     trialIntervalCount: z.optional(z.nullable(z.int())),
-    recurringInterval: SubscriptionRecurringInterval$outboundSchema,
+    recurringInterval: RecurringInterval$outboundSchema,
     recurringIntervalCount: z._default(z.int(), 1),
+    meterInterval: z.optional(z.nullable(RecurringInterval$outboundSchema)),
+    meterIntervalCount: z.optional(z.nullable(z.int())),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -239,6 +240,8 @@ export const ProductCreateRecurring$outboundSchema: z.ZodMiniType<
       trialIntervalCount: "trial_interval_count",
       recurringInterval: "recurring_interval",
       recurringIntervalCount: "recurring_interval_count",
+      meterInterval: "meter_interval",
+      meterIntervalCount: "meter_interval_count",
     });
   }),
 );

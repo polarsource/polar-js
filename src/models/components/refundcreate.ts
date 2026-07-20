@@ -4,10 +4,26 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { smartUnion } from "../../types/smartUnion.js";
-import { RefundReason, RefundReason$outboundSchema } from "./refundreason.js";
 
 export type RefundCreateMetadata = string | number | number | boolean;
+
+/**
+ * Reason for the refund.
+ */
+export const Reason = {
+  Duplicate: "duplicate",
+  Fraudulent: "fraudulent",
+  CustomerRequest: "customer_request",
+  ServiceDisruption: "service_disruption",
+  SatisfactionGuarantee: "satisfaction_guarantee",
+  Other: "other",
+} as const;
+/**
+ * Reason for the refund.
+ */
+export type Reason = ClosedEnum<typeof Reason>;
 
 export type RefundCreate = {
   /**
@@ -27,7 +43,10 @@ export type RefundCreate = {
    */
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   orderId: string;
-  reason: RefundReason;
+  /**
+   * Reason for the refund.
+   */
+  reason: Reason;
   /**
    * Amount to refund in cents. Minimum is 1.
    */
@@ -67,6 +86,11 @@ export function refundCreateMetadataToJSON(
 }
 
 /** @internal */
+export const Reason$outboundSchema: z.ZodMiniEnum<typeof Reason> = z.enum(
+  Reason,
+);
+
+/** @internal */
 export type RefundCreate$Outbound = {
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   order_id: string;
@@ -89,7 +113,7 @@ export const RefundCreate$outboundSchema: z.ZodMiniType<
       ),
     ),
     orderId: z.string(),
-    reason: RefundReason$outboundSchema,
+    reason: Reason$outboundSchema,
     amount: z.int(),
     comment: z.optional(z.nullable(z.string())),
     revokeBenefits: z._default(z.boolean(), false),

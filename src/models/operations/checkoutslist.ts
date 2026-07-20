@@ -48,7 +48,9 @@ export type CheckoutsListQueryParamExternalCustomerIDFilter =
 /**
  * Filter by checkout session status.
  */
-export type QueryParamStatusFilter = CheckoutStatus | Array<CheckoutStatus>;
+export type CheckoutsListQueryParamStatusFilter =
+  | CheckoutStatus
+  | Array<CheckoutStatus>;
 
 export type CheckoutsListRequest = {
   /**
@@ -186,22 +188,26 @@ export function checkoutsListQueryParamExternalCustomerIDFilterToJSON(
 }
 
 /** @internal */
-export type QueryParamStatusFilter$Outbound = string | Array<string>;
+export type CheckoutsListQueryParamStatusFilter$Outbound =
+  | string
+  | Array<string>;
 
 /** @internal */
-export const QueryParamStatusFilter$outboundSchema: z.ZodMiniType<
-  QueryParamStatusFilter$Outbound,
-  QueryParamStatusFilter
+export const CheckoutsListQueryParamStatusFilter$outboundSchema: z.ZodMiniType<
+  CheckoutsListQueryParamStatusFilter$Outbound,
+  CheckoutsListQueryParamStatusFilter
 > = smartUnion([
   CheckoutStatus$outboundSchema,
   z.array(CheckoutStatus$outboundSchema),
 ]);
 
-export function queryParamStatusFilterToJSON(
-  queryParamStatusFilter: QueryParamStatusFilter,
+export function checkoutsListQueryParamStatusFilterToJSON(
+  checkoutsListQueryParamStatusFilter: CheckoutsListQueryParamStatusFilter,
 ): string {
   return JSON.stringify(
-    QueryParamStatusFilter$outboundSchema.parse(queryParamStatusFilter),
+    CheckoutsListQueryParamStatusFilter$outboundSchema.parse(
+      checkoutsListQueryParamStatusFilter,
+    ),
   );
 }
 

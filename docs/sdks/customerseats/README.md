@@ -13,7 +13,7 @@
 
 ## listSeats
 
-**Scopes**: `customer_seats:write`
+**Scopes**: `customer_seats:read`
 
 ### Example Usage
 

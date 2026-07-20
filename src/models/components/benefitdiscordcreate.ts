@@ -10,6 +10,10 @@ import {
   BenefitDiscordCreateProperties$Outbound,
   BenefitDiscordCreateProperties$outboundSchema,
 } from "./benefitdiscordcreateproperties.js";
+import {
+  BenefitVisibility,
+  BenefitVisibility$outboundSchema,
+} from "./benefitvisibility.js";
 
 export type BenefitDiscordCreateMetadata = string | number | number | boolean;
 
@@ -39,6 +43,10 @@ export type BenefitDiscordCreate = {
    * The ID of the organization owning the benefit. **Required unless you use an organization token.**
    */
   organizationId?: string | null | undefined;
+  /**
+   * The visibility of the benefit in the customer portal.
+   */
+  visibility?: BenefitVisibility | null | undefined;
   /**
    * Properties to create a benefit of type `discord`.
    */
@@ -74,6 +82,7 @@ export type BenefitDiscordCreate$Outbound = {
   type: "discord";
   description: string;
   organization_id?: string | null | undefined;
+  visibility?: string | null | undefined;
   properties: BenefitDiscordCreateProperties$Outbound;
 };
 
@@ -92,6 +101,7 @@ export const BenefitDiscordCreate$outboundSchema: z.ZodMiniType<
     type: z.literal("discord"),
     description: z.string(),
     organizationId: z.optional(z.nullable(z.string())),
+    visibility: z.optional(z.nullable(BenefitVisibility$outboundSchema)),
     properties: BenefitDiscordCreateProperties$outboundSchema,
   }),
   z.transform((v) => {

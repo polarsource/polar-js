@@ -7,9 +7,9 @@ import { CustomerSession } from "./customersession.js";
 import { Downloadables } from "./downloadables.js";
 import { PolarBenefitGrants } from "./polarbenefitgrants.js";
 import { PolarCustomerMeters } from "./polarcustomermeters.js";
+import { PolarCustomerPortalMembers } from "./polarcustomerportalmembers.js";
 import { PolarCustomers } from "./polarcustomers.js";
 import { PolarLicenseKeys } from "./polarlicensekeys.js";
-import { PolarMembers } from "./polarmembers.js";
 import { PolarOrders } from "./polarorders.js";
 import { PolarOrganizations } from "./polarorganizations.js";
 import { PolarSubscriptions } from "./polarsubscriptions.js";
@@ -52,9 +52,9 @@ export class CustomerPortal extends ClientSDK {
     return (this._licenseKeys ??= new PolarLicenseKeys(this._options));
   }
 
-  private _members?: PolarMembers;
-  get members(): PolarMembers {
-    return (this._members ??= new PolarMembers(this._options));
+  private _members?: PolarCustomerPortalMembers;
+  get members(): PolarCustomerPortalMembers {
+    return (this._members ??= new PolarCustomerPortalMembers(this._options));
   }
 
   private _orders?: PolarOrders;

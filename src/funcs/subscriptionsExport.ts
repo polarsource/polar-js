@@ -29,16 +29,9 @@ import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
   SubscriptionsExportRequest,
   SubscriptionsExportRequest$outboundSchema,
-  SubscriptionsExportResponse,
-  SubscriptionsExportResponse$inboundSchema,
 } from "../models/operations/subscriptionsexport.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
-
-export enum ExportAcceptEnum {
-  applicationJson = "application/json",
-  textCsv = "text/csv",
-}
 
 /**
  * Export Subscriptions
@@ -51,10 +44,10 @@ export enum ExportAcceptEnum {
 export function subscriptionsExport(
   client: PolarCore,
   request: SubscriptionsExportRequest,
-  options?: RequestOptions & { acceptHeaderOverride?: ExportAcceptEnum },
+  options?: RequestOptions,
 ): APIPromise<
   Result<
-    SubscriptionsExportResponse,
+    string,
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -76,11 +69,11 @@ export function subscriptionsExport(
 async function $do(
   client: PolarCore,
   request: SubscriptionsExportRequest,
-  options?: RequestOptions & { acceptHeaderOverride?: ExportAcceptEnum },
+  options?: RequestOptions,
 ): Promise<
   [
     Result<
-      SubscriptionsExportResponse,
+      string,
       | HTTPValidationError
       | PolarError
       | ResponseValidationError
@@ -112,8 +105,7 @@ async function $do(
   });
 
   const headers = new Headers(compactMap({
-    Accept: options?.acceptHeaderOverride
-      || "application/json;q=1, text/csv;q=0",
+    Accept: "text/csv",
   }));
 
   const secConfig = await extractSecurity(client._options.accessToken);
@@ -168,7 +160,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    SubscriptionsExportResponse,
+    string,
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -179,10 +171,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, SubscriptionsExportResponse$inboundSchema),
-    M.text(200, SubscriptionsExportResponse$inboundSchema, {
-      ctype: "text/csv",
-    }),
+    M.text(200, z.string(), { ctype: "text/csv" }),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

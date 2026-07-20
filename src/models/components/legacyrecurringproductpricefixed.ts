@@ -13,10 +13,10 @@ import {
   ProductPriceSource$outboundSchema,
 } from "./productpricesource.js";
 import {
-  SubscriptionRecurringInterval,
-  SubscriptionRecurringInterval$inboundSchema,
-  SubscriptionRecurringInterval$outboundSchema,
-} from "./subscriptionrecurringinterval.js";
+  RecurringInterval,
+  RecurringInterval$inboundSchema,
+  RecurringInterval$outboundSchema,
+} from "./recurringinterval.js";
 import {
   TaxBehaviorOption,
   TaxBehaviorOption$inboundSchema,
@@ -65,7 +65,7 @@ export type LegacyRecurringProductPriceFixed = {
    * The type of the price.
    */
   type: "recurring";
-  recurringInterval: SubscriptionRecurringInterval;
+  recurringInterval: RecurringInterval;
   /**
    * The price in cents.
    */
@@ -94,7 +94,7 @@ export const LegacyRecurringProductPriceFixed$inboundSchema: z.ZodMiniType<
     is_archived: z.boolean(),
     product_id: z.string(),
     type: z.literal("recurring"),
-    recurring_interval: SubscriptionRecurringInterval$inboundSchema,
+    recurring_interval: RecurringInterval$inboundSchema,
     price_amount: z.int(),
     legacy: z.literal(true),
   }),
@@ -145,7 +145,7 @@ export const LegacyRecurringProductPriceFixed$outboundSchema: z.ZodMiniType<
     isArchived: z.boolean(),
     productId: z.string(),
     type: z.literal("recurring"),
-    recurringInterval: SubscriptionRecurringInterval$outboundSchema,
+    recurringInterval: RecurringInterval$outboundSchema,
     priceAmount: z.int(),
     legacy: z.literal(true),
   }),

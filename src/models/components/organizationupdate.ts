@@ -21,15 +21,10 @@ import {
   OrganizationDetails$outboundSchema,
 } from "./organizationdetails.js";
 import {
-  OrganizationFeatureSettings,
-  OrganizationFeatureSettings$Outbound,
-  OrganizationFeatureSettings$outboundSchema,
-} from "./organizationfeaturesettings.js";
-import {
-  OrganizationNotificationSettings,
-  OrganizationNotificationSettings$Outbound,
-  OrganizationNotificationSettings$outboundSchema,
-} from "./organizationnotificationsettings.js";
+  OrganizationFeatureSettingsUpdate,
+  OrganizationFeatureSettingsUpdate$Outbound,
+  OrganizationFeatureSettingsUpdate$outboundSchema,
+} from "./organizationfeaturesettingsupdate.js";
 import {
   OrganizationSocialLink,
   OrganizationSocialLink$Outbound,
@@ -322,9 +317,8 @@ export type OrganizationUpdate = {
    * Two-letter country code (ISO 3166-1 alpha-2).
    */
   country?: CountryCountryAlpha2Input | null | undefined;
-  featureSettings?: OrganizationFeatureSettings | null | undefined;
+  featureSettings?: OrganizationFeatureSettingsUpdate | null | undefined;
   subscriptionSettings?: OrganizationSubscriptionSettings | null | undefined;
-  notificationSettings?: OrganizationNotificationSettings | null | undefined;
   customerEmailSettings?: OrganizationCustomerEmailSettings | null | undefined;
   customerPortalSettings?:
     | OrganizationCustomerPortalSettings
@@ -338,6 +332,10 @@ export type OrganizationUpdate = {
    * Default tax behavior applied on products.
    */
   defaultTaxBehavior?: TaxBehaviorOption | null | undefined;
+  /**
+   * Whether members must access this organization through its SSO connection. Turning this on requires an active SSO session for this organization and at least one enabled SSO connection.
+   */
+  ssoEnforced?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -354,13 +352,12 @@ export type OrganizationUpdate$Outbound = {
   socials?: Array<OrganizationSocialLink$Outbound> | null | undefined;
   details?: OrganizationDetails$Outbound | null | undefined;
   country?: string | null | undefined;
-  feature_settings?: OrganizationFeatureSettings$Outbound | null | undefined;
-  subscription_settings?:
-    | OrganizationSubscriptionSettings$Outbound
+  feature_settings?:
+    | OrganizationFeatureSettingsUpdate$Outbound
     | null
     | undefined;
-  notification_settings?:
-    | OrganizationNotificationSettings$Outbound
+  subscription_settings?:
+    | OrganizationSubscriptionSettings$Outbound
     | null
     | undefined;
   customer_email_settings?:
@@ -373,6 +370,7 @@ export type OrganizationUpdate$Outbound = {
     | undefined;
   default_presentment_currency?: string | null | undefined;
   default_tax_behavior?: string | null | undefined;
+  sso_enforced?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -391,13 +389,10 @@ export const OrganizationUpdate$outboundSchema: z.ZodMiniType<
     details: z.optional(z.nullable(OrganizationDetails$outboundSchema)),
     country: z.optional(z.nullable(CountryCountryAlpha2Input$outboundSchema)),
     featureSettings: z.optional(
-      z.nullable(OrganizationFeatureSettings$outboundSchema),
+      z.nullable(OrganizationFeatureSettingsUpdate$outboundSchema),
     ),
     subscriptionSettings: z.optional(
       z.nullable(OrganizationSubscriptionSettings$outboundSchema),
-    ),
-    notificationSettings: z.optional(
-      z.nullable(OrganizationNotificationSettings$outboundSchema),
     ),
     customerEmailSettings: z.optional(
       z.nullable(OrganizationCustomerEmailSettings$outboundSchema),
@@ -411,17 +406,18 @@ export const OrganizationUpdate$outboundSchema: z.ZodMiniType<
     defaultTaxBehavior: z.optional(
       z.nullable(TaxBehaviorOption$outboundSchema),
     ),
+    ssoEnforced: z.optional(z.nullable(z.boolean())),
   }),
   z.transform((v) => {
     return remap$(v, {
       avatarUrl: "avatar_url",
       featureSettings: "feature_settings",
       subscriptionSettings: "subscription_settings",
-      notificationSettings: "notification_settings",
       customerEmailSettings: "customer_email_settings",
       customerPortalSettings: "customer_portal_settings",
       defaultPresentmentCurrency: "default_presentment_currency",
       defaultTaxBehavior: "default_tax_behavior",
+      ssoEnforced: "sso_enforced",
     });
   }),
 );

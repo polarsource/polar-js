@@ -16,6 +16,10 @@ export type CustomerOrganizationFeatureSettings = {
    * Whether the member model is enabled for this organization.
    */
   memberModelEnabled: boolean;
+  /**
+   * Whether localization is enabled for this organization.
+   */
+  checkoutLocalizationEnabled: boolean;
 };
 
 /** @internal */
@@ -25,10 +29,12 @@ export const CustomerOrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     member_model_enabled: z._default(z.boolean(), false),
+    checkout_localization_enabled: z._default(z.boolean(), false),
   }),
   z.transform((v) => {
     return remap$(v, {
       "member_model_enabled": "memberModelEnabled",
+      "checkout_localization_enabled": "checkoutLocalizationEnabled",
     });
   }),
 );

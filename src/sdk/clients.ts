@@ -74,7 +74,7 @@ export class Clients extends ClientSDK {
   async delete(
     request: Oauth2ClientsOauth2DeleteClientRequest,
     options?: RequestOptions,
-  ): Promise<any> {
+  ): Promise<void> {
     return unwrapAsync(oauth2ClientsDelete(
       this,
       request,

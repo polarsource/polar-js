@@ -68,6 +68,11 @@ import {
   ProductPrice$outboundSchema,
 } from "./productprice.js";
 import {
+  RecurringInterval,
+  RecurringInterval$inboundSchema,
+  RecurringInterval$outboundSchema,
+} from "./recurringinterval.js";
+import {
   SubscriptionCustomer,
   SubscriptionCustomer$inboundSchema,
   SubscriptionCustomer$Outbound,
@@ -79,11 +84,6 @@ import {
   SubscriptionMeter$Outbound,
   SubscriptionMeter$outboundSchema,
 } from "./subscriptionmeter.js";
-import {
-  SubscriptionRecurringInterval,
-  SubscriptionRecurringInterval$inboundSchema,
-  SubscriptionRecurringInterval$outboundSchema,
-} from "./subscriptionrecurringinterval.js";
 import {
   SubscriptionStatus,
   SubscriptionStatus$inboundSchema,
@@ -121,7 +121,7 @@ export type Subscription = {
    * The currency of the subscription.
    */
   currency: string;
-  recurringInterval: SubscriptionRecurringInterval;
+  recurringInterval: RecurringInterval;
   /**
    * Number of interval units of the subscription. If this is set to 1 the charge will happen every interval (e.g. every month), if set to 2 it will be every other month, and so on.
    */
@@ -135,6 +135,14 @@ export type Subscription = {
    * The end timestamp of the current billing period.
    */
   currentPeriodEnd: Date;
+  /**
+   * The start timestamp of the current meter period, if the product has a meter cycle set. Metered credits are granted and overage is settled on this cadence.
+   */
+  currentMeterPeriodStart: Date | null;
+  /**
+   * The end timestamp of the current meter period, if the product has a meter cycle set. This is when credits next renew.
+   */
+  currentMeterPeriodEnd: Date | null;
   /**
    * The start timestamp of the trial period, if any.
    */
@@ -163,6 +171,22 @@ export type Subscription = {
    * The timestamp when the subscription ended.
    */
   endedAt: Date | null;
+  /**
+   * The timestamp when the subscription entered `past_due` status.
+   */
+  pastDueAt?: Date | null | undefined;
+  /**
+   * Whether the subscription will be paused at the end of the current period.
+   */
+  pauseAtPeriodEnd: boolean;
+  /**
+   * The timestamp when the subscription was paused.
+   */
+  pausedAt: Date | null;
+  /**
+   * The timestamp when a paused subscription is scheduled to automatically resume, if set.
+   */
+  resumesAt: Date | null;
   /**
    * The ID of the subscribed customer.
    */
@@ -351,7 +375,7 @@ export const Subscription$inboundSchema: z.ZodMiniType<Subscription, unknown> =
       id: z.string(),
       amount: z.int(),
       currency: z.string(),
-      recurring_interval: SubscriptionRecurringInterval$inboundSchema,
+      recurring_interval: RecurringInterval$inboundSchema,
       recurring_interval_count: z.int(),
       status: SubscriptionStatus$inboundSchema,
       current_period_start: z.pipe(
@@ -361,6 +385,12 @@ export const Subscription$inboundSchema: z.ZodMiniType<Subscription, unknown> =
       current_period_end: z.pipe(
         z.iso.datetime({ offset: true }),
         z.transform(v => new Date(v)),
+      ),
+      current_meter_period_start: z.nullable(
+        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+      ),
+      current_meter_period_end: z.nullable(
+        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
       ),
       trial_start: z.nullable(
         z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
@@ -379,6 +409,19 @@ export const Subscription$inboundSchema: z.ZodMiniType<Subscription, unknown> =
         z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
       ),
       ended_at: z.nullable(
+        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+      ),
+      past_due_at: z.optional(
+        z.nullable(z.pipe(
+          z.iso.datetime({ offset: true }),
+          z.transform(v => new Date(v)),
+        )),
+      ),
+      pause_at_period_end: z.boolean(),
+      paused_at: z.nullable(
+        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+      ),
+      resumes_at: z.nullable(
         z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
       ),
       customer_id: z.string(),
@@ -434,6 +477,8 @@ export const Subscription$inboundSchema: z.ZodMiniType<Subscription, unknown> =
         "recurring_interval_count": "recurringIntervalCount",
         "current_period_start": "currentPeriodStart",
         "current_period_end": "currentPeriodEnd",
+        "current_meter_period_start": "currentMeterPeriodStart",
+        "current_meter_period_end": "currentMeterPeriodEnd",
         "trial_start": "trialStart",
         "trial_end": "trialEnd",
         "cancel_at_period_end": "cancelAtPeriodEnd",
@@ -441,6 +486,10 @@ export const Subscription$inboundSchema: z.ZodMiniType<Subscription, unknown> =
         "started_at": "startedAt",
         "ends_at": "endsAt",
         "ended_at": "endedAt",
+        "past_due_at": "pastDueAt",
+        "pause_at_period_end": "pauseAtPeriodEnd",
+        "paused_at": "pausedAt",
+        "resumes_at": "resumesAt",
         "customer_id": "customerId",
         "product_id": "productId",
         "discount_id": "discountId",
@@ -464,6 +513,8 @@ export type Subscription$Outbound = {
   status: string;
   current_period_start: string;
   current_period_end: string;
+  current_meter_period_start: string | null;
+  current_meter_period_end: string | null;
   trial_start: string | null;
   trial_end: string | null;
   cancel_at_period_end: boolean;
@@ -471,6 +522,10 @@ export type Subscription$Outbound = {
   started_at: string | null;
   ends_at: string | null;
   ended_at: string | null;
+  past_due_at?: string | null | undefined;
+  pause_at_period_end: boolean;
+  paused_at: string | null;
+  resumes_at: string | null;
   customer_id: string;
   product_id: string;
   discount_id: string | null;
@@ -506,11 +561,17 @@ export const Subscription$outboundSchema: z.ZodMiniType<
     id: z.string(),
     amount: z.int(),
     currency: z.string(),
-    recurringInterval: SubscriptionRecurringInterval$outboundSchema,
+    recurringInterval: RecurringInterval$outboundSchema,
     recurringIntervalCount: z.int(),
     status: SubscriptionStatus$outboundSchema,
     currentPeriodStart: z.pipe(z.date(), z.transform(v => v.toISOString())),
     currentPeriodEnd: z.pipe(z.date(), z.transform(v => v.toISOString())),
+    currentMeterPeriodStart: z.nullable(
+      z.pipe(z.date(), z.transform(v => v.toISOString())),
+    ),
+    currentMeterPeriodEnd: z.nullable(
+      z.pipe(z.date(), z.transform(v => v.toISOString())),
+    ),
     trialStart: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
     trialEnd: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
     cancelAtPeriodEnd: z.boolean(),
@@ -518,6 +579,12 @@ export const Subscription$outboundSchema: z.ZodMiniType<
     startedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
     endsAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
     endedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    pastDueAt: z.optional(
+      z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    ),
+    pauseAtPeriodEnd: z.boolean(),
+    pausedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    resumesAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
     customerId: z.string(),
     productId: z.string(),
     discountId: z.nullable(z.string()),
@@ -568,6 +635,8 @@ export const Subscription$outboundSchema: z.ZodMiniType<
       recurringIntervalCount: "recurring_interval_count",
       currentPeriodStart: "current_period_start",
       currentPeriodEnd: "current_period_end",
+      currentMeterPeriodStart: "current_meter_period_start",
+      currentMeterPeriodEnd: "current_meter_period_end",
       trialStart: "trial_start",
       trialEnd: "trial_end",
       cancelAtPeriodEnd: "cancel_at_period_end",
@@ -575,6 +644,10 @@ export const Subscription$outboundSchema: z.ZodMiniType<
       startedAt: "started_at",
       endsAt: "ends_at",
       endedAt: "ended_at",
+      pastDueAt: "past_due_at",
+      pauseAtPeriodEnd: "pause_at_period_end",
+      pausedAt: "paused_at",
+      resumesAt: "resumes_at",
       customerId: "customer_id",
       productId: "product_id",
       discountId: "discount_id",

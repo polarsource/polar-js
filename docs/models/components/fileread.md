@@ -57,20 +57,43 @@ const value: components.ProductMediaFileRead = {
   id: "<value>",
   organizationId: "<value>",
   name: "<value>",
-  path: "/usr/bin",
+  path: "/var/spool",
   mimeType: "<value>",
-  size: 176908,
+  size: 450045,
+  storageVersion: null,
+  checksumEtag: "<value>",
+  checksumSha256Base64: "<value>",
+  checksumSha256Hex: "<value>",
+  lastModifiedAt: new Date("2025-04-22T16:40:31.898Z"),
+  version: "<value>",
+  service: "product_media",
+  isUploaded: true,
+  createdAt: new Date("2025-06-21T23:30:25.601Z"),
+  sizeReadable: "<value>",
+  publicUrl: "https://close-spirit.org",
+};
+```
+
+### `components.SupportCaseAttachmentFileRead`
+
+```typescript
+const value: components.SupportCaseAttachmentFileRead = {
+  id: "<value>",
+  organizationId: "<value>",
+  name: "<value>",
+  path: "/Network",
+  mimeType: "<value>",
+  size: 210068,
   storageVersion: "<value>",
   checksumEtag: "<value>",
   checksumSha256Base64: "<value>",
   checksumSha256Hex: "<value>",
-  lastModifiedAt: null,
+  lastModifiedAt: new Date("2026-03-17T05:44:25.863Z"),
   version: "<value>",
-  service: "product_media",
+  service: "support_case_attachment",
   isUploaded: true,
-  createdAt: new Date("2025-11-09T15:31:59.053Z"),
+  createdAt: new Date("2026-06-07T08:48:05.842Z"),
   sizeReadable: "<value>",
-  publicUrl: "https://unhealthy-analogy.com/",
 };
 ```
 

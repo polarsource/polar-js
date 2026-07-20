@@ -3,7 +3,7 @@
  */
 
 import { ordersCreate } from "../funcs/ordersCreate.js";
-import { ExportAcceptEnum, ordersExport } from "../funcs/ordersExport.js";
+import { ordersExport } from "../funcs/ordersExport.js";
 import { ordersFinalize } from "../funcs/ordersFinalize.js";
 import { ordersGenerateInvoice } from "../funcs/ordersGenerateInvoice.js";
 import { ordersGet } from "../funcs/ordersGet.js";
@@ -16,10 +16,7 @@ import { Order } from "../models/components/order.js";
 import { OrderCreate } from "../models/components/ordercreate.js";
 import { OrderInvoice } from "../models/components/orderinvoice.js";
 import { OrderReceipt } from "../models/components/orderreceipt.js";
-import {
-  OrdersExportRequest,
-  OrdersExportResponse,
-} from "../models/operations/ordersexport.js";
+import { OrdersExportRequest } from "../models/operations/ordersexport.js";
 import { OrdersFinalizeRequest } from "../models/operations/ordersfinalize.js";
 import { OrdersGenerateInvoiceRequest } from "../models/operations/ordersgenerateinvoice.js";
 import { OrdersGetRequest } from "../models/operations/ordersget.js";
@@ -32,8 +29,6 @@ import { OrdersReceiptRequest } from "../models/operations/ordersreceipt.js";
 import { OrdersUpdateRequest } from "../models/operations/ordersupdate.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
-
-export { ExportAcceptEnum } from "../funcs/ordersExport.js";
 
 export class Orders extends ClientSDK {
   /**
@@ -88,8 +83,8 @@ export class Orders extends ClientSDK {
    */
   async export(
     request: OrdersExportRequest,
-    options?: RequestOptions & { acceptHeaderOverride?: ExportAcceptEnum },
-  ): Promise<OrdersExportResponse> {
+    options?: RequestOptions,
+  ): Promise<string> {
     return unwrapAsync(ordersExport(
       this,
       request,

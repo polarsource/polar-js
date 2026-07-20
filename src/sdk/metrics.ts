@@ -4,7 +4,7 @@
 
 import { metricsCreateDashboard } from "../funcs/metricsCreateDashboard.js";
 import { metricsDeleteDashboard } from "../funcs/metricsDeleteDashboard.js";
-import { ExportAcceptEnum, metricsExport } from "../funcs/metricsExport.js";
+import { metricsExport } from "../funcs/metricsExport.js";
 import { metricsGet } from "../funcs/metricsGet.js";
 import { metricsGetDashboard } from "../funcs/metricsGetDashboard.js";
 import { metricsLimits } from "../funcs/metricsLimits.js";
@@ -16,17 +16,12 @@ import { MetricDashboardSchema } from "../models/components/metricdashboardschem
 import { MetricsLimits } from "../models/components/metricslimits.js";
 import { MetricsResponse } from "../models/components/metricsresponse.js";
 import { MetricsDeleteDashboardRequest } from "../models/operations/metricsdeletedashboard.js";
-import {
-  MetricsExportRequest,
-  MetricsExportResponse,
-} from "../models/operations/metricsexport.js";
+import { MetricsExportRequest } from "../models/operations/metricsexport.js";
 import { MetricsGetRequest } from "../models/operations/metricsget.js";
 import { MetricsGetDashboardRequest } from "../models/operations/metricsgetdashboard.js";
 import { MetricsListDashboardsRequest } from "../models/operations/metricslistdashboards.js";
 import { MetricsUpdateDashboardRequest } from "../models/operations/metricsupdatedashboard.js";
 import { unwrapAsync } from "../types/fp.js";
-
-export { ExportAcceptEnum } from "../funcs/metricsExport.js";
 
 export class Metrics extends ClientSDK {
   /**
@@ -60,8 +55,8 @@ export class Metrics extends ClientSDK {
    */
   async export(
     request: MetricsExportRequest,
-    options?: RequestOptions & { acceptHeaderOverride?: ExportAcceptEnum },
-  ): Promise<MetricsExportResponse> {
+    options?: RequestOptions,
+  ): Promise<string> {
     return unwrapAsync(metricsExport(
       this,
       request,

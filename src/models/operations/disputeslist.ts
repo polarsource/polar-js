@@ -34,7 +34,7 @@ export type QueryParamOrderIDFilter = string | Array<string>;
 /**
  * Filter by dispute status.
  */
-export type StatusFilter = DisputeStatus | Array<DisputeStatus>;
+export type QueryParamStatusFilter = DisputeStatus | Array<DisputeStatus>;
 
 export type DisputesListRequest = {
   /**
@@ -108,19 +108,23 @@ export function queryParamOrderIDFilterToJSON(
 }
 
 /** @internal */
-export type StatusFilter$Outbound = string | Array<string>;
+export type QueryParamStatusFilter$Outbound = string | Array<string>;
 
 /** @internal */
-export const StatusFilter$outboundSchema: z.ZodMiniType<
-  StatusFilter$Outbound,
-  StatusFilter
+export const QueryParamStatusFilter$outboundSchema: z.ZodMiniType<
+  QueryParamStatusFilter$Outbound,
+  QueryParamStatusFilter
 > = smartUnion([
   DisputeStatus$outboundSchema,
   z.array(DisputeStatus$outboundSchema),
 ]);
 
-export function statusFilterToJSON(statusFilter: StatusFilter): string {
-  return JSON.stringify(StatusFilter$outboundSchema.parse(statusFilter));
+export function queryParamStatusFilterToJSON(
+  queryParamStatusFilter: QueryParamStatusFilter,
+): string {
+  return JSON.stringify(
+    QueryParamStatusFilter$outboundSchema.parse(queryParamStatusFilter),
+  );
 }
 
 /** @internal */

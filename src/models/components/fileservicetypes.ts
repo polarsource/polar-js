@@ -10,6 +10,7 @@ export const FileServiceTypes = {
   Downloadable: "downloadable",
   ProductMedia: "product_media",
   OrganizationAvatar: "organization_avatar",
+  SupportCaseAttachment: "support_case_attachment",
 } as const;
 export type FileServiceTypes = OpenEnum<typeof FileServiceTypes>;
 

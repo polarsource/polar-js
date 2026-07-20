@@ -10,6 +10,10 @@ import {
   BenefitLicenseKeysCreateProperties$Outbound,
   BenefitLicenseKeysCreateProperties$outboundSchema,
 } from "./benefitlicensekeyscreateproperties.js";
+import {
+  BenefitVisibility,
+  BenefitVisibility$outboundSchema,
+} from "./benefitvisibility.js";
 
 export type BenefitLicenseKeysCreateMetadata =
   | string
@@ -43,6 +47,10 @@ export type BenefitLicenseKeysCreate = {
    * The ID of the organization owning the benefit. **Required unless you use an organization token.**
    */
   organizationId?: string | null | undefined;
+  /**
+   * The visibility of the benefit in the customer portal.
+   */
+  visibility?: BenefitVisibility | null | undefined;
   properties: BenefitLicenseKeysCreateProperties;
 };
 
@@ -75,6 +83,7 @@ export type BenefitLicenseKeysCreate$Outbound = {
   type: "license_keys";
   description: string;
   organization_id?: string | null | undefined;
+  visibility?: string | null | undefined;
   properties: BenefitLicenseKeysCreateProperties$Outbound;
 };
 
@@ -93,6 +102,7 @@ export const BenefitLicenseKeysCreate$outboundSchema: z.ZodMiniType<
     type: z.literal("license_keys"),
     description: z.string(),
     organizationId: z.optional(z.nullable(z.string())),
+    visibility: z.optional(z.nullable(BenefitVisibility$outboundSchema)),
     properties: BenefitLicenseKeysCreateProperties$outboundSchema,
   }),
   z.transform((v) => {

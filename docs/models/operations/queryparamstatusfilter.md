@@ -1,21 +1,19 @@
 # QueryParamStatusFilter
 
-Filter by checkout session status.
+Filter by dispute status.
 
 
 ## Supported Types
 
-### `components.CheckoutStatus`
+### `components.DisputeStatus`
 
 ```typescript
-const value: components.CheckoutStatus = "open";
+const value: components.DisputeStatus = "needs_response";
 ```
 
-### `components.CheckoutStatus[]`
+### `components.DisputeStatus[]`
 
 ```typescript
-const value: components.CheckoutStatus[] = [
-  "open",
-];
+const value: components.DisputeStatus[] = [];
 ```
 

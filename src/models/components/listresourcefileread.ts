@@ -6,63 +6,20 @@ import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  DownloadableFileRead,
-  DownloadableFileRead$inboundSchema,
-} from "./downloadablefileread.js";
-import {
-  OrganizationAvatarFileRead,
-  OrganizationAvatarFileRead$inboundSchema,
-} from "./organizationavatarfileread.js";
+import { FileRead, FileRead$inboundSchema } from "./fileread.js";
 import { Pagination, Pagination$inboundSchema } from "./pagination.js";
-import {
-  ProductMediaFileRead,
-  ProductMediaFileRead$inboundSchema,
-} from "./productmediafileread.js";
-
-export type FileRead =
-  | DownloadableFileRead
-  | OrganizationAvatarFileRead
-  | ProductMediaFileRead;
 
 export type ListResourceFileRead = {
-  items: Array<
-    DownloadableFileRead | OrganizationAvatarFileRead | ProductMediaFileRead
-  >;
+  items: Array<FileRead>;
   pagination: Pagination;
 };
-
-/** @internal */
-export const FileRead$inboundSchema: z.ZodMiniType<FileRead, unknown> = z.union(
-  [
-    DownloadableFileRead$inboundSchema,
-    OrganizationAvatarFileRead$inboundSchema,
-    ProductMediaFileRead$inboundSchema,
-  ],
-);
-
-export function fileReadFromJSON(
-  jsonString: string,
-): SafeParseResult<FileRead, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => FileRead$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FileRead' from JSON`,
-  );
-}
 
 /** @internal */
 export const ListResourceFileRead$inboundSchema: z.ZodMiniType<
   ListResourceFileRead,
   unknown
 > = z.object({
-  items: z.array(
-    z.union([
-      DownloadableFileRead$inboundSchema,
-      OrganizationAvatarFileRead$inboundSchema,
-      ProductMediaFileRead$inboundSchema,
-    ]),
-  ),
+  items: z.array(FileRead$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
 

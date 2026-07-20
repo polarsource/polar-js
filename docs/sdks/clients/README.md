@@ -270,11 +270,11 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.oauth2.clients.delete({
+  await polar.oauth2.clients.delete({
     clientId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -300,7 +300,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("oauth2ClientsDelete failed:", res.error);
   }
@@ -320,7 +320,7 @@ run();
 
 ### Response
 
-**Promise\<[any](../../models/.md)\>**
+**Promise\<void\>**
 
 ### Errors
 

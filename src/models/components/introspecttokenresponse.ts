@@ -24,6 +24,7 @@ export type IntrospectTokenResponse = {
   scope: string;
   subType: SubType;
   sub: string;
+  organizations: Array<string>;
   aud: string;
   iss: string;
   exp: number;
@@ -46,6 +47,7 @@ export const IntrospectTokenResponse$inboundSchema: z.ZodMiniType<
     scope: z.string(),
     sub_type: SubType$inboundSchema,
     sub: z.string(),
+    organizations: z.array(z.string()),
     aud: z.string(),
     iss: z.string(),
     exp: z.int(),

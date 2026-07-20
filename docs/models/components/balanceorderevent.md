@@ -22,6 +22,7 @@ let value: BalanceOrderEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },

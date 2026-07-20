@@ -21,6 +21,10 @@ import {
   OrganizationCreate$outboundSchema,
 } from "../models/components/organizationcreate.js";
 import {
+  CannotCreateOrganizationError,
+  CannotCreateOrganizationError$inboundSchema,
+} from "../models/errors/cannotcreateorganizationerror.js";
+import {
   ConnectionError,
   InvalidRequestError,
   RequestAbortedError,
@@ -52,6 +56,7 @@ export function organizationsCreate(
 ): APIPromise<
   Result<
     Organization,
+    | CannotCreateOrganizationError
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -78,6 +83,7 @@ async function $do(
   [
     Result<
       Organization,
+      | CannotCreateOrganizationError
       | HTTPValidationError
       | PolarError
       | ResponseValidationError
@@ -161,6 +167,7 @@ async function $do(
 
   const [result] = await M.match<
     Organization,
+    | CannotCreateOrganizationError
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -172,6 +179,7 @@ async function $do(
     | SDKValidationError
   >(
     M.json(201, Organization$inboundSchema),
+    M.jsonErr(403, CannotCreateOrganizationError$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

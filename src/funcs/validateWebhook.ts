@@ -132,6 +132,14 @@ import {
   webhookSubscriptionPastDuePayloadFromJSON,
 } from "../models/components/webhooksubscriptionpastduepayload.js";
 import {
+  WebhookSubscriptionPausedPayload,
+  webhookSubscriptionPausedPayloadFromJSON,
+} from "../models/components/webhooksubscriptionpausedpayload.js";
+import {
+  WebhookSubscriptionResumedPayload,
+  webhookSubscriptionResumedPayloadFromJSON,
+} from "../models/components/webhooksubscriptionresumedpayload.js";
+import {
   WebhookSubscriptionRevokedPayload,
   webhookSubscriptionRevokedPayloadFromJSON,
 } from "../models/components/webhooksubscriptionrevokedpayload.js";
@@ -181,6 +189,8 @@ export async function validateWebhook(_client: PolarCore, {
     | WebhookSubscriptionUncanceledPayload
     | WebhookSubscriptionRevokedPayload
     | WebhookSubscriptionPastDuePayload
+    | WebhookSubscriptionPausedPayload
+    | WebhookSubscriptionResumedPayload
     | WebhookRefundCreatedPayload
     | WebhookRefundUpdatedPayload
     | WebhookProductCreatedPayload
@@ -222,6 +232,8 @@ export async function validateWebhook(_client: PolarCore, {
     webhookSubscriptionUncanceledPayloadFromJSON,
     webhookSubscriptionRevokedPayloadFromJSON,
     webhookSubscriptionPastDuePayloadFromJSON,
+    webhookSubscriptionPausedPayloadFromJSON,
+    webhookSubscriptionResumedPayloadFromJSON,
     webhookRefundCreatedPayloadFromJSON,
     webhookRefundUpdatedPayloadFromJSON,
     webhookProductCreatedPayloadFromJSON,

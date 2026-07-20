@@ -40,6 +40,7 @@ export type CustomerPortalCustomer = {
   oauthAccounts: { [k: string]: CustomerPortalOAuthAccount };
   defaultPaymentMethodId?: string | null | undefined;
   type?: CustomerType | null | undefined;
+  locale?: string | null | undefined;
 };
 
 /** @internal */
@@ -86,6 +87,7 @@ export const CustomerPortalCustomer$inboundSchema: z.ZodMiniType<
     ),
     default_payment_method_id: z.optional(z.nullable(z.string())),
     type: z.optional(z.nullable(CustomerType$inboundSchema)),
+    locale: z.optional(z.nullable(z.string())),
   }),
   z.transform((v) => {
     return remap$(v, {

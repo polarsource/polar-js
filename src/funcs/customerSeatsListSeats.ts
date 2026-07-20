@@ -41,7 +41,7 @@ import { Result } from "../types/fp.js";
  * List Seats
  *
  * @remarks
- * **Scopes**: `customer_seats:write`
+ * **Scopes**: `customer_seats:read`
  */
 export function customerSeatsListSeats(
   client: PolarCore,

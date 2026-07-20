@@ -108,6 +108,10 @@ export type CustomerOrder = {
   discountId: string | null;
   subscriptionId: string | null;
   checkoutId: string | null;
+  /**
+   * When the next automatic payment retry is scheduled. `null` if the order is not in dunning or all retries have been exhausted.
+   */
+  nextPaymentAttemptAt?: Date | null | undefined;
   product: CustomerOrderProduct | null;
   subscription: CustomerOrderSubscription | null;
   /**
@@ -118,10 +122,6 @@ export type CustomerOrder = {
    * A summary description of the order.
    */
   description: string;
-  /**
-   * When the next payment retry is scheduled
-   */
-  nextPaymentAttemptAt?: Date | null | undefined;
   /**
    * Amount in cents that can still be refunded (net, before taxes). Accounts for any applied customer balance and previous refunds.
    */
@@ -170,16 +170,16 @@ export const CustomerOrder$inboundSchema: z.ZodMiniType<
     discount_id: z.nullable(z.string()),
     subscription_id: z.nullable(z.string()),
     checkout_id: z.nullable(z.string()),
-    product: z.nullable(CustomerOrderProduct$inboundSchema),
-    subscription: z.nullable(CustomerOrderSubscription$inboundSchema),
-    items: z.array(OrderItemSchema$inboundSchema),
-    description: z.string(),
     next_payment_attempt_at: z.optional(
       z.nullable(z.pipe(
         z.iso.datetime({ offset: true }),
         z.transform(v => new Date(v)),
       )),
     ),
+    product: z.nullable(CustomerOrderProduct$inboundSchema),
+    subscription: z.nullable(CustomerOrderSubscription$inboundSchema),
+    items: z.array(OrderItemSchema$inboundSchema),
+    description: z.string(),
     refundable_amount: z.int(),
     refundable_tax_amount: z.int(),
   }),

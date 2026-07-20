@@ -24,7 +24,7 @@ export type ProductPriceFixedCreate = {
    */
   taxBehavior?: TaxBehaviorOption | null | undefined;
   /**
-   * The price in cents.
+   * The price in cents. Set to `0` for a free price.
    *
    * @remarks
    * Minimum amounts per currency:

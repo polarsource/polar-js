@@ -39,6 +39,11 @@ import {
   BenefitMeterCreditUpdate$Outbound,
   BenefitMeterCreditUpdate$outboundSchema,
 } from "../components/benefitmetercreditupdate.js";
+import {
+  BenefitSlackSharedChannelUpdate,
+  BenefitSlackSharedChannelUpdate$Outbound,
+  BenefitSlackSharedChannelUpdate$outboundSchema,
+} from "../components/benefitslacksharedchannelupdate.js";
 
 export type BenefitsUpdateBenefitUpdate =
   | BenefitCustomUpdate
@@ -47,7 +52,8 @@ export type BenefitsUpdateBenefitUpdate =
   | BenefitDownloadablesUpdate
   | BenefitLicenseKeysUpdate
   | BenefitMeterCreditUpdate
-  | BenefitFeatureFlagUpdate;
+  | BenefitFeatureFlagUpdate
+  | BenefitSlackSharedChannelUpdate;
 
 export type BenefitsUpdateRequest = {
   id: string;
@@ -58,7 +64,8 @@ export type BenefitsUpdateRequest = {
     | BenefitDownloadablesUpdate
     | BenefitLicenseKeysUpdate
     | BenefitMeterCreditUpdate
-    | BenefitFeatureFlagUpdate;
+    | BenefitFeatureFlagUpdate
+    | BenefitSlackSharedChannelUpdate;
 };
 
 /** @internal */
@@ -69,7 +76,8 @@ export type BenefitsUpdateBenefitUpdate$Outbound =
   | BenefitDownloadablesUpdate$Outbound
   | BenefitLicenseKeysUpdate$Outbound
   | BenefitMeterCreditUpdate$Outbound
-  | BenefitFeatureFlagUpdate$Outbound;
+  | BenefitFeatureFlagUpdate$Outbound
+  | BenefitSlackSharedChannelUpdate$Outbound;
 
 /** @internal */
 export const BenefitsUpdateBenefitUpdate$outboundSchema: z.ZodMiniType<
@@ -83,6 +91,7 @@ export const BenefitsUpdateBenefitUpdate$outboundSchema: z.ZodMiniType<
   BenefitLicenseKeysUpdate$outboundSchema,
   BenefitMeterCreditUpdate$outboundSchema,
   BenefitFeatureFlagUpdate$outboundSchema,
+  BenefitSlackSharedChannelUpdate$outboundSchema,
 ]);
 
 export function benefitsUpdateBenefitUpdateToJSON(
@@ -105,7 +114,8 @@ export type BenefitsUpdateRequest$Outbound = {
     | BenefitDownloadablesUpdate$Outbound
     | BenefitLicenseKeysUpdate$Outbound
     | BenefitMeterCreditUpdate$Outbound
-    | BenefitFeatureFlagUpdate$Outbound;
+    | BenefitFeatureFlagUpdate$Outbound
+    | BenefitSlackSharedChannelUpdate$Outbound;
 };
 
 /** @internal */
@@ -123,6 +133,7 @@ export const BenefitsUpdateRequest$outboundSchema: z.ZodMiniType<
       BenefitLicenseKeysUpdate$outboundSchema,
       BenefitMeterCreditUpdate$outboundSchema,
       BenefitFeatureFlagUpdate$outboundSchema,
+      BenefitSlackSharedChannelUpdate$outboundSchema,
     ]),
   }),
   z.transform((v) => {

@@ -241,7 +241,7 @@ run();
 
 ### Response
 
-**Promise\<[operations.SubscriptionsExportResponse](../../models/operations/subscriptionsexportresponse.md)\>**
+**Promise\<[string](../../models/.md)\>**
 
 ### Errors
 

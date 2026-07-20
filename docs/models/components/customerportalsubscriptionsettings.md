@@ -17,3 +17,4 @@ let value: CustomerPortalSubscriptionSettings = {
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `updateSeats`      | *boolean*          | :heavy_check_mark: | N/A                |
 | `updatePlan`       | *boolean*          | :heavy_check_mark: | N/A                |
+| `pause`            | *boolean*          | :heavy_minus_sign: | N/A                |

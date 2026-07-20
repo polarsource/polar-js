@@ -20,11 +20,13 @@ let value: BenefitMeterCredit = {
   isDeleted: true,
   organizationId: "<value>",
   metadata: {},
+  visibility: "private",
   properties: {
-    units: 507849,
+    units: 953570,
     rollover: false,
     meterId: "<value>",
   },
+  visibilityConfigurable: true,
 };
 ```
 
@@ -42,4 +44,6 @@ let value: BenefitMeterCredit = {
 | `isDeleted`                                                                                        | *boolean*                                                                                          | :heavy_check_mark:                                                                                 | Whether the benefit is deleted.                                                                    |
 | `organizationId`                                                                                   | *string*                                                                                           | :heavy_check_mark:                                                                                 | The ID of the organization owning the benefit.                                                     |
 | `metadata`                                                                                         | Record<string, *components.MetadataOutputType*>                                                    | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `visibility`                                                                                       | [components.BenefitVisibility](../../models/components/benefitvisibility.md)                       | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 | `properties`                                                                                       | [components.BenefitMeterCreditProperties](../../models/components/benefitmetercreditproperties.md) | :heavy_check_mark:                                                                                 | Properties for a benefit of type `meter_unit`.                                                     |
+| `visibilityConfigurable`                                                                           | *boolean*                                                                                          | :heavy_check_mark:                                                                                 | N/A                                                                                                |

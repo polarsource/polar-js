@@ -13,6 +13,10 @@ import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
+  FileRead,
+  FileRead$inboundSchema,
+} from "../models/components/fileread.js";
+import {
   ConnectionError,
   InvalidRequestError,
   RequestAbortedError,
@@ -37,8 +41,6 @@ import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
   FilesUpdateRequest,
   FilesUpdateRequest$outboundSchema,
-  FilesUpdateResponseFilesUpdate,
-  FilesUpdateResponseFilesUpdate$inboundSchema,
 } from "../models/operations/filesupdate.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
@@ -57,7 +59,7 @@ export function filesUpdate(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    FilesUpdateResponseFilesUpdate,
+    FileRead,
     | NotPermitted
     | ResourceNotFound
     | HTTPValidationError
@@ -85,7 +87,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      FilesUpdateResponseFilesUpdate,
+      FileRead,
       | NotPermitted
       | ResourceNotFound
       | HTTPValidationError
@@ -176,7 +178,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    FilesUpdateResponseFilesUpdate,
+    FileRead,
     | NotPermitted
     | ResourceNotFound
     | HTTPValidationError
@@ -189,7 +191,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, FilesUpdateResponseFilesUpdate$inboundSchema),
+    M.json(200, FileRead$inboundSchema),
     M.jsonErr(403, NotPermitted$inboundSchema),
     M.jsonErr(404, ResourceNotFound$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),

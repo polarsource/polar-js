@@ -23,10 +23,10 @@ import {
   MetadataOutputType$outboundSchema,
 } from "./metadataoutputtype.js";
 import {
-  SubscriptionRecurringInterval,
-  SubscriptionRecurringInterval$inboundSchema,
-  SubscriptionRecurringInterval$outboundSchema,
-} from "./subscriptionrecurringinterval.js";
+  RecurringInterval,
+  RecurringInterval$inboundSchema,
+  RecurringInterval$outboundSchema,
+} from "./recurringinterval.js";
 
 export type CustomerStateSubscriptionCustomFieldData =
   | string
@@ -72,7 +72,7 @@ export type CustomerStateSubscription = {
    * The currency of the subscription.
    */
   currency: string;
-  recurringInterval: SubscriptionRecurringInterval;
+  recurringInterval: RecurringInterval;
   /**
    * The start timestamp of the current billing period.
    */
@@ -215,7 +215,7 @@ export const CustomerStateSubscription$inboundSchema: z.ZodMiniType<
     status: Status$inboundSchema,
     amount: z.int(),
     currency: z.string(),
-    recurring_interval: SubscriptionRecurringInterval$inboundSchema,
+    recurring_interval: RecurringInterval$inboundSchema,
     current_period_start: z.pipe(
       z.iso.datetime({ offset: true }),
       z.transform(v => new Date(v)),
@@ -315,7 +315,7 @@ export const CustomerStateSubscription$outboundSchema: z.ZodMiniType<
     status: Status$outboundSchema,
     amount: z.int(),
     currency: z.string(),
-    recurringInterval: SubscriptionRecurringInterval$outboundSchema,
+    recurringInterval: RecurringInterval$outboundSchema,
     currentPeriodStart: z.pipe(z.date(), z.transform(v => v.toISOString())),
     currentPeriodEnd: z.pipe(z.date(), z.transform(v => v.toISOString())),
     trialStart: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),

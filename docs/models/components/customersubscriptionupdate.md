@@ -25,6 +25,22 @@ const value: components.CustomerSubscriptionUpdateSeats = {
 const value: components.CustomerSubscriptionCancel = {};
 ```
 
+### `components.CustomerSubscriptionPause`
+
+```typescript
+const value: components.CustomerSubscriptionPause = {
+  pauseAtPeriodEnd: true,
+};
+```
+
+### `components.CustomerSubscriptionResume`
+
+```typescript
+const value: components.CustomerSubscriptionResume = {
+  resume: true,
+};
+```
+
 ### `components.CustomerSubscriptionUpdateClear`
 
 ```typescript

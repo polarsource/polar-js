@@ -20,9 +20,11 @@ let value: BenefitCustom = {
   isDeleted: false,
   organizationId: "<value>",
   metadata: {},
+  visibility: "public",
   properties: {
     note: "<value>",
   },
+  visibilityConfigurable: false,
 };
 ```
 
@@ -40,4 +42,6 @@ let value: BenefitCustom = {
 | `isDeleted`                                                                                   | *boolean*                                                                                     | :heavy_check_mark:                                                                            | Whether the benefit is deleted.                                                               |
 | `organizationId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the organization owning the benefit.                                                |
 | `metadata`                                                                                    | Record<string, *components.MetadataOutputType*>                                               | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `visibility`                                                                                  | [components.BenefitVisibility](../../models/components/benefitvisibility.md)                  | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `properties`                                                                                  | [components.BenefitCustomProperties](../../models/components/benefitcustomproperties.md)      | :heavy_check_mark:                                                                            | Properties for a benefit of type `custom`.                                                    |
+| `visibilityConfigurable`                                                                      | *boolean*                                                                                     | :heavy_check_mark:                                                                            | N/A                                                                                           |

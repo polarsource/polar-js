@@ -14,6 +14,7 @@ export const OrganizationStatus = {
   Active: "active",
   Blocked: "blocked",
   Offboarding: "offboarding",
+  Offboarded: "offboarded",
 } as const;
 export type OrganizationStatus = OpenEnum<typeof OrganizationStatus>;
 

@@ -23,6 +23,7 @@ let value: LicenseKeyWithActivations = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },

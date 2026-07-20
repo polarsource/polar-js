@@ -16,15 +16,17 @@ let value: BenefitLicenseKeys = {
   isDeleted: true,
   organizationId: "<value>",
   metadata: {},
+  visibility: "public",
   properties: {
-    prefix: "<value>",
-    expires: null,
-    activations: {
-      limit: 240022,
-      enableCustomerAdmin: false,
+    prefix: null,
+    expires: {
+      ttl: 240022,
+      timeframe: "day",
     },
+    activations: null,
     limitUsage: null,
   },
+  visibilityConfigurable: false,
 };
 ```
 
@@ -42,4 +44,6 @@ let value: BenefitLicenseKeys = {
 | `isDeleted`                                                                                        | *boolean*                                                                                          | :heavy_check_mark:                                                                                 | Whether the benefit is deleted.                                                                    |
 | `organizationId`                                                                                   | *string*                                                                                           | :heavy_check_mark:                                                                                 | The ID of the organization owning the benefit.                                                     |
 | `metadata`                                                                                         | Record<string, *components.MetadataOutputType*>                                                    | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `visibility`                                                                                       | [components.BenefitVisibility](../../models/components/benefitvisibility.md)                       | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 | `properties`                                                                                       | [components.BenefitLicenseKeysProperties](../../models/components/benefitlicensekeysproperties.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `visibilityConfigurable`                                                                           | *boolean*                                                                                          | :heavy_check_mark:                                                                                 | N/A                                                                                                |

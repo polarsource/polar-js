@@ -5,7 +5,7 @@ The role of the member within the customer. To assign or transfer ownership, use
 ## Example Usage
 
 ```typescript
-import { Role } from "@polar-sh/sdk/models/components/membercreate.js";
+import { Role } from "@polar-sh/sdk/models/components/membercreatefromcustomer.js";
 
 let value: Role = "member";
 ```

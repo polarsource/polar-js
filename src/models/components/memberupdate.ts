@@ -10,6 +10,7 @@ import { MemberRole, MemberRole$outboundSchema } from "./memberrole.js";
  */
 export type MemberUpdate = {
   name?: string | null | undefined;
+  email?: string | null | undefined;
   /**
    * The role of the member within the customer.
    */
@@ -19,6 +20,7 @@ export type MemberUpdate = {
 /** @internal */
 export type MemberUpdate$Outbound = {
   name?: string | null | undefined;
+  email?: string | null | undefined;
   role?: string | null | undefined;
 };
 
@@ -28,6 +30,7 @@ export const MemberUpdate$outboundSchema: z.ZodMiniType<
   MemberUpdate
 > = z.object({
   name: z.optional(z.nullable(z.string())),
+  email: z.optional(z.nullable(z.string())),
   role: z.optional(z.nullable(MemberRole$outboundSchema)),
 });
 

@@ -289,7 +289,7 @@ run();
 
 ### Response
 
-**Promise\<[operations.FilesUploadedResponseFilesUploaded](../../models/operations/filesuploadedresponsefilesuploaded.md)\>**
+**Promise\<[components.FileRead](../../models/components/fileread.md)\>**
 
 ### Errors
 
@@ -447,7 +447,7 @@ run();
 
 ### Response
 
-**Promise\<[operations.FilesUpdateResponseFilesUpdate](../../models/operations/filesupdateresponsefilesupdate.md)\>**
+**Promise\<[components.FileRead](../../models/components/fileread.md)\>**
 
 ### Errors
 

@@ -15,6 +15,8 @@ export type OrganizationCustomerEmailSettings = {
   subscriptionCycled: boolean;
   subscriptionCycledAfterTrial: boolean;
   subscriptionPastDue: boolean;
+  subscriptionPaused: boolean;
+  subscriptionResumed: boolean;
   subscriptionRenewalReminder: boolean;
   subscriptionRevoked: boolean;
   subscriptionTrialConversionReminder: boolean;
@@ -34,6 +36,8 @@ export const OrganizationCustomerEmailSettings$inboundSchema: z.ZodMiniType<
     subscription_cycled: z.boolean(),
     subscription_cycled_after_trial: z.boolean(),
     subscription_past_due: z.boolean(),
+    subscription_paused: z.boolean(),
+    subscription_resumed: z.boolean(),
     subscription_renewal_reminder: z.boolean(),
     subscription_revoked: z.boolean(),
     subscription_trial_conversion_reminder: z.boolean(),
@@ -48,6 +52,8 @@ export const OrganizationCustomerEmailSettings$inboundSchema: z.ZodMiniType<
       "subscription_cycled": "subscriptionCycled",
       "subscription_cycled_after_trial": "subscriptionCycledAfterTrial",
       "subscription_past_due": "subscriptionPastDue",
+      "subscription_paused": "subscriptionPaused",
+      "subscription_resumed": "subscriptionResumed",
       "subscription_renewal_reminder": "subscriptionRenewalReminder",
       "subscription_revoked": "subscriptionRevoked",
       "subscription_trial_conversion_reminder":
@@ -65,6 +71,8 @@ export type OrganizationCustomerEmailSettings$Outbound = {
   subscription_cycled: boolean;
   subscription_cycled_after_trial: boolean;
   subscription_past_due: boolean;
+  subscription_paused: boolean;
+  subscription_resumed: boolean;
   subscription_renewal_reminder: boolean;
   subscription_revoked: boolean;
   subscription_trial_conversion_reminder: boolean;
@@ -84,6 +92,8 @@ export const OrganizationCustomerEmailSettings$outboundSchema: z.ZodMiniType<
     subscriptionCycled: z.boolean(),
     subscriptionCycledAfterTrial: z.boolean(),
     subscriptionPastDue: z.boolean(),
+    subscriptionPaused: z.boolean(),
+    subscriptionResumed: z.boolean(),
     subscriptionRenewalReminder: z.boolean(),
     subscriptionRevoked: z.boolean(),
     subscriptionTrialConversionReminder: z.boolean(),
@@ -98,6 +108,8 @@ export const OrganizationCustomerEmailSettings$outboundSchema: z.ZodMiniType<
       subscriptionCycled: "subscription_cycled",
       subscriptionCycledAfterTrial: "subscription_cycled_after_trial",
       subscriptionPastDue: "subscription_past_due",
+      subscriptionPaused: "subscription_paused",
+      subscriptionResumed: "subscription_resumed",
       subscriptionRenewalReminder: "subscription_renewal_reminder",
       subscriptionRevoked: "subscription_revoked",
       subscriptionTrialConversionReminder:

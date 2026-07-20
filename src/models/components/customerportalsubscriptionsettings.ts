@@ -11,6 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 export type CustomerPortalSubscriptionSettings = {
   updateSeats: boolean;
   updatePlan: boolean;
+  pause?: boolean | undefined;
 };
 
 /** @internal */
@@ -21,6 +22,7 @@ export const CustomerPortalSubscriptionSettings$inboundSchema: z.ZodMiniType<
   z.object({
     update_seats: z.boolean(),
     update_plan: z.boolean(),
+    pause: z.optional(z.boolean()),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -33,6 +35,7 @@ export const CustomerPortalSubscriptionSettings$inboundSchema: z.ZodMiniType<
 export type CustomerPortalSubscriptionSettings$Outbound = {
   update_seats: boolean;
   update_plan: boolean;
+  pause?: boolean | undefined;
 };
 
 /** @internal */
@@ -43,6 +46,7 @@ export const CustomerPortalSubscriptionSettings$outboundSchema: z.ZodMiniType<
   z.object({
     updateSeats: z.boolean(),
     updatePlan: z.boolean(),
+    pause: z.optional(z.boolean()),
   }),
   z.transform((v) => {
     return remap$(v, {

@@ -34,12 +34,6 @@ import {
   OrganizationFeatureSettings$outboundSchema,
 } from "./organizationfeaturesettings.js";
 import {
-  OrganizationNotificationSettings,
-  OrganizationNotificationSettings$inboundSchema,
-  OrganizationNotificationSettings$Outbound,
-  OrganizationNotificationSettings$outboundSchema,
-} from "./organizationnotificationsettings.js";
-import {
   OrganizationSocialLink,
   OrganizationSocialLink$inboundSchema,
   OrganizationSocialLink$Outbound,
@@ -368,6 +362,10 @@ export type Organization = {
    */
   detailsSubmittedAt: Date | null;
   /**
+   * Whether members must access this organization through its SSO connection.
+   */
+  ssoEnforced: boolean;
+  /**
    * Default presentment currency. Used as fallback in checkout and customer portal, if the customer's local currency is not available.
    */
   defaultPresentmentCurrency: string;
@@ -377,7 +375,6 @@ export type Organization = {
    */
   featureSettings: OrganizationFeatureSettings | null;
   subscriptionSettings: OrganizationSubscriptionSettings;
-  notificationSettings: OrganizationNotificationSettings;
   customerEmailSettings: OrganizationCustomerEmailSettings;
   customerPortalSettings: OrganizationCustomerPortalSettings;
   /**
@@ -430,11 +427,11 @@ export const Organization$inboundSchema: z.ZodMiniType<Organization, unknown> =
       details_submitted_at: z.nullable(
         z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
       ),
+      sso_enforced: z.boolean(),
       default_presentment_currency: z.string(),
       default_tax_behavior: TaxBehaviorOption$inboundSchema,
       feature_settings: z.nullable(OrganizationFeatureSettings$inboundSchema),
       subscription_settings: OrganizationSubscriptionSettings$inboundSchema,
-      notification_settings: OrganizationNotificationSettings$inboundSchema,
       customer_email_settings: OrganizationCustomerEmailSettings$inboundSchema,
       customer_portal_settings:
         OrganizationCustomerPortalSettings$inboundSchema,
@@ -451,11 +448,11 @@ export const Organization$inboundSchema: z.ZodMiniType<Organization, unknown> =
         "proration_behavior": "prorationBehavior",
         "allow_customer_updates": "allowCustomerUpdates",
         "details_submitted_at": "detailsSubmittedAt",
+        "sso_enforced": "ssoEnforced",
         "default_presentment_currency": "defaultPresentmentCurrency",
         "default_tax_behavior": "defaultTaxBehavior",
         "feature_settings": "featureSettings",
         "subscription_settings": "subscriptionSettings",
-        "notification_settings": "notificationSettings",
         "customer_email_settings": "customerEmailSettings",
         "customer_portal_settings": "customerPortalSettings",
         "account_id": "accountId",
@@ -478,11 +475,11 @@ export type Organization$Outbound = {
   socials: Array<OrganizationSocialLink$Outbound>;
   status: string;
   details_submitted_at: string | null;
+  sso_enforced: boolean;
   default_presentment_currency: string;
   default_tax_behavior: string;
   feature_settings: OrganizationFeatureSettings$Outbound | null;
   subscription_settings: OrganizationSubscriptionSettings$Outbound;
-  notification_settings: OrganizationNotificationSettings$Outbound;
   customer_email_settings: OrganizationCustomerEmailSettings$Outbound;
   customer_portal_settings: OrganizationCustomerPortalSettings$Outbound;
   country?: string | null | undefined;
@@ -512,11 +509,11 @@ export const Organization$outboundSchema: z.ZodMiniType<
     detailsSubmittedAt: z.nullable(
       z.pipe(z.date(), z.transform(v => v.toISOString())),
     ),
+    ssoEnforced: z.boolean(),
     defaultPresentmentCurrency: z.string(),
     defaultTaxBehavior: TaxBehaviorOption$outboundSchema,
     featureSettings: z.nullable(OrganizationFeatureSettings$outboundSchema),
     subscriptionSettings: OrganizationSubscriptionSettings$outboundSchema,
-    notificationSettings: OrganizationNotificationSettings$outboundSchema,
     customerEmailSettings: OrganizationCustomerEmailSettings$outboundSchema,
     customerPortalSettings: OrganizationCustomerPortalSettings$outboundSchema,
     country: z.optional(z.nullable(CountryAlpha2$outboundSchema)),
@@ -532,11 +529,11 @@ export const Organization$outboundSchema: z.ZodMiniType<
       prorationBehavior: "proration_behavior",
       allowCustomerUpdates: "allow_customer_updates",
       detailsSubmittedAt: "details_submitted_at",
+      ssoEnforced: "sso_enforced",
       defaultPresentmentCurrency: "default_presentment_currency",
       defaultTaxBehavior: "default_tax_behavior",
       featureSettings: "feature_settings",
       subscriptionSettings: "subscription_settings",
-      notificationSettings: "notification_settings",
       customerEmailSettings: "customer_email_settings",
       customerPortalSettings: "customer_portal_settings",
       accountId: "account_id",

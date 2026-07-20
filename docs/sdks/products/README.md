@@ -116,7 +116,9 @@ async function run() {
         priceAmount: 677078,
       },
       {
-        amountType: "free",
+        amountType: "metered_unit",
+        meterId: "<value>",
+        unitAmount: "<value>",
       },
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
@@ -153,7 +155,9 @@ async function run() {
         priceAmount: 677078,
       },
       {
-        amountType: "free",
+        amountType: "metered_unit",
+        meterId: "<value>",
+        unitAmount: "<value>",
       },
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",

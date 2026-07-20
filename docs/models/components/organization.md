@@ -22,53 +22,52 @@ let value: Organization = {
       url: "https://unhealthy-marksman.org/",
     },
   ],
-  status: "offboarding",
+  status: "offboarded",
   detailsSubmittedAt: new Date("2024-08-01T14:19:41.512Z"),
+  ssoEnforced: false,
   defaultPresentmentCurrency: "<value>",
-  defaultTaxBehavior: "exclusive",
-  featureSettings: {},
+  defaultTaxBehavior: "inclusive",
+  featureSettings: null,
   subscriptionSettings: {
-    allowMultipleSubscriptions: false,
+    allowMultipleSubscriptions: true,
     prorationBehavior: "invoice",
-    benefitRevocationGracePeriod: 288227,
-    preventTrialAbuse: false,
-    allowCustomerUpdates: true,
-  },
-  notificationSettings: {
-    newOrder: false,
-    newSubscription: true,
+    benefitRevocationGracePeriod: 730000,
+    preventTrialAbuse: true,
+    allowCustomerUpdates: false,
   },
   customerEmailSettings: {
     orderConfirmation: true,
-    subscriptionCancellation: false,
+    subscriptionCancellation: true,
     subscriptionConfirmation: false,
     subscriptionCycled: false,
     subscriptionCycledAfterTrial: false,
     subscriptionPastDue: false,
-    subscriptionRenewalReminder: true,
+    subscriptionPaused: false,
+    subscriptionResumed: true,
+    subscriptionRenewalReminder: false,
     subscriptionRevoked: false,
-    subscriptionTrialConversionReminder: false,
-    subscriptionUncanceled: true,
+    subscriptionTrialConversionReminder: true,
+    subscriptionUncanceled: false,
     subscriptionUpdated: false,
   },
   customerPortalSettings: {
     usage: {
-      show: false,
+      show: true,
     },
     subscription: {
       updateSeats: true,
-      updatePlan: true,
+      updatePlan: false,
     },
   },
-  accountId: null,
+  accountId: "<value>",
   payoutAccountId: "<value>",
   capabilities: {
-    checkoutPayments: true,
+    checkoutPayments: false,
     subscriptionRenewals: false,
     payouts: false,
     refunds: false,
     apiAccess: false,
-    dashboardAccess: false,
+    dashboardAccess: true,
   },
 };
 ```
@@ -90,11 +89,11 @@ let value: Organization = {
 | `socials`                                                                                                                          | [components.OrganizationSocialLink](../../models/components/organizationsociallink.md)[]                                           | :heavy_check_mark:                                                                                                                 | Links to social profiles.                                                                                                          |
 | `status`                                                                                                                           | [components.OrganizationStatus](../../models/components/organizationstatus.md)                                                     | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |
 | `detailsSubmittedAt`                                                                                                               | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                      | :heavy_check_mark:                                                                                                                 | When the business details were submitted for review.                                                                               |
+| `ssoEnforced`                                                                                                                      | *boolean*                                                                                                                          | :heavy_check_mark:                                                                                                                 | Whether members must access this organization through its SSO connection.                                                          |
 | `defaultPresentmentCurrency`                                                                                                       | *string*                                                                                                                           | :heavy_check_mark:                                                                                                                 | Default presentment currency. Used as fallback in checkout and customer portal, if the customer's local currency is not available. |
 | `defaultTaxBehavior`                                                                                                               | [components.TaxBehaviorOption](../../models/components/taxbehavioroption.md)                                                       | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |
 | `featureSettings`                                                                                                                  | [components.OrganizationFeatureSettings](../../models/components/organizationfeaturesettings.md)                                   | :heavy_check_mark:                                                                                                                 | Organization feature settings                                                                                                      |
 | `subscriptionSettings`                                                                                                             | [components.OrganizationSubscriptionSettings](../../models/components/organizationsubscriptionsettings.md)                         | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |
-| `notificationSettings`                                                                                                             | [components.OrganizationNotificationSettings](../../models/components/organizationnotificationsettings.md)                         | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |
 | `customerEmailSettings`                                                                                                            | [components.OrganizationCustomerEmailSettings](../../models/components/organizationcustomeremailsettings.md)                       | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |
 | `customerPortalSettings`                                                                                                           | [components.OrganizationCustomerPortalSettings](../../models/components/organizationcustomerportalsettings.md)                     | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |
 | `country`                                                                                                                          | [components.CountryAlpha2](../../models/components/countryalpha2.md)                                                               | :heavy_minus_sign:                                                                                                                 | Two-letter country code (ISO 3166-1 alpha-2).                                                                                      |

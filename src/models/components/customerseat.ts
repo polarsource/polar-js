@@ -35,48 +35,48 @@ export type CustomerSeat = {
   /**
    * The subscription ID (for recurring seats)
    */
-  subscriptionId?: string | null | undefined;
+  subscriptionId: string | null;
   /**
    * The order ID (for one-time purchase seats)
    */
-  orderId?: string | null | undefined;
+  orderId: string | null;
   status: SeatStatus;
   /**
    * The customer ID. When member_model_enabled is true, this is the billing customer (purchaser). When false, this is the seat member customer.
    */
-  customerId?: string | null | undefined;
+  customerId: string | null;
   /**
    * The member ID of the seat occupant
    */
-  memberId?: string | null | undefined;
+  memberId: string | null;
   /**
    * The member associated with this seat
    */
-  member?: Member | null | undefined;
+  member: Member | null;
   /**
    * Email of the seat member (set when member_model_enabled is true)
    */
-  email?: string | null | undefined;
+  email: string | null;
   /**
    * The assigned customer email
    */
-  customerEmail?: string | null | undefined;
+  customerEmail: string | null;
   /**
    * When the invitation token expires
    */
-  invitationTokenExpiresAt?: Date | null | undefined;
+  invitationTokenExpiresAt: Date | null;
   /**
    * When the seat was claimed
    */
-  claimedAt?: Date | null | undefined;
+  claimedAt: Date | null;
   /**
    * When the seat was revoked
    */
-  revokedAt?: Date | null | undefined;
+  revokedAt: Date | null;
   /**
    * Additional metadata for the seat
    */
-  seatMetadata?: { [k: string]: any } | null | undefined;
+  seatMetadata: { [k: string]: any } | null;
 };
 
 /** @internal */
@@ -91,33 +91,24 @@ export const CustomerSeat$inboundSchema: z.ZodMiniType<CustomerSeat, unknown> =
         z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
       ),
       id: z.string(),
-      subscription_id: z.optional(z.nullable(z.string())),
-      order_id: z.optional(z.nullable(z.string())),
+      subscription_id: z.nullable(z.string()),
+      order_id: z.nullable(z.string()),
       status: SeatStatus$inboundSchema,
-      customer_id: z.optional(z.nullable(z.string())),
-      member_id: z.optional(z.nullable(z.string())),
-      member: z.optional(z.nullable(Member$inboundSchema)),
-      email: z.optional(z.nullable(z.string())),
-      customer_email: z.optional(z.nullable(z.string())),
-      invitation_token_expires_at: z.optional(
-        z.nullable(z.pipe(
-          z.iso.datetime({ offset: true }),
-          z.transform(v => new Date(v)),
-        )),
+      customer_id: z.nullable(z.string()),
+      member_id: z.nullable(z.string()),
+      member: z.nullable(Member$inboundSchema),
+      email: z.nullable(z.string()),
+      customer_email: z.nullable(z.string()),
+      invitation_token_expires_at: z.nullable(
+        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
       ),
-      claimed_at: z.optional(
-        z.nullable(z.pipe(
-          z.iso.datetime({ offset: true }),
-          z.transform(v => new Date(v)),
-        )),
+      claimed_at: z.nullable(
+        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
       ),
-      revoked_at: z.optional(
-        z.nullable(z.pipe(
-          z.iso.datetime({ offset: true }),
-          z.transform(v => new Date(v)),
-        )),
+      revoked_at: z.nullable(
+        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
       ),
-      seat_metadata: z.optional(z.nullable(z.record(z.string(), z.any()))),
+      seat_metadata: z.nullable(z.record(z.string(), z.any())),
     }),
     z.transform((v) => {
       return remap$(v, {
@@ -140,18 +131,18 @@ export type CustomerSeat$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
-  subscription_id?: string | null | undefined;
-  order_id?: string | null | undefined;
+  subscription_id: string | null;
+  order_id: string | null;
   status: string;
-  customer_id?: string | null | undefined;
-  member_id?: string | null | undefined;
-  member?: Member$Outbound | null | undefined;
-  email?: string | null | undefined;
-  customer_email?: string | null | undefined;
-  invitation_token_expires_at?: string | null | undefined;
-  claimed_at?: string | null | undefined;
-  revoked_at?: string | null | undefined;
-  seat_metadata?: { [k: string]: any } | null | undefined;
+  customer_id: string | null;
+  member_id: string | null;
+  member: Member$Outbound | null;
+  email: string | null;
+  customer_email: string | null;
+  invitation_token_expires_at: string | null;
+  claimed_at: string | null;
+  revoked_at: string | null;
+  seat_metadata: { [k: string]: any } | null;
 };
 
 /** @internal */
@@ -163,24 +154,20 @@ export const CustomerSeat$outboundSchema: z.ZodMiniType<
     createdAt: z.pipe(z.date(), z.transform(v => v.toISOString())),
     modifiedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
     id: z.string(),
-    subscriptionId: z.optional(z.nullable(z.string())),
-    orderId: z.optional(z.nullable(z.string())),
+    subscriptionId: z.nullable(z.string()),
+    orderId: z.nullable(z.string()),
     status: SeatStatus$outboundSchema,
-    customerId: z.optional(z.nullable(z.string())),
-    memberId: z.optional(z.nullable(z.string())),
-    member: z.optional(z.nullable(Member$outboundSchema)),
-    email: z.optional(z.nullable(z.string())),
-    customerEmail: z.optional(z.nullable(z.string())),
-    invitationTokenExpiresAt: z.optional(
-      z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    customerId: z.nullable(z.string()),
+    memberId: z.nullable(z.string()),
+    member: z.nullable(Member$outboundSchema),
+    email: z.nullable(z.string()),
+    customerEmail: z.nullable(z.string()),
+    invitationTokenExpiresAt: z.nullable(
+      z.pipe(z.date(), z.transform(v => v.toISOString())),
     ),
-    claimedAt: z.optional(
-      z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
-    ),
-    revokedAt: z.optional(
-      z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
-    ),
-    seatMetadata: z.optional(z.nullable(z.record(z.string(), z.any()))),
+    claimedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    revokedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    seatMetadata: z.nullable(z.record(z.string(), z.any())),
   }),
   z.transform((v) => {
     return remap$(v, {

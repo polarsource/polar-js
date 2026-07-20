@@ -5,7 +5,7 @@
 import { customersCreate } from "../funcs/customersCreate.js";
 import { customersDelete } from "../funcs/customersDelete.js";
 import { customersDeleteExternal } from "../funcs/customersDeleteExternal.js";
-import { customersExport, ExportAcceptEnum } from "../funcs/customersExport.js";
+import { customersExport } from "../funcs/customersExport.js";
 import { customersGet } from "../funcs/customersGet.js";
 import { customersGetExternal } from "../funcs/customersGetExternal.js";
 import { customersGetState } from "../funcs/customersGetState.js";
@@ -21,10 +21,7 @@ import { CustomerCreate } from "../models/components/customercreate.js";
 import { CustomerState } from "../models/components/customerstate.js";
 import { CustomersDeleteRequest } from "../models/operations/customersdelete.js";
 import { CustomersDeleteExternalRequest } from "../models/operations/customersdeleteexternal.js";
-import {
-  CustomersExportRequest,
-  CustomersExportResponse,
-} from "../models/operations/customersexport.js";
+import { CustomersExportRequest } from "../models/operations/customersexport.js";
 import { CustomersGetRequest } from "../models/operations/customersget.js";
 import { CustomersGetExternalRequest } from "../models/operations/customersgetexternal.js";
 import { CustomersGetStateRequest } from "../models/operations/customersgetstate.js";
@@ -45,10 +42,14 @@ import { CustomersUpdateRequest } from "../models/operations/customersupdate.js"
 import { CustomersUpdateExternalRequest } from "../models/operations/customersupdateexternal.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
-
-export { ExportAcceptEnum } from "../funcs/customersExport.js";
+import { PolarMembers } from "./polarmembers.js";
 
 export class Customers extends ClientSDK {
+  private _members?: PolarMembers;
+  get members(): PolarMembers {
+    return (this._members ??= new PolarMembers(this._options));
+  }
+
   /**
    * List Customers
    *
@@ -97,8 +98,8 @@ export class Customers extends ClientSDK {
    */
   async export(
     request: CustomersExportRequest,
-    options?: RequestOptions & { acceptHeaderOverride?: ExportAcceptEnum },
-  ): Promise<CustomersExportResponse> {
+    options?: RequestOptions,
+  ): Promise<string> {
     return unwrapAsync(customersExport(
       this,
       request,

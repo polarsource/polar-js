@@ -13,17 +13,25 @@ import { RequestOptions } from "../lib/sdks.js";
 import { resolveSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
-  CustomerPortalOrdersGenerateInvoiceResponse422CustomerPortalOrdersGenerateInvoice,
-  CustomerPortalOrdersGenerateInvoiceResponse422CustomerPortalOrdersGenerateInvoice$inboundSchema,
-} from "../models/errors/customerportalordersgenerateinvoice.js";
-import {
   ConnectionError,
   InvalidRequestError,
   RequestAbortedError,
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
+import {
+  MissingInvoiceBillingDetails,
+  MissingInvoiceBillingDetails$inboundSchema,
+} from "../models/errors/missinginvoicebillingdetails.js";
+import {
+  OrderNotEligibleForInvoice,
+  OrderNotEligibleForInvoice$inboundSchema,
+} from "../models/errors/ordernoteligibleforinvoice.js";
 import { PolarError } from "../models/errors/polarerror.js";
+import {
+  ResourceNotFound,
+  ResourceNotFound$inboundSchema,
+} from "../models/errors/resourcenotfound.js";
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
@@ -48,7 +56,9 @@ export function customerPortalOrdersGenerateInvoice(
 ): APIPromise<
   Result<
     any,
-    | CustomerPortalOrdersGenerateInvoiceResponse422CustomerPortalOrdersGenerateInvoice
+    | ResourceNotFound
+    | OrderNotEligibleForInvoice
+    | MissingInvoiceBillingDetails
     | PolarError
     | ResponseValidationError
     | ConnectionError
@@ -76,7 +86,9 @@ async function $do(
   [
     Result<
       any,
-      | CustomerPortalOrdersGenerateInvoiceResponse422CustomerPortalOrdersGenerateInvoice
+      | ResourceNotFound
+      | OrderNotEligibleForInvoice
+      | MissingInvoiceBillingDetails
       | PolarError
       | ResponseValidationError
       | ConnectionError
@@ -180,7 +192,9 @@ async function $do(
 
   const [result] = await M.match<
     any,
-    | CustomerPortalOrdersGenerateInvoiceResponse422CustomerPortalOrdersGenerateInvoice
+    | ResourceNotFound
+    | OrderNotEligibleForInvoice
+    | MissingInvoiceBillingDetails
     | PolarError
     | ResponseValidationError
     | ConnectionError
@@ -191,10 +205,9 @@ async function $do(
     | SDKValidationError
   >(
     M.json(202, z.any()),
-    M.jsonErr(
-      422,
-      CustomerPortalOrdersGenerateInvoiceResponse422CustomerPortalOrdersGenerateInvoice$inboundSchema,
-    ),
+    M.jsonErr(404, ResourceNotFound$inboundSchema),
+    M.jsonErr(409, OrderNotEligibleForInvoice$inboundSchema),
+    M.jsonErr(422, MissingInvoiceBillingDetails$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

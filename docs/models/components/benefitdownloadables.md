@@ -18,17 +18,15 @@ let value: BenefitDownloadables = {
   metadata: {
     "key": 3971.46,
   },
+  visibility: "private",
   properties: {
     archived: {
       "key": false,
       "key1": false,
     },
-    files: [
-      "<value 1>",
-      "<value 2>",
-      "<value 3>",
-    ],
+    files: [],
   },
+  visibilityConfigurable: true,
 };
 ```
 
@@ -46,4 +44,6 @@ let value: BenefitDownloadables = {
 | `isDeleted`                                                                                            | *boolean*                                                                                              | :heavy_check_mark:                                                                                     | Whether the benefit is deleted.                                                                        |
 | `organizationId`                                                                                       | *string*                                                                                               | :heavy_check_mark:                                                                                     | The ID of the organization owning the benefit.                                                         |
 | `metadata`                                                                                             | Record<string, *components.MetadataOutputType*>                                                        | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
+| `visibility`                                                                                           | [components.BenefitVisibility](../../models/components/benefitvisibility.md)                           | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
 | `properties`                                                                                           | [components.BenefitDownloadablesProperties](../../models/components/benefitdownloadablesproperties.md) | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
+| `visibilityConfigurable`                                                                               | *boolean*                                                                                              | :heavy_check_mark:                                                                                     | N/A                                                                                                    |

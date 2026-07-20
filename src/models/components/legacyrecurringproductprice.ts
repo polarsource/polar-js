@@ -18,17 +18,10 @@ import {
   LegacyRecurringProductPriceFixed$Outbound,
   LegacyRecurringProductPriceFixed$outboundSchema,
 } from "./legacyrecurringproductpricefixed.js";
-import {
-  LegacyRecurringProductPriceFree,
-  LegacyRecurringProductPriceFree$inboundSchema,
-  LegacyRecurringProductPriceFree$Outbound,
-  LegacyRecurringProductPriceFree$outboundSchema,
-} from "./legacyrecurringproductpricefree.js";
 
 export type LegacyRecurringProductPrice =
   | LegacyRecurringProductPriceCustom
-  | LegacyRecurringProductPriceFixed
-  | LegacyRecurringProductPriceFree;
+  | LegacyRecurringProductPriceFixed;
 
 /** @internal */
 export const LegacyRecurringProductPrice$inboundSchema: z.ZodMiniType<
@@ -37,13 +30,11 @@ export const LegacyRecurringProductPrice$inboundSchema: z.ZodMiniType<
 > = z.union([
   LegacyRecurringProductPriceCustom$inboundSchema,
   LegacyRecurringProductPriceFixed$inboundSchema,
-  LegacyRecurringProductPriceFree$inboundSchema,
 ]);
 /** @internal */
 export type LegacyRecurringProductPrice$Outbound =
   | LegacyRecurringProductPriceCustom$Outbound
-  | LegacyRecurringProductPriceFixed$Outbound
-  | LegacyRecurringProductPriceFree$Outbound;
+  | LegacyRecurringProductPriceFixed$Outbound;
 
 /** @internal */
 export const LegacyRecurringProductPrice$outboundSchema: z.ZodMiniType<
@@ -52,7 +43,6 @@ export const LegacyRecurringProductPrice$outboundSchema: z.ZodMiniType<
 > = z.union([
   LegacyRecurringProductPriceCustom$outboundSchema,
   LegacyRecurringProductPriceFixed$outboundSchema,
-  LegacyRecurringProductPriceFree$outboundSchema,
 ]);
 
 export function legacyRecurringProductPriceToJSON(

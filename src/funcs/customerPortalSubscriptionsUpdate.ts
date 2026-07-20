@@ -17,9 +17,9 @@ import {
   CustomerSubscription$inboundSchema,
 } from "../models/components/customersubscription.js";
 import {
-  AlreadyCanceledSubscription,
-  AlreadyCanceledSubscription$inboundSchema,
-} from "../models/errors/alreadycanceledsubscription.js";
+  CustomerPortalSubscriptionsUpdateResponse403CustomerPortalSubscriptionsUpdate,
+  CustomerPortalSubscriptionsUpdateResponse403CustomerPortalSubscriptionsUpdate$inboundSchema,
+} from "../models/errors/customerportalsubscriptionsupdate.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -65,7 +65,7 @@ export function customerPortalSubscriptionsUpdate(
   Result<
     CustomerSubscription,
     | PaymentFailed
-    | AlreadyCanceledSubscription
+    | CustomerPortalSubscriptionsUpdateResponse403CustomerPortalSubscriptionsUpdate
     | ResourceNotFound
     | HTTPValidationError
     | PolarError
@@ -96,7 +96,7 @@ async function $do(
     Result<
       CustomerSubscription,
       | PaymentFailed
-      | AlreadyCanceledSubscription
+      | CustomerPortalSubscriptionsUpdateResponse403CustomerPortalSubscriptionsUpdate
       | ResourceNotFound
       | HTTPValidationError
       | PolarError
@@ -204,7 +204,7 @@ async function $do(
   const [result] = await M.match<
     CustomerSubscription,
     | PaymentFailed
-    | AlreadyCanceledSubscription
+    | CustomerPortalSubscriptionsUpdateResponse403CustomerPortalSubscriptionsUpdate
     | ResourceNotFound
     | HTTPValidationError
     | PolarError
@@ -218,7 +218,10 @@ async function $do(
   >(
     M.json(200, CustomerSubscription$inboundSchema),
     M.jsonErr(402, PaymentFailed$inboundSchema),
-    M.jsonErr(403, AlreadyCanceledSubscription$inboundSchema),
+    M.jsonErr(
+      403,
+      CustomerPortalSubscriptionsUpdateResponse403CustomerPortalSubscriptionsUpdate$inboundSchema,
+    ),
     M.jsonErr(404, ResourceNotFound$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),

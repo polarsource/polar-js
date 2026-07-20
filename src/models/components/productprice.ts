@@ -19,12 +19,6 @@ import {
   ProductPriceFixed$outboundSchema,
 } from "./productpricefixed.js";
 import {
-  ProductPriceFree,
-  ProductPriceFree$inboundSchema,
-  ProductPriceFree$Outbound,
-  ProductPriceFree$outboundSchema,
-} from "./productpricefree.js";
-import {
   ProductPriceMeteredUnit,
   ProductPriceMeteredUnit$inboundSchema,
   ProductPriceMeteredUnit$Outbound,
@@ -40,7 +34,6 @@ import {
 export type ProductPrice =
   | ProductPriceCustom
   | ProductPriceFixed
-  | ProductPriceFree
   | ProductPriceMeteredUnit
   | ProductPriceSeatBased;
 
@@ -49,7 +42,6 @@ export const ProductPrice$inboundSchema: z.ZodMiniType<ProductPrice, unknown> =
   z.union([
     ProductPriceCustom$inboundSchema,
     ProductPriceFixed$inboundSchema,
-    ProductPriceFree$inboundSchema,
     ProductPriceMeteredUnit$inboundSchema,
     ProductPriceSeatBased$inboundSchema,
   ]);
@@ -57,7 +49,6 @@ export const ProductPrice$inboundSchema: z.ZodMiniType<ProductPrice, unknown> =
 export type ProductPrice$Outbound =
   | ProductPriceCustom$Outbound
   | ProductPriceFixed$Outbound
-  | ProductPriceFree$Outbound
   | ProductPriceMeteredUnit$Outbound
   | ProductPriceSeatBased$Outbound;
 
@@ -68,7 +59,6 @@ export const ProductPrice$outboundSchema: z.ZodMiniType<
 > = z.union([
   ProductPriceCustom$outboundSchema,
   ProductPriceFixed$outboundSchema,
-  ProductPriceFree$outboundSchema,
   ProductPriceMeteredUnit$outboundSchema,
   ProductPriceSeatBased$outboundSchema,
 ]);

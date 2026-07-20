@@ -42,6 +42,7 @@ const value: components.BalanceDisputeEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -89,6 +90,7 @@ const value: components.BalanceDisputeReversalEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -135,6 +137,7 @@ const value: components.BalanceOrderEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -181,6 +184,7 @@ const value: components.BalanceRefundEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -228,6 +232,7 @@ const value: components.BalanceRefundReversalEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -274,6 +279,7 @@ const value: components.BenefitCycledEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -316,6 +322,7 @@ const value: components.BenefitGrantedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: null,
     taxId: [
       "911144442",
@@ -354,6 +361,7 @@ const value: components.BenefitRevokedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -394,6 +402,7 @@ const value: components.BenefitUpdatedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -434,6 +443,7 @@ const value: components.CheckoutCreatedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: null,
     taxId: [
       "911144442",
@@ -473,6 +483,7 @@ const value: components.CustomerCreatedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -515,6 +526,7 @@ const value: components.CustomerDeletedEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -556,6 +568,7 @@ const value: components.CustomerUpdatedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: null,
     taxId: [
       "911144442",
@@ -597,6 +610,7 @@ const value: components.MeterCreditEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -637,6 +651,7 @@ const value: components.MeterResetEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -673,7 +688,7 @@ const value: components.OrderPaidEvent = {
   name: "order.paid",
   metadata: {
     orderId: "<id>",
-    amount: 638838,
+    amount: 52059,
   },
 };
 ```
@@ -693,8 +708,8 @@ const value: components.OrderRefundedEvent = {
   name: "order.refunded",
   metadata: {
     orderId: "<id>",
-    refundedAmount: 839516,
-    currency: "Lek",
+    refundedAmount: 638838,
+    currency: "Lebanese Pound",
   },
 };
 ```
@@ -716,6 +731,7 @@ const value: components.OrderVoidedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -758,6 +774,7 @@ const value: components.SubscriptionBillingPeriodUpdatedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -800,6 +817,7 @@ const value: components.SubscriptionCanceledEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -843,6 +861,7 @@ const value: components.SubscriptionCreatedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -887,6 +906,7 @@ const value: components.SubscriptionCycledEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -925,6 +945,7 @@ const value: components.SubscriptionPastDueEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -947,6 +968,48 @@ const value: components.SubscriptionPastDueEvent = {
 };
 ```
 
+### `components.SubscriptionPausedEvent`
+
+```typescript
+const value: components.SubscriptionPausedEvent = {
+  id: "<value>",
+  timestamp: new Date("2024-06-05T02:25:09.228Z"),
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  customerId: "<value>",
+  customer: {
+    id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+    createdAt: new Date("2025-08-23T16:08:41.474Z"),
+    modifiedAt: new Date("2024-10-30T11:02:59.272Z"),
+    metadata: {
+      "key": true,
+    },
+    email: "customer@example.com",
+    emailVerified: true,
+    type: "individual",
+    name: "John Doe",
+    billingName: "John Doe",
+    billingAddress: {
+      country: "US",
+    },
+    taxId: [
+      "911144442",
+      "us_ein",
+    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    deletedAt: new Date("2024-10-22T02:07:23.480Z"),
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
+  },
+  externalCustomerId: "<id>",
+  label: "<value>",
+  source: "system",
+  name: "subscription.paused",
+  metadata: {
+    subscriptionId: "<id>",
+    pausedAt: "<value>",
+  },
+};
+```
+
 ### `components.SubscriptionProductUpdatedEvent`
 
 ```typescript
@@ -965,6 +1028,7 @@ const value: components.SubscriptionProductUpdatedEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -1007,6 +1071,7 @@ const value: components.SubscriptionReactivatedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -1022,6 +1087,45 @@ const value: components.SubscriptionReactivatedEvent = {
   label: "<value>",
   source: "system",
   name: "subscription.reactivated",
+  metadata: {
+    subscriptionId: "<id>",
+  },
+};
+```
+
+### `components.SubscriptionResumedEvent`
+
+```typescript
+const value: components.SubscriptionResumedEvent = {
+  id: "<value>",
+  timestamp: new Date("2026-11-07T03:22:50.686Z"),
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  customerId: "<value>",
+  customer: {
+    id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+    createdAt: new Date("2026-08-09T02:51:41.232Z"),
+    modifiedAt: new Date("2025-08-23T05:32:20.312Z"),
+    metadata: {},
+    email: "customer@example.com",
+    emailVerified: true,
+    type: "individual",
+    name: "John Doe",
+    billingName: "John Doe",
+    billingAddress: {
+      country: "US",
+    },
+    taxId: [
+      "911144442",
+      "us_ein",
+    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    deletedAt: new Date("2024-03-25T13:19:55.322Z"),
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
+  },
+  externalCustomerId: "<id>",
+  label: "<value>",
+  source: "system",
+  name: "subscription.resumed",
   metadata: {
     subscriptionId: "<id>",
   },
@@ -1044,6 +1148,7 @@ const value: components.SubscriptionRevokedEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -1081,6 +1186,7 @@ const value: components.SubscriptionSeatsUpdatedEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -1121,6 +1227,7 @@ const value: components.SubscriptionUncanceledEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -1166,6 +1273,7 @@ const value: components.SubscriptionUpdateClearedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -1203,6 +1311,7 @@ const value: components.SubscriptionUpdatedEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },

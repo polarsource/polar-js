@@ -25,11 +25,6 @@ import {
   ProductPriceFixedCreate$outboundSchema,
 } from "./productpricefixedcreate.js";
 import {
-  ProductPriceFreeCreate,
-  ProductPriceFreeCreate$Outbound,
-  ProductPriceFreeCreate$outboundSchema,
-} from "./productpricefreecreate.js";
-import {
   ProductPriceMeteredUnitCreate,
   ProductPriceMeteredUnitCreate$Outbound,
   ProductPriceMeteredUnitCreate$outboundSchema,
@@ -53,7 +48,6 @@ export type CheckoutCreateCustomerMetadata = string | number | number | boolean;
 export type CheckoutCreatePrices =
   | ProductPriceCustomCreate
   | ProductPriceFixedCreate
-  | ProductPriceFreeCreate
   | ProductPriceMeteredUnitCreate
   | ProductPriceSeatBasedCreate;
 
@@ -192,7 +186,6 @@ export type CheckoutCreate = {
       [k: string]: Array<
         | ProductPriceCustomCreate
         | ProductPriceFixedCreate
-        | ProductPriceFreeCreate
         | ProductPriceMeteredUnitCreate
         | ProductPriceSeatBasedCreate
       >;
@@ -277,7 +270,6 @@ export function checkoutCreateCustomerMetadataToJSON(
 export type CheckoutCreatePrices$Outbound =
   | ProductPriceCustomCreate$Outbound
   | ProductPriceFixedCreate$Outbound
-  | ProductPriceFreeCreate$Outbound
   | ProductPriceMeteredUnitCreate$Outbound
   | ProductPriceSeatBasedCreate$Outbound;
 
@@ -288,7 +280,6 @@ export const CheckoutCreatePrices$outboundSchema: z.ZodMiniType<
 > = z.union([
   ProductPriceCustomCreate$outboundSchema,
   ProductPriceFixedCreate$outboundSchema,
-  ProductPriceFreeCreate$outboundSchema,
   ProductPriceMeteredUnitCreate$outboundSchema,
   ProductPriceSeatBasedCreate$outboundSchema,
 ]);
@@ -341,7 +332,6 @@ export type CheckoutCreate$Outbound = {
       [k: string]: Array<
         | ProductPriceCustomCreate$Outbound
         | ProductPriceFixedCreate$Outbound
-        | ProductPriceFreeCreate$Outbound
         | ProductPriceMeteredUnitCreate$Outbound
         | ProductPriceSeatBasedCreate$Outbound
       >;
@@ -415,7 +405,6 @@ export const CheckoutCreate$outboundSchema: z.ZodMiniType<
             z.union([
               ProductPriceCustomCreate$outboundSchema,
               ProductPriceFixedCreate$outboundSchema,
-              ProductPriceFreeCreate$outboundSchema,
               ProductPriceMeteredUnitCreate$outboundSchema,
               ProductPriceSeatBasedCreate$outboundSchema,
             ]),

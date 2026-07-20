@@ -16,6 +16,7 @@ const value: components.CustomerStateIndividual = {
   emailVerified: true,
   type: "individual",
   name: "John Doe",
+  billingName: "John Doe",
   billingAddress: {
     country: "US",
   },
@@ -25,6 +26,7 @@ const value: components.CustomerStateIndividual = {
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   deletedAt: new Date("2024-12-12T04:56:33.080Z"),
+  avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   activeSubscriptions: [
     {
       id: "e5149aae-e521-42b9-b24c-abb3d71eea2e",
@@ -65,7 +67,7 @@ const value: components.CustomerStateIndividual = {
       modifiedAt: new Date("2026-05-27T23:44:19.476Z"),
       grantedAt: new Date("2025-01-03T13:37:00Z"),
       benefitId: "397a17aa-15cf-4cb4-9333-18040203cf98",
-      benefitType: "license_keys",
+      benefitType: "meter_credit",
       benefitMetadata: {},
       properties: {},
     },
@@ -81,7 +83,6 @@ const value: components.CustomerStateIndividual = {
       balance: 75,
     },
   ],
-  avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
 };
 ```
 
@@ -98,6 +99,7 @@ const value: components.CustomerStateTeam = {
   emailVerified: true,
   type: "team",
   name: "John Doe",
+  billingName: "John Doe",
   billingAddress: {
     country: "US",
   },
@@ -107,6 +109,7 @@ const value: components.CustomerStateTeam = {
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   deletedAt: null,
+  avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   activeSubscriptions: [
     {
       id: "e5149aae-e521-42b9-b24c-abb3d71eea2e",
@@ -147,13 +150,12 @@ const value: components.CustomerStateTeam = {
       modifiedAt: new Date("2026-05-27T23:44:19.476Z"),
       grantedAt: new Date("2025-01-03T13:37:00Z"),
       benefitId: "397a17aa-15cf-4cb4-9333-18040203cf98",
-      benefitType: "license_keys",
+      benefitType: "meter_credit",
       benefitMetadata: {},
       properties: {},
     },
   ],
   activeMeters: [],
-  avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
 };
 ```
 
