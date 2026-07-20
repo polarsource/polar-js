@@ -4,26 +4,11 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import {
-  DownloadableFileRead,
-  DownloadableFileRead$inboundSchema,
-} from "../components/downloadablefileread.js";
 import {
   FileUploadCompleted,
   FileUploadCompleted$Outbound,
   FileUploadCompleted$outboundSchema,
 } from "../components/fileuploadcompleted.js";
-import {
-  OrganizationAvatarFileRead,
-  OrganizationAvatarFileRead$inboundSchema,
-} from "../components/organizationavatarfileread.js";
-import {
-  ProductMediaFileRead,
-  ProductMediaFileRead$inboundSchema,
-} from "../components/productmediafileread.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type FilesUploadedRequest = {
   /**
@@ -32,14 +17,6 @@ export type FilesUploadedRequest = {
   id: string;
   fileUploadCompleted: FileUploadCompleted;
 };
-
-/**
- * File upload completed.
- */
-export type FilesUploadedResponseFilesUploaded =
-  | DownloadableFileRead
-  | ProductMediaFileRead
-  | OrganizationAvatarFileRead;
 
 /** @internal */
 export type FilesUploadedRequest$Outbound = {
@@ -68,26 +45,5 @@ export function filesUploadedRequestToJSON(
 ): string {
   return JSON.stringify(
     FilesUploadedRequest$outboundSchema.parse(filesUploadedRequest),
-  );
-}
-
-/** @internal */
-export const FilesUploadedResponseFilesUploaded$inboundSchema: z.ZodMiniType<
-  FilesUploadedResponseFilesUploaded,
-  unknown
-> = z.union([
-  DownloadableFileRead$inboundSchema,
-  ProductMediaFileRead$inboundSchema,
-  OrganizationAvatarFileRead$inboundSchema,
-]);
-
-export function filesUploadedResponseFilesUploadedFromJSON(
-  jsonString: string,
-): SafeParseResult<FilesUploadedResponseFilesUploaded, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      FilesUploadedResponseFilesUploaded$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FilesUploadedResponseFilesUploaded' from JSON`,
   );
 }

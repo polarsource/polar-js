@@ -14,6 +14,10 @@ export type EventName = {
    * The name of the event.
    */
   name: string;
+  /**
+   * Human readable label of the event.
+   */
+  label: string;
   source: EventSource;
   /**
    * Number of times the event has occurred.
@@ -34,6 +38,7 @@ export const EventName$inboundSchema: z.ZodMiniType<EventName, unknown> = z
   .pipe(
     z.object({
       name: z.string(),
+      label: z.string(),
       source: EventSource$inboundSchema,
       occurrences: z.int(),
       first_seen: z.pipe(

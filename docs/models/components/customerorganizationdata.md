@@ -9,21 +9,21 @@ import { CustomerOrganizationData } from "@polar-sh/sdk/models/components/custom
 
 let value: CustomerOrganizationData = {
   organization: {
-    createdAt: new Date("2026-09-30T11:33:49.764Z"),
-    modifiedAt: new Date("2024-03-13T19:22:24.375Z"),
+    createdAt: new Date("2024-11-13T04:56:58.190Z"),
+    modifiedAt: new Date("2025-02-17T06:08:03.827Z"),
     id: "<value>",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://forceful-grass.com/",
+    avatarUrl: null,
     prorationBehavior: "invoice",
-    allowCustomerUpdates: true,
+    allowCustomerUpdates: false,
     customerPortalSettings: {
       usage: {
-        show: false,
+        show: true,
       },
       subscription: {
         updateSeats: true,
-        updatePlan: true,
+        updatePlan: false,
       },
     },
   },

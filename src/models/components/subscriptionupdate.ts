@@ -10,6 +10,16 @@ import {
   SubscriptionCancel$outboundSchema,
 } from "./subscriptioncancel.js";
 import {
+  SubscriptionPause,
+  SubscriptionPause$Outbound,
+  SubscriptionPause$outboundSchema,
+} from "./subscriptionpause.js";
+import {
+  SubscriptionResume,
+  SubscriptionResume$Outbound,
+  SubscriptionResume$outboundSchema,
+} from "./subscriptionresume.js";
+import {
   SubscriptionRevoke,
   SubscriptionRevoke$Outbound,
   SubscriptionRevoke$outboundSchema,
@@ -40,6 +50,8 @@ export type SubscriptionUpdate =
   | SubscriptionUpdateBillingPeriod
   | SubscriptionCancel
   | SubscriptionRevoke
+  | SubscriptionPause
+  | SubscriptionResume
   | SubscriptionUpdateClear
   | SubscriptionUpdateBase;
 
@@ -49,6 +61,8 @@ export type SubscriptionUpdate$Outbound =
   | SubscriptionUpdateBillingPeriod$Outbound
   | SubscriptionCancel$Outbound
   | SubscriptionRevoke$Outbound
+  | SubscriptionPause$Outbound
+  | SubscriptionResume$Outbound
   | SubscriptionUpdateClear$Outbound
   | SubscriptionUpdateBase$Outbound;
 
@@ -61,6 +75,8 @@ export const SubscriptionUpdate$outboundSchema: z.ZodMiniType<
   SubscriptionUpdateBillingPeriod$outboundSchema,
   SubscriptionCancel$outboundSchema,
   SubscriptionRevoke$outboundSchema,
+  SubscriptionPause$outboundSchema,
+  SubscriptionResume$outboundSchema,
   SubscriptionUpdateClear$outboundSchema,
   SubscriptionUpdateBase$outboundSchema,
 ]);

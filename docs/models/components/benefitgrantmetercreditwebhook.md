@@ -26,6 +26,7 @@ let value: BenefitGrantMeterCreditWebhook = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -49,21 +50,22 @@ let value: BenefitGrantMeterCreditWebhook = {
   },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2025-09-07T16:41:04.296Z"),
-    modifiedAt: null,
+    createdAt: new Date("2025-10-15T22:21:01.919Z"),
+    modifiedAt: new Date("2024-02-16T12:33:48.786Z"),
     type: "meter_credit",
-    description:
-      "blah sometimes catalog uh-huh drat phew impure whole ah darling",
+    description: "ouch woot geez wheel analyse duh",
     selectable: false,
-    deletable: true,
-    isDeleted: false,
+    deletable: false,
+    isDeleted: true,
     organizationId: "<value>",
     metadata: {},
+    visibility: "public",
     properties: {
-      units: 507849,
+      units: 953570,
       rollover: false,
       meterId: "<value>",
     },
+    visibilityConfigurable: false,
   },
   properties: {},
 };

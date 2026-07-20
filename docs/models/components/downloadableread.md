@@ -26,7 +26,7 @@ let value: DownloadableRead = {
     },
     version: "<value>",
     isUploaded: true,
-    service: "product_media",
+    service: "organization_avatar",
     sizeReadable: "<value>",
   },
 };

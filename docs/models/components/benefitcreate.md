@@ -100,3 +100,17 @@ const value: components.BenefitMeterCreditCreate = {
 };
 ```
 
+### `components.BenefitSlackSharedChannelCreate`
+
+```typescript
+const value: components.BenefitSlackSharedChannelCreate = {
+  type: "slack_shared_channel",
+  description: "till afore cute miscalculate miskey vice what fumigate hence",
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  properties: {
+    slackIntegrationId: "<value>",
+    channelNameTemplate: "<value>",
+  },
+};
+```
+

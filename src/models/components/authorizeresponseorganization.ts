@@ -22,8 +22,9 @@ export type AuthorizeResponseOrganization = {
   subType: "organization";
   sub: AuthorizeOrganization | null;
   scopes: Array<Scope>;
-  scopeDisplayNames?: { [k: string]: string } | undefined;
   organizations: Array<AuthorizeOrganization>;
+  requiresSingleOrganization: boolean;
+  scopeDisplayNames?: { [k: string]: string } | undefined;
 };
 
 /** @internal */
@@ -36,12 +37,14 @@ export const AuthorizeResponseOrganization$inboundSchema: z.ZodMiniType<
     sub_type: z.literal("organization"),
     sub: z.nullable(AuthorizeOrganization$inboundSchema),
     scopes: z.array(Scope$inboundSchema),
-    scope_display_names: z.optional(z.record(z.string(), z.string())),
     organizations: z.array(AuthorizeOrganization$inboundSchema),
+    requires_single_organization: z._default(z.boolean(), false),
+    scope_display_names: z.optional(z.record(z.string(), z.string())),
   }),
   z.transform((v) => {
     return remap$(v, {
       "sub_type": "subType",
+      "requires_single_organization": "requiresSingleOrganization",
       "scope_display_names": "scopeDisplayNames",
     });
   }),

@@ -26,20 +26,15 @@ import {
   OrganizationDetails$outboundSchema,
 } from "./organizationdetails.js";
 import {
-  OrganizationFeatureSettings,
-  OrganizationFeatureSettings$Outbound,
-  OrganizationFeatureSettings$outboundSchema,
-} from "./organizationfeaturesettings.js";
+  OrganizationFeatureSettingsUpdate,
+  OrganizationFeatureSettingsUpdate$Outbound,
+  OrganizationFeatureSettingsUpdate$outboundSchema,
+} from "./organizationfeaturesettingsupdate.js";
 import {
   OrganizationIndividualLegalEntitySchema,
   OrganizationIndividualLegalEntitySchema$Outbound,
   OrganizationIndividualLegalEntitySchema$outboundSchema,
 } from "./organizationindividuallegalentityschema.js";
-import {
-  OrganizationNotificationSettings,
-  OrganizationNotificationSettings$Outbound,
-  OrganizationNotificationSettings$outboundSchema,
-} from "./organizationnotificationsettings.js";
 import {
   OrganizationSocialLink,
   OrganizationSocialLink$Outbound,
@@ -340,9 +335,8 @@ export type OrganizationCreate = {
    * Two-letter country code (ISO 3166-1 alpha-2).
    */
   country?: CountryAlpha2Input | null | undefined;
-  featureSettings?: OrganizationFeatureSettings | null | undefined;
+  featureSettings?: OrganizationFeatureSettingsUpdate | null | undefined;
   subscriptionSettings?: OrganizationSubscriptionSettings | null | undefined;
-  notificationSettings?: OrganizationNotificationSettings | null | undefined;
   customerEmailSettings?: OrganizationCustomerEmailSettings | null | undefined;
   customerPortalSettings?:
     | OrganizationCustomerPortalSettings
@@ -390,13 +384,12 @@ export type OrganizationCreate$Outbound = {
   socials?: Array<OrganizationSocialLink$Outbound> | null | undefined;
   details?: OrganizationDetails$Outbound | null | undefined;
   country?: string | null | undefined;
-  feature_settings?: OrganizationFeatureSettings$Outbound | null | undefined;
-  subscription_settings?:
-    | OrganizationSubscriptionSettings$Outbound
+  feature_settings?:
+    | OrganizationFeatureSettingsUpdate$Outbound
     | null
     | undefined;
-  notification_settings?:
-    | OrganizationNotificationSettings$Outbound
+  subscription_settings?:
+    | OrganizationSubscriptionSettings$Outbound
     | null
     | undefined;
   customer_email_settings?:
@@ -436,13 +429,10 @@ export const OrganizationCreate$outboundSchema: z.ZodMiniType<
     details: z.optional(z.nullable(OrganizationDetails$outboundSchema)),
     country: z.optional(z.nullable(CountryAlpha2Input$outboundSchema)),
     featureSettings: z.optional(
-      z.nullable(OrganizationFeatureSettings$outboundSchema),
+      z.nullable(OrganizationFeatureSettingsUpdate$outboundSchema),
     ),
     subscriptionSettings: z.optional(
       z.nullable(OrganizationSubscriptionSettings$outboundSchema),
-    ),
-    notificationSettings: z.optional(
-      z.nullable(OrganizationNotificationSettings$outboundSchema),
     ),
     customerEmailSettings: z.optional(
       z.nullable(OrganizationCustomerEmailSettings$outboundSchema),
@@ -459,7 +449,6 @@ export const OrganizationCreate$outboundSchema: z.ZodMiniType<
       legalEntity: "legal_entity",
       featureSettings: "feature_settings",
       subscriptionSettings: "subscription_settings",
-      notificationSettings: "notification_settings",
       customerEmailSettings: "customer_email_settings",
       customerPortalSettings: "customer_portal_settings",
       defaultPresentmentCurrency: "default_presentment_currency",

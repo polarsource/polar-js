@@ -9,6 +9,7 @@ let value: ListResourceEventName = {
   items: [
     {
       name: "<value>",
+      label: "<value>",
       source: "system",
       occurrences: 155002,
       firstSeen: new Date("2026-04-29T10:50:42.537Z"),

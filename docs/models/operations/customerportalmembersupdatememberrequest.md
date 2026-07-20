@@ -7,7 +7,9 @@ import { CustomerPortalMembersUpdateMemberRequest } from "@polar-sh/sdk/models/o
 
 let value: CustomerPortalMembersUpdateMemberRequest = {
   id: "bde88cbe-d685-4f5a-bc40-a74b18fc5901",
-  customerPortalMemberUpdate: {},
+  customerPortalMemberUpdate: {
+    name: "Jane Doe",
+  },
 };
 ```
 

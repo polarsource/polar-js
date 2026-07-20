@@ -19,7 +19,7 @@ let value: OrderPaidEvent = {
   name: "order.paid",
   metadata: {
     orderId: "<id>",
-    amount: 638838,
+    amount: 52059,
   },
 };
 ```

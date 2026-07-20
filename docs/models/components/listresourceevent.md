@@ -23,6 +23,7 @@ let value: ListResourceEvent = {
         emailVerified: true,
         type: "individual",
         name: "John Doe",
+        billingName: "John Doe",
         billingAddress: {
           country: "US",
         },

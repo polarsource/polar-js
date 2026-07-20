@@ -45,22 +45,3 @@ const value: components.LegacyRecurringProductPriceFixed = {
 };
 ```
 
-### `components.LegacyRecurringProductPriceFree`
-
-```typescript
-const value: components.LegacyRecurringProductPriceFree = {
-  createdAt: new Date("2025-05-26T22:02:46.951Z"),
-  modifiedAt: new Date("2026-07-18T18:38:40.552Z"),
-  id: "<value>",
-  source: "catalog",
-  amountType: "free",
-  priceCurrency: "<value>",
-  taxBehavior: "location",
-  isArchived: false,
-  productId: "<value>",
-  type: "recurring",
-  recurringInterval: "year",
-  legacy: true,
-};
-```
-

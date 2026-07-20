@@ -4,26 +4,11 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import {
-  DownloadableFileRead,
-  DownloadableFileRead$inboundSchema,
-} from "../components/downloadablefileread.js";
 import {
   FilePatch,
   FilePatch$Outbound,
   FilePatch$outboundSchema,
 } from "../components/filepatch.js";
-import {
-  OrganizationAvatarFileRead,
-  OrganizationAvatarFileRead$inboundSchema,
-} from "../components/organizationavatarfileread.js";
-import {
-  ProductMediaFileRead,
-  ProductMediaFileRead$inboundSchema,
-} from "../components/productmediafileread.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type FilesUpdateRequest = {
   /**
@@ -32,14 +17,6 @@ export type FilesUpdateRequest = {
   id: string;
   filePatch: FilePatch;
 };
-
-/**
- * File updated.
- */
-export type FilesUpdateResponseFilesUpdate =
-  | DownloadableFileRead
-  | ProductMediaFileRead
-  | OrganizationAvatarFileRead;
 
 /** @internal */
 export type FilesUpdateRequest$Outbound = {
@@ -68,25 +45,5 @@ export function filesUpdateRequestToJSON(
 ): string {
   return JSON.stringify(
     FilesUpdateRequest$outboundSchema.parse(filesUpdateRequest),
-  );
-}
-
-/** @internal */
-export const FilesUpdateResponseFilesUpdate$inboundSchema: z.ZodMiniType<
-  FilesUpdateResponseFilesUpdate,
-  unknown
-> = z.union([
-  DownloadableFileRead$inboundSchema,
-  ProductMediaFileRead$inboundSchema,
-  OrganizationAvatarFileRead$inboundSchema,
-]);
-
-export function filesUpdateResponseFilesUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<FilesUpdateResponseFilesUpdate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => FilesUpdateResponseFilesUpdate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FilesUpdateResponseFilesUpdate' from JSON`,
   );
 }

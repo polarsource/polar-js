@@ -19,7 +19,7 @@ let value: WebhookEvent = {
   id: "<value>",
   skipped: false,
   payload: "<value>",
-  type: "member.deleted",
+  type: "order.created",
   isArchived: false,
 };
 ```

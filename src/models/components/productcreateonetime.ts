@@ -21,11 +21,6 @@ import {
   ProductPriceFixedCreate$outboundSchema,
 } from "./productpricefixedcreate.js";
 import {
-  ProductPriceFreeCreate,
-  ProductPriceFreeCreate$Outbound,
-  ProductPriceFreeCreate$outboundSchema,
-} from "./productpricefreecreate.js";
-import {
   ProductPriceMeteredUnitCreate,
   ProductPriceMeteredUnitCreate$Outbound,
   ProductPriceMeteredUnitCreate$outboundSchema,
@@ -45,7 +40,6 @@ export type ProductCreateOneTimeMetadata = string | number | number | boolean;
 export type ProductCreateOneTimePrices =
   | ProductPriceCustomCreate
   | ProductPriceFixedCreate
-  | ProductPriceFreeCreate
   | ProductPriceMeteredUnitCreate
   | ProductPriceSeatBasedCreate;
 
@@ -76,12 +70,11 @@ export type ProductCreateOneTime = {
   description?: string | null | undefined;
   visibility?: ProductVisibility | undefined;
   /**
-   * List of available prices for this product. It should contain at most one static price (fixed, custom or free), and any number of metered prices. Metered prices are not supported on one-time purchase products.
+   * List of available prices for this product. It may combine at most one fixed price with one seat-based price (billed as `fixed + seat_charge`), or contain a single custom or free price, plus any number of metered prices. A free price cannot be combined with other prices, and a custom price cannot be combined with a fixed or seat-based price. Metered prices are not supported on one-time purchase products.
    */
   prices: Array<
     | ProductPriceCustomCreate
     | ProductPriceFixedCreate
-    | ProductPriceFreeCreate
     | ProductPriceMeteredUnitCreate
     | ProductPriceSeatBasedCreate
   >;
@@ -134,7 +127,6 @@ export function productCreateOneTimeMetadataToJSON(
 export type ProductCreateOneTimePrices$Outbound =
   | ProductPriceCustomCreate$Outbound
   | ProductPriceFixedCreate$Outbound
-  | ProductPriceFreeCreate$Outbound
   | ProductPriceMeteredUnitCreate$Outbound
   | ProductPriceSeatBasedCreate$Outbound;
 
@@ -145,7 +137,6 @@ export const ProductCreateOneTimePrices$outboundSchema: z.ZodMiniType<
 > = z.union([
   ProductPriceCustomCreate$outboundSchema,
   ProductPriceFixedCreate$outboundSchema,
-  ProductPriceFreeCreate$outboundSchema,
   ProductPriceMeteredUnitCreate$outboundSchema,
   ProductPriceSeatBasedCreate$outboundSchema,
 ]);
@@ -167,7 +158,6 @@ export type ProductCreateOneTime$Outbound = {
   prices: Array<
     | ProductPriceCustomCreate$Outbound
     | ProductPriceFixedCreate$Outbound
-    | ProductPriceFreeCreate$Outbound
     | ProductPriceMeteredUnitCreate$Outbound
     | ProductPriceSeatBasedCreate$Outbound
   >;
@@ -199,7 +189,6 @@ export const ProductCreateOneTime$outboundSchema: z.ZodMiniType<
       z.union([
         ProductPriceCustomCreate$outboundSchema,
         ProductPriceFixedCreate$outboundSchema,
-        ProductPriceFreeCreate$outboundSchema,
         ProductPriceMeteredUnitCreate$outboundSchema,
         ProductPriceSeatBasedCreate$outboundSchema,
       ]),

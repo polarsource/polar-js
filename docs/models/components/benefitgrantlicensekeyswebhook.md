@@ -24,6 +24,7 @@ let value: BenefitGrantLicenseKeysWebhook = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -47,24 +48,28 @@ let value: BenefitGrantLicenseKeysWebhook = {
   },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2025-10-15T22:21:01.919Z"),
-    modifiedAt: new Date("2024-02-16T12:33:48.786Z"),
+    createdAt: new Date("2024-03-14T07:10:48.297Z"),
+    modifiedAt: new Date("2024-11-30T18:06:24.097Z"),
     type: "license_keys",
-    description: "ouch woot geez wheel analyse duh",
+    description: "round brown extra-large imagineer",
     selectable: false,
-    deletable: false,
-    isDeleted: true,
+    deletable: true,
+    isDeleted: false,
     organizationId: "<value>",
-    metadata: {},
+    metadata: {
+      "key": "<value>",
+    },
+    visibility: "private",
     properties: {
-      prefix: "<value>",
-      expires: null,
-      activations: {
-        limit: 240022,
-        enableCustomerAdmin: false,
+      prefix: null,
+      expires: {
+        ttl: 240022,
+        timeframe: "day",
       },
+      activations: null,
       limitUsage: null,
     },
+    visibilityConfigurable: true,
   },
   properties: {},
 };

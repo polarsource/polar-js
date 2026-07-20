@@ -23,6 +23,7 @@ let value: SubscriptionReactivatedEvent = {
     emailVerified: true,
     type: "individual",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },

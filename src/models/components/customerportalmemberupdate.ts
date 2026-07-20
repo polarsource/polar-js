@@ -6,9 +6,13 @@ import * as z from "zod/v4-mini";
 import { MemberRole, MemberRole$outboundSchema } from "./memberrole.js";
 
 /**
- * Schema for updating a member's role in the customer portal.
+ * Schema for updating a member in the customer portal.
  */
 export type CustomerPortalMemberUpdate = {
+  /**
+   * The new name for the member.
+   */
+  name?: string | null | undefined;
   /**
    * The new role for the member.
    */
@@ -17,6 +21,7 @@ export type CustomerPortalMemberUpdate = {
 
 /** @internal */
 export type CustomerPortalMemberUpdate$Outbound = {
+  name?: string | null | undefined;
   role?: string | null | undefined;
 };
 
@@ -25,6 +30,7 @@ export const CustomerPortalMemberUpdate$outboundSchema: z.ZodMiniType<
   CustomerPortalMemberUpdate$Outbound,
   CustomerPortalMemberUpdate
 > = z.object({
+  name: z.optional(z.nullable(z.string())),
   role: z.optional(z.nullable(MemberRole$outboundSchema)),
 });
 

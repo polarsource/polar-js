@@ -5,7 +5,7 @@
 ```typescript
 import { OrganizationStatus } from "@polar-sh/sdk/models/components/organizationstatus.js";
 
-let value: OrganizationStatus = "review";
+let value: OrganizationStatus = "snoozed";
 
 // Open enum: unrecognized values are captured as Unrecognized<string>
 ```
@@ -13,5 +13,5 @@ let value: OrganizationStatus = "review";
 ## Values
 
 ```typescript
-"created" | "review" | "snoozed" | "denied" | "active" | "blocked" | "offboarding" | Unrecognized<string>
+"created" | "review" | "snoozed" | "denied" | "active" | "blocked" | "offboarding" | "offboarded" | Unrecognized<string>
 ```

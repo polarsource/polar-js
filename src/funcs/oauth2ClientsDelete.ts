@@ -45,7 +45,7 @@ export function oauth2ClientsDelete(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    any,
+    void,
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -71,7 +71,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      any,
+      void,
       | HTTPValidationError
       | PolarError
       | ResponseValidationError
@@ -160,7 +160,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    any,
+    void,
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -171,7 +171,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, z.any()),
+    M.nil(204, z.void()),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

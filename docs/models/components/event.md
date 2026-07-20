@@ -19,6 +19,7 @@ const value: components.SystemEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },
@@ -34,10 +35,11 @@ const value: components.SystemEvent = {
   childCount: 0,
   label: "<value>",
   source: "system",
-  name: "order.paid",
+  name: "order.refunded",
   metadata: {
     orderId: "<id>",
-    amount: 638838,
+    refundedAmount: 638838,
+    currency: "Lebanese Pound",
   },
 };
 ```
@@ -58,6 +60,7 @@ const value: components.UserEvent = {
     emailVerified: true,
     type: "team",
     name: "John Doe",
+    billingName: "John Doe",
     billingAddress: {
       country: "US",
     },

@@ -4,8 +4,6 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import { smartUnion } from "../../types/smartUnion.js";
 import {
@@ -16,7 +14,6 @@ import {
   TimeInterval,
   TimeInterval$outboundSchema,
 } from "../components/timeinterval.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Filter by organization ID.
@@ -84,8 +81,6 @@ export type MetricsExportRequest = {
    */
   metrics?: Array<string> | null | undefined;
 };
-
-export type MetricsExportResponse = any | string;
 
 /** @internal */
 export type MetricsExportQueryParamOrganizationIDFilter$Outbound =
@@ -247,21 +242,5 @@ export function metricsExportRequestToJSON(
 ): string {
   return JSON.stringify(
     MetricsExportRequest$outboundSchema.parse(metricsExportRequest),
-  );
-}
-
-/** @internal */
-export const MetricsExportResponse$inboundSchema: z.ZodMiniType<
-  MetricsExportResponse,
-  unknown
-> = smartUnion([z.any(), z.string()]);
-
-export function metricsExportResponseFromJSON(
-  jsonString: string,
-): SafeParseResult<MetricsExportResponse, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => MetricsExportResponse$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'MetricsExportResponse' from JSON`,
   );
 }

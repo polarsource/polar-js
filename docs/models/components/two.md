@@ -20,14 +20,6 @@ const value: components.ProductPriceFixedCreate = {
 };
 ```
 
-### `components.ProductPriceFreeCreate`
-
-```typescript
-const value: components.ProductPriceFreeCreate = {
-  amountType: "free",
-};
-```
-
 ### `components.ProductPriceMeteredUnitCreate`
 
 ```typescript

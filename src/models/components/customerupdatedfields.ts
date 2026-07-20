@@ -14,6 +14,7 @@ export type CustomerUpdatedFieldsMetadata = string | number | boolean;
 
 export type CustomerUpdatedFields = {
   name?: string | null | undefined;
+  billingName?: string | null | undefined;
   email?: string | null | undefined;
   billingAddress?: AddressDict | null | undefined;
   taxId?: string | null | undefined;
@@ -43,6 +44,7 @@ export const CustomerUpdatedFields$inboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     name: z.optional(z.nullable(z.string())),
+    billing_name: z.optional(z.nullable(z.string())),
     email: z.optional(z.nullable(z.string())),
     billing_address: z.optional(z.nullable(AddressDict$inboundSchema)),
     tax_id: z.optional(z.nullable(z.string())),
@@ -54,6 +56,7 @@ export const CustomerUpdatedFields$inboundSchema: z.ZodMiniType<
   }),
   z.transform((v) => {
     return remap$(v, {
+      "billing_name": "billingName",
       "billing_address": "billingAddress",
       "tax_id": "taxId",
     });

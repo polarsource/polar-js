@@ -16,99 +16,111 @@ let value: CustomerSubscription = {
   status: "active",
   currentPeriodStart: new Date("2025-09-05T20:42:48.893Z"),
   currentPeriodEnd: new Date("2024-03-09T15:25:48.651Z"),
-  trialStart: new Date("2026-09-11T13:49:33.195Z"),
-  trialEnd: null,
+  currentMeterPeriodStart: new Date("2026-09-11T13:49:33.195Z"),
+  currentMeterPeriodEnd: null,
+  trialStart: new Date("2026-03-15T17:36:38.777Z"),
+  trialEnd: new Date("2024-09-01T14:51:23.839Z"),
   cancelAtPeriodEnd: false,
-  canceledAt: new Date("2024-05-04T19:36:14.043Z"),
-  startedAt: new Date("2025-11-02T22:59:24.322Z"),
-  endsAt: null,
-  endedAt: new Date("2026-08-17T12:53:53.746Z"),
+  canceledAt: null,
+  startedAt: new Date("2026-08-17T12:53:53.746Z"),
+  endsAt: new Date("2025-09-03T09:58:11.148Z"),
+  endedAt: new Date("2026-01-22T00:03:48.063Z"),
+  pauseAtPeriodEnd: true,
+  pausedAt: new Date("2024-03-25T22:10:58.447Z"),
+  resumesAt: new Date("2026-09-18T04:28:44.567Z"),
   customerId: "<value>",
   productId: "<value>",
   discountId: "<value>",
   checkoutId: "<value>",
-  customerCancellationReason: "too_expensive",
+  customerCancellationReason: "customer_service",
   customerCancellationComment: "<value>",
   product: {
     id: "<value>",
-    createdAt: new Date("2024-10-19T22:40:18.625Z"),
-    modifiedAt: null,
-    trialInterval: "year",
-    trialIntervalCount: 406310,
+    createdAt: new Date("2025-09-19T22:39:48.026Z"),
+    modifiedAt: new Date("2024-07-29T09:25:03.581Z"),
+    trialInterval: "day",
+    trialIntervalCount: 670735,
     name: "<value>",
-    description: "unabashedly regarding lest",
-    visibility: "draft",
-    recurringInterval: null,
-    recurringIntervalCount: 167145,
+    description:
+      "after beneath tomatillo cautiously reassuringly tangible exotic deliberately airline",
+    visibility: "private",
+    recurringInterval: "day",
+    recurringIntervalCount: 709631,
+    meterInterval: "day",
+    meterIntervalCount: null,
     isRecurring: true,
-    isArchived: true,
+    isArchived: false,
     organizationId: "<value>",
     prices: [],
     benefits: [],
     medias: [],
     organization: {
-      createdAt: new Date("2026-09-30T11:33:49.764Z"),
-      modifiedAt: new Date("2024-03-13T19:22:24.375Z"),
+      createdAt: new Date("2024-11-13T04:56:58.190Z"),
+      modifiedAt: new Date("2025-02-17T06:08:03.827Z"),
       id: "<value>",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://forceful-grass.com/",
+      avatarUrl: null,
       prorationBehavior: "invoice",
-      allowCustomerUpdates: true,
+      allowCustomerUpdates: false,
       customerPortalSettings: {
         usage: {
-          show: false,
+          show: true,
         },
         subscription: {
           updateSeats: true,
-          updatePlan: true,
+          updatePlan: false,
         },
       },
     },
   },
   prices: [
     {
-      createdAt: new Date("2024-06-27T04:37:45.918Z"),
-      modifiedAt: new Date("2025-10-22T14:10:35.328Z"),
+      createdAt: new Date("2024-09-01T05:07:21.647Z"),
+      modifiedAt: null,
       id: "<value>",
-      source: "ad_hoc",
-      amountType: "custom",
+      source: "catalog",
+      amountType: "seat_based",
       priceCurrency: "<value>",
-      taxBehavior: "inclusive",
+      taxBehavior: null,
       isArchived: false,
       productId: "<value>",
-      type: "recurring",
-      recurringInterval: "week",
-      minimumAmount: 533387,
-      maximumAmount: 201639,
-      presetAmount: 926883,
-      legacy: true,
+      seatTiers: {
+        tiers: [
+          {
+            minSeats: 35082,
+            pricePerSeat: 375432,
+          },
+        ],
+        minimumSeats: 940861,
+        maximumSeats: 961303,
+      },
     },
   ],
   meters: [
     {
-      createdAt: new Date("2026-07-24T00:32:45.338Z"),
-      modifiedAt: new Date("2024-09-26T05:47:49.325Z"),
+      createdAt: new Date("2025-05-17T11:26:42.769Z"),
+      modifiedAt: null,
       id: "<value>",
       consumedUnits: 25,
       creditedUnits: 100,
       amount: 0,
       meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
       meter: {
-        createdAt: new Date("2026-03-05T14:03:00.266Z"),
-        modifiedAt: new Date("2025-05-05T20:33:48.477Z"),
+        createdAt: new Date("2025-09-24T20:10:23.246Z"),
+        modifiedAt: new Date("2025-06-15T00:12:06.660Z"),
         id: "<value>",
         name: "<value>",
       },
     },
   ],
   pendingUpdate: {
-    createdAt: new Date("2024-02-25T01:22:58.741Z"),
-    modifiedAt: new Date("2025-03-01T22:24:22.500Z"),
+    createdAt: new Date("2024-07-10T15:45:53.558Z"),
+    modifiedAt: new Date("2025-08-10T01:22:04.827Z"),
     id: "<value>",
-    appliesAt: new Date("2026-04-07T05:04:30.181Z"),
+    appliesAt: new Date("2024-09-28T01:26:28.000Z"),
     productId: null,
-    seats: 226862,
+    seats: 90478,
   },
 };
 ```
@@ -122,11 +134,13 @@ let value: CustomerSubscription = {
 | `id`                                                                                                                                                                             | *string*                                                                                                                                                                         | :heavy_check_mark:                                                                                                                                                               | The ID of the object.                                                                                                                                                            |                                                                                                                                                                                  |
 | `amount`                                                                                                                                                                         | *number*                                                                                                                                                                         | :heavy_check_mark:                                                                                                                                                               | The amount of the subscription.                                                                                                                                                  | 10000                                                                                                                                                                            |
 | `currency`                                                                                                                                                                       | *string*                                                                                                                                                                         | :heavy_check_mark:                                                                                                                                                               | The currency of the subscription.                                                                                                                                                | usd                                                                                                                                                                              |
-| `recurringInterval`                                                                                                                                                              | [components.SubscriptionRecurringInterval](../../models/components/subscriptionrecurringinterval.md)                                                                             | :heavy_check_mark:                                                                                                                                                               | N/A                                                                                                                                                                              |                                                                                                                                                                                  |
+| `recurringInterval`                                                                                                                                                              | [components.RecurringInterval](../../models/components/recurringinterval.md)                                                                                                     | :heavy_check_mark:                                                                                                                                                               | N/A                                                                                                                                                                              |                                                                                                                                                                                  |
 | `recurringIntervalCount`                                                                                                                                                         | *number*                                                                                                                                                                         | :heavy_check_mark:                                                                                                                                                               | Number of interval units of the subscription. If this is set to 1 the charge will happen every interval (e.g. every month), if set to 2 it will be every other month, and so on. |                                                                                                                                                                                  |
 | `status`                                                                                                                                                                         | [components.SubscriptionStatus](../../models/components/subscriptionstatus.md)                                                                                                   | :heavy_check_mark:                                                                                                                                                               | N/A                                                                                                                                                                              |                                                                                                                                                                                  |
 | `currentPeriodStart`                                                                                                                                                             | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                    | :heavy_check_mark:                                                                                                                                                               | The start timestamp of the current billing period.                                                                                                                               |                                                                                                                                                                                  |
 | `currentPeriodEnd`                                                                                                                                                               | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                    | :heavy_check_mark:                                                                                                                                                               | The end timestamp of the current billing period.                                                                                                                                 |                                                                                                                                                                                  |
+| `currentMeterPeriodStart`                                                                                                                                                        | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                    | :heavy_check_mark:                                                                                                                                                               | The start timestamp of the current meter period, if the product has a meter cycle set. Metered credits are granted and overage is settled on this cadence.                       |                                                                                                                                                                                  |
+| `currentMeterPeriodEnd`                                                                                                                                                          | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                    | :heavy_check_mark:                                                                                                                                                               | The end timestamp of the current meter period, if the product has a meter cycle set. This is when credits next renew.                                                            |                                                                                                                                                                                  |
 | `trialStart`                                                                                                                                                                     | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                    | :heavy_check_mark:                                                                                                                                                               | The start timestamp of the trial period, if any.                                                                                                                                 |                                                                                                                                                                                  |
 | `trialEnd`                                                                                                                                                                       | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                    | :heavy_check_mark:                                                                                                                                                               | The end timestamp of the trial period, if any.                                                                                                                                   |                                                                                                                                                                                  |
 | `cancelAtPeriodEnd`                                                                                                                                                              | *boolean*                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                               | Whether the subscription will be canceled at the end of the current period.                                                                                                      |                                                                                                                                                                                  |
@@ -134,6 +148,10 @@ let value: CustomerSubscription = {
 | `startedAt`                                                                                                                                                                      | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                    | :heavy_check_mark:                                                                                                                                                               | The timestamp when the subscription started.                                                                                                                                     |                                                                                                                                                                                  |
 | `endsAt`                                                                                                                                                                         | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                    | :heavy_check_mark:                                                                                                                                                               | The timestamp when the subscription will end.                                                                                                                                    |                                                                                                                                                                                  |
 | `endedAt`                                                                                                                                                                        | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                    | :heavy_check_mark:                                                                                                                                                               | The timestamp when the subscription ended.                                                                                                                                       |                                                                                                                                                                                  |
+| `pastDueAt`                                                                                                                                                                      | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                    | :heavy_minus_sign:                                                                                                                                                               | The timestamp when the subscription entered `past_due` status.                                                                                                                   |                                                                                                                                                                                  |
+| `pauseAtPeriodEnd`                                                                                                                                                               | *boolean*                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                               | Whether the subscription will be paused at the end of the current period.                                                                                                        |                                                                                                                                                                                  |
+| `pausedAt`                                                                                                                                                                       | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                    | :heavy_check_mark:                                                                                                                                                               | The timestamp when the subscription was paused.                                                                                                                                  |                                                                                                                                                                                  |
+| `resumesAt`                                                                                                                                                                      | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                    | :heavy_check_mark:                                                                                                                                                               | The timestamp when a paused subscription is scheduled to automatically resume, if set.                                                                                           |                                                                                                                                                                                  |
 | `customerId`                                                                                                                                                                     | *string*                                                                                                                                                                         | :heavy_check_mark:                                                                                                                                                               | The ID of the subscribed customer.                                                                                                                                               |                                                                                                                                                                                  |
 | `productId`                                                                                                                                                                      | *string*                                                                                                                                                                         | :heavy_check_mark:                                                                                                                                                               | The ID of the subscribed product.                                                                                                                                                |                                                                                                                                                                                  |
 | `discountId`                                                                                                                                                                     | *string*                                                                                                                                                                         | :heavy_check_mark:                                                                                                                                                               | The ID of the applied discount, if any.                                                                                                                                          |                                                                                                                                                                                  |

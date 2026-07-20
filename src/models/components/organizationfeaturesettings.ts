@@ -30,10 +30,6 @@ export type OrganizationFeatureSettings = {
    */
   checkoutLocalizationEnabled?: boolean | undefined;
   /**
-   * If this organization sees the new account review checklist UI.
-   */
-  accountReviewV2Enabled?: boolean | undefined;
-  /**
    * Ordered list of metric slugs shown on the dashboard overview.
    */
   overviewMetrics?: Array<string> | null | undefined;
@@ -46,13 +42,29 @@ export type OrganizationFeatureSettings = {
    */
   offSessionChargesEnabled?: boolean | undefined;
   /**
-   * If this organization has billing enabled
-   */
-  billingEnabled?: boolean | undefined;
-  /**
    * Enables the slack shared channel benefit
    */
   slackBenefitEnabled?: boolean | undefined;
+  /**
+   * If this organization has preview access to new features enabled
+   */
+  previewAccessEnabled?: boolean | undefined;
+  /**
+   * If this organization has the disputes dashboard enabled
+   */
+  disputesEnabled?: boolean | undefined;
+  /**
+   * If this organization has single sign-on configuration enabled
+   */
+  ssoEnabled?: boolean | undefined;
+  /**
+   * If this organization has the split product navigation (Billing / Compass / Customers) enabled in the dashboard
+   */
+  compassEnabled?: boolean | undefined;
+  /**
+   * If this organization can migrate its billing from another provider (e.g. Stripe) to Polar.
+   */
+  merchantMigrationEnabled?: boolean | undefined;
 };
 
 /** @internal */
@@ -66,12 +78,15 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
     wallets_enabled: z._default(z.boolean(), false),
     member_model_enabled: z._default(z.boolean(), false),
     checkout_localization_enabled: z._default(z.boolean(), false),
-    account_review_v2_enabled: z._default(z.boolean(), false),
     overview_metrics: z.optional(z.nullable(z.array(z.string()))),
     reset_proration_behavior_enabled: z._default(z.boolean(), false),
     off_session_charges_enabled: z._default(z.boolean(), false),
-    billing_enabled: z._default(z.boolean(), false),
     slack_benefit_enabled: z._default(z.boolean(), false),
+    preview_access_enabled: z._default(z.boolean(), false),
+    disputes_enabled: z._default(z.boolean(), false),
+    sso_enabled: z._default(z.boolean(), false),
+    compass_enabled: z._default(z.boolean(), false),
+    merchant_migration_enabled: z._default(z.boolean(), false),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -80,12 +95,15 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
       "wallets_enabled": "walletsEnabled",
       "member_model_enabled": "memberModelEnabled",
       "checkout_localization_enabled": "checkoutLocalizationEnabled",
-      "account_review_v2_enabled": "accountReviewV2Enabled",
       "overview_metrics": "overviewMetrics",
       "reset_proration_behavior_enabled": "resetProrationBehaviorEnabled",
       "off_session_charges_enabled": "offSessionChargesEnabled",
-      "billing_enabled": "billingEnabled",
       "slack_benefit_enabled": "slackBenefitEnabled",
+      "preview_access_enabled": "previewAccessEnabled",
+      "disputes_enabled": "disputesEnabled",
+      "sso_enabled": "ssoEnabled",
+      "compass_enabled": "compassEnabled",
+      "merchant_migration_enabled": "merchantMigrationEnabled",
     });
   }),
 );
@@ -96,12 +114,15 @@ export type OrganizationFeatureSettings$Outbound = {
   wallets_enabled: boolean;
   member_model_enabled: boolean;
   checkout_localization_enabled: boolean;
-  account_review_v2_enabled: boolean;
   overview_metrics?: Array<string> | null | undefined;
   reset_proration_behavior_enabled: boolean;
   off_session_charges_enabled: boolean;
-  billing_enabled: boolean;
   slack_benefit_enabled: boolean;
+  preview_access_enabled: boolean;
+  disputes_enabled: boolean;
+  sso_enabled: boolean;
+  compass_enabled: boolean;
+  merchant_migration_enabled: boolean;
 };
 
 /** @internal */
@@ -115,12 +136,15 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
     walletsEnabled: z._default(z.boolean(), false),
     memberModelEnabled: z._default(z.boolean(), false),
     checkoutLocalizationEnabled: z._default(z.boolean(), false),
-    accountReviewV2Enabled: z._default(z.boolean(), false),
     overviewMetrics: z.optional(z.nullable(z.array(z.string()))),
     resetProrationBehaviorEnabled: z._default(z.boolean(), false),
     offSessionChargesEnabled: z._default(z.boolean(), false),
-    billingEnabled: z._default(z.boolean(), false),
     slackBenefitEnabled: z._default(z.boolean(), false),
+    previewAccessEnabled: z._default(z.boolean(), false),
+    disputesEnabled: z._default(z.boolean(), false),
+    ssoEnabled: z._default(z.boolean(), false),
+    compassEnabled: z._default(z.boolean(), false),
+    merchantMigrationEnabled: z._default(z.boolean(), false),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -129,12 +153,15 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
       walletsEnabled: "wallets_enabled",
       memberModelEnabled: "member_model_enabled",
       checkoutLocalizationEnabled: "checkout_localization_enabled",
-      accountReviewV2Enabled: "account_review_v2_enabled",
       overviewMetrics: "overview_metrics",
       resetProrationBehaviorEnabled: "reset_proration_behavior_enabled",
       offSessionChargesEnabled: "off_session_charges_enabled",
-      billingEnabled: "billing_enabled",
       slackBenefitEnabled: "slack_benefit_enabled",
+      previewAccessEnabled: "preview_access_enabled",
+      disputesEnabled: "disputes_enabled",
+      ssoEnabled: "sso_enabled",
+      compassEnabled: "compass_enabled",
+      merchantMigrationEnabled: "merchant_migration_enabled",
     });
   }),
 );

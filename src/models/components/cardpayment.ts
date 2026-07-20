@@ -16,6 +16,10 @@ import {
   PaymentProcessor$inboundSchema,
 } from "./paymentprocessor.js";
 import { PaymentStatus, PaymentStatus$inboundSchema } from "./paymentstatus.js";
+import {
+  PaymentTrigger,
+  PaymentTrigger$inboundSchema,
+} from "./paymenttrigger.js";
 
 /**
  * Schema of a payment with a card payment method.
@@ -47,6 +51,10 @@ export type CardPayment = {
    * The payment method used.
    */
   method: "card";
+  /**
+   * What initiated this payment attempt, e.g. initial purchase, subscription renewal, or an automated dunning retry.
+   */
+  trigger: PaymentTrigger | null;
   /**
    * Error code, if the payment was declined.
    */
@@ -94,6 +102,7 @@ export const CardPayment$inboundSchema: z.ZodMiniType<CardPayment, unknown> = z
       amount: z.int(),
       currency: z.string(),
       method: z.literal("card"),
+      trigger: z.nullable(PaymentTrigger$inboundSchema),
       decline_reason: z.nullable(z.string()),
       decline_message: z.nullable(z.string()),
       organization_id: z.string(),

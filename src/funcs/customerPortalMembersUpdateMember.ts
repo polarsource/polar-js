@@ -41,7 +41,7 @@ import { Result } from "../types/fp.js";
  * Update Member
  *
  * @remarks
- * Update a member's role.
+ * Update a member's name or role.
  *
  * Only available to owners and billing managers of team customers.
  *

@@ -14,6 +14,7 @@ export const SubscriptionStatus = {
   PastDue: "past_due",
   Canceled: "canceled",
   Unpaid: "unpaid",
+  Paused: "paused",
 } as const;
 export type SubscriptionStatus = OpenEnum<typeof SubscriptionStatus>;
 

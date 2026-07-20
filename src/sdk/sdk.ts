@@ -36,6 +36,8 @@ import { WebhookSubscriptionActivePayload } from "../models/components/webhooksu
 import { WebhookSubscriptionCanceledPayload } from "../models/components/webhooksubscriptioncanceledpayload.js";
 import { WebhookSubscriptionCreatedPayload } from "../models/components/webhooksubscriptioncreatedpayload.js";
 import { WebhookSubscriptionPastDuePayload } from "../models/components/webhooksubscriptionpastduepayload.js";
+import { WebhookSubscriptionPausedPayload } from "../models/components/webhooksubscriptionpausedpayload.js";
+import { WebhookSubscriptionResumedPayload } from "../models/components/webhooksubscriptionresumedpayload.js";
 import { WebhookSubscriptionRevokedPayload } from "../models/components/webhooksubscriptionrevokedpayload.js";
 import { WebhookSubscriptionUncanceledPayload } from "../models/components/webhooksubscriptionuncanceledpayload.js";
 import { WebhookSubscriptionUpdatedPayload } from "../models/components/webhooksubscriptionupdatedpayload.js";
@@ -61,7 +63,6 @@ import { Meters } from "./meters.js";
 import { Metrics } from "./metrics.js";
 import { Oauth2 } from "./oauth2.js";
 import { Orders } from "./orders.js";
-import { OrganizationAccessTokens } from "./organizationaccesstokens.js";
 import { Organizations } from "./organizations.js";
 import { Payments } from "./payments.js";
 import { Products } from "./products.js";
@@ -195,13 +196,6 @@ export class Polar extends ClientSDK {
     return (this._meters ??= new Meters(this._options));
   }
 
-  private _organizationAccessTokens?: OrganizationAccessTokens;
-  get organizationAccessTokens(): OrganizationAccessTokens {
-    return (this._organizationAccessTokens ??= new OrganizationAccessTokens(
-      this._options,
-    ));
-  }
-
   private _customerMeters?: CustomerMeters;
   get customerMeters(): CustomerMeters {
     return (this._customerMeters ??= new CustomerMeters(this._options));
@@ -246,6 +240,8 @@ export class Polar extends ClientSDK {
     | WebhookSubscriptionUncanceledPayload
     | WebhookSubscriptionRevokedPayload
     | WebhookSubscriptionPastDuePayload
+    | WebhookSubscriptionPausedPayload
+    | WebhookSubscriptionResumedPayload
     | WebhookRefundCreatedPayload
     | WebhookRefundUpdatedPayload
     | WebhookProductCreatedPayload

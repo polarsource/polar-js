@@ -7,6 +7,7 @@ import { EventName } from "@polar-sh/sdk/models/components/eventname.js";
 
 let value: EventName = {
   name: "<value>",
+  label: "<value>",
   source: "user",
   occurrences: 195850,
   firstSeen: new Date("2025-12-21T07:07:24.710Z"),
@@ -19,6 +20,7 @@ let value: EventName = {
 | Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | `name`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | The name of the event.                                                                        |
+| `label`                                                                                       | *string*                                                                                      | :heavy_check_mark:                                                                            | Human readable label of the event.                                                            |
 | `source`                                                                                      | [components.EventSource](../../models/components/eventsource.md)                              | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `occurrences`                                                                                 | *number*                                                                                      | :heavy_check_mark:                                                                            | Number of times the event has occurred.                                                       |
 | `firstSeen`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | The first time the event occurred.                                                            |

@@ -398,8 +398,9 @@ run();
 
 | Error Type                          | Status Code                         | Content Type                        |
 | ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| errors.ResourceNotFound             | 404                                 | application/json                    |
+| errors.OrderNotEligibleForInvoice   | 409                                 | application/json                    |
 | errors.MissingInvoiceBillingDetails | 422                                 | application/json                    |
-| errors.NotPaidOrder                 | 422                                 | application/json                    |
 | errors.SDKError                     | 4XX, 5XX                            | \*/\*                               |
 
 ## receipt

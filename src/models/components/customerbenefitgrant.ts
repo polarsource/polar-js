@@ -35,6 +35,10 @@ import {
   CustomerBenefitGrantMeterCredit,
   CustomerBenefitGrantMeterCredit$inboundSchema,
 } from "./customerbenefitgrantmetercredit.js";
+import {
+  CustomerBenefitGrantSlackSharedChannel,
+  CustomerBenefitGrantSlackSharedChannel$inboundSchema,
+} from "./customerbenefitgrantslacksharedchannel.js";
 
 export type CustomerBenefitGrant =
   | CustomerBenefitGrantDiscord
@@ -43,7 +47,8 @@ export type CustomerBenefitGrant =
   | CustomerBenefitGrantLicenseKeys
   | CustomerBenefitGrantCustom
   | CustomerBenefitGrantMeterCredit
-  | CustomerBenefitGrantFeatureFlag;
+  | CustomerBenefitGrantFeatureFlag
+  | CustomerBenefitGrantSlackSharedChannel;
 
 /** @internal */
 export const CustomerBenefitGrant$inboundSchema: z.ZodMiniType<
@@ -57,6 +62,7 @@ export const CustomerBenefitGrant$inboundSchema: z.ZodMiniType<
   CustomerBenefitGrantCustom$inboundSchema,
   CustomerBenefitGrantMeterCredit$inboundSchema,
   CustomerBenefitGrantFeatureFlag$inboundSchema,
+  CustomerBenefitGrantSlackSharedChannel$inboundSchema,
 ]);
 
 export function customerBenefitGrantFromJSON(

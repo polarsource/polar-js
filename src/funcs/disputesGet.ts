@@ -47,7 +47,7 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Get a dispute by ID.
  *
- * **Scopes**: `disputes:read`
+ * **Scopes**: `disputes:read` `disputes:write`
  */
 export function disputesGet(
   client: PolarCore,

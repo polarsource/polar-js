@@ -29,16 +29,9 @@ import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
   OrdersExportRequest,
   OrdersExportRequest$outboundSchema,
-  OrdersExportResponse,
-  OrdersExportResponse$inboundSchema,
 } from "../models/operations/ordersexport.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
-
-export enum ExportAcceptEnum {
-  applicationJson = "application/json",
-  textCsv = "text/csv",
-}
 
 /**
  * Export Orders
@@ -51,10 +44,10 @@ export enum ExportAcceptEnum {
 export function ordersExport(
   client: PolarCore,
   request: OrdersExportRequest,
-  options?: RequestOptions & { acceptHeaderOverride?: ExportAcceptEnum },
+  options?: RequestOptions,
 ): APIPromise<
   Result<
-    OrdersExportResponse,
+    string,
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -76,11 +69,11 @@ export function ordersExport(
 async function $do(
   client: PolarCore,
   request: OrdersExportRequest,
-  options?: RequestOptions & { acceptHeaderOverride?: ExportAcceptEnum },
+  options?: RequestOptions,
 ): Promise<
   [
     Result<
-      OrdersExportResponse,
+      string,
       | HTTPValidationError
       | PolarError
       | ResponseValidationError
@@ -113,8 +106,7 @@ async function $do(
   });
 
   const headers = new Headers(compactMap({
-    Accept: options?.acceptHeaderOverride
-      || "application/json;q=1, text/csv;q=0",
+    Accept: "text/csv",
   }));
 
   const secConfig = await extractSecurity(client._options.accessToken);
@@ -169,7 +161,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    OrdersExportResponse,
+    string,
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -180,8 +172,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, OrdersExportResponse$inboundSchema),
-    M.text(200, OrdersExportResponse$inboundSchema, { ctype: "text/csv" }),
+    M.text(200, z.string(), { ctype: "text/csv" }),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

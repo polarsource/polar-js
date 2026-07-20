@@ -38,6 +38,11 @@ import {
   CustomerBenefitGrantMeterCreditUpdate$Outbound,
   CustomerBenefitGrantMeterCreditUpdate$outboundSchema,
 } from "./customerbenefitgrantmetercreditupdate.js";
+import {
+  CustomerBenefitGrantSlackSharedChannelUpdate,
+  CustomerBenefitGrantSlackSharedChannelUpdate$Outbound,
+  CustomerBenefitGrantSlackSharedChannelUpdate$outboundSchema,
+} from "./customerbenefitgrantslacksharedchannelupdate.js";
 
 export type CustomerBenefitGrantUpdate =
   | CustomerBenefitGrantCustomUpdate
@@ -46,7 +51,8 @@ export type CustomerBenefitGrantUpdate =
   | CustomerBenefitGrantFeatureFlagUpdate
   | CustomerBenefitGrantGitHubRepositoryUpdate
   | CustomerBenefitGrantLicenseKeysUpdate
-  | CustomerBenefitGrantMeterCreditUpdate;
+  | CustomerBenefitGrantMeterCreditUpdate
+  | CustomerBenefitGrantSlackSharedChannelUpdate;
 
 /** @internal */
 export type CustomerBenefitGrantUpdate$Outbound =
@@ -56,7 +62,8 @@ export type CustomerBenefitGrantUpdate$Outbound =
   | CustomerBenefitGrantFeatureFlagUpdate$Outbound
   | CustomerBenefitGrantGitHubRepositoryUpdate$Outbound
   | CustomerBenefitGrantLicenseKeysUpdate$Outbound
-  | CustomerBenefitGrantMeterCreditUpdate$Outbound;
+  | CustomerBenefitGrantMeterCreditUpdate$Outbound
+  | CustomerBenefitGrantSlackSharedChannelUpdate$Outbound;
 
 /** @internal */
 export const CustomerBenefitGrantUpdate$outboundSchema: z.ZodMiniType<
@@ -70,6 +77,7 @@ export const CustomerBenefitGrantUpdate$outboundSchema: z.ZodMiniType<
   CustomerBenefitGrantGitHubRepositoryUpdate$outboundSchema,
   CustomerBenefitGrantLicenseKeysUpdate$outboundSchema,
   CustomerBenefitGrantMeterCreditUpdate$outboundSchema,
+  CustomerBenefitGrantSlackSharedChannelUpdate$outboundSchema,
 ]);
 
 export function customerBenefitGrantUpdateToJSON(

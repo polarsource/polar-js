@@ -39,3 +39,9 @@ const value: components.BenefitGrantCustomProperties = {};
 const value: components.BenefitGrantFeatureFlagProperties = {};
 ```
 
+### `components.BenefitGrantSlackSharedChannelProperties`
+
+```typescript
+const value: components.BenefitGrantSlackSharedChannelProperties = {};
+```
+

@@ -19,10 +19,10 @@ import {
   ProductVisibility$outboundSchema,
 } from "./productvisibility.js";
 import {
-  SubscriptionRecurringInterval,
-  SubscriptionRecurringInterval$inboundSchema,
-  SubscriptionRecurringInterval$outboundSchema,
-} from "./subscriptionrecurringinterval.js";
+  RecurringInterval,
+  RecurringInterval$inboundSchema,
+  RecurringInterval$outboundSchema,
+} from "./recurringinterval.js";
 import {
   TrialInterval,
   TrialInterval$inboundSchema,
@@ -63,11 +63,19 @@ export type OrderProduct = {
   /**
    * The recurring interval of the product. If `None`, the product is a one-time purchase.
    */
-  recurringInterval: SubscriptionRecurringInterval | null;
+  recurringInterval: RecurringInterval | null;
   /**
    * Number of interval units of the subscription. If this is set to 1 the charge will happen every interval (e.g. every month), if set to 2 it will be every other month, and so on. None for one-time products.
    */
   recurringIntervalCount: number | null;
+  /**
+   * The meter cycle of the product, independent of the billing interval. If `None`, metered concerns follow the billing interval.
+   */
+  meterInterval: RecurringInterval | null;
+  /**
+   * Number of meter interval units. None when no meter cycle is set.
+   */
+  meterIntervalCount: number | null;
   /**
    * Whether the product is a subscription.
    */
@@ -100,10 +108,10 @@ export const OrderProduct$inboundSchema: z.ZodMiniType<OrderProduct, unknown> =
       name: z.string(),
       description: z.nullable(z.string()),
       visibility: ProductVisibility$inboundSchema,
-      recurring_interval: z.nullable(
-        SubscriptionRecurringInterval$inboundSchema,
-      ),
+      recurring_interval: z.nullable(RecurringInterval$inboundSchema),
       recurring_interval_count: z.nullable(z.int()),
+      meter_interval: z.nullable(RecurringInterval$inboundSchema),
+      meter_interval_count: z.nullable(z.int()),
       is_recurring: z.boolean(),
       is_archived: z.boolean(),
       organization_id: z.string(),
@@ -116,6 +124,8 @@ export const OrderProduct$inboundSchema: z.ZodMiniType<OrderProduct, unknown> =
         "trial_interval_count": "trialIntervalCount",
         "recurring_interval": "recurringInterval",
         "recurring_interval_count": "recurringIntervalCount",
+        "meter_interval": "meterInterval",
+        "meter_interval_count": "meterIntervalCount",
         "is_recurring": "isRecurring",
         "is_archived": "isArchived",
         "organization_id": "organizationId",
@@ -135,6 +145,8 @@ export type OrderProduct$Outbound = {
   visibility: string;
   recurring_interval: string | null;
   recurring_interval_count: number | null;
+  meter_interval: string | null;
+  meter_interval_count: number | null;
   is_recurring: boolean;
   is_archived: boolean;
   organization_id: string;
@@ -155,8 +167,10 @@ export const OrderProduct$outboundSchema: z.ZodMiniType<
     name: z.string(),
     description: z.nullable(z.string()),
     visibility: ProductVisibility$outboundSchema,
-    recurringInterval: z.nullable(SubscriptionRecurringInterval$outboundSchema),
+    recurringInterval: z.nullable(RecurringInterval$outboundSchema),
     recurringIntervalCount: z.nullable(z.int()),
+    meterInterval: z.nullable(RecurringInterval$outboundSchema),
+    meterIntervalCount: z.nullable(z.int()),
     isRecurring: z.boolean(),
     isArchived: z.boolean(),
     organizationId: z.string(),
@@ -169,6 +183,8 @@ export const OrderProduct$outboundSchema: z.ZodMiniType<
       trialIntervalCount: "trial_interval_count",
       recurringInterval: "recurring_interval",
       recurringIntervalCount: "recurring_interval_count",
+      meterInterval: "meter_interval",
+      meterIntervalCount: "meter_interval_count",
       isRecurring: "is_recurring",
       isArchived: "is_archived",
       organizationId: "organization_id",

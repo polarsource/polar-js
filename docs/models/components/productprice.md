@@ -39,22 +39,6 @@ const value: components.ProductPriceFixed = {
 };
 ```
 
-### `components.ProductPriceFree`
-
-```typescript
-const value: components.ProductPriceFree = {
-  createdAt: new Date("2024-09-09T01:59:19.952Z"),
-  modifiedAt: new Date("2024-06-14T13:47:01.466Z"),
-  id: "<value>",
-  source: "ad_hoc",
-  amountType: "free",
-  priceCurrency: "<value>",
-  taxBehavior: "exclusive",
-  isArchived: false,
-  productId: "<value>",
-};
-```
-
 ### `components.ProductPriceMeteredUnit`
 
 ```typescript
@@ -75,6 +59,8 @@ const value: components.ProductPriceMeteredUnit = {
     id: "<value>",
     name: "<value>",
     unit: "scalar",
+    customLabel: "<value>",
+    customMultiplier: 471087,
   },
 };
 ```
@@ -95,12 +81,12 @@ const value: components.ProductPriceSeatBased = {
   seatTiers: {
     tiers: [
       {
-        minSeats: 922152,
-        pricePerSeat: 415895,
+        minSeats: 35082,
+        pricePerSeat: 375432,
       },
     ],
-    minimumSeats: 164973,
-    maximumSeats: 735578,
+    minimumSeats: 940861,
+    maximumSeats: 961303,
   },
 };
 ```

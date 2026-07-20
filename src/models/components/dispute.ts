@@ -7,6 +7,10 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  DisputeCustomer,
+  DisputeCustomer$inboundSchema,
+} from "./disputecustomer.js";
 import { DisputeStatus, DisputeStatus$inboundSchema } from "./disputestatus.js";
 
 /**
@@ -51,6 +55,18 @@ export type Dispute = {
    */
   currency: string;
   /**
+   * The reason for the dispute as reported by the card network (e.g. `fraudulent`, `product_not_received`). `None` until the processor reports it.
+   */
+  reason: string | null;
+  /**
+   * Deadline to submit evidence in response to the dispute. `None` when no response is required.
+   */
+  evidenceDueBy: Date | null;
+  /**
+   * Whether the evidence submission deadline has passed.
+   */
+  pastDue: boolean;
+  /**
    * The ID of the order associated with the dispute.
    */
   orderId: string;
@@ -58,6 +74,11 @@ export type Dispute = {
    * The ID of the payment associated with the dispute.
    */
   paymentId: string;
+  customer: DisputeCustomer;
+  /**
+   * The ID of the support case for this dispute, if one was opened.
+   */
+  caseId: string | null;
 };
 
 /** @internal */
@@ -77,16 +98,26 @@ export const Dispute$inboundSchema: z.ZodMiniType<Dispute, unknown> = z.pipe(
     amount: z.int(),
     tax_amount: z.int(),
     currency: z.string(),
+    reason: z.nullable(z.string()),
+    evidence_due_by: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
+    past_due: z.boolean(),
     order_id: z.string(),
     payment_id: z.string(),
+    customer: DisputeCustomer$inboundSchema,
+    case_id: z.nullable(z.string()),
   }),
   z.transform((v) => {
     return remap$(v, {
       "created_at": "createdAt",
       "modified_at": "modifiedAt",
       "tax_amount": "taxAmount",
+      "evidence_due_by": "evidenceDueBy",
+      "past_due": "pastDue",
       "order_id": "orderId",
       "payment_id": "paymentId",
+      "case_id": "caseId",
     });
   }),
 );

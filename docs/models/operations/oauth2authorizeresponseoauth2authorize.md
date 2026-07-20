@@ -28,6 +28,13 @@ const value: components.AuthorizeResponseUser = {
   scopes: [
     "custom_fields:write",
   ],
+  organizations: [
+    {
+      id: "<value>",
+      slug: "<value>",
+      avatarUrl: "https://surprised-transom.biz",
+    },
+  ],
 };
 ```
 

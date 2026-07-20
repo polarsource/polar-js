@@ -10,6 +10,10 @@ import {
   BenefitCustomCreateProperties$Outbound,
   BenefitCustomCreateProperties$outboundSchema,
 } from "./benefitcustomcreateproperties.js";
+import {
+  BenefitVisibility,
+  BenefitVisibility$outboundSchema,
+} from "./benefitvisibility.js";
 
 export type BenefitCustomCreateMetadata = string | number | number | boolean;
 
@@ -42,6 +46,10 @@ export type BenefitCustomCreate = {
    * The ID of the organization owning the benefit. **Required unless you use an organization token.**
    */
   organizationId?: string | null | undefined;
+  /**
+   * The visibility of the benefit in the customer portal.
+   */
+  visibility?: BenefitVisibility | null | undefined;
   /**
    * Properties for creating a benefit of type `custom`.
    */
@@ -77,6 +85,7 @@ export type BenefitCustomCreate$Outbound = {
   type: "custom";
   description: string;
   organization_id?: string | null | undefined;
+  visibility?: string | null | undefined;
   properties: BenefitCustomCreateProperties$Outbound;
 };
 
@@ -95,6 +104,7 @@ export const BenefitCustomCreate$outboundSchema: z.ZodMiniType<
     type: z.literal("custom"),
     description: z.string(),
     organizationId: z.optional(z.nullable(z.string())),
+    visibility: z.optional(z.nullable(BenefitVisibility$outboundSchema)),
     properties: BenefitCustomCreateProperties$outboundSchema,
   }),
   z.transform((v) => {

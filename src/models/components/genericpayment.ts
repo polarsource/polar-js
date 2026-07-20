@@ -12,6 +12,10 @@ import {
   PaymentProcessor$inboundSchema,
 } from "./paymentprocessor.js";
 import { PaymentStatus, PaymentStatus$inboundSchema } from "./paymentstatus.js";
+import {
+  PaymentTrigger,
+  PaymentTrigger$inboundSchema,
+} from "./paymenttrigger.js";
 
 /**
  * Schema of a payment with a generic payment method.
@@ -43,6 +47,10 @@ export type GenericPayment = {
    * The payment method used.
    */
   method: string;
+  /**
+   * What initiated this payment attempt, e.g. initial purchase, subscription renewal, or an automated dunning retry.
+   */
+  trigger: PaymentTrigger | null;
   /**
    * Error code, if the payment was declined.
    */
@@ -88,6 +96,7 @@ export const GenericPayment$inboundSchema: z.ZodMiniType<
     amount: z.int(),
     currency: z.string(),
     method: z.string(),
+    trigger: z.nullable(PaymentTrigger$inboundSchema),
     decline_reason: z.nullable(z.string()),
     decline_message: z.nullable(z.string()),
     organization_id: z.string(),

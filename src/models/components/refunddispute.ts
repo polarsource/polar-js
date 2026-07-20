@@ -54,6 +54,18 @@ export type RefundDispute = {
    */
   currency: string;
   /**
+   * The reason for the dispute as reported by the card network (e.g. `fraudulent`, `product_not_received`). `None` until the processor reports it.
+   */
+  reason: string | null;
+  /**
+   * Deadline to submit evidence in response to the dispute. `None` when no response is required.
+   */
+  evidenceDueBy: Date | null;
+  /**
+   * Whether the evidence submission deadline has passed.
+   */
+  pastDue: boolean;
+  /**
    * The ID of the order associated with the dispute.
    */
   orderId: string;
@@ -83,6 +95,11 @@ export const RefundDispute$inboundSchema: z.ZodMiniType<
     amount: z.int(),
     tax_amount: z.int(),
     currency: z.string(),
+    reason: z.nullable(z.string()),
+    evidence_due_by: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
+    past_due: z.boolean(),
     order_id: z.string(),
     payment_id: z.string(),
   }),
@@ -91,6 +108,8 @@ export const RefundDispute$inboundSchema: z.ZodMiniType<
       "created_at": "createdAt",
       "modified_at": "modifiedAt",
       "tax_amount": "taxAmount",
+      "evidence_due_by": "evidenceDueBy",
+      "past_due": "pastDue",
       "order_id": "orderId",
       "payment_id": "paymentId",
     });
@@ -107,6 +126,9 @@ export type RefundDispute$Outbound = {
   amount: number;
   tax_amount: number;
   currency: string;
+  reason: string | null;
+  evidence_due_by: string | null;
+  past_due: boolean;
   order_id: string;
   payment_id: string;
 };
@@ -126,6 +148,11 @@ export const RefundDispute$outboundSchema: z.ZodMiniType<
     amount: z.int(),
     taxAmount: z.int(),
     currency: z.string(),
+    reason: z.nullable(z.string()),
+    evidenceDueBy: z.nullable(
+      z.pipe(z.date(), z.transform(v => v.toISOString())),
+    ),
+    pastDue: z.boolean(),
     orderId: z.string(),
     paymentId: z.string(),
   }),
@@ -134,6 +161,8 @@ export const RefundDispute$outboundSchema: z.ZodMiniType<
       createdAt: "created_at",
       modifiedAt: "modified_at",
       taxAmount: "tax_amount",
+      evidenceDueBy: "evidence_due_by",
+      pastDue: "past_due",
       orderId: "order_id",
       paymentId: "payment_id",
     });

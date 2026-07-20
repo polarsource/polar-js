@@ -22,11 +22,13 @@ let value: BenefitGitHubRepository = {
   metadata: {
     "key": 8581.7,
   },
+  visibility: "draft",
   properties: {
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "triage",
+    permission: "pull",
   },
+  visibilityConfigurable: true,
 };
 ```
 
@@ -44,4 +46,6 @@ let value: BenefitGitHubRepository = {
 | `isDeleted`                                                                                                  | *boolean*                                                                                                    | :heavy_check_mark:                                                                                           | Whether the benefit is deleted.                                                                              |
 | `organizationId`                                                                                             | *string*                                                                                                     | :heavy_check_mark:                                                                                           | The ID of the organization owning the benefit.                                                               |
 | `metadata`                                                                                                   | Record<string, *components.MetadataOutputType*>                                                              | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `visibility`                                                                                                 | [components.BenefitVisibility](../../models/components/benefitvisibility.md)                                 | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `properties`                                                                                                 | [components.BenefitGitHubRepositoryProperties](../../models/components/benefitgithubrepositoryproperties.md) | :heavy_check_mark:                                                                                           | Properties for a benefit of type `github_repository`.                                                        |
+| `visibilityConfigurable`                                                                                     | *boolean*                                                                                                    | :heavy_check_mark:                                                                                           | N/A                                                                                                          |

@@ -39,6 +39,10 @@ import {
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
+  SSOEnforcementRequiresConnection,
+  SSOEnforcementRequiresConnection$inboundSchema,
+} from "../models/errors/ssoenforcementrequiresconnection.js";
+import {
   OrganizationsUpdateRequest,
   OrganizationsUpdateRequest$outboundSchema,
 } from "../models/operations/organizationsupdate.js";
@@ -62,6 +66,7 @@ export function organizationsUpdate(
     Organization,
     | NotPermitted
     | ResourceNotFound
+    | SSOEnforcementRequiresConnection
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -90,6 +95,7 @@ async function $do(
       Organization,
       | NotPermitted
       | ResourceNotFound
+      | SSOEnforcementRequiresConnection
       | HTTPValidationError
       | PolarError
       | ResponseValidationError
@@ -183,6 +189,7 @@ async function $do(
     Organization,
     | NotPermitted
     | ResourceNotFound
+    | SSOEnforcementRequiresConnection
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -196,6 +203,7 @@ async function $do(
     M.json(200, Organization$inboundSchema),
     M.jsonErr(403, NotPermitted$inboundSchema),
     M.jsonErr(404, ResourceNotFound$inboundSchema),
+    M.jsonErr(409, SSOEnforcementRequiresConnection$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

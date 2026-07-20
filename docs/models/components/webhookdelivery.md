@@ -20,7 +20,7 @@ let value: WebhookDelivery = {
     id: "<value>",
     skipped: false,
     payload: "<value>",
-    type: "benefit_grant.updated",
+    type: "benefit_grant.cycled",
     isArchived: true,
   },
 };

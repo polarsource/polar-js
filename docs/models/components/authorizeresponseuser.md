@@ -25,15 +25,24 @@ let value: AuthorizeResponseUser = {
   scopes: [
     "custom_fields:write",
   ],
+  organizations: [
+    {
+      id: "<value>",
+      slug: "<value>",
+      avatarUrl: "https://surprised-transom.biz",
+    },
+  ],
 };
 ```
 
 ## Fields
 
-| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `client`                                                                       | [components.OAuth2ClientPublic](../../models/components/oauth2clientpublic.md) | :heavy_check_mark:                                                             | N/A                                                                            |
-| `subType`                                                                      | *"user"*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
-| `sub`                                                                          | [components.AuthorizeUser](../../models/components/authorizeuser.md)           | :heavy_check_mark:                                                             | N/A                                                                            |
-| `scopes`                                                                       | [components.Scope](../../models/components/scope.md)[]                         | :heavy_check_mark:                                                             | N/A                                                                            |
-| `scopeDisplayNames`                                                            | Record<string, *string*>                                                       | :heavy_minus_sign:                                                             | N/A                                                                            |
+| Field                                                                                  | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `client`                                                                               | [components.OAuth2ClientPublic](../../models/components/oauth2clientpublic.md)         | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `subType`                                                                              | *"user"*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `sub`                                                                                  | [components.AuthorizeUser](../../models/components/authorizeuser.md)                   | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `scopes`                                                                               | [components.Scope](../../models/components/scope.md)[]                                 | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `organizations`                                                                        | [components.AuthorizeOrganization](../../models/components/authorizeorganization.md)[] | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `requiresSingleOrganization`                                                           | *boolean*                                                                              | :heavy_minus_sign:                                                                     | N/A                                                                                    |
+| `scopeDisplayNames`                                                                    | Record<string, *string*>                                                               | :heavy_minus_sign:                                                                     | N/A                                                                                    |

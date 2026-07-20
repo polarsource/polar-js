@@ -24,6 +24,8 @@ let value: ProductPriceMeteredUnit = {
     id: "<value>",
     name: "<value>",
     unit: "scalar",
+    customLabel: "<value>",
+    customMultiplier: 471087,
   },
 };
 ```

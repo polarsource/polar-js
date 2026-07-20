@@ -26,11 +26,6 @@ import {
   ProductPriceFixedCreate$outboundSchema,
 } from "./productpricefixedcreate.js";
 import {
-  ProductPriceFreeCreate,
-  ProductPriceFreeCreate$Outbound,
-  ProductPriceFreeCreate$outboundSchema,
-} from "./productpricefreecreate.js";
-import {
   ProductPriceMeteredUnitCreate,
   ProductPriceMeteredUnitCreate$Outbound,
   ProductPriceMeteredUnitCreate$outboundSchema,
@@ -45,9 +40,9 @@ import {
   ProductVisibility$outboundSchema,
 } from "./productvisibility.js";
 import {
-  SubscriptionRecurringInterval,
-  SubscriptionRecurringInterval$outboundSchema,
-} from "./subscriptionrecurringinterval.js";
+  RecurringInterval,
+  RecurringInterval$outboundSchema,
+} from "./recurringinterval.js";
 import {
   TrialInterval,
   TrialInterval$outboundSchema,
@@ -58,7 +53,6 @@ export type ProductUpdateMetadata = string | number | number | boolean;
 export type Two =
   | ProductPriceCustomCreate
   | ProductPriceFixedCreate
-  | ProductPriceFreeCreate
   | ProductPriceMeteredUnitCreate
   | ProductPriceSeatBasedCreate;
 
@@ -66,7 +60,6 @@ export type ProductUpdatePrices =
   | ExistingProductPrice
   | ProductPriceCustomCreate
   | ProductPriceFixedCreate
-  | ProductPriceFreeCreate
   | ProductPriceMeteredUnitCreate
   | ProductPriceSeatBasedCreate;
 
@@ -106,7 +99,7 @@ export type ProductUpdate = {
   /**
    * The recurring interval of the product. If `None`, the product is a one-time purchase. **Can only be set on legacy recurring products. Once set, it can't be changed.**
    */
-  recurringInterval?: SubscriptionRecurringInterval | null | undefined;
+  recurringInterval?: RecurringInterval | null | undefined;
   /**
    * Number of interval units of the subscription. If this is set to 1 the charge will happen every interval (e.g. every month), if set to 2 it will be every other month, and so on. Once set, it can't be changed.**
    */
@@ -127,7 +120,6 @@ export type ProductUpdate = {
       | ExistingProductPrice
       | ProductPriceCustomCreate
       | ProductPriceFixedCreate
-      | ProductPriceFreeCreate
       | ProductPriceMeteredUnitCreate
       | ProductPriceSeatBasedCreate
     >
@@ -161,7 +153,6 @@ export function productUpdateMetadataToJSON(
 export type Two$Outbound =
   | ProductPriceCustomCreate$Outbound
   | ProductPriceFixedCreate$Outbound
-  | ProductPriceFreeCreate$Outbound
   | ProductPriceMeteredUnitCreate$Outbound
   | ProductPriceSeatBasedCreate$Outbound;
 
@@ -169,7 +160,6 @@ export type Two$Outbound =
 export const Two$outboundSchema: z.ZodMiniType<Two$Outbound, Two> = z.union([
   ProductPriceCustomCreate$outboundSchema,
   ProductPriceFixedCreate$outboundSchema,
-  ProductPriceFreeCreate$outboundSchema,
   ProductPriceMeteredUnitCreate$outboundSchema,
   ProductPriceSeatBasedCreate$outboundSchema,
 ]);
@@ -183,7 +173,6 @@ export type ProductUpdatePrices$Outbound =
   | ExistingProductPrice$Outbound
   | ProductPriceCustomCreate$Outbound
   | ProductPriceFixedCreate$Outbound
-  | ProductPriceFreeCreate$Outbound
   | ProductPriceMeteredUnitCreate$Outbound
   | ProductPriceSeatBasedCreate$Outbound;
 
@@ -196,7 +185,6 @@ export const ProductUpdatePrices$outboundSchema: z.ZodMiniType<
   z.union([
     ProductPriceCustomCreate$outboundSchema,
     ProductPriceFixedCreate$outboundSchema,
-    ProductPriceFreeCreate$outboundSchema,
     ProductPriceMeteredUnitCreate$outboundSchema,
     ProductPriceSeatBasedCreate$outboundSchema,
   ]),
@@ -226,7 +214,6 @@ export type ProductUpdate$Outbound = {
       | ExistingProductPrice$Outbound
       | ProductPriceCustomCreate$Outbound
       | ProductPriceFixedCreate$Outbound
-      | ProductPriceFreeCreate$Outbound
       | ProductPriceMeteredUnitCreate$Outbound
       | ProductPriceSeatBasedCreate$Outbound
     >
@@ -255,9 +242,7 @@ export const ProductUpdate$outboundSchema: z.ZodMiniType<
     trialIntervalCount: z.optional(z.nullable(z.int())),
     name: z.optional(z.nullable(z.string())),
     description: z.optional(z.nullable(z.string())),
-    recurringInterval: z.optional(
-      z.nullable(SubscriptionRecurringInterval$outboundSchema),
-    ),
+    recurringInterval: z.optional(z.nullable(RecurringInterval$outboundSchema)),
     recurringIntervalCount: z.optional(z.nullable(z.int())),
     isArchived: z.optional(z.nullable(z.boolean())),
     visibility: z.optional(z.nullable(ProductVisibility$outboundSchema)),
@@ -269,7 +254,6 @@ export const ProductUpdate$outboundSchema: z.ZodMiniType<
             z.union([
               ProductPriceCustomCreate$outboundSchema,
               ProductPriceFixedCreate$outboundSchema,
-              ProductPriceFreeCreate$outboundSchema,
               ProductPriceMeteredUnitCreate$outboundSchema,
               ProductPriceSeatBasedCreate$outboundSchema,
             ]),

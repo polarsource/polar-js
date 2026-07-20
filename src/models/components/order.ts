@@ -169,6 +169,10 @@ export type Order = {
   discountId: string | null;
   subscriptionId: string | null;
   checkoutId: string | null;
+  /**
+   * When the next automatic payment retry is scheduled. `null` if the order is not in dunning or all retries have been exhausted.
+   */
+  nextPaymentAttemptAt?: Date | null | undefined;
   metadata: { [k: string]: MetadataOutputType };
   /**
    * Key-value object storing custom field values.
@@ -328,6 +332,12 @@ export const Order$inboundSchema: z.ZodMiniType<Order, unknown> = z.pipe(
     discount_id: z.nullable(z.string()),
     subscription_id: z.nullable(z.string()),
     checkout_id: z.nullable(z.string()),
+    next_payment_attempt_at: z.optional(
+      z.nullable(z.pipe(
+        z.iso.datetime({ offset: true }),
+        z.transform(v => new Date(v)),
+      )),
+    ),
     metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
     custom_field_data: z.optional(
       z.record(
@@ -387,6 +397,7 @@ export const Order$inboundSchema: z.ZodMiniType<Order, unknown> = z.pipe(
       "discount_id": "discountId",
       "subscription_id": "subscriptionId",
       "checkout_id": "checkoutId",
+      "next_payment_attempt_at": "nextPaymentAttemptAt",
       "custom_field_data": "customFieldData",
       "platform_fee_amount": "platformFeeAmount",
       "platform_fee_currency": "platformFeeCurrency",
@@ -424,6 +435,7 @@ export type Order$Outbound = {
   discount_id: string | null;
   subscription_id: string | null;
   checkout_id: string | null;
+  next_payment_attempt_at?: string | null | undefined;
   metadata: { [k: string]: MetadataOutputType$Outbound };
   custom_field_data?:
     | { [k: string]: string | number | boolean | string | null }
@@ -478,6 +490,9 @@ export const Order$outboundSchema: z.ZodMiniType<Order$Outbound, Order> = z
       discountId: z.nullable(z.string()),
       subscriptionId: z.nullable(z.string()),
       checkoutId: z.nullable(z.string()),
+      nextPaymentAttemptAt: z.optional(
+        z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+      ),
       metadata: z.record(z.string(), MetadataOutputType$outboundSchema),
       customFieldData: z.optional(
         z.record(
@@ -534,6 +549,7 @@ export const Order$outboundSchema: z.ZodMiniType<Order$Outbound, Order> = z
         discountId: "discount_id",
         subscriptionId: "subscription_id",
         checkoutId: "checkout_id",
+        nextPaymentAttemptAt: "next_payment_attempt_at",
         customFieldData: "custom_field_data",
         platformFeeAmount: "platform_fee_amount",
         platformFeeCurrency: "platform_fee_currency",

@@ -18,74 +18,38 @@ let value: Product = {
   visibility: "draft",
   recurringInterval: "year",
   recurringIntervalCount: 845304,
+  meterInterval: "year",
+  meterIntervalCount: 929024,
   isRecurring: false,
   isArchived: false,
   organizationId: "<value>",
-  metadata: {},
-  prices: [
-    {
-      createdAt: new Date("2026-07-19T05:16:33.878Z"),
-      modifiedAt: new Date("2025-12-14T03:45:00.109Z"),
-      id: "<value>",
-      source: "catalog",
-      amountType: "seat_based",
-      priceCurrency: "<value>",
-      taxBehavior: "exclusive",
-      isArchived: true,
-      productId: "<value>",
-      seatTiers: {
-        tiers: [
-          {
-            minSeats: 922152,
-            pricePerSeat: 415895,
-          },
-        ],
-        minimumSeats: 164973,
-        maximumSeats: 735578,
-      },
-    },
-  ],
-  benefits: [
+  metadata: {
+    "key": 6506.9,
+  },
+  prices: [],
+  benefits: [],
+  medias: [
     {
       id: "<value>",
-      createdAt: new Date("2026-01-09T18:16:10.566Z"),
-      modifiedAt: new Date("2026-01-13T18:10:25.062Z"),
-      type: "discord",
-      description: "whether regularly necessary",
-      selectable: false,
-      deletable: false,
-      isDeleted: false,
       organizationId: "<value>",
-      metadata: {},
-      properties: {
-        guildId: "<id>",
-        roleId: "<id>",
-        kickMember: false,
-        guildToken: "<value>",
-      },
+      name: "<value>",
+      path: "/var/yp",
+      mimeType: "<value>",
+      size: 772025,
+      storageVersion: null,
+      checksumEtag: "<value>",
+      checksumSha256Base64: "<value>",
+      checksumSha256Hex: "<value>",
+      lastModifiedAt: new Date("2025-10-14T04:04:24.781Z"),
+      version: "<value>",
+      service: "product_media",
+      isUploaded: false,
+      createdAt: new Date("2026-03-20T16:38:16.465Z"),
+      sizeReadable: "<value>",
+      publicUrl: "https://esteemed-coal.com",
     },
   ],
-  medias: [],
-  attachedCustomFields: [
-    {
-      customFieldId: "<value>",
-      customField: {
-        createdAt: new Date("2026-07-16T19:04:19.230Z"),
-        modifiedAt: new Date("2025-02-05T20:03:25.495Z"),
-        id: "<value>",
-        metadata: {
-          "key": 6988.1,
-        },
-        type: "text",
-        slug: "<value>",
-        name: "<value>",
-        organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-        properties: {},
-      },
-      order: 235618,
-      required: true,
-    },
-  ],
+  attachedCustomFields: [],
 };
 ```
 
@@ -101,8 +65,10 @@ let value: Product = {
 | `name`                                                                                                                                                                                                       | *string*                                                                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                                                           | The name of the product.                                                                                                                                                                                     |
 | `description`                                                                                                                                                                                                | *string*                                                                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                                                           | The description of the product.                                                                                                                                                                              |
 | `visibility`                                                                                                                                                                                                 | [components.ProductVisibility](../../models/components/productvisibility.md)                                                                                                                                 | :heavy_check_mark:                                                                                                                                                                                           | N/A                                                                                                                                                                                                          |
-| `recurringInterval`                                                                                                                                                                                          | [components.SubscriptionRecurringInterval](../../models/components/subscriptionrecurringinterval.md)                                                                                                         | :heavy_check_mark:                                                                                                                                                                                           | The recurring interval of the product. If `None`, the product is a one-time purchase.                                                                                                                        |
+| `recurringInterval`                                                                                                                                                                                          | [components.RecurringInterval](../../models/components/recurringinterval.md)                                                                                                                                 | :heavy_check_mark:                                                                                                                                                                                           | The recurring interval of the product. If `None`, the product is a one-time purchase.                                                                                                                        |
 | `recurringIntervalCount`                                                                                                                                                                                     | *number*                                                                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                                                           | Number of interval units of the subscription. If this is set to 1 the charge will happen every interval (e.g. every month), if set to 2 it will be every other month, and so on. None for one-time products. |
+| `meterInterval`                                                                                                                                                                                              | [components.RecurringInterval](../../models/components/recurringinterval.md)                                                                                                                                 | :heavy_check_mark:                                                                                                                                                                                           | The meter cycle of the product, independent of the billing interval. If `None`, metered concerns follow the billing interval.                                                                                |
+| `meterIntervalCount`                                                                                                                                                                                         | *number*                                                                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                                                           | Number of meter interval units. None when no meter cycle is set.                                                                                                                                             |
 | `isRecurring`                                                                                                                                                                                                | *boolean*                                                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                                                           | Whether the product is a subscription.                                                                                                                                                                       |
 | `isArchived`                                                                                                                                                                                                 | *boolean*                                                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                                                           | Whether the product is archived and no longer available.                                                                                                                                                     |
 | `organizationId`                                                                                                                                                                                             | *string*                                                                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                                                           | The ID of the organization owning the product.                                                                                                                                                               |
