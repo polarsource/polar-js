@@ -22,6 +22,23 @@ import {
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
+// #region imports
+import type { EventMetadataInput } from "../models/components/eventmetadatainput.js";
+import type {
+  EventsSpanClient,
+  SendEventOptions,
+  SpanEventOptions,
+  WithSpanOptions,
+} from "./events-custom.js";
+export type {
+  CustomerIdentifier,
+  EventsSpanClient,
+  SendEventOptions,
+  SpanEventOptions,
+  WithSpanOptions,
+} from "./events-custom.js";
+// #endregion imports
+
 export class Events extends ClientSDK {
   /**
    * List Events
@@ -98,4 +115,104 @@ export class Events extends ClientSDK {
       options,
     ));
   }
+
+  // #region sdk-class-body
+  private _enrichMetadata(
+    options: SpanEventOptions,
+  ): Record<string, EventMetadataInput> | undefined {
+    const metadata: Record<string, EventMetadataInput> = {
+      ...options.metadata,
+    };
+
+    if (options.cost) {
+      metadata["_cost"] = options.cost;
+    }
+    if (options.llm) {
+      metadata["_llm"] = options.llm;
+    }
+
+    return Object.keys(metadata).length > 0 ? metadata : undefined;
+  }
+
+  async sendEvents(
+    events: Array<SendEventOptions>,
+    requestOptions?: RequestOptions,
+  ): Promise<EventsIngestResponse> {
+    const mapped = events.map((eventOpts) => {
+      const metadata = this._enrichMetadata(eventOpts);
+      if ("externalCustomerId" in eventOpts && eventOpts.externalCustomerId) {
+        return {
+          name: eventOpts.name,
+          externalId: eventOpts.externalId,
+          parentId: eventOpts.parentId,
+          metadata,
+          externalCustomerId: eventOpts.externalCustomerId,
+        };
+      }
+      return {
+        name: eventOpts.name,
+        externalId: eventOpts.externalId,
+        parentId: eventOpts.parentId,
+        metadata,
+        customerId: eventOpts.customerId!,
+      };
+    });
+
+    return this.ingest({ events: mapped }, requestOptions);
+  }
+
+  async withSpan(
+    options: WithSpanOptions,
+    requestOptions?: RequestOptions,
+  ): Promise<EventsSpanClient> {
+    const parentId = options.externalId;
+    const useExternalCustomer =
+      "externalCustomerId" in options && options.externalCustomerId;
+
+    const spanEvent = useExternalCustomer
+      ? {
+          name: options.name,
+          externalId: options.externalId,
+          metadata: options.metadata,
+          externalCustomerId: options.externalCustomerId,
+        }
+      : {
+          name: options.name,
+          externalId: options.externalId,
+          metadata: options.metadata,
+          customerId: options.customerId!,
+        };
+
+    await this.ingest({ events: [spanEvent] }, requestOptions);
+
+    return {
+      sendEvents: (
+        events: Array<SpanEventOptions>,
+        reqOptions?: RequestOptions,
+      ) => {
+        const enrichedEvents = events.map((eventOpts) => {
+          const metadata = this._enrichMetadata(eventOpts);
+          if (useExternalCustomer) {
+            return {
+              name: eventOpts.name,
+              externalId: eventOpts.externalId,
+              parentId,
+              metadata,
+              externalCustomerId: options.externalCustomerId,
+            };
+          }
+          return {
+            name: eventOpts.name,
+            externalId: eventOpts.externalId,
+            parentId,
+            metadata,
+            customerId: options.customerId!,
+          };
+        });
+
+        return this.ingest({ events: enrichedEvents }, reqOptions ?? requestOptions);
+      },
+    };
+  }
+  // #endregion sdk-class-body
 }
