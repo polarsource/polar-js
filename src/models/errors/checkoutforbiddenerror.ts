@@ -10,6 +10,10 @@ import {
   AlreadyActiveSubscriptionError$inboundSchema,
 } from "./alreadyactivesubscriptionerror.js";
 import {
+  DiscountRedemptionLimitReached,
+  DiscountRedemptionLimitReached$inboundSchema,
+} from "./discountredemptionlimitreached.js";
+import {
   NotOpenCheckout,
   NotOpenCheckout$inboundSchema,
 } from "./notopencheckout.js";
@@ -27,7 +31,8 @@ export type CheckoutForbiddenError =
   | AlreadyActiveSubscriptionError
   | NotOpenCheckout
   | PaymentNotReady
-  | TrialAlreadyRedeemed;
+  | TrialAlreadyRedeemed
+  | DiscountRedemptionLimitReached;
 
 /** @internal */
 export const CheckoutForbiddenError$inboundSchema: z.ZodMiniType<
@@ -38,6 +43,7 @@ export const CheckoutForbiddenError$inboundSchema: z.ZodMiniType<
   NotOpenCheckout$inboundSchema,
   PaymentNotReady$inboundSchema,
   TrialAlreadyRedeemed$inboundSchema,
+  DiscountRedemptionLimitReached$inboundSchema,
 ]);
 
 export function checkoutForbiddenErrorFromJSON(

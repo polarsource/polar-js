@@ -5,35 +5,158 @@
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { smartUnion } from "../../types/smartUnion.js";
+import {
+  SubscriptionExportColumn,
+  SubscriptionExportColumn$outboundSchema,
+} from "../components/subscriptionexportcolumn.js";
+import {
+  SubscriptionStatus,
+  SubscriptionStatus$outboundSchema,
+} from "../components/subscriptionstatus.js";
 
 /**
  * Filter by organization ID.
  */
-export type OrganizationId = string | Array<string>;
+export type QueryParamOrganizationIDFilter = string | Array<string>;
+
+/**
+ * Filter by product ID.
+ */
+export type QueryParamProductIDFilter = string | Array<string>;
+
+/**
+ * Filter by subscription status.
+ */
+export type QueryParamStatusFilter =
+  | SubscriptionStatus
+  | Array<SubscriptionStatus>;
+
+/**
+ * Columns to include in the CSV, in order. Defaults to email, started_at, product, amount, currency, status and recurring_interval.
+ */
+export type Columns =
+  | SubscriptionExportColumn
+  | Array<SubscriptionExportColumn>;
 
 export type SubscriptionsExportRequest = {
   /**
    * Filter by organization ID.
    */
   organizationId?: string | Array<string> | null | undefined;
+  /**
+   * Filter by product ID.
+   */
+  productId?: string | Array<string> | null | undefined;
+  /**
+   * Filter by subscription status.
+   */
+  status?: SubscriptionStatus | Array<SubscriptionStatus> | null | undefined;
+  /**
+   * Filter by subscriptions that are set to cancel at period end.
+   */
+  cancelAtPeriodEnd?: boolean | null | undefined;
+  /**
+   * Only include subscriptions started after this date. Must include a UTC offset.
+   */
+  startedAfter?: Date | null | undefined;
+  /**
+   * Only include subscriptions started before this date. Must include a UTC offset.
+   */
+  startedBefore?: Date | null | undefined;
+  /**
+   * Time zone used to render dates in the CSV.
+   */
+  timezone?: string | undefined;
+  /**
+   * Columns to include in the CSV, in order. Defaults to email, started_at, product, amount, currency, status and recurring_interval.
+   */
+  columns?:
+    | SubscriptionExportColumn
+    | Array<SubscriptionExportColumn>
+    | null
+    | undefined;
 };
 
 /** @internal */
-export type OrganizationId$Outbound = string | Array<string>;
+export type QueryParamOrganizationIDFilter$Outbound = string | Array<string>;
 
 /** @internal */
-export const OrganizationId$outboundSchema: z.ZodMiniType<
-  OrganizationId$Outbound,
-  OrganizationId
+export const QueryParamOrganizationIDFilter$outboundSchema: z.ZodMiniType<
+  QueryParamOrganizationIDFilter$Outbound,
+  QueryParamOrganizationIDFilter
 > = smartUnion([z.string(), z.array(z.string())]);
 
-export function organizationIdToJSON(organizationId: OrganizationId): string {
-  return JSON.stringify(OrganizationId$outboundSchema.parse(organizationId));
+export function queryParamOrganizationIDFilterToJSON(
+  queryParamOrganizationIDFilter: QueryParamOrganizationIDFilter,
+): string {
+  return JSON.stringify(
+    QueryParamOrganizationIDFilter$outboundSchema.parse(
+      queryParamOrganizationIDFilter,
+    ),
+  );
+}
+
+/** @internal */
+export type QueryParamProductIDFilter$Outbound = string | Array<string>;
+
+/** @internal */
+export const QueryParamProductIDFilter$outboundSchema: z.ZodMiniType<
+  QueryParamProductIDFilter$Outbound,
+  QueryParamProductIDFilter
+> = smartUnion([z.string(), z.array(z.string())]);
+
+export function queryParamProductIDFilterToJSON(
+  queryParamProductIDFilter: QueryParamProductIDFilter,
+): string {
+  return JSON.stringify(
+    QueryParamProductIDFilter$outboundSchema.parse(queryParamProductIDFilter),
+  );
+}
+
+/** @internal */
+export type QueryParamStatusFilter$Outbound = string | Array<string>;
+
+/** @internal */
+export const QueryParamStatusFilter$outboundSchema: z.ZodMiniType<
+  QueryParamStatusFilter$Outbound,
+  QueryParamStatusFilter
+> = smartUnion([
+  SubscriptionStatus$outboundSchema,
+  z.array(SubscriptionStatus$outboundSchema),
+]);
+
+export function queryParamStatusFilterToJSON(
+  queryParamStatusFilter: QueryParamStatusFilter,
+): string {
+  return JSON.stringify(
+    QueryParamStatusFilter$outboundSchema.parse(queryParamStatusFilter),
+  );
+}
+
+/** @internal */
+export type Columns$Outbound = string | Array<string>;
+
+/** @internal */
+export const Columns$outboundSchema: z.ZodMiniType<Columns$Outbound, Columns> =
+  smartUnion([
+    SubscriptionExportColumn$outboundSchema,
+    z.array(SubscriptionExportColumn$outboundSchema),
+  ]);
+
+export function columnsToJSON(columns: Columns): string {
+  return JSON.stringify(Columns$outboundSchema.parse(columns));
 }
 
 /** @internal */
 export type SubscriptionsExportRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
+  product_id?: string | Array<string> | null | undefined;
+  status?: string | Array<string> | null | undefined;
+  cancel_at_period_end?: boolean | null | undefined;
+  started_after?: string | null | undefined;
+  started_before?: string | null | undefined;
+  timezone: string;
+  columns?: string | Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -45,10 +168,41 @@ export const SubscriptionsExportRequest$outboundSchema: z.ZodMiniType<
     organizationId: z.optional(
       z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
+    productId: z.optional(
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+    ),
+    status: z.optional(
+      z.nullable(
+        smartUnion([
+          SubscriptionStatus$outboundSchema,
+          z.array(SubscriptionStatus$outboundSchema),
+        ]),
+      ),
+    ),
+    cancelAtPeriodEnd: z.optional(z.nullable(z.boolean())),
+    startedAfter: z.optional(
+      z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    ),
+    startedBefore: z.optional(
+      z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    ),
+    timezone: z._default(z.string(), "UTC"),
+    columns: z.optional(
+      z.nullable(
+        smartUnion([
+          SubscriptionExportColumn$outboundSchema,
+          z.array(SubscriptionExportColumn$outboundSchema),
+        ]),
+      ),
+    ),
   }),
   z.transform((v) => {
     return remap$(v, {
       organizationId: "organization_id",
+      productId: "product_id",
+      cancelAtPeriodEnd: "cancel_at_period_end",
+      startedAfter: "started_after",
+      startedBefore: "started_before",
     });
   }),
 );

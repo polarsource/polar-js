@@ -28,9 +28,9 @@ import {
   HTTPValidationError$inboundSchema,
 } from "../models/errors/httpvalidationerror.js";
 import {
-  NotPermitted,
-  NotPermitted$inboundSchema,
-} from "../models/errors/notpermitted.js";
+  OrganizationsUpdateResponse403OrganizationsUpdate,
+  OrganizationsUpdateResponse403OrganizationsUpdate$inboundSchema,
+} from "../models/errors/organizationsupdate.js";
 import { PolarError } from "../models/errors/polarerror.js";
 import {
   ResourceNotFound,
@@ -64,7 +64,7 @@ export function organizationsUpdate(
 ): APIPromise<
   Result<
     Organization,
-    | NotPermitted
+    | OrganizationsUpdateResponse403OrganizationsUpdate
     | ResourceNotFound
     | SSOEnforcementRequiresConnection
     | HTTPValidationError
@@ -93,7 +93,7 @@ async function $do(
   [
     Result<
       Organization,
-      | NotPermitted
+      | OrganizationsUpdateResponse403OrganizationsUpdate
       | ResourceNotFound
       | SSOEnforcementRequiresConnection
       | HTTPValidationError
@@ -187,7 +187,7 @@ async function $do(
 
   const [result] = await M.match<
     Organization,
-    | NotPermitted
+    | OrganizationsUpdateResponse403OrganizationsUpdate
     | ResourceNotFound
     | SSOEnforcementRequiresConnection
     | HTTPValidationError
@@ -201,7 +201,10 @@ async function $do(
     | SDKValidationError
   >(
     M.json(200, Organization$inboundSchema),
-    M.jsonErr(403, NotPermitted$inboundSchema),
+    M.jsonErr(
+      403,
+      OrganizationsUpdateResponse403OrganizationsUpdate$inboundSchema,
+    ),
     M.jsonErr(404, ResourceNotFound$inboundSchema),
     M.jsonErr(409, SSOEnforcementRequiresConnection$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),

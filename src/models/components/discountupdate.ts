@@ -54,6 +54,10 @@ export type DiscountUpdate = {
    * Optional maximum number of times the discount can be redeemed.
    */
   maxRedemptions?: number | null | undefined;
+  /**
+   * Optional maximum number of times the discount can be redeemed by a single customer.
+   */
+  maxRedemptionsPerCustomer?: number | null | undefined;
   duration?: DiscountDuration | null | undefined;
   durationInMonths?: number | null | undefined;
   type?: DiscountType | null | undefined;
@@ -99,6 +103,7 @@ export type DiscountUpdate$Outbound = {
   starts_at?: string | null | undefined;
   ends_at?: string | null | undefined;
   max_redemptions?: number | null | undefined;
+  max_redemptions_per_customer?: number | null | undefined;
   duration?: string | null | undefined;
   duration_in_months?: number | null | undefined;
   type?: string | null | undefined;
@@ -130,6 +135,7 @@ export const DiscountUpdate$outboundSchema: z.ZodMiniType<
       z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
     ),
     maxRedemptions: z.optional(z.nullable(z.int())),
+    maxRedemptionsPerCustomer: z.optional(z.nullable(z.int())),
     duration: z.optional(z.nullable(DiscountDuration$outboundSchema)),
     durationInMonths: z.optional(z.nullable(z.int())),
     type: z.optional(z.nullable(DiscountType$outboundSchema)),
@@ -144,6 +150,7 @@ export const DiscountUpdate$outboundSchema: z.ZodMiniType<
       startsAt: "starts_at",
       endsAt: "ends_at",
       maxRedemptions: "max_redemptions",
+      maxRedemptionsPerCustomer: "max_redemptions_per_customer",
       durationInMonths: "duration_in_months",
       basisPoints: "basis_points",
     });

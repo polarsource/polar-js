@@ -29,7 +29,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 /**
  * Filter by organization ID.
  */
-export type QueryParamOrganizationIDFilter = string | Array<string>;
+export type BenefitsListQueryParamOrganizationIDFilter = string | Array<string>;
 
 /**
  * Filter by benefit type.
@@ -90,20 +90,24 @@ export type BenefitsListResponse = {
 };
 
 /** @internal */
-export type QueryParamOrganizationIDFilter$Outbound = string | Array<string>;
+export type BenefitsListQueryParamOrganizationIDFilter$Outbound =
+  | string
+  | Array<string>;
 
 /** @internal */
-export const QueryParamOrganizationIDFilter$outboundSchema: z.ZodMiniType<
-  QueryParamOrganizationIDFilter$Outbound,
-  QueryParamOrganizationIDFilter
-> = smartUnion([z.string(), z.array(z.string())]);
+export const BenefitsListQueryParamOrganizationIDFilter$outboundSchema:
+  z.ZodMiniType<
+    BenefitsListQueryParamOrganizationIDFilter$Outbound,
+    BenefitsListQueryParamOrganizationIDFilter
+  > = smartUnion([z.string(), z.array(z.string())]);
 
-export function queryParamOrganizationIDFilterToJSON(
-  queryParamOrganizationIDFilter: QueryParamOrganizationIDFilter,
+export function benefitsListQueryParamOrganizationIDFilterToJSON(
+  benefitsListQueryParamOrganizationIDFilter:
+    BenefitsListQueryParamOrganizationIDFilter,
 ): string {
   return JSON.stringify(
-    QueryParamOrganizationIDFilter$outboundSchema.parse(
-      queryParamOrganizationIDFilter,
+    BenefitsListQueryParamOrganizationIDFilter$outboundSchema.parse(
+      benefitsListQueryParamOrganizationIDFilter,
     ),
   );
 }

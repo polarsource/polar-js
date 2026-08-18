@@ -9,7 +9,7 @@ import { smartUnion } from "../../types/smartUnion.js";
 /**
  * Filter by organization ID.
  */
-export type CustomersExportQueryParamOrganizationId = string | Array<string>;
+export type QueryParamOrganizationId = string | Array<string>;
 
 export type CustomersExportRequest = {
   /**
@@ -19,25 +19,19 @@ export type CustomersExportRequest = {
 };
 
 /** @internal */
-export type CustomersExportQueryParamOrganizationId$Outbound =
-  | string
-  | Array<string>;
+export type QueryParamOrganizationId$Outbound = string | Array<string>;
 
 /** @internal */
-export const CustomersExportQueryParamOrganizationId$outboundSchema:
-  z.ZodMiniType<
-    CustomersExportQueryParamOrganizationId$Outbound,
-    CustomersExportQueryParamOrganizationId
-  > = smartUnion([z.string(), z.array(z.string())]);
+export const QueryParamOrganizationId$outboundSchema: z.ZodMiniType<
+  QueryParamOrganizationId$Outbound,
+  QueryParamOrganizationId
+> = smartUnion([z.string(), z.array(z.string())]);
 
-export function customersExportQueryParamOrganizationIdToJSON(
-  customersExportQueryParamOrganizationId:
-    CustomersExportQueryParamOrganizationId,
+export function queryParamOrganizationIdToJSON(
+  queryParamOrganizationId: QueryParamOrganizationId,
 ): string {
   return JSON.stringify(
-    CustomersExportQueryParamOrganizationId$outboundSchema.parse(
-      customersExportQueryParamOrganizationId,
-    ),
+    QueryParamOrganizationId$outboundSchema.parse(queryParamOrganizationId),
   );
 }
 

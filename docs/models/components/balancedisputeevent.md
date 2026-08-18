@@ -30,6 +30,7 @@ let value: BalanceDisputeEvent = {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     deletedAt: new Date("2025-08-22T22:08:47.665Z"),
+    firstUserEventAt: new Date("2025-02-10T05:19:33.985Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
@@ -39,12 +40,12 @@ let value: BalanceDisputeEvent = {
   metadata: {
     transactionId: "<id>",
     disputeId: "<id>",
-    amount: 370640,
-    currency: "Cedi",
-    presentmentAmount: 35442,
+    amount: 35442,
+    currency: "Liberian Dollar",
+    presentmentAmount: 801148,
     presentmentCurrency: "<value>",
-    taxAmount: 512163,
-    fee: 801148,
+    taxAmount: 743032,
+    fee: 109406,
   },
 };
 ```

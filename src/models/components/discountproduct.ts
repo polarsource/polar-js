@@ -10,16 +10,24 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   MetadataOutputType,
   MetadataOutputType$inboundSchema,
+  MetadataOutputType$Outbound,
+  MetadataOutputType$outboundSchema,
 } from "./metadataoutputtype.js";
 import {
   ProductVisibility,
   ProductVisibility$inboundSchema,
+  ProductVisibility$outboundSchema,
 } from "./productvisibility.js";
 import {
   RecurringInterval,
   RecurringInterval$inboundSchema,
+  RecurringInterval$outboundSchema,
 } from "./recurringinterval.js";
-import { TrialInterval, TrialInterval$inboundSchema } from "./trialinterval.js";
+import {
+  TrialInterval,
+  TrialInterval$inboundSchema,
+  TrialInterval$outboundSchema,
+} from "./trialinterval.js";
 
 /**
  * A product that a discount can be applied to.
@@ -129,7 +137,71 @@ export const DiscountProduct$inboundSchema: z.ZodMiniType<
     });
   }),
 );
+/** @internal */
+export type DiscountProduct$Outbound = {
+  metadata: { [k: string]: MetadataOutputType$Outbound };
+  id: string;
+  created_at: string;
+  modified_at: string | null;
+  trial_interval: string | null;
+  trial_interval_count: number | null;
+  name: string;
+  description: string | null;
+  visibility: string;
+  recurring_interval: string | null;
+  recurring_interval_count: number | null;
+  meter_interval: string | null;
+  meter_interval_count: number | null;
+  is_recurring: boolean;
+  is_archived: boolean;
+  organization_id: string;
+};
 
+/** @internal */
+export const DiscountProduct$outboundSchema: z.ZodMiniType<
+  DiscountProduct$Outbound,
+  DiscountProduct
+> = z.pipe(
+  z.object({
+    metadata: z.record(z.string(), MetadataOutputType$outboundSchema),
+    id: z.string(),
+    createdAt: z.pipe(z.date(), z.transform(v => v.toISOString())),
+    modifiedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    trialInterval: z.nullable(TrialInterval$outboundSchema),
+    trialIntervalCount: z.nullable(z.int()),
+    name: z.string(),
+    description: z.nullable(z.string()),
+    visibility: ProductVisibility$outboundSchema,
+    recurringInterval: z.nullable(RecurringInterval$outboundSchema),
+    recurringIntervalCount: z.nullable(z.int()),
+    meterInterval: z.nullable(RecurringInterval$outboundSchema),
+    meterIntervalCount: z.nullable(z.int()),
+    isRecurring: z.boolean(),
+    isArchived: z.boolean(),
+    organizationId: z.string(),
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      createdAt: "created_at",
+      modifiedAt: "modified_at",
+      trialInterval: "trial_interval",
+      trialIntervalCount: "trial_interval_count",
+      recurringInterval: "recurring_interval",
+      recurringIntervalCount: "recurring_interval_count",
+      meterInterval: "meter_interval",
+      meterIntervalCount: "meter_interval_count",
+      isRecurring: "is_recurring",
+      isArchived: "is_archived",
+      organizationId: "organization_id",
+    });
+  }),
+);
+
+export function discountProductToJSON(
+  discountProduct: DiscountProduct,
+): string {
+  return JSON.stringify(DiscountProduct$outboundSchema.parse(discountProduct));
+}
 export function discountProductFromJSON(
   jsonString: string,
 ): SafeParseResult<DiscountProduct, SDKValidationError> {

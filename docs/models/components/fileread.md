@@ -22,6 +22,7 @@ const value: components.DownloadableFileRead = {
   service: "downloadable",
   isUploaded: true,
   createdAt: new Date("2024-05-31T05:20:04.314Z"),
+  flaggedMaliciousAt: new Date("2024-12-25T02:23:18.020Z"),
   sizeReadable: "<value>",
 };
 ```

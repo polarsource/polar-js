@@ -260,7 +260,13 @@ const polar = new Polar({
 async function run() {
   const result = await polar.organizations.update({
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    organizationUpdate: {},
+    organizationUpdate: {
+      embedHosts: [
+        "example.com",
+        "*.example.com",
+        "localhost:3000",
+      ],
+    },
   });
 
   console.log(result);
@@ -286,7 +292,13 @@ const polar = new PolarCore({
 async function run() {
   const res = await organizationsUpdate(polar, {
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    organizationUpdate: {},
+    organizationUpdate: {
+      embedHosts: [
+        "example.com",
+        "*.example.com",
+        "localhost:3000",
+      ],
+    },
   });
   if (res.ok) {
     const { value: result } = res;
@@ -317,6 +329,7 @@ run();
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
 | errors.NotPermitted                     | 403                                     | application/json                        |
+| errors.DisputeAutoAcceptNotEnabled      | 403                                     | application/json                        |
 | errors.ResourceNotFound                 | 404                                     | application/json                        |
 | errors.SSOEnforcementRequiresConnection | 409                                     | application/json                        |
 | errors.HTTPValidationError              | 422                                     | application/json                        |

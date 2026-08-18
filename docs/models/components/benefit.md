@@ -19,7 +19,7 @@ const value: components.BenefitCustom = {
   metadata: {},
   visibility: "public",
   properties: {
-    note: "<value>",
+    note: null,
   },
   visibilityConfigurable: false,
 };

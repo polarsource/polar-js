@@ -136,6 +136,8 @@ async function $do(
       "page": payload.page,
       "product_id": payload.product_id,
       "sorting": payload.sorting,
+      "started_after": payload.started_after,
+      "started_before": payload.started_before,
       "status": payload.status,
     }),
   );

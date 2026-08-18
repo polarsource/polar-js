@@ -20,6 +20,9 @@ import { WebhookCustomerSeatClaimedPayload } from "../models/components/webhookc
 import { WebhookCustomerSeatRevokedPayload } from "../models/components/webhookcustomerseatrevokedpayload.js";
 import { WebhookCustomerStateChangedPayload } from "../models/components/webhookcustomerstatechangedpayload.js";
 import { WebhookCustomerUpdatedPayload } from "../models/components/webhookcustomerupdatedpayload.js";
+import { WebhookDiscountCreatedPayload } from "../models/components/webhookdiscountcreatedpayload.js";
+import { WebhookDiscountDeletedPayload } from "../models/components/webhookdiscountdeletedpayload.js";
+import { WebhookDiscountUpdatedPayload } from "../models/components/webhookdiscountupdatedpayload.js";
 import { WebhookMemberCreatedPayload } from "../models/components/webhookmembercreatedpayload.js";
 import { WebhookMemberDeletedPayload } from "../models/components/webhookmemberdeletedpayload.js";
 import { WebhookMemberUpdatedPayload } from "../models/components/webhookmemberupdatedpayload.js";
@@ -35,6 +38,7 @@ import { WebhookRefundUpdatedPayload } from "../models/components/webhookrefundu
 import { WebhookSubscriptionActivePayload } from "../models/components/webhooksubscriptionactivepayload.js";
 import { WebhookSubscriptionCanceledPayload } from "../models/components/webhooksubscriptioncanceledpayload.js";
 import { WebhookSubscriptionCreatedPayload } from "../models/components/webhooksubscriptioncreatedpayload.js";
+import { WebhookSubscriptionCycledPayload } from "../models/components/webhooksubscriptioncycledpayload.js";
 import { WebhookSubscriptionPastDuePayload } from "../models/components/webhooksubscriptionpastduepayload.js";
 import { WebhookSubscriptionPausedPayload } from "../models/components/webhooksubscriptionpausedpayload.js";
 import { WebhookSubscriptionResumedPayload } from "../models/components/webhooksubscriptionresumedpayload.js";
@@ -238,6 +242,7 @@ export class Polar extends ClientSDK {
     | WebhookSubscriptionActivePayload
     | WebhookSubscriptionCanceledPayload
     | WebhookSubscriptionUncanceledPayload
+    | WebhookSubscriptionCycledPayload
     | WebhookSubscriptionRevokedPayload
     | WebhookSubscriptionPastDuePayload
     | WebhookSubscriptionPausedPayload
@@ -246,6 +251,9 @@ export class Polar extends ClientSDK {
     | WebhookRefundUpdatedPayload
     | WebhookProductCreatedPayload
     | WebhookProductUpdatedPayload
+    | WebhookDiscountCreatedPayload
+    | WebhookDiscountUpdatedPayload
+    | WebhookDiscountDeletedPayload
     | WebhookOrganizationUpdatedPayload
     | WebhookBenefitCreatedPayload
     | WebhookBenefitUpdatedPayload

@@ -26,7 +26,8 @@ const value: components.DiscountFixedOnceForeverDuration = {
   startsAt: new Date("2025-07-10T21:11:23.781Z"),
   endsAt: new Date("2024-05-19T23:49:44.658Z"),
   maxRedemptions: 58410,
-  redemptionsCount: 977582,
+  maxRedemptionsPerCustomer: 45660,
+  redemptionsCount: 57132,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   products: [],
 };
@@ -56,9 +57,29 @@ const value: components.DiscountFixedRepeatDuration = {
   startsAt: new Date("2025-01-12T16:02:29.532Z"),
   endsAt: new Date("2024-11-24T04:10:44.032Z"),
   maxRedemptions: null,
-  redemptionsCount: 496351,
+  maxRedemptionsPerCustomer: 211553,
+  redemptionsCount: 173121,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  products: [],
+  products: [
+    {
+      metadata: {},
+      id: "<value>",
+      createdAt: new Date("2024-02-05T00:21:18.363Z"),
+      modifiedAt: new Date("2026-07-04T11:58:51.297Z"),
+      trialInterval: "month",
+      trialIntervalCount: 4883,
+      name: "<value>",
+      description: "youthful upon alert entire meanwhile lest partridge",
+      visibility: "private",
+      recurringInterval: "month",
+      recurringIntervalCount: 340336,
+      meterInterval: "month",
+      meterIntervalCount: 112279,
+      isRecurring: false,
+      isArchived: true,
+      organizationId: "<value>",
+    },
+  ],
 };
 ```
 
@@ -80,31 +101,10 @@ const value: components.DiscountPercentageOnceForeverDuration = {
   startsAt: null,
   endsAt: new Date("2024-12-13T00:06:50.256Z"),
   maxRedemptions: 195391,
-  redemptionsCount: 409445,
+  maxRedemptionsPerCustomer: 904519,
+  redemptionsCount: 788473,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  products: [
-    {
-      metadata: {
-        "key": 168262,
-      },
-      id: "<value>",
-      createdAt: new Date("2025-11-19T12:32:14.789Z"),
-      modifiedAt: new Date("2024-04-09T12:42:12.296Z"),
-      trialInterval: "year",
-      trialIntervalCount: 718871,
-      name: "<value>",
-      description:
-        "shinny psst cram usefully buttery aggressive bestride conservative sympathetically",
-      visibility: "private",
-      recurringInterval: "month",
-      recurringIntervalCount: 280938,
-      meterInterval: "week",
-      meterIntervalCount: 885020,
-      isRecurring: true,
-      isArchived: false,
-      organizationId: "<value>",
-    },
-  ],
+  products: [],
 };
 ```
 
@@ -125,7 +125,8 @@ const value: components.DiscountPercentageRepeatDuration = {
   startsAt: new Date("2026-01-22T14:00:25.247Z"),
   endsAt: new Date("2026-07-28T07:07:35.338Z"),
   maxRedemptions: 847336,
-  redemptionsCount: 132135,
+  maxRedemptionsPerCustomer: 138670,
+  redemptionsCount: 508700,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   products: [],
 };

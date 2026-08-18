@@ -39,3 +39,12 @@ const value: errors.TrialAlreadyRedeemed = {
 };
 ```
 
+### `errors.DiscountRedemptionLimitReached`
+
+```typescript
+const value: errors.DiscountRedemptionLimitReached = {
+  error: "DiscountRedemptionLimitReached",
+  detail: "<value>",
+};
+```
+

@@ -10,15 +10,24 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DiscountDuration,
   DiscountDuration$inboundSchema,
+  DiscountDuration$outboundSchema,
 } from "./discountduration.js";
 import {
   DiscountProduct,
   DiscountProduct$inboundSchema,
+  DiscountProduct$Outbound,
+  DiscountProduct$outboundSchema,
 } from "./discountproduct.js";
-import { DiscountType, DiscountType$inboundSchema } from "./discounttype.js";
+import {
+  DiscountType,
+  DiscountType$inboundSchema,
+  DiscountType$outboundSchema,
+} from "./discounttype.js";
 import {
   MetadataOutputType,
   MetadataOutputType$inboundSchema,
+  MetadataOutputType$Outbound,
+  MetadataOutputType$outboundSchema,
 } from "./metadataoutputtype.js";
 
 /**
@@ -69,6 +78,10 @@ export type DiscountPercentageRepeatDuration = {
    */
   maxRedemptions: number | null;
   /**
+   * Maximum number of times the discount can be redeemed by a single customer.
+   */
+  maxRedemptionsPerCustomer: number | null;
+  /**
    * Number of times the discount has been redeemed.
    */
   redemptionsCount: number;
@@ -107,6 +120,7 @@ export const DiscountPercentageRepeatDuration$inboundSchema: z.ZodMiniType<
       z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
     max_redemptions: z.nullable(z.int()),
+    max_redemptions_per_customer: z.nullable(z.int()),
     redemptions_count: z.int(),
     organization_id: z.string(),
     products: z.array(DiscountProduct$inboundSchema),
@@ -120,12 +134,82 @@ export const DiscountPercentageRepeatDuration$inboundSchema: z.ZodMiniType<
       "starts_at": "startsAt",
       "ends_at": "endsAt",
       "max_redemptions": "maxRedemptions",
+      "max_redemptions_per_customer": "maxRedemptionsPerCustomer",
       "redemptions_count": "redemptionsCount",
       "organization_id": "organizationId",
     });
   }),
 );
+/** @internal */
+export type DiscountPercentageRepeatDuration$Outbound = {
+  duration: string;
+  duration_in_months: number;
+  type: string;
+  basis_points: number;
+  created_at: string;
+  modified_at: string | null;
+  id: string;
+  metadata: { [k: string]: MetadataOutputType$Outbound };
+  name: string;
+  code: string | null;
+  starts_at: string | null;
+  ends_at: string | null;
+  max_redemptions: number | null;
+  max_redemptions_per_customer: number | null;
+  redemptions_count: number;
+  organization_id: string;
+  products: Array<DiscountProduct$Outbound>;
+};
 
+/** @internal */
+export const DiscountPercentageRepeatDuration$outboundSchema: z.ZodMiniType<
+  DiscountPercentageRepeatDuration$Outbound,
+  DiscountPercentageRepeatDuration
+> = z.pipe(
+  z.object({
+    duration: DiscountDuration$outboundSchema,
+    durationInMonths: z.int(),
+    type: DiscountType$outboundSchema,
+    basisPoints: z.int(),
+    createdAt: z.pipe(z.date(), z.transform(v => v.toISOString())),
+    modifiedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    id: z.string(),
+    metadata: z.record(z.string(), MetadataOutputType$outboundSchema),
+    name: z.string(),
+    code: z.nullable(z.string()),
+    startsAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    endsAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    maxRedemptions: z.nullable(z.int()),
+    maxRedemptionsPerCustomer: z.nullable(z.int()),
+    redemptionsCount: z.int(),
+    organizationId: z.string(),
+    products: z.array(DiscountProduct$outboundSchema),
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      durationInMonths: "duration_in_months",
+      basisPoints: "basis_points",
+      createdAt: "created_at",
+      modifiedAt: "modified_at",
+      startsAt: "starts_at",
+      endsAt: "ends_at",
+      maxRedemptions: "max_redemptions",
+      maxRedemptionsPerCustomer: "max_redemptions_per_customer",
+      redemptionsCount: "redemptions_count",
+      organizationId: "organization_id",
+    });
+  }),
+);
+
+export function discountPercentageRepeatDurationToJSON(
+  discountPercentageRepeatDuration: DiscountPercentageRepeatDuration,
+): string {
+  return JSON.stringify(
+    DiscountPercentageRepeatDuration$outboundSchema.parse(
+      discountPercentageRepeatDuration,
+    ),
+  );
+}
 export function discountPercentageRepeatDurationFromJSON(
   jsonString: string,
 ): SafeParseResult<DiscountPercentageRepeatDuration, SDKValidationError> {

@@ -30,6 +30,7 @@ let value: WebhookCustomerDeletedPayload = {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     deletedAt: new Date("2025-03-28T00:56:21.995Z"),
+    firstUserEventAt: new Date("2024-10-20T08:43:43.599Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
 };

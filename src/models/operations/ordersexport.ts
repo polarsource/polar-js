@@ -5,6 +5,14 @@
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { smartUnion } from "../../types/smartUnion.js";
+import {
+  OrderExportColumn,
+  OrderExportColumn$outboundSchema,
+} from "../components/orderexportcolumn.js";
+import {
+  OrderStatus,
+  OrderStatus$outboundSchema,
+} from "../components/orderstatus.js";
 
 /**
  * Filter by organization ID.
@@ -16,6 +24,18 @@ export type OrdersExportQueryParamOrganizationIDFilter = string | Array<string>;
  */
 export type OrdersExportQueryParamProductIDFilter = string | Array<string>;
 
+/**
+ * Filter by order status.
+ */
+export type OrdersExportQueryParamStatusFilter =
+  | OrderStatus
+  | Array<OrderStatus>;
+
+/**
+ * Columns to include in the CSV, in order. Defaults to email, created_at, product, net_amount, currency, status and invoice_number.
+ */
+export type QueryParamColumns = OrderExportColumn | Array<OrderExportColumn>;
+
 export type OrdersExportRequest = {
   /**
    * Filter by organization ID.
@@ -25,6 +45,26 @@ export type OrdersExportRequest = {
    * Filter by product ID.
    */
   productId?: string | Array<string> | null | undefined;
+  /**
+   * Filter by order status.
+   */
+  status?: OrderStatus | Array<OrderStatus> | null | undefined;
+  /**
+   * Only include orders created after this date. Must include a UTC offset.
+   */
+  createdAfter?: Date | null | undefined;
+  /**
+   * Only include orders created before this date. Must include a UTC offset.
+   */
+  createdBefore?: Date | null | undefined;
+  /**
+   * Time zone used to render dates in the CSV.
+   */
+  timezone?: string | undefined;
+  /**
+   * Columns to include in the CSV, in order. Defaults to email, created_at, product, net_amount, currency, status and invoice_number.
+   */
+  columns?: OrderExportColumn | Array<OrderExportColumn> | null | undefined;
 };
 
 /** @internal */
@@ -73,9 +113,58 @@ export function ordersExportQueryParamProductIDFilterToJSON(
 }
 
 /** @internal */
+export type OrdersExportQueryParamStatusFilter$Outbound =
+  | string
+  | Array<string>;
+
+/** @internal */
+export const OrdersExportQueryParamStatusFilter$outboundSchema: z.ZodMiniType<
+  OrdersExportQueryParamStatusFilter$Outbound,
+  OrdersExportQueryParamStatusFilter
+> = smartUnion([
+  OrderStatus$outboundSchema,
+  z.array(OrderStatus$outboundSchema),
+]);
+
+export function ordersExportQueryParamStatusFilterToJSON(
+  ordersExportQueryParamStatusFilter: OrdersExportQueryParamStatusFilter,
+): string {
+  return JSON.stringify(
+    OrdersExportQueryParamStatusFilter$outboundSchema.parse(
+      ordersExportQueryParamStatusFilter,
+    ),
+  );
+}
+
+/** @internal */
+export type QueryParamColumns$Outbound = string | Array<string>;
+
+/** @internal */
+export const QueryParamColumns$outboundSchema: z.ZodMiniType<
+  QueryParamColumns$Outbound,
+  QueryParamColumns
+> = smartUnion([
+  OrderExportColumn$outboundSchema,
+  z.array(OrderExportColumn$outboundSchema),
+]);
+
+export function queryParamColumnsToJSON(
+  queryParamColumns: QueryParamColumns,
+): string {
+  return JSON.stringify(
+    QueryParamColumns$outboundSchema.parse(queryParamColumns),
+  );
+}
+
+/** @internal */
 export type OrdersExportRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
   product_id?: string | Array<string> | null | undefined;
+  status?: string | Array<string> | null | undefined;
+  created_after?: string | null | undefined;
+  created_before?: string | null | undefined;
+  timezone: string;
+  columns?: string | Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -90,11 +179,36 @@ export const OrdersExportRequest$outboundSchema: z.ZodMiniType<
     productId: z.optional(
       z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
+    status: z.optional(
+      z.nullable(
+        smartUnion([
+          OrderStatus$outboundSchema,
+          z.array(OrderStatus$outboundSchema),
+        ]),
+      ),
+    ),
+    createdAfter: z.optional(
+      z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    ),
+    createdBefore: z.optional(
+      z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    ),
+    timezone: z._default(z.string(), "UTC"),
+    columns: z.optional(
+      z.nullable(
+        smartUnion([
+          OrderExportColumn$outboundSchema,
+          z.array(OrderExportColumn$outboundSchema),
+        ]),
+      ),
+    ),
   }),
   z.transform((v) => {
     return remap$(v, {
       organizationId: "organization_id",
       productId: "product_id",
+      createdAfter: "created_after",
+      createdBefore: "created_before",
     });
   }),
 );

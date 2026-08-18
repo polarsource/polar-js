@@ -246,6 +246,10 @@ export type CheckoutPublicConfirmed = {
   customerBillingAddress: Address | null;
   customerTaxId: string | null;
   locale?: string | null | undefined;
+  /**
+   * Payment method type selected by the customer in the checkout form, e.g. `card`, `apple_pay` or `upi`.
+   */
+  paymentMethodType: string | null;
   paymentProcessorMetadata: { [k: string]: string };
   billingAddressFields: CheckoutBillingAddressFields;
   /**
@@ -436,6 +440,7 @@ export const CheckoutPublicConfirmed$inboundSchema: z.ZodMiniType<
     customer_billing_address: z.nullable(Address$inboundSchema),
     customer_tax_id: z.nullable(z.string()),
     locale: z.optional(z.nullable(z.string())),
+    payment_method_type: z.nullable(z.string()),
     payment_processor_metadata: z.record(z.string(), z.string()),
     billing_address_fields: CheckoutBillingAddressFields$inboundSchema,
     products: z.array(CheckoutProduct$inboundSchema),
@@ -512,6 +517,7 @@ export const CheckoutPublicConfirmed$inboundSchema: z.ZodMiniType<
       "customer_billing_name": "customerBillingName",
       "customer_billing_address": "customerBillingAddress",
       "customer_tax_id": "customerTaxId",
+      "payment_method_type": "paymentMethodType",
       "payment_processor_metadata": "paymentProcessorMetadata",
       "billing_address_fields": "billingAddressFields",
       "product_price": "productPrice",

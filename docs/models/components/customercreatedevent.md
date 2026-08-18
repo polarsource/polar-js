@@ -33,6 +33,7 @@ let value: CustomerCreatedEvent = {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     deletedAt: new Date("2024-07-03T17:20:41.925Z"),
+    firstUserEventAt: new Date("2024-06-04T02:26:00.404Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
@@ -43,7 +44,7 @@ let value: CustomerCreatedEvent = {
     customerId: "<id>",
     customerEmail: "<value>",
     customerName: "<value>",
-    customerExternalId: "<id>",
+    customerExternalId: null,
   },
 };
 ```

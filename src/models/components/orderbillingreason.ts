@@ -11,6 +11,7 @@ export const OrderBillingReason = {
   SubscriptionCreate: "subscription_create",
   SubscriptionCycle: "subscription_cycle",
   SubscriptionUpdate: "subscription_update",
+  SubscriptionMeterCycle: "subscription_meter_cycle",
 } as const;
 export type OrderBillingReason = OpenEnum<typeof OrderBillingReason>;
 

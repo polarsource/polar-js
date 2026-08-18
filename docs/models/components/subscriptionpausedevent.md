@@ -33,6 +33,7 @@ let value: SubscriptionPausedEvent = {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     deletedAt: new Date("2024-10-22T02:07:23.480Z"),
+    firstUserEventAt: new Date("2026-08-25T23:49:37.621Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",

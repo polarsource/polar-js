@@ -101,7 +101,14 @@ async function $do(
   const path = pathToFunc("/v1/subscriptions/export")();
 
   const query = encodeFormQuery({
+    "cancel_at_period_end": payload.cancel_at_period_end,
+    "columns": payload.columns,
     "organization_id": payload.organization_id,
+    "product_id": payload.product_id,
+    "started_after": payload.started_after,
+    "started_before": payload.started_before,
+    "status": payload.status,
+    "timezone": payload.timezone,
   });
 
   const headers = new Headers(compactMap({

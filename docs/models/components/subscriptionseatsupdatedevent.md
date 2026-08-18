@@ -30,6 +30,7 @@ let value: SubscriptionSeatsUpdatedEvent = {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     deletedAt: new Date("2024-08-06T11:40:13.702Z"),
+    firstUserEventAt: new Date("2026-07-06T16:46:00.849Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
@@ -38,8 +39,8 @@ let value: SubscriptionSeatsUpdatedEvent = {
   name: "subscription.seats_updated",
   metadata: {
     subscriptionId: "<id>",
-    oldSeats: 837317,
-    newSeats: 555995,
+    oldSeats: 82192,
+    newSeats: 737620,
     prorationBehavior: "<value>",
   },
 };

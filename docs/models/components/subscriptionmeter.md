@@ -16,9 +16,7 @@ let value: SubscriptionMeter = {
   amount: 0,
   meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
   meter: {
-    metadata: {
-      "key": 661.85,
-    },
+    metadata: {},
     createdAt: new Date("2025-08-16T16:57:16.542Z"),
     modifiedAt: null,
     id: "<value>",

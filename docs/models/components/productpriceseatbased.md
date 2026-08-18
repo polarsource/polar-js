@@ -20,12 +20,12 @@ let value: ProductPriceSeatBased = {
   seatTiers: {
     tiers: [
       {
-        minSeats: 35082,
-        pricePerSeat: 375432,
+        minSeats: 922152,
+        pricePerSeat: 415895,
       },
     ],
-    minimumSeats: 940861,
-    maximumSeats: 961303,
+    minimumSeats: 164973,
+    maximumSeats: 735578,
   },
 };
 ```

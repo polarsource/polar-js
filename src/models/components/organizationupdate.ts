@@ -21,6 +21,11 @@ import {
   OrganizationDetails$outboundSchema,
 } from "./organizationdetails.js";
 import {
+  OrganizationDisputeSettingsUpdate,
+  OrganizationDisputeSettingsUpdate$Outbound,
+  OrganizationDisputeSettingsUpdate$outboundSchema,
+} from "./organizationdisputesettingsupdate.js";
+import {
   OrganizationFeatureSettingsUpdate,
   OrganizationFeatureSettingsUpdate$Outbound,
   OrganizationFeatureSettingsUpdate$outboundSchema,
@@ -324,6 +329,8 @@ export type OrganizationUpdate = {
     | OrganizationCustomerPortalSettings
     | null
     | undefined;
+  disputeSettings?: OrganizationDisputeSettingsUpdate | null | undefined;
+  embedHosts?: Array<string> | null | undefined;
   /**
    * Default presentment currency for the organization
    */
@@ -368,6 +375,11 @@ export type OrganizationUpdate$Outbound = {
     | OrganizationCustomerPortalSettings$Outbound
     | null
     | undefined;
+  dispute_settings?:
+    | OrganizationDisputeSettingsUpdate$Outbound
+    | null
+    | undefined;
+  embed_hosts?: Array<string> | null | undefined;
   default_presentment_currency?: string | null | undefined;
   default_tax_behavior?: string | null | undefined;
   sso_enforced?: boolean | null | undefined;
@@ -400,6 +412,10 @@ export const OrganizationUpdate$outboundSchema: z.ZodMiniType<
     customerPortalSettings: z.optional(
       z.nullable(OrganizationCustomerPortalSettings$outboundSchema),
     ),
+    disputeSettings: z.optional(
+      z.nullable(OrganizationDisputeSettingsUpdate$outboundSchema),
+    ),
+    embedHosts: z.optional(z.nullable(z.array(z.string()))),
     defaultPresentmentCurrency: z.optional(
       z.nullable(PresentmentCurrency$outboundSchema),
     ),
@@ -415,6 +431,8 @@ export const OrganizationUpdate$outboundSchema: z.ZodMiniType<
       subscriptionSettings: "subscription_settings",
       customerEmailSettings: "customer_email_settings",
       customerPortalSettings: "customer_portal_settings",
+      disputeSettings: "dispute_settings",
+      embedHosts: "embed_hosts",
       defaultPresentmentCurrency: "default_presentment_currency",
       defaultTaxBehavior: "default_tax_behavior",
       ssoEnforced: "sso_enforced",

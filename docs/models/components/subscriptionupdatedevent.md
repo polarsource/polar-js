@@ -30,6 +30,7 @@ let value: SubscriptionUpdatedEvent = {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     deletedAt: new Date("2025-08-31T06:44:34.534Z"),
+    firstUserEventAt: new Date("2026-04-28T03:52:23.837Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",

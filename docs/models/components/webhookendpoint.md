@@ -16,7 +16,7 @@ let value: WebhookEndpoint = {
   secret: "whsec_ovyN6cPrTv56AApvzCaJno08SSmGJmgbWilb33N2JuK",
   organizationId: "<value>",
   events: [
-    "member.updated",
+    "member.deleted",
   ],
   enabled: false,
 };

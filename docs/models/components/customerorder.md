@@ -105,8 +105,8 @@ let value: CustomerOrder = {
   },
   items: [
     {
-      createdAt: new Date("2024-02-25T16:09:23.428Z"),
-      modifiedAt: new Date("2025-06-05T12:32:13.509Z"),
+      createdAt: new Date("2024-10-13T17:44:56.945Z"),
+      modifiedAt: new Date("2024-06-03T11:45:58.378Z"),
       id: "<value>",
       label: "Pro Plan",
       amount: 10000,

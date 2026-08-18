@@ -74,6 +74,10 @@ export type DiscountFixedRepeatDurationBase = {
    */
   maxRedemptions: number | null;
   /**
+   * Maximum number of times the discount can be redeemed by a single customer.
+   */
+  maxRedemptionsPerCustomer: number | null;
+  /**
    * Number of times the discount has been redeemed.
    */
   redemptionsCount: number;
@@ -113,6 +117,7 @@ export const DiscountFixedRepeatDurationBase$inboundSchema: z.ZodMiniType<
       z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
     max_redemptions: z.nullable(z.int()),
+    max_redemptions_per_customer: z.nullable(z.int()),
     redemptions_count: z.int(),
     organization_id: z.string(),
   }),
@@ -124,6 +129,7 @@ export const DiscountFixedRepeatDurationBase$inboundSchema: z.ZodMiniType<
       "starts_at": "startsAt",
       "ends_at": "endsAt",
       "max_redemptions": "maxRedemptions",
+      "max_redemptions_per_customer": "maxRedemptionsPerCustomer",
       "redemptions_count": "redemptionsCount",
       "organization_id": "organizationId",
     });
@@ -146,6 +152,7 @@ export type DiscountFixedRepeatDurationBase$Outbound = {
   starts_at: string | null;
   ends_at: string | null;
   max_redemptions: number | null;
+  max_redemptions_per_customer: number | null;
   redemptions_count: number;
   organization_id: string;
 };
@@ -171,6 +178,7 @@ export const DiscountFixedRepeatDurationBase$outboundSchema: z.ZodMiniType<
     startsAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
     endsAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
     maxRedemptions: z.nullable(z.int()),
+    maxRedemptionsPerCustomer: z.nullable(z.int()),
     redemptionsCount: z.int(),
     organizationId: z.string(),
   }),
@@ -182,6 +190,7 @@ export const DiscountFixedRepeatDurationBase$outboundSchema: z.ZodMiniType<
       startsAt: "starts_at",
       endsAt: "ends_at",
       maxRedemptions: "max_redemptions",
+      maxRedemptionsPerCustomer: "max_redemptions_per_customer",
       redemptionsCount: "redemptions_count",
       organizationId: "organization_id",
     });

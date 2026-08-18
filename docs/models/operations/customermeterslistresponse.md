@@ -38,12 +38,11 @@ let value: CustomerMetersListResponse = {
           ],
           organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
           deletedAt: new Date("2026-07-26T09:42:30.311Z"),
+          firstUserEventAt: new Date("2025-11-10T05:02:20.258Z"),
           avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
         },
         meter: {
-          metadata: {
-            "key": 661.85,
-          },
+          metadata: {},
           createdAt: new Date("2025-08-16T16:57:16.542Z"),
           modifiedAt: null,
           id: "<value>",

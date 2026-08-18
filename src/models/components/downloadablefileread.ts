@@ -30,6 +30,7 @@ export type DownloadableFileRead = {
   service: "downloadable";
   isUploaded: boolean;
   createdAt: Date;
+  flaggedMaliciousAt: Date | null;
   sizeReadable: string;
 };
 
@@ -59,6 +60,9 @@ export const DownloadableFileRead$inboundSchema: z.ZodMiniType<
       z.iso.datetime({ offset: true }),
       z.transform(v => new Date(v)),
     ),
+    flagged_malicious_at: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
     size_readable: z.string(),
   }),
   z.transform((v) => {
@@ -72,6 +76,7 @@ export const DownloadableFileRead$inboundSchema: z.ZodMiniType<
       "last_modified_at": "lastModifiedAt",
       "is_uploaded": "isUploaded",
       "created_at": "createdAt",
+      "flagged_malicious_at": "flaggedMaliciousAt",
       "size_readable": "sizeReadable",
     });
   }),

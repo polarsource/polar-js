@@ -68,6 +68,10 @@ export type LicenseKeyCustomer = {
    * Timestamp for when the customer was soft deleted.
    */
   deletedAt: Date | null;
+  /**
+   * Timestamp of the first event ingested for this customer. Can predate `created_at`, and is null if no event was ever ingested.
+   */
+  firstUserEventAt: Date | null;
   avatarUrl: string | null;
 };
 
@@ -118,6 +122,9 @@ export const LicenseKeyCustomer$inboundSchema: z.ZodMiniType<
     deleted_at: z.nullable(
       z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
+    first_user_event_at: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
     avatar_url: z.nullable(z.string()),
   }),
   z.transform((v) => {
@@ -132,6 +139,7 @@ export const LicenseKeyCustomer$inboundSchema: z.ZodMiniType<
       "organization_id": "organizationId",
       "default_payment_method_id": "defaultPaymentMethodId",
       "deleted_at": "deletedAt",
+      "first_user_event_at": "firstUserEventAt",
       "avatar_url": "avatarUrl",
     });
   }),

@@ -35,6 +35,10 @@ import {
   PaymentFailed,
   PaymentFailed$inboundSchema,
 } from "../models/errors/paymentfailed.js";
+import {
+  PaymentMethodRequired,
+  PaymentMethodRequired$inboundSchema,
+} from "../models/errors/paymentmethodrequired.js";
 import { PolarError } from "../models/errors/polarerror.js";
 import {
   ResourceNotFound,
@@ -67,6 +71,7 @@ export function customerPortalSubscriptionsUpdate(
     | PaymentFailed
     | CustomerPortalSubscriptionsUpdateResponse403CustomerPortalSubscriptionsUpdate
     | ResourceNotFound
+    | PaymentMethodRequired
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -98,6 +103,7 @@ async function $do(
       | PaymentFailed
       | CustomerPortalSubscriptionsUpdateResponse403CustomerPortalSubscriptionsUpdate
       | ResourceNotFound
+      | PaymentMethodRequired
       | HTTPValidationError
       | PolarError
       | ResponseValidationError
@@ -206,6 +212,7 @@ async function $do(
     | PaymentFailed
     | CustomerPortalSubscriptionsUpdateResponse403CustomerPortalSubscriptionsUpdate
     | ResourceNotFound
+    | PaymentMethodRequired
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -223,6 +230,7 @@ async function $do(
       CustomerPortalSubscriptionsUpdateResponse403CustomerPortalSubscriptionsUpdate$inboundSchema,
     ),
     M.jsonErr(404, ResourceNotFound$inboundSchema),
+    M.jsonErr(409, PaymentMethodRequired$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

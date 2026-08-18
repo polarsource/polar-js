@@ -17,10 +17,6 @@ import {
   Subscription$inboundSchema,
 } from "../models/components/subscription.js";
 import {
-  AlreadyCanceledSubscription,
-  AlreadyCanceledSubscription$inboundSchema,
-} from "../models/errors/alreadycanceledsubscription.js";
-import {
   ConnectionError,
   InvalidRequestError,
   RequestAbortedError,
@@ -47,6 +43,10 @@ import {
   SubscriptionLocked$inboundSchema,
 } from "../models/errors/subscriptionlocked.js";
 import {
+  SubscriptionsUpdateResponse403SubscriptionsUpdate,
+  SubscriptionsUpdateResponse403SubscriptionsUpdate$inboundSchema,
+} from "../models/errors/subscriptionsupdate.js";
+import {
   SubscriptionsUpdateRequest,
   SubscriptionsUpdateRequest$outboundSchema,
 } from "../models/operations/subscriptionsupdate.js";
@@ -69,7 +69,7 @@ export function subscriptionsUpdate(
   Result<
     Subscription,
     | PaymentFailed
-    | AlreadyCanceledSubscription
+    | SubscriptionsUpdateResponse403SubscriptionsUpdate
     | ResourceNotFound
     | SubscriptionLocked
     | HTTPValidationError
@@ -99,7 +99,7 @@ async function $do(
     Result<
       Subscription,
       | PaymentFailed
-      | AlreadyCanceledSubscription
+      | SubscriptionsUpdateResponse403SubscriptionsUpdate
       | ResourceNotFound
       | SubscriptionLocked
       | HTTPValidationError
@@ -194,7 +194,7 @@ async function $do(
   const [result] = await M.match<
     Subscription,
     | PaymentFailed
-    | AlreadyCanceledSubscription
+    | SubscriptionsUpdateResponse403SubscriptionsUpdate
     | ResourceNotFound
     | SubscriptionLocked
     | HTTPValidationError
@@ -209,7 +209,10 @@ async function $do(
   >(
     M.json(200, Subscription$inboundSchema),
     M.jsonErr(402, PaymentFailed$inboundSchema),
-    M.jsonErr(403, AlreadyCanceledSubscription$inboundSchema),
+    M.jsonErr(
+      403,
+      SubscriptionsUpdateResponse403SubscriptionsUpdate$inboundSchema,
+    ),
     M.jsonErr(404, ResourceNotFound$inboundSchema),
     M.jsonErr(409, SubscriptionLocked$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),

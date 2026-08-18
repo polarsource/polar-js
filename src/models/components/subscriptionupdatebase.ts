@@ -4,12 +4,31 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   SubscriptionProrationBehavior,
   SubscriptionProrationBehavior$outboundSchema,
 } from "./subscriptionprorationbehavior.js";
 
+export type SubscriptionUpdateBaseMetadata = string | number | number | boolean;
+
 export type SubscriptionUpdateBase = {
+  /**
+   * Key-value object allowing you to store additional information.
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *
+   * * A string with a maximum length of **500 characters**
+   * * An integer
+   * * A floating-point number
+   * * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   /**
    * Update subscription to another product.
    */
@@ -29,7 +48,31 @@ export type SubscriptionUpdateBase = {
 };
 
 /** @internal */
+export type SubscriptionUpdateBaseMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
+
+/** @internal */
+export const SubscriptionUpdateBaseMetadata$outboundSchema: z.ZodMiniType<
+  SubscriptionUpdateBaseMetadata$Outbound,
+  SubscriptionUpdateBaseMetadata
+> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
+
+export function subscriptionUpdateBaseMetadataToJSON(
+  subscriptionUpdateBaseMetadata: SubscriptionUpdateBaseMetadata,
+): string {
+  return JSON.stringify(
+    SubscriptionUpdateBaseMetadata$outboundSchema.parse(
+      subscriptionUpdateBaseMetadata,
+    ),
+  );
+}
+
+/** @internal */
 export type SubscriptionUpdateBase$Outbound = {
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   product_id?: string | null | undefined;
   proration_behavior?: string | null | undefined;
   discount_id?: string | null | undefined;
@@ -42,6 +85,12 @@ export const SubscriptionUpdateBase$outboundSchema: z.ZodMiniType<
   SubscriptionUpdateBase
 > = z.pipe(
   z.object({
+    metadata: z.optional(
+      z.record(
+        z.string(),
+        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
+      ),
+    ),
     productId: z.optional(z.nullable(z.string())),
     prorationBehavior: z.optional(
       z.nullable(SubscriptionProrationBehavior$outboundSchema),

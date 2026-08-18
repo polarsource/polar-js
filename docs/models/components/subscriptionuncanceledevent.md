@@ -30,6 +30,7 @@ let value: SubscriptionUncanceledEvent = {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     deletedAt: new Date("2026-02-15T18:10:20.376Z"),
+    firstUserEventAt: new Date("2026-03-31T08:16:53.808Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
@@ -39,10 +40,10 @@ let value: SubscriptionUncanceledEvent = {
   metadata: {
     subscriptionId: "<id>",
     productId: "<id>",
-    amount: 748490,
-    currency: "Falkland Islands Pound",
+    amount: 540492,
+    currency: "Venezuelan bolívar",
     recurringInterval: "<value>",
-    recurringIntervalCount: 540492,
+    recurringIntervalCount: 468078,
   },
 };
 ```

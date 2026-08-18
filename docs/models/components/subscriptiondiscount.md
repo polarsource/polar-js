@@ -26,7 +26,8 @@ const value: components.DiscountFixedOnceForeverDurationBase = {
   startsAt: new Date("2024-05-24T19:46:41.303Z"),
   endsAt: new Date("2026-09-17T10:41:30.764Z"),
   maxRedemptions: 641488,
-  redemptionsCount: 72648,
+  maxRedemptionsPerCustomer: null,
+  redemptionsCount: 706378,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```
@@ -55,7 +56,8 @@ const value: components.DiscountFixedRepeatDurationBase = {
   startsAt: new Date("2024-03-24T14:19:39.975Z"),
   endsAt: null,
   maxRedemptions: 262108,
-  redemptionsCount: 527305,
+  maxRedemptionsPerCustomer: 871971,
+  redemptionsCount: 357718,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```
@@ -78,7 +80,8 @@ const value: components.DiscountPercentageOnceForeverDurationBase = {
   startsAt: new Date("2026-05-28T19:13:47.505Z"),
   endsAt: new Date("2024-08-19T22:13:06.939Z"),
   maxRedemptions: 800133,
-  redemptionsCount: 319280,
+  maxRedemptionsPerCustomer: 167968,
+  redemptionsCount: 128873,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```
@@ -102,7 +105,8 @@ const value: components.DiscountPercentageRepeatDurationBase = {
   startsAt: new Date("2026-08-04T05:12:15.700Z"),
   endsAt: new Date("2024-07-26T11:45:37.084Z"),
   maxRedemptions: 948798,
-  redemptionsCount: 360055,
+  maxRedemptionsPerCustomer: 760543,
+  redemptionsCount: 569054,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```

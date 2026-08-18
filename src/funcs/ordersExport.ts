@@ -101,8 +101,13 @@ async function $do(
   const path = pathToFunc("/v1/orders/export")();
 
   const query = encodeFormQuery({
+    "columns": payload.columns,
+    "created_after": payload.created_after,
+    "created_before": payload.created_before,
     "organization_id": payload.organization_id,
     "product_id": payload.product_id,
+    "status": payload.status,
+    "timezone": payload.timezone,
   });
 
   const headers = new Headers(compactMap({

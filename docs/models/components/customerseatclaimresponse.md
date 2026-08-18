@@ -19,8 +19,8 @@ let value: CustomerSeatClaimResponse = {
     memberId: null,
     member: {
       id: "<value>",
-      createdAt: new Date("2024-08-29T23:41:53.521Z"),
-      modifiedAt: new Date("2024-05-20T19:39:16.494Z"),
+      createdAt: new Date("2024-05-20T19:39:16.494Z"),
+      modifiedAt: new Date("2026-10-19T07:28:11.474Z"),
       customerId: "<value>",
       email: "member@example.com",
       name: "Jane Doe",

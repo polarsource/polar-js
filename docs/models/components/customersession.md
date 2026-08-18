@@ -36,6 +36,7 @@ let value: CustomerSession = {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     deletedAt: null,
+    firstUserEventAt: new Date("2025-04-03T22:04:15.387Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
 };

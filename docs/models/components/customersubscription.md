@@ -88,12 +88,12 @@ let value: CustomerSubscription = {
       seatTiers: {
         tiers: [
           {
-            minSeats: 35082,
-            pricePerSeat: 375432,
+            minSeats: 922152,
+            pricePerSeat: 415895,
           },
         ],
-        minimumSeats: 940861,
-        maximumSeats: 961303,
+        minimumSeats: 164973,
+        maximumSeats: 735578,
       },
     },
   ],
@@ -115,12 +115,12 @@ let value: CustomerSubscription = {
     },
   ],
   pendingUpdate: {
-    createdAt: new Date("2024-07-10T15:45:53.558Z"),
-    modifiedAt: new Date("2025-08-10T01:22:04.827Z"),
+    createdAt: new Date("2025-08-18T08:06:18.153Z"),
+    modifiedAt: new Date("2024-09-18T15:34:20.197Z"),
     id: "<value>",
-    appliesAt: new Date("2024-09-28T01:26:28.000Z"),
-    productId: null,
-    seats: 90478,
+    appliesAt: new Date("2024-04-09T10:02:05.072Z"),
+    productId: "<value>",
+    seats: 333931,
   },
 };
 ```

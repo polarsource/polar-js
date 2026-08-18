@@ -31,6 +31,7 @@ let value: BenefitRevokedEvent = {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     deletedAt: new Date("2024-10-24T18:01:23.762Z"),
+    firstUserEventAt: new Date("2025-11-20T14:37:48.509Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
@@ -40,7 +41,7 @@ let value: BenefitRevokedEvent = {
   metadata: {
     benefitId: "<id>",
     benefitGrantId: "<id>",
-    benefitType: "discord",
+    benefitType: "license_keys",
   },
 };
 ```

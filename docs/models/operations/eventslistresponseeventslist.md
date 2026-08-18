@@ -36,6 +36,7 @@ const value: components.ListResourceEvent = {
         ],
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
         deletedAt: new Date("2026-09-04T17:38:48.600Z"),
+        firstUserEventAt: new Date("2025-04-18T03:03:10.055Z"),
         avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
       },
       externalCustomerId: "<id>",
@@ -43,7 +44,9 @@ const value: components.ListResourceEvent = {
       label: "<value>",
       name: "<value>",
       source: "user",
-      metadata: {},
+      metadata: {
+        "key": "<value>",
+      },
     },
   ],
   pagination: {
@@ -84,6 +87,7 @@ const value: components.ListResourceWithCursorPaginationEvent = {
         ],
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
         deletedAt: new Date("2026-09-04T17:38:48.600Z"),
+        firstUserEventAt: new Date("2025-04-18T03:03:10.055Z"),
         avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
       },
       externalCustomerId: "<id>",
@@ -91,7 +95,9 @@ const value: components.ListResourceWithCursorPaginationEvent = {
       label: "<value>",
       name: "<value>",
       source: "user",
-      metadata: {},
+      metadata: {
+        "key": "<value>",
+      },
     },
   ],
   pagination: {

@@ -44,6 +44,7 @@ let value: Dispute = {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     deletedAt: new Date("2025-12-18T15:49:26.442Z"),
+    firstUserEventAt: new Date("2024-11-19T00:16:39.706Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   caseId: null,

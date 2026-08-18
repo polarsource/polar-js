@@ -33,6 +33,7 @@ let value: BalanceDisputeReversalEvent = {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     deletedAt: new Date("2026-06-16T20:01:39.186Z"),
+    firstUserEventAt: new Date("2026-08-06T00:59:26.314Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
@@ -42,12 +43,12 @@ let value: BalanceDisputeReversalEvent = {
   metadata: {
     transactionId: "<id>",
     disputeId: "<id>",
-    amount: 370640,
-    currency: "Cedi",
-    presentmentAmount: 35442,
+    amount: 35442,
+    currency: "Liberian Dollar",
+    presentmentAmount: 801148,
     presentmentCurrency: "<value>",
-    taxAmount: 512163,
-    fee: 801148,
+    taxAmount: 743032,
+    fee: 109406,
   },
 };
 ```

@@ -56,6 +56,10 @@ export type DiscountFixedCreate = {
    * Optional maximum number of times the discount can be redeemed.
    */
   maxRedemptions?: number | null | undefined;
+  /**
+   * Optional maximum number of times the discount can be redeemed by a single customer.
+   */
+  maxRedemptionsPerCustomer?: number | null | undefined;
   products?: Array<string> | null | undefined;
   /**
    * The ID of the organization owning the discount. **Required unless you use an organization token.**
@@ -116,6 +120,7 @@ export type DiscountFixedCreate$Outbound = {
   starts_at?: string | null | undefined;
   ends_at?: string | null | undefined;
   max_redemptions?: number | null | undefined;
+  max_redemptions_per_customer?: number | null | undefined;
   products?: Array<string> | null | undefined;
   organization_id?: string | null | undefined;
   type: "fixed";
@@ -147,6 +152,7 @@ export const DiscountFixedCreate$outboundSchema: z.ZodMiniType<
       z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
     ),
     maxRedemptions: z.optional(z.nullable(z.int())),
+    maxRedemptionsPerCustomer: z.optional(z.nullable(z.int())),
     products: z.optional(z.nullable(z.array(z.string()))),
     organizationId: z.optional(z.nullable(z.string())),
     type: z.literal("fixed"),
@@ -161,6 +167,7 @@ export const DiscountFixedCreate$outboundSchema: z.ZodMiniType<
       startsAt: "starts_at",
       endsAt: "ends_at",
       maxRedemptions: "max_redemptions",
+      maxRedemptionsPerCustomer: "max_redemptions_per_customer",
       organizationId: "organization_id",
       durationInMonths: "duration_in_months",
     });

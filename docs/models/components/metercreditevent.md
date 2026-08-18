@@ -32,15 +32,16 @@ let value: MeterCreditEvent = {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     deletedAt: new Date("2026-12-25T07:56:12.723Z"),
+    firstUserEventAt: null,
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
-  externalCustomerId: null,
+  externalCustomerId: "<id>",
   label: "<value>",
   source: "system",
   name: "meter.credited",
   metadata: {
     meterId: "<id>",
-    units: 522220,
+    units: 742869,
     rollover: false,
   },
 };

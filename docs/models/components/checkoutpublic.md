@@ -51,18 +51,18 @@ let value: CheckoutPublic = {
     country: "US",
   },
   customerTaxId: "<id>",
+  paymentMethodType: "<value>",
   paymentProcessorMetadata: {
     "key": "<value>",
     "key1": "<value>",
-    "key2": "<value>",
   },
   billingAddressFields: {
-    country: "disabled",
-    state: "optional",
+    country: "optional",
+    state: "required",
     city: "required",
-    postalCode: "required",
-    line1: "disabled",
-    line2: "optional",
+    postalCode: "disabled",
+    line1: "optional",
+    line2: "disabled",
   },
   products: [
     {
@@ -196,42 +196,68 @@ let value: CheckoutPublic = {
     ],
   },
   productPrice: {
-    createdAt: new Date("2026-01-01T18:22:02.718Z"),
-    modifiedAt: new Date("2025-07-27T17:28:22.859Z"),
+    createdAt: new Date("2024-11-20T05:48:17.627Z"),
+    modifiedAt: new Date("2024-02-07T20:59:16.668Z"),
     id: "<value>",
     source: "catalog",
     amountType: "fixed",
     priceCurrency: "<value>",
-    taxBehavior: "location",
-    isArchived: true,
+    taxBehavior: "inclusive",
+    isArchived: false,
     productId: "<value>",
     type: "recurring",
-    recurringInterval: "year",
-    priceAmount: 770528,
+    recurringInterval: "month",
+    priceAmount: 600602,
     legacy: true,
   },
   prices: {
-    "key": [],
-    "key1": [],
+    "key": [
+      {
+        createdAt: new Date("2026-12-07T19:21:48.818Z"),
+        modifiedAt: new Date("2024-07-27T11:30:45.712Z"),
+        id: "<value>",
+        source: "catalog",
+        amountType: "metered_unit",
+        priceCurrency: "<value>",
+        taxBehavior: "inclusive",
+        isArchived: true,
+        productId: "<value>",
+        unitAmount: "<value>",
+        capAmount: 91980,
+        meterId: "<value>",
+        meter: {
+          id: "<value>",
+          name: "<value>",
+          unit: "scalar",
+          customLabel: "<value>",
+          customMultiplier: 471087,
+        },
+      },
+    ],
   },
   discount: {
     duration: "forever",
-    durationInMonths: 977926,
+    durationInMonths: 915457,
     type: "fixed",
-    basisPoints: 1000,
+    amount: 1000,
+    currency: "usd",
+    amounts: {
+      "eur": 900,
+      "usd": 1000,
+    },
     id: "<value>",
     name: "<value>",
     code: "<value>",
   },
   organization: {
-    createdAt: new Date("2024-01-14T17:51:08.613Z"),
-    modifiedAt: new Date("2025-06-21T13:25:28.290Z"),
+    createdAt: new Date("2026-10-24T12:05:14.052Z"),
+    modifiedAt: new Date("2025-07-14T10:27:27.733Z"),
     id: "<value>",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://brown-massage.info/",
-    prorationBehavior: "prorate",
-    allowCustomerUpdates: false,
+    avatarUrl: "https://murky-lox.org/",
+    prorationBehavior: "reset",
+    allowCustomerUpdates: true,
   },
   attachedCustomFields: [],
 };
@@ -287,6 +313,7 @@ let value: CheckoutPublic = {
 | `customerBillingAddress`                                                                                                                                                                                                                                                                  | [components.Address](../../models/components/address.md)                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
 | `customerTaxId`                                                                                                                                                                                                                                                                           | *string*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
 | `locale`                                                                                                                                                                                                                                                                                  | *string*                                                                                                                                                                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
+| `paymentMethodType`                                                                                                                                                                                                                                                                       | *string*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | Payment method type selected by the customer in the checkout form, e.g. `card`, `apple_pay` or `upi`.                                                                                                                                                                                     |
 | `paymentProcessorMetadata`                                                                                                                                                                                                                                                                | Record<string, *string*>                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
 | `billingAddressFields`                                                                                                                                                                                                                                                                    | [components.CheckoutBillingAddressFields](../../models/components/checkoutbillingaddressfields.md)                                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
 | `products`                                                                                                                                                                                                                                                                                | [components.CheckoutProduct](../../models/components/checkoutproduct.md)[]                                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                                                                                                        | List of products available to select.                                                                                                                                                                                                                                                     |

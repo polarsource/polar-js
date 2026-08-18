@@ -31,6 +31,7 @@ let value: MeterResetEvent = {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     deletedAt: new Date("2025-08-30T03:05:35.840Z"),
+    firstUserEventAt: new Date("2024-02-24T10:12:23.967Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",

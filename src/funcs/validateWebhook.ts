@@ -68,6 +68,18 @@ import {
   webhookCustomerUpdatedPayloadFromJSON,
 } from "../models/components/webhookcustomerupdatedpayload.js";
 import {
+  WebhookDiscountCreatedPayload,
+  webhookDiscountCreatedPayloadFromJSON,
+} from "../models/components/webhookdiscountcreatedpayload.js";
+import {
+  WebhookDiscountDeletedPayload,
+  webhookDiscountDeletedPayloadFromJSON,
+} from "../models/components/webhookdiscountdeletedpayload.js";
+import {
+  WebhookDiscountUpdatedPayload,
+  webhookDiscountUpdatedPayloadFromJSON,
+} from "../models/components/webhookdiscountupdatedpayload.js";
+import {
   WebhookMemberCreatedPayload,
   webhookMemberCreatedPayloadFromJSON,
 } from "../models/components/webhookmembercreatedpayload.js";
@@ -128,6 +140,10 @@ import {
   webhookSubscriptionCreatedPayloadFromJSON,
 } from "../models/components/webhooksubscriptioncreatedpayload.js";
 import {
+  WebhookSubscriptionCycledPayload,
+  webhookSubscriptionCycledPayloadFromJSON,
+} from "../models/components/webhooksubscriptioncycledpayload.js";
+import {
   WebhookSubscriptionPastDuePayload,
   webhookSubscriptionPastDuePayloadFromJSON,
 } from "../models/components/webhooksubscriptionpastduepayload.js";
@@ -187,6 +203,7 @@ export async function validateWebhook(_client: PolarCore, {
     | WebhookSubscriptionActivePayload
     | WebhookSubscriptionCanceledPayload
     | WebhookSubscriptionUncanceledPayload
+    | WebhookSubscriptionCycledPayload
     | WebhookSubscriptionRevokedPayload
     | WebhookSubscriptionPastDuePayload
     | WebhookSubscriptionPausedPayload
@@ -195,6 +212,9 @@ export async function validateWebhook(_client: PolarCore, {
     | WebhookRefundUpdatedPayload
     | WebhookProductCreatedPayload
     | WebhookProductUpdatedPayload
+    | WebhookDiscountCreatedPayload
+    | WebhookDiscountUpdatedPayload
+    | WebhookDiscountDeletedPayload
     | WebhookOrganizationUpdatedPayload
     | WebhookBenefitCreatedPayload
     | WebhookBenefitUpdatedPayload
@@ -230,6 +250,7 @@ export async function validateWebhook(_client: PolarCore, {
     webhookSubscriptionActivePayloadFromJSON,
     webhookSubscriptionCanceledPayloadFromJSON,
     webhookSubscriptionUncanceledPayloadFromJSON,
+    webhookSubscriptionCycledPayloadFromJSON,
     webhookSubscriptionRevokedPayloadFromJSON,
     webhookSubscriptionPastDuePayloadFromJSON,
     webhookSubscriptionPausedPayloadFromJSON,
@@ -238,6 +259,9 @@ export async function validateWebhook(_client: PolarCore, {
     webhookRefundUpdatedPayloadFromJSON,
     webhookProductCreatedPayloadFromJSON,
     webhookProductUpdatedPayloadFromJSON,
+    webhookDiscountCreatedPayloadFromJSON,
+    webhookDiscountUpdatedPayloadFromJSON,
+    webhookDiscountDeletedPayloadFromJSON,
     webhookOrganizationUpdatedPayloadFromJSON,
     webhookBenefitCreatedPayloadFromJSON,
     webhookBenefitUpdatedPayloadFromJSON,

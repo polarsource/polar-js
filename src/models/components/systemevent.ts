@@ -79,6 +79,10 @@ import {
   OrderRefundedEvent$inboundSchema,
 } from "./orderrefundedevent.js";
 import {
+  OrderUnvoidedEvent,
+  OrderUnvoidedEvent$inboundSchema,
+} from "./orderunvoidedevent.js";
+import {
   OrderVoidedEvent,
   OrderVoidedEvent$inboundSchema,
 } from "./ordervoidedevent.js";
@@ -114,6 +118,10 @@ import {
   SubscriptionReactivatedEvent,
   SubscriptionReactivatedEvent$inboundSchema,
 } from "./subscriptionreactivatedevent.js";
+import {
+  SubscriptionReinstatedEvent,
+  SubscriptionReinstatedEvent$inboundSchema,
+} from "./subscriptionreinstatedevent.js";
 import {
   SubscriptionResumedEvent,
   SubscriptionResumedEvent$inboundSchema,
@@ -158,6 +166,7 @@ export type SystemEvent =
   | MeterResetEvent
   | OrderPaidEvent
   | OrderRefundedEvent
+  | OrderUnvoidedEvent
   | OrderVoidedEvent
   | SubscriptionBillingPeriodUpdatedEvent
   | SubscriptionCanceledEvent
@@ -167,6 +176,7 @@ export type SystemEvent =
   | SubscriptionPausedEvent
   | SubscriptionProductUpdatedEvent
   | SubscriptionReactivatedEvent
+  | SubscriptionReinstatedEvent
   | SubscriptionResumedEvent
   | SubscriptionRevokedEvent
   | SubscriptionSeatsUpdatedEvent
@@ -195,6 +205,7 @@ export const SystemEvent$inboundSchema: z.ZodMiniType<SystemEvent, unknown> = z
     MeterResetEvent$inboundSchema,
     OrderPaidEvent$inboundSchema,
     OrderRefundedEvent$inboundSchema,
+    OrderUnvoidedEvent$inboundSchema,
     OrderVoidedEvent$inboundSchema,
     SubscriptionBillingPeriodUpdatedEvent$inboundSchema,
     SubscriptionCanceledEvent$inboundSchema,
@@ -204,6 +215,7 @@ export const SystemEvent$inboundSchema: z.ZodMiniType<SystemEvent, unknown> = z
     SubscriptionPausedEvent$inboundSchema,
     SubscriptionProductUpdatedEvent$inboundSchema,
     SubscriptionReactivatedEvent$inboundSchema,
+    SubscriptionReinstatedEvent$inboundSchema,
     SubscriptionResumedEvent$inboundSchema,
     SubscriptionRevokedEvent$inboundSchema,
     SubscriptionSeatsUpdatedEvent$inboundSchema,

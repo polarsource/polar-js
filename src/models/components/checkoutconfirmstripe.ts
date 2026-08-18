@@ -50,6 +50,10 @@ export type CheckoutConfirmStripe = {
   customerTaxId?: string | null | undefined;
   locale?: string | null | undefined;
   /**
+   * Payment method type selected by the customer in the checkout form, e.g. `card`, `apple_pay` or `upi`.
+   */
+  paymentMethodType?: string | null | undefined;
+  /**
    * Discount code to apply to the checkout.
    */
   discountCode?: string | null | undefined;
@@ -107,6 +111,7 @@ export type CheckoutConfirmStripe$Outbound = {
   customer_billing_address?: AddressInput$Outbound | null | undefined;
   customer_tax_id?: string | null | undefined;
   locale?: string | null | undefined;
+  payment_method_type?: string | null | undefined;
   discount_code?: string | null | undefined;
   allow_trial?: false | null | undefined;
   confirmation_token_id?: string | null | undefined;
@@ -142,6 +147,7 @@ export const CheckoutConfirmStripe$outboundSchema: z.ZodMiniType<
     customerBillingAddress: z.optional(z.nullable(AddressInput$outboundSchema)),
     customerTaxId: z.optional(z.nullable(z.string())),
     locale: z.optional(z.nullable(z.string())),
+    paymentMethodType: z.optional(z.nullable(z.string())),
     discountCode: z.optional(z.nullable(z.string())),
     allowTrial: z.optional(z.nullable(z.literal(false))),
     confirmationTokenId: z.optional(z.nullable(z.string())),
@@ -157,6 +163,7 @@ export const CheckoutConfirmStripe$outboundSchema: z.ZodMiniType<
       customerBillingName: "customer_billing_name",
       customerBillingAddress: "customer_billing_address",
       customerTaxId: "customer_tax_id",
+      paymentMethodType: "payment_method_type",
       discountCode: "discount_code",
       allowTrial: "allow_trial",
       confirmationTokenId: "confirmation_token_id",

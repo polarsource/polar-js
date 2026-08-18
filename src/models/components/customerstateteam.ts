@@ -108,6 +108,10 @@ export type CustomerStateTeam = {
    * Timestamp for when the customer was soft deleted.
    */
   deletedAt: Date | null;
+  /**
+   * Timestamp of the first event ingested for this customer. Can predate `created_at`, and is null if no event was ever ingested.
+   */
+  firstUserEventAt: Date | null;
   avatarUrl: string | null;
   /**
    * The customer's active subscriptions.
@@ -185,6 +189,9 @@ export const CustomerStateTeam$inboundSchema: z.ZodMiniType<
     deleted_at: z.nullable(
       z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
+    first_user_event_at: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
     avatar_url: z.nullable(z.string()),
     active_subscriptions: z.array(CustomerStateSubscription$inboundSchema),
     granted_benefits: z.array(CustomerStateBenefitGrant$inboundSchema),
@@ -202,6 +209,7 @@ export const CustomerStateTeam$inboundSchema: z.ZodMiniType<
       "organization_id": "organizationId",
       "default_payment_method_id": "defaultPaymentMethodId",
       "deleted_at": "deletedAt",
+      "first_user_event_at": "firstUserEventAt",
       "avatar_url": "avatarUrl",
       "active_subscriptions": "activeSubscriptions",
       "granted_benefits": "grantedBenefits",
@@ -227,6 +235,7 @@ export type CustomerStateTeam$Outbound = {
   organization_id: string;
   default_payment_method_id?: string | null | undefined;
   deleted_at: string | null;
+  first_user_event_at: string | null;
   avatar_url: string | null;
   active_subscriptions: Array<CustomerStateSubscription$Outbound>;
   granted_benefits: Array<CustomerStateBenefitGrant$Outbound>;
@@ -257,6 +266,9 @@ export const CustomerStateTeam$outboundSchema: z.ZodMiniType<
     organizationId: z.string(),
     defaultPaymentMethodId: z.optional(z.nullable(z.string())),
     deletedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    firstUserEventAt: z.nullable(
+      z.pipe(z.date(), z.transform(v => v.toISOString())),
+    ),
     avatarUrl: z.nullable(z.string()),
     activeSubscriptions: z.array(CustomerStateSubscription$outboundSchema),
     grantedBenefits: z.array(CustomerStateBenefitGrant$outboundSchema),
@@ -274,6 +286,7 @@ export const CustomerStateTeam$outboundSchema: z.ZodMiniType<
       organizationId: "organization_id",
       defaultPaymentMethodId: "default_payment_method_id",
       deletedAt: "deleted_at",
+      firstUserEventAt: "first_user_event_at",
       avatarUrl: "avatar_url",
       activeSubscriptions: "active_subscriptions",
       grantedBenefits: "granted_benefits",

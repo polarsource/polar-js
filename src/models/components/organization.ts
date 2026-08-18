@@ -28,6 +28,12 @@ import {
   OrganizationCustomerPortalSettings$outboundSchema,
 } from "./organizationcustomerportalsettings.js";
 import {
+  OrganizationDisputeSettings,
+  OrganizationDisputeSettings$inboundSchema,
+  OrganizationDisputeSettings$Outbound,
+  OrganizationDisputeSettings$outboundSchema,
+} from "./organizationdisputesettings.js";
+import {
   OrganizationFeatureSettings,
   OrganizationFeatureSettings$inboundSchema,
   OrganizationFeatureSettings$Outbound,
@@ -362,6 +368,10 @@ export type Organization = {
    */
   detailsSubmittedAt: Date | null;
   /**
+   * When Polar requested that the organization review and resubmit its onboarding information, if applicable.
+   */
+  onboardingResubmissionRequestedAt: Date | null;
+  /**
    * Whether members must access this organization through its SSO connection.
    */
   ssoEnforced: boolean;
@@ -377,6 +387,18 @@ export type Organization = {
   subscriptionSettings: OrganizationSubscriptionSettings;
   customerEmailSettings: OrganizationCustomerEmailSettings;
   customerPortalSettings: OrganizationCustomerPortalSettings;
+  /**
+   * `auto_accept_below_amount` is in Polar's settlement currency (USD).
+   */
+  disputeSettings: OrganizationDisputeSettings;
+  /**
+   * Hosts allowed to embed this organization's checkout. An entry is a host and an optional port, without a scheme: HTTPS is always allowed, and HTTP too for local hosts — `localhost`, any `.localhost` or `.local` name, and loopback or private addresses. `*.example.com` matches any subdomain, but not `example.com` itself. An app origin such as `chrome-extension://abcdef` carries its scheme, having no host to match on.
+   */
+  embedHosts: Array<string>;
+  /**
+   * Whether an embedding page's origin must match `embed_hosts`. Organizations that have not configured a list yet embed unchecked until the allowlist is enforced for everyone.
+   */
+  embedHostsEnforced: boolean;
   /**
    * Two-letter country code (ISO 3166-1 alpha-2).
    */
@@ -427,6 +449,9 @@ export const Organization$inboundSchema: z.ZodMiniType<Organization, unknown> =
       details_submitted_at: z.nullable(
         z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
       ),
+      onboarding_resubmission_requested_at: z.nullable(
+        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+      ),
       sso_enforced: z.boolean(),
       default_presentment_currency: z.string(),
       default_tax_behavior: TaxBehaviorOption$inboundSchema,
@@ -435,6 +460,9 @@ export const Organization$inboundSchema: z.ZodMiniType<Organization, unknown> =
       customer_email_settings: OrganizationCustomerEmailSettings$inboundSchema,
       customer_portal_settings:
         OrganizationCustomerPortalSettings$inboundSchema,
+      dispute_settings: OrganizationDisputeSettings$inboundSchema,
+      embed_hosts: z.array(z.string()),
+      embed_hosts_enforced: z.boolean(),
       country: z.optional(z.nullable(CountryAlpha2$inboundSchema)),
       account_id: z.nullable(z.string()),
       payout_account_id: z.nullable(z.string()),
@@ -448,6 +476,8 @@ export const Organization$inboundSchema: z.ZodMiniType<Organization, unknown> =
         "proration_behavior": "prorationBehavior",
         "allow_customer_updates": "allowCustomerUpdates",
         "details_submitted_at": "detailsSubmittedAt",
+        "onboarding_resubmission_requested_at":
+          "onboardingResubmissionRequestedAt",
         "sso_enforced": "ssoEnforced",
         "default_presentment_currency": "defaultPresentmentCurrency",
         "default_tax_behavior": "defaultTaxBehavior",
@@ -455,6 +485,9 @@ export const Organization$inboundSchema: z.ZodMiniType<Organization, unknown> =
         "subscription_settings": "subscriptionSettings",
         "customer_email_settings": "customerEmailSettings",
         "customer_portal_settings": "customerPortalSettings",
+        "dispute_settings": "disputeSettings",
+        "embed_hosts": "embedHosts",
+        "embed_hosts_enforced": "embedHostsEnforced",
         "account_id": "accountId",
         "payout_account_id": "payoutAccountId",
       });
@@ -475,6 +508,7 @@ export type Organization$Outbound = {
   socials: Array<OrganizationSocialLink$Outbound>;
   status: string;
   details_submitted_at: string | null;
+  onboarding_resubmission_requested_at: string | null;
   sso_enforced: boolean;
   default_presentment_currency: string;
   default_tax_behavior: string;
@@ -482,6 +516,9 @@ export type Organization$Outbound = {
   subscription_settings: OrganizationSubscriptionSettings$Outbound;
   customer_email_settings: OrganizationCustomerEmailSettings$Outbound;
   customer_portal_settings: OrganizationCustomerPortalSettings$Outbound;
+  dispute_settings: OrganizationDisputeSettings$Outbound;
+  embed_hosts: Array<string>;
+  embed_hosts_enforced: boolean;
   country?: string | null | undefined;
   account_id: string | null;
   payout_account_id: string | null;
@@ -509,6 +546,9 @@ export const Organization$outboundSchema: z.ZodMiniType<
     detailsSubmittedAt: z.nullable(
       z.pipe(z.date(), z.transform(v => v.toISOString())),
     ),
+    onboardingResubmissionRequestedAt: z.nullable(
+      z.pipe(z.date(), z.transform(v => v.toISOString())),
+    ),
     ssoEnforced: z.boolean(),
     defaultPresentmentCurrency: z.string(),
     defaultTaxBehavior: TaxBehaviorOption$outboundSchema,
@@ -516,6 +556,9 @@ export const Organization$outboundSchema: z.ZodMiniType<
     subscriptionSettings: OrganizationSubscriptionSettings$outboundSchema,
     customerEmailSettings: OrganizationCustomerEmailSettings$outboundSchema,
     customerPortalSettings: OrganizationCustomerPortalSettings$outboundSchema,
+    disputeSettings: OrganizationDisputeSettings$outboundSchema,
+    embedHosts: z.array(z.string()),
+    embedHostsEnforced: z.boolean(),
     country: z.optional(z.nullable(CountryAlpha2$outboundSchema)),
     accountId: z.nullable(z.string()),
     payoutAccountId: z.nullable(z.string()),
@@ -529,6 +572,7 @@ export const Organization$outboundSchema: z.ZodMiniType<
       prorationBehavior: "proration_behavior",
       allowCustomerUpdates: "allow_customer_updates",
       detailsSubmittedAt: "details_submitted_at",
+      onboardingResubmissionRequestedAt: "onboarding_resubmission_requested_at",
       ssoEnforced: "sso_enforced",
       defaultPresentmentCurrency: "default_presentment_currency",
       defaultTaxBehavior: "default_tax_behavior",
@@ -536,6 +580,9 @@ export const Organization$outboundSchema: z.ZodMiniType<
       subscriptionSettings: "subscription_settings",
       customerEmailSettings: "customer_email_settings",
       customerPortalSettings: "customer_portal_settings",
+      disputeSettings: "dispute_settings",
+      embedHosts: "embed_hosts",
+      embedHostsEnforced: "embed_hosts_enforced",
       accountId: "account_id",
       payoutAccountId: "payout_account_id",
     });

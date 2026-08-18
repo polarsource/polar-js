@@ -16,6 +16,10 @@ import {
   OrderSortProperty$outboundSchema,
 } from "../components/ordersortproperty.js";
 import {
+  OrderStatus,
+  OrderStatus$outboundSchema,
+} from "../components/orderstatus.js";
+import {
   ProductBillingType,
   ProductBillingType$outboundSchema,
 } from "../components/productbillingtype.js";
@@ -70,6 +74,11 @@ export type CheckoutIDFilter = string | Array<string>;
  */
 export type SubscriptionIDFilter = string | Array<string>;
 
+/**
+ * Filter by order status.
+ */
+export type OrdersListQueryParamStatusFilter = OrderStatus | Array<OrderStatus>;
+
 export type OrdersListRequest = {
   /**
    * Filter by organization ID.
@@ -107,6 +116,18 @@ export type OrdersListRequest = {
    * Filter by subscription ID.
    */
   subscriptionId?: string | Array<string> | null | undefined;
+  /**
+   * Filter by order status.
+   */
+  status?: OrderStatus | Array<OrderStatus> | null | undefined;
+  /**
+   * Only include orders created after this date
+   */
+  createdAfter?: Date | null | undefined;
+  /**
+   * Only include orders created before this date
+   */
+  createdBefore?: Date | null | undefined;
   /**
    * Page number, defaults to 1.
    */
@@ -289,6 +310,28 @@ export function subscriptionIDFilterToJSON(
 }
 
 /** @internal */
+export type OrdersListQueryParamStatusFilter$Outbound = string | Array<string>;
+
+/** @internal */
+export const OrdersListQueryParamStatusFilter$outboundSchema: z.ZodMiniType<
+  OrdersListQueryParamStatusFilter$Outbound,
+  OrdersListQueryParamStatusFilter
+> = smartUnion([
+  OrderStatus$outboundSchema,
+  z.array(OrderStatus$outboundSchema),
+]);
+
+export function ordersListQueryParamStatusFilterToJSON(
+  ordersListQueryParamStatusFilter: OrdersListQueryParamStatusFilter,
+): string {
+  return JSON.stringify(
+    OrdersListQueryParamStatusFilter$outboundSchema.parse(
+      ordersListQueryParamStatusFilter,
+    ),
+  );
+}
+
+/** @internal */
 export type OrdersListRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
   product_id?: string | Array<string> | null | undefined;
@@ -298,6 +341,9 @@ export type OrdersListRequest$Outbound = {
   external_customer_id?: string | Array<string> | null | undefined;
   checkout_id?: string | Array<string> | null | undefined;
   subscription_id?: string | Array<string> | null | undefined;
+  status?: string | Array<string> | null | undefined;
+  created_after?: string | null | undefined;
+  created_before?: string | null | undefined;
   page: number;
   limit: number;
   sorting?: Array<string> | null | undefined;
@@ -339,6 +385,20 @@ export const OrdersListRequest$outboundSchema: z.ZodMiniType<
     subscriptionId: z.optional(
       z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
+    status: z.optional(
+      z.nullable(
+        smartUnion([
+          OrderStatus$outboundSchema,
+          z.array(OrderStatus$outboundSchema),
+        ]),
+      ),
+    ),
+    createdAfter: z.optional(
+      z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    ),
+    createdBefore: z.optional(
+      z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    ),
     page: z._default(z.int(), 1),
     limit: z._default(z.int(), 10),
     sorting: z.optional(z.nullable(z.array(OrderSortProperty$outboundSchema))),
@@ -356,6 +416,8 @@ export const OrdersListRequest$outboundSchema: z.ZodMiniType<
       externalCustomerId: "external_customer_id",
       checkoutId: "checkout_id",
       subscriptionId: "subscription_id",
+      createdAfter: "created_after",
+      createdBefore: "created_before",
     });
   }),
 );

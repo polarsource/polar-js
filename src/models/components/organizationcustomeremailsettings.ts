@@ -10,6 +10,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type OrganizationCustomerEmailSettings = {
   orderConfirmation: boolean;
+  paymentMethodExpirationReminder: boolean;
   subscriptionCancellation: boolean;
   subscriptionConfirmation: boolean;
   subscriptionCycled: boolean;
@@ -31,6 +32,7 @@ export const OrganizationCustomerEmailSettings$inboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     order_confirmation: z.boolean(),
+    payment_method_expiration_reminder: z.boolean(),
     subscription_cancellation: z.boolean(),
     subscription_confirmation: z.boolean(),
     subscription_cycled: z.boolean(),
@@ -47,6 +49,7 @@ export const OrganizationCustomerEmailSettings$inboundSchema: z.ZodMiniType<
   z.transform((v) => {
     return remap$(v, {
       "order_confirmation": "orderConfirmation",
+      "payment_method_expiration_reminder": "paymentMethodExpirationReminder",
       "subscription_cancellation": "subscriptionCancellation",
       "subscription_confirmation": "subscriptionConfirmation",
       "subscription_cycled": "subscriptionCycled",
@@ -66,6 +69,7 @@ export const OrganizationCustomerEmailSettings$inboundSchema: z.ZodMiniType<
 /** @internal */
 export type OrganizationCustomerEmailSettings$Outbound = {
   order_confirmation: boolean;
+  payment_method_expiration_reminder: boolean;
   subscription_cancellation: boolean;
   subscription_confirmation: boolean;
   subscription_cycled: boolean;
@@ -87,6 +91,7 @@ export const OrganizationCustomerEmailSettings$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     orderConfirmation: z.boolean(),
+    paymentMethodExpirationReminder: z.boolean(),
     subscriptionCancellation: z.boolean(),
     subscriptionConfirmation: z.boolean(),
     subscriptionCycled: z.boolean(),
@@ -103,6 +108,7 @@ export const OrganizationCustomerEmailSettings$outboundSchema: z.ZodMiniType<
   z.transform((v) => {
     return remap$(v, {
       orderConfirmation: "order_confirmation",
+      paymentMethodExpirationReminder: "payment_method_expiration_reminder",
       subscriptionCancellation: "subscription_cancellation",
       subscriptionConfirmation: "subscription_confirmation",
       subscriptionCycled: "subscription_cycled",

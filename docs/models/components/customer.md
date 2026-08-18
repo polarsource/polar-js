@@ -26,6 +26,7 @@ const value: components.CustomerIndividual = {
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   deletedAt: new Date("2025-10-18T05:57:51.705Z"),
+  firstUserEventAt: new Date("2024-09-27T17:14:12.300Z"),
   avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
 };
 ```
@@ -53,6 +54,7 @@ const value: components.CustomerTeam = {
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   deletedAt: null,
+  firstUserEventAt: new Date("2026-11-13T07:32:58.447Z"),
   avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
 };
 ```

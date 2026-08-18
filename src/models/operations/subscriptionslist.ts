@@ -119,6 +119,14 @@ export type SubscriptionsListRequest = {
    */
   canceledAtBefore?: Date | null | undefined;
   /**
+   * Only include subscriptions started after this date.
+   */
+  startedAfter?: Date | null | undefined;
+  /**
+   * Only include subscriptions started before this date.
+   */
+  startedBefore?: Date | null | undefined;
+  /**
    * Page number, defaults to 1.
    */
   page?: number | undefined;
@@ -274,6 +282,8 @@ export type SubscriptionsListRequest$Outbound = {
   customer_cancellation_reason?: string | Array<string> | null | undefined;
   canceled_at_after?: string | null | undefined;
   canceled_at_before?: string | null | undefined;
+  started_after?: string | null | undefined;
+  started_before?: string | null | undefined;
   page: number;
   limit: number;
   sorting?: Array<string> | null | undefined;
@@ -325,6 +335,12 @@ export const SubscriptionsListRequest$outboundSchema: z.ZodMiniType<
     canceledAtBefore: z.optional(
       z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
     ),
+    startedAfter: z.optional(
+      z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    ),
+    startedBefore: z.optional(
+      z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    ),
     page: z._default(z.int(), 1),
     limit: z._default(z.int(), 10),
     sorting: z.optional(
@@ -346,6 +362,8 @@ export const SubscriptionsListRequest$outboundSchema: z.ZodMiniType<
       customerCancellationReason: "customer_cancellation_reason",
       canceledAtAfter: "canceled_at_after",
       canceledAtBefore: "canceled_at_before",
+      startedAfter: "started_after",
+      startedBefore: "started_before",
     });
   }),
 );

@@ -29,9 +29,29 @@ let value: DiscountFixedRepeatDuration = {
   startsAt: new Date("2025-01-12T16:02:29.532Z"),
   endsAt: new Date("2024-11-24T04:10:44.032Z"),
   maxRedemptions: null,
-  redemptionsCount: 496351,
+  maxRedemptionsPerCustomer: 211553,
+  redemptionsCount: 173121,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  products: [],
+  products: [
+    {
+      metadata: {},
+      id: "<value>",
+      createdAt: new Date("2024-02-05T00:21:18.363Z"),
+      modifiedAt: new Date("2026-07-04T11:58:51.297Z"),
+      trialInterval: "month",
+      trialIntervalCount: 4883,
+      name: "<value>",
+      description: "youthful upon alert entire meanwhile lest partridge",
+      visibility: "private",
+      recurringInterval: "month",
+      recurringIntervalCount: 340336,
+      meterInterval: "month",
+      meterIntervalCount: 112279,
+      isRecurring: false,
+      isArchived: true,
+      organizationId: "<value>",
+    },
+  ],
 };
 ```
 
@@ -54,6 +74,7 @@ let value: DiscountFixedRepeatDuration = {
 | `startsAt`                                                                                                              | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | Timestamp after which the discount is redeemable.                                                                       |                                                                                                                         |
 | `endsAt`                                                                                                                | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | Timestamp after which the discount is no longer redeemable.                                                             |                                                                                                                         |
 | `maxRedemptions`                                                                                                        | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | Maximum number of times the discount can be redeemed.                                                                   |                                                                                                                         |
+| `maxRedemptionsPerCustomer`                                                                                             | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | Maximum number of times the discount can be redeemed by a single customer.                                              |                                                                                                                         |
 | `redemptionsCount`                                                                                                      | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | Number of times the discount has been redeemed.                                                                         |                                                                                                                         |
 | `organizationId`                                                                                                        | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | The organization ID.                                                                                                    | 1dbfc517-0bbf-4301-9ba8-555ca42b9737                                                                                    |
 | `products`                                                                                                              | [components.DiscountProduct](../../models/components/discountproduct.md)[]                                              | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |                                                                                                                         |

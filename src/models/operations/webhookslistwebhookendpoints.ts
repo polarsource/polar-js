@@ -16,7 +16,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 /**
  * Filter by organization ID.
  */
-export type QueryParamOrganizationId = string | Array<string>;
+export type OrganizationId = string | Array<string>;
 
 export type WebhooksListWebhookEndpointsRequest = {
   /**
@@ -38,20 +38,16 @@ export type WebhooksListWebhookEndpointsResponse = {
 };
 
 /** @internal */
-export type QueryParamOrganizationId$Outbound = string | Array<string>;
+export type OrganizationId$Outbound = string | Array<string>;
 
 /** @internal */
-export const QueryParamOrganizationId$outboundSchema: z.ZodMiniType<
-  QueryParamOrganizationId$Outbound,
-  QueryParamOrganizationId
+export const OrganizationId$outboundSchema: z.ZodMiniType<
+  OrganizationId$Outbound,
+  OrganizationId
 > = smartUnion([z.string(), z.array(z.string())]);
 
-export function queryParamOrganizationIdToJSON(
-  queryParamOrganizationId: QueryParamOrganizationId,
-): string {
-  return JSON.stringify(
-    QueryParamOrganizationId$outboundSchema.parse(queryParamOrganizationId),
-  );
+export function organizationIdToJSON(organizationId: OrganizationId): string {
+  return JSON.stringify(OrganizationId$outboundSchema.parse(organizationId));
 }
 
 /** @internal */

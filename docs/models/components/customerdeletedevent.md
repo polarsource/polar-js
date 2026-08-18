@@ -32,6 +32,7 @@ let value: CustomerDeletedEvent = {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     deletedAt: new Date("2026-05-10T02:25:43.420Z"),
+    firstUserEventAt: new Date("2026-05-06T14:40:10.284Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",

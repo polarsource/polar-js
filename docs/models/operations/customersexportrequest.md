@@ -12,6 +12,6 @@ let value: CustomersExportRequest = {
 
 ## Fields
 
-| Field                                                | Type                                                 | Required                                             | Description                                          |
-| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| `organizationId`                                     | *operations.CustomersExportQueryParamOrganizationId* | :heavy_minus_sign:                                   | Filter by organization ID.                           |
+| Field                                 | Type                                  | Required                              | Description                           |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| `organizationId`                      | *operations.QueryParamOrganizationId* | :heavy_minus_sign:                    | Filter by organization ID.            |

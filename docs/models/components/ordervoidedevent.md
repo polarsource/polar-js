@@ -31,6 +31,7 @@ let value: OrderVoidedEvent = {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     deletedAt: new Date("2024-12-24T13:51:51.140Z"),
+    firstUserEventAt: new Date("2024-06-03T01:55:00.261Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
@@ -39,8 +40,8 @@ let value: OrderVoidedEvent = {
   name: "order.voided",
   metadata: {
     orderId: "<id>",
-    amount: 140583,
-    currency: "Kina",
+    amount: 236637,
+    currency: "Congolese Franc",
   },
 };
 ```

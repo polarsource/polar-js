@@ -16,8 +16,8 @@ let value: CustomerSeat = {
   memberId: "259caad7-8ef4-4589-b00f-1f29959a711e",
   member: {
     id: "<value>",
-    createdAt: new Date("2024-08-29T23:41:53.521Z"),
-    modifiedAt: new Date("2024-05-20T19:39:16.494Z"),
+    createdAt: new Date("2024-05-20T19:39:16.494Z"),
+    modifiedAt: new Date("2026-10-19T07:28:11.474Z"),
     customerId: "<value>",
     email: "member@example.com",
     name: "Jane Doe",

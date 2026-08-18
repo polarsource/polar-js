@@ -31,6 +31,7 @@ let value: BenefitGrantedEvent = {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     deletedAt: new Date("2026-11-01T01:26:40.175Z"),
+    firstUserEventAt: new Date("2025-05-28T13:35:02.603Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
@@ -40,7 +41,7 @@ let value: BenefitGrantedEvent = {
   metadata: {
     benefitId: "<id>",
     benefitGrantId: "<id>",
-    benefitType: "discord",
+    benefitType: "license_keys",
   },
 };
 ```

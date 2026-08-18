@@ -31,31 +31,34 @@ let value: CustomerStateIndividual = {
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   deletedAt: new Date("2024-12-12T04:56:33.080Z"),
+  firstUserEventAt: new Date("2026-02-15T23:44:26.685Z"),
   avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   activeSubscriptions: [
     {
       id: "e5149aae-e521-42b9-b24c-abb3d71eea2e",
-      createdAt: new Date("2026-02-15T23:44:26.685Z"),
-      modifiedAt: new Date("2026-12-13T10:49:06.652Z"),
-      metadata: {},
+      createdAt: new Date("2026-12-13T10:49:06.652Z"),
+      modifiedAt: new Date("2024-01-06T06:43:38.902Z"),
+      metadata: {
+        "key": 1918.07,
+      },
       status: "active",
       amount: 1000,
       currency: "usd",
-      recurringInterval: "day",
+      recurringInterval: "month",
       currentPeriodStart: new Date("2025-02-03T13:37:00Z"),
       currentPeriodEnd: new Date("2025-03-03T13:37:00Z"),
       trialStart: new Date("2025-02-03T13:37:00Z"),
       trialEnd: new Date("2025-03-03T13:37:00Z"),
       cancelAtPeriodEnd: false,
-      canceledAt: new Date("2026-01-18T04:18:40.136Z"),
+      canceledAt: new Date("2025-08-23T21:50:26.126Z"),
       startedAt: new Date("2025-01-03T13:37:00Z"),
-      endsAt: new Date("2026-01-30T07:36:24.970Z"),
+      endsAt: new Date("2024-08-22T09:40:42.927Z"),
       productId: "d8dd2de1-21b7-4a41-8bc3-ce909c0cfe23",
       discountId: "<value>",
       meters: [
         {
-          createdAt: new Date("2026-08-06T03:58:23.691Z"),
-          modifiedAt: new Date("2026-11-29T18:34:09.927Z"),
+          createdAt: new Date("2025-03-23T16:30:46.933Z"),
+          modifiedAt: new Date("2026-05-27T23:44:19.476Z"),
           id: "<value>",
           consumedUnits: 25,
           creditedUnits: 100,
@@ -68,11 +71,11 @@ let value: CustomerStateIndividual = {
   grantedBenefits: [
     {
       id: "d322132c-a9d0-4e0d-b8d3-d81ad021a3a9",
-      createdAt: new Date("2025-03-23T16:30:46.933Z"),
-      modifiedAt: new Date("2026-05-27T23:44:19.476Z"),
+      createdAt: new Date("2025-03-18T01:05:28.322Z"),
+      modifiedAt: new Date("2025-10-16T08:51:00.130Z"),
       grantedAt: new Date("2025-01-03T13:37:00Z"),
       benefitId: "397a17aa-15cf-4cb4-9333-18040203cf98",
-      benefitType: "meter_credit",
+      benefitType: "downloadables",
       benefitMetadata: {},
       properties: {},
     },
@@ -80,8 +83,8 @@ let value: CustomerStateIndividual = {
   activeMeters: [
     {
       id: "<value>",
-      createdAt: new Date("2025-06-05T04:48:53.147Z"),
-      modifiedAt: new Date("2024-10-20T13:06:23.129Z"),
+      createdAt: new Date("2025-05-28T09:44:21.414Z"),
+      modifiedAt: new Date("2026-04-03T05:13:08.601Z"),
       meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
       consumedUnits: 25,
       creditedUnits: 100,
@@ -111,6 +114,7 @@ let value: CustomerStateIndividual = {
 | `organizationId`                                                                                                                                                | *string*                                                                                                                                                        | :heavy_check_mark:                                                                                                                                              | The ID of the organization owning the customer.                                                                                                                 | 1dbfc517-0bbf-4301-9ba8-555ca42b9737                                                                                                                            |
 | `defaultPaymentMethodId`                                                                                                                                        | *string*                                                                                                                                                        | :heavy_minus_sign:                                                                                                                                              | The ID of the customer's default payment method, if any. Use the payment methods endpoint to retrieve its details.                                              |                                                                                                                                                                 |
 | `deletedAt`                                                                                                                                                     | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                   | :heavy_check_mark:                                                                                                                                              | Timestamp for when the customer was soft deleted.                                                                                                               |                                                                                                                                                                 |
+| `firstUserEventAt`                                                                                                                                              | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                   | :heavy_check_mark:                                                                                                                                              | Timestamp of the first event ingested for this customer. Can predate `created_at`, and is null if no event was ever ingested.                                   |                                                                                                                                                                 |
 | `avatarUrl`                                                                                                                                                     | *string*                                                                                                                                                        | :heavy_check_mark:                                                                                                                                              | N/A                                                                                                                                                             | https://www.gravatar.com/avatar/xxx?d=404                                                                                                                       |
 | `activeSubscriptions`                                                                                                                                           | [components.CustomerStateSubscription](../../models/components/customerstatesubscription.md)[]                                                                  | :heavy_check_mark:                                                                                                                                              | The customer's active subscriptions.                                                                                                                            |                                                                                                                                                                 |
 | `grantedBenefits`                                                                                                                                               | [components.CustomerStateBenefitGrant](../../models/components/customerstatebenefitgrant.md)[]                                                                  | :heavy_check_mark:                                                                                                                                              | The customer's active benefit grants.                                                                                                                           |                                                                                                                                                                 |

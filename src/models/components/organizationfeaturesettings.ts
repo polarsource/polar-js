@@ -58,6 +58,10 @@ export type OrganizationFeatureSettings = {
    */
   ssoEnabled?: boolean | undefined;
   /**
+   * If this organization can set a threshold below which Polar concedes disputes on its behalf. Requires `disputes_enabled`.
+   */
+  disputeAutoAcceptEnabled?: boolean | undefined;
+  /**
    * If this organization has the split product navigation (Billing / Compass / Customers) enabled in the dashboard
    */
   compassEnabled?: boolean | undefined;
@@ -85,6 +89,7 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
     preview_access_enabled: z._default(z.boolean(), false),
     disputes_enabled: z._default(z.boolean(), false),
     sso_enabled: z._default(z.boolean(), false),
+    dispute_auto_accept_enabled: z._default(z.boolean(), false),
     compass_enabled: z._default(z.boolean(), false),
     merchant_migration_enabled: z._default(z.boolean(), false),
   }),
@@ -102,6 +107,7 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
       "preview_access_enabled": "previewAccessEnabled",
       "disputes_enabled": "disputesEnabled",
       "sso_enabled": "ssoEnabled",
+      "dispute_auto_accept_enabled": "disputeAutoAcceptEnabled",
       "compass_enabled": "compassEnabled",
       "merchant_migration_enabled": "merchantMigrationEnabled",
     });
@@ -121,6 +127,7 @@ export type OrganizationFeatureSettings$Outbound = {
   preview_access_enabled: boolean;
   disputes_enabled: boolean;
   sso_enabled: boolean;
+  dispute_auto_accept_enabled: boolean;
   compass_enabled: boolean;
   merchant_migration_enabled: boolean;
 };
@@ -143,6 +150,7 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
     previewAccessEnabled: z._default(z.boolean(), false),
     disputesEnabled: z._default(z.boolean(), false),
     ssoEnabled: z._default(z.boolean(), false),
+    disputeAutoAcceptEnabled: z._default(z.boolean(), false),
     compassEnabled: z._default(z.boolean(), false),
     merchantMigrationEnabled: z._default(z.boolean(), false),
   }),
@@ -160,6 +168,7 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
       previewAccessEnabled: "preview_access_enabled",
       disputesEnabled: "disputes_enabled",
       ssoEnabled: "sso_enabled",
+      disputeAutoAcceptEnabled: "dispute_auto_accept_enabled",
       compassEnabled: "compass_enabled",
       merchantMigrationEnabled: "merchant_migration_enabled",
     });

@@ -124,6 +124,8 @@ async function $do(
     }),
     encodeFormQuery({
       "checkout_id": payload.checkout_id,
+      "created_after": payload.created_after,
+      "created_before": payload.created_before,
       "customer_id": payload.customer_id,
       "discount_id": payload.discount_id,
       "external_customer_id": payload.external_customer_id,
@@ -133,6 +135,7 @@ async function $do(
       "product_billing_type": payload.product_billing_type,
       "product_id": payload.product_id,
       "sorting": payload.sorting,
+      "status": payload.status,
       "subscription_id": payload.subscription_id,
     }),
   );

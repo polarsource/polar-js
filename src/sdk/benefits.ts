@@ -4,6 +4,7 @@
 
 import { benefitsCreate } from "../funcs/benefitsCreate.js";
 import { benefitsDelete } from "../funcs/benefitsDelete.js";
+import { benefitsFiles } from "../funcs/benefitsFiles.js";
 import { benefitsGet } from "../funcs/benefitsGet.js";
 import { benefitsGrants } from "../funcs/benefitsGrants.js";
 import { benefitsList } from "../funcs/benefitsList.js";
@@ -12,6 +13,10 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import { Benefit } from "../models/components/benefit.js";
 import { BenefitCreate } from "../models/components/benefitcreate.js";
 import { BenefitsDeleteRequest } from "../models/operations/benefitsdelete.js";
+import {
+  BenefitsFilesRequest,
+  BenefitsFilesResponse,
+} from "../models/operations/benefitsfiles.js";
 import { BenefitsGetRequest } from "../models/operations/benefitsget.js";
 import {
   BenefitsGrantsRequest,
@@ -119,6 +124,25 @@ export class Benefits extends ClientSDK {
     options?: RequestOptions,
   ): Promise<Benefit> {
     return unwrapAsync(benefitsUpdate(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List Benefit Files
+   *
+   * @remarks
+   * List the downloadable files for a benefit with their download statistics.
+   *
+   * **Scopes**: `benefits:read` `benefits:write`
+   */
+  async files(
+    request: BenefitsFilesRequest,
+    options?: RequestOptions,
+  ): Promise<PageIterator<BenefitsFilesResponse, { page: number }>> {
+    return unwrapResultIterator(benefitsFiles(
       this,
       request,
       options,

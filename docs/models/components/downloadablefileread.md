@@ -23,6 +23,7 @@ let value: DownloadableFileRead = {
   service: "downloadable",
   isUploaded: true,
   createdAt: new Date("2024-05-31T05:20:04.314Z"),
+  flaggedMaliciousAt: new Date("2024-12-25T02:23:18.020Z"),
   sizeReadable: "<value>",
 };
 ```
@@ -46,4 +47,5 @@ let value: DownloadableFileRead = {
 | `service`                                                                                     | *"downloadable"*                                                                              | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `isUploaded`                                                                                  | *boolean*                                                                                     | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `flaggedMaliciousAt`                                                                          | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `sizeReadable`                                                                                | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |

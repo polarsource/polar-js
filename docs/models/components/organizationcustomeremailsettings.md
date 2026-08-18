@@ -7,16 +7,17 @@ import { OrganizationCustomerEmailSettings } from "@polar-sh/sdk/models/componen
 
 let value: OrganizationCustomerEmailSettings = {
   orderConfirmation: true,
-  subscriptionCancellation: true,
-  subscriptionConfirmation: false,
+  paymentMethodExpirationReminder: true,
+  subscriptionCancellation: false,
+  subscriptionConfirmation: true,
   subscriptionCycled: true,
   subscriptionCycledAfterTrial: true,
   subscriptionPastDue: true,
-  subscriptionPaused: true,
-  subscriptionResumed: false,
+  subscriptionPaused: false,
+  subscriptionResumed: true,
   subscriptionRenewalReminder: true,
-  subscriptionRevoked: true,
-  subscriptionTrialConversionReminder: false,
+  subscriptionRevoked: false,
+  subscriptionTrialConversionReminder: true,
   subscriptionUncanceled: true,
   subscriptionUpdated: true,
 };
@@ -27,6 +28,7 @@ let value: OrganizationCustomerEmailSettings = {
 | Field                                 | Type                                  | Required                              | Description                           |
 | ------------------------------------- | ------------------------------------- | ------------------------------------- | ------------------------------------- |
 | `orderConfirmation`                   | *boolean*                             | :heavy_check_mark:                    | N/A                                   |
+| `paymentMethodExpirationReminder`     | *boolean*                             | :heavy_check_mark:                    | N/A                                   |
 | `subscriptionCancellation`            | *boolean*                             | :heavy_check_mark:                    | N/A                                   |
 | `subscriptionConfirmation`            | *boolean*                             | :heavy_check_mark:                    | N/A                                   |
 | `subscriptionCycled`                  | *boolean*                             | :heavy_check_mark:                    | N/A                                   |

@@ -29,7 +29,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 /**
  * Filter by product ID.
  */
-export type QueryParamProductIDFilter = string | Array<string>;
+export type ProductsListQueryParamProductIDFilter = string | Array<string>;
 
 /**
  * Filter by organization ID.
@@ -93,19 +93,24 @@ export type ProductsListResponse = {
 };
 
 /** @internal */
-export type QueryParamProductIDFilter$Outbound = string | Array<string>;
+export type ProductsListQueryParamProductIDFilter$Outbound =
+  | string
+  | Array<string>;
 
 /** @internal */
-export const QueryParamProductIDFilter$outboundSchema: z.ZodMiniType<
-  QueryParamProductIDFilter$Outbound,
-  QueryParamProductIDFilter
-> = smartUnion([z.string(), z.array(z.string())]);
+export const ProductsListQueryParamProductIDFilter$outboundSchema:
+  z.ZodMiniType<
+    ProductsListQueryParamProductIDFilter$Outbound,
+    ProductsListQueryParamProductIDFilter
+  > = smartUnion([z.string(), z.array(z.string())]);
 
-export function queryParamProductIDFilterToJSON(
-  queryParamProductIDFilter: QueryParamProductIDFilter,
+export function productsListQueryParamProductIDFilterToJSON(
+  productsListQueryParamProductIDFilter: ProductsListQueryParamProductIDFilter,
 ): string {
   return JSON.stringify(
-    QueryParamProductIDFilter$outboundSchema.parse(queryParamProductIDFilter),
+    ProductsListQueryParamProductIDFilter$outboundSchema.parse(
+      productsListQueryParamProductIDFilter,
+    ),
   );
 }
 

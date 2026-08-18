@@ -19,8 +19,8 @@ let value: OrderRefundedEvent = {
   name: "order.refunded",
   metadata: {
     orderId: "<id>",
-    refundedAmount: 638838,
-    currency: "Lebanese Pound",
+    refundedAmount: 839516,
+    currency: "Lek",
   },
 };
 ```
